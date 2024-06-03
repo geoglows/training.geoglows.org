@@ -16,7 +16,7 @@ build:
     # golang: "1.19"
 
 mkdocs:
-  configuration: mkdocs.yml
+  configuration: docs/mkdocs.yml
 
 python:
   install:
