@@ -1,2 +1,24 @@
-site_name: My Docs
-docs_dir: site
+site_name: GEOGLOWS Training
+nav:
+  - Home: index.md
+  - Accessing Data:
+    - Bulk Download (AWS): data-aws.md
+    - Programmatic Access: data-sources.md
+    - Global Hydroviewer: hydroviewer.md
+  - Retrospective Data and Validation:
+    - Derivation: deriv.md
+  - Forecast Data:
+    - Ensembles: ensemble.md
+    - Statistics: stats.md
+  - Social Impact:
+    - Overview: social-impact.md
+    - Use Cases: use-cases.md
+    - Impact Cycle: impact-cycle.md
+
+  - Applications:
+      - Flood Warning: flood-warning.md
+      - Irrigation Design: irrigation-design.md
+      - Reservoir Operations: reservoir-operations.md
+      - GRACE Groundwater: grace-groundwater.md
+      - Groundwater Mapper: groundwater-mapper.md
+      - HydroServer and WMO WHOS: hydroservers.md
