@@ -1,4 +1,4 @@
-### Bias Correction
+# Bias Correction
 
 #### Introduction
 
@@ -30,21 +30,19 @@ reliability of model predictions for
 decision-makers.
 
 > Here is a [presentation][1] about bias correction.
-> #this needs more explanation
+<!--this needs more explanation-->
 
 >The [Google Colab notebook][2] outlines the steps to
 > run the bias correction method in python, using the geoglows package.
 
 [![image(https://training.geoglows.org/en/latest/_images/forecasts.png)]]
-> #it would be good to create a link to the Hydroviewer tutorial 
-> for uniformity's sake
->
-
+<!--it would be good to create a link to the Hydroviewer tutorial 
+for uniformity's sake -->
 
 
 This text was generated in part by AI. 
 
-#most of this information is taken/summarized from https://training.geoglows.org/en/latest/content/streamflow-model/bias-correction.html
+<!--most of this information is taken/summarized from https://training.geoglows.org/en/latest/content/streamflow-model/bias-correction.html-->
 
 [1]: https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/Retrospective%20Validation/GEOGloWS%20-%20BiasCorrection.pptx?d=w84cc417ccfae43f5bae9222655db3728&csf=1&web=1&e=5PBsfY
 [2]: https://colab.research.google.com/drive/15MUTx3lb5P93BLUv8Uehv0gTudc43qkX?usp=sharing

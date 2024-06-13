@@ -9,14 +9,14 @@ the forecast performs.
 Example data is provided to complete this workshop. If you would like to perform 
 the validation for a different flood event, you will need:
 
-The set of reach_ids which you want to use for the analysis.
+* The set of reach_ids which you want to use for the analysis.
 
-The observed streamflow during the flood event corresponding to the set of reach_ids.
+* The observed streamflow during the flood event corresponding to the set of reach_ids.
 
-The record of forecasts starting at least 15 days before the flood event 
+* The record of forecasts starting at least 15 days before the flood event 
 (the length of one forecast) to at least a couple of days after the event was finished.
 
-Optional: The historical observed streamflow corresponding to the set of reach_ids.
+* Optional: The historical observed streamflow corresponding to the set of reach_ids.
 
 ## Step 1: Get Forecast Record
 The first step is getting the record of forecasts after a flood event has occurred.
@@ -29,7 +29,7 @@ containing a folder for each of the reach_ids that you used. Within these folder
 for each day that a forecast was available.
 
 For the example followed in this tutorial, you will need to use the forecast data available here:
-#these links do not work:)
+<!--these links do not work:)-->
 
 ## Step 2: Compare Observed Data with Forecasts
 
@@ -38,4 +38,4 @@ For the example followed in this tutorial, you will need to use the forecast dat
 ## Step 4: Comparing Days-in-Advance Forecasts with Observed Data
 
 
-#most of this information is taken from https://training.geoglows.org/en/latest/content/streamflow-model/forecast-skill-evaluation.html#
+<!--most of this information is taken from https://training.geoglows.org/en/latest/content/streamflow-model/forecast-skill-evaluation.html#-->
