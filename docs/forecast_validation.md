@@ -33,6 +33,13 @@ For the example followed in this tutorial, you will need to use the forecast dat
 
 ## Step 2: Compare Observed Data with Forecasts
 
+The second step in validating the performance of the GESS forecast during flood events is comparing the observed values with the original forecast datasets. First, you will need to save the observed streamflow data for the high flow event of interest to your Google Drive in the correct format. All of the observed data should be in the folder on your Google Drive called ‘Forecast_Validation/Country/’ (for this example the country is Honduras, so it would be ‘Forecast_Validation/Honduras/’). The observed data file for each station should be named in this format: ‘{station name}_RT_Q_orig.csv’
+
+The observed data files should be in the same format as the example file below. The left column should contain the datetime (format: yyyy-mm-dd hh:mm:ss) with the column header “Datetime.” The right column should contain streamflow with units of m3/s and the column header “Streamflow (m3/s).”
+
+In this example we are following the GEOGloWS ECMWF Streamflow Services (GESS) Forecast Validation for the Eta and Iota Hurricanes in the stations HDRPV-Jicaro (951603) and HDRPV-Maragua (951795) in Honduras. The data needed for the example is available here:
+
+The following Colab notebook will help to plot the original forecast launched every day and the observed data for the same datasets. The Colab notebook is available here: https://colab.research.google.com/drive/1VMs50wKE55TBn8tWTimc69s1rNaom8SI
 ## Step 3: Reorganizing the Forecast Data
 
 ## Step 4: Comparing Days-in-Advance Forecasts with Observed Data
