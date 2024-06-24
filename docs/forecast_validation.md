@@ -21,8 +21,9 @@ the validation for a different flood event, you will need:
 ## Step 1: Get Forecast Record
 The first step is getting the record of forecasts after a flood event has occurred.
 
-This [Google Colab notebook][1] will allow you to download the forecast data.
-[1]: https://colab.research.google.com/drive/1y2eVRJpfcdISB25U0lCBZ7z6up14wswg
+This [Google Colab notebook][4] will allow you to download the forecast data.
+
+[4]: https://colab.research.google.com/drive/1y2eVRJpfcdISB25U0lCBZ7z6up14wswg
 
 After running this notebook, you will find a folder in your Google Drive called ‘Forecast_Validation’ 
 containing a folder for each of the reach_ids that you used. Within these folders is a file with the forecast 
@@ -41,6 +42,8 @@ In this example we are following the GEOGloWS ECMWF Streamflow Services (GESS) F
 
 The following Colab notebook will help to plot the original forecast launched every day and the observed data for the same datasets. The Colab notebook is available here: https://colab.research.google.com/drive/1VMs50wKE55TBn8tWTimc69s1rNaom8SI
 ## Step 3: Reorganizing the Forecast Data
+
+The third step is reorganizing the forecast as a function of days-in-advance. This will help us understand how far in advance the GEOGloWS ECMWF Streamflow Services forecasts accurately predict flow. Tables 1 and 2 illustrate how the data will be reorganized. After reorganizing the data, we can create visuals and compute metrics that show how accurate the forecasts are 1 day in advance, 2 days in advance, 3 days in advance, etc.
 
 ## Step 4: Comparing Days-in-Advance Forecasts with Observed Data
 
