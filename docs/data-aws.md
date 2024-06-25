@@ -70,7 +70,7 @@ Daily forecast outputs: http://geoglows-v2-forecasts.s3-website-us-west-2.amazon
 Retrospective (Historical) Simulations: http://geoglows-v2-retrospective.s3-website-us-west-2.amazonaws.com/
 
 
-### Stop: Most users and applications do not need this tutorial
+### Stop: This is not the recommended method for most users and applications.
 
 Both the forecast and retrospective river discharge simulations are available for bulk downloads. However, this is not the most efficient method for many use cases. Downloading this data is free and you are welcome to do so, but we encourage you to first review the tutorials for Query Forecast Data and Query Retrospective Data before proceeding. Many use cases are satisfied by accessing data on-demand from web services.
 
