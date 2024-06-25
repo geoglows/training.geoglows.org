@@ -7,11 +7,15 @@ nav:
     - Global Hydroviewer: hydroviewer.md
   - Retrospective Data and Validation:
     - Derivation: deriv.md
+    - Return Periods & Daily Data: return.md
     - Historical Validation: historical_validation.md
     - Bias Correction: bias_correct.md
+    - SABER: saber.md
   - Forecast Data:
     - Ensembles: ensemble.md
     - Statistics: stats.md
+    - Initialization: initial.md
+    - Bias Correction from Historical Data: bias_correct_hist.md
     - Validation: forecast_validation.md
   - Social Impact:
     - Overview: social-impact.md
