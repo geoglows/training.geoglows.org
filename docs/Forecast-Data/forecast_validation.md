@@ -47,6 +47,6 @@ The third step is reorganizing the forecast as a function of days-in-advance. Th
 
 ## Step 4: Comparing Days-in-Advance Forecasts with Observed Data
 
-![image](~/Documents/Hydro Research/training_site/docs/img/screenshot.png)
+![image](screenshot.png)
 
 <!--most of this information is taken from https://training.geoglows.org/en/latest/content/streamflow-model/forecast-skill-evaluation.html#-->
