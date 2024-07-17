@@ -5,7 +5,7 @@ The ToC helps to understand and measure the societal impact of a co-created glob
 
 ![Pillars GEOGLOWS](images/pillars_geoglows.png)
 
-Figure 1, Users
+Figure 1, Pillars of GEOGLOWS
 
 ### **Social Impact**
 
