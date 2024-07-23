@@ -1,9 +1,33 @@
+### **Introduction to GEOGLOWS and the Key Pillars**
+The GEOGLOWS initiative aims to enhance global water resource management with the help of accurate and reliable streamflow predictions. A crucial aspect of achieving this goal involved evaluating and improving the performance of hydrologic models. The paper titled "Historical Simulation Performance Evaluation and Bias Correction of the GEOGLOWS ECMWF Streamflow Hydrologic Model" provides a comprehensive analysis of these efforts. 
 
+**There are several key pillars that are the groundwork that encourages the success of GEOGLOWS.**
 
 
 ![Pillars GEOGLOWS](images/pillars_geoglows.png)
 Figure 1, Pillars of GEOGLOWS
 
+**Communication**
+
+Effective communication is paramount for ensuring that model outputs and findings reach and are understood by diverse stakeholders, including scientists, policymakers, and the general public. This paper highlights the importance of transparent communication by sharing the results of performance evaluations and bias corrections. By clearly presenting these findings, stakeholders are better informed about the model's capabilities and limitations, facilitating informed decision-making in water resource management.
+
+
+**Adoption**
+
+The usability and acceptance of the GEOGLOWS ECMWF Streamflow Hydrologic Model by various stakeholders are critical for its success. The paper emphasizes how demonstrating the model's effectiveness through rigorous historical simulation performance evaluations encourages stakeholders to adopt these predictions in their planning and management strategies. By showcasing real-world applications and benefits, the paper fosters greater trust and reliance on the model.
+
+
+**Validation**
+
+Ensuring the accuracy and reliability of the model's predictions is achieved through thorough validation processes. The core of the paper involves validating the GEOGLOWS ECMWF model by comparing its predictions with observed streamflow data. This involves detailed statistical analyses and bias correction techniques, which are essential for confirming the model's consistency and enhancing its credibility among users.
+
+
+
+**Big Data**
+
+The role of big data in model calibration, validation, and improvement is pivotal. The paper illustrates how large datasets of observed streamflow are utilized to validate and correct the model. By leveraging extensive data, the model's accuracy and performance are significantly enhanced, enabling it to provide precise streamflow predictions across different regions and time periods.
+
+**By addressing these pillars—communication, adoption, validation, and big data—the paper demonstrates a comprehensive approach to improving hydrologic predictions and their practical application in water resource management. These efforts not only advance the scientific understanding of hydrologic modeling but also ensure that the predictions are accessible, reliable, and widely adopted by stakeholders.**
 
 
 ## **Overview of Theory of Change for GEOGLOWS** 
@@ -198,11 +222,6 @@ The differences between these two outcomes is the positive or negative impact ca
 **Use Cases:**
 
 ![Use Cases in Costa Rica and Ecuador](images/Use_Cases_CR_Ecuador.png)
-
-**Total Impact Index**
-
-The Total Impact Index is a composite index that shows the impact related to socio-hydrologic activities
-
 
 ## **Learning from Previous Experiences**
 We hope to develop an effective system of implementation of the Theory of Change in a more robust manner, taking advantage of the global model GEOGLOWS which is cost-effective compared to running a local model.
