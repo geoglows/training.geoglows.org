@@ -1,11 +1,41 @@
+### **Introduction to GEOGLOWS and the Key Pillars**
+The GEOGLOWS initiative aims to enhance global water resource management with the help of accurate and reliable streamflow predictions. A crucial aspect of achieving this goal involved evaluating and improving the performance of hydrologic models. The paper titled "Historical Simulation Performance Evaluation and Bias Correction of the GEOGLOWS ECMWF Streamflow Hydrologic Model" provides a comprehensive analysis of these efforts. 
+
+**There are several key pillars that are the groundwork that encourages the success of GEOGLOWS.**
+
+
+![Pillars GEOGLOWS](images/pillars_geoglows.png)
+Figure 1, Pillars of GEOGLOWS
+
+**Communication**
+
+Effective communication is paramount for ensuring that model outputs and findings reach and are understood by diverse stakeholders, including scientists, policymakers, and the general public. This paper highlights the importance of transparent communication by sharing the results of performance evaluations and bias corrections. By clearly presenting these findings, stakeholders are better informed about the model's capabilities and limitations, facilitating informed decision-making in water resource management.
+
+
+**Adoption**
+
+The usability and acceptance of the GEOGLOWS ECMWF Streamflow Hydrologic Model by various stakeholders are critical for its success. The paper emphasizes how demonstrating the model's effectiveness through rigorous historical simulation performance evaluations encourages stakeholders to adopt these predictions in their planning and management strategies. By showcasing real-world applications and benefits, the paper fosters greater trust and reliance on the model.
+
+
+**Validation**
+
+Ensuring the accuracy and reliability of the model's predictions is achieved through thorough validation processes. The core of the paper involves validating the GEOGLOWS ECMWF model by comparing its predictions with observed streamflow data. This involves detailed statistical analyses and bias correction techniques, which are essential for confirming the model's consistency and enhancing its credibility among users.
+
+
+
+**Big Data**
+
+The role of big data in model calibration, validation, and improvement is pivotal. The paper illustrates how large datasets of observed streamflow are utilized to validate and correct the model. By leveraging extensive data, the model's accuracy and performance are significantly enhanced, enabling it to provide precise streamflow predictions across different regions and time periods.
+
+**By addressing these pillars—communication, adoption, validation, and big data—the paper demonstrates a comprehensive approach to improving hydrologic predictions and their practical application in water resource management. These efforts not only advance the scientific understanding of hydrologic modeling but also ensure that the predictions are accessible, reliable, and widely adopted by stakeholders.**
+
+
 ## **Overview of Theory of Change for GEOGLOWS** 
 Despite the advanced capabilities of current hydrological models, there is a significant gap between these models and the actual needs of the communities they are intended to serve. This disconnection arises primarily because the development of these models often lacks meaningful engagement with local populations and stakeholders. To bridge this gap GEOGLOWS attempts for the first time to include the Theory of Change (ToC). This involves actively involving local communities and stakeholders in the co-creation process, ensuring their needs and knowledge are integrated into the model. By doing so, the models can become more relevant, useful, and effective in addressing the specific hydrological challenges faced by different communities.
 
 The ToC helps to understand and measure the societal impact of a co-created global hydrological model. For this, we will utilize the Theory of Change based on the Social Impact Cycle adapted for Hydrology. The ToC focuses on having an organized plan that dives deeper into how a given intervention is expected to trigger a chain of results that leads to achieving the outcome goal.
 
-![Pillars GEOGLOWS](images/pillars_geoglows.png)
 
-Figure 1, Users
 
 ### **Social Impact**
 
@@ -48,6 +78,17 @@ Imagine you’re baking a cake and you’ve never baked anything before, but you
 
 When we set out to do something, big or small, the biggest thing that motivates us to push forward is the end goal in mind. Without it, we would have no guidance and may never accomplish the task at hand. When it comes to social impact, as we begin to gain an understanding for the problem, we tend to get impatient and want to fix this problem as quickly as we can. This is where understanding social impact becomes very important.
 
+**Theory of Change for Hydrology**
+![Theory of Change for Hydrology](images/Expand_ToC.png)
+Figure 3, Theory of Change for Hydrology
+
+Within each individual phase, there are additional steps in which you can constantly receive feedback and improve your process as you go.
+
+
+![Users](images/Users.png)
+Figure 4, Users
+
+By approaching the Theory of Change this way, we can make an effort to ensure that developers as implementers are involved in the Co-Creation.
 ## **Phase I: Assessments**
 
 Once we have our initial theory of change in place, our next step is determining what our outcome goals should be and designing an intervention to help us get there.
@@ -119,7 +160,6 @@ To make ecosystem changes more systematic, social entrepreneurs should create a 
 
 A logic model is a visual representation of a Theory of Change. Typically, it illustrates the inputs, activities, and resulting outcomes of an intervention. Logic models are widely used in impact-focused practices, though their format may vary between organizations. The most effective logic models are created through backward mapping.
 
-![Logic Model](images/Expand_ToC.png)
 
 ## **Phase III: Implementation and Adaptation**
 
@@ -182,3 +222,8 @@ The differences between these two outcomes is the positive or negative impact ca
 **Use Cases:**
 
 ![Use Cases in Costa Rica and Ecuador](images/Use_Cases_CR_Ecuador.png)
+
+## **Learning from Previous Experiences**
+We hope to develop an effective system of implementation of the Theory of Change in a more robust manner, taking advantage of the global model GEOGLOWS which is cost-effective compared to running a local model.
+
+![Expanding GEOGLOWS](images/beyond_boundaries.jpg)
