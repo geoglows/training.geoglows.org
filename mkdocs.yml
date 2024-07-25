@@ -2,9 +2,10 @@ site_name: GEOGLOWS Training
 nav:
   - Home: index.md
   - Accessing Data:
-    - Bulk Download (AWS): data-aws.md
-    - Programmatic Access: data-sources.md
-    - Global Hydroviewer: hydroviewer.md
+    - GEOGloWS HydroFabric: Accessing-Data/hydrofabric.md
+    - Using the GEOGloWS HydroViewer: Accessing-Data/hydroviewer.md
+    - Programmatic Access: Accessing-Data/data-sources.md
+    - Bulk Data Download (AWS): Accessing-Data/data-aws.md
   - Retrospective Data and Validation:
     - Derivation: Retrospective-Data/deriv.md
     - Return Periods & Daily Data: Retrospective-Data/return.md

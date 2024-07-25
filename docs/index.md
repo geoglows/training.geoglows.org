@@ -15,6 +15,7 @@ The following presentation outlines the history, partners, stakeholders, and rea
 
 [GEOGloWS History](https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/What%20is%20GEOGLOWS/GEOGLOWS%20History%20Updated.pptx?d=wca370acd764f41b58c139a29a10f5044&csf=1&web=1&e=RKovEW)
 
+## Model Formulation
 
 ## Understanding GEOGLOWS Data
 * Hydrofabric
