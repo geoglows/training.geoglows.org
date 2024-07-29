@@ -16,6 +16,8 @@ The following presentation outlines the history, partners, stakeholders, and rea
 [GEOGloWS History](https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/What%20is%20GEOGLOWS/GEOGLOWS%20History%20Updated.pptx?d=wca370acd764f41b58c139a29a10f5044&csf=1&web=1&e=RKovEW)
 
 ## Model Formulation
+This presentation outlines the process of the hydrologic model formulation:
+[Model Formulation](https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/What%20is%20GEOGLOWS/Model%20formulation_JLSL_updated.pptx?d=w6dfed72c2099467984d82899c77da881&csf=1&web=1&e=VGwJ9C)
 
 ## Understanding GEOGLOWS Data
 * Hydrofabric
