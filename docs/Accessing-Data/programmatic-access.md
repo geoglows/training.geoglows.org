@@ -2,6 +2,8 @@
 
 GEOGloWS Data can be accessed through the use of an API at [this link][1]
 
+![image](image2.png)
+
 The following presentation outlines the process of using the web browser interface to access data, as well as briefly outlines the 
 method of using the geoglows python package to do the same thing. 
 
