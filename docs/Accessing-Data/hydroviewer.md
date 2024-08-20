@@ -1,7 +1,7 @@
 # GEOGLOWS Hydroviewer App
 The GEOGLOWS Hydroviewer App is a web-based tool designed to visualize and interact with streamflow data.
 
-![image](image1.png)
+![image](img6.png)
 
 The following presentation outlines the method for using the
 Hydroviewer. 
