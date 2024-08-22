@@ -5,7 +5,7 @@
 ## Hydroviewer App
 The Hydroviewer App is a web-based tool designed to visualize and interact with streamflow data.
 
-![image](img6.png)
+![image](images/img6.png)
 
 The following presentation outlines the method for using the
 Hydroviewer. 
