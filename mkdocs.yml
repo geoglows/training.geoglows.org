@@ -1,6 +1,7 @@
 site_name: GEOGLOWS Training
 nav:
   - Home: index.md
+  - Overview: overview.md
   - Accessing Data:
     - GEOGloWS HydroFabric: Accessing-Data/hydrofabric.md
     - Using the GEOGloWS HydroViewer: Accessing-Data/hydroviewer.md
