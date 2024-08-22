@@ -1,11 +1,11 @@
 # Forecast Data
 
-## Ensembles: 
+## Ensembles
 
-## Statistics:
-## Initialization: 
-## Bias Correction from Historical Data: 
-## Validation: 
+## Statistics
+## Initialization
+## Bias Correction from Historical Data
+## Validation
 
 
 This part of the workshop will show you how to validate the 

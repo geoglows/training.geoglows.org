@@ -1,6 +1,6 @@
 # Retrospective Data
 
-## Derivation:
+## Derivation
 
 ![image4](image4.png)
 
@@ -12,8 +12,8 @@ GEOGloWS Data:
 This tutorial will guide you through the process of retrieving and manipulating retrospective simulation results for a specific river using the GEOGLOWS Hydrological Model. 
 
 [Retrospective Colab Notebook](https://colab.research.google.com/drive/1DEqWPDbIgs21N-Q4AOQC4bAdZN1PQt54#scrollTo=kN_2TS4gbTZl)
-## Return Periods & Daily Data:
-## Historical Validation: 
+## Return Periods & Daily Data
+## Historical Validation 
 ### Introduction
 These historical validation workshops will showcase some of the validation work 
 we have done in different pilot regions. More importantly, these workshops will guide 
@@ -57,9 +57,7 @@ Once we have the historic simulated data and the historic observed data, we can 
 
 
 <!--most of this information is taken from https://training.geoglows.org/en/latest/content/streamflow-model/historical-validation.html-->
-## Bias Correction:
-
-# Bias Correction
+## Bias Correction
 
 #### Introduction
 
@@ -107,4 +105,4 @@ This text was generated in part by AI.
 
 [1]: https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/Retrospective%20Validation/GEOGloWS%20-%20BiasCorrection.pptx?d=w84cc417ccfae43f5bae9222655db3728&csf=1&web=1&e=5PBsfY
 [2]: https://colab.research.google.com/drive/15MUTx3lb5P93BLUv8Uehv0gTudc43qkX?usp=sharing
-## SABER: 
+## SABER
