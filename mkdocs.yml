@@ -2,32 +2,7 @@ site_name: GEOGLOWS Training
 nav:
   - Home: index.md
   - Overview: overview.md
-  - Accessing Data:
-    - GEOGloWS HydroFabric: Accessing-Data/hydrofabric.md
-    - Using the GEOGloWS HydroViewer: Accessing-Data/hydroviewer.md
-    - Programmatic Access: Accessing-Data/programmatic-access.md
-    - Bulk Data Download (AWS): Accessing-Data/bulk-download.md
-  - Retrospective Data and Validation:
-    - Derivation: Retrospective-Data/deriv.md
-    - Return Periods & Daily Data: Retrospective-Data/return.md
-    - Historical Validation: Retrospective-Data/historical_validation.md
-    - Bias Correction: Retrospective-Data/bias_correct.md
-    - SABER: Retrospective-Data/saber.md
-  - Forecast Data:
-    - Ensembles: Forecast-Data/ensemble.md
-    - Statistics: Forecast-Data/stats.md
-    - Initialization: Forecast-Data/initial.md
-    - Bias Correction from Historical Data: Forecast-Data/bias_correct_hist.md
-    - Validation: Forecast-Data/forecast_validation.md
-  - Social Impact:
-    - Overview: social-impact.md
-    - Use Cases: use-cases.md
-    - Impact Cycle: impact-cycle.md
-
-  - Applications:
-      - Flood Warning: flood-warning.md
-      - Irrigation Design: irrigation-design.md
-      - Reservoir Operations: reservoir-operations.md
-      - GRACE Groundwater: grace-groundwater.md
-      - Groundwater Mapper: groundwater-mapper.md
-      - HydroServer and WMO WHOS: hydroservers.md
+  - Accessing Data: accessing-data.md
+  - Retrospective Data and Validation: retrospective.md
+  - Forecast Data: forecast.md
+  - Applications: applications.md
