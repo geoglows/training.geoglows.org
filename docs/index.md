@@ -1,6 +1,6 @@
 # GEOGLOWS TRAINING 
 
-![image](images/image3.png)
+![image](docs/images/image3.png)
 
 ## Overview
 GEOGLOWS is the Group on Earth Observation's (GEO) Global Water Sustainability Program. 
