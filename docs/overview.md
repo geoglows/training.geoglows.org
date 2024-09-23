@@ -24,6 +24,7 @@ The presentation below offers a deeper insight into the model formulation of the
 [Model Formulation](https://drive.google.com/file/d/1thabA0RBfSVYAIcKkgMOBFSZwhtmxvv2/view?usp=sharing)
 
 ## Understanding GEOGLOWS Data
+[Understanding GEOGLOWS Data Presentation](https://drive.google.com/file/d/1-4MQ1ge4J9I5iQGHYlY3f0VR724S_eXp/view?usp=sharing)
 * ### Hydrofabric
   * The GEOGLOWS ECMWF Streamflow Service leverages a Hydrologic Modeling as a Service (HMaaS) approach, centralizing cyberinfrastructure, expertise, and state-of-the-art forecasting capabilities to provide reliable streamflow data. Instead of requiring local agencies to manage and compute vast amounts of data independently, GEOGLOWS streamlines the process by using ensemble meteorological forecasts from ECMWF, processed through the HTESSEL land surface model. This generates global runoff data, which is mapped to GEOGLOWS watersheds and routed through river networks using the RAPID model to produce 15-day forecasts. Additionally, the ERA-5 retrospective historical data spanning over 80 years is used to derive return periods, placing current forecasts in a meaningful historical context. These streamflow forecasts are accessible via web mapping services and APIs, facilitating the development of customized applications tailored to address local water management challenges such as flooding, drought, and water security
 
@@ -45,7 +46,7 @@ The presentation below offers a deeper insight into the model formulation of the
 The presentation below outlines success stories wherein GEOGLOWS resources
 have been employed effectively for the use of those in need. 
 
-[Stories](https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/What%20is%20GEOGLOWS/GEOGloWS%20-%20Stories.pptx?d=web302a8f8f774b8caa227fe40c05d4c0&csf=1&web=1&e=kpz1f7) *this still needs to be updated to the correct format*
+[Stories](https://drive.google.com/file/d/1-CbslVlrtOyobNkR18uusWVdjqp0OsuW/view?usp=sharing) 
 
 
 ## Joining GEOGLOWS

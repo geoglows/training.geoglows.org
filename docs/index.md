@@ -25,6 +25,7 @@ foundational understanding of the organization. Then move to **Accessing Data**
 to learn how to retrieve and use the data that GEOGLOWS offers.
 
 If you are looking to understand where the Retrospective and Forecast 
-data come from, start there! And to see the impact and possible applications
-of GEOGLOWS data, see the **Overview** section or the 
+data come from, start in the **Retrospective Data** or **Forecast Data** 
+sections, respectively. And to see the impact and possible applications
+of GEOGLOWS data, see the "Stories" in the **Overview** section or the 
 **Applications** section.
