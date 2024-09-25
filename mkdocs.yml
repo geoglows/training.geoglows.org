@@ -3,6 +3,6 @@ nav:
   - Home: index.md
   - Overview: overview.md
   - Accessing Data: accessing-data.md
-  - Retrospective Data and Validation: retrospective.md
-  - Forecast Data: forecast.md
+  - Retrospective: retrospective.md
+  - Forecast: forecast.md
   - Applications: applications.md

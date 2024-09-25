@@ -24,7 +24,7 @@ method of using the geoglows python package to do the same thing.
 
 [Programmatic Access][2]
 
-This [Google Collab][3] notebook holds the code to access geoglows data. 
+This [Google Colab][3] notebook holds the code to access geoglows data. 
 
 
 [1]: https://geoglows.ecmwf.int/documentation#/default/get_dates
@@ -42,4 +42,4 @@ This Colab Notebook defines the process for downloading data from AWS.
 
 Most GEOGLOWS data can be downloaded from the web browser. Links to these datasets are given at the [Available Data](https://data.geoglows.org/available-data) page.
 
-Go to data.geoglows.org to for instructions. 
+Go to [data.geoglows.org](data.geoglows.org) for instructions. 
