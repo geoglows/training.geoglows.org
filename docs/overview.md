@@ -83,7 +83,7 @@ The presentation below offers a deeper insight into the model formulation of the
   such as flooding, drought, and water security.
 
 ### Map
-  * The GEOGloWS ECMWF Streamflow Model can be easily explored 
+  * The GEOGlOWS ECMWF Streamflow Model can be easily explored 
   using a mapping service developed in collaboration with 
   Esri (see: https://hydroviewer.geoglows.org/). The web map 
   allows users to visualize current streamflow conditions worldwide,
