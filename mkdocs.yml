@@ -1,2 +1,31 @@
-site_name: My Docs
-docs_dir: site
+site_name: GEOGLOWS Training
+site_url: https://mydomain.org/mysite
+theme:
+  name: material
+  palette:
+
+    # Palette toggle for light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Accessing Data: accessing-data.md
+  - Retrospective: retrospective.md
+  - Forecast: forecast.md
+
