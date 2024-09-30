@@ -94,12 +94,6 @@ decision-makers.
 >The [Google Colab notebook][2] outlines the steps to
 > run the bias correction method in python, using the geoglows package.
 
-[![image(https://training.geoglows.org/en/latest/_images/forecasts.png)]]
-<!--it would be good to create a link to the Hydroviewer tutorial 
-for uniformity's sake -->
-
-
-This text was generated in part by AI. 
 
 <!--most of this information is taken/summarized from https://training.geoglows.org/en/latest/content/streamflow-model/bias-correction.html-->
 
