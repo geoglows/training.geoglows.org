@@ -43,7 +43,7 @@ in water resource management, disaster risk reduction,
 and climate resilience planning. Access the app at 
 [GEOGLOWS HydroViewer](https://hydroviewer.geoglows.org/).
 
-![image](images/img6.png)
+![image](img6.png)
 
 [Hydroviewer Tutorial](https://drive.google.com/file/d/1uuzKFHy520o2Hby5t91_geSMVEeKnKW5/view?usp=drive_link)
 
