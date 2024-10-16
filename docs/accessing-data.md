@@ -1,4 +1,9 @@
 # Accessing Data
+You can get data in 3 ways, app, API, storage buckets... which of these you should
+use depends on what you are trying to do.
+just looking at whats available- web app
+more than 10 rivers download: buckets 
+handful, 
 
 ## Hydrofabric
 The GEOGLOWS Hydrofabric is a critical component that defines 
@@ -36,7 +41,7 @@ discharge values and identify potential flood or drought
 risks. The HydroViewer supports informed decision-making 
 in water resource management, disaster risk reduction, 
 and climate resilience planning. Access the app at 
-GEOGLOWS HydroViewer.
+[GEOGLOWS HydroViewer](https://hydroviewer.geoglows.org/).
 
 ![image](images/img6.png)
 
@@ -66,7 +71,7 @@ package. For more details and documentation, visit [GEOGLOWS API Documentation][
 [3]: https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?authuser=1
 
 
-## Data Download Directly from AWS
+## Rest API and Buckets 
 
 ![image5](image5.png)
 
