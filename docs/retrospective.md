@@ -76,5 +76,57 @@ consistent with observed streamflow data, providing reliable information for
 water resource management and hydrological studies.
 
 ![image](img11.png)
+![image](img12.png)
+
+## Bias Correction
+The validation results underscore the importance of ongoing model evaluation
+and improvement to enhance the performance of the GEOGLOWS Model. 
+Consistently addressing bias, variability, and correlation across 
+different regions is crucial for improving the accuracy and reliability
+of hydrological simulations. The GEOGLOWS Hydrologic Model exhibits biases 
+that can limit its precision, prompting the development of a bias correction approach. 
+To correct these systematic biases at instrumented locations, we 
+propose the Monthly Flow Duration Curve Quantile-Mapping (MFDC-QM) method. 
+This method targets biases related to flow variability and correlation. After 
+applying the bias correction, we observed a significant improvement in the 
+distribution of bias and variability ratios, with a slight improvement in 
+correlation values as well across the stations, resulting in more reliable 
+
+![image](img13.png)
+![image](img14.png)
+![image](img15.png)
+
+[Bias Correction Presentation](https://drive.google.com/file/d/1-EEdEoYKmAD7dgyPqN8fH42xiCcRuDmx/view?usp=sharing)
+
+### Interactive Learning- Bias Correction
+To dive deeper into the analysis of bias correction and performance evaluation,
+we have prepared an interactive Google Colab notebook. This notebook provides 
+step-by-step guidance for conducting these analyses using real-world data from
+the Magdalena River at El Banco in Colombia. It covers both bias correction 
+and performance evaluation, allowing you to engage with the data and methods 
+discussed in this guide: 
+
+[Bias Correction Colab Notebook](https://colab.research.google.com/drive/1lGdk9oQRSPMjrL07Yeqb-i_IKRO7zHqk?usp=sharing)
+
+## SABER (Stream Analysis for Bias Estimation and Reduction)
+SABER method is a bias correction tool designed for large hydrologic models like GEOGLOWS,
+specifically addressing the issue of model biases in both gauged and ungauged river basins. 
+SABER uses flow duration curves (FDC) to compare the observed discharge with the simulated values
+from hydrologic models, identifying and correcting biases. For ungauged locations, where direct 
+observations are unavailable, SABER uses scalar flow duration curve (SFDC). SABER allow the bias 
+correction process to extend to ungauged basins by analyzing similar watershed behaviors based on 
+spatial proximity and clustering of flow regimes. This method is particularly useful for regions 
+where data scarcity limits traditional calibration, such as in global models like GEOGloWS, ensuring 
+more accurate discharge forecasts across large spatial domains​.
+
+SABER works by comparing simulated discharge data to observed values at gauged locations 
+to detect high or low biases. It applies machine learning clustering techniques to group 
+watersheds with similar flow characteristics, helping to extend bias correction from gauged to 
+ungauged basins. SABER's process includes calculating SFDCs for different exceedance probabilities, 
+dividing the simulated flows by the corresponding SFDC values, even in regions affected by dams
+or reservoirs.
+
+![image](img16.png)
+
 
 
