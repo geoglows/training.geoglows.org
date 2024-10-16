@@ -2,8 +2,6 @@
 
 ## Retrospective Data
 
-![image4](image4.png)
-
 The retrospective simulation in the GEOGLOWS Model is a deterministic 
 dataset with daily resolution, providing historical streamflow data. 
 Version 1 of the model covers the period from 1979 to the present, while
