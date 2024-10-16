@@ -83,9 +83,10 @@ The presentation below offers a deeper insight into the model formulation of the
   such as flooding, drought, and water security.
 
 ### Map
-  * The GEOGlOWS ECMWF Streamflow Model can be easily explored 
+  * The GEOGLOWS ECMWF Streamflow Model can be easily explored 
   using a mapping service developed in collaboration with 
-  Esri (see: https://hydroviewer.geoglows.org/). The web map 
+  Esri (see: [https://hydroviewer.geoglows.org/](https://hydroviewer.geoglows.org/)). 
+  The web map 
   allows users to visualize current streamflow conditions worldwide,
   with line thickness indicating discharge magnitude and 
   line color showing if and when a river's discharge exceeds
@@ -128,18 +129,21 @@ managing reservoir releases during hurricanes in Honduras.
 These real-world applications demonstrate the global impact 
 of GEOGLOWS in addressing critical water-related challenges. 
 For more in-depth stories of how GEOGLOWS is making a difference 
-worldwide, visit GEOGLOWS Stories.
+worldwide, visit [GEOGLOWS Stories](https://stories.geoglows.org/home).
 
 
 [Stories](https://drive.google.com/file/d/1-CbslVlrtOyobNkR18uusWVdjqp0OsuW/view?usp=sharing) 
 
 
 ## Joining GEOGLOWS
-Join the user group on Google Groups where you can get updates, 
-ask the community, and stay connected!  
+Are you interested in being part of the global GEOGLOWS community? 
+By joining, you can stay updated with the latest developments, collaborate 
+with experts, and access valuable resources related to hydrological forecasting 
+and water sustainability.
+
+To join the GEOGLOWS network, simply sign up for our Google Group:
 [Join the group!](https://groups.google.com/g/geoglows)
 
-If you are a GEOGLOWS User, please take our survey here:
+By becoming a member, you will be part of a growing community 
+focused on advancing global water sustainability and streamflow forecasting.
 
- * [English Survey](https://forms.gle/eZr1nARB5L2kvMGy9)
- * [Español Survey](https://forms.gle/gjUedjP74PVb368w5)
