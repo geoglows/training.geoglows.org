@@ -40,6 +40,16 @@ in Ethiopia. You can access and run the notebook directly in your browser:
 
 [Retrospective Demonstration Notebook](https://colab.research.google.com/drive/1zYcKoCN_Ljc1znBP87FthZ1uIeDDGazc?usp=sharing)
 
+### Interactive Learning- Retrospective Simulation
+To dive deeper into the analysis of retrospective data, return periods, 
+flow duration curves, and seasonal averages, we have prepared an interactive
+Google Colab notebook. This notebook provides step-by-step guidance for conducting
+these analyses using real-world data from the San Juan River at Rancho La Trinidad 
+in Costa Rica. It covers both retrospective data and statistical flow analysis, 
+allowing you to engage with the data and methods discussed in this guide:
+
+[Retrospective Google Colab Notebook](https://colab.research.google.com/drive/1mCM3qgGPmOEyV9tGOtfoSwNfR1oFFHq_?usp=sharing)
+
 ## Observed Data- Hydroserver
 
 We have collected observed discharge data from gauging stations worldwide, 
