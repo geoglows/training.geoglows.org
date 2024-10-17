@@ -1,9 +1,8 @@
 # Accessing Data
-You can get data in 3 ways, app, API, storage buckets... which of these you should
-use depends on what you are trying to do.
-just looking at whats available- web app
-more than 10 rivers download: buckets 
-handful, 
+GEOGLOWS is a provider of three kinds of streamflow data- Forecast, Retrospective,
+and GIS/Model Data. This data can be accessed in three ways: through the web 
+app (Hydroviewer), through a REST API, or through AWS storage buckets. The
+Hydrofabric (described below) is the underlying data layer that supports GEOGLOWS.
 
 ## Hydrofabric
 The GEOGLOWS Hydrofabric is a critical component that defines 
@@ -48,7 +47,7 @@ and climate resilience planning. Access the app at
 [Hydroviewer Tutorial](https://drive.google.com/file/d/1uuzKFHy520o2Hby5t91_geSMVEeKnKW5/view?usp=drive_link)
 
 
-## Programmatic Access
+## Rest API Access
 
 The GEOGLOWS ECMWF Streamflow Service offers programmatic access to 
 streamflow data through a REST API, making it easy for users to 
@@ -72,7 +71,7 @@ package. For more details and documentation, visit [GEOGLOWS API Documentation][
 [3]: https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?authuser=1
 
 
-## Rest API and Buckets 
+## AWS Buckets 
 
 ![image5](image5.png)
 
