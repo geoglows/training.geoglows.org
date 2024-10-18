@@ -1,4 +1,8 @@
 # Accessing Data
+GEOGLOWS is a provider of three kinds of streamflow data- Forecast, Retrospective,
+and GIS/Model Data. This data can be accessed in three ways: through the web 
+app (Hydroviewer), through a REST API, or through AWS storage buckets. The
+Hydrofabric (described below) is the underlying data layer that supports GEOGLOWS.
 
 ## Hydrofabric
 The GEOGLOWS Hydrofabric is a critical component that defines 
@@ -36,41 +40,54 @@ discharge values and identify potential flood or drought
 risks. The HydroViewer supports informed decision-making 
 in water resource management, disaster risk reduction, 
 and climate resilience planning. Access the app at 
-GEOGLOWS HydroViewer.
+[GEOGLOWS HydroViewer](https://hydroviewer.geoglows.org/).
 
-![image](images/img6.png)
+![image](img6.png)
 
 [Hydroviewer Tutorial](https://drive.google.com/file/d/1uuzKFHy520o2Hby5t91_geSMVEeKnKW5/view?usp=drive_link)
 
 
-## Programmatic Access
+## Rest API Access
 
-GEOGLOWS Data can be accessed through the use of an API at [this link][1]
+The GEOGLOWS ECMWF Streamflow Service offers programmatic access to 
+streamflow data through a REST API, making it easy for users to 
+integrate global hydrological data into their applications. By 
+using this API, developers and researchers can retrieve historical 
+and forecasted streamflow data in CSV format, enabling custom analysis 
+and visualization. The API provides access to streamflow forecasts for 
+over 7 million river segments worldwide, based on the GEOGLOWS Version 
+2 dataset derived from the TanDEM-X Hydro dataset. Users can find 
+detailed instructions on how to retrieve data, including identifying 
+river numbers, through comprehensive tutorials and the GEOGLOWS Python 
+package. For more details and documentation, visit [GEOGLOWS API Documentation][1]
 
-![image](image2.png)
+[Programmatic Access Presentation][2]
 
-The following presentation outlines the process of using the web browser 
-interface to access data, as well as briefly outlines the 
-method of using the geoglows python package to do the same thing. 
-
-[Programmatic Access][2]
-
-This [Google Colab][3] notebook holds the code to access geoglows data. 
+[Programmatic Access Colab][3] 
 
 
-[1]: https://geoglows.ecmwf.int/documentation#/default/get_dates
+[1]: https://geoglows.ecmwf.int/documentation
 [2]: https://byu.sharepoint.com/:p:/r/sites/BYUHydroinformaticsLaboratory/Shared%20Documents/geoglows-training/GEOGLOWS%20Master%20Training%20Materials/Accessing%20GEOGLOWS%20Data/Programmatic%20Access%202.0.pptx?d=wb82414d8ae2640f0bb2bcb790a966b6d&csf=1&web=1&e=06SVks
 [3]: https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?authuser=1
 
 
-## Bulk Data Download
+## AWS Buckets 
 
 ![image5](image5.png)
 
-This Colab Notebook defines the process for downloading data from AWS.
+The GEOGLOWS Hydrological Model Version 2 allows users to download 
+global streamflow data directly from AWS, providing access to both 
+retrospective simulation data and 15-day streamflow forecasts. These 
+datasets are hosted in S3 buckets, optimized for time series analysis
+and bulk downloads. The retrospective data, derived from the ERA5 
+reanalysis, spans over 80 years, while the forecast data leverages 
+ECMWF ensemble predictions to offer insights into future streamflow 
+conditions. Users can easily access and analyze these data using Python
+and Jupyter notebooks, with detailed tutorials available. To get started,
+use the following Colab notebooks:
 
-[Forecast Data](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs?usp=sharing)
+1. Access [GEOGLOWS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
+2. Access [GEOGLOWS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)
 
-Most GEOGLOWS data can be downloaded from the web browser. Links to these datasets are given at the [Available Data](https://data.geoglows.org/available-data) page.
-
-Go to [data.geoglows.org](data.geoglows.org) for instructions. 
+These resources make it easy for researchers and developers to 
+integrate GEOGLOWS data into their own applications and analyses.
