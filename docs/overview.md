@@ -132,7 +132,7 @@ For more in-depth stories of how GEOGLOWS is making a difference
 worldwide, visit [GEOGLOWS Stories](https://stories.geoglows.org/home).
 
 
-[Stories](https://drive.google.com/file/d/1-CbslVlrtOyobNkR18uusWVdjqp0OsuW/view?usp=sharing) 
+[Stories Presentation](https://drive.google.com/file/d/1-CbslVlrtOyobNkR18uusWVdjqp0OsuW/view?usp=sharing) 
 
 
 ## Joining GEOGLOWS

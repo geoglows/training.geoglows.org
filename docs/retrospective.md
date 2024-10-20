@@ -84,7 +84,14 @@ consistent with observed streamflow data, providing reliable information for
 water resource management and hydrological studies.
 
 ![image](img11.png)
+
+*The three components of the Kling-Gupta efficiency (KGE)—bias,
+variability, and correlation—used to evaluate the performance 
+of the GEOGLOWS retrospective simulation*
+
 ![image](img12.png)
+
+*Kling-Gupta efficiency (KGE) evaluating the performance of GEOGLOWS retrospective simulation*
 
 ## Bias Correction
 The validation results underscore the importance of ongoing model evaluation
@@ -99,10 +106,22 @@ This method targets biases related to flow variability and correlation. After
 applying the bias correction, we observed a significant improvement in the 
 distribution of bias and variability ratios, with a slight improvement in 
 correlation values as well across the stations, resulting in more reliable 
+simulations and improved Kling-Gupta Efficiency (KGE) metrics.
+
 
 ![image](img13.png)
+
+*Bias correction methodology*
+
 ![image](img14.png)
+
+*The three components of the Kling-Gupta efficiency (KGE)—bias, variability, 
+and correlation—used to evaluate the performance of the GEOGLOWS bias-corrected
+retrospective simulation*
+
 ![image](img15.png)
+
+*Kling-Gupta efficiency (KGE) evaluating the performance of GEOGLOWS bias-corrected retrospective simulation*
 
 [Bias Correction Presentation](https://drive.google.com/file/d/1-EEdEoYKmAD7dgyPqN8fH42xiCcRuDmx/view?usp=sharing)
 

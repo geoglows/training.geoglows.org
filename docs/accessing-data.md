@@ -61,6 +61,8 @@ detailed instructions on how to retrieve data, including identifying
 river numbers, through comprehensive tutorials and the GEOGLOWS Python 
 package. For more details and documentation, visit [GEOGLOWS API Documentation][1]
 
+![image](img23.png)
+
 [Programmatic Access Presentation][2]
 
 [Programmatic Access Colab][3] 
@@ -73,8 +75,6 @@ package. For more details and documentation, visit [GEOGLOWS API Documentation][
 
 ## AWS Buckets 
 
-![image5](image5.png)
-
 The GEOGLOWS Hydrological Model Version 2 allows users to download 
 global streamflow data directly from AWS, providing access to both 
 retrospective simulation data and 15-day streamflow forecasts. These 
@@ -85,6 +85,8 @@ ECMWF ensemble predictions to offer insights into future streamflow
 conditions. Users can easily access and analyze these data using Python
 and Jupyter notebooks, with detailed tutorials available. To get started,
 use the following Colab notebooks:
+
+![image5](image5.png)
 
 1. Access [GEOGLOWS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
 2. Access [GEOGLOWS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)

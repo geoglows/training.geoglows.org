@@ -52,6 +52,7 @@ duration curve and then replacing the forecasted values with corresponding
 values from the observed flow duration curve.
 
 ![image](img20.png)
+*Forecast Bias Correct Methodology*
 
 This method helps improve forecast accuracy, particularly during 
 earlier forecast lead times, aligning the data more closely with
@@ -60,8 +61,10 @@ assumption that the biases in forecast data are identical to those
 in the retrospective simulation​.
 
 ![image](img21.png)
+*Kling-Gupta efficiency (KGE) evaluating the performance of GEOGLOWS forecast simulation.*
 
 ![image](img22.png)
+*Kling-Gupta efficiency (KGE) evaluating the performance of GEOGLOWS bias corrected forecast simulation.*
 
 [Bias Correction Presentation](https://drive.google.com/file/d/1AHKDHPlIQSi-8-Qvxdt6IQid0kUZ8RJD/view?usp=sharing)
 
