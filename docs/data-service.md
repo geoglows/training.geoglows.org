@@ -4,7 +4,7 @@ The **GEOGLOWS ECMWF Streamflow Service** provides programmatic access to stream
 
 For more information, visit the [GEOGLOWS API Documentation](https://geoglows.ecmwf.int/documentation).
 
-![image](image2.png)
+![image](api.png)
 ---
 
 ## Using the API in Applications
@@ -12,7 +12,7 @@ For more information, visit the [GEOGLOWS API Documentation](https://geoglows.ec
 The API can be used in applications requiring streamflow data and can be integrated directly into Python workflows. 
 
 The following resources provide guidance:
-- [03. Programmatic_Access Colab.ipynb](https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?usp=sharing): A walkthrough example of how to use the GEOGLOWS API.
-- [03. Programmatic Access 2.0.pdf](https://drive.google.com/file/d/195LGTwbi4-Ho4JW15qZT-PDgUn10qit1/view?usp=sharing): A presentation with additional details.
+- [Programmatic_Access Colab.ipynb](https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?usp=sharing): A walkthrough example of how to use the GEOGLOWS API.
+- [Programmatic Access 2.0.pdf](https://drive.google.com/file/d/195LGTwbi4-Ho4JW15qZT-PDgUn10qit1/view?usp=sharing): A presentation with additional details.
 
 These resources demonstrate how to leverage the API effectively for custom applications and analyses.

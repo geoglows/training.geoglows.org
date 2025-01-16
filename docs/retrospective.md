@@ -2,7 +2,7 @@
 
 The retrospective simulation in the GEOGLOWS Model provides a deterministic dataset with daily resolution, offering over 85 years of historical streamflow data from January 1, 1940, to the near present. Each of the 6 million river segments in the GEOGLOWS model has its own retrospective time series available for download. The plot below shows an example of the retrospective data for one river.
 
-![image](image4.png)
+![image](retrospective_graph.png)
 
 ---
 

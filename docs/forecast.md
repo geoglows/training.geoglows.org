@@ -39,5 +39,5 @@ The following graph shows an example of a forecast plot:
    - The narrower the blue region, the more confident the model is.
    - The true flow is **more likely than not** to fall within the blue shaded area.
 
-For more details, refer to the document: [01. Forecast_Data.pdf](https://drive.google.com/file/d/1_dDtF3F74Un8PKVkZZdslDjp_MP64-dX/view?usp=sharing).
+For more details, refer to the document: [Forecast_Data.pdf](https://drive.google.com/file/d/1_dDtF3F74Un8PKVkZZdslDjp_MP64-dX/view?usp=sharing).
 

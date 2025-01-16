@@ -16,7 +16,7 @@ The GIS data is divided into 125 smaller pieces called VPUs. This makes the larg
 
 The VPU boundaries are also available to help identify which VPU includes a user's area of interest. Then the catchments and streams are accessed through their VPU.
 
-[01. GIS Data.pdf](https://drive.google.com/file/d/10NrEV3GAQlI5OypeWn6pCAInDiGBFHLX/view?usp=sharing)
+[GIS Data.pdf](https://drive.google.com/file/d/10NrEV3GAQlI5OypeWn6pCAInDiGBFHLX/view?usp=sharing)
 
 ---
 
