@@ -24,7 +24,18 @@ theme:
 nav:
   - Home: index.md
   - Overview: overview.md
-  - Accessing Data: accessing-data.md
-  - Retrospective: retrospective.md
-  - Forecast: forecast.md
+  - Part 1: Available Data:
+      - GIS Data: GIS-data.md
+      - Retrospective: retrospective.md
+      - Forecast Data: forecast.md
+  - Part 2: Accessing Data:
+      - The Data Catalog: data_catalog.md
+      - The Data Service: data_service.md
+      - A Web Application: web_app.md
+      - The Web Map: web_map.md
+  - Part 3: Skills and Examples:
+      - Accessing and Inpretting Data: exercises.md
+      - Bias Correction and SABER Overview: bias-correction.md
+      - Bias Correction for Forecast Data: bias-correction-forecast.md
+
 
