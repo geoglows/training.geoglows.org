@@ -12,15 +12,15 @@ The HydroViewer highlights streams where flows are expected to exceed return per
 
 This allows users to quickly identify rivers experiencing high flows.
 
-### Map Features:
-1. **Zoom Levels**: 
-   - At the global level, only the largest streams are displayed.
-   - As users zoom in, more streams become visible within their area of interest.
-2. **Interactive River Selection**: 
-   - Clicking on a river displays retrospective and forecast data for that stream.
-   - The **river ID** is shown for easy reference.
-3. **Direct River ID Entry**: 
-   - If the river ID is known, users can directly enter it into the application to view the data.
+**Map Features:**  
+1. **Zoom Levels**:   
+   - At the global level, only the largest streams are displayed.  
+   - As users zoom in, more streams become visible within their area of interest.  
+2. **Interactive River Selection**:   
+   - Clicking on a river displays retrospective and forecast data for that stream.  
+   - The **river ID** is shown for easy reference.  
+3. **Direct River ID Entry**:   
+   - If the river ID is known, users can directly enter it into the application to view the data.  
 
 Users can download **plots** and **.csv files** for streams of interest.
 

@@ -33,11 +33,11 @@ The following graph shows an example of a forecast plot:
 
 ![image](img8.png)
 
-### How to Interpret:
-1. The **black line** represents the best estimate of future river flow.
-2. The **blue shaded region** represents the uncertainty in the prediction:
-   - The narrower the blue region, the more confident the model is.
-   - The true flow is **more likely than not** to fall within the blue shaded area.
+**How to interpret this graph**  
+1. The **black line** represents the best estimate of future river flow.  
+2. The **blue shaded region** represents the uncertainty in the prediction:  
+   - The narrower the blue region, the more confident the model is.  
+   - The true flow is **more likely than not** to fall within the blue shaded area.  
 
 For more details, refer to the document: [Forecast_Data.pdf](https://drive.google.com/file/d/1_dDtF3F74Un8PKVkZZdslDjp_MP64-dX/view?usp=sharing).
 

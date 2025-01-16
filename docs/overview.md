@@ -94,7 +94,7 @@ The presentation below offers a deeper insight into the model formulation of the
   lets you select a specific stream to view both the forecast 
   and historical simulation data for that river.
 
-![image](image7.png)
+![image](hydroviewer.png)
 
 ### Retrospective Data
   * The retrospective (or historical) simulation is a deterministic
