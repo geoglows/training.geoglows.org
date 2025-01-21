@@ -1,19 +1,12 @@
 # Bias Correction and SABER
 
-The validation results underscore the importance of ongoing model evaluation and improvement to enhance the performance of the GEOGLOWS Model. Consistently addressing bias, variability, and correlation across different regions is crucial for improving the accuracy and reliability of hydrological simulations. The GEOGLOWS Hydrologic Model exhibits biases that can limit its precision, prompting the development of a bias correction approach. To correct these systematic biases at instrumented locations, we propose the Monthly Flow Duration Curve Quantile-Mapping (MFDC-QM) method. This method targets biases related to flow variability and correlation.
+The GEOGLOWS Hydrologic Model exhibits biases that can limit its precision, prompting the development of a bias correction approach. To correct these systematic biases at instrumented locations, we propose the Monthly Flow Duration Curve Quantile-Mapping (MFDC-QM) method. This method targets biases related to flow variability and correlation. The GEOGLOWS Hydrologic Model does not assimilate observed streamflow data into its initial calculation. However, the bias-correction technique allows for the global data to be applied locally. Local users can have more confidence in their data because they can know that their observed data is able to be used to improve the modeled data at their location.
 
-After applying the bias correction, we observed a significant improvement in the distribution of bias and variability ratios, with a slight improvement in correlation values across the stations, resulting in more reliable simulations and improved Kling-Gupta Efficiency (KGE) metrics.
+After applying the bias correction, we observed a significant improvement in the distribution of bias and variability ratios, with a slight improvement in correlation values across the stations, resulting in more reliable simulations and improved Kling-Gupta Efficiency (KGE) metrics: bias, variability, and correlation.
 
-## Validation Exercises and Results
+The following presentation discusses how the GEOGLOWS Hydrologic Model has been validated and gives details of the methods of the bias-correction methods.
 
-To validate the GEOGLOWS Model, we selected gauging stations that are connected to the GEOGLOWS Model stream network and meet specific criteria. These criteria include stations paired with a GEOGLOWS reach ID, stations with at least one year of data, and stations with records available after January 1, 1979, which aligns with the start date of version 1 of the model. With the release of version 2, which extends the retrospective simulation back to January 1, 1940, we are now able to include a larger set of stations for validation. The performance of the GEOGLOWS retrospective simulation is assessed using the Kling-Gupta Efficiency (KGE) metric, which decomposes into three components: bias, variability, and correlation. This validation process ensures that the model's simulations are consistent with observed streamflow data, providing reliable information for water resource management and hydrological studies.
-
-![bias-correction](bias-metrics.png)
-
-![kge-metrics](kge2.png)
-
-
-[GEOGloWS - BiasCorrection Updated.pdf](https://drive.google.com/file/d/1voFzujDRYzeacfhB5lTUboIUu3fqIvQZ/view?usp=sharing)
+[GEOGLOWS - BiasCorrection Updated.pdf](https://drive.google.com/file/d/1voFzujDRYzeacfhB5lTUboIUu3fqIvQZ/view?usp=sharing)
 
 ## Interactive Learning - Bias Correction
 
@@ -24,6 +17,8 @@ To dive deeper into the analysis of bias correction and performance evaluation, 
 ## SABER (Stream Analysis for Bias Estimation and Reduction)
 
 The SABER method is a bias correction tool designed for large hydrologic models like GEOGLOWS, specifically addressing the issue of model biases in both gauged and ungauged river basins. SABER uses flow duration curves (FDC) to compare the observed discharge with the simulated values from hydrologic models, identifying and correcting biases. For ungauged locations, where direct observations are unavailable, SABER uses the scalar flow duration curve (SFDC).
+
+Unlike bias-correction, which each institution performs locally, SABER is performed by the GEOGLOWS team and is not done by the end users. We use the gauge data made available to us to perform an improvement to all the model results. This process is still in experimentation and is not currently being applied to the data accessed by the end-users. We hope for it to be applied in future versions of the GEOGLOWS Hydrologic Model.
 
 SABER allows the bias correction process to extend to ungauged basins by analyzing similar watershed behaviors based on spatial proximity and clustering of flow regimes. This method is particularly useful for regions where data scarcity limits traditional calibration, such as in global models like GEOGLOWS, ensuring more accurate discharge forecasts across large spatial domains.
 
