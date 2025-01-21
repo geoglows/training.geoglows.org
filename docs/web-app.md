@@ -18,7 +18,7 @@ This allows users to quickly identify rivers experiencing high flows.
    - As users zoom in, more streams become visible within their area of interest.  
 2. **Interactive River Selection**:   
    - Clicking on a river displays retrospective and forecast data for that stream.  
-   - The **river ID** is shown for easy reference.  
+   - The river ID is shown for easy reference.  
 3. **Direct River ID Entry**:   
    - If the river ID is known, users can directly enter it into the application to view the data.  
 

@@ -1,8 +1,8 @@
 # Esri Living Atlas Layer
 
-Esri hosts an **ArcGIS Living Atlas of the World**. It includes maps, apps, and data layers which can help researchers easily access data. They host a **GEOGLOWS layer** as part of this program. This allows GEOGLOWS stream data to be loaded into **ArcGIS** or **QGIS** without needing to download the entire dataset.
+Esri hosts an **ArcGIS Living Atlas of the World**. It includes maps, apps, and data layers which can help researchers easily access data. They host a GEOGLOWS layer as part of this program. This allows GEOGLOWS stream data to be loaded into ArcGIS or QGIS without needing to download the entire dataset.
 
-The layer is an animation layer that shows the first 10 days of the **15-day GEOGLOWS forecast data**. The streams are colored based on if they exceed a given return period and are therefore in high flow. 
+The layer is an animation layer that shows the first 10 days of the 15-day GEOGLOWS forecast data. The streams are colored based on if they exceed a given return period and are therefore in high flow. 
 
 Some things that a user can do with this layer:
 
