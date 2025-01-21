@@ -42,7 +42,7 @@ in water resource management, disaster risk reduction,
 and climate resilience planning. Access the app at 
 [GEOGLOWS HydroViewer](https://hydroviewer.geoglows.org/).
 
-![image](img6.png)
+![image](hydroviewer.png)
 
 [Hydroviewer Tutorial](https://drive.google.com/file/d/1uuzKFHy520o2Hby5t91_geSMVEeKnKW5/view?usp=drive_link)
 
@@ -86,7 +86,7 @@ conditions. Users can easily access and analyze these data using Python
 and Jupyter notebooks, with detailed tutorials available. To get started,
 use the following Colab notebooks:
 
-![image5](image5.png)
+![image5](aws_bucket.png)
 
 1. Access [GEOGLOWS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
 2. Access [GEOGLOWS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)
