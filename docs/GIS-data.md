@@ -67,7 +67,3 @@ There were some slight modifications made to the TDX-Hydro dataset when creating
 - Streams with no length but with upstream and downstream segments were removed with their associated catchments, and the upstream and/or downstream segments were modified to preserve the connectivity of the network.
 - For many of the regions, headwater streams were dissolved with the downstream segments.
 - Small watersheds that did not represent real flowing streams were often dropped.
-
-## Learn More  
-
-For some more detailed examples of getting and using the GIS data, please look at [GIS Data.pdf](https://drive.google.com/file/d/10NrEV3GAQlI5OypeWn6pCAInDiGBFHLX/view?usp=sharing)

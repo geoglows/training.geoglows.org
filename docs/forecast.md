@@ -12,11 +12,18 @@ The forecast has a **3-hour time step**, where each flow value represents the av
 ![image](img17.png)
 ---
 
+The streamflow forecast is updated daily using the 24-hour mean value from the ensemble members on the previous day as the initial condition.
+
+The ensemble members have a spatial resolution of 9 kilometers horizontally.
+
+These meteorological forecasts are converted into runoff using the HTESSEL hydrological model. These results are then downscaled using an area-weighted gridding to vector methodology and subsequently routed through the drainage network.
+
+
 ## Ensemble Probabilities and Interpretation
 
 Each ensemble member has an equal probability of occurring. Therefore, forecasts are best understood by looking at summaries of the ensembles rather than individual members.
 
-Forecast plots are designed to help users interpret the range of possible outcomes and uncertainties. The most commonly used forecast plot includes the median, the 20th percentile, and the 80th percentile. These represent 60% of the probability distribution within the ensemble members and provide insight into the potential variability of future streamflows. This approach allows users to see the range of probable scenerios for their streams.
+Forecast plots are designed to help users interpret the range of possible outcomes and uncertainties. The most commonly used forecast plot includes the median, the 20th percentile, and the 80th percentile. These represent 60% of the probability distribution within the ensemble members and provide insight into the potential variability of future streamflows. This approach allows users to see the range of probable scenarios for their streams.
 
 ---
 
@@ -34,5 +41,4 @@ The following graph shows an example of a forecast plot:
 1. The **black line** represents the best estimate of future river flow.  
 2. The **blue shaded region** represents the uncertainty in the prediction. The narrower the blue region, the more confident the model is. The true flow is more likely than not to fall within the blue shaded area.  
 
-For more details, refer to the document: [Forecast_Data.pdf](https://drive.google.com/file/d/1_dDtF3F74Un8PKVkZZdslDjp_MP64-dX/view?usp=sharing).
 

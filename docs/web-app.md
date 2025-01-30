@@ -24,5 +24,47 @@ This allows users to quickly identify rivers experiencing high flows.
 
 Users can download **plots** and **.csv files** for streams of interest.
 
+# Selecting Data
 
-For detailed instructions on how to use the HydroViewer, refer to the presentation: [GEOGLOWS HydroViewer Tutorial.pptx](https://docs.google.com/presentation/d/1-7BOPZjBse7gyzSRfFiBcQx3quHclUGJ/edit?usp=sharing&ouid=118056077920900718177&rtpof=true&sd=true).
+At the global level, only the largest streams are shown. More streams become visible as a user zooms in on the map and their area of interest. If you are not accurate enough in your click, a warning will show asking you to zoom in more and be more precise when clicking the river segment.
+
+Once you have selected the streams, a pop-up window will appear with the river name, ID, and two graphs: the forecasted and retrospective streamflow data.
+
+![loaded-datat](loaded-graph.png)
+
+Plots and `.csv` files can be downloaded for streams of interest by selecting the camera icon in the corner of the plot.
+
+## Previous Forecast Data
+
+By default, when you click on a stream, the 15-day forecast from the current day will be displayed. However, if you would like, you can see a forecast from a previous day by choosing a date from the date dropdown menu.
+
+![calendar](calendar-forecast.png)
+
+## Retrospective Data
+
+By default, you will view 10 years of retrospective data, but this can be adjusted using the grey sliders at the bottom. The entire retrospective dataset, dating back to 1940, can be accessed this way.  
+
+![Retrospective Data](retrospective-variable.png)
+
+## Entering a River ID
+
+If a user already knows the river ID for their stream of interest, they can directly enter the river ID into the application to view the data.
+
+1. Get the chart pop-up window open either by selecting the chart icon in the upper right corner or by it being open from a previous river selection.
+2. Click on **“Enter River ID”** in the top middle of the pop-up window.
+3. Type in any river ID (for example, this reach ID is for the Magdalena River in Colombia: `610363879`) and click **“OK”**.
+4. The forecast and retrospective data will reload and will be displayed for the new river in the pop-up window.
+
+## Filtering Data
+
+Data can also be filtered:
+
+- Click on the **filter** button on the left-hand side to bring up the filtering options.
+- There, you will find options to filter based on:
+  - River country
+  - VPU number
+  - River outlet country
+
+This will only show rivers that meet these criteria on the map.
+
+![filter](filtered-streams.png)

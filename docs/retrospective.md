@@ -6,9 +6,14 @@ The retrospective simulation from the River Forecasting System provides a determ
 
 ---
 
-The dataset is deterministic, which means that there is no ensemble, but rather just one best guess of the average flows over the time period. The flow values represent the average flow during the day listed in UTC time. All flow values are in cubic meters per second.
+The dataset is deterministic, which means that there is no ensemble, but rather just one best guess of the average flows over the time period. The start of the time period is given in UTC time. The value given represents the average flow starting at that time until the next timestep. All flow values are in cubic meters per second.  
 
- The inputs to the hydrology model lag from real time by 5 days. Once a week, on Sunday at midnight UTC, the dataset is updated. On that Sunday, GEOGLOWS data will cover up until 5 days ago. On Saturday night, the lag will have accumulated to 12 days.
+The inputs to the hydrology model lag from real time by 5 days. Once a week, on Sunday at midnight UTC, the dataset is updated. On that Sunday, GEOGLOWS data will cover up until 5 days ago. On Saturday night, the lag will have accumulated to 12 days.  
+
+The retrospective data is available in several different time increments. The data was calculated at an hourly temporal resolution. Then the hourly timesteps were averaged to provide a daily average, monthly average, and yearly average time series.   
+
+The monthly average data is available in two different formats. One is optimized to read the entire time series for a single river or group of rivers, which is anticipated to be the most common use case. Another is optimized to read a bunch of rivers at a given timestep. 
+
 
 ---
 
@@ -18,7 +23,9 @@ The runoff data is created by using the runoff data from the **ECMWF ERA5 reanal
 
 The inputs to the model are derived from reanalysis meteorology data, including satellite and gauge-based measurements, which are assimilated to reconstruct the best possible historical precipitation, evaporation, and other hydrological variables. No river gauge data are assimilated during the routing step, ensuring a uniform model-driven approach.
 
-For more details, refer to the document: [ERA5_time period_updates.pdf](https://drive.google.com/file/d/10P53NdkSTfsGsyc-PSE5nVMYAvMCU1Q-/view?usp=sharing).
+## Return Period Calculations
+
+The retrospective simulation is used to define return periods that establish warning levels for each simulated river segment. Streamflow values for return periods of 2, 5, 10, 25, 50 and 100 years are calculated for every stream reach in the model.
 
 
 

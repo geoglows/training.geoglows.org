@@ -24,7 +24,7 @@ theme:
 nav:
   - Home: index.md
   - Overview: overview.md
-  - River Forecasting System:
+  - River Forecast System:
       - Part 1 Available Data:
           - GIS Data: GIS-data.md
           - Retrospective Data: retrospective.md
