@@ -23,7 +23,7 @@ theme:
 
 nav:
   - Home: index.md
-  - Overview: overview.md
+  - Overview: overview copy.md
   - River Forecast System:
       - Part 1 Available Data:
           - GIS Data: GIS-data.md
@@ -38,6 +38,7 @@ nav:
           - Accessing and Interpreting Data: exercises.md
           - Bias Correction and SABER Overview: bias-correction.md
           - Bias Correction for Forecast Data: forecasted-bias-correction.md
+  - Publications: publications.md
 
 
 
