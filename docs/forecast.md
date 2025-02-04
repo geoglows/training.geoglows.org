@@ -1,6 +1,6 @@
 # Forecast Data
 
-The GEOGLOWS model produces ensemble streamflow forecasts using data from the ECMWF (European Centre for Medium-Range Weather Forecasts) ensemble system. Forecasts are produced daily and are available by 12 PM UTC. Similar to the retrospective data, the units are in cubic meters per second. 
+RFS produces ensemble streamflow forecasts using data from the ECMWF (European Centre for Medium-Range Weather Forecasts) ensemble system. Forecasts are produced daily and are available by 12 PM UTC. Similar to the retrospective data, the units are in cubic meters per second. 
 
 Each forecast includes a **50+1 member ensemble**:  
 - **1 baseline (control)** prediction  

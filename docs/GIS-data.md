@@ -1,12 +1,12 @@
 # GIS Data
 
 
-The GEOGLOWS GIS data used in the hydrologic model is available for users to download and use for their own purposes. This dataset is referred to as hydrography, hydrofabric, or river network. It is vector data with points and lines with coordinates, not grid data, and it includes four main components:
+The GEOGLOWS GIS data used in RFS is available for users to download and use for their own purposes. This dataset is referred to as hydrography, hydrofabric, or river network. It is vector data with points and lines with coordinates, not grid data, and it includes four main components:
 
-- The exact **stream center lines** used in the hydrologic model.  Each stream has a unique 9 number ID which is referred to as a reachID, link number, or stream ID. This is the file called "streams_{vpu}.gpkg".
-- The **catchment boundaries** used in the hydrologic model. There are the boundaries around each of the streamlines and represent the area connected to that streamline. It is identified using the same link number as the stream center lines. This is the file called "catchments_{vpu}.spatialite". Each stream centerline corresponds to exactly one unique catchment boundary.
-- The **connection points** used in the hydrologic model where different stream centerlines connect. Each point has the an attribute called DSLINKNO which represents the one downstream link number for each of the points. It has another attribute called USLINKNOs. This is a comma seperated list of the link numbers upstream of the nexus point. This is the file called "nexus_{vpu}.gpkg".
-- The **merged lake catchments** used in the hydrologic model to represent the locations of lakes. Stream catchments that were identified through GIS searching to be part of a lake were merged to present the lakes. Therefore, it will have a different shape than the actual lake boundary based on the shapes of the merged stream catchments. This is the file called "lakes_{vpu}.gpkg".
+- The exact **stream center lines** used in RFS.  Each stream has a unique 9 number ID which is referred to as a reachID, link number, or stream ID. This is the file called "streams_{vpu}.gpkg".
+- The **catchment boundaries** used RFS. There are the boundaries around each of the streamlines and represent the area connected to that streamline. It is identified using the same link number as the stream center lines. This is the file called "catchments_{vpu}.spatialite". Each stream centerline corresponds to exactly one unique catchment boundary.
+- The **connection points** used in RFS where different stream centerlines connect. Each point has the an attribute called DSLINKNO which represents the one downstream link number for each of the points. It has another attribute called USLINKNOs. This is a comma seperated list of the link numbers upstream of the nexus point. This is the file called "nexus_{vpu}.gpkg".
+- The **merged lake catchments** used in RFS to represent the locations of lakes. Stream catchments that were identified through GIS searching to be part of a lake were merged to present the lakes. Therefore, it will have a different shape than the actual lake boundary based on the shapes of the merged stream catchments. This is the file called "lakes_{vpu}.gpkg".
 
 ---
 

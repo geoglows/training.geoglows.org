@@ -1,6 +1,6 @@
 # Using AWS Buckets
 
-The **GEOGLOWS Hydrological Model Version 2** allows users to download global streamflow data directly from AWS. This provides access to both retrospective simulation data and 15-day streamflow forecasts. These datasets are hosted in S3 buckets, optimized for time series analysis and bulk downloads. 
+RFS allows users to download global streamflow data directly from AWS. This provides access to both retrospective simulation data and 15-day streamflow forecasts. These datasets are hosted in S3 buckets, optimized for time series analysis and bulk downloads. 
 
 Users can easily access and analyze these data using **Python** and **Jupyter notebooks**, with detailed tutorials available.
 

@@ -1,6 +1,6 @@
 # Forecast Bias Correction
 
-The **GEOGLOWS model** applies bias correction to its forecast data by assuming the forecast shares the same biases as the retrospective simulation. This process involves mapping forecasted streamflow values to a non-exceedance probability using the historical simulation's flow duration curve and then replacing the forecasted values with corresponding values from the observed flow duration curve.
+RFS applies bias correction to its forecast data by assuming the forecast shares the same biases as the retrospective simulation. This process involves mapping forecasted streamflow values to a non-exceedance probability using the historical simulation's flow duration curve and then replacing the forecasted values with corresponding values from the observed flow duration curve.
 
 ![forecasts](forecast-bias-correction.png)
 

@@ -34,7 +34,7 @@ To use the API website, follow these steps:
 
 ### Accessing the API Using Python
 
-One of the easiest ways to access the API is through Python. There is a **GeoGLOWS Python package** (documented here: [GeoGLOWS API Documentation](https://geoglows.readthedocs.io/en/latest/api-documentation.html)) that contains commands for basic analysis and querying specific types of data.
+One of the easiest ways to access the API is through Python. There is a **GEOGLOWS Python package** (documented here: [GEOGLOWS API Documentation](https://geoglows.readthedocs.io/en/latest/api-documentation.html)) that contains commands for basic analysis and querying specific types of data.
 
 This Python notebook provides examples of using the API in Python, as well as utilizing the Python package: [Programmatic_Access Colab.ipynb](https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?usp=sharing)
 
