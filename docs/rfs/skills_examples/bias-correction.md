@@ -6,7 +6,7 @@ After applying the bias correction, we observed a significant improvement in the
 
 The following presentation discusses how the GEOGLOWS Hydrologic Model has been validated and gives details of the methods of the bias-correction methods.
 
-[GEOGLOWS - BiasCorrection Updated.pdf](https://drive.google.com/file/d/1voFzujDRYzeacfhB5lTUboIUu3fqIvQZ/view?usp=sharing)
+[GEOGLOWS - Bias Correction.pdf](https://drive.google.com/file/d/1voFzujDRYzeacfhB5lTUboIUu3fqIvQZ/view?usp=sharing)
 
 ## Interactive Learning - Bias Correction
 

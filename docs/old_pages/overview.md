@@ -1,6 +1,6 @@
 # What is GEOGLOWS? 
 
-![image](static/images/image3.png)
+![image](../static/images/image3.png)
 
 ## Overview
 The GEOGLOWS (Global Earth Observations Global Water Sustainability) 
@@ -8,16 +8,21 @@ initiative is a collaborative effort aimed at improving global
 water sustainability through advanced hydrological forecasting 
 and data analysis. Leveraging the power of Earth observations, 
 numerical weather predictions, and supercomputing, GEOGLOWS 
-provides actionable information through our hydrologic model, the River Forecast System (RFS). RFS provides streamflow status and 
+provides actionable information on streamflow status and 
 outlook for every river worldwide. By making decades of 
 historical climatological flow data and future forecasts 
-easily accessible, RFS supports informed decision-making
+easily accessible, GEOGLOWS supports informed decision-making
 in water resource management, disaster risk reduction, and 
 climate adaptation. This global service enables countries 
 and organizations to enhance their understanding of 
 water-related challenges and implement effective solutions, 
 ultimately contributing to a more sustainable and 
 resilient future.
+
+The presentation linked below provides deeper insights 
+into the scope and impact of GEOGLOWS.
+
+[GEOGLOWS V2 Overview](https://drive.google.com/file/d/1h9skkuJQ-LR301nXSHjYRNHnso07gtac/view?usp=sharing)
 
 ## History
 The GEOGLOWS initiative, established under the framework
@@ -32,7 +37,7 @@ Dominican Republic to a broader application of global
 hydrological modeling. By leveraging advanced technologies, 
 including the ECMWF’s global weather forecasts and cutting-edge
 cloud computing, GEOGLOWS pioneered global streamflow 
-forecasting services in the creation of the model that is now known as RFS. These services provide critical 
+forecasting services. These services provide critical 
 information to support decision-making in water management,
 helping to mitigate the impacts of floods, droughts, and
 other water-related challenges. Over time, the initiative
@@ -41,28 +46,74 @@ hydrological insights, and fostering collaborations
 across continents to address the complex issues of 
 water scarcity and disaster preparedness.
 
+The presentation below offers a deeper insight into 
+the history and impact of GEOGLOWS.
+
+[GEOGLOWS History](https://drive.google.com/file/d/1dICEwFCFEIWnYgVAUNlrqsUMj487yp4o/view?usp=sharing)
+
 ## Model Formulation
 The GEOGLOWS model leverages the Hydrology Tiled ECMWF Scheme for Surface Exchanges over Land (HTESSEL) alongside the ECMWF Integrated Forecast System (IFS) to conduct detailed calculations of water and energy balances within grid cells. HTESSEL simulates how land surfaces respond to atmospheric conditions, estimating critical variables such as surface and sub-surface runoff for both operational ensemble forecasts and retrospective simulations. The model employs varying spatial resolutions for its runoff files, including approximately 25 km for historical ERA-5 data, 16 km for low-resolution ensemble members, and 8 km for high-resolution forecasts. By intersecting grid lines with specific basins and applying runoff depth values, the model calculates water volumes over different time periods, which are then routed through the stream network using the Muskingum method with the RAPID algorithm. This approach provides valuable discharge data for hydrological analysis and decision-making.
 
-## River Forecast System Training
-To learn more about our model, RFS, continue with out training under the River Forecast System portion of this website. This training is broken down into 3 main sections, each having different sub sections within them. We recommend you start with the first section (Available Data) before progressing to the second section (Accessing Data). The third section (Skills and Examples) is a more advanced section designed for people looking to complete specific tasks using the RFS data who already have a good understanding of the first two sections. As you are learning about the data, there is also a website available with more information on how to download and use the RFS data: https://data.geoglows.org/. This is a great resource once you have a basic understanding of the data. Here is a brief overview of what you can expect to learn: 
- 
-1. **Available Data** - This section details the available datasets from RFS. It is divided into 3 sections:  
-    - **a. GIS Data** - Learn about the hydrography data used in the RFS, including stream centerlines, catchment boundaries, and their unique identifiers, derived from high-resolution elevation products.  
-    - **b. Retrospective River Discharge** - Explore over 85 years of daily average streamflow data, derived from meteorological reanalysis and updated weekly, offering insights into historical river discharge.  
-    - **c. Forecast River Discharge** - Understand daily river flow forecasts with a 51-member ensemble providing detailed predictions at 3-hour intervals, including uncertainty ranges for better planning.  
+The presentation below offers a deeper insight into the model formulation of the GEOGLOWS Model.
 
-2. **Accessing Data** - This section explains how the previously described data can be accessed and downloaded using 4 different techniques. Each section will detail a different technique:  
-    - **a. A Data Catalog** - This section explains the data catalog available through AWS buckets.  
-    - **b. A Data Service** - This section describes how to use our REST API to access GEOGLOWS data.  
-    - **c. A Web Map** - This section explains the Esri Living Atlas map layer that can be loaded into any GIS software (ArcGIS or QGIS).  
-    - **d. A Web App** - This section introduces you to the HydroViewer, which is our web application that allows for easy visualization and download of data globally.  
+[Model Formulation](https://drive.google.com/file/d/1thabA0RBfSVYAIcKkgMOBFSZwhtmxvv2/view?usp=sharing)
 
-3. **Skills and Examples** - This section explains more advanced techniques that can be used when using the data for specific purposes.  
-    - **a. Accessing and Interpreting Data** - This section includes Google Colab notebooks that show you how to use the GEOGLOWS Python package to make and customize your streamflow plots.  
-    - **b. Bias Correction and SABER Overview** - This section gives a brief overview of bias correction and a technique called SABER that applies bias correction to other areas.  
-    - **c. Bias Correction for Forecast Data** - This section provides a notebook that goes through examples of bias-correcting the forecast data.  
+## Understanding GEOGLOWS Data
+[Understanding GEOGLOWS Data Presentation](https://drive.google.com/file/d/1-4MQ1ge4J9I5iQGHYlY3f0VR724S_eXp/view?usp=sharing)
 
+### Hydrofabric
+  * The GEOGLOWS ECMWF Streamflow Service leverages a Hydrologic 
+  Modeling as a Service (HMaaS) approach, centralizing 
+  cyberinfrastructure, expertise, and state-of-the-art 
+  forecasting capabilities to provide reliable streamflow 
+  data. Instead of requiring local agencies to manage and 
+  compute vast amounts of data independently, GEOGLOWS 
+  streamlines the process by using ensemble meteorological 
+  forecasts from ECMWF, processed through the HTESSEL 
+  land surface model. This generates global runoff data, 
+  which is mapped to GEOGLOWS watersheds and routed through 
+  river networks using the RAPID model to produce 15-day 
+  forecasts. Additionally, the ERA-5 retrospective 
+  historical data spanning over 80 years is used to 
+  derive return periods, placing current forecasts 
+  in a meaningful historical context. These streamflow 
+  forecasts are accessible via web mapping services and APIs, 
+  facilitating the development of customized applications 
+  tailored to address local water management challenges 
+  such as flooding, drought, and water security.
+
+### Map
+  * The GEOGLOWS ECMWF Streamflow Model can be easily explored 
+  using a mapping service developed in collaboration with 
+  Esri (see: [https://hydroviewer.geoglows.org/](https://hydroviewer.geoglows.org/)). 
+  The web map 
+  allows users to visualize current streamflow conditions worldwide,
+  with line thickness indicating discharge magnitude and 
+  line color showing if and when a river's discharge exceeds
+  the threshold for a specific return period. The app also 
+  lets you select a specific stream to view both the forecast 
+  and historical simulation data for that river.
+
+![image](../static/images/hydroviewer.png)
+
+### Retrospective Data
+  * The retrospective (or historical) simulation is a deterministic
+  model with a daily resolution, covering the period from 1940 to the 
+  present (over 80 years). This simulation helps calculate return 
+  periods for maximum discharge values using the Gumbel Distribution, 
+  providing essential context for interpreting hydrological forecasts.
+![image](../static/images/img9.png)
+    
+### Forecasts
+  * The forecast simulation has a 15-day horizon and includes 
+  52 ensemble members: 51 low-resolution members and 1 high-resolution
+  member with a 10-day horizon. The time resolution is 3-hour 
+  intervals for low-resolution ensembles and 1-hour intervals for 
+  the high-resolution member. The preferred forecast plot features
+  the median, 20th percentile, and 80th percentile (Uncertainty Bounds),
+  representing 60% of the probability distribution within the 
+  ensemble members.
+![image](../static/images/img8.png)
 
 ## Stories of Application
 
@@ -79,6 +130,10 @@ These real-world applications demonstrate the global impact
 of GEOGLOWS in addressing critical water-related challenges. 
 For more in-depth stories of how GEOGLOWS is making a difference 
 worldwide, visit [GEOGLOWS Stories](https://stories.geoglows.org/home).
+
+
+[Stories Presentation](https://drive.google.com/file/d/1-CbslVlrtOyobNkR18uusWVdjqp0OsuW/view?usp=sharing) 
+
 
 ## Joining GEOGLOWS
 Are you interested in being part of the global GEOGLOWS community? 
