@@ -1,6 +1,6 @@
 # What is GEOGLOWS? 
 
-![image](image3.png)
+![image](static/images/image3.png)
 
 ## Overview
 The GEOGLOWS (Global Earth Observations Global Water Sustainability) 
@@ -94,7 +94,7 @@ The presentation below offers a deeper insight into the model formulation of the
   lets you select a specific stream to view both the forecast 
   and historical simulation data for that river.
 
-![image](hydroviewer.png)
+![image](static/images/hydroviewer.png)
 
 ### Retrospective Data
   * The retrospective (or historical) simulation is a deterministic
@@ -102,7 +102,7 @@ The presentation below offers a deeper insight into the model formulation of the
   present (over 80 years). This simulation helps calculate return 
   periods for maximum discharge values using the Gumbel Distribution, 
   providing essential context for interpreting hydrological forecasts.
-![image](img9.png)
+![image](static/images/api.pngimg9.png)
     
 ### Forecasts
   * The forecast simulation has a 15-day horizon and includes 
@@ -113,7 +113,7 @@ The presentation below offers a deeper insight into the model formulation of the
   the median, 20th percentile, and 80th percentile (Uncertainty Bounds),
   representing 60% of the probability distribution within the 
   ensemble members.
-![image](img8.png)
+![image](static/images/img8.png)
 
 ## Stories of Application
 

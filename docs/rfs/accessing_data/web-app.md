@@ -2,13 +2,13 @@
 
 The GEOGLOWS Global HydroViewer is a tool for visualizing and accessing streamflow forecasts and historical data across the globe. This web-based application allows users to explore real-time streamflow conditions, analyze forecast trends, and review hydrological simulations for any river, helping decision-makers and researchers better understand water-related challenges. With easy-to-use visualization tools, users can assess discharge values and identify potential flood or drought risks. The HydroViewer supports informed decision-making in water resource management, disaster risk reduction, and climate resilience planning. Access the app at [GEOGLOWS HydroViewer](https://hydroviewer.geoglows.org/).
 
-![Hydroviewer](hydroviewer.png)
+![Hydroviewer](../../static/images/hydroviewer.png)
 
 ## Stream Visualization
 
 The HydroViewer highlights streams where flows are expected to exceed return periods, using the following color-coded legend:
 
-![Legend for Return Periods](river-legend.png)
+![Legend for Return Periods](../../static/images/river-legend.png)
 
 This allows users to quickly identify rivers experiencing high flows.
 
@@ -30,7 +30,7 @@ At the global level, only the largest streams are shown. More streams become vis
 
 Once you have selected the streams, a pop-up window will appear with the river name, ID, and two graphs: the forecasted and retrospective streamflow data.
 
-![loaded-datat](loaded-graph.png)
+![loaded-datat](../../static/images/loaded-graph.png)
 
 Plots and `.csv` files can be downloaded for streams of interest by selecting the camera icon in the corner of the plot.
 
@@ -38,13 +38,13 @@ Plots and `.csv` files can be downloaded for streams of interest by selecting th
 
 By default, when you click on a stream, the 15-day forecast from the current day will be displayed. However, if you would like, you can see a forecast from a previous day by choosing a date from the date dropdown menu.
 
-![calendar](calendar-forecast.png)
+![calendar](../../static/images/calendar-forecast.png)
 
 ## Retrospective Data
 
 By default, you will view 10 years of retrospective data, but this can be adjusted using the grey sliders at the bottom. The entire retrospective dataset, dating back to 1940, can be accessed this way.  
 
-![Retrospective Data](retrospective-variable.png)
+![Retrospective Data](../../static/images/retrospective-variable.png)
 
 ## Entering a River ID
 
@@ -67,4 +67,4 @@ Data can also be filtered:
 
 This will only show rivers that meet these criteria on the map.
 
-![filter](filtered-streams.png)
+![filter](../../static/images/filtered-streams.png)

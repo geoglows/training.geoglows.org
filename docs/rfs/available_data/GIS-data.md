@@ -14,7 +14,7 @@ The GEOGLOWS GIS data used in RFS is available for users to download and use for
 
 The GIS data is divided into 125 smaller pieces called VPUs (vector processing units). This makes the large quantity of data easier to manage and access. Each VPU represents one watershed (such as the Amazon River Basin or the Nile River Basin) or a combination of watersheds. The following image shows the VPU breakdown throughout the world.
 
-![image](vpu-boundary.png)
+![image](../../static/images/vpu-boundary.png)
 
 The VPU boundaries are also available for download to help identify which VPU includes a user's area of interest. The other GIS data sets should be downloaded based on the VPU of interest and are downloaded as an entire VPU.
 

@@ -24,4 +24,4 @@ SABER allows the bias correction process to extend to ungauged basins by analyzi
 
 SABER works by comparing simulated discharge data to observed values at gauged locations to detect high or low biases. It applies machine learning clustering techniques to group watersheds with similar flow characteristics, helping to extend bias correction from gauged to ungauged basins. SABER's process includes calculating SFDCs for different exceedance probabilities, dividing the simulated flows by the corresponding SFDC values, even in regions affected by dams or reservoirs.
 
-![saber](saber.png)
+![saber](../../static/images/saber.png)

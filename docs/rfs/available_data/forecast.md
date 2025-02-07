@@ -9,7 +9,7 @@ Each forecast includes a **50+1 member ensemble**:
 
 The forecast has a **3-hour time step**, where each flow value represents the average flow that occurred in the river during the previous 3 hours. Below is an example graph showing all the ensemble members.
 
-![image](img17.png)
+![image](../../static/images/img17.png)
 ---
 
 The streamflow forecast is updated daily using the 24-hour mean value from the ensemble members on the previous day as the initial condition.
@@ -35,7 +35,7 @@ The following graph shows an example of a forecast plot:
 - **Blue Shaded Area:** Represents the middle 60% of values from the ensemble predictions  
 
 
-![image](img8.png)
+![image](../../static/images/img8.png)
 
 **How to interpret this graph**  
 1. The **black line** represents the best estimate of future river flow.  

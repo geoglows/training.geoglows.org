@@ -1,6 +1,6 @@
 # What is GEOGLOWS? 
 
-![image](image3.png)
+![image](static/images/image3.png)
 
 ## Overview
 The GEOGLOWS (Global Earth Observations Global Water Sustainability) 

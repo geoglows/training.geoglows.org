@@ -4,7 +4,7 @@ The **GEOGLOWS ECMWF Streamflow Service** provides programmatic access to stream
 
 For more information, visit the [GEOGLOWS API Documentation](https://geoglows.ecmwf.int/documentation).
 
-![image](api.png)
+![image](../../static/images/api.png)
 ---
 
 ## Using the API
@@ -17,7 +17,7 @@ To use the API website, follow these steps:
 
 **Step 1:** Click the blue **“Get”** button next to the command you are interested in. This opens a window where you can enter your parameters.  
 
-![API Window Pop-up](api-window-pop-up.png)
+![API Window Pop-up](../../static/images/api-window-pop-up.png)
 
 **Step 2:** Before entering any numbers, click **“Try it out”** to enable input fields. This allows you to enter numbers and select response formats.
 
@@ -26,11 +26,11 @@ To use the API website, follow these steps:
 - Choose either `csv` or `json` from the dropdown menu under `format`. The default selection is `csv`.  
 - For **forecast data queries**, enter a date in `YYYYMMDD` format. If left blank, it will return the most recent forecast.  
 
-![Execute Button](execute-button.png)
+![Execute Button](../../static/images/execute-button.png)
 
 **Step 4:** Click the **blue “Execute”** button at the bottom of the screen. The system will process your request and load for a few seconds. Once finished, you will receive a response code along with an option to download the file.  
 
-![API Response](response-api.png)
+![API Response](../../static/images/response-api.png)
 
 ### Accessing the API Using Python
 
