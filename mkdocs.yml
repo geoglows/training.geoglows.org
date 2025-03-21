@@ -24,20 +24,21 @@ theme:
 nav:
   - Home: index.md
   - Overview: overview.md
-  - River Forecasting System:
+  - River Forecast System:
       - Part 1 Available Data:
-          - GIS Data: GIS-data.md
-          - Retrospective Data: retrospective.md
-          - Forecast Data: forecast.md
+          - GIS Data: rfs/available_data/GIS-data.md
+          - Retrospective Data: rfs/available_data/retrospective.md
+          - Forecast Data: rfs/available_data/forecast.md
       - Part 2 Accessing Data:
-          - The Data Catalog: data-catalog.md
-          - The Data Service: data-service.md
-          - A Web Application: web-app.md
-          - The Web Map: web_map.md
+          - The Data Catalog: rfs/accessing_data/data-catalog.md
+          - The Data Service: rfs/accessing_data/data-service.md
+          - A Web Application: rfs/accessing_data/web-app.md
+          - The Web Map: rfs/accessing_data/web_map.md
       - Part 3 Skills and Examples:
-          - Accessing and Interpreting Data: exercises.md
-          - Bias Correction and SABER Overview: bias-correction.md
-          - Bias Correction for Forecast Data: forecasted-bias-correction.md
+          - Accessing and Interpreting Data: rfs/skills_examples/exercises.md
+          - Bias Correction and SABER Overview: rfs/skills_examples/bias-correction.md
+          - Bias Correction for Forecast Data: rfs/skills_examples/forecasted-bias-correction.md
+  - Publications: publications.md
 
 
 

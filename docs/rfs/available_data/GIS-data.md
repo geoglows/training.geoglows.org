@@ -1,22 +1,22 @@
 # GIS Data
 
 
-The GEOGLOWS GIS data used in the hydrologic model is available for users to download and use for their own purposes. This dataset is referred to as hydrography, hydrofabric, or river network. It is vector data with points and lines with coordinates, not grid data, and it includes two main components:
+The GEOGLOWS GIS data used in RFS is available for users to download and use for their own purposes. This dataset is referred to as hydrography, hydrofabric, or river network. It is vector data with points and lines with coordinates, not grid data, and it includes four main components:
 
-- The exact **stream center lines** used in the hydrologic model.  
-- The exact **catchment boundaries** used in the hydrologic model
-
-Each stream centerline corresponds to exactly one unique catchment boundary. The streams and catchments each have a unique 9-digit ID that identifies the catchment. This ID is the same for the stream and the corresponding catchment.
+- The exact **stream center lines** used in RFS.  Each stream has a unique 9 number ID which is referred to as a reachID, link number, or stream ID. This is the file called "streams_{vpu}.gpkg".
+- The **catchment boundaries** used RFS. There are the boundaries around each of the streamlines and represent the area connected to that streamline. It is identified using the same link number as the stream center lines. This is the file called "catchments_{vpu}.spatialite". Each stream centerline corresponds to exactly one unique catchment boundary.
+- The **connection points** used in RFS where different stream centerlines connect. Each point has the an attribute called DSLINKNO which represents the one downstream link number for each of the points. It has another attribute called USLINKNOs. This is a comma seperated list of the link numbers upstream of the nexus point. This is the file called "nexus_{vpu}.gpkg".
+- The **merged lake catchments** used in RFS to represent the locations of lakes. Stream catchments that were identified through GIS searching to be part of a lake were merged to present the lakes. Therefore, it will have a different shape than the actual lake boundary based on the shapes of the merged stream catchments. This is the file called "lakes_{vpu}.gpkg".
 
 ---
 
 ## VPUs
 
-The GIS data is divided into 125 smaller pieces called VPUs. This makes the large quantity of data easier to manage and access. Each VPU represents one watershed (such as the Amazon River Basin or the Nile River Basin) or a combination of watersheds. The following image shows the VPU breakdown throughout the world.
+The GIS data is divided into 125 smaller pieces called VPUs (vector processing units). This makes the large quantity of data easier to manage and access. Each VPU represents one watershed (such as the Amazon River Basin or the Nile River Basin) or a combination of watersheds. The following image shows the VPU breakdown throughout the world.
 
-![image](vpu-boundary.png)
+![image](../../static/images/vpu-boundary.png)
 
-The VPU boundaries are also available for download to help identify which VPU includes a user's area of interest. Then the catchments and streams are able to downloaded as an entire VPU.
+The VPU boundaries are also available for download to help identify which VPU includes a user's area of interest. The other GIS data sets should be downloaded based on the VPU of interest and are downloaded as an entire VPU.
 
 ---
 
@@ -28,20 +28,10 @@ The V2 streams have the following attributes, which come from the TauDEM delinea
 
 - **LINKNO** - A river ID number unique to the TDXHydro delineation. In TDXHydro v1, this is not globally unique. In future versions, this will be the same as geoglowsID.  
 - **DSLINKNO** - The ID of the river immediately downstream of the segment represented on that row.  
-- **USLINKNO*** - There will be 1 column per river segment upstream of the river on this row.  
-- **DSNODEID** - The node identifier for the node at the downstream end of the river.  
 - **strmOrder** - The Strahler stream order.*  
-- **Length** - Geodesic length in meters of the river segment.  
-- **Magnitude** - The Shreve stream magnitude.*  
 - **USContArea** - The total drainage area upstream of the most upstream point (i.e., the inlet) of this segment.*  
 - **DSContArea** - The total drainage area upstream of the most downstream point (i.e., the outlet) of this segment.  
-- **strmDrop** - The change in elevation between the inlet and outlet of the river segment.*  
-- **Slope** - The average stream slope, equal to "strmDrop / Length."  
-- **StraightL** - Distance from start to end of a river in a straight line between the first and last points.*  
-- **WSNO** - Watershed number.  
-- **DOUTEND** - Distance to the eventual outlet from the end of the river.*  
-- **DOUTSTART** - Distance to the eventual outlet from the start of the river.*  
-- **DOUTMID** - Distance to the eventual outlet from the midpoint of the river.*  
+- **LengthGeodesucMaters** - Geodesic length in meters of the river segment.  
 
 V2 streams also have the following additional attributes added by the GEOGLOWS modelers:  
 
@@ -67,7 +57,3 @@ There were some slight modifications made to the TDX-Hydro dataset when creating
 - Streams with no length but with upstream and downstream segments were removed with their associated catchments, and the upstream and/or downstream segments were modified to preserve the connectivity of the network.
 - For many of the regions, headwater streams were dissolved with the downstream segments.
 - Small watersheds that did not represent real flowing streams were often dropped.
-
-## Learn More  
-
-For some more detailed examples of getting and using the GIS data, please look at [GIS Data.pdf](https://drive.google.com/file/d/10NrEV3GAQlI5OypeWn6pCAInDiGBFHLX/view?usp=sharing)

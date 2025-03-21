@@ -1,14 +1,14 @@
 # Forecast Bias Correction
 
-The **GEOGLOWS model** applies bias correction to its forecast data by assuming the forecast shares the same biases as the retrospective simulation. This process involves mapping forecasted streamflow values to a non-exceedance probability using the historical simulation's flow duration curve and then replacing the forecasted values with corresponding values from the observed flow duration curve.
+RFS applies bias correction to its forecast data by assuming the forecast shares the same biases as the retrospective simulation. This process involves mapping forecasted streamflow values to a non-exceedance probability using the historical simulation's flow duration curve and then replacing the forecasted values with corresponding values from the observed flow duration curve.
 
-![forecasts](forecast-bias-correction.png)
+![forecasts](../../static/images/forecast-bias-correction.png)
 
 This method helps improve forecast accuracy, particularly during earlier forecast lead times, aligning the data more closely with historical observations. However, improvements are limited by the assumption that the biases in forecast data are identical to those in the retrospective simulation​. The following images show how the KGE values improved for the forecasted model after applying the bias correction techniques.
 
-![kge](global_kge1.png)
+![kge](../../static/images/global_kge1.png)
 
-![kge](global_kge2.png)
+![kge](../../static/images/global_kge2.png)
 
 ---
 
