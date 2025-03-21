@@ -1,6 +1,10 @@
 ## Terms and Vocabulary
 
-- **ERA5**: 
+- **ERA5**: The fifth generation of ECMWF atmospheric reanalysis of the global climate. It is the most recent reanalysis dataset produced by the
+  European
+  Centre for Medium-Range Weather Forecasts (ECMWF). It is available from 1940 to present and is updated daily with a 5-day lag.
+- **Reanalysis**: A modeled product which incorporates in situ and/or remote sensing data to provide the best possible estimate of historical
+  hydrometeorology conditions. Reanalysis data are used as inputs to the RFS model.
 
 ---
 

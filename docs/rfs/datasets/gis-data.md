@@ -37,6 +37,22 @@ network. It is vector data with points and lines with coordinates, not grid data
 
 ---
 
+## Modifications to TDX-Hydro
+
+There were some slight modifications made to the TDX-Hydro dataset when creating the GEOGLOWS stream network. This is not a comprehensive list; more
+details are available
+at [https://data.geoglows.org/dataset-descriptions/gis-streams-and-catchments](https://data.geoglows.org/dataset-descriptions/gis-streams-and-catchments).
+
+- Regions in the far north and south were excluded, along with some small islands, because runoff datasets may not be as accurate in these regions,
+  and there is less interest.
+- Streams that had no length and no upstream/downstream segments were removed along with their associated catchments.
+- Streams with no length but with upstream and downstream segments were removed with their associated catchments, and the upstream and/or downstream
+  segments were modified to preserve the connectivity of the network.
+- For many of the regions, headwater streams were dissolved with the downstream segments.
+- Small watersheds that did not represent real flowing streams were often dropped.
+
+---
+
 ## VPUs
 
 The GIS data are divided into 125 smaller pieces, VPUs. This makes the large quantity of data easier to manage and access. Each VPU represents one or
@@ -72,19 +88,3 @@ V2 streams also have the following additional attributes added by the GEOGLOWS m
 - **Musk_x** - The Muskingum x parameter.
 - **TerminalNode** - This number is the TDXHydroLinkNo of the eventual outlet of this stream's watershed.
 - **VPUCode** - A three-digit number representing which VPU region this stream belongs to.
-
----
-
-### Modifications Made to the TDX-Hydro Dataset
-
-There were some slight modifications made to the TDX-Hydro dataset when creating the GEOGLOWS stream network. This is not a comprehensive list; more
-details are available
-at [https://data.geoglows.org/dataset-descriptions/gis-streams-and-catchments](https://data.geoglows.org/dataset-descriptions/gis-streams-and-catchments).
-
-- Regions in the far north and south were excluded, along with some small islands, because runoff datasets may not be as accurate in these regions,
-  and there is less interest.
-- Streams that had no length and no upstream/downstream segments were removed along with their associated catchments.
-- Streams with no length but with upstream and downstream segments were removed with their associated catchments, and the upstream and/or downstream
-  segments were modified to preserve the connectivity of the network.
-- For many of the regions, headwater streams were dissolved with the downstream segments.
-- Small watersheds that did not represent real flowing streams were often dropped.
