@@ -41,14 +41,10 @@ insight into the potential variability of future streamflow. This approach allow
 
 In the following example forecast plot, there are 3 areas to focus on:
 
-- **Black Line:** The median of the 51 ensemble members (the "best guess" of river flow at each 3-hour period)
+- **Black Line:** The median of the 51 ensemble members. This is the "best guess" of river flow.
 - **Blue Lines:** The 20th and 80th percentile values
-- **Blue Shaded Area:** Represents the middle 60% of values from the ensemble predictions
+- **Blue Shaded Area:** Represents the uncertainty in the prediction. It is the middle 60% of the ensemble. The narrower the blue region, the more
+  confident the model is. The true flow is more likely than not to fall within the blue shaded area.
 
 ![image](../../static/images/img8.png)
 
-**How to interpret this graph**
-
-1. The **black line** represents the best estimate of future river flow.
-2. The **blue shaded region** represents the uncertainty in the prediction. The narrower the blue region, the more confident the model is. The true
-   flow is more likely than not to fall within the blue shaded area.
