@@ -1,8 +1,24 @@
 site_name: GEOGLOWS Training
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 theme:
+  features:
+    - content.code.copy
+    - content.code.select
+#    - navigation.expand
+    - navigation.path
+    - navigation.footer
+    - toc.follow
   name: material
   palette:
-
     # Palette toggle for light mode
     - scheme: default
       primary: indigo
@@ -10,8 +26,6 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-
-
     # Palette toggle for dark mode
     - scheme: slate
       primary: indigo
@@ -19,26 +33,26 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-
-
 nav:
   - Home: index.md
   - Overview: overview.md
   - River Forecast System:
       - Part 1 Available Data:
-          - GIS Data: rfs/available_data/GIS-data.md
-          - Retrospective Data: rfs/available_data/retrospective.md
-          - Forecast Data: rfs/available_data/forecast.md
+          - Data Catalog: rfs/datasets/data-catalog.md
+          - GIS Data: rfs/datasets/gis-data.md
+          - Retrospective Data: rfs/datasets/retrospective.md
+          - Forecast Data: rfs/datasets/forecast.md
       - Part 2 Accessing Data:
-          - The Data Catalog: rfs/accessing_data/data-catalog.md
-          - The Data Service: rfs/accessing_data/data-service.md
-          - A Web Application: rfs/accessing_data/web-app.md
-          - The Web Map: rfs/accessing_data/web_map.md
-      - Part 3 Skills and Examples:
-          - Accessing and Interpreting Data: rfs/skills_examples/exercises.md
-          - Bias Correction and SABER Overview: rfs/skills_examples/bias-correction.md
-          - Bias Correction for Forecast Data: rfs/skills_examples/forecasted-bias-correction.md
-  - Publications: publications.md
-
-
-
+          - Finding River Numbers: rfs/accessing-data/find-river-numbers.md
+          - Querying Data: rfs/accessing-data/query-data.md
+          - Bulk Downloads: rfs/accessing-data/bulk-download.md
+          - API (Data Service): rfs/accessing-data/data-service.md
+          - Web Maps: rfs/accessing-data/web-map.md
+      - Part 3 Application Tutorials:
+          - Web App: rfs/tutorials/web-app.md
+          - Understanding RFS Data: rfs/tutorials/exercises.md
+          - Cookbook: rfs/tutorials/code-snippets.md
+      - Part 4 Bias Correction:
+          - SABER Method: rfs/bias-correction/bias-correction.md
+          - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
+      - Publications: publications.md
