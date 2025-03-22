@@ -13,7 +13,7 @@ theme:
   features:
     - content.code.copy
     - content.code.select
-    - navigation.expand
+#    - navigation.expand
     - navigation.path
     - navigation.footer
     - toc.follow
@@ -38,19 +38,19 @@ nav:
   - Overview: overview.md
   - River Forecast System:
       - Part 1 Available Data:
+          - Data Catalog: rfs/datasets/data-catalog.md
           - GIS Data: rfs/datasets/gis-data.md
           - Retrospective Data: rfs/datasets/retrospective.md
           - Forecast Data: rfs/datasets/forecast.md
       - Part 2 Accessing Data:
-          - Data Catalog: rfs/accessing-data/data-catalog.md
+          - Finding River Numbers: rfs/accessing-data/find-river-numbers.md
           - Querying Data: rfs/accessing-data/query-data.md
           - Bulk Downloads: rfs/accessing-data/bulk-download.md
           - API (Data Service): rfs/accessing-data/data-service.md
           - Web Maps: rfs/accessing-data/web-map.md
-          - Web App: rfs/accessing-data/web-app.md
       - Part 3 Application Tutorials:
-          - Finding River Numbers: rfs/tutorials/find-river-numbers.md
-          - Accessing Data: rfs/tutorials/exercises.md
+          - Web App: rfs/tutorials/web-app.md
+          - Understanding RFS Data: rfs/tutorials/exercises.md
           - Cookbook: rfs/tutorials/code-snippets.md
       - Part 4 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md

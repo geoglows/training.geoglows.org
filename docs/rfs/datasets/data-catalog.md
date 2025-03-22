@@ -1,4 +1,15 @@
-## Data Catalog
+## Summary
+
+There are 3 primary kinds of river datasets provided by the River Forecast System. All these data are available for free.
+
+1. **Hydrography**: GIS data for stream and catchment locations around the world.
+2. **Retrospective Simulation**: Hourly river discharge data since January 1940.
+3. **Forecasts**: 15-day streamflow forecasts generated every day at midnight.
+
+[River Forecast System v2](https://geoglows.org){:target="_blank"} © 2024 by [Dr Riley Hales](https://hales.app){:target="_blank"} is licensed
+under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank"}
+
+## Table of datasets
 
 All RFS V2 datasets are sponsored by the AWS Open Data Sponsorship Program. This makes datasets publicly available and available at no cost. You **do
 not need** an AWS account, credit card, or a username and password to use this AWS service. Read more on
@@ -8,8 +19,9 @@ the [AWS Data Exchange](https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz
 The data are stored in 2 buckets. The first holds the model configuration files, gis data, retrospective simulation data, and other data which are
 essentially static. The second bucket holds the daily forecasts produced by that model as arranged by GEOGLOWS.
 
-- Forecast Data: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
-- GIS, Model, Retro. Sim: [https://rfs-v2.s3-us-west-2.amazonaws.com/index.html](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html){:target="_blank"}
+- Forecasts: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:
+  target="_blank"}
+- GIS + Retro: [https://rfs-v2.s3-us-west-2.amazonaws.com/index.html](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html){:target="_blank"}
 
 | Dataset                              | File Format(s)      | Bucket URI and Path                                                                                                                          | AWS Region |
 |--------------------------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------|
@@ -30,8 +42,10 @@ essentially static. The second bucket holds the daily forecasts produced by that
 - TDX-Hydro post-processing preparation for hydrological
   modeling: [https://github.com/geoglows/tdxhydro-postprocessing](https://github.com/geoglows/tdxhydro-postprocessing){:target="_blank"}
 - Forecast computation scripts: [https://github.com/geoglows/geoglows_ecflow](https://github.com/geoglows/geoglows_ecflow){:target="_blank"}
-- Retrospective weekly update scripts: [https://github.com/geoglows/retrospective-update](https://github.com/geoglows/retrospective-update){:target="_blank"}
-- river-route Python Package for Matrix Muskingum Routing: [https://github.com/rileyhales/river-route](https://github.com/rileyhales/river-route){:target="_blank"}
+- Retrospective weekly update scripts: [https://github.com/geoglows/retrospective-update](https://github.com/geoglows/retrospective-update){:target="_
+  blank"}
+- river-route Python Package for Matrix Muskingum Routing: [https://github.com/rileyhales/river-route](https://github.com/rileyhales/river-route){:
+  target="_blank"}
 
 ## Downloading data from the command line interface (recommended)
 
