@@ -23,47 +23,6 @@ as RFS. These services provide critical information to support decision-making i
 droughts, and other water-related challenges. Over time, the initiative has expanded its reach, integrating local and regional hydrological insights,
 and fostering collaborations across continents to address the complex issues of water scarcity and disaster preparedness.
 
-## Model Formulation
-
-The GEOGLOWS model leverages the Hydrology Tiled ECMWF Scheme for Surface Exchanges over Land (HTESSEL) and the ECMWF Integrated Forecast System (IFS)
-to as the runoff data input for the hydrologic streamflow model. HTESSEL simulates how land surfaces respond to atmospheric conditions, estimating
-critical variables such as surface and sub-surface runoff for both operational ensemble forecasts and retrospective simulations. We intersect grid
-lines with specific basins of RFS and apply runoff depth values, to calculate water volumes over different time periods. These are routed through the
-stream network using the Muskingum method with the RAPID algorithm. We report the discharge values at each of the stream segments. For more
-information on the model itself, please see the publication page where there are links to the academic publications explaining the model
-
-## River Forecast System Training
-
-To learn more about our model, RFS, continue with our training under the River Forecast System portion of this website. This training is broken down
-into 3 main sections, each having different sub sections within them. We recommend you start with the first section (Available Data) before
-progressing to the second section (Accessing Data). The third section (Skills and Examples) is a more advanced section designed for people looking to
-complete specific tasks using the RFS data who already have a good understanding of the first two sections. As you are learning about the data, there
-is also a website available with more information on how to download and use the RFS data: https://data.geoglows.org/. This is a great resource once
-you have a basic understanding of the data. Here is a brief overview of what you can expect to learn:
-
-1. **Available Data** - This section details the available datasets from RFS. It is divided into 3 sections:
-    - **a. GIS Data** - This section explains the hydrography data used in the RFS, including stream centerlines, catchment boundaries, and their
-      unique identifiers, derived from high-resolution elevation products.
-    - **b. Retrospective River Discharge** - In this section, we describe over 85 years of daily average streamflow data, derived from meteorological
-      reanalysis and updated weekly.
-    - **c. Forecast River Discharge** - This section explains out daily streamflow forecasts with 51 ensembles providing predictions at 3-hour
-      intervals.
-
-2. **Accessing Data** - This section explains how the previously described data can be accessed and downloaded using 4 different techniques. Each
-   section will detail a different technique:
-    - **a. A Data Catalog** - This section explains the data catalog available through AWS buckets.
-    - **b. A Data Service** - This section describes how to use our REST API to access GEOGLOWS data.
-    - **c. A Web Map** - This section explains the Esri Living Atlas map layer that can be loaded into any GIS software (ArcGIS or QGIS).
-    - **d. A Web App** - This section introduces you to the HydroViewer, which is our web application that allows for easy visualization and download
-      of data globally.
-
-3. **Skills and Examples** - This section explains more advanced techniques that can be used when using the data for specific purposes.
-    - **a. Accessing and Interpreting Data** - This section includes Google Colab notebooks that show you how to use the GEOGLOWS Python package to
-      make and customize your streamflow plots.
-    - **b. Bias Correction and SABER Overview** - This section gives a brief overview of bias correction and a technique called SABER that applies
-      bias correction to other areas.
-    - **c. Bias Correction for Forecast Data** - This section provides a notebook that goes through examples of bias-correcting the forecast data.
-
 ## Stories of Application
 
 GEOGLOWS has been instrumental in transforming water management and disaster response across the globe. From helping predict floods and droughts in

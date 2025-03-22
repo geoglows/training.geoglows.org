@@ -23,9 +23,9 @@ be written as `123,456,789` or `123.456.789` or `"123456789"` or `"123,456,789"`
 will work.
 
 !!! warning "Users migrating from V1"
-RFS v2 is derived from a different source Digital Elevation Model (DEM) than v1 and has significantly more modeled streams. Because of the higher
-resolution and changes in placements of river channels, it is not possible to provide a mapping of all version 1 numbers to v2 numbers. We have
-outlined some steps below to map an old ID to a GEOGLOWS 2 ID.
+    RFS v2 is derived from a different source Digital Elevation Model (DEM) than v1 and has significantly more modeled streams. Because of the higher
+    resolution and changes in placements of river channels, it is not possible to provide a mapping of all version 1 numbers to v2 numbers. We have
+    outlined some steps below to map an old ID to a GEOGLOWS 2 ID.
 
 ## Using the Web App
 
