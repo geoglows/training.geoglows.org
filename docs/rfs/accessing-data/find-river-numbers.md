@@ -1,7 +1,20 @@
 ## Overview
 
 There are 6.25 million river segments modeled in the GEOGLOWS V2 datasets. These numbers are unique to the TDX-Hydro dataset and are different from
-numbers in any other stream dataset and previous versions of the model.
+numbers in any other stream dataset and previous versions of the model. All ID numbers are 9 digits. As a reference, this table provides IDs of some 
+major rivers and their general locations.
+
+| ID Number        | Select Rivers and General Locations |
+| ---------------- | ----------------------------------- |
+| 760_021_611      | Mississippi, USA                    |
+| 160_064_246      | Nile, East Africa                   |
+| 710_462_910      | Colorado, USA & Mexico              |
+| 441_057_380      | Ganges, India                       |
+| 430_157_411      | Mekong, Vietnam                     |
+| 210_406_913      | Tiber, Italy                        |
+| 621_010_293      | Amazon, Brazil                      |
+| 130_747_391      | Congo, D.R. Congo                   |
+| 640_255_644      | Parana, Argentina                   |
 
 !!! warning "Users migrating from V1"
     RFS v2 is derived from a different source Digital Elevation Model (DEM) than v1 and has significantly more modeled streams. Because of the higher
