@@ -16,7 +16,7 @@ refer to the [geoglows Python package documentation](https://geoglows.readthedoc
 
 For snippets of code for commonly needed tasks, see the [Cookbook](../tutorials/code-snippets.md).
 
-## Python Code Snippets
+## Python Example
 
 To write your own code Python which reads Zarr directories, you will need the following packages:
 
@@ -45,7 +45,7 @@ df = ds.sel(river_id=rivers)["Q"].to_dataframe()
 df.to_csv('./my_river_data.csv')
 ```
 
-## JavaScript
+## JavaScript Example
 
 To write your own JavaScript code, you will need a dependency which reads from Zarr directories. Some options include:
 
