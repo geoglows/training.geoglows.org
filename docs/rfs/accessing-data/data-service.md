@@ -1,7 +1,10 @@
-# The REST API
+!!! danger "The API is not necessary for most users"
+    Most users do not need this tutorial. All the forecast and retrospective simulation products are available for queries, bulk downloads, 
+    and via data service. However, the instructions for querying data are the fastest and most convenient (and cheapest for GEOGLOWS) for most uses. 
+    Please follow the tutorial on [querying river data](query-data.md) before continuing to this section.
 
 The **GEOGLOWS ECMWF Streamflow Service** provides programmatic access to streamflow data through a **REST API**, allowing users to easily integrate global hydrological data into their applications. With this API, developers and researchers can retrieve historical and forecasted streamflow data in **CSV** or **JSON** format, enabling custom analysis and visualization. The API provides access to all retrospective and forecast data.
-
+s
 For more information, visit the [GEOGLOWS API Documentation](https://geoglows.ecmwf.int/documentation).
 
 ![image](../../static/images/api.png)
@@ -37,6 +40,5 @@ To use the API website, follow these steps:
 One of the easiest ways to access the API is through Python. There is a **GEOGLOWS Python package** (documented here: [GEOGLOWS API Documentation](https://geoglows.readthedocs.io/en/latest/api-documentation.html)) that contains commands for basic analysis and querying specific types of data.
 
 This Python notebook provides examples of using the API in Python, as well as utilizing the Python package: [Programmatic_Access Colab.ipynb](https://colab.research.google.com/drive/19PiUTU2noCvNGr6r-1i9cv0YMduTxATs?usp=sharing)
-
 
 The API can be used in applications requiring streamflow data and can be integrated directly into Python workflows. 

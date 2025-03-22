@@ -39,19 +39,20 @@ which is anticipated to be the most common use case. Another is optimized to rea
 
 ---
 
-## Runoff Data and Flow Estimates
+## Derivative Products
 
-The runoff data is created by using the runoff data from the **ECMWF ERA5 reanalysis dataset** as an input to RFS. Then, a modification of
-Muskingum-Cunge routing is applied using a method called RAPID to route the water through the stream network, providing the flow estimates.
+### Return Periods
 
-The inputs to the model are derived from reanalysis meteorology data, including satellite and gauge-based measurements, which are assimilated to
-reconstruct the best possible historical precipitation, evaporation, and other hydrological variables. No river gauge data are assimilated during the
-routing step, ensuring a uniform model-driven approach.
+A return period is an estimate of how infrequently an extreme high flow (flood) or prolonged low flow period (drought) occurs. Return periods have
+been precalculated using the Gumbel Distribution and Log Pearson Type 3 distributions and the hourly average maximum flows from each complete year.
+The precalculated return periods are used to define warning levels for each river segment in the model. The precalculated values are for 2, 5, 10, 25,
+50 and 100 year recurrence intervals. You can calculate a return period using your preferred method by accessing the same annual maximums dataset.
 
-## Return Period Calculations
+### Flow Duration Curves
 
-The retrospective simulation is used to define return periods that establish warning levels for each simulated river segment. Streamflow values for
-return periods of 2, 5, 10, 25, 50 and 100 years are calculated for every stream reach in the model.
-
-
-
+**Flow Duration Curves (FDCs)** is a representation of flow patterns in a river. They relate each discharge to a probability of exceedance. The
+exceedance probability is the chance that any randomly sampled discharge values is greater than or equal to the flow for that probability. Large
+floods have a low chance of exceedance while low flows have a high chance of exceedance. The FDC is a useful tool for understanding the variability of
+streamflow and the likelihood of different flow rates. FDCs are precalculated for each month (e.g. 12 total curves that represent each month) and for
+the entire period of record of the river. These help understand streamflow throughout the year and seasonal changes in flow which is applicable to
+effective water resource management, flood forecasting, and understanding hydrological patterns.
