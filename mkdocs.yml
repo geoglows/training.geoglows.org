@@ -52,7 +52,6 @@ nav:
           - Finding River Numbers: rfs/tutorials/find-river-numbers.md
           - Accessing Data: rfs/tutorials/exercises.md
           - Cookbook: rfs/tutorials/code-snippets.md
-          - Status and Outlook: rfs/tutorials/status-outlook.md
       - Part 4 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
