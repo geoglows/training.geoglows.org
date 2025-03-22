@@ -14,7 +14,7 @@ information, visit the [GEOGLOWS API Documentation](https://geoglows.ecmwf.int/d
 ## Using the API
 
 In order to use the API, most functions require you to know your river ID number. You can find more information about finding your river number
-here: [Finding River Numbers](https://data.geoglows.org/tutorials/finding-river-numbers). You can download the GIS data by VPU through the data
+here: [Finding River Numbers Tutorial](find-river-numbers.md). You can download the GIS data by VPU through the data
 catalog or select a stream on the web application and get a river number that way.
 
 ### Using the API Website
