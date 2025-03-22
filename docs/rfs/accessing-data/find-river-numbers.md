@@ -1,83 +1,55 @@
 ## Overview
 
 There are 6.25 million river segments modeled in the GEOGLOWS V2 datasets. These numbers are unique to the TDX-Hydro dataset and are different from
-numbers in any other stream dataset and previous versions of the model. All ID numbers are 9 digits. As a reference, this table provides IDs of some 
+numbers in any other stream dataset and previous versions of the model. All ID numbers are 9 digits. As a reference, this table provides IDs of some
 major rivers and their general locations.
 
-| ID Number        | Select Rivers and General Locations |
-| ---------------- | ----------------------------------- |
-| 760_021_611      | Mississippi, USA                    |
-| 160_064_246      | Nile, East Africa                   |
-| 710_462_910      | Colorado, USA & Mexico              |
-| 441_057_380      | Ganges, India                       |
-| 430_157_411      | Mekong, Vietnam                     |
-| 210_406_913      | Tiber, Italy                        |
-| 621_010_293      | Amazon, Brazil                      |
-| 130_747_391      | Congo, D.R. Congo                   |
-| 640_255_644      | Parana, Argentina                   |
+| ID Number | Select Rivers and General Locations |
+|-----------|-------------------------------------|
+| 760021611 | Mississippi, USA                    |
+| 160064246 | Nile, East Africa                   |
+| 710462910 | Colorado, USA & Mexico              |
+| 441057380 | Ganges, India                       |
+| 430157411 | Mekong, Vietnam                     |
+| 210406913 | Tiber, Italy                        |
+| 621010293 | Amazon, Brazil                      |
+| 130747391 | Congo, D.R. Congo                   |
+| 640255644 | Parana, Argentina                   |
+
+The RFS ID numbers are 9 digits longs. While large numbers are often delimited, often with a comma or period in various languages, any code you write
+to retrieve data ***should not*** include any delimiters. These IDs are integers. Most programming languages will interpret quotes, periods, commas,
+or other characters as something besides an integer which will make the retrieval process fail. For example, the number `123456789` ***should not***
+be written as `123,456,789` or `123.456.789` or `"123456789"` or `"123,456,789"` or any other variation. Only the integer representation `123456789`
+will work.
 
 !!! warning "Users migrating from V1"
-    RFS v2 is derived from a different source Digital Elevation Model (DEM) than v1 and has significantly more modeled streams. Because of the higher
-    resolution and changes in placements of river channels, it is not possible to provide a mapping of all version 1 numbers to v2 numbers. We have 
-    outlined some steps below to map an old ID to a GEOGLOWS 2 ID.
+RFS v2 is derived from a different source Digital Elevation Model (DEM) than v1 and has significantly more modeled streams. Because of the higher
+resolution and changes in placements of river channels, it is not possible to provide a mapping of all version 1 numbers to v2 numbers. We have
+outlined some steps below to map an old ID to a GEOGLOWS 2 ID.
 
-[//]: # (todo add image)
-Example Comparison of GEOGLOWS 1 vs GEOGLOWS 2 Streams
+## Using the Web App
 
-Left: GEOGLOWS Version 1's stream network (similar to hydrosheds). Notice how the river centerlines do not line up exactly with the rivers in the
-satellite imagery. Right: GEOGLOWS Version 2's stream network (derived from TDX Hydro). More streams are included and river centerlines are more
-aligned to the streams in the imagery. This river network is at a higher spatial resolution allowing for lines which more smoothly follow river paths
-compared to the more jagged or blocky looking lines on the left.
+The easiest way to find the ID of a river is to use the [RFS web app](https://app.riverforecastsystem.com){:target="_blank"}. Click on a stream on
+the map. To ensure you click on the exact stream you intended, the map will zoom in to a higher level of detail if you are zoomed out too far. After
+clicking on a stream, the map will identify the river segment you clicked on and the ID will be presented to you in the pop-up window with charts
+and other information.
 
-## Step 1: Find the watershed group of your stream
-For computation and data organization purposes, data are broken into groups of watersheds. These were referred to as "regions" in V1 and followed
-major watersheds and some political boundaries. There were 13 regions in V1. In V2, there are more of these groups and are identified with a 3 digit
-number. We call these "vector processing units" or VPU in order to share the same terminology used by other similar modeling projects. There are 125
-divisions in V2. Below we have the GEOGLOWS 1 regions mapped to all the applicable GEOGLOWS 2 VPU numbers.
+## Using the Hydrography data
 
-First, find the region your river is part of using the table and maps. Next, download all V2 VPUs or only the ones specifically applicable to the
-watersheds you need. Use the Dataset Reference page on this site to find links for dataset downloads. For example, if you had a river in the East Asia
-region, download the V2 VPUs 401 to 406.
+The Hydrography data is available in the [data catalog](https://data.geoglows.org/data-catalog){:target="_blank"}. You can download and view either
+the streams or catchments in a GIS software such as ArcGIS or QGIS. You can click on features or use spatial analysis tools to select many rivers. The
+ID numbers for those rivers are stored in the LINKNO attribute.
 
-GEOGLOWS V1 Region Boundaries
+## Find Rivers with Lat/Lon
 
-[//]: # (todo add image)
+There are many methods to attempt to find a river ID given a latitude and longitude. None are perfect for all cases. There are several potential
+errors from automated methods due to the accuracy and precision of your lat/lon points, the accuracy of the stream lines in that specific location,
+if you want to snap to the nearest outlet or nearest stream arc, is your lat/lon close to a confluence where the GIS would get confused by having
+multiple close choices nearby, etc. Automated methods should be considered imperfect and verified for accuracy against other sources such as a known 
+upstream drainage area at the lat/lon of a gauge point, the name of the river, comparisons to imagery basemaps, or other means.
 
+One method to start with is to load the streams GIS files for your area of interest into a GIS software. You can snap them to the nearest stream arc. 
+In QGIS, the tool is called "Snap geometries to layer”. Use the algorithm to find the nearest point and insert extra vertices if required.
 
-GEOGLOWS V2 VPU Boundaries
-
-[//]: # (todo add image)
-
-## Step 2: Comparison with GIS
-Load the old network into your GIS software of choice. Identify the stream in the old network, either by querying the attribute table of the network
-or by visually locating the stream. The image on the right shows the Central America region loaded in QGIS. A stream was selected in red using the
-Select tool, and zoomed in by right clicking the network name in the Layers panel and selecting "Zoom to Layer(s)"
-
-Load the VPU(s) into the GIS. The new network will appear, and new prospective rivers should appear in the same area as the selected stream. If none
-appear in the area of the selected stream, it may be that you need to download another VPU region. Consult the VPU boundary map and download any
-additional regions. The image shows that the VPU region 718 has been loaded (orange).
-
-In this example, it is fairly intuitive that stream should map to the new stream that is closest to it. The image to right shows the new stream
-selected in red that most closely matches the old stream.
-
-By selecting the VPU region layer in the Layers panel, and then selecting the new stream using the "Identify Features Tool", we can obtain the new id.
-The image on the right shows the attributes of the stream. The new ID is labeled as the "TDXHydroLinkNo." Other useful attributes can be seen in this
-panel.
-
-While this process is usually straightforward, there are some areas where more work is required to correctly map an old stream to a new stream. Below
-on the left is the old network in blue and the new network in green, with the old stream we want to map highlighted in red. On the right, a potential
-new stream is highlighted in red. This appears to be a logic choice, but more inspection is warranted. By checking the attribute tables for both
-features, it is revealed that the drainage area upstream of the old stream is roughly 6000 sq. km, while the proposed new stream has a drainage area
-of about 200 sq. km, which indicates that our selection is probably incorrect.
-
-Old stream selected
-
-New proposed stream selected
-
-Below, the map has been zoomed out. After carefully tracing the paths of the old stream and the new streams to the main trunk, it becomes clear that
-the new network routes the main river to a different outlet. This suggests that the stream selected in the right picture is the correct one. An
-inspection of the attribute table reveals that this new selection has a drainage area of about 5300 sq. km, which better matches our expectations.
-
-Old stream selected
-
-New correct stream selected
+Another method is to download the catchment polygons and intersect them with a layer containing your lat/lon points. The GIS work is straightforward 
+but is occasionally less accurate and requires larger file downloads.
