@@ -1,10 +1,7 @@
-# Publications
+Considerable work was done to develop and evaluate the technologies which enable this model. This is an abbreviated list of publications which
+resulted from this research. We acknowledge that many scientists and researchers contribute to the successful development and operation of this model.
 
-Considerable work was done to develop and evaluate the technologies which enable this hydrologic model. This is an abbreviated list of publications which resulted from this research. We acknowledge that many scientists and researchers contribute to the successful development and operation of this model.
-
-## GEOGLOWS Hydrologic Model
-
-### GEOGLOWS V1
+## RFS V1
 
 - **Riley C. Hales, Jim Nelson, Michael Souffront, Angelica Guttierez, Christel Prudhomme, Steve Kopp, Dan Ames, Gus Williams, Norm Jones**  
   *Advancing Global Hydrologic Modeling with the GEOGloWS ECMWF Streamflow Service*  
@@ -16,14 +13,16 @@ Considerable work was done to develop and evaluate the technologies which enable
   *Open Water Journal*  
   [Link](https://scholarsarchive.byu.edu/openwater/vol7/iss1/9/)
 
-- **Michael A. Souffront, E. James Nelson, Kiran Shakya, Christopher Edwards, Wade Roberts, Corey Krewson, Daniel P. Ames, Norman L. Jones, Angelica Gutierrez**  
+- **Michael A. Souffront, E. James Nelson, Kiran Shakya, Christopher Edwards, Wade Roberts, Corey Krewson, Daniel P. Ames, Norman L. Jones, Angelica
+  Gutierrez**  
   *Hydrologic Modeling as a Service (HMaaS): A New Approach to Address Hydroinformatic Challenges in Developing Countries*  
   *Frontiers in Environmental Science: Freshwater Science, October 2019*  
   [DOI: 10.3389/fenvs.2019.00158](https://doi.org/10.3389/fenvs.2019.00158)
 
 ## Formative Research
 
-- **Xiaohui Qiao, E. James Nelson, Daniel P. Ames, Zhiyu Li, Cedric H. David, Gustavious P. Williams, Wade Roberts, Jorge Luis Sanchez, Chris Edwards, Michael A. Souffront, Mir A. Matin**  
+- **Xiaohui Qiao, E. James Nelson, Daniel P. Ames, Zhiyu Li, Cedric H. David, Gustavious P. Williams, Wade Roberts, Jorge Luis Sanchez, Chris Edwards,
+  Michael A. Souffront, Mir A. Matin**  
   *A Systems Approach to Routing Global Gridded Runoff through Local High-Resolution Stream Networks for Flood Early Warning Systems*  
   *Environmental Modelling and Software, Vol. 120, Article 104501, October 2019*  
   [DOI: 10.1016/j.envsoft.2019.104501](https://doi.org/10.1016/j.envsoft.2019.104501)
@@ -35,11 +34,14 @@ Considerable work was done to develop and evaluate the technologies which enable
 
 ## Bias Correction
 
-- **Jorge Luis Sanchez Lozano, D.J. Rojas Lesmes, E.G. Romero Bustamante, R.C. Hales, E.J. Nelson, G.P. Williams, D.P. Ames, N.L. Jones, A.L. Gutierrez, C. Cardona Almeida**  
-  *Historical simulation performance evaluation and monthly flow duration curve quantile-mapping (MFDC-QM) of the GEOGLOWS ECMWF streamflow hydrologic model*  
+- **Jorge Luis Sanchez Lozano, D.J. Rojas Lesmes, E.G. Romero Bustamante, R.C. Hales, E.J. Nelson, G.P. Williams, D.P. Ames, N.L. Jones, A.L.
+  Gutierrez, C. Cardona Almeida**  
+  *Historical simulation performance evaluation and monthly flow duration curve quantile-mapping (MFDC-QM) of the GEOGLOWS ECMWF streamflow hydrologic
+  model*  
   [DOI: 10.1016/j.envsoft.2024.106235](https://doi.org/10.1016/j.envsoft.2024.106235)
 
-- **Darlly Judith Rojas Lesmes, Jorge Luis Sanchez Lozano, Jim Nelson, Mario German Trujillo Vela, Gus Williams, Daniel P Ames, Norm Jones, Angelica L. Gutierrez, E. Giovanni Romero Bustamante, Riley Hales**  
+- **Darlly Judith Rojas Lesmes, Jorge Luis Sanchez Lozano, Jim Nelson, Mario German Trujillo Vela, Gus Williams, Daniel P Ames, Norm Jones, Angelica
+  L. Gutierrez, E. Giovanni Romero Bustamante, Riley Hales**  
   *Discharge-to-water level transformation (DWLT) using monthly duration curves: enhancing the utility of the GEOGLOWS ECMWF hydrological model*  
   [DOI: 10.22541/essoar.173532353.33602073/v1](https://doi.org/10.22541/essoar.173532353.33602073/v1)
 
@@ -61,7 +63,8 @@ Considerable work was done to develop and evaluate the technologies which enable
 ## Validation
 
 - **Elise Jackson, Wade Roberts, Benjamin Nelsen, Gustavious P. Williams, E. James Nelson, Daniel P. Ames**  
-  *Introductory overview: Error metrics for hydrologic modelling – A review of common practices and an open source library to facilitate use and adoption*  
+  *Introductory overview: Error metrics for hydrologic modelling – A review of common practices and an open source library to facilitate use and
+  adoption*  
   *Environmental Modeling and Software, May 2019*  
   [DOI: 10.1016/j.envsoft.2019.05.001](https://doi.org/10.1016/j.envsoft.2019.05.001)
 

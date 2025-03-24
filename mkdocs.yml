@@ -38,8 +38,8 @@ nav:
   - Overview: overview.md
   - River Forecast System:
       - Part 1 Available Data:
-          - Data Catalog: rfs/datasets/data-catalog.md
-          - GIS Data: rfs/datasets/gis-data.md
+          - Data Catalog: rfs/datasets/catalog.md
+          - Hydrography: rfs/datasets/hydrography.md
           - Retrospective Data: rfs/datasets/retrospective.md
           - Forecast Data: rfs/datasets/forecast.md
       - Part 2 Accessing Data:

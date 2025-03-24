@@ -2,7 +2,7 @@
 
 If you only need to download data for a few rivers, or you do not want to write code, use the web app! Our apps lets you graphically
 browse a map of rivers, view and downloading forecast or retrospective data, compare forecasts with the latest satellite imagery, and
-finding links to more information. Visit [app.riverforecastsystem.com](https://app.riverforecastsystem.com){:target="_blank"} to get started.
+finding links to more information. Visit [hydroviewer.geoglows.org](https://hydroviewer.geoglows.org){:target="_blank"} to get started.
 
 ## Get a list of IDs in my watershed
 

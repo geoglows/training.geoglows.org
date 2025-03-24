@@ -29,14 +29,14 @@ will work.
 
 ## Using the Web App
 
-The easiest way to find the ID of a river is to use the [RFS web app](https://app.riverforecastsystem.com){:target="_blank"}. Click on a stream on
+The easiest way to find the ID of a river is to use the [RFS web app](https://hydroviewer.geoglows.org){:target="_blank"}. Click on a stream on
 the map. To ensure you click on the exact stream you intended, the map will zoom in to a higher level of detail if you are zoomed out too far. After
 clicking on a stream, the map will identify the river segment you clicked on and the ID will be presented to you in the pop-up window with charts
 and other information.
 
 ## Using the Hydrography data
 
-The Hydrography data is available in the [data catalog](https://data.geoglows.org/data-catalog){:target="_blank"}. You can download and view either
+The Hydrography data is available in the [data catalog](../datasets/catalog){:target="_blank"}. You can download and view either
 the streams or catchments in a GIS software such as ArcGIS or QGIS. You can click on features or use spatial analysis tools to select many rivers. The
 ID numbers for those rivers are stored in the LINKNO attribute.
 

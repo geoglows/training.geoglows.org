@@ -19,8 +19,7 @@ the [AWS Data Exchange](https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz
 The data are stored in 2 buckets. The first holds the model configuration files, gis data, retrospective simulation data, and other data which are
 essentially static. The second bucket holds the daily forecasts produced by that model as arranged by GEOGLOWS.
 
-- Forecasts: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:
-  target="_blank"}
+- Forecasts: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
 - GIS + Retro: [https://rfs-v2.s3-us-west-2.amazonaws.com/index.html](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html){:target="_blank"}
 
 | Dataset                              | File Format(s)      | Bucket URI and Path                                                                                                                          | AWS Region |
@@ -42,10 +41,8 @@ essentially static. The second bucket holds the daily forecasts produced by that
 - TDX-Hydro post-processing preparation for hydrological
   modeling: [https://github.com/geoglows/tdxhydro-postprocessing](https://github.com/geoglows/tdxhydro-postprocessing){:target="_blank"}
 - Forecast computation scripts: [https://github.com/geoglows/geoglows_ecflow](https://github.com/geoglows/geoglows_ecflow){:target="_blank"}
-- Retrospective weekly update scripts: [https://github.com/geoglows/retrospective-update](https://github.com/geoglows/retrospective-update){:target="_
-  blank"}
-- river-route Python Package for Matrix Muskingum Routing: [https://github.com/rileyhales/river-route](https://github.com/rileyhales/river-route){:
-  target="_blank"}
+- Retrospective weekly update scripts: [https://github.com/geoglows/retrospective-update](https://github.com/geoglows/retrospective-update){:target="_blank"}
+- river-route Python Package for Matrix Muskingum Routing: [https://github.com/rileyhales/river-route](https://github.com/rileyhales/river-route){:target="_blank"}
 
 ## Downloading data from the command line interface (recommended)
 
@@ -71,16 +68,3 @@ The following Collab notebooks demonstrate how to access the data from the AWS b
 
 - [Access GEOGLOWS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
 - [Access GEOGLOWS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)
-
----
-
-## Accessing Data Directly from AWS
-
-Users can also download the data directly by visiting the AWS bucket
-here: [https://data.geoglows.org/available-data](https://data.geoglows.org/available-data).
-
-After selecting the S3 bucket of interest, users can navigate to the file they want to download. The interface will look like this:
-
-![AWS Bucket Interface](../../static/images/aws_bucket.png)
-
-Users can then navigate to their file of choice to download it.
