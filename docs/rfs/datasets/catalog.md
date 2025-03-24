@@ -22,19 +22,19 @@ essentially static. The second bucket holds the daily forecasts produced by that
 - Forecasts: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
 - GIS + Retro: [https://rfs-v2.s3-us-west-2.amazonaws.com/index.html](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html){:target="_blank"}
 
-| Dataset                              | File Format(s)      | Bucket URI and Path                                                                                                                          | AWS Region |
-|--------------------------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| Daily Forecasts                      | Zarr                | [s3://geoglows-v2-forecasts/](https://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}                           | us-west-2  |
-| Hydrography - VPUs                   | GeoPackage (sqlite) | [s3://rfs-v2/hydrography/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#hydrography/){:target="_blank"}                              | us-west-2  |
-| Hydrography - Global                 | GeoPackage (sqlite) | [s3://rfs-v2/hydrography-global/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#hydrography-global/){:target="_blank"}                | us-west-2  |
-| Hydrography - Supplementary Tables   | Parquet             | [s3://rfs-v2/tables/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#tables/){:target="_blank"}                                        | us-west-2  |
-| Retrospective - Hourly Average       | Zarr                | [s3://rfs-v2/retrospective/hourly.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}               | us-west-2  |
-| Retrospective - Daily Average        | Zarr                | [s3://rfs-v2/retrospective/daily.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}                | us-west-2  |
-| Retrospective - Monthly Average      | Zarr                | [s3://rfs-v2/retrospective/monthly-timeseries.zarre](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}  | us-west-2  |
-| Retrospective - Yearly Average       | Zarr                | [s3://rfs-v2/retrospective/yearly-timeseries.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}    | us-west-2  |
-| Retrospective - Yearly Maximums      | Zarr                | [s3://rfs-v2/retrospective/yearly-maximums.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}      | us-west-2  |
-| Retrospective - Return Periods       | Zarr                | [s3://rfs-v2/retrospective/return-periods.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}       | us-west-2  |
-| Retrospective - Flow Duration Curves | Zarr                | [s3://rfs-v2/retrospective/flow-duration-curves.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"} | us-west-2  |
+| Dataset                              | File Format(s)      | Bucket URI and Path                                                                                                                        | AWS Region |
+|--------------------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| Daily Forecasts                      | Zarr                | [s3://geoglows-v2-forecasts/](https://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}                         | us-west-2  |
+| Hydrography - VPUs                   | GeoPackage (sqlite) | [s3://rfs-v2/hydrography/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#hydrography/){:target="_blank"}                            | us-west-2  |
+| Hydrography - Global                 | GeoPackage (sqlite) | [s3://rfs-v2/hydrography-global/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#hydrography-global/){:target="_blank"}              | us-west-2  |
+| Hydrography - Supplementary Tables   | Parquet             | [s3://rfs-v2/tables/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#tables/){:target="_blank"}                                      | us-west-2  |
+| Retrospective - Hourly Average       | Zarr                | [s3://rfs-v2/retrospective/hourly.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}             | us-west-2  |
+| Retrospective - Daily Average        | Zarr                | [s3://rfs-v2/retrospective/daily.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}              | us-west-2  |
+| Retrospective - Monthly Average      | Zarr                | [s3://rfs-v2/retrospective/monthly-timeseries.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"} | us-west-2  |
+| Retrospective - Yearly Average       | Zarr                | [s3://rfs-v2/retrospective/yearly-timeseries.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}  | us-west-2  |
+| Retrospective - Yearly Maximums      | Zarr                | [s3://rfs-v2/retrospective/yearly-maximums.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}    | us-west-2  |
+| Retrospective - Return Periods       | Zarr                | [s3://rfs-v2/retrospective/return-periods.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}     | us-west-2  |
+| Retrospective - Flow Duration Curves | Zarr                | [s3://rfs-v2/retrospective/fdc.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}                | us-west-2  |
 
 ## Code and Technical References
 
