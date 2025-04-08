@@ -20,6 +20,29 @@ plugins:
         - locale: es
           name: Español
           build: true
+          nav_translations:
+            Home: "Inicio"
+            Overview: "Visión general"
+            River Forecast System: "River Forecast System"
+            Part 1 Available Data: "Parte 1: Datos Disponibles"
+            Data Catalog: "Catálogo de Datos"
+            Hydrography: "Hidrografía"
+            Retrospective Data: "Datos Retrospectivos"
+            Forecast Data: "Datos Pronosticados"
+            Part 2 Accessing Data: "Parte 2: Acceso a los Datos"
+            Finding River Numbers: "Encontrar Números de Río"
+            Querying Data: "Consultando Datos"
+            Bulk Downloads: "Descargas Masivas"
+            API (Data Service): "API (Servicio de Datos)"
+            Web Maps: "Mapas Web"
+            Part 3 Application Tutorials: "Parte 3: Tutoriales de Aplicación"
+            Web App: "Aplicación Web"
+            Understanding RFS Data: "Entendiendo los Datos RFS"
+            Cookbook: "Recetario"
+            Part 4 Bias Correction: "Parte 4: Corrección de Sesgo"
+            SABER Method: "Método SABER"
+            Correcting Forecasts: "Corregir Pronósticos"
+            Publications: "Publicaciones" 
 theme:
   features:
     - content.code.copy
@@ -67,3 +90,4 @@ nav:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
       - Publications: rfs/publications.md
+

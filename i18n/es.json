@@ -1,0 +1,27 @@
+{
+    "nav": {
+      "Home": "Inicio",
+      "Overview": "Visión general",
+      "River Forecast System": "Sistema de pronóstico fluvial",
+      "Part 1 Available Data": "Parte 1: Datos disponibles",
+      "Data Catalog": "Catálogo de datos",
+      "Hydrography": "Hidrografía",
+      "Retrospective Data": "Datos retrospectivos",
+      "Forecast Data": "Datos pronosticados",
+      "Part 2 Accessing Data": "Parte 2: Accediendo a los datos",
+      "Finding River Numbers": "Encontrar números de río",
+      "Querying Data": "Consultar datos",
+      "Bulk Downloads": "Descargas masivas",
+      "API (Data Service)": "API (Servicio de datos)",
+      "Web Maps": "Mapas web",
+      "Part 3 Application Tutorials": "Parte 3: Tutoriales de aplicaciones",
+      "Web App": "Aplicación web",
+      "Understanding RFS Data": "Entendiendo los datos de RFS",
+      "Cookbook": "Recetario",
+      "Part 4 Bias Correction": "Parte 4: Corrección de sesgo",
+      "SABER Method": "Método SABER",
+      "Correcting Forecasts": "Corregir pronósticos",
+      "Publications": "Publicaciones"
+    }
+  }
+  
