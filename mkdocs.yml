@@ -9,6 +9,17 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+plugins:
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
 theme:
   features:
     - content.code.copy
@@ -55,4 +66,4 @@ nav:
       - Part 4 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
-      - Publications: publications.md
+      - Publications: rfs/publications.md

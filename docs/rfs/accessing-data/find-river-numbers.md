@@ -36,7 +36,7 @@ and other information.
 
 ## Using the Hydrography data
 
-The Hydrography data is available in the [data catalog](../datasets/catalog){:target="_blank"}. You can download and view either
+The Hydrography data is available in the [data catalog](../datasets/catalog.md){:target="_blank"}. You can download and view either
 the streams or catchments in a GIS software such as ArcGIS or QGIS. You can click on features or use spatial analysis tools to select many rivers. The
 ID numbers for those rivers are stored in the LINKNO attribute.
 
