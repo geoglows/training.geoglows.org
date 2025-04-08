@@ -1,8 +1,10 @@
-Considerable work was done to develop and evaluate the technologies which enable this model. This is an abbreviated list of publications which
-resulted from this research. We acknowledge that many scientists and researchers contribute to the successful development and operation of this model.
-
-## RFS V1
-
+# RFS V2
+## Example Use Cases
+- **Rachel Huber Magoffin, Riley C. Hales, E. James Nelson, Calvince Wara, Gustavious P. Williams, Andrew South, Zeleke K. Challa**  
+  *Hydrologic Decision Support in the Nile Basin: Creating Status Products from the GEOGLOWS Hydrologic Model*  
+  [DOI: 10.3390/hydrology12030043](https://doi.org/10.3390/hydrology12030043)
+# RFS V1
+## Model Design
 - **Riley C. Hales, Jim Nelson, Michael Souffront, Angelica Guttierez, Christel Prudhomme, Steve Kopp, Dan Ames, Gus Williams, Norm Jones**  
   *Advancing Global Hydrologic Modeling with the GEOGloWS ECMWF Streamflow Service*  
   *Journal of Flood Risk Management*  
