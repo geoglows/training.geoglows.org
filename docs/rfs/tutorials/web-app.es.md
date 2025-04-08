@@ -29,30 +29,57 @@ Los usuarios pueden descargar **gráficos** y archivos **.csv** para los ríos d
 
 A nivel global, solo se muestran los ríos más grandes. Más ríos se vuelven visibles a medida que el usuario hace zoom en el mapa y en su área de interés. Si no eres lo suficientemente preciso al hacer clic, aparecerá una advertencia pidiéndote que hagas más zoom y seas más preciso al hacer clic en el segmento del río.
 
-Una vez que hayas seleccionado los ríos, aparecerá una ventana emergente con el nombre del río, el ID y dos gráficos: los datos de flujo de agua pronosticados y retrospectivos.
+## Datos Retrospectivos
 
-![datos-cargados](../../static/images/loaded-graph.png)
+Una vez que hayas seleccionado los cauces, aparecerá una ventana emergente con el nombre del río, su ID y los datos de pronóstico acompañados de un gráfico. Puedes encontrar más información sobre este gráfico en [Datos de Pronóstico](../datasets/forecast.md).
 
-Los gráficos y archivos `.csv` se pueden descargar para los ríos de interés al seleccionar el ícono de la cámara en la esquina del gráfico.
+![loaded-datat](../../static/images/new_forecast_pop_up.png)
 
-## Datos de Pronóstico Anteriores
+Se pueden descargar los gráficos y archivos `.csv` de los cauces de interés seleccionando el ícono de la cámara en la esquina del gráfico.
 
-De forma predeterminada, cuando haces clic en un río, se mostrarán los pronósticos de 15 días a partir del día actual. Sin embargo, si lo prefieres, puedes ver el pronóstico de un día anterior eligiendo una fecha del menú desplegable de fechas.
+## Datos de Pronósticos Anteriores
 
-![calendario](../../static/images/calendar-forecast.png)
+Por defecto, al hacer clic en un cauce se mostrará el pronóstico a 15 días desde el día actual. Sin embargo, si lo deseas, puedes ver un pronóstico de un día anterior seleccionando una fecha en el menú desplegable de fechas.
+
+![calendar](../../static/images/calendar-forecast.png)
 
 ## Datos Retrospectivos
 
-De forma predeterminada, se verán 10 años de datos retrospectivos, pero esto se puede ajustar utilizando los deslizadores grises en la parte inferior. Todo el conjunto de datos retrospectivos, que data desde 1940, se puede acceder de esta manera.
+Puedes ver los datos retrospectivos cambiando a la vista retrospectiva en la parte superior de la ventana emergente. El ícono azul resaltado indica si estás viendo los datos de pronóstico o los retrospectivos. Por defecto, se muestran 10 años de datos retrospectivos, pero esto se puede ajustar usando los controles deslizantes grises en la parte inferior. Todo el conjunto de datos retrospectivos, que se remonta hasta 1940, está disponible de esta manera.
 
-![Datos Retrospectivos](../../static/images/retrospective-variable.png)
+![Retrospective Data](../../static/images/new_pop_up_retro.png)
+
+Hay varios otros gráficos con información sobre los datos retrospectivos que puedes consultar al desplazarte hacia abajo en la ventana emergente. Todos estos datos se basan en los valores del conjunto retrospectivo y son resultados de cálculos realizados con esos datos.
+
+### Descarga Anual Acumulada
+
+![Yearly Cumulative Data](../../static/images/cumulative_discharge.png)
+
+Este gráfico muestra un valor por cada año de la simulación retrospectiva, representando el volumen total de descarga durante ese año para ese cauce. Esto se representa con la línea azul en el gráfico. Las líneas rojas muestran los promedios móviles de 5 años del volumen, lo que permite observar cómo puede estar cambiando el volumen del cauce con el tiempo.
+
+### Gráfico del Régimen de Caudal
+
+![Flow Regime](../../static/images/flow_regime.png)
+
+Este gráfico muestra el rango de condiciones de caudal —muy seco, seco, normal, húmedo y muy húmedo— a lo largo del año. Se basa en métodos desarrollados por la OMM para su iniciativa HydroSOS. Los rangos de categoría se calculan usando promedios históricos mensuales. Los valores de cada mes se ordenan por separado y se les asigna un percentil. Estos percentiles se utilizan para definir los umbrales de cada categoría.
+
+Los colores en el gráfico representan estas categorías para cada mes. Los usuarios pueden seleccionar los años que desean visualizar, siendo el año más reciente el que se muestra por defecto. Los promedios mensuales de los años seleccionados se trazan sobre los colores de fondo, lo que permite comparar visualmente el caudal actual o pasado con los valores históricos.
+
+Este gráfico ayuda a los usuarios a entender cómo los valores del caudal en un año determinado se comparan con lo considerado normal, y si las condiciones fueron más húmedas o más secas de lo habitual en cada mes.
+
+### Curvas de Duración de Caudal
+
+![Flow Duration Curve](../../static/images/fdc.png)
+
+Este gráfico muestra el caudal en el eje y y la probabilidad de excedencia en el eje x. Cada punto representa un valor mensual de caudal, indicando con qué frecuencia se supera ese nivel de caudal. Además de los valores mensuales individuales, el gráfico incluye una curva de duración de caudal general basada en todo el conjunto de datos. Esto permite a los usuarios comparar los patrones de caudal mensuales con la distribución de caudales a largo plazo.
+
 
 ## Ingresar un ID de Río
 
 Si un usuario ya conoce el ID del río para su río de interés, puede ingresarlo directamente en la aplicación para ver los datos.
 
 1. Abre la ventana emergente del gráfico ya sea seleccionando el ícono del gráfico en la esquina superior derecha o abriéndola desde una selección anterior de río.
-2. Haz clic en **“Ingresar ID de Río”** en la parte superior central de la ventana emergente.
+2. Haz clic en **“Ingresar ID de Río”** en la parte superior de la ventana emergente.
 3. Escribe cualquier ID de río (por ejemplo, este ID de alcance es para el río Magdalena en Colombia: `610363879`) y haz clic en **“OK”**.
 4. Los datos de pronóstico y retrospectivos se recargarán y se mostrarán para el nuevo río en la ventana emergente.
 
