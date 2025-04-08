@@ -16,7 +16,7 @@ Este método ayuda a mejorar la precisión de las predicciones, particularmente 
 
 [Bias_Correction_Forecast_Data.pdf](https://drive.google.com/file/d/1CjsVCMkZjngEZt1k45dd4tgGTJREhi2D/view?usp=sharing)
 
-Este cuaderno de Colab ofrece una guía paso a paso para realizar la corrección de sesgo en los valores de predicción de GEOGLOWS. Muestra cómo ajustar los valores de caudal pronosticados utilizando observaciones históricas, mejorando la precisión de las predicciones y alineando los datos con mediciones del mundo real para un mejor
+Este cuaderno de Colab ofrece una guía paso a paso para realizar la corrección de sesgo en los valores de predicción de RFS. Muestra cómo ajustar los valores de caudal pronosticados utilizando observaciones históricas, mejorando la precisión de las predicciones y alineando los datos con mediciones del mundo real para un mejor
 análisis hidrológico:
 
 [Bias_Correction_GEOGloWS_ECMWF_Hydrological_Model_Forecast Colab.ipynb](https://colab.research.google.com/drive/1vXJNrCjef3G4KoCc1LlNm5T_mqLu20E_?usp=sharing)

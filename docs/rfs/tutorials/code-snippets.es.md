@@ -1,10 +1,10 @@
-## Descargar datos de pronóstico GEOGLOWS para mi río
+## Descargar datos de pronóstico de RFS para mi río
 
 Si solo necesitas descargar datos para algunos ríos o no deseas escribir código, ¡usa la aplicación web! Nuestras aplicaciones te permiten explorar gráficamente un mapa de ríos, ver y descargar datos de pronóstico o retrospectivos, comparar pronósticos con la última imagen satelital y encontrar enlaces a más información. Visita [hydroviewer.geoglows.org](https://hydroviewer.geoglows.org/es/){:target="_blank"} para comenzar.
 
 ## Obtener una lista de IDs en mi cuenca hidrográfica
 
-Cada río en el modelo GEOGLOWS tiene un atributo llamado "TerminalLink". El TerminalLink es el número de ID del río en la salida de la cuenca hidrográfica en la que se encuentra el río de interés. Todos los ríos en la cuenca tienen la misma salida. Puedes filtrar la tabla de ríos para seleccionar solo aquellos que drenan hacia el mismo río. Puedes usar los conjuntos de datos GIS y realizar esta operación en ArcGIS o QGIS. Puedes encontrar enlaces para obtener los archivos GIS de los ríos en la página de Datos Disponibles y el tutorial sobre Cómo Encontrar Números de Ríos. Alternativamente, puedes hacerlo mediante código utilizando las tablas de metadatos de GEOGLOWS y la tabla de metadatos del modelo. Necesitarás descargar esa tabla (aproximadamente 250 MB) para resolver este problema mediante código.
+Cada río en el modelo RFS tiene un atributo llamado "TerminalLink". El TerminalLink es el número de ID del río en la salida de la cuenca hidrográfica en la que se encuentra el río de interés. Todos los ríos en la cuenca tienen la misma salida. Puedes filtrar la tabla de ríos para seleccionar solo aquellos que drenan hacia el mismo río. Puedes usar los conjuntos de datos GIS y realizar esta operación en ArcGIS o QGIS. Puedes encontrar enlaces para obtener los archivos GIS de los ríos en la página de Datos Disponibles y el tutorial sobre Cómo Encontrar Números de Ríos. Alternativamente, puedes hacerlo mediante código utilizando las tablas de metadatos de RFS y la tabla de metadatos del modelo. Necesitarás descargar esa tabla (aproximadamente 250 MB) para resolver este problema mediante código.
 
 <script src="https://gist.github.com/rileyhales/e94f0c51090f26bc396e2289d41edefd.js"></script>
 

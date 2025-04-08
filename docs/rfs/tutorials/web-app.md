@@ -1,10 +1,10 @@
-# Using the GEOGLOWS Hydroviewer
+# Using the RFS Hydroviewer
 
-The GEOGLOWS Hydroviewer is a tool for visualizing and accessing streamflow forecasts and historical data across the globe. This web-based application
+The RFS Hydroviewer is a tool for visualizing and accessing streamflow forecasts and historical data across the globe. This web-based application
 allows users to explore real-time streamflow conditions, analyze forecast trends, and review hydrological simulations for any river, helping
 decision-makers and researchers better understand water-related challenges. With easy-to-use visualization tools, users can assess discharge values
 and identify potential flood or drought risks. The HydroViewer supports informed decision-making in water resource management, disaster risk
-reduction, and climate resilience planning. Access the app at [GEOGLOWS Hydroviewer](https://hydroviewer.geoglows.org/).
+reduction, and climate resilience planning. Access the app at [RFS Hydroviewer](https://hydroviewer.geoglows.org/).
 
 ![Hydroviewer](../../static/images/hydroviewer.png)
 

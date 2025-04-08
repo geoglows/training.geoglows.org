@@ -1,10 +1,10 @@
 # Capa de Esri Living Atlas
 
-Esri alberga un **ArcGIS Living Atlas of the World**. Incluye mapas, aplicaciones y capas de datos que pueden ayudar a los investigadores a acceder fácilmente a los datos. Albergan una capa GEOGLOWS como parte de este programa. Esto permite que los datos de flujo de agua de GEOGLOWS se carguen en ArcGIS o QGIS sin necesidad de descargar todo el conjunto de datos. La imagen a continuación muestra la capa de arroyos cargada en QGIS.
+Esri alberga un **ArcGIS Living Atlas of the World**. Incluye mapas, aplicaciones y capas de datos que pueden ayudar a los investigadores a acceder fácilmente a los datos. Hospedan una capa de GEOGLOWS como parte de este programa. Esto permite que los datos de caudal de RFS se carguen en ArcGIS o QGIS sin necesidad de descargar todo el conjunto de datos. La imagen a continuación muestra la capa de caudal cargada en QGIS.
 
 ![captura de pantalla](../../static/images/imagen.png)
 
-La capa es una capa de animación que muestra los primeros 10 días de los datos de pronóstico de 15 días de GEOGLOWS. Los arroyos están coloreados según si superan un período de retorno dado y, por lo tanto, están en un flujo alto.
+La capa es una capa de animación que muestra los primeros 10 días de los datos de pronóstico de 15 días de RFS. Los arroyos están coloreados según si superan un período de retorno dado y, por lo tanto, están en un flujo alto.
 
 Algunas cosas que un usuario puede hacer con esta capa:
 

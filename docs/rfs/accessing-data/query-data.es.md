@@ -1,5 +1,5 @@
 !!! note
-    Los métodos descritos aquí son los medios preferidos para recuperar datos del Sistema de Pronóstico de Ríos.
+    Los métodos descritos aquí son los medios preferidos para recuperar datos del River Forecast System (RFS).
 
 ## Estructuras de Datos
 
@@ -24,7 +24,7 @@ Para escribir tu propio código en Python que lea directorios Zarr, necesitarás
 !!! warning
     Las versiones anteriores de estas dependencias también funcionan, pero no están probadas para este sitio de capacitación.
 
-Para encontrar las rutas a los directorios Zarr, deberías consultar el [catálogo de datos](catalog.md#table-of-datasets){:target="_blank"}. Puedes pasar el URI comenzando con `s3://` directamente a la función `xr.open_dataset()`.
+Para encontrar las rutas a los directorios Zarr, deberías consultar el [catálogo de datos](../datasets/catalog.md){:target="_blank"}. Puedes pasar el URI comenzando con `s3://` directamente a la función `xr.open_dataset()`.
 
 ```python
 import xarray as xr

@@ -1,6 +1,6 @@
 ## Overview
 
-There are 6.25 million river segments modeled in the GEOGLOWS V2 datasets. These numbers are unique to the TDX-Hydro dataset and are different from
+There are 6.25 million river segments modeled in the RFS V2 datasets. These numbers are unique to the TDX-Hydro dataset and are different from
 numbers in any other stream dataset and previous versions of the model. All ID numbers are 9 digits. As a reference, this table provides IDs of some
 major rivers and their general locations.
 
@@ -25,7 +25,7 @@ will work.
 !!! warning "Users migrating from V1"
     RFS v2 is derived from a different source Digital Elevation Model (DEM) than v1 and has significantly more modeled streams. Because of the higher
     resolution and changes in placements of river channels, it is not possible to provide a mapping of all version 1 numbers to v2 numbers. We have
-    outlined some steps below to map an old ID to a GEOGLOWS 2 ID.
+    outlined some steps below to map an old ID to a RFS 2 ID.
 
 ## Using the Web App
 

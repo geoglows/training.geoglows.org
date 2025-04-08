@@ -27,7 +27,7 @@ To write your own code Python which reads Zarr directories, you will need the fo
 !!! warning
     Earlier versions of these dependencies also work but are not tested for this training site.
 
-To find the paths to the Zarr directories, you should refer to the [data catalog](catalog.md#table-of-datasets){:target="_blank"}. You can pass
+To find the paths to the Zarr directories, you should refer to the [data catalog](../datasets/catalog.md){:target="_blank"}. You can pass
 the URI starting with `s3://` directly to the `xr.open_dataset()` function.
 
 ```python

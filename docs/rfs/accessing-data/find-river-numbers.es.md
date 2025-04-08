@@ -1,6 +1,6 @@
 ## Visión general
 
-Existen 6.25 millones de segmentos de río modelados en los conjuntos de datos GEOGLOWS V2. Estos números son únicos para el conjunto de datos TDX-Hydro y son diferentes de los números en cualquier otro conjunto de datos de arroyos y versiones anteriores del modelo. Todos los números de identificación tienen 9 dígitos. Como referencia, esta tabla proporciona los ID de algunos ríos principales y sus ubicaciones generales.
+Existen 6.25 millones de segmentos de río modelados en los conjuntos de datos RFS V2. Estos números son únicos para el conjunto de datos TDX-Hydro y son diferentes de los números en cualquier otro conjunto de datos de arroyos y versiones anteriores del modelo. Todos los números de identificación tienen 9 dígitos. Como referencia, esta tabla proporciona los ID de algunos ríos principales y sus ubicaciones generales.
 
 | Número de ID | Ríos seleccionados y ubicaciones generales |
 |--------------|---------------------------------------------|
@@ -17,15 +17,15 @@ Existen 6.25 millones de segmentos de río modelados en los conjuntos de datos G
 Los números de ID de RFS son de 9 dígitos. Aunque los números grandes a menudo se delimitan, comúnmente con una coma o punto en varios idiomas, cualquier código que escribas para recuperar datos ***no debe*** incluir delimitadores. Estos ID son enteros. La mayoría de los lenguajes de programación interpretarán las comillas, puntos, comas u otros caracteres como algo distinto a un entero, lo que hará que el proceso de recuperación falle. Por ejemplo, el número `123456789` ***no debe*** escribirse como `123,456,789` o `123.456.789` o `"123456789"` o `"123,456,789"` o cualquier otra variación. Solo la representación entera `123456789` funcionará.
 
 !!! warning "Usuarios migrando desde V1"
-    RFS v2 se deriva de un Modelo de Elevación Digital (DEM) diferente al de v1 y tiene significativamente más arroyos modelados. Debido a la mayor resolución y los cambios en la ubicación de los canales de ríos, no es posible proporcionar un mapeo de todos los números de la versión 1 a los números de la versión 2. Hemos detallado algunos pasos a continuación para mapear un ID antiguo a un ID GEOGLOWS 2.
+    RFS v2 se deriva de un Modelo de Elevación Digital (DEM) diferente al de v1 y tiene significativamente más ríos modelados. Debido a la mayor resolución y los cambios en la ubicación de los canales de ríos, no es posible proporcionar un mapeo de todos los números de la versión 1 a los números de la versión 2. Hemos detallado algunos pasos a continuación para mapear un ID antiguo a un ID RFS 2.
 
 ## Uso de la aplicación web
 
-La forma más fácil de encontrar el ID de un río es utilizar la [aplicación web RFS](https://hydroviewer.geoglows.org/es/){:target="_blank"}. Haz clic en un arroyo en el mapa. Para asegurarte de hacer clic en el arroyo exacto que deseas, el mapa hará un zoom a un nivel de detalle mayor si estás demasiado alejado. Después de hacer clic en un arroyo, el mapa identificará el segmento de río en el que hiciste clic y el ID se presentará en la ventana emergente con gráficos y otra información.
+La forma más fácil de encontrar el ID de un río es utilizar la [aplicación web RFS](https://hydroviewer.geoglows.org/es/){:target="_blank"}. Haz clic en un río en el mapa. Para asegurarte de hacer clic en el río exacto que deseas, el mapa hará un zoom a un nivel de detalle mayor si estás demasiado alejado. Después de hacer clic en un río, el mapa identificará el segmento de río en el que hiciste clic y el ID se presentará en la ventana emergente con gráficos y otra información.
 
 ## Uso de los datos de hidrografía
 
-Los datos de hidrografía están disponibles en el [catálogo de datos](../datasets/catalog.es.md){:target="_blank"}. Puedes descargar y ver los arroyos o cuencas en un software GIS como ArcGIS o QGIS. Puedes hacer clic en las características o usar herramientas de análisis espacial para seleccionar muchos ríos. Los números de ID de esos ríos están almacenados en el atributo LINKNO.
+Los datos de hidrografía están disponibles en el [catálogo de datos](../datasets/catalog.es.md){:target="_blank"}. Puedes descargar y ver los ríos o cuencas en un software GIS como ArcGIS o QGIS. Puedes hacer clic en las características o usar herramientas de análisis espacial para seleccionar muchos ríos. Los números de ID de esos ríos están almacenados en el atributo LINKNO.
 
 ## Encontrar ríos con Lat/Lon
 

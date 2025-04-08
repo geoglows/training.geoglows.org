@@ -14,4 +14,4 @@ Para profundizar en el análisis de datos retrospectivos, periodos de retorno, c
 
 ## Simulación de Pronóstico
 
-El notebook de Colab proporciona una guía interactiva sobre cómo acceder y visualizar los datos de pronóstico del Modelo GEOGLOWS. Muestra cómo recuperar pronósticos de flujo de los ríos, graficar los datos utilizando bibliotecas de Python e interpretar estadísticas clave para una gestión y planificación eficaz de los recursos hídricos: [Forecast Simulation Colab.ipynb](https://colab.research.google.com/drive/1C2-zkxGC7U280U2CRkSK2TbQD1nr2H1T?usp=drive_link)
+El notebook de Colab proporciona una guía interactiva sobre cómo acceder y visualizar los datos de pronóstico de RFS. Muestra cómo recuperar pronósticos de flujo de los ríos, graficar los datos utilizando bibliotecas de Python e interpretar estadísticas clave para una gestión y planificación eficaz de los recursos hídricos: [Forecast Simulation Colab.ipynb](https://colab.research.google.com/drive/1C2-zkxGC7U280U2CRkSK2TbQD1nr2H1T?usp=drive_link)

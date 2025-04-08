@@ -17,7 +17,7 @@ the [Registry of Open Data](https://registry.opendata.aws/geoglows-v2/) and
 the [AWS Data Exchange](https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz64zs).
 
 The data are stored in 2 buckets. The first holds the model configuration files, gis data, retrospective simulation data, and other data which are
-essentially static. The second bucket holds the daily forecasts produced by that model as arranged by GEOGLOWS.
+essentially static. The second bucket holds the daily forecasts produced by RFS.
 
 - Forecasts: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
 - GIS + Retro: [https://rfs-v2.s3-us-west-2.amazonaws.com/index.html](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html){:target="_blank"}
@@ -46,7 +46,7 @@ essentially static. The second bucket holds the daily forecasts produced by that
 
 ## Downloading data from the command line interface (recommended)
 
-The fastest way to download GEOGLOWS data using the AWS Command Line Interface. If you are not familiar with programming or command line tools, please
+The fastest way to download RFS data using the AWS Command Line Interface. If you are not familiar with programming or command line tools, please
 skip to the next section on downloading data with a web browser.
 
 Using the CLI will download data faster than the through the browser and is recommended for downloading large amounts of data. Please refer to the AWS
@@ -54,7 +54,7 @@ instructions for downloading data from S3. You may need to add the --no-sign-req
 
 ## Downloading data with a web browser
 
-The simplest way to browse the GEOGLOWS V2 datasets is by using the websites which let you browse the datasets available. This is not the fastest way.
+The simplest way to browse the RFS V2 datasets is by using the websites which let you browse the datasets available. This is not the fastest way.
 For better performance downloading data, you should use the command line interface instructions.
 
 RFS allows users to download global streamflow data directly from AWS. This provides access to both retrospective simulation data and 15-day
@@ -66,5 +66,5 @@ Users can easily access and analyze these data using **Python** and **Jupyter no
 
 The following Collab notebooks demonstrate how to access the data from the AWS bucket using Python:
 
-- [Access GEOGLOWS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
-- [Access GEOGLOWS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)
+- [Access RFS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
+- [Access RFS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)
