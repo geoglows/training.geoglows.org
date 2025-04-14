@@ -19,6 +19,6 @@ discussed in this guide: [Retrospective Simulation Colab.ipynb](https://colab.re
 
 ## Forecast Simulation
 
-The Colab notebook provides an interactive guide on accessing and visualizing forecast data from the GEOGLOWS Model. It demonstrates how to retrieve
+The Colab notebook provides an interactive guide on accessing and visualizing forecast data from RFS. It demonstrates how to retrieve
 streamflow forecasts, plot the data using Python libraries, and interpret key statistics for effective water resource management and
 planning: [Forecast Simulation Colab.ipynb](https://colab.research.google.com/drive/1C2-zkxGC7U280U2CRkSK2TbQD1nr2H1T?usp=drive_link)

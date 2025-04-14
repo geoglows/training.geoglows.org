@@ -1,12 +1,12 @@
 # Esri Living Atlas Layer
 
 Esri hosts an **ArcGIS Living Atlas of the World**. It includes maps, apps, and data layers which can help researchers easily access data. They host a
-GEOGLOWS layer as part of this program. This allows GEOGLOWS stream data to be loaded into ArcGIS or QGIS without needing to download the entire
+GEOGLOWS layer as part of this program. This allows RFS stream data to be loaded into ArcGIS or QGIS without needing to download the entire
 dataset. The image below shows the stream layer loaded into QGIS.
 
 ![screenshot](../../static/images/imagen.png)
 
-The layer is an animation layer that shows the first 10 days of the 15-day GEOGLOWS forecast data. The streams are colored based on if they exceed a
+The layer is an animation layer that shows the first 10 days of the 15-day RFS forecast data. The streams are colored based on if they exceed a
 given return period and are therefore in high flow.
 
 Some things that a user can do with this layer:

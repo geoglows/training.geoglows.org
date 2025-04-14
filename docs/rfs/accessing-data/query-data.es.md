@@ -1,34 +1,30 @@
 !!! note
-    The methods described here are the preferred means of retrieving data from the River Forecast System.
+    Los métodos descritos aquí son los medios preferidos para recuperar datos del River Forecast System (RFS).
 
-## Data Structures
+## Estructuras de Datos
 
-Most RFS data are stored in Zarr format and chunked in such a way that they can be efficiently queried for timeseries. You can read those Zarr files
-directly from AWS S3 using any programming language with a Zarr client library. The easiest way to do this is in Python using the `geoglows` package.
+La mayoría de los datos de RFS se almacenan en formato Zarr y están fragmentados de manera que pueden ser consultados de manera eficiente para series temporales. Puedes leer esos archivos Zarr directamente desde AWS S3 utilizando cualquier lenguaje de programación con una biblioteca cliente Zarr. La forma más fácil de hacerlo es en Python utilizando el paquete `geoglows`.
 
-In order to retrieve data, you will need to know the ID number of the rivers you are interested in. Please review
-the [tutorial on finding river numbers](find-river-numbers.md) before proceeding.
+Para recuperar datos, necesitarás conocer el número de ID de los ríos que te interesan. Por favor, revisa el [tutorial sobre cómo encontrar los números de río](find-river-numbers.es.md) antes de continuar.
 
-## geoglows Python Package
+## Paquete Python geoglows
 
-The simplest way to download data from the data service is using the official Python client package titled "geoglows". For complete tutorials, please
-refer to the [geoglows Python package documentation](https://geoglows.readthedocs.io){:target="_blank"}.
+La forma más sencilla de descargar datos del servicio de datos es utilizando el paquete cliente oficial de Python titulado "geoglows". Para tutoriales completos, por favor consulta la [documentación del paquete Python geoglows](https://geoglows.readthedocs.io){:target="_blank"}.
 
-For snippets of code for commonly needed tasks, see the [Cookbook](../tutorials/code-snippets.md).
+Para fragmentos de código para tareas comúnmente necesarias, consulta el [Recetario](../tutorials/code-snippets.md).
 
-## Python Example
+## Ejemplo en Python
 
-To write your own code Python which reads Zarr directories, you will need the following packages:
+Para escribir tu propio código en Python que lea directorios Zarr, necesitarás los siguientes paquetes:
 
 - [zarr](https://zarr.readthedocs.io/en/stable/){:target="_blank"} >= 3
 - [s3fs](https://s3fs.readthedocs.io/en/latest/){:target="_blank"} >= 2025
 - [xarray](http://xarray.pydata.org/en/stable/){:target="_blank"} >= 2025
 
 !!! warning
-    Earlier versions of these dependencies also work but are not tested for this training site.
+    Las versiones anteriores de estas dependencias también funcionan, pero no están probadas para este sitio de capacitación.
 
-To find the paths to the Zarr directories, you should refer to the [data catalog](../datasets/catalog.md){:target="_blank"}. You can pass
-the URI starting with `s3://` directly to the `xr.open_dataset()` function.
+Para encontrar las rutas a los directorios Zarr, deberías consultar el [catálogo de datos](../datasets/catalog.md){:target="_blank"}. Puedes pasar el URI comenzando con `s3://` directamente a la función `xr.open_dataset()`.
 
 ```python
 import xarray as xr
