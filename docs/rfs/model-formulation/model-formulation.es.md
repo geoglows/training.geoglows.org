@@ -3,7 +3,7 @@
 El propósito de esta página es proporcionar una visión general del modelo RFS, incluyendo sus insumos y resultados. Si estás interesado principalmente en usar los datos, puedes omitir esta página y pasar a la siguiente sección.
 
 El siguiente gráfico ofrece una visión general de la formación del modelo RFS.  
-![model_formulation](../../static/images/rfs-v2-formulation-spanish.jpg)
+![Diagrama de la formulación del modelo RFS](../../static/images/rfs-v2-formulation-spanish.jpg)
 
 ## Insumos
 

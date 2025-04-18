@@ -2,7 +2,7 @@
 The purpose of this page is to provide an overview of the RFS model, including its inputs and outputs. If you're primarily interested in using the data, feel free to skip this page and move to the next section.
 
 The following graphic provides an overview of the formation of the RFS model.
-![model_formulation](../../static/images/rfs-v2-formulation.jpg)
+![Diagram of RFS model formulation](../../static/images/rfs-v2-formulation.jpg)
 
 ## Inputs
 
@@ -30,4 +30,4 @@ The following table summarizes the core input datasets used by RFS:
 
 ## Model Steps
 
-The runoff volumes are routed through the stream network using [RAPIDpy](https://github.com/geoglows/RAPIDpy). RAPID uses Muskingum Routing to route the volume files through the river. The x and k values were calculated based on research done at the BYU Hydroinformatics Lab. The configuration files needed to run RAPID are available in our data catalog which is described later in [the training ](../datasets/catalog.md).
+The runoff volumes are routed through the stream network using [RAPIDpy](https://github.com/geoglows/RAPIDpy). RAPID uses Muskingum Routing to route the volume files through the river. The x and k values were calculated based on research done at the BYU Hydroinformatics Lab. The configuration files needed to run RAPID are available in our data catalog, which is described later in [the training ](../datasets/catalog.md).
