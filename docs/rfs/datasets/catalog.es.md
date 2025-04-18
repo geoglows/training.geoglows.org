@@ -14,29 +14,28 @@ Todos los conjuntos de datos de RFS V2 son patrocinados por el Programa de Patro
 
 Los datos se almacenan en 2 buckets. El primero contiene archivos de configuración del modelo, datos GIS, simulaciones retrospectivas y otros datos que son esencialmente estáticos. El segundo bucket contiene los pronósticos diarios producidos por RFS.
 
-- Pronósticos: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
-- GIS + Retro: [https://rfs-v2.s3-us-west-2.amazonaws.com/index.html](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html){:target="_blank"}
+- Pronósticos: [http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
+- GIS + Retro: [http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
 
-| Conjunto de Datos                        | Formato(s) de Archivo | URI y Ruta del Bucket                                                                                                                         | Región AWS |
-|------------------------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| Pronósticos Diarios                      | Zarr                   | [s3://geoglows-v2-forecasts/](https://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}                          | us-west-2  |
-| Hidrografía - VPUs                       | GeoPackage (sqlite)    | [s3://rfs-v2/hydrography/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#hydrography/){:target="_blank"}                             | us-west-2  |
-| Hidrografía - Global                     | GeoPackage (sqlite)    | [s3://rfs-v2/hydrography-global/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#hydrography-global/){:target="_blank"}               | us-west-2  |
-| Hidrografía - Tablas Suplementarias      | Parquet                | [s3://rfs-v2/tables/](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#tables/){:target="_blank"}                                       | us-west-2  |
-| Retrospectivo - Promedio Horario         | Zarr                   | [s3://rfs-v2/retrospective/hourly.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}              | us-west-2  |
-| Retrospectivo - Promedio Diario          | Zarr                   | [s3://rfs-v2/retrospective/daily.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}               | us-west-2  |
-| Retrospectivo - Promedio Mensual         | Zarr                   | [s3://rfs-v2/retrospective/monthly-timeseries.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}  | us-west-2  |
-| Retrospectivo - Promedio Anual           | Zarr                   | [s3://rfs-v2/retrospective/yearly-timeseries.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}   | us-west-2  |
-| Retrospectivo - Máximos Anuales          | Zarr                   | [s3://rfs-v2/retrospective/yearly-maximums.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}     | us-west-2  |
-| Retrospectivo - Periodos de Retorno      | Zarr                   | [s3://rfs-v2/retrospective/return-periods.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}      | us-west-2  |
-| Retrospectivo - Curvas de Duración de Caudal | Zarr               | [s3://rfs-v2/retrospective/fdc.zarr](https://rfs-v2.s3-us-west-2.amazonaws.com/index.html#retrospective/){:target="_blank"}                | us-west-2  |
+| Conjunto de Datos                          | Formato(s) de Archivo | URI y Ruta del Bucket                                                                                                                     | Región AWS |
+|-------------------------------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| Pronósticos Diarios                       | Zarr                   | [s3://geoglows-v2-forecasts/](http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}                         | us-west-2   |
+| Hidrografía - VPUs                        | GeoPackage (sqlite)    | [s3://geoglows-v2/hydrography/](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#hydrography/){:target="_blank"}                            | us-west-2   |
+| Hidrografía - Global                      | GeoPackage (sqlite)    | [s3://geoglows-v2/hydrography-global/](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#hydrography-global/){:target="_blank"}              | us-west-2   |
+| Hidrografía - Tablas Suplementarias       | Parquet                | [s3://geoglows-v2/tables/](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#tables/){:target="_blank"}                                      | us-west-2   |
+| Retrospectivo - Promedio por Hora         | Zarr                   | [s3://geoglows-v2/retrospective/hourly.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/hourly.zarr/){:target="_blank"}             | us-west-2   |
+| Retrospectivo - Promedio Diario           | Zarr                   | [s3://geoglows-v2/retrospective/daily.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/daily.zarr/){:target="_blank"}              | us-west-2   |
+| Retrospectivo - Promedio Mensual          | Zarr                   | [s3://geoglows-v2/retrospective/monthly-timeseries.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/monthly-timeseries.zarr/){:target="_blank"} | us-west-2   |
+| Retrospectivo - Promedio Anual            | Zarr                   | [s3://geoglows-v2/retrospective/yearly-timeseries.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-timeseries.zarr/){:target="_blank"}  | us-west-2   |
+| Retrospectivo - Máximos Anuales           | Zarr                   | [s3://geoglows-v2/retrospective/yearly-maximums.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-maximums.zarr/){:target="_blank"}    | us-west-2   |
+| Retrospectivo - Períodos de Retorno       | Zarr                   | [s3://geoglows-v2/retrospective/return-periods.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/return-periods.zarr/){:target="_blank"}     | us-west-2   |
+| Retrospectivo - Curvas de Duración de Caudal | Zarr               | [s3://geoglows-v2/retrospective/fdc.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/fdc.zarr/){:target="_blank"}    | us-west-2   |
+               | us-west-2  |
 
 ## Código y Referencias Técnicas
 
-- Preparación de post-procesamiento TDX-Hydro para modelado hidrológico: [https://github.com/geoglows/tdxhydro-postprocessing](https://github.com/geoglows/tdxhydro-postprocessing){:target="_blank"}
 - Scripts para el cálculo de pronósticos: [https://github.com/geoglows/geoglows_ecflow](https://github.com/geoglows/geoglows_ecflow){:target="_blank"}
 - Scripts de actualización semanal retrospectiva: [https://github.com/geoglows/retrospective-update](https://github.com/geoglows/retrospective-update){:target="_blank"}
-- Paquete de Python `river-route` para enrutamiento tipo Matrix Muskingum: [https://github.com/rileyhales/river-route](https://github.com/rileyhales/river-route){:target="_blank"}
 
 ## Descarga de datos desde la línea de comandos (recomendado)
 
