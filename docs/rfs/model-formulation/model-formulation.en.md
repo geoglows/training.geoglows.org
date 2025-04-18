@@ -31,15 +31,3 @@ The following table summarizes the core input datasets used by RFS:
 ## Model Steps
 
 The runoff volumes are routed through the stream network using [RAPIDpy](https://github.com/geoglows/RAPIDpy). RAPID uses Muskingum Routing to route the volume files through the river. The x and k values were calculated based on research done at the BYU Hydroinformatics Lab. The configuration files needed to run RAPID are available in our data catalog which is described later in [the training ](../datasets/catalog.md).
-
-## Outputs
-
-The RFS produces several key outputs:
-
-- **Streamflow Data**: This includes both:
-  - **15-day forecasts** for real-time applications.
-  - **85 years of retrospective simulations** for historical analysis and calibration.
-- **Stream Network**: The processed river network used in the model.
-- **Esri Mapping Layer**: A geospatial layer for integration with GIS tools and visualization platforms produced by Esri.
-
-The following sections in this training will explain each of these outputs and how they can be accessed for local applications.

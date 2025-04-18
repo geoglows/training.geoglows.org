@@ -31,15 +31,3 @@ La siguiente tabla resume los principales conjuntos de datos de entrada utilizad
 ## Pasos del Modelo
 
 Los volúmenes de escorrentía se enrutan a través de la red de ríos utilizando [RAPIDpy](https://github.com/geoglows/RAPIDpy). RAPID emplea el método de enrutamiento de Muskingum para transportar los volúmenes por los ríos. Los valores de x y k fueron calculados con base en investigaciones realizadas en el Laboratorio de Hidroinformática de BYU. Los archivos de configuración necesarios para ejecutar RAPID están disponibles en nuestro catálogo de datos, el cual se describe más adelante en [la capacitación](../datasets/catalog.md).
-
-## Resultados
-
-El RFS genera varios resultados clave:
-
-- **Datos de caudal**: Incluyen tanto:
-    - **Pronósticos a 15 días** para aplicaciones en tiempo real.
-    - **85 años de simulaciones retrospectivas** para análisis históricos y calibración.
-- **Red de ríos**: La red hidrográfica procesada utilizada en el modelo.
-- **Capa cartográfica de Esri**: Una capa geoespacial producida por Esri, lista para integración con herramientas GIS y plataformas de visualización.
-
-Las siguientes secciones de esta capacitación explicarán cada uno de estos resultados y cómo pueden ser accedidos para aplicaciones locales.
