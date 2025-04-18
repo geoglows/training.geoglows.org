@@ -24,22 +24,24 @@ plugins:
             Home: "Inicio"
             Overview: "Visión general"
             River Forecast System: "River Forecast System"
-            Part 1 Available Data: "Parte 1: Datos Disponibles"
+            Part 1 Model Formulation: "Parte 1: Formulación del Modelo"
+            Model Formulation: "Formulación del Modelo"
+            Part 2 Available Data: "Parte 2: Datos Disponibles"
             Data Catalog: "Catálogo de Datos"
             Hydrography: "Hidrografía"
             Retrospective Data: "Datos Retrospectivos"
             Forecast Data: "Datos Pronosticados"
-            Part 2 Accessing Data: "Parte 2: Acceso a los Datos"
+            Part 3 Accessing Data: "Parte 3: Acceso a los Datos"
             Finding River Numbers: "Encontrar Números de Río"
             Querying Data: "Consultando Datos"
             Bulk Downloads: "Descargas Masivas"
             API (Data Service): "API (Servicio de Datos)"
             Web Maps: "Mapas Web"
-            Part 3 Application Tutorials: "Parte 3: Tutoriales de Aplicación"
+            Part 4 Application Tutorials: "Parte 4: Tutoriales de Aplicación"
             Web App: "Aplicación Web"
             Understanding RFS Data: "Entendiendo los Datos RFS"
             Cookbook: "Recetario"
-            Part 4 Bias Correction: "Parte 4: Corrección de Sesgo"
+            Part 5 Bias Correction: "Parte 5: Corrección de Sesgo"
             SABER Method: "Método SABER"
             Correcting Forecasts: "Corregir Pronósticos"
             Publications: "Publicaciones" 
@@ -71,22 +73,24 @@ nav:
   - Home: index.md
   - Overview: overview.md
   - River Forecast System:
-      - Part 1 Available Data:
+      - Part 1 Model Formulation:
+          - Model Formulation: rfs/model-formulation/model-formulation.md
+      - Part 2 Available Data:
           - Data Catalog: rfs/datasets/catalog.md
           - Hydrography: rfs/datasets/hydrography.md
           - Retrospective Data: rfs/datasets/retrospective.md
           - Forecast Data: rfs/datasets/forecast.md
-      - Part 2 Accessing Data:
+      - Part 3 Accessing Data:
           - Finding River Numbers: rfs/accessing-data/find-river-numbers.md
           - Querying Data: rfs/accessing-data/query-data.md
           - Bulk Downloads: rfs/accessing-data/bulk-download.md
           - API (Data Service): rfs/accessing-data/data-service.md
           - Web Maps: rfs/accessing-data/web-map.md
-      - Part 3 Application Tutorials:
+      - Part 4 Application Tutorials:
           - Web App: rfs/tutorials/web-app.md
           - Understanding RFS Data: rfs/tutorials/exercises.md
           - Cookbook: rfs/tutorials/code-snippets.md
-      - Part 4 Bias Correction:
+      - Part 5 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
       - Publications: rfs/publications.md
