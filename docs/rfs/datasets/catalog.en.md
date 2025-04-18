@@ -34,7 +34,7 @@ essentially static. The second bucket holds the daily forecasts produced by RFS.
 | Retrospective - Yearly Average       | Zarr                | [s3://geoglows-v2/retrospective/yearly-timeseries.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-timeseries.zarr/){:target="_blank"}  | us-west-2  |
 | Retrospective - Yearly Maximums      | Zarr                | [s3://geoglows-v2/retrospective/yearly-maximums.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-maximums.zarr/){:target="_blank"}    | us-west-2  |
 | Retrospective - Return Periods       | Zarr                | [s3://geoglows-v2/retrospective/return-periods.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/return-periods.zarr/){:target="_blank"}     | us-west-2  |
-| Retrospective - Flow Duration Curves | Zarr                | [s3://geoglows-v2/retrospective/fdc.zarr](ttp://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/fdc.zarr/){:target="_blank"}                | us-west-2  |
+| Retrospective - Flow Duration Curves | Zarr                | [s3://geoglows-v2/retrospective/fdc.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/fdc.zarr/){:target="_blank"}                | us-west-2  |
 
 ## Code and Technical References
 

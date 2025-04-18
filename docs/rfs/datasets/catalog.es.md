@@ -30,7 +30,6 @@ Los datos se almacenan en 2 buckets. El primero contiene archivos de configuraci
 | Retrospectivo - Máximos Anuales           | Zarr                   | [s3://geoglows-v2/retrospective/yearly-maximums.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-maximums.zarr/){:target="_blank"}    | us-west-2   |
 | Retrospectivo - Períodos de Retorno       | Zarr                   | [s3://geoglows-v2/retrospective/return-periods.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/return-periods.zarr/){:target="_blank"}     | us-west-2   |
 | Retrospectivo - Curvas de Duración de Caudal | Zarr               | [s3://geoglows-v2/retrospective/fdc.zarr](http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/fdc.zarr/){:target="_blank"}    | us-west-2   |
-               | us-west-2  |
 
 ## Código y Referencias Técnicas
 
