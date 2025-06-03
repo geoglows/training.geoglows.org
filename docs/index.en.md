@@ -1,5 +1,5 @@
 # Welcome to the GEOGLOWS Model Training Hub!
-![image](static/images/image3.png)
+![image](static/images/NewGEOGLOWSLOGO.png)
 
 [Watch this video to learn about GEOGLOWS!](https://youtu.be/v8FhgV4cBnI)
 
