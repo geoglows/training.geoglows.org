@@ -1,6 +1,6 @@
 # What is GEOGLOWS?
 
-![image](static/images/image3.png)
+![image](static/images/NewGEOGLOWSLOGO.png)
 
 ## Overview
 
@@ -16,7 +16,7 @@ contributing to a more sustainable and resilient future.
 
 The GEOGLOWS initiative, established under the framework of the Group on Earth Observations (GEO), has its roots in a commitment to integrate Earth
 observation data to enhance global water sustainability. The journey began in 2014 at the GEO Plenary in Geneva, where the need for coordinated water
-data management became evident. With support from partners such as NASA, ECMWF, and regional organizations, GEOGLOWS evolved from early efforts in the
+data management became evident. With support from partners such as NASA, ECMWF, regional organizations, NOAA, USGS and BYU, GEOGLOWS evolved from early efforts in the
 Dominican Republic to a broader application of global hydrological modeling. By leveraging advanced technologies, including the ECMWF’s global weather
 forecasts and cutting-edge cloud computing, GEOGLOWS pioneered global streamflow forecasting services in the creation of the model that is now known
 as RFS. These services provide critical information to support decision-making in water management, helping to mitigate the impacts of floods,
@@ -29,8 +29,7 @@ GEOGLOWS has been instrumental in transforming water management and disaster res
 Nepal, to improving transboundary flow forecasts in Bangladesh, GEOGLOWS empowers local agencies with the tools to make life-saving decisions. In the
 Dominican Republic, GEOGLOWS enhances capacity for hydrological challenges, including flood risk and irrigation management. The service has extended
 early warning lead times in Malawi and has been crucial in managing reservoir releases during hurricanes in Honduras. These real-world applications
-demonstrate the global impact of GEOGLOWS in addressing critical water-related challenges. For more in-depth stories of how GEOGLOWS is making a
-difference worldwide, visit [GEOGLOWS Stories](https://stories.geoglows.org/home).
+demonstrate the global impact of GEOGLOWS in addressing critical water-related challenges.
 
 ## Joining GEOGLOWS
 

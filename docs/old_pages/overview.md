@@ -128,8 +128,6 @@ early warning lead times in Malawi and has been crucial in
 managing reservoir releases during hurricanes in Honduras. 
 These real-world applications demonstrate the global impact 
 of GEOGLOWS in addressing critical water-related challenges. 
-For more in-depth stories of how GEOGLOWS is making a difference 
-worldwide, visit [GEOGLOWS Stories](https://stories.geoglows.org/home).
 
 
 [Stories Presentation](https://drive.google.com/file/d/1-CbslVlrtOyobNkR18uusWVdjqp0OsuW/view?usp=sharing) 

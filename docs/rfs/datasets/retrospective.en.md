@@ -24,7 +24,7 @@ zone (e.g. "left aligned" dates). The value given represents the average flow st
 meters per second.
 
 The monthly average data is available in two different formats. One is optimized to read the entire time series for a single river or group of rivers,
-which is anticipated to be the most common use case. Another is optimized to read a bunch of rivers at a given timestep.
+which is anticipated to be the most common use case. Another is optimized to read a large chunk of rivers at a given timestep.
 
 | Model Property           | Retrospective Simulation   |
 |--------------------------|----------------------------|
@@ -50,7 +50,7 @@ The precalculated return periods are used to define warning levels for each rive
 
 ### Flow Duration Curves
 
-**Flow Duration Curves (FDCs)** is a representation of flow patterns in a river. They relate each discharge to a probability of exceedance. The
+**Flow Duration Curves (FDCs)** are a representation of flow patterns in a river. They relate each discharge to a probability of exceedance. The
 exceedance probability is the chance that any randomly sampled discharge values is greater than or equal to the flow for that probability. Large
 floods have a low chance of exceedance while low flows have a high chance of exceedance. The FDC is a useful tool for understanding the variability of
 streamflow and the likelihood of different flow rates. FDCs are precalculated for each month (e.g. 12 total curves that represent each month) and for
