@@ -6,8 +6,7 @@ There are 3 primary kinds of river datasets provided by the River Forecast Syste
 2. **Retrospective Simulation**: Hourly river discharge data since January 1940.
 3. **Forecasts**: 15-day streamflow forecasts generated every day at midnight.
 
-[River Forecast System v2](https://www.geoglows.org){:target="_blank"} © 2024 by [Dr Riley Hales](https://hales.app){:target="_blank"} is licensed
-under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank"}
+[The GEOGLOWS River Forecast System V2](https://www.geoglows.org){:target="_blank"} © 2025 is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank"}
 
 ## Table of datasets
 
