@@ -24,8 +24,7 @@
 ## Overview
 
 The RFS hydrography is a modification of the TDX-Hydro streams and catchments dataset. It comes from proprietary TanDEM-X 12-m elevation data. You can
-download the full dataset and review the full technical description document describing its creation at https://earth-info.nga.mil/ under the "
-Geosciences" tab. The full TDX-Hydro dataset has about 16 million river segments and covers the full globe in 62 pieces corresponding to HydroBASINS
+download the full dataset and review the full technical description document describing its creation at https://earth-info.nga.mil/ under the "Geosciences" tab. The full TDX-Hydro dataset has about 16 million river segments and covers the full globe in 62 pieces corresponding to HydroBASINS
 level 2. We skipped 12 regions and representing islands or the farther north land areas. Additional, many revisions to reduce the stream feature count
 and optimize the network for channel routing reduce the total number of rivers to a total of 6.25 million rivers. This version used in RFS is
 available for users to download and use for their own purposes. This dataset is referred to as hydrography, hydrofabric, or river network. It is

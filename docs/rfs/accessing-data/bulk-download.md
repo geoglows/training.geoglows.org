@@ -24,7 +24,7 @@ Use the [AWS S3 tutorials](https://docs.aws.amazon.com/AmazonS3/latest/userguide
     Use the `--no-sign-request` flag to avoid errors, especially if you do not have aws credentials on your computer.
 
 When downloading data from the s3 buckets, the root URIs for the forecast bucket is `s3://geoglows-v2-forecast/` and for the retrospective bucket is
-`s3://rfs-v2/`.
+`s3://geoglows-v2/`.
 
 The general CLI command pattern for forecast datasets is:
 
@@ -34,7 +34,7 @@ aws s3 cp s3://geoglows-v2-forecast/<date>.zarr </local/save/path> --recursive -
 The general CLI command pattern for retrospective datasets is:
 
 ```shell
-aws s3 cp s3://rfs-v2/daily.zarr </local/save/path> --recursive --no-sign-request
+aws s3 cp s3://geoglows-v2/daily.zarr </local/save/path> --recursive --no-sign-request
 ```
 
 ## s5cmd

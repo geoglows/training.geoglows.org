@@ -21,7 +21,7 @@ Use los [tutoriales de AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userg
 !!! tip "Usa `--no-sign-request`"
     Usa la bandera `--no-sign-request` para evitar errores, especialmente si no tienes credenciales de AWS en tu computadora.
 
-Al descargar datos de los buckets de S3, las URIs raíz para el bucket de pronósticos es `s3://geoglows-v2-forecast/` y para el bucket retrospectivo es `s3://rfs-v2/`.
+Al descargar datos de los buckets de S3, las URIs raíz para el bucket de pronósticos es `s3://geoglows-v2-forecast/` y para el bucket retrospectivo es `s3://geoglows-v2/`.
 
 El patrón general del comando CLI para los conjuntos de datos de pronósticos es:
 
@@ -31,7 +31,7 @@ aws s3 cp s3://geoglows-v2-forecast/<fecha>.zarr </ruta/local/de/guardado> --rec
 El patrón general del comando CLI para los conjuntos de datos retrospectivos es:
 
 ```shell
-aws s3 cp s3://rfs-v2/daily.zarr </ruta/local/de/guardado>  --recursive --no-sign-request
+aws s3 cp s3://geoglows-v2/daily.zarr </ruta/local/de/guardado>  --recursive --no-sign-request
 ```
 
 ## s5cmd

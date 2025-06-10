@@ -1,6 +1,6 @@
 # ¿Qué es GEOGLOWS?
 
-![image](static/images/image3.png)
+![image](static/images/NewGEOGLOWSLOGO.png)
 
 ## Descripción general
 

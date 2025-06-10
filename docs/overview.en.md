@@ -1,6 +1,6 @@
 # What is GEOGLOWS?
 
-![image](static/images/image3.png)
+![image](static/images/NewGEOGLOWSLOGO.png)
 
 ## Overview
 

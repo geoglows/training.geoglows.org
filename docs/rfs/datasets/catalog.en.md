@@ -11,7 +11,7 @@ under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){:tar
 
 ## Table of datasets
 
-All RFS V2 datasets are sponsored by the AWS Open Data Sponsorship Program. This makes datasets publicly available and available at no cost. You **do
+All RFS V2 datasets are sponsored by the AWS Open Data Sponsorship Program. This makes datasets publicly available at no cost. You **do
 not need** an AWS account, credit card, or a username and password to use this AWS service. Read more on
 the [Registry of Open Data](https://registry.opendata.aws/geoglows-v2/) and
 the [AWS Data Exchange](https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz64zs).
