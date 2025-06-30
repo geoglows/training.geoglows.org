@@ -10,6 +10,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 plugins:
+  - search
   - i18n:
       docs_structure: suffix
       languages:
