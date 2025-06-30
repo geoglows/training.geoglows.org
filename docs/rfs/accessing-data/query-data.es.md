@@ -29,7 +29,7 @@ Para encontrar las rutas a los directorios Zarr, deberías consultar el [catálo
 ```python
 import xarray as xr
 
-retro_hourly_zarr_uri = 's3://rfs-v2/retrospective/hourly.zarr'
+retro_hourly_zarr_uri = 's3://geoglows-v2/retrospective/hourly.zarr'
 ds = xr.open_dataset(retro_hourly_zarr_uri, engine='zarr')
 
 # now select the 1 or more rivers you want to get data for
@@ -51,7 +51,7 @@ To write your own JavaScript code, you will need a dependency which reads from Z
 ```javascript
 import * as zarr from "https://cdn.jsdelivr.net/npm/zarrita/+esm";
 
-const baseZarrUrl = "http://rfs-v2.s3-us-west-2.amazonaws.com/retrospective/daily.zarr"
+const baseZarrUrl = "http://geoglows-v2.s3-us-west-2.amazonaws.com/retrospective/daily.zarr"
 
 // open the river_id variable
 const idStore = new zarr.FetchStore(`${baseZarrUrl}/river_id`);
