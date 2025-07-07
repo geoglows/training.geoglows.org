@@ -15,6 +15,8 @@ not need** an AWS account, credit card, or a username and password to use this A
 the [Registry of Open Data](https://registry.opendata.aws/geoglows-v2/) and
 the [AWS Data Exchange](https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz64zs).
 
+When querying data from AWS, you may need to specify that you are accessing it anonymously if you don’t have an AWS account or prefer not to provide credentials.
+
 The data are stored in 2 buckets. The first holds the model configuration files, gis data, retrospective simulation data, and other data which are
 essentially static. The second bucket holds the daily forecasts produced by RFS.
 
