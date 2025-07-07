@@ -51,7 +51,7 @@ To write your own JavaScript code, you will need a dependency which reads from Z
 ```javascript
 import * as zarr from "https://cdn.jsdelivr.net/npm/zarrita/+esm";
 
-const baseZarrUrl = "http://rfs-v2.s3-us-west-2.amazonaws.com/retrospective/daily.zarr"
+const baseZarrUrl = "http://geoglows-v2.s3-us-west-2.amazonaws.com/retrospective/daily.zarr"
 
 // open the river_id variable
 const idStore = new zarr.FetchStore(`${baseZarrUrl}/river_id`);
