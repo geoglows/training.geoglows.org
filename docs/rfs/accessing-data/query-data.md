@@ -33,7 +33,7 @@ the URI starting with `s3://` directly to the `xr.open_dataset()` function. You 
 ```python
 import xarray as xr
 
-retro_hourly_zarr_uri = 's3://rfs-v2/retrospective/hourly.zarr'
+retro_hourly_zarr_uri = 's3:/geoglows-v2/retrospective/hourly.zarr'
 ds = xr.open_dataset(retro_hourly_zarr_uri, engine='zarr', storage_options={'anon': True})
 
 # now select the 1 or more rivers you want to get data for
