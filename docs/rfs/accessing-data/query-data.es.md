@@ -24,13 +24,13 @@ Para escribir tu propio código en Python que lea directorios Zarr, necesitarás
 !!! warning
     Las versiones anteriores de estas dependencias también funcionan, pero no están probadas para este sitio de capacitación.
 
-Para encontrar las rutas a los directorios Zarr, deberías consultar el [catálogo de datos](../datasets/catalog.md){:target="_blank"}. Puedes pasar el URI comenzando con `s3://` directamente a la función `xr.open_dataset()`.
+Para encontrar las rutas a los directorios Zarr, deberías consultar el [catálogo de datos](../datasets/catalog.md){:target="_blank"}. Puedes pasar el URI comenzando con `s3://` directamente a la función `xr.open_dataset()`. No necesitas una cuenta de AWS para acceder a los datos, pero debes asegurarte de configurarlo para realizar la consulta de forma anónima, estableciendo storage_options={'anon': True}.
 
 ```python
 import xarray as xr
 
 retro_hourly_zarr_uri = 's3://geoglows-v2/retrospective/hourly.zarr'
-ds = xr.open_dataset(retro_hourly_zarr_uri, engine='zarr')
+ds = xr.open_dataset(retro_hourly_zarr_uri, engine='zarr', storage_options={'anon': True})
 
 # now select the 1 or more rivers you want to get data for
 rivers = [621054340, ]

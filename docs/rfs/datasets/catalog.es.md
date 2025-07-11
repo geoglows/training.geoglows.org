@@ -12,6 +12,8 @@ Existen tres tipos principales de conjuntos de datos fluviales proporcionados po
 
 Todos los conjuntos de datos de RFS V2 son patrocinados por el Programa de Patrocinio de Datos Abiertos de AWS. Esto permite que los datos estén disponibles públicamente y sin costo. **No necesitas** una cuenta de AWS, tarjeta de crédito, ni un nombre de usuario o contraseña para utilizar este servicio. Lee más en el [Registro de Datos Abiertos](https://registry.opendata.aws/geoglows-v2/) y en el [Intercambio de Datos de AWS](https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz64zs).
 
+Al consultar datos en AWS, puede que necesites especificar que estás accediendo de forma anónima si no tienes una cuenta de AWS o si prefieres no proporcionar tus credenciales.
+
 Los datos se almacenan en 2 buckets. El primero contiene archivos de configuración del modelo, datos GIS, simulaciones retrospectivas y otros datos que son esencialmente estáticos. El segundo bucket contiene los pronósticos diarios producidos por RFS.
 
 - Pronósticos: [http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html](http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"}
