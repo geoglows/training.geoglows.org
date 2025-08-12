@@ -27,7 +27,3 @@ The following table summarizes the core input datasets used by RFS:
 | ERA5                              | [DOI](https://doi.org/10.24381/cds.adbb2d47)                         | Reanalysis Land Surface Model     | ECMWF    | [Copernicus License](https://cds.climate.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf) - Free for commercial and non-commercial use with attribution |
 | TDX-Hydro                         | [Link](https://earth-info.nga.mil/)                                 | River and Catchment Hydrography   | NGA      | [TDX-Hydro License](https://earth-info.nga.mil/php/download.php?file=tdx-hydro-license) - Publicly available, provided "as is" without warranty                                |
 | Integrated Forecast System 48R1   | [Link](https://confluence.ecmwf.int/display/FCST/Implementation+of+IFS+Cycle+48r1) | Forecast Land Surface Model       | ECMWF    | Requires Paid License                                                                                  
-
-## Model Steps
-
-The runoff volumes are routed through the stream network using [RAPIDpy](https://github.com/geoglows/RAPIDpy). RAPID uses Muskingum Routing to route the volume files through the river. The x and k values were calculated based on research done at the BYU Hydroinformatics Lab. The configuration files needed to run RAPID are available in our data catalog, which is described later in [the training](../datasets/catalog.md).
