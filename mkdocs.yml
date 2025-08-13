@@ -40,7 +40,7 @@ plugins:
             Web Maps: "Mapas Web"
             Part 4 Application Tutorials: "Parte 4: Tutoriales de Aplicación"
             Web App: "Aplicación Web"
-            Understanding RFS Data: "Entendiendo los Datos RFS"
+            Notebooks: "Notebooks"
             Cookbook: "Recetario"
             Part 5 Bias Correction: "Parte 5: Corrección de Sesgo"
             SABER Method: "Método SABER"
@@ -88,7 +88,7 @@ nav:
           - Web Maps: rfs/accessing-data/web-map.md
       - Part 4 Application Tutorials:
           - Web App: rfs/tutorials/web-app.md
-          - Understanding RFS Data: rfs/tutorials/exercises.md
+          - Notebooks: rfs/tutorials/exercises.md
           - Cookbook: rfs/tutorials/code-snippets.md
       - Part 5 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md
