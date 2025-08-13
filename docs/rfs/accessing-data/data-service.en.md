@@ -1,7 +1,7 @@
 !!! danger "The API is not necessary for most users"
     Most users do not need this tutorial. All the forecast and retrospective simulation products are available for queries, bulk downloads,
     and via data service. However, the instructions for querying data are the fastest and most convenient (and cheapest for GEOGLOWS) for most uses.
-    Please follow the tutorial on [querying river data](query-data.md) before continuing to this section.
+    Please follow the tutorial on [querying river data](query-data.en.md) before continuing to this section.
 
 There is programmatic access to RFS streamflow data through a **REST API**, allowing users to easily integrate
 global hydrological data into their applications. With this API, developers and researchers can retrieve historical and forecasted streamflow data in
@@ -14,7 +14,7 @@ information, visit the [RFS API Documentation](https://geoglows.ecmwf.int/docume
 ## Using the API
 
 In order to use the API, most functions require you to know your river ID number. You can find more information about finding your river number
-here: [Finding River Numbers Tutorial](find-river-numbers.md). You can download the GIS data by VPU through the data
+here: [Finding River Numbers Tutorial](find-river-numbers.en.md). You can download the GIS data by VPU through the data
 catalog or select a stream on the web application and get a river number that way.
 
 ### Using the API Website

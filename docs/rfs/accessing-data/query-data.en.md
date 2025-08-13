@@ -7,7 +7,7 @@ Most RFS data are stored in Zarr format and chunked in such a way that they can 
 directly from AWS S3 using any programming language with a Zarr client library. The easiest way to do this is in Python using the `geoglows` package.
 
 In order to retrieve data, you will need to know the ID number of the rivers you are interested in. Please review
-the [tutorial on finding river numbers](find-river-numbers.md) before proceeding.
+the [tutorial on finding river numbers](find-river-numbers.en.md) before proceeding.
 
 ## geoglows Python Package
 

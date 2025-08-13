@@ -1,6 +1,6 @@
 !!! danger "La API no es necesaria para la mayoría de los usuarios"
     La mayoría de los usuarios no necesita este tutorial. Todos los productos de pronóstico y simulación retrospectiva están disponibles para consultas, descargas masivas y a través del servicio de datos. Sin embargo, las instrucciones para consultar datos son las más rápidas, convenientes (y económicas para GEOGLOWS) para la mayoría de los usos. 
-    Por favor, siga el tutorial sobre [consulta de datos fluviales](query-data.md) antes de continuar con esta sección.
+    Por favor, siga el tutorial sobre [consulta de datos fluviales](query-data.en.md) antes de continuar con esta sección.
 
 Hay acceso programático a los datos de caudal de RFS a través de una **API REST**, permitiendo a los usuarios integrar fácilmente los datos hidrológicos globales en sus aplicaciones. Con esta API, los desarrolladores e investigadores pueden recuperar datos históricos y pronosticados de flujo de agua en formato **CSV** o **JSON**, lo que permite realizar análisis y visualizaciones personalizadas. La API proporciona acceso a todos los datos retrospectivos y pronosticados. Para más información, visite la [Documentación de la API RFS](https://geoglows.ecmwf.int/documentation).
 

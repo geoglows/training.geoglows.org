@@ -50,7 +50,6 @@ theme:
   features:
     - content.code.copy
     - content.code.select
-#    - navigation.expand
     - navigation.path
     - navigation.footer
     - toc.follow
@@ -95,4 +94,3 @@ nav:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
       - Publications: rfs/publications.md
-
