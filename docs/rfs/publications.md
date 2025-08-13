@@ -21,7 +21,7 @@
   [DOI: 10.3390/rs17091648](https://doi.org/10.3390/rs17091648)
 
 - **Impact of Elevation and Hydrography Data on Modeled Flood Map Accuracy Using ARC and Curve2Flood**
-  *Taylor James Miskin,L. Ricardo Rosas,Riley C. Hales, E. James Nelson, Michael L. Follum, Joseph L. Gutenson, Gustavious P. Williams, Norman L. Jones*
+  *Taylor James Miskin, L. Ricardo Rosas, Riley C. Hales, E. James Nelson, Michael L. Follum, Joseph L. Gutenson, Gustavious P. Williams, Norman L. Jones*
   MDPI Hydrology, August 2025  
   [DOI: 10.3390/hydrology12080202](https://doi.org/10.3390/hydrology12080202)
 

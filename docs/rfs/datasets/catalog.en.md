@@ -6,7 +6,7 @@ There are 3 primary kinds of river datasets provided by the River Forecast Syste
 2. **Retrospective Simulation**: Hourly river discharge data since January 1940.
 3. **Forecasts**: 15-day streamflow forecasts generated every day at midnight.
 
-[The GEOGLOWS River Forecast System V2](https://www.geoglows.org){:target="_blank"} © 2025 is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank"}
+[The GEOGLOWS River Forecast System V2](https://www.geoglows.org){:target="_blank"} © [Dr. Riley Hales](https://hales.app) 2025 is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank"}
 
 ## Table of datasets
 
@@ -48,7 +48,7 @@ The fastest way to download RFS data using the AWS Command Line Interface. If yo
 skip to the next section on downloading data with a web browser.
 
 Using the CLI will download data faster than the through the browser and is recommended for downloading large amounts of data. Please refer to the AWS
-instructions for downloading data from S3. You may need to add the --no-sign-request flag on your copy or sync commands.
+instructions for downloading data from S3. You may need to add the `--no-sign-request` flag on your copy or sync commands.
 
 ## Downloading data with a web browser
 
@@ -57,12 +57,3 @@ For better performance downloading data, you should use the command line interfa
 
 RFS allows users to download global streamflow data directly from AWS. This provides access to both retrospective simulation data and 15-day
 streamflow forecasts. These datasets are hosted in S3 buckets, optimized for time series analysis and bulk downloads.
-
-Users can easily access and analyze these data using **Python** and **Jupyter notebooks**, with detailed tutorials available.
-
-![Collab](../../static/images/image5.png)
-
-The following Collab notebooks demonstrate how to access the data from the AWS bucket using Python:
-
-- [Access RFS retrospective simulation data from AWS S3](https://colab.research.google.com/drive/19f8n-YMqGxL_qcn3aw5yv4oYUFFlB8IK)
-- [Access RFS river forecast data from AWS S3](https://colab.research.google.com/drive/1tOuybiHK3HuxwL0MHDhGRbU65-yaolGs)

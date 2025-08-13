@@ -13,7 +13,7 @@ in Morocco. You can access and run the notebook directly in your browser:
 To dive deeper into the analysis of retrospective data, return periods, flow duration curves, and seasonal averages, we have prepared an interactive
 Google Colab notebook. This notebook provides step-by-step guidance for conducting these analyses using real-world data from the San Juan River at
 Rancho La Trinidad in Costa Rica. It covers both retrospective data and statistical flow analysis, allowing you to engage with the data and methods
-discussed in this guide: [Retrospective Simulation Colab.ipynb](https://colab.research.google.com/drive/1P3yNvE1EoQ9U8emCsMkm18CSpKWahvc5?usp=sharing)
+discussed in this guide: [Retrospective Simulation Colab.ipynb](https://colab.research.google.com/drive/1D-IlUFyyg38HWmhaCvcx0Wdh70gkPEhS?usp=sharing)
 
 ---
 
@@ -21,4 +21,4 @@ discussed in this guide: [Retrospective Simulation Colab.ipynb](https://colab.re
 
 The Colab notebook provides an interactive guide on accessing and visualizing forecast data from RFS. It demonstrates how to retrieve
 streamflow forecasts, plot the data using Python libraries, and interpret key statistics for effective water resource management and
-planning: [Forecast Simulation Colab.ipynb](https://colab.research.google.com/drive/1C2-zkxGC7U280U2CRkSK2TbQD1nr2H1T?usp=drive_link)
+planning: [Forecast Simulation Colab.ipynb](https://colab.research.google.com/drive/1s_xpasbYlvFGak9_2XgxRPzX0sDO-FnH?usp=sharing)
