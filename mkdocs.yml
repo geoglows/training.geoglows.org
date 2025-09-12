@@ -95,4 +95,5 @@ nav:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
       - Publications: rfs/publications.md
-  # - Webinars:
+  - Webinars:
+      - "GEOGLOWS RFS v2 Webinar # 1": webinars/rfs-v2-webinar-1.md
