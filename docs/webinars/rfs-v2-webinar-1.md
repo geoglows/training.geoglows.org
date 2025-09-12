@@ -1,6 +1,6 @@
 ---
 webinar:
-  title: "GEOGLOWS RFS v2 Webinar #1"
+  title: "1. GEOGLOWS History and Introducing RFS V2"
   date: "9 September 2025"
   youtube_id: "0-ASR3i4X0A"
   video_width_max: "720"
