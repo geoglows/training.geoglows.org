@@ -11,6 +11,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 plugins:
   - search
+  - macros
   - i18n:
       docs_structure: suffix
       languages:
@@ -94,3 +95,5 @@ nav:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
       - Publications: rfs/publications.md
+  - Webinars:
+      - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
