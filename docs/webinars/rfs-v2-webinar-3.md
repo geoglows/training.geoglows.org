@@ -27,10 +27,10 @@ webinar:
   </iframe>
 </div>
 
-**Description:**
+## **Description:**
 
 {{ webinar.description }}
 
-**About the Author:**
+## **About the Author:**
 
 {{ webinar.about_the_author }}
