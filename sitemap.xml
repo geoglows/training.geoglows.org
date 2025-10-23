@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+    </url>
+    <url>
+        <loc>Noneoverview/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneoverview/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/overview/"/>
+    </url>
+    <url>
+        <loc>Noneold_pages/overview/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneold_pages/overview/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/old_pages/overview/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/publications/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/publications/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/publications/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/bulk-download/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/bulk-download/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/data-service/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/data-service/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/find-river-numbers/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/find-river-numbers/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/query-data/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/query-data/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/web-map/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/web-map/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/bias-correction/bias-correction/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/bias-correction/forecasted-bias-correction/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/forecasted-bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/catalog/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/catalog/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/forecast/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/forecast/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/hydrography/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/hydrography/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/retrospective/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/retrospective/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/model-formulation/model-formulation/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/model-formulation/model-formulation/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/code-snippets/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/code-snippets/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/exercises/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/exercises/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/web-app/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/web-app/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-1/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-1/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-2/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-2/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-3/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-3/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-4/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-4/"/>
+    </url>
+    <url>
+        <loc>Nonees/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+    </url>
+    <url>
+        <loc>Nonees/overview/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneoverview/"/>
+    </url>
+    <url>
+        <loc>Nonees/old_pages/overview/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/old_pages/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneold_pages/overview/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/publications/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/publications/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/bulk-download/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/bulk-download/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/data-service/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/data-service/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/find-river-numbers/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/find-river-numbers/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/query-data/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/query-data/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/web-map/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/web-map/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/bias-correction/bias-correction/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/bias-correction/forecasted-bias-correction/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/forecasted-bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/catalog/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/catalog/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/forecast/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/forecast/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/hydrography/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/hydrography/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/retrospective/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/retrospective/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/model-formulation/model-formulation/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/model-formulation/model-formulation/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/code-snippets/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/code-snippets/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/exercises/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/exercises/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/web-app/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/web-app/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-1/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-1/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-2/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-2/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-3/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-3/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-4/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-4/"/>
+    </url>
+</urlset>
