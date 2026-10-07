@@ -17,45 +17,86 @@ X0, X1 = 40, 640
 SKY0, SURF, SOILB, WT, AQB, BOT = 60, 230, 300, 340, 470, 510
 
 
-def surface_path():
-    # gentle terrain: mountain at left, plain, lake depression at right
-    return (f"M{X0},{SURF - 90} C{X0 + 60},{SURF - 150} {X0 + 120},{SURF - 150} {X0 + 170},{SURF - 70} "
-            f"C{X0 + 200},{SURF - 20} {X0 + 240},{SURF} {X0 + 300},{SURF} L{X0 + 450},{SURF} "
-            f"C{X0 + 470},{SURF} {X0 + 475},{SURF + 22} {X0 + 505},{SURF + 22} "
-            f"C{X0 + 535},{SURF + 22} {X0 + 540},{SURF} {X0 + 560},{SURF} L{X1},{SURF}")
+SM_DEPTH = 30                # soil moisture band thickness below the surface (drawing units)
+LAKE_L, LAKE_R, LAKE_D = X0 + 440, X0 + 575, 34
+LAKE_LEVEL = SURF + 5
 
+
+def bez(p0, p1, p2, p3, n=40):
+    return [((1 - t) ** 3 * p0[0] + 3 * (1 - t) ** 2 * t * p1[0] + 3 * (1 - t) * t ** 2 * p2[0] + t ** 3 * p3[0],
+             (1 - t) ** 3 * p0[1] + 3 * (1 - t) ** 2 * t * p1[1] + 3 * (1 - t) * t ** 2 * p2[1] + t ** 3 * p3[1])
+            for t in (i / n for i in range(n + 1))]
+
+
+def surface_points():
+    # mountain at left, plain, then a lake basin with gently sloping banks
+    lm = (LAKE_L + LAKE_R) / 2
+    pts = bez((X0, SURF - 90), (X0 + 60, SURF - 150), (X0 + 120, SURF - 150), (X0 + 170, SURF - 70))
+    pts += bez((X0 + 170, SURF - 70), (X0 + 200, SURF - 20), (X0 + 240, SURF), (X0 + 300, SURF))[1:]
+    pts += [(LAKE_L, SURF)]
+    pts += bez((LAKE_L, SURF), (LAKE_L + 30, SURF), (lm - 40, SURF + LAKE_D), (lm, SURF + LAKE_D))[1:]
+    pts += bez((lm, SURF + LAKE_D), (lm + 40, SURF + LAKE_D), (LAKE_R - 30, SURF), (LAKE_R, SURF))[1:]
+    pts += [(X1, SURF)]
+    return pts
+
+
+def poly(pts):
+    return "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+
+
+def surf_y(x, pts):
+    for (xa, ya), (xb, yb) in zip(pts, pts[1:]):
+        if xa <= x <= xb:
+            return ya + (yb - ya) * (x - xa) / (xb - xa) if xb > xa else ya
+    return pts[-1][1]
+
+
+SP = surface_points()
+sp = poly(SP)
+band = SP + [(x, y + SM_DEPTH) for x, y in reversed(SP)]
 
 out = []
 out.append(f'<clipPath id="xs"><rect x="{X0}" y="{SKY0}" width="{X1 - X0}" height="{BOT - SKY0}" rx="10"/></clipPath>')
 out.append('<g clip-path="url(#xs)">')
 out.append(f'<rect x="{X0}" y="{SKY0}" width="{X1 - X0}" height="{BOT - SKY0}" fill="{C["sky"]}"/>')
-# bedrock, aquifer, soil bands under the surface
-sp = surface_path()
-out.append(f'<path d="{sp} L{X1},{BOT} L{X0},{BOT} Z" fill="{SOIL_BG}"/>')
-out.append(f'<rect x="{X0}" y="{SOILB}" width="{X1 - X0}" height="{BOT - SOILB}" fill="#efe6d4"/>')
+# unsaturated zone, soil moisture band along the surface, aquifer, bedrock
+out.append(f'<path d="{sp} L{X1},{BOT} L{X0},{BOT} Z" fill="#efe6d4"/>')
+out.append(f'<path d="{poly(band)} Z" fill="{SOIL_BG}"/>')
+out.append(f'<path d="{poly([(x, y + SM_DEPTH) for x, y in SP])}" fill="none" stroke="{C["groundline"]}" '
+           f'stroke-width="1" stroke-dasharray="4 4"/>')
 out.append(f'<path d="M{X0},{WT} C{X0 + 200},{WT - 6} {X0 + 400},{WT + 4} {X1},{WT - 2} L{X1},{AQB} L{X0},{AQB} Z" fill="{AQ_BG}"/>')
 out.append(f'<rect x="{X0}" y="{AQB}" width="{X1 - X0}" height="{BOT - AQB}" fill="{ROCK}"/>')
 # texture dots
 for _ in range(260):
     x = random.uniform(X0, X1); y = random.uniform(WT + 6, AQB - 4)
     out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.6" fill="{AQ}"/>')
-for _ in range(170):
-    x = random.uniform(X0, X1); y = random.uniform(SURF + 8, SOILB - 4)
+n = 0
+while n < 150:
+    x = random.uniform(X0, X1)
+    y = surf_y(x, SP) + random.uniform(4, SM_DEPTH - 3)
     out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.5" fill="{SOIL}" opacity="0.7"/>')
-out.append(line(X0, SOILB, X1, SOILB, "groundline", 1, dash="4 4"))
+    n += 1
 # water table
 out.append(f'<path d="M{X0},{WT} C{X0 + 200},{WT - 6} {X0 + 400},{WT + 4} {X1},{WT - 2}" fill="none" stroke="{C["blue"]}" stroke-width="2"/>')
 wx = X0 + 120
 out.append(f'<path d="M{wx - 8},{WT - 15} L{wx + 8},{WT - 15} L{wx},{WT - 4} Z" fill="{C["blue"]}"/>')
 out.append(line(wx - 6, WT - 1, wx + 6, WT - 1, "blue", 1.2))
+# lake: the basin below a level water surface
+lake = [(x, y) for x, y in SP if LAKE_L - 1 <= x <= LAKE_R + 1 and y >= LAKE_LEVEL]
+out.append(f'<path d="M{lake[0][0]:.1f},{LAKE_LEVEL} {poly(lake)[1:].replace("M", "L")} L{lake[-1][0]:.1f},{LAKE_LEVEL} Z" '
+           f'fill="#4a90d9"/>')
+out.append(line(lake[0][0], LAKE_LEVEL, lake[-1][0], LAKE_LEVEL, "blue", 1.5))
+lm = (LAKE_L + LAKE_R) / 2
+for dx, w in [(-28, 22), (12, 16), (-6, 10)]:
+    yy = LAKE_LEVEL + (6 if w != 10 else 13)
+    out.append(f'<line x1="{lm + dx:.1f}" y1="{yy}" x2="{lm + dx + w:.1f}" y2="{yy}" stroke="white" stroke-width="1.5" '
+               f'stroke-linecap="round" opacity="0.6"/>')
 # surface
 out.append(f'<path d="{sp}" fill="none" stroke="{C["groundline"]}" stroke-width="2"/>')
 # snow cap: the mountain shape clipped above a zigzag snow line
 zz = " ".join(f"L{X0 + 30 + 16 * k},{SURF - (112 if k % 2 else 100)}" for k in reversed(range(9)))
 out.append(f'<clipPath id="snowclip"><path d="M{X0},{SKY0} L{X0 + 200},{SKY0} L{X0 + 200},{SURF - 100} {zz} L{X0},{SURF - 100} Z"/></clipPath>')
 out.append(f'<path d="{sp} L{X1},{BOT} L{X0},{BOT} Z" fill="{SNOW}" stroke="#a0aec0" stroke-width="1" clip-path="url(#snowclip)"/>')
-# lake
-out.append(f'<path d="M{X0 + 462},{SURF + 6} C{X0 + 480},{SURF + 21} {X0 + 530},{SURF + 21} {X0 + 548},{SURF + 6} Z" fill="{C["blue"]}"/>')
 # trees
 for tx, s in [(X0 + 330, 1.0), (X0 + 372, 0.8), (X0 + 590, 0.9)]:
     out.append(f'<rect x="{tx - 3 * s:.1f}" y="{SURF - 30 * s:.1f}" width="{6 * s:.1f}" height="{30 * s:.1f}" fill="#7a5c3a"/>')
@@ -76,12 +117,13 @@ def tag(x, y, label, col, anchor="start"):
 out += [tag(X0 + 160, SKY0 + 26, "Snow water equivalent (SWE)", C["navy"]),
         line(X0 + 175, SKY0 + 34, X0 + 120, SURF - 118, "navy", 1),
         tag(X0 + 290, SURF - 92, "Canopy water (CAN)", CAN),
-        tag(X0 + 330, SURF + 54, "Surface water (assumed small)", C["blue"]),
-        line(X0 + 500, SURF + 40, X0 + 505, SURF + 18, "blue", 1),
-        tag(X0 + 14, SURF + 44, "Soil moisture (SM)", "#8a6a37"),
+        tag(X0 + 330, SURF + 66, "Surface water (assumed small)", C["blue"]),
+        line(lm + 10, SURF + 51, lm + 10, SURF + LAKE_D - 6, "blue", 1),
+        tag(X0 + 14, SURF + 14, "Soil moisture (SM)", "#8a6a37"),
+        line(X0 + 150, SURF - 1, X0 + 178, surf_y(X0 + 178, SP) + SM_DEPTH / 2, "darkgray", 1),
         tag(X0 + 14, WT + 66, "Groundwater (GWS)", C["navy"]),
         text(X0 + 150, WT - 10, "water table", 12, anchor="start", fill=C["blue"], italic=True),
-        text(X0 + 200, SOILB - 8, "~2 m soil column", 11, anchor="start", fill="#8a6a37", italic=True),
+        text(X0 + 300, SURF + SM_DEPTH + 16, "~2 m soil column", 11, anchor="start", fill="#8a6a37", italic=True),
         text(X0 + (X1 - X0) / 2, BOT - 12, "bedrock", 11, fill=C["darkgray"], italic=True)]
 
 # brace: GRACE senses the whole column
