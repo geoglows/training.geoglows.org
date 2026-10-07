@@ -3,7 +3,7 @@ import pathlib
 import pandas as pd
 from common import C, text, line, svg_doc, save
 
-csv = pathlib.Path(__file__).resolve().parents[2] / "docs/static/files/grace/sample_iullemeden.csv"
+csv = pathlib.Path(__file__).resolve().parents[2] / "tools/grace-figures/data/sample_iullemeden.csv"
 df = pd.read_csv(csv, parse_dates=["Date"])
 months = df["Date"]
 missing = set(df.loc[df["TWSa"].isna(), "Date"])

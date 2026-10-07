@@ -1,7 +1,7 @@
 """Gap-filling method figure: observed GWSa, the piecewise trend and the filled months (Northern Midwest Aquifer System).
 
 data/northern_midwest_filled.csv holds the app's seasonal fill of a GWSa export for the region
-(columns month, observed, trend, seasonal, filled, is_filled), the same values the training notebook gives.
+(columns month, observed, trend, seasonal, filled, is_filled).
 """
 from pathlib import Path
 import numpy as np

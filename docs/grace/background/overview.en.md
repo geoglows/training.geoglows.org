@@ -41,7 +41,7 @@ The app is free and runs in a web browser at
 as applied to GRACE data, then [opening the analysis](../recharge/opening.md) and checking the series, [the water years and
 picks](../recharge/picks.md), and [the results](../recharge/results.md).
 
-**Part 4, Applications,** covers [the gap-filling method](../applications/gap-filling.md) and its notebook, and
+**Part 4, Applications,** covers [the gap-filling method](../applications/gap-filling.md) and
 [case studies](../applications/case-studies.md) from Niger, the Volta Basin and California's Central Valley.
 
 ## History

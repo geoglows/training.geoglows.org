@@ -104,8 +104,8 @@ surface water term, SWSa, computed from Copernicus altimetry of Lake Volta:
 GWSa = TWSa − (SMa + SWEa + CANa + SWSa)
 ```
 
-Gaps were filled by seasonal decomposition with a piecewise linear trend, the approach used in this training's
-[gap-filling notebook](gap-filling.md). The study also compared the results with the groundwater storage computed directly by the GLDAS 2.2
+Gaps were filled by seasonal decomposition with a piecewise linear trend, the approach the app uses (see
+[Gap-Filling Method](gap-filling.md)). The study also compared the results with the groundwater storage computed directly by the GLDAS 2.2
 Catchment model, with CHIRPS rainfall, and with 10 monitoring wells in the Nasia sub-basin.
 
 ### Why the lake matters

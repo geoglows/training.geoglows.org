@@ -22,7 +22,7 @@ python wtf.py            # water table fluctuation method, conceptual
 Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script overwrites its SVG.
 
 `gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/northern_midwest_filled.csv`, the
-app's seasonal fill of a Northern Midwest Aquifer System export (the same values the notebook gives).
+app's seasonal fill of a Northern Midwest Aquifer System export.
 
 ## App screenshots
 

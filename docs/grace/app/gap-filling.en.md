@@ -37,7 +37,7 @@ Some details of the app's fill:
 
 - GWSa and TWSa are each filled from their own record. A filled GWSa value is therefore not exactly the filled TWSa minus the GLDAS terms for
   that month. The GLDAS layers have no gaps and are never filled.
-- The app chooses the trend breakpoints automatically. To set the number of breakpoints yourself, use the [notebook](../applications/gap-filling.md#using-the-notebook).
+- The app chooses the number and position of the trend breakpoints automatically.
 - The uncertainty band is not drawn for filled months, because the error of a filled value comes from the model rather than from GRACE (see
   [How good is the fill?](../applications/gap-filling.md#how-good-is-the-fill)).
 - The downloaded CSV always includes the filled values, in the `GWSa_filled` and `TWSa_filled` columns, with `GWSa_is_filled` and
