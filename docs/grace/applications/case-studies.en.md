@@ -6,9 +6,10 @@ large surface reservoir, and correcting for leakage in a narrow, heavily pumped 
 
 ## Niger: storage change and recharge in the Iullemeden and Chad Basins
 
-Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). Evaluating groundwater storage change and
-recharge using GRACE data: A case study of aquifers in Niger, West Africa. *Remote Sensing*, 14(7), 1532.
-[doi:10.3390/rs14071532](https://doi.org/10.3390/rs14071532){:target="_blank"}
+!!! cite "Paper"
+    Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). **Evaluating groundwater storage change and
+    recharge using GRACE data: A case study of aquifers in Niger, West Africa.** *Remote Sensing*, 14(7), 1532.
+    [doi:10.3390/rs14071532](https://doi.org/10.3390/rs14071532){:target="_blank"}
 
 This study was carried out under the NASA SERVIR West Africa project with AGRHYMET, using GGST, the predecessor of the GRACE Regional Analyst.
 It follows the same workflow as Part 3 of this training: derive GWSa for each aquifer, fill the gaps in the record, and estimate annual recharge
@@ -54,9 +55,10 @@ under 1 cm/yr (long-term, from isotopes) to 2–6 cm/yr (from water table fluctu
 
 ## Volta Basin: separating a large reservoir from groundwater
 
-Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., Sanchez, J. L., Nelson, E. J., Ames, D. P., and
-Miller, A. W. (2025). A multi-source approach to groundwater storage and recharge assessment in the Volta Basin. *Science of The Total
-Environment*, 1001, 180421. [doi:10.1016/j.scitotenv.2025.180421](https://doi.org/10.1016/j.scitotenv.2025.180421){:target="_blank"}
+!!! cite "Paper"
+    Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., Sanchez, J. L., Nelson, E. J., Ames, D. P., and
+    Miller, A. W. (2025). **A multi-source approach to groundwater storage and recharge assessment in the Volta Basin.** *Science of The Total
+    Environment*, 1001, 180421. [doi:10.1016/j.scitotenv.2025.180421](https://doi.org/10.1016/j.scitotenv.2025.180421){:target="_blank"}
 
 The Volta Basin covers parts of Ghana, Burkina Faso, Togo, Mali, Côte d'Ivoire and Benin. Lake Volta, behind the Akosombo Dam, is one of the
 largest reservoirs in the world by surface area, and the study found that its fluctuations account for about half of the basin's total water
@@ -79,10 +81,11 @@ storage signal the surface water accounts for, and remove it if it is large.
 
 ## California's Central Valley: correcting GRACE with well data
 
-Stevens, M. D., Ramirez, S. G., Martin, E.-M. H., Jones, N. L., Williams, G. P., Adams, K. H., Ames, D. P., and Pulla, S. T. (2025).
-Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared to GRACE-derived data.
-*Environmental Modelling & Software*, 186, 106368.
-[doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
+!!! cite "Paper"
+    Stevens, M. D., Ramirez, S. G., Martin, E.-M. H., Jones, N. L., Williams, G. P., Adams, K. H., Ames, D. P., and Pulla, S. T. (2025).
+    **Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared to GRACE-derived data.**
+    *Environmental Modelling & Software*, 186, 106368.
+    [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
 
 California's Central Valley is one of the most heavily pumped aquifer systems in the world, and a textbook case of
 [leakage](../background/resolution-and-leakage.md#leakage): the valley is narrower than a GRACE mascon, and the pumping decline is concentrated
