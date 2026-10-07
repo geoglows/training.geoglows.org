@@ -29,16 +29,16 @@ GWSa(t) = trend(t) + seasonal(month of t) + residual(t)
 
 Observed months are never changed.
 
-For the Iullemeden-Irhazer Aquifer System, the model finds two breakpoints, in November 2009 and May 2022, splitting the record into three
-trend segments of +0.2, +0.6 and +2.5 cm/yr:
+For the Northern Midwest Aquifer System, the model finds three breakpoints, in September 2006, May 2013 and October 2017, splitting the
+record into four trend segments of +1.3, −0.7, +2.9 and −0.5 cm/yr:
 
-![Observed GWSa for the Iullemeden-Irhazer Aquifer System with the three-segment trend and the filled months](../../static/images/grace/gap-filling-example.png)
+![Observed GWSa for the Northern Midwest Aquifer System with the four-segment trend and the filled months in red](../../static/images/grace/gap-filling-example.png)
 
 For a single missing month, the filled value is close to a straight line between its neighbors. For the 11-month gap between missions, it
 follows the seasonal cycle and the trend, which a straight line can't. The app shows the same filled values with the **Seasonal model**
 option, without the trend:
 
-![The same series in the app with Gap filling set to Seasonal model](../../static/images/grace/app-gap-fill-iullemeden.webp)
+![The same series in the app with Gap filling set to Seasonal model](../../static/images/grace/app-gap-fill-seasonal.webp)
 
 ## How good is the fill?
 
