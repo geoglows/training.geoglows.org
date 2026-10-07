@@ -597,12 +597,10 @@ td, th {
   max-width: 100%;
 }
 
-/* Figures reproduced from the papers are sized for print, so they display smaller and centered.
+/* Figures reproduced from the papers are sized for print, so they display smaller.
    Tall and square figures get a narrower width so they don't fill the screen. */
 .rst-content img[src*="/grace/papers/"] {
   width: 75%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .rst-content img[src$="niger-fig4-study-aquifers.webp"],
