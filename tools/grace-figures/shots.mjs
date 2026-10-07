@@ -100,6 +100,9 @@ if (want('gapfill')) {
     await page.mouse.move(5, 5); await sleep(500);
     await shot(`app-gap-fill-${v}`, await rect('#timeseries-plot'));
   }
+  await clickRegion('Iullemeden-Irhazer Aquifer System');
+  await page.mouse.move(5, 5); await sleep(500);
+  await shot('app-gap-fill-iullemeden', await rect('#timeseries-plot'));
   const c = await rect('#gap-fill-control', 12), l = await rect('#gap-fill-label', 12);
   await shot('app-gap-fill-control', {x: c.x, y: l.y, width: c.width, height: c.y + c.height - l.y});
 }

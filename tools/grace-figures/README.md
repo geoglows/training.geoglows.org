@@ -21,8 +21,8 @@ python wtf.py            # water table fluctuation method, conceptual
 
 Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script overwrites its SVG.
 
-The gap-filling and WTF example plots (`gap-filling-example`, `wtf-example-year`) come from the notebook in
-`docs/static/files/grace/`.
+`gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/iullemeden_filled.csv`, the notebook's
+output for the sample CSV. The WTF example plot (`wtf-example-year`) comes from the notebook in `docs/static/files/grace/`.
 
 ## App screenshots
 
