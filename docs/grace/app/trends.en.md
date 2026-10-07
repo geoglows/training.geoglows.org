@@ -5,7 +5,12 @@
 **Analyze trends** colors each region outline (in the regional view) or each grid cell (in the global view) by the rate at which the displayed
 layer has been rising or falling. Trends are on when the app opens; click **Hide trends** to turn them off.
 
-![Aquifers in the Global Aquifers set classified by their groundwater storage trend over the last five years](../../static/images/grace/app-home.webp)
+![Groundwater storage trend over the last five years for every 1° cell, in the global view](../../static/images/grace/app-global-trends.webp)
+
+The global view, above, classifies all 15,159 land cells, so it shows where storage is changing regardless of aquifer boundaries: rising
+across the Sahel and East Africa, falling across much of the Middle East, northern India and Brazil. The regional view applies the same
+classes to whole aquifers or basins (see [Regional View](regional-view.md#the-landing-page)), which is the better guide for a particular
+aquifer because each region's trend averages many cells.
 
 The trend is the slope of a straight line fitted by least squares to the monthly values in the trend window, in cm per year. Months with no
 GRACE data are skipped, not filled. A region or cell needs at least 24 months with data in the window to be classified; otherwise it is shown
