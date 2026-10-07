@@ -15,7 +15,8 @@ GWSa = TWSa − SWEa − CANa − SMa
 
 The app leaves surface water out of the balance, so any change in surface water storage ends up in GWSa. Over most of the world surface water
 changes are small next to the other terms. In regions with large reservoirs, wetlands, or rivers with big floods (the Amazon, the Ganges and
-Brahmaputra, the Caspian Sea, Lake Victoria), GWSa includes those changes and overstates the seasonal swing in groundwater.
+Brahmaputra, the Caspian Sea, Lake Victoria, Lake Volta), GWSa includes those changes and overstates the seasonal swing in groundwater. In the Volta Basin, for example, the lake accounts for about half
+of the total storage signal ([case study](../applications/case-studies.md#volta-basin-separating-a-large-reservoir-from-groundwater)).
 
 ## GLDAS land surface models
 

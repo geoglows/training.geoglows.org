@@ -43,7 +43,8 @@ This works because a volume summed over a large enough area recovers most of the
 
 **Calibrate against wells.** Where monitoring wells give an independent estimate of storage change over part of the GRACE record, the ratio
 between the well-based and GRACE-based estimates gives an empirical scale factor that corrects for leakage in that region. The factor is
-specific to the region and the period used to derive it.
+specific to the region and the period used to derive it. Stevens et al. (2025) did this for California's Central Valley
+([case study](../applications/case-studies.md#californias-central-valley-correcting-grace-with-well-data)).
 
 **Interpret a single cell cautiously.** In the global view you can click a single cell to see its time series. That is quick and useful for
 exploration, but two neighboring aquifers in the same mascon will show nearly identical results, because they are measured by the same 3° value.
@@ -64,6 +65,10 @@ Even with these limits, GRACE gives a consistent, independent view of storage ch
 view available. Use it for regional trends and compare it with local data wherever you can.
 
 ## References
+
+- Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
+  to GRACE-derived data. *Environmental Modelling & Software*, 186, 106368.
+  [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
 
 - Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
   dependent gravity field. *Water Resources Research*, 35, 2705–2723.
