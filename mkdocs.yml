@@ -4,6 +4,8 @@ markdown_extensions:
   - admonition
   - pymdownx.snippets
   - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -123,6 +125,9 @@ hooks:
   - hooks/i18n_root_templates.py
 extra_css:
   - stylesheets/geoglows.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 nav:
   - Home: index.md
   - River Forecast System:

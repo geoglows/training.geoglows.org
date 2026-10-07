@@ -11,9 +11,9 @@ TWSa is the sum of the anomalies of every store in the column: snow water equiva
 moisture (SMa), groundwater (GWSa) and surface water in rivers, lakes and reservoirs. Land surface models estimate the first three well. Removing
 them leaves groundwater:
 
-```text
-GWSa = TWSa − (SWEa + CANa + SMa)
-```
+$$
+\mathrm{GWSa} = \mathrm{TWSa} - (\mathrm{SWEa} + \mathrm{CANa} + \mathrm{SMa})
+$$
 
 The app leaves surface water out of the balance, so any change in surface water storage ends up in GWSa. Over most of the world surface water
 changes are small next to the other terms. In regions with large reservoirs, wetlands, or rivers with big floods (the Amazon, the Ganges and
@@ -58,9 +58,9 @@ Each layer in the app comes with a one-standard-deviation (1σ) uncertainty, whi
 - **SWEa, CANa, SMa:** the standard deviation across the three GLDAS models.
 - **GWSa:** the four combined, treating them as independent:
 
-```text
-σGWSa = √( σTWSa² + σSWEa² + σCANa² + σSMa² )
-```
+$$
+\sigma_{\mathrm{GWSa}} = \sqrt{\sigma_{\mathrm{TWSa}}^2 + \sigma_{\mathrm{SWEa}}^2 + \sigma_{\mathrm{CANa}}^2 + \sigma_{\mathrm{SMa}}^2}
+$$
 
 The uncertainty band captures the measurement error in GRACE and the disagreement between models. It doesn't capture errors the three models
 share, the effect of leaving out surface water, or leakage from outside a region (see
