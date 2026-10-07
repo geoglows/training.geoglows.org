@@ -37,10 +37,7 @@ plugins:
             Querying Data: "Consultando Datos"
             Bulk Downloads: "Descargas Masivas"
             API (Data Service): "API (Servicio de Datos)"
-            Web Maps: "Mapas Web"
-            Part 4 Application Tutorials: "Parte 4: Tutoriales de Aplicación"
             Web App: "Aplicación Web"
-            Notebooks: "Notebooks"
             Cookbook: "Recetario"
             Part 5 Bias Correction: "Parte 5: Corrección de Sesgo"
             SABER Method: "Método SABER"
@@ -48,6 +45,28 @@ plugins:
             GRACE Regional Analyst: "GRACE Regional Analyst"
             Overview: "Descripción General"
             Publications: "Publicaciones"
+            Code Notebooks: "Notebooks de Código"
+            Part 4 Tutorials: "Parte 4: Tutoriales"
+            Web Maps (GIS Layer): "Mapas Web (Capa SIG)"
+            Part 1 Background: "Parte 1: Fundamentos"
+            The GRACE Mission: "La Misión GRACE"
+            Deriving Groundwater Storage: "Cálculo del Almacenamiento de Agua Subterránea"
+            Resolution, Leakage and Small Regions: "Resolución, Fuga de Señal y Regiones Pequeñas"
+            Part 2 Using the App: "Parte 2: Uso de la Aplicación"
+            Interface: "Interfaz"
+            Global View: "Vista Global"
+            Analyzing a Region: "Análisis de una Región"
+            Trend Analysis: "Análisis de Tendencias"
+            Downloading Data: "Descarga de Datos"
+            Part 3 Applications: "Parte 3: Aplicaciones"
+            Filling Gaps: "Relleno de Vacíos"
+            Estimating Recharge: "Estimación de la Recarga"
+            Case Studies: "Casos de Estudio"
+            Webinars: "Seminarios Web"
+            "1. GEOGLOWS History and Introducing RFS Version 2": "1. Historia de GEOGLOWS y Presentación de RFS Versión 2"
+            "2. GEOGLOWS Model Formulation": "2. Formulación del Modelo GEOGLOWS"
+            "3. GEOGLOWS Available Data": "3. Datos Disponibles de GEOGLOWS"
+            "4. GEOGLOWS Hydroviewer 101": "4. Introducción al Hydroviewer de GEOGLOWS"
         - locale: fr
           name: Français
           build: true
@@ -66,10 +85,7 @@ plugins:
             Querying Data: "Interrogation des Données"
             Bulk Downloads: "Téléchargements en Masse"
             API (Data Service): "API (Service de Données)"
-            Web Maps: "Cartes Web"
-            Part 4 Application Tutorials: "Partie 4 : Tutoriels d'Application"
             Web App: "Application Web"
-            Notebooks: "Cahiers"
             Cookbook: "Recueil de Recettes"
             Part 5 Bias Correction: "Partie 5 : Correction du Biais"
             SABER Method: "Méthode SABER"
@@ -77,9 +93,33 @@ plugins:
             GRACE Regional Analyst: "GRACE Regional Analyst"
             Overview: "Vue d'Ensemble"
             Publications: "Publications"
+            Code Notebooks: "Notebooks de Code"
+            Part 4 Tutorials: "Partie 4 : Tutoriels"
+            Web Maps (GIS Layer): "Cartes Web (Couche SIG)"
+            Part 1 Background: "Partie 1 : Contexte"
+            The GRACE Mission: "La Mission GRACE"
+            Deriving Groundwater Storage: "Calcul du Stockage des Eaux Souterraines"
+            Resolution, Leakage and Small Regions: "Résolution, Fuite du Signal et Petites Régions"
+            Part 2 Using the App: "Partie 2 : Utilisation de l'Application"
+            Interface: "Interface"
+            Global View: "Vue Globale"
+            Analyzing a Region: "Analyse d'une Région"
+            Trend Analysis: "Analyse des Tendances"
+            Downloading Data: "Téléchargement des Données"
+            Part 3 Applications: "Partie 3 : Applications"
+            Filling Gaps: "Comblement des Lacunes"
+            Estimating Recharge: "Estimation de la Recharge"
+            Case Studies: "Études de Cas"
+            Webinars: "Webinaires"
+            "1. GEOGLOWS History and Introducing RFS Version 2": "1. Historique de GEOGLOWS et Présentation de RFS Version 2"
+            "2. GEOGLOWS Model Formulation": "2. Formulation du Modèle GEOGLOWS"
+            "3. GEOGLOWS Available Data": "3. Données Disponibles de GEOGLOWS"
+            "4. GEOGLOWS Hydroviewer 101": "4. Introduction à l'Hydroviewer GEOGLOWS"
 theme:
   name: readthedocs
   logo: static/images/geoglows-logo.png
+hooks:
+  - hooks/i18n_root_templates.py
 extra_css:
   - stylesheets/geoglows.css
 nav:
@@ -120,7 +160,7 @@ nav:
       - Part 3 Applications:
           - Filling Gaps: grace/applications/gap-filling.md
           - Estimating Recharge: grace/applications/recharge-wtf.md
-          - "Case Study: Niger": grace/applications/case-studies.md
+          - Case Studies: grace/applications/case-studies.md
   - Publications: publications.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
