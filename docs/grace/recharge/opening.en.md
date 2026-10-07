@@ -41,7 +41,7 @@ Four numbers below it explain the verdict:
   monthly GWSa value. A swing that is small next to the uncertainty leaves each year's rise poorly measured.
 - **Share of variation that is seasonal**: how much of the month-to-month variation around the long-term trend the average annual cycle
   accounts for. Only observed months count, because filled months come from the same model and would agree with it by construction.
-- **Years peaking at the usual time**: the number of complete water years whose highest month (with the trend removed) falls within one month
+- **Years peaking at the usual time**: the number of complete water years whose highest month (with the trend removed) falls within two months
   of the usual peak.
 - **Usual low and high**: the lowest and highest months of the average cycle. Each water year starts in the usual low, so that it holds one
   full rise.
@@ -57,7 +57,7 @@ The verdict combines the second and third numbers:
 The chart beside the numbers shows the average annual cycle of GWSa, one bar per calendar month, with the lowest month highlighted.
 
 For the Northern Midwest Aquifer System the seasonal swing is 8.1 cm against a typical uncertainty of ±4.4 cm, the annual cycle explains 64% of
-the variation, and 21 of 23 water years peak within a month of August. Storage is lowest in March, so each water year runs from March to the
+the variation, and all 23 water years peak within two months of August. Storage is lowest in March, so each water year runs from March to the
 following February.
 
 California's Central Valley gets a different verdict. Its storage does have an annual cycle, but multi-year droughts and wet periods, and the
