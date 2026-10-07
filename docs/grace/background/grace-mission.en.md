@@ -6,19 +6,18 @@ GRACE (Gravity Recovery and Climate Experiment) is a pair of identical satellite
 220 km apart and roughly 500 km above the ground. NASA and the German Aerospace Center launched the first pair in March 2002. GRACE Follow-On
 (GRACE-FO), launched in May 2018, continues the measurement with the same design.
 
+![GRACE mission geometry: altitude, separation, ranging, GPS tracking and accelerometers](../../static/images/grace/grace-mission-geometry.png)
+
 The satellites don't image the surface. They measure the distance between themselves, continuously, with a microwave ranging system precise to
 about a micrometer, a fraction of the width of a human hair. (GRACE-FO also carries an experimental laser ranging instrument that is more precise
-still.) Variations in that distance reveal variations in Earth's gravity along the flight path.
-
-![GRACE mission geometry: altitude, separation, ranging, GPS tracking and accelerometers](../../static/images/grace/grace-mission-geometry.png)
+still.) GPS receivers track each satellite's position, and accelerometers on board measure the non-gravitational forces, mainly atmospheric
+drag, so they can be removed. What remains of the variations in that distance reveals variations in Earth's gravity along the flight path.
 
 ![How GRACE senses a mass anomaly](../../static/images/grace/grace-ranging.png)
 
 When the pair approaches a region with extra mass, such as an aquifer that has filled after a wet season, the leading satellite feels the extra
 pull first and speeds up slightly, so the gap between the two grows. Once the leading satellite has passed over the mass, it is pulled back while
 the trailing satellite is pulled forward, and the gap shrinks. As the trailing satellite passes, the gap grows again before returning to normal.
-GPS receivers track each satellite's position, and accelerometers on board measure the non-gravitational forces, mainly atmospheric drag, so
-they can be removed.
 
 The orbit covers the whole globe about once a month. NASA's Jet Propulsion Laboratory (JPL), the University of Texas Center for Space Research
 (CSR) and the German Research Centre for Geosciences (GFZ) each turn a month of ranging data into a map of Earth's gravity field. Subtracting a
