@@ -1,3 +1,5 @@
+# Downloading Data
+
 ## Downloading a CSV
 
 With a region or a cell selected, click **Download CSV** in the upper right of the chart panel. The file contains the monthly values of all

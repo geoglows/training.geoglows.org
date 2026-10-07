@@ -1,3 +1,5 @@
+# Estimating Recharge
+
 ## The water table fluctuation method
 
 The water table fluctuation (WTF) method estimates groundwater recharge from the seasonal rise in groundwater levels. In a climate with a dry

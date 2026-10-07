@@ -1,3 +1,5 @@
+# Deriving Groundwater Storage
+
 ## The water balance
 
 GRACE measures the total change in water stored in a column of the Earth. To isolate groundwater, the app subtracts the parts of that total that

@@ -117,6 +117,7 @@ plugins:
             "4. GEOGLOWS Hydroviewer 101": "4. Introduction à l'Hydroviewer GEOGLOWS"
 theme:
   name: readthedocs
+  custom_dir: overrides
   logo: static/images/geoglows-logo.png
 hooks:
   - hooks/i18n_root_templates.py

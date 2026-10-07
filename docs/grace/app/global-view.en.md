@@ -1,3 +1,5 @@
+# Global View
+
 ## The global view
 
 Click **Global** to see the displayed layer for every land cell in the world. The first time you open it, the app downloads the whole record for

@@ -1,3 +1,5 @@
+# The GRACE Mission
+
 ## Two satellites that weigh water
 
 GRACE (Gravity Recovery and Climate Experiment) is a pair of identical satellites flying one behind the other in the same polar orbit, about

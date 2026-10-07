@@ -1,3 +1,5 @@
+# Resolution, Leakage and Small Regions
+
 ## What GRACE can resolve
 
 GRACE senses mass through gravity, and gravity spreads out with distance. From an orbit hundreds of kilometers up, two masses closer together

@@ -1,3 +1,5 @@
+# The App Interface
+
 ## Opening the app
 
 Open [apps.geoglows.org/grace-anomalies](https://apps.geoglows.org/grace-anomalies){:target="_blank"} in a current version of Chrome, Edge,

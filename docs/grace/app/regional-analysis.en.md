@@ -1,3 +1,5 @@
+# Analyzing a Region
+
 ## Choosing a region
 
 The regional view starts with the outlines of the active region set on the map. There are three ways to analyze a region:

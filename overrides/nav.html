@@ -1,0 +1,36 @@
+{#- Override of the readthedocs theme's nav.html.
+
+    The stock template assumes every page has exactly one "#" title and lists only the headings
+    under it, so a page that starts at "##" showed just the children of its first section (often
+    none) behind an expand button. Here a page whose top level is a single heading keeps the stock
+    behavior; a page with several top-level headings lists them all. Pages with nothing to list
+    get no expand button. -#}
+{%- set toc_top = nav_item.toc.items if nav_item.is_page else [] %}
+{%- set toc_entries = (toc_top[0].children if toc_top|length == 1 else toc_top) if toc_top else [] %}
+<a class="{% if not nav_item.is_link %}reference internal{% endif %}{% if nav_item.active%} current{%endif%}" {% if nav_item == page %}href="#"{% elif nav_item.is_page or nav_item.is_link %}href="{{ nav_item.url|url }}"{% endif %}>{{ nav_item.title }}</a>
+{%- set navlevel = navlevel + 1 %}
+{%- if navlevel <= config.theme.navigation_depth
+    and ((nav_item.is_page and toc_entries
+    and (not config.theme.titles_only
+    and (nav_item == page or not config.theme.collapse_navigation)))
+    or (nav_item.is_section and nav_item.children)) %}
+    <ul{% if nav_item.active %} class="current"{% endif %}>
+        {%- if nav_item.is_section %}
+            {%- for nav_item in nav_item.children %}
+                <li class="toctree-l{{ navlevel }}{% if nav_item.active%} current{%endif%}">
+                    {%- include 'nav.html' %}
+                </li>
+            {%- endfor %}
+        {%- elif nav_item.is_page %}
+            {%- if toc_top|length == 1 %}
+                {%- set toc_item = toc_top[0] %}
+                {%- include 'toc.html' %}
+            {%- else %}
+                {%- for toc_item in toc_entries %}
+                    <li class="toctree-l{{ navlevel }}"><a class="reference internal" href="{% if not nav_item == page %}{{ nav_item.url|url }}{% endif %}{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                {%- endfor %}
+            {%- endif %}
+        {%- endif %}
+    </ul>
+{%- endif %}
+{%- set navlevel = navlevel - 1 %}

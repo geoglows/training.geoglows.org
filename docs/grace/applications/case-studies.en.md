@@ -1,3 +1,5 @@
+# Case Studies
+
 The three studies below used the same GRACE-derived groundwater storage as the app, together with other data, to answer practical
 questions about real aquifers. Each shows a different side of working with GRACE: estimating recharge where wells are scarce, accounting for a
 large surface reservoir, and correcting for leakage in a narrow, heavily pumped valley.

@@ -1,3 +1,5 @@
+# Trend Analysis
+
 ## Trend classification
 
 **Analyze trends** colors each region outline (in the regional view) or each grid cell (in the global view) by the rate at which the displayed
