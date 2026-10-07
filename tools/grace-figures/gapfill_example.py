@@ -22,14 +22,11 @@ ax.text(pd.Timestamp("2017-12-01"), 19.6, "GRACE / GRACE-FO gap", ha="center", v
 
 # observed: a solid line broken at the gaps
 ax.plot(d.date, d.observed, color=C["navy"], lw=1.4, label="Observed", zorder=3)
-# filled: dashed runs joined to the observed month on each side, small open markers on the filled months
+# filled: a red line over each gap, joined to the observed month on each side
 runs = (filled != filled.shift()).cumsum()[filled]
-for _, idx in runs.groupby(runs).groups.items():
-    i0, i1 = idx.min() - 1, idx.max() + 1
-    seg = d.loc[i0:i1]
-    ax.plot(seg.date, seg.filled, color=C["orange"], lw=1.3, ls=(0, (3, 2)), zorder=4)
-ax.plot(d.date[filled], d.filled[filled], ls="none", marker="o", ms=3.6, mfc="white", mec=C["orange"], mew=1.1,
-        zorder=5, label="Filled months")
+for k, (_, idx) in enumerate(runs.groupby(runs).groups.items()):
+    seg = d.loc[idx.min() - 1:idx.max() + 1]
+    ax.plot(seg.date, seg.filled, color=C["red"], lw=1.8, zorder=4, label="Filled months" if k == 0 else None)
 ax.plot(d.date, d.trend, color=C["teal"], lw=2.2, alpha=0.9, label="Piecewise trend", zorder=2)
 
 # slope of each trend segment, labelled along the bottom of the plot, clear of the data
