@@ -60,12 +60,13 @@ plugins:
             Regional View: "Vista Regional"
             Trend Analysis: "Análisis de Tendencias"
             Downloading Data: "Descarga de Datos"
-            Part 3 Recharge Analysis: "Parte 3: Análisis de Recarga"
+            Part 3 Gap Filling: "Parte 3: Relleno de Vacíos"
+            Part 4 Recharge Analysis: "Parte 4: Análisis de Recarga"
             The WTF Method: "El Método WTF"
             Opening the Analysis: "Apertura del Análisis"
             Water Years and Picks: "Años Hidrológicos y Selección de Puntos"
             Results: "Resultados"
-            Part 4 Applications: "Parte 4: Aplicaciones"
+            Part 5 Case Studies: "Parte 5: Casos de Estudio"
             Gap Filling: "Relleno de Vacíos"
             Gap-Filling Method: "Método de Relleno de Vacíos"
             Case Studies: "Casos de Estudio"
@@ -113,12 +114,13 @@ plugins:
             Regional View: "Vue Régionale"
             Trend Analysis: "Analyse des Tendances"
             Downloading Data: "Téléchargement des Données"
-            Part 3 Recharge Analysis: "Partie 3 : Analyse de la Recharge"
+            Part 3 Gap Filling: "Partie 3 : Comblement des Lacunes"
+            Part 4 Recharge Analysis: "Partie 4 : Analyse de la Recharge"
             The WTF Method: "La Méthode WTF"
             Opening the Analysis: "Ouverture de l'Analyse"
             Water Years and Picks: "Années Hydrologiques et Choix des Points"
             Results: "Résultats"
-            Part 4 Applications: "Partie 4 : Applications"
+            Part 5 Case Studies: "Partie 5 : Études de Cas"
             Gap Filling: "Comblement des Lacunes"
             Gap-Filling Method: "Méthode de Comblement des Lacunes"
             Case Studies: "Études de Cas"
@@ -175,13 +177,14 @@ nav:
           - Trend Analysis: grace/app/trends.md
           - Gap Filling: grace/app/gap-filling.md
           - Downloading Data: grace/app/downloading-data.md
-      - Part 3 Recharge Analysis:
+      - Part 3 Gap Filling:
+          - Gap-Filling Method: grace/gap-filling/method.md
+      - Part 4 Recharge Analysis:
           - The WTF Method: grace/recharge/wtf-method.md
           - Opening the Analysis: grace/recharge/opening.md
           - Water Years and Picks: grace/recharge/picks.md
           - Results: grace/recharge/results.md
-      - Part 4 Applications:
-          - Gap-Filling Method: grace/applications/gap-filling.md
+      - Part 5 Case Studies:
           - Case Studies: grace/applications/case-studies.md
       - Publications: grace/publications.md
   - Webinars:

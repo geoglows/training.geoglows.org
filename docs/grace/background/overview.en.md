@@ -37,12 +37,15 @@ The app is free and runs in a web browser at
 [the global view](../app/global-view.md), [trend analysis](../app/trends.md), [gap filling](../app/gap-filling.md) and
 [downloading data](../app/downloading-data.md).
 
-**Part 3, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](../recharge/wtf-method.md)
+**Part 3, Gap Filling,** gives the [gap-filling method](../gap-filling/method.md): the seasonal model, how it is fitted, how the missing
+months are estimated, and how accurate the filled values are.
+
+**Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](../recharge/wtf-method.md)
 as applied to GRACE data, then [opening the analysis](../recharge/opening.md) and checking the series, [the water years and
 picks](../recharge/picks.md), and [the results](../recharge/results.md).
 
-**Part 4, Applications,** covers [the gap-filling method](../applications/gap-filling.md) and
-[case studies](../applications/case-studies.md) from Niger, the Volta Basin and California's Central Valley.
+**Part 5, Case Studies,** summarizes [published studies](../applications/case-studies.md) from Niger, the Volta Basin and California's Central
+Valley.
 
 ## History
 

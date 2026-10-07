@@ -51,4 +51,4 @@ projection, not in degrees.
 
 The CSV is the starting point for analyses outside the app. To estimate recharge, use the app's [Recharge Analysis](../recharge/opening.md),
 which runs the water table fluctuation method on the filled series and has its own CSV download. The
-[Gap-Filling Method](../applications/gap-filling.md) describes how the `GWSa_filled` and `TWSa_filled` columns are estimated.
+[Gap-Filling Method](../gap-filling/method.md) describes how the `GWSa_filled` and `TWSa_filled` columns are estimated.
