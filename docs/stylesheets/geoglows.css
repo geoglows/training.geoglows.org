@@ -1,0 +1,676 @@
+/*
+ * GEOGLOWS look for the MkDocs readthedocs theme.
+ *
+ * Design tokens are taken from https://apps.geoglows.org/ (Tailwind v4 bundle
+ * /assets/app-*.css, `@layer theme` and the `:root` semantic tokens). Keep the
+ * names in sync with that bundle so the two sites stay in the same family.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@600;700;800&display=swap");
+
+:root {
+  /* Brand palette (apps.geoglows.org Tailwind theme overrides) */
+  --geo-blue-50: #eaf3fa;
+  --geo-blue-100: #d2e6f5;
+  --geo-blue-600: #0060a9;   /* --geo-blue / --accent-strong */
+  --geo-blue-700: #00518f;
+  --geo-teal-50: #e9f5f2;
+  --geo-teal-100: #d0ece7;
+  --geo-teal-600: #008b7b;   /* --geo-teal-green / --accent */
+  --geo-teal-700: #0a6157;   /* --accent-text */
+  --geo-teal-800: #0c4d46;
+  --geo-cyan-400: #71acb2;   /* --geo-teal */
+  --geo-amber-50: #fff9e6;
+  --geo-amber-100: #fff1bf;
+  --geo-amber-500: #ffbf00;  /* --geo-amber */
+  --geo-amber-900: #5c4405;
+  --geo-red-50: #fef2f2;
+  --geo-red-100: #fde3e3;
+  --geo-red-700: #bf000f;
+  --geo-red-800: #9f0712;
+  --geo-navy: #243754;
+  --geo-navy-deep: #1d1d24;  /* footer background */
+
+  /* Neutrals (Tailwind "slate" as redefined by apps.geoglows.org) */
+  --geo-slate-50: #fbfdfd;   /* --surface-page */
+  --geo-slate-100: #eef1f4;  /* --surface-muted */
+  --geo-slate-200: #dbe2e7;  /* --border */
+  --geo-slate-300: #cbd4db;
+  --geo-slate-500: #708491;
+  --geo-slate-600: #55555a;  /* --text-body */
+  --geo-slate-700: #3d4650;
+  --geo-slate-800: #202b36;  /* --text-strong */
+  --geo-ink-on-dark: #eaf2f7;
+  --geo-ink-on-dark-muted: #dbe6ee;
+
+  --geo-surface-page: var(--geo-slate-50);
+  --geo-surface-card: #fff;
+  --geo-border: var(--geo-slate-200);
+  --geo-text-strong: var(--geo-slate-800);
+  --geo-text-body: var(--geo-slate-600);
+  --geo-link: var(--geo-blue-600);
+  --geo-link-hover: var(--geo-blue-700);
+
+  --geo-radius-lg: .5rem;
+  --geo-radius-xl: .625rem;
+  --geo-radius-2xl: .75rem;
+  --geo-shadow-sm: 0 1px 2px #1d1d240f, 0 4px 14px #1d1d240f;
+
+  --geo-font-sans: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  --geo-font-display: "Raleway", "Open Sans", system-ui, sans-serif;
+  --geo-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ---------------------------------------------------------------- base -- */
+
+body {
+  font-family: var(--geo-font-sans);
+  color: var(--geo-text-body);
+  background: var(--geo-slate-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+input, button, select, textarea, .btn, legend,
+.wy-nav-top, .rst-versions, .wy-menu-vertical {
+  font-family: var(--geo-font-sans);
+}
+
+::selection {
+  background-color: var(--geo-blue-600);
+  color: #fff;
+}
+
+/* Content column: page surface with the apps site's "water mesh" wash. */
+.wy-nav-content-wrap {
+  background-color: var(--geo-surface-page);
+  background-image:
+    radial-gradient(at 0 0, #0060a914 0, #0000 45%),
+    radial-gradient(at 100% 0, #008b7b14 0, #0000 45%);
+  background-repeat: no-repeat;
+}
+
+.wy-nav-content {
+  max-width: 900px;
+  background: transparent;
+}
+
+/* ------------------------------------------------------------ headings -- */
+
+h1, h2, h3, h4, h5, h6,
+.rst-content h1, .rst-content h2, .rst-content h3,
+.rst-content h4, .rst-content h5, .rst-content h6 {
+  font-family: var(--geo-font-display);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--geo-text-strong);
+}
+
+/* Page title uses the blue-to-teal gradient from the apps hero heading. */
+.rst-content h1 {
+  font-weight: 800;
+  background: linear-gradient(100deg, var(--geo-blue-600) 0%, var(--geo-teal-600) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: .05em;
+}
+
+.rst-content h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid var(--geo-border);
+}
+
+/* --------------------------------------------------------------- links -- */
+
+a,
+a:visited {
+  color: var(--geo-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--geo-link-hover);
+}
+
+.rst-content a:hover {
+  text-decoration: underline;
+}
+
+a code,
+a:visited code,
+a:hover code {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--geo-blue-600);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------- sidebar -- */
+
+.wy-nav-side {
+  background: var(--geo-surface-card);
+  border-right: 1px solid var(--geo-border);
+  color: var(--geo-slate-700);
+}
+
+.wy-side-nav-search {
+  background-color: var(--geo-surface-card);
+  border-bottom: 1px solid var(--geo-border);
+  padding: 1.25em 1.25em 1em;
+  margin-bottom: .5em;
+}
+
+.wy-side-nav-search > a {
+  display: block;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+.wy-side-nav-search > a:hover {
+  background: transparent;
+  opacity: .8;
+}
+
+.wy-side-nav-search img,
+.wy-side-nav-search > a img.logo {
+  display: block;
+  width: 100%;
+  max-width: 230px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Text fallback when no logo is configured */
+.wy-side-nav-search > a.icon-home {
+  color: var(--geo-text-strong);
+  font-family: var(--geo-font-display);
+  font-weight: 800;
+}
+
+.wy-side-nav-search > div.version {
+  color: var(--geo-slate-600);
+}
+
+.wy-side-nav-search input[type=text] {
+  font-family: var(--geo-font-sans);
+  font-size: 90%;
+  color: var(--geo-text-strong);
+  background: var(--geo-slate-100);
+  border: 1px solid var(--geo-border);
+  border-radius: var(--geo-radius-lg);
+  box-shadow: none;
+  padding: 7px 12px;
+}
+
+.wy-side-nav-search input[type=text]::placeholder {
+  color: var(--geo-slate-600);
+}
+
+.wy-side-nav-search input[type=text]:focus {
+  background: var(--geo-surface-card);
+  border-color: var(--geo-blue-600);
+  outline: 2px solid var(--geo-blue-100);
+  outline-offset: 0;
+}
+
+/* Section captions ("River Forecast System", "GRACE Regional Analyst", ...) */
+.wy-menu-vertical p.caption,
+.wy-menu-vertical header {
+  font-family: var(--geo-font-display);
+  font-weight: 800;
+  font-size: 78%;
+  letter-spacing: .06em;
+  color: var(--geo-teal-700);
+  padding: 0 1.25rem;
+  margin-top: 1.1em;
+}
+
+.wy-menu-vertical a,
+.wy-menu-vertical li ul li a,
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a,
+.wy-menu-vertical li.toctree-l4 a {
+  color: var(--geo-slate-700);
+}
+
+
+.wy-menu-vertical a:hover,
+.wy-menu-vertical li.current a:hover,
+.wy-menu-vertical li.current > a:hover,
+.wy-menu-vertical li.on a:hover {
+  background: var(--geo-slate-100);
+  color: var(--geo-blue-600);
+}
+
+.wy-menu-vertical a:active {
+  background: var(--geo-blue-600);
+  color: #fff;
+}
+
+.wy-menu-vertical li button.toctree-expand,
+.wy-menu-vertical li.current > a button.toctree-expand,
+.wy-menu-vertical li.toctree-l2 button.toctree-expand,
+.wy-menu-vertical li.toctree-l3 button.toctree-expand {
+  color: var(--geo-slate-500);
+}
+
+.wy-menu-vertical a:hover button.toctree-expand {
+  color: var(--geo-blue-600);
+}
+
+/* Expanded branch */
+.wy-menu-vertical li.current {
+  background: #f6f8fa;
+}
+
+.wy-menu-vertical li.current a {
+  color: var(--geo-slate-700);
+  border-right: none;
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.on a {
+  color: var(--geo-text-strong);
+  font-weight: 600;
+  background: #f6f8fa;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+  background: var(--geo-slate-100);
+}
+
+.wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a {
+  background: #e4eaee;
+}
+
+/* The page being viewed */
+.wy-menu-vertical a.current[href="#"],
+.wy-menu-vertical li.current > a.current[href="#"]:hover {
+  background: var(--geo-blue-50);
+  color: var(--geo-blue-700);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--geo-teal-600);
+}
+
+.wy-menu-vertical .current-section p {
+  background-color: var(--geo-blue-50);
+  color: var(--geo-blue-700);
+}
+
+/* Bottom "Previous / Next" bar pinned under the sidebar: apps footer navy */
+.rst-versions {
+  background: var(--geo-navy-deep);
+  color: var(--geo-ink-on-dark-muted);
+  border-top: 1px solid #e9f0f626;
+}
+
+.rst-versions .rst-current-version {
+  background-color: var(--geo-navy-deep);
+  color: var(--geo-ink-on-dark-muted);
+}
+
+.rst-versions a,
+.rst-versions .rst-current-version a {
+  color: var(--geo-ink-on-dark-muted) !important;
+}
+
+.rst-versions a:hover,
+.rst-versions .rst-current-version a:hover {
+  color: #fff !important;
+}
+
+/* --------------------------------------------- mobile top bar (<768px) -- */
+
+.wy-nav-top {
+  background: rgba(251, 253, 253, .92);
+  border-bottom: 1px solid var(--geo-border);
+  color: var(--geo-slate-700);
+  line-height: 44px;
+  text-align: left;
+  padding: .4em 1em;
+}
+
+.wy-nav-top i {
+  color: var(--geo-slate-700);
+  font-size: 22px;
+  padding: 6px 8px;
+  border-radius: var(--geo-radius-lg);
+  background: var(--geo-slate-100);
+}
+
+/* Replace the text site name with the logo, keeping the text for screen readers. */
+.wy-nav-top a {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  height: 44px;
+  margin-left: .5em;
+  background: url("../static/images/geoglows-logo.png") left center / contain no-repeat;
+  color: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.wy-nav-top a:visited,
+.wy-nav-top a:hover {
+  color: transparent;
+}
+
+/* ------------------------------------------------------- breadcrumbs -- */
+
+.wy-breadcrumbs {
+  font-size: 90%;
+  color: var(--geo-slate-600);
+}
+
+.wy-breadcrumbs li a {
+  color: var(--geo-link);
+}
+
+.rst-content hr,
+hr {
+  border-top-color: var(--geo-border);
+}
+
+/* -------------------------------------------------------------- code -- */
+
+.rst-content code,
+.rst-content tt,
+code {
+  font-family: var(--geo-font-mono);
+  color: var(--geo-teal-800);
+  background: var(--geo-slate-100);
+  border: 1px solid var(--geo-border);
+  border-radius: 4px;
+  font-size: 85%;
+  padding: 1px 5px;
+}
+
+.rst-content pre {
+  margin-bottom: 24px;
+}
+
+/* superfences wraps blocks in div.highlight; drop the theme's outer box so
+   only the rounded code panel shows. */
+.rst-content div[class^=highlight] {
+  border: none;
+  background: transparent;
+  margin: 1px 0 24px;
+}
+
+.rst-content div[class^=highlight] pre {
+  margin: 0;
+}
+
+.rst-content pre code,
+.rst-content pre code.hljs,
+.hljs {
+  color: var(--geo-text-strong);
+  background: #f5f8fa;
+  border: 1px solid var(--geo-border);
+  border-radius: var(--geo-radius-lg);
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 14px 16px;
+}
+
+.rst-content .admonition code {
+  color: var(--geo-text-strong);
+  background: rgba(255, 255, 255, .7);
+  border-color: rgba(0, 0, 0, .12);
+}
+
+/* ------------------------------------------------------------ tables -- */
+
+.rst-content table.docutils {
+  border-radius: var(--geo-radius-lg);
+}
+
+td, th {
+  border: 1px solid var(--geo-border) !important;
+}
+
+.rst-content table.docutils thead,
+.rst-content table.docutils thead th {
+  background: var(--geo-slate-100);
+  color: var(--geo-text-strong);
+  font-weight: 600;
+}
+
+.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
+  background-color: #f6f8fa;
+}
+
+.rst-content table.docutils td,
+.rst-content table.docutils th {
+  padding: 8px 14px;
+}
+
+/* -------------------------------------------------------- admonitions -- */
+
+.rst-content .admonition,
+.rst-content details {
+  background: var(--geo-blue-50);
+  border-left: 4px solid var(--geo-blue-600);
+  border-radius: var(--geo-radius-xl);
+  color: var(--geo-text-strong);
+  overflow: hidden;
+}
+
+.rst-content .admonition-title,
+.rst-content .note .admonition-title,
+.rst-content .seealso .admonition-title {
+  font-family: var(--geo-font-display);
+  font-weight: 700;
+  color: var(--geo-blue-700);
+  background: var(--geo-blue-100);
+}
+
+.rst-content .tip,
+.rst-content .hint,
+.rst-content .important,
+.rst-content .success {
+  background: var(--geo-teal-50);
+  border-left-color: var(--geo-teal-600);
+}
+
+.rst-content .tip .admonition-title,
+.rst-content .hint .admonition-title,
+.rst-content .important .admonition-title,
+.rst-content .success .admonition-title {
+  color: var(--geo-teal-800);
+  background: var(--geo-teal-100);
+}
+
+.rst-content .warning,
+.rst-content .caution,
+.rst-content .attention {
+  background: var(--geo-amber-50);
+  border-left-color: var(--geo-amber-500);
+}
+
+.rst-content .warning .admonition-title,
+.rst-content .caution .admonition-title,
+.rst-content .attention .admonition-title {
+  color: var(--geo-amber-900);
+  background: var(--geo-amber-100);
+}
+
+.rst-content .danger,
+.rst-content .error {
+  background: var(--geo-red-50);
+  border-left-color: var(--geo-red-700);
+}
+
+.rst-content .danger .admonition-title,
+.rst-content .error .admonition-title {
+  color: var(--geo-red-800);
+  background: var(--geo-red-100);
+}
+
+/* pymdownx.details (??? blocks) */
+.rst-content details {
+  padding: 0 12px;
+  margin-bottom: 24px;
+}
+
+.rst-content details > summary {
+  font-family: var(--geo-font-display);
+  font-weight: 700;
+  color: var(--geo-blue-700);
+  background: var(--geo-blue-100);
+  margin: 0 -12px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.rst-content details[open] > summary {
+  margin-bottom: 12px;
+}
+
+/* ------------------------------------------------------------ images -- */
+
+.rst-content img {
+  border-radius: var(--geo-radius-lg);
+}
+
+/* ------------------------------------------------- footer / buttons -- */
+
+footer {
+  color: var(--geo-slate-600);
+  font-size: 90%;
+}
+
+footer hr {
+  border-top-color: var(--geo-border);
+}
+
+.btn {
+  font-family: var(--geo-font-sans);
+  border-radius: var(--geo-radius-lg);
+  box-shadow: none;
+}
+
+.btn-neutral {
+  background-color: var(--geo-surface-card) !important;
+  color: var(--geo-text-strong) !important;
+  border: 1px solid var(--geo-border);
+  font-weight: 600;
+}
+
+.btn-neutral:hover {
+  background-color: var(--geo-surface-card) !important;
+  border-color: var(--geo-teal-600);
+  color: var(--geo-blue-600) !important;
+  box-shadow: var(--geo-shadow-sm);
+}
+
+.btn-neutral:visited {
+  color: var(--geo-text-strong) !important;
+}
+
+/* ----------------------------------------------------- search results -- */
+
+#mkdocs-search-results article h3 a,
+.search-results article h3 a {
+  color: var(--geo-link);
+}
+
+.search-results article {
+  border-top-color: var(--geo-border);
+}
+
+form .search-query,
+#mkdocs-search-query {
+  font-family: var(--geo-font-sans);
+  font-size: 100%;
+  color: var(--geo-text-strong);
+  background: var(--geo-surface-card);
+  border: 1px solid var(--geo-border);
+  border-radius: var(--geo-radius-lg);
+  box-shadow: none;
+  padding: 8px 14px;
+}
+
+#mkdocs-search-query:focus {
+  border-color: var(--geo-blue-600);
+  outline: 2px solid var(--geo-blue-100);
+  outline-offset: 0;
+}
+
+/* ---------------------------------------------------- nav tree indent -- */
+/*
+ * Inset the tree from the sidebar edge so the expand toggles line up with
+ * "Home" and the section captions (20px), then step each level by 16px.
+ * The theme hangs the toggle in negative margin; here it sits inline.
+ */
+.wy-menu-vertical > ul {
+  margin: 0 10px;
+}
+
+.wy-menu-vertical a {
+  border-radius: var(--geo-radius-lg);
+}
+
+.wy-menu-vertical li button.toctree-expand,
+.wy-menu-vertical li.current > a button.toctree-expand,
+.wy-menu-vertical li.on a button.toctree-expand {
+  float: none;
+  display: inline-block;
+  margin: 0 .45em 0 0;
+  width: 1em;
+  line-height: inherit;
+}
+
+.wy-menu-vertical li.toctree-l1 > a,
+.wy-menu-vertical li.toctree-l1.current > a {
+  padding: .45em 10px;
+  border: none;
+}
+
+.wy-menu-vertical li.toctree-l2 > a,
+.wy-menu-vertical li.toctree-l1.current li.toctree-l2 > a,
+.wy-menu-vertical li.toctree-l2.current > a {
+  padding: .4em 10px .4em 26px;
+}
+
+.wy-menu-vertical li.toctree-l3 > a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a,
+.wy-menu-vertical li.toctree-l3.current > a {
+  padding: .4em 10px .4em 42px;
+}
+
+.wy-menu-vertical li.toctree-l4 > a,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a,
+.wy-menu-vertical li.toctree-l4.current > a {
+  padding: .4em 10px .4em 58px;
+}
+
+/* Rounded panel for the expanded branch instead of a full-width band */
+.wy-menu-vertical li.toctree-l1.current {
+  border-radius: var(--geo-radius-lg);
+}
+
+/* Hanging indent so wrapped labels line up with the text, not the toggle.
+   Browsers without :has() fall back to wrapping under the toggle. */
+.wy-menu-vertical li.toctree-l1 > a:has(> button.toctree-expand) {
+  padding-left: calc(10px + 1.45em);
+  text-indent: -1.45em;
+}
+
+.wy-menu-vertical li.toctree-l2 > a:has(> button.toctree-expand) {
+  padding-left: calc(26px + 1.45em);
+  text-indent: -1.45em;
+}
+
+.wy-menu-vertical li.toctree-l3 > a:has(> button.toctree-expand) {
+  padding-left: calc(42px + 1.45em);
+  text-indent: -1.45em;
+}

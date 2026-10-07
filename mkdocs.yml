@@ -91,6 +91,9 @@ plugins:
             Publications: "Publications"
 theme:
   name: readthedocs
+  logo: static/images/geoglows-logo.png
+extra_css:
+  - stylesheets/geoglows.css
 nav:
   - Home: index.md
   - River Forecast System:
