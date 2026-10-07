@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+<title>Region averaging in the GRACE Regional Analyst</title>
+<defs>
+<marker id="ah-navy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0"/></marker>
+<marker id="ah-lightblue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bee3f8"/></marker>
+<marker id="ah-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a7b"/></marker>
+<marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+<marker id="ah-darkgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/></marker>
+<marker id="ah-lightgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+<marker id="ah-ground" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e6dcc6"/></marker>
+<marker id="ah-groundline" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a89474"/></marker>
+<marker id="ah-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d69e2e"/></marker>
+<marker id="ah-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f7fafc"/></marker>
+<marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
+</defs>
+<rect width="1200" height="420" fill="white"/>
+<text x="50.0" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >Averaging a region: which cells count, and how much</text>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#718096" stroke-width="1.2" opacity="0.5"/></pattern></defs>
+<rect x="50" y="70" width="64" height="64" fill="url(#hatch)"/>
+<rect x="50" y="134" width="64" height="64" fill="#2b6cb0" fill-opacity="0.41"/>
+<rect x="50" y="198" width="64" height="64" fill="#2b6cb0" fill-opacity="0.39"/>
+<rect x="50" y="262" width="64" height="64" fill="url(#hatch)"/>
+<rect x="114" y="70" width="64" height="64" fill="#2b6cb0" fill-opacity="0.34"/>
+<rect x="114" y="134" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="114" y="198" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="114" y="262" width="64" height="64" fill="#2b6cb0" fill-opacity="0.61"/>
+<rect x="114" y="326" width="64" height="64" fill="url(#hatch)"/>
+<rect x="178" y="70" width="64" height="64" fill="#2b6cb0" fill-opacity="0.50"/>
+<rect x="178" y="134" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="178" y="198" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="178" y="262" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="178" y="326" width="64" height="64" fill="#2b6cb0" fill-opacity="0.35"/>
+<rect x="242" y="70" width="64" height="64" fill="#2b6cb0" fill-opacity="0.47"/>
+<rect x="242" y="134" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="242" y="198" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="242" y="262" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="242" y="326" width="64" height="64" fill="#2b6cb0" fill-opacity="0.40"/>
+<rect x="306" y="70" width="64" height="64" fill="#2b6cb0" fill-opacity="0.40"/>
+<rect x="306" y="134" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="306" y="198" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="306" y="262" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="306" y="326" width="64" height="64" fill="#2b6cb0" fill-opacity="0.39"/>
+<rect x="370" y="70" width="64" height="64" fill="url(#hatch)"/>
+<rect x="370" y="134" width="64" height="64" fill="#2b6cb0" fill-opacity="0.62"/>
+<rect x="370" y="198" width="64" height="64" fill="#2b6cb0" fill-opacity="0.70"/>
+<rect x="370" y="262" width="64" height="64" fill="#2b6cb0" fill-opacity="0.65"/>
+<rect x="370" y="326" width="64" height="64" fill="url(#hatch)"/>
+<rect x="434" y="134" width="64" height="64" fill="url(#hatch)"/>
+<rect x="434" y="198" width="64" height="64" fill="url(#hatch)"/>
+<rect x="434" y="262" width="64" height="64" fill="url(#hatch)"/>
+<line x1="50.0" y1="70.0" x2="50.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="114.0" y1="70.0" x2="114.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="178.0" y1="70.0" x2="178.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="242.0" y1="70.0" x2="242.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="306.0" y1="70.0" x2="306.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="370.0" y1="70.0" x2="370.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="434.0" y1="70.0" x2="434.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="498.0" y1="70.0" x2="498.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="50.0" y1="70.0" x2="498.0" y2="70.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="50.0" y1="134.0" x2="498.0" y2="134.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="50.0" y1="198.0" x2="498.0" y2="198.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="50.0" y1="262.0" x2="498.0" y2="262.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="50.0" y1="326.0" x2="498.0" y2="326.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<line x1="50.0" y1="390.0" x2="498.0" y2="390.0" stroke="#718096" stroke-width="1" stroke-linecap="round" opacity="1"/>
+<polygon points="94.8,127.6 216.4,89.2 363.6,108.4 453.2,178.8 440.4,300.4 344.4,358.0 203.6,351.6 107.6,294.0 75.6,198.0 94.8,127.6" fill="none" stroke="#dd6b20" stroke-width="3" opacity="0.85"/>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="82.0" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >5%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="82.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >46%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="82.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >43%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="82.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >9%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="146.0" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >35%</text>
+<text x="146.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="146.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="146.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >84%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="146.0" y="363.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >2%</text>
+<text x="210.0" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >63%</text>
+<text x="210.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="210.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="210.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="210.0" y="363.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >36%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="274.0" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >58%</text>
+<text x="274.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="274.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="274.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="274.0" y="363.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >45%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="338.0" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >45%</text>
+<text x="338.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="338.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="338.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="338.0" y="363.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="#1f3a5f" >44%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="402.0" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >7%</text>
+<text x="402.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >86%</text>
+<text x="402.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >100%</text>
+<text x="402.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >90%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="402.0" y="363.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >6%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="466.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >12%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="466.0" y="235.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >22%</text>
+<text paint-order="stroke" stroke="white" stroke-opacity="0.85" stroke-width="3.5" x="466.0" y="299.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >8%</text>
+<rect x="558" y="76" width="22" height="22" fill="#2b6cb0" fill-opacity="0.6"/>
+<text x="590.0" y="92.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Used: at least 35% of the cell lies inside the region.</text>
+<text x="590.0" y="111.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#718096" >Darker = larger share of the cell inside.</text>
+<rect x="558" y="130" width="22" height="22" fill="url(#hatch)" stroke="#e2e8f0"/>
+<text x="590.0" y="146.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Ignored: less than 35% inside. A sliver of a cell</text>
+<text x="590.0" y="165.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >mostly describes somewhere else.</text>
+<line x1="558.0" y1="196.0" x2="580.0" y2="196.0" stroke="#dd6b20" stroke-width="3" stroke-linecap="round" opacity="1"/>
+<text x="590.0" y="201.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Region boundary (preset, uploaded or drawn)</text>
+<text x="558.0" y="250.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >Each used cell is weighted by its overlap area aᵢ,</text>
+<text x="558.0" y="270.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >measured on the ellipsoid:</text>
+<rect x="558" y="286" width="300" height="60" rx="8" fill="#f7fafc" stroke="#2b6cb0"/>
+<text x="708" y="323" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" fill="#1f3a5f">x̄ = Σ aᵢ xᵢ  /  Σ aᵢ</text>
+<text x="558.0" y="376.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#718096" >The ±1σ band is averaged the same way, which treats the</text>
+<text x="558.0" y="394.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#718096" >errors in neighbouring cells as fully correlated.</text>
+</svg>

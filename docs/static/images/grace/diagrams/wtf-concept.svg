@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="500" viewBox="0 0 1180 500">
+<title>Water table fluctuation method</title>
+<defs>
+<marker id="ah-navy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0"/></marker>
+<marker id="ah-lightblue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bee3f8"/></marker>
+<marker id="ah-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a7b"/></marker>
+<marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+<marker id="ah-darkgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/></marker>
+<marker id="ah-lightgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+<marker id="ah-ground" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e6dcc6"/></marker>
+<marker id="ah-groundline" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a89474"/></marker>
+<marker id="ah-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d69e2e"/></marker>
+<marker id="ah-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f7fafc"/></marker>
+<marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
+</defs>
+<rect width="1180" height="500" fill="white"/>
+<rect x="115.8" y="50" width="286.3" height="370" fill="#fdf6ec"/>
+<rect x="402.1" y="50" width="143.2" height="370" fill="#eaf4fb"/>
+<rect x="545.3" y="50" width="143.2" height="370" fill="#fdf6ec"/>
+<text x="258.9" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#9c6a1d" >dry season: storage drains</text>
+<text x="473.7" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#2b6cb0" >wet season</text>
+<line x1="80.0" y1="420.0" x2="760.0" y2="420.0" stroke="#4a5568" stroke-width="1.2" stroke-linecap="round" opacity="1"/>
+<line x1="80.0" y1="50.0" x2="80.0" y2="420.0" stroke="#4a5568" stroke-width="1.2" stroke-linecap="round" opacity="1"/>
+<text x="0" y="0" transform="translate(34,235.0) rotate(-90)" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#4a5568">GWSa (cm)</text>
+<text x="420.0" y="454.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" text-anchor="middle" fill="#4a5568" >time (months)</text>
+<line x1="115.8" y1="102.9" x2="545.3" y2="330.9" stroke="#c53030" stroke-width="2" stroke-linecap="round" opacity="1" stroke-dasharray="7 5"/>
+<text x="301.9" y="235.7" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#c53030" transform="rotate(28.0 301.9 235.7)">recession line, extended</text>
+<polyline points="115.8,102.9 124.7,106.2 133.7,109.6 142.6,113.2 151.6,117.1 160.5,121.4 169.5,126.0 178.4,131.0 187.4,136.5 196.3,142.3 205.3,148.5 214.2,154.8 223.2,161.4 232.1,168.0 241.1,174.5 250.0,181.0 258.9,187.1 267.9,193.0 276.8,198.5 285.8,203.6 294.7,208.3 303.7,212.6 312.6,216.5 321.6,220.2 330.5,223.6 339.5,227.0 348.4,230.3 357.4,233.7 366.3,237.3 375.3,241.1 384.2,245.3 393.2,249.9 402.1,254.9 411.1,233.3 420.0,213.1 428.9,194.2 437.9,176.8 446.8,160.8 455.8,146.1 464.7,132.9 473.7,121.0 482.6,110.6 491.6,101.5 500.5,93.9 509.5,87.6 518.4,82.7 527.4,79.2 536.3,77.1 545.3,76.4 554.2,81.1 563.2,85.7 572.1,90.3 581.1,94.9 590.0,99.6 598.9,104.2 607.9,108.8 616.8,113.4 625.8,118.1 634.7,122.7 643.7,127.3 652.6,131.9 661.6,136.6 670.5,141.2 679.5,145.8 688.4,150.4" fill="none" stroke="#1f3a5f" stroke-width="3"/>
+<line x1="402.1" y1="254.9" x2="585.3" y2="254.9" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<circle cx="115.8" cy="102.9" r="6" fill="white" stroke="#718096" stroke-width="2.5"/>
+<text x="115.8" y="88.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#718096">S<tspan font-size='11' baseline-shift='sub'>A</tspan></text>
+<circle cx="402.1" cy="254.9" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="402.1" y="280.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>B</tspan></text>
+<circle cx="545.3" cy="76.4" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="545.3" y="62.4" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>P</tspan></text>
+<circle cx="545.3" cy="330.9" r="6" fill="white" stroke="#c53030" stroke-width="2.5"/>
+<text x="525.3" y="336.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#c53030">S<tspan font-size='11' baseline-shift='sub'>L</tspan></text>
+<line x1="585.3" y1="76.4" x2="585.3" y2="254.9" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="578.3" y1="76.4" x2="592.3" y2="76.4" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="578.3" y1="254.9" x2="592.3" y2="254.9" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<text x="599.2631578947369" y="170.7" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2b6cb0">R<tspan font-size='11' baseline-shift='sub'>S</tspan></text>
+<line x1="585.3" y1="254.9" x2="585.3" y2="330.9" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="578.3" y1="254.9" x2="592.3" y2="254.9" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="578.3" y1="330.9" x2="592.3" y2="330.9" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<text x="599.2631578947369" y="297.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#c53030">R<tspan font-size='11' baseline-shift='sub'>D</tspan></text>
+<text x="115.8" y="438.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >previous peak</text>
+<text x="545.3" y="438.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >this year's peak</text>
+<text x="820" y="70" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Picks for one water year</text>
+<text x="820" y="98" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>A</tspan>  previous wet-season peak</text>
+<text x="820" y="120" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>B</tspan>  lowest point before the rise</text>
+<text x="820" y="142" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>P</tspan>  this wet season's peak</text>
+<text x="820" y="164" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>L</tspan>  where storage would have been</text>
+<text x="820" y="182" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">      at the peak with no recharge</text>
+<text x="820" y="226" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Recharge</text>
+<text x="820" y="256" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2b6cb0">R<tspan font-size='10' baseline-shift='sub'>S</tspan> = S<tspan font-size='10' baseline-shift='sub'>P</tspan> − S<tspan font-size='10' baseline-shift='sub'>B</tspan>   (visible rise)</text>
+<text x="820" y="282" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#c53030">R<tspan font-size='10' baseline-shift='sub'>D</tspan> = S<tspan font-size='10' baseline-shift='sub'>B</tspan> − S<tspan font-size='10' baseline-shift='sub'>L</tspan>   (drainage offset)</text>
+<rect x="810" y="304" width="340" height="80" rx="8" fill="#f7fafc" stroke="#2b6cb0"/>
+<text x="820" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Method 1:  R = R<tspan font-size='10' baseline-shift='sub'>S</tspan></text>
+<text x="820" y="366" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Method 2:  R = R<tspan font-size='10' baseline-shift='sub'>S</tspan> + R<tspan font-size='10' baseline-shift='sub'>D</tspan> = S<tspan font-size='10' baseline-shift='sub'>P</tspan> − S<tspan font-size='10' baseline-shift='sub'>L</tspan></text>
+<text x="820" y="412" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#718096">GWSa is already a depth of water, so no</text>
+<text x="820" y="430" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#718096">specific yield is needed: R is in cm per year.</text>
+</svg>

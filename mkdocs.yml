@@ -46,13 +46,7 @@ plugins:
             SABER Method: "Método SABER"
             Correcting Forecasts: "Corregir Pronósticos"
             GRACE Regional Analyst: "GRACE Regional Analyst"
-            Part 1 GRACE-Derived Storage Anomalies: "Parte 1: Anomalías de Almacenamiento Derivadas de GRACE"
             Overview: "Descripción General"
-            Computational Algorithm: "Algoritmo de Cálculo"
-            Available Data: "Datos Disponibles"
-            Using the Web App: "Uso de la Aplicación Web"
-            Part 4 Example Uses: "Parte 4: Ejemplos de Uso"
-            Water Table Fluctuation Method: "Método de Fluctuación del Nivel Freático"
             Publications: "Publicaciones"
         - locale: fr
           name: Français
@@ -81,13 +75,7 @@ plugins:
             SABER Method: "Méthode SABER"
             Correcting Forecasts: "Correction des Prévisions"
             GRACE Regional Analyst: "GRACE Regional Analyst"
-            Part 1 GRACE-Derived Storage Anomalies: "Partie 1 : Anomalies de Stockage Dérivées de GRACE"
             Overview: "Vue d'Ensemble"
-            Computational Algorithm: "Algorithme de Calcul"
-            Available Data: "Données Disponibles"
-            Using the Web App: "Utilisation de l'Application Web"
-            Part 4 Example Uses: "Partie 4 : Exemples d'Utilisation"
-            Water Table Fluctuation Method: "Méthode de Fluctuation de la Nappe Phréatique"
             Publications: "Publications"
 theme:
   name: readthedocs
@@ -118,15 +106,21 @@ nav:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
   - GRACE Regional Analyst:
-      - Part 1 GRACE-Derived Storage Anomalies:
-          - Overview: grace/understanding/overview.md
-          - Computational Algorithm: grace/understanding/computational-algorithm.md
-      - Part 2 Available Data:
-          - Available Data: grace/datasets/available-data.md
-      - Part 3 Accessing Data:
-          - Using the Web App: grace/accessing-data/web-app.md
-      - Part 4 Example Uses:
-          - Water Table Fluctuation Method: grace/applications/water-table-fluctuation.md
+      - Part 1 Background:
+          - Overview: grace/background/overview.md
+          - The GRACE Mission: grace/background/grace-mission.md
+          - Deriving Groundwater Storage: grace/background/deriving-groundwater.md
+          - Resolution, Leakage and Small Regions: grace/background/resolution-and-leakage.md
+      - Part 2 Using the App:
+          - Interface: grace/app/interface.md
+          - Global View: grace/app/global-view.md
+          - Analyzing a Region: grace/app/regional-analysis.md
+          - Trend Analysis: grace/app/trends.md
+          - Downloading Data: grace/app/downloading-data.md
+      - Part 3 Applications:
+          - Filling Gaps: grace/applications/gap-filling.md
+          - Estimating Recharge: grace/applications/recharge-wtf.md
+          - "Case Study: Niger": grace/applications/case-studies.md
   - Publications: publications.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+<title>GRACE Regional Analyst processing chain</title>
+<defs>
+<marker id="ah-navy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0"/></marker>
+<marker id="ah-lightblue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bee3f8"/></marker>
+<marker id="ah-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a7b"/></marker>
+<marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+<marker id="ah-darkgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/></marker>
+<marker id="ah-lightgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+<marker id="ah-ground" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e6dcc6"/></marker>
+<marker id="ah-groundline" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a89474"/></marker>
+<marker id="ah-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d69e2e"/></marker>
+<marker id="ah-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f7fafc"/></marker>
+<marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
+</defs>
+<rect width="1200" height="520" fill="white"/>
+<text x="30.0" y="34.0" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >From satellite and model data to groundwater storage anomalies</text>
+<text x="30.0" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" text-anchor="start" fill="#718096" >INPUTS (monthly)</text>
+<rect x="30" y="82" width="260" height="118" rx="8" fill="white" stroke="#1f3a5f" stroke-width="1.6"/>
+<rect x="30" y="82" width="260" height="28" rx="8" fill="#1f3a5f"/>
+<rect x="30" y="100" width="260" height="10" fill="#1f3a5f"/>
+<text x="160.0" y="101.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >GRACE / GRACE-FO</text>
+<text x="42.0" y="132.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >JPL mascon solution RL06.3 (CRI)</text>
+<text x="42.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Total water storage anomaly + σ</text>
+<text x="42.0" y="170.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >0.5° grid (3° mascons)</text>
+<text x="42.0" y="189.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Already relative to 2004–2009</text>
+<rect x="30" y="222" width="260" height="156" rx="8" fill="white" stroke="#2c7a7b" stroke-width="1.6"/>
+<rect x="30" y="222" width="260" height="28" rx="8" fill="#2c7a7b"/>
+<rect x="30" y="240" width="260" height="10" fill="#2c7a7b"/>
+<text x="160.0" y="241.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >GLDAS 2.1 land surface models</text>
+<text x="42.0" y="272.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Noah (0.25°)</text>
+<text x="42.0" y="291.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >VIC (1°)</text>
+<text x="42.0" y="310.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >CLSM (1°)</text>
+<text x="42.0" y="329.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Snow water equivalent, canopy water,</text>
+<text x="42.0" y="348.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >soil moisture (all layers, ~2 m)</text>
+<text x="350.0" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" text-anchor="start" fill="#718096" >STEP 1</text>
+<rect x="350" y="222" width="240" height="156" rx="8" fill="white" stroke="#2c7a7b" stroke-width="1.6"/>
+<rect x="350" y="222" width="240" height="28" rx="8" fill="#2c7a7b"/>
+<rect x="350" y="240" width="240" height="10" fill="#2c7a7b"/>
+<text x="470.0" y="241.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >Anomalies</text>
+<text x="362.0" y="272.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Convert kg/m² to cm of water</text>
+<text x="362.0" y="291.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Put all models on a 1° grid</text>
+<text x="362.0" y="310.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Subtract each cell's 2004–2009</text>
+<text x="362.0" y="329.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >mean, so GLDAS anomalies share</text>
+<text x="362.0" y="348.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >GRACE's baseline</text>
+<text x="650.0" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" text-anchor="start" fill="#718096" >STEP 2</text>
+<rect x="650" y="222" width="240" height="156" rx="8" fill="white" stroke="#2c7a7b" stroke-width="1.6"/>
+<rect x="650" y="222" width="240" height="28" rx="8" fill="#2c7a7b"/>
+<rect x="650" y="240" width="240" height="10" fill="#2c7a7b"/>
+<text x="770.0" y="241.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >Model ensemble</text>
+<text x="662.0" y="272.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >SWEa, CANa, SMa = mean of the</text>
+<text x="662.0" y="291.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >three models</text>
+<text x="662.0" y="310.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Uncertainty of each = standard</text>
+<text x="662.0" y="329.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >deviation across the three</text>
+<text x="662.0" y="348.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >models</text>
+<text x="950.0" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" text-anchor="start" fill="#718096" >STEP 3</text>
+<rect x="950" y="82" width="220" height="296" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.6"/>
+<rect x="950" y="82" width="220" height="28" rx="8" fill="#dd6b20"/>
+<rect x="950" y="100" width="220" height="10" fill="#dd6b20"/>
+<text x="1060.0" y="101.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="middle" fill="white" >Water balance (1°)</text>
+<text x="962.0" y="132.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >TWSa averaged to 1°</text>
+<text x="962.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" ></text>
+<text x="962.0" y="170.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >GWSa = TWSa − SWEa</text>
+<text x="962.0" y="189.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >             − CANa − SMa</text>
+<text x="962.0" y="208.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" ></text>
+<text x="962.0" y="227.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >σGWSa = √(σ²TWSa + σ²SWEa</text>
+<text x="962.0" y="246.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >             + σ²CANa + σ²SMa)</text>
+<text x="962.0" y="265.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" ></text>
+<text x="962.0" y="284.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Errors treated as</text>
+<text x="962.0" y="303.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >independent</text>
+<line x1="290.0" y1="300.0" x2="347.0" y2="300.0" stroke="#718096" stroke-width="2" stroke-linecap="round" opacity="1" marker-end="url(#ah-gray)"/>
+<line x1="590.0" y1="300.0" x2="647.0" y2="300.0" stroke="#718096" stroke-width="2" stroke-linecap="round" opacity="1" marker-end="url(#ah-gray)"/>
+<line x1="890.0" y1="300.0" x2="947.0" y2="300.0" stroke="#718096" stroke-width="2" stroke-linecap="round" opacity="1" marker-end="url(#ah-gray)"/>
+<path d="M290,140 L947,140" fill="none" stroke="#718096" stroke-width="2" marker-end="url(#ah-gray)"/>
+<rect x="30" y="420" width="1140" height="70" rx="8" fill="#f7fafc" stroke="#e2e8f0"/>
+<text x="50.0" y="448.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >In the app</text>
+<text x="50.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Five layers, each with ±1σ:</text>
+<text x="300.0" y="448.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >GWSa, SMa, SWEa, CANa on the 1° grid</text>
+<text x="300.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >TWSa on the 0.5° grid, as JPL distributes it</text>
+<text x="700.0" y="448.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Monthly, April 2002 to the latest GRACE-FO release</text>
+<text x="700.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Units: cm of liquid water equivalent</text>
+</svg>
