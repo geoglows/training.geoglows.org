@@ -18,35 +18,37 @@
 <marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
 </defs>
 <rect width="1180" height="500" fill="white"/>
-<rect x="115.8" y="50" width="286.3" height="370" fill="#fdf6ec"/>
-<rect x="402.1" y="50" width="143.2" height="370" fill="#eaf4fb"/>
+<rect x="115.8" y="50" width="263.4" height="370" fill="#fdf6ec"/>
+<rect x="379.2" y="50" width="166.1" height="370" fill="#eaf4fb"/>
 <rect x="545.3" y="50" width="143.2" height="370" fill="#fdf6ec"/>
-<text x="258.9" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#9c6a1d" >dry season: storage drains</text>
-<text x="473.7" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#2b6cb0" >wet season</text>
+<text x="247.5" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#9c6a1d" >dry season: storage drains</text>
+<text x="462.2" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#2b6cb0" >wet season</text>
 <line x1="80.0" y1="420.0" x2="760.0" y2="420.0" stroke="#4a5568" stroke-width="1.2" stroke-linecap="round" opacity="1"/>
 <line x1="80.0" y1="50.0" x2="80.0" y2="420.0" stroke="#4a5568" stroke-width="1.2" stroke-linecap="round" opacity="1"/>
 <text x="0" y="0" transform="translate(34,235.0) rotate(-90)" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#4a5568">GWSa (cm)</text>
 <text x="420.0" y="454.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" text-anchor="middle" fill="#4a5568" >time (months)</text>
-<line x1="115.8" y1="102.9" x2="545.3" y2="330.9" stroke="#c53030" stroke-width="2" stroke-linecap="round" opacity="1" stroke-dasharray="7 5"/>
-<text x="301.9" y="235.7" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#c53030" transform="rotate(28.0 301.9 235.7)">recession line, extended</text>
-<polyline points="115.8,102.9 124.7,106.2 133.7,109.6 142.6,113.2 151.6,117.1 160.5,121.4 169.5,126.0 178.4,131.0 187.4,136.5 196.3,142.3 205.3,148.5 214.2,154.8 223.2,161.4 232.1,168.0 241.1,174.5 250.0,181.0 258.9,187.1 267.9,193.0 276.8,198.5 285.8,203.6 294.7,208.3 303.7,212.6 312.6,216.5 321.6,220.2 330.5,223.6 339.5,227.0 348.4,230.3 357.4,233.7 366.3,237.3 375.3,241.1 384.2,245.3 393.2,249.9 402.1,254.9 411.1,233.3 420.0,213.1 428.9,194.2 437.9,176.8 446.8,160.8 455.8,146.1 464.7,132.9 473.7,121.0 482.6,110.6 491.6,101.5 500.5,93.9 509.5,87.6 518.4,82.7 527.4,79.2 536.3,77.1 545.3,76.4 554.2,81.1 563.2,85.7 572.1,90.3 581.1,94.9 590.0,99.6 598.9,104.2 607.9,108.8 616.8,113.4 625.8,118.1 634.7,122.7 643.7,127.3 652.6,131.9 661.6,136.6 670.5,141.2 679.5,145.8 688.4,150.4" fill="none" stroke="#1f3a5f" stroke-width="3"/>
-<line x1="402.1" y1="254.9" x2="585.3" y2="254.9" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
-<circle cx="115.8" cy="102.9" r="6" fill="white" stroke="#718096" stroke-width="2.5"/>
-<text x="115.8" y="88.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#718096">S<tspan font-size='11' baseline-shift='sub'>A</tspan></text>
-<circle cx="402.1" cy="254.9" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
-<text x="402.1" y="280.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>B</tspan></text>
-<circle cx="545.3" cy="76.4" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
-<text x="545.3" y="62.4" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>P</tspan></text>
-<circle cx="545.3" cy="330.9" r="6" fill="white" stroke="#c53030" stroke-width="2.5"/>
-<text x="525.3" y="336.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#c53030">S<tspan font-size='11' baseline-shift='sub'>L</tspan></text>
-<line x1="585.3" y1="76.4" x2="585.3" y2="254.9" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
-<line x1="578.3" y1="76.4" x2="592.3" y2="76.4" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
-<line x1="578.3" y1="254.9" x2="592.3" y2="254.9" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
-<text x="599.2631578947369" y="170.7" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2b6cb0">R<tspan font-size='11' baseline-shift='sub'>S</tspan></text>
-<line x1="585.3" y1="254.9" x2="585.3" y2="330.9" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
-<line x1="578.3" y1="254.9" x2="592.3" y2="254.9" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
-<line x1="578.3" y1="330.9" x2="592.3" y2="330.9" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
-<text x="599.2631578947369" y="297.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#c53030">R<tspan font-size='11' baseline-shift='sub'>D</tspan></text>
+<line x1="115.8" y1="136.3" x2="545.3" y2="372.4" stroke="#c53030" stroke-width="2" stroke-linecap="round" opacity="1" stroke-dasharray="7 5"/>
+<text x="279.1" y="256.1" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#c53030" transform="rotate(28.8 279.1 256.1)">recession line, extended</text>
+<polyline points="115.8,141.1 118.7,141.2 121.5,141.4 124.4,141.8 127.2,142.3 130.1,143.0 133.0,143.7 135.8,144.6 138.7,145.6 141.6,146.7 144.4,148.1 147.3,149.9 150.1,151.7 153.0,153.6 155.9,155.3 158.7,157.1 161.6,158.9 164.5,160.7 167.3,162.5 170.2,164.3 173.1,166.0 175.9,167.8 178.8,169.6 181.6,171.3 184.5,173.1 187.4,174.8 190.2,176.6 193.1,178.3 196.0,180.1 198.8,181.8 201.7,183.5 204.5,185.2 207.4,187.0 210.3,188.7 213.1,190.4 216.0,192.1 218.9,193.8 221.7,195.5 224.6,197.2 227.5,198.9 230.3,200.6 233.2,202.3 236.0,203.9 238.9,205.6 241.8,207.3 244.6,209.0 247.5,210.6 250.4,212.3 253.2,213.9 256.1,215.6 258.9,217.2 261.8,218.9 264.7,220.5 267.5,222.1 270.4,223.8 273.3,225.4 276.1,227.0 279.0,228.6 281.9,230.2 284.7,231.8 287.6,233.4 290.4,235.0 293.3,236.6 296.2,238.2 299.0,239.8 301.9,241.3 304.8,242.9 307.6,244.4 310.5,245.9 313.3,247.5 316.2,249.0 319.1,250.4 321.9,251.9 324.8,253.3 327.7,254.7 330.5,256.1 333.4,257.5 336.3,258.8 339.1,260.1 342.0,261.3 344.8,262.5 347.7,263.6 350.6,264.7 353.4,265.7 356.3,266.7 359.2,267.5 362.0,268.3 364.9,269.0 367.7,269.5 370.6,270.0 373.5,270.3 376.3,270.5 379.2,270.6 382.1,270.5 384.9,270.2 387.8,269.8 390.7,269.2 393.5,268.4 396.4,267.5 399.2,266.3 402.1,264.9 405.0,263.3 407.8,261.5 410.7,259.5 413.6,257.3 416.4,254.8 419.3,252.1 422.1,249.2 425.0,246.0 427.9,242.7 430.7,239.1 433.6,235.4 436.5,231.5 439.3,227.4 442.2,223.1 445.1,218.7 447.9,214.2 450.8,209.5 453.6,204.8 456.5,200.0 459.4,195.1 462.2,190.2 465.1,185.3 468.0,180.5 470.8,175.6 473.7,170.8 476.5,166.1 479.4,161.5 482.3,157.0 485.1,152.6 488.0,148.4 490.9,144.3 493.7,140.5 496.6,136.8 499.5,133.3 502.3,130.1 505.2,127.0 508.0,124.2 510.9,121.6 513.8,119.3 516.6,117.2 519.5,115.3 522.4,113.6 525.2,112.2 528.1,111.0 530.9,110.0 533.8,109.3 536.7,108.7 539.5,108.3 542.4,108.1 545.3,108.1 548.1,108.3 551.0,108.6 553.9,109.1 556.7,109.7 559.6,110.4 562.4,111.3 565.3,112.2 568.2,113.3 571.0,114.4 573.9,116.0 576.8,117.9 579.6,119.8 582.5,121.6 585.3,123.5 588.2,125.4 591.1,127.2 593.9,129.1 596.8,131.0 599.7,132.8 602.5,134.7 605.4,136.5 608.3,138.3 611.1,140.2 614.0,142.0 616.8,143.8 619.7,145.6 622.6,147.5 625.4,149.3 628.3,151.1 631.2,152.9 634.0,154.7 636.9,156.5 639.7,158.3 642.6,160.0 645.5,161.8 648.3,163.6 651.2,165.4 654.1,167.1 656.9,168.9 659.8,170.7 662.7,172.4 665.5,174.2 668.4,175.9 671.2,177.7 674.1,179.4 677.0,181.1 679.8,182.9 682.7,184.6 685.6,186.3 688.4,188.0" fill="none" stroke="#1f3a5f" stroke-width="3"/>
+<line x1="379.2" y1="270.6" x2="722.4" y2="270.6" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<line x1="553.3" y1="108.1" x2="722.4" y2="108.1" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<line x1="553.3" y1="372.4" x2="722.4" y2="372.4" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<circle cx="115.8" cy="141.1" r="6" fill="white" stroke="#718096" stroke-width="2.5"/>
+<text x="115.8" y="127.1" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#718096">S<tspan font-size='11' baseline-shift='sub'>A</tspan></text>
+<circle cx="379.2" cy="270.6" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="379.2" y="296.6" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>B</tspan></text>
+<circle cx="545.3" cy="108.1" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="545.3" y="94.1" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>P</tspan></text>
+<circle cx="545.3" cy="372.4" r="6" fill="white" stroke="#c53030" stroke-width="2.5"/>
+<text x="525.3" y="378.4" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#c53030">S<tspan font-size='11' baseline-shift='sub'>L</tspan></text>
+<line x1="722.4" y1="108.1" x2="722.4" y2="270.6" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="108.1" x2="729.4" y2="108.1" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="270.6" x2="729.4" y2="270.6" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<text x="736.421052631465" y="194.4" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2b6cb0">R<tspan font-size='11' baseline-shift='sub'>S</tspan></text>
+<line x1="722.4" y1="270.6" x2="722.4" y2="372.4" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="270.6" x2="729.4" y2="270.6" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="372.4" x2="729.4" y2="372.4" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<text x="736.421052631465" y="326.5" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#c53030">R<tspan font-size='11' baseline-shift='sub'>D</tspan></text>
 <text x="115.8" y="438.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >previous peak</text>
 <text x="545.3" y="438.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >this year's peak</text>
 <text x="820" y="70" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Picks for one water year</text>
