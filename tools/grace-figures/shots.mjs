@@ -106,4 +106,31 @@ if (want('gapfill')) {
   const c = await rect('#gap-fill-control', 12), l = await rect('#gap-fill-label', 12);
   await shot('app-gap-fill-control', {x: c.x, y: l.y, width: c.width, height: c.y + c.height - l.y});
 }
+if (want('recharge')) {
+  // the Recharge Analysis page for the Northern Midwest Aquifer System, and the
+  // seasonality verdict for the Central Valley for contrast
+  await page.setViewport({width:1440, height:1100, deviceScaleFactor:2});
+  await load();
+  await page.click('#gap-fill-control input[value="seasonal"]'); await sleep(1500);
+  await clickRegion('Northern Midwest Aquifer System');
+  await toEnd(); await toMonth('2024-09'); await topPanel(); await sleep(800);
+  await page.mouse.move(5, 5); await sleep(500);
+  await shot('app-recharge-button', await rect('#timeseries-plot'));
+  await page.click('.ts-recharge'); await sleep(3000);
+  const el = async (name, handle) => { await handle.screenshot({path:`${OUT}/${name}.png`}); console.log('saved', name); };
+  const sections = await page.$$('.rc-section');
+  await el('app-recharge-seasonality', sections[0]);
+  await el('app-recharge-picks', await page.$('.rc-chart-box'));
+  await page.evaluate(() => [...document.querySelectorAll('.rc-table tbody tr')].find(t => t.cells[0].textContent === '2004').click());
+  await sleep(1500); await page.mouse.move(5, 5); await sleep(300);
+  await el('app-recharge-editor', await page.$('.rc-editor'));
+  await el('app-recharge-controls', await page.$('.rc-controls'));
+  await el('app-recharge-summary', await page.$('.rc-summary'));
+  await el('app-recharge-chart', await page.$$('.rc-chart-box').then(b => b[b.length - 1]));
+  await el('app-recharge-table', await page.$('.rc-table-wrap'));
+  await page.keyboard.press('Escape'); await sleep(500);
+  await clickRegion('California Central Valley');
+  await page.click('.ts-recharge'); await sleep(3000);
+  await el('app-recharge-verdict-cv', await page.$('.rc-verdict'));
+}
 await browser.close();

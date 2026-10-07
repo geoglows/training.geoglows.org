@@ -5,7 +5,7 @@
 The GRACE record is missing 35 of its months: scattered single months, mostly between 2011 and 2017, and the 11 months between the end of
 GRACE and the start of GRACE-FO (see [The GRACE Mission](../background/grace-mission.md#the-record-and-its-gaps)). Trend analysis in the app
 handles gaps by skipping them. Analyses that work year by year, such as estimating recharge with the
-[water table fluctuation method](recharge-wtf.md), need a value for every month: a missing month at a seasonal peak or trough changes that
+[water table fluctuation method](../recharge/wtf-method.md), need a value for every month: a missing month at a seasonal peak or trough changes that
 year's result.
 
 The app fills the gaps with a seasonal model (see [Gap Filling](../app/gap-filling.md) in Part 2). This page describes that model, how well it
@@ -53,8 +53,7 @@ depend on the filled months with extra caution.
 
 ## Using the notebook
 
-The notebook gives the same filled values as the app, and adds the fill-quality tests above, a choice of breakpoints, and the
-[recharge](recharge-wtf.md) calculation.
+The notebook gives the same filled values as the app, and adds the fill-quality tests above and a choice of breakpoints.
 
 
 [Open in Google Colab](https://colab.research.google.com/github/Aquaveo/training.geoglows.org/blob/main/docs/static/files/grace/grace_gap_fill_and_recharge.ipynb){:target="_blank"}

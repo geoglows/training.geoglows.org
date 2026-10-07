@@ -14,8 +14,7 @@ papers.
     [doi:10.3390/rs14071532](https://doi.org/10.3390/rs14071532){:target="_blank"}
 
 The study was carried out under the NASA SERVIR West Africa project with the AGRHYMET Regional Centre in Niamey. It follows the same workflow as
-Part 3 of this training: derive GWSa for each aquifer, fill the gaps in the record, and estimate annual recharge with the water table
-fluctuation method.
+the app: derive GWSa for each aquifer, fill the gaps in the record, and estimate annual recharge with the water table fluctuation method.
 
 ### Setting and data
 
@@ -216,5 +215,5 @@ With the factor applied, the GRACE storage losses agree with most published esti
 **For app users:** for a small or narrow aquifer, the GRACE average from the app captures the timing and direction of storage change but can
 understate its size several times over. A scale factor calibrated against wells corrects that, for that aquifer only.
 
-To repeat the Niger and Volta analyses for any region, follow [Gap-Filling Method](gap-filling.md) and [Estimating Recharge](recharge-wtf.md) with a
-CSV downloaded from the app.
+To repeat the Niger and Volta analyses for any region, set **Gap filling** to **Seasonal model** and open the
+[Recharge Analysis](../recharge/opening.md).

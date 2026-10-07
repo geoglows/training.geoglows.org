@@ -41,12 +41,13 @@ pts = pts[::step]
 SA = pts[0]
 SB = min((p for p in pts if p[0] < 12), key=lambda p: p[1])
 SP = max((p for p in pts if p[0] > SB[0]), key=lambda p: p[1])
-# recession line: least-squares fit through the series from S_A to S_B, extended to the peak time
+# recession line: least-squares fit through the series from S_A to S_B; its slope is carried on from S_B
+# to the peak time, as the app does
 fit = [p for p in pts if p[0] <= SB[0]]
 n = len(fit); mx = sum(p[0] for p in fit) / n; my = sum(p[1] for p in fit) / n
 slope = sum((p[0] - mx) * (p[1] - my) for p in fit) / sum((p[0] - mx) ** 2 for p in fit)
 icpt = my - slope * mx
-SL = (SP[0], icpt + slope * SP[0])
+SL = (SP[0], SB[1] + slope * (SP[0] - SB[0]))
 tB, tP, tEnd = SB[0], SP[0], pts[-1][0]
 span = max(p[1] for p in pts) - SL[1]
 Y_TOP, Y_BOT = max(p[1] for p in pts) + 0.22 * span, SL[1] - 0.18 * span
@@ -63,13 +64,14 @@ out += [line(L, B, R, B, "darkgray", 1.2), line(L, T, L, B, "darkgray", 1.2),
         f'<text x="0" y="0" transform="translate({L - 46},{(T + B) / 2}) rotate(-90)" font-family="{FONT}" '
         f'font-size="13" text-anchor="middle" fill="{C["darkgray"]}">GWSa (cm)</text>',
         text((L + R) / 2, B + 34, "time (months)", 13)]
-# recession line extended
-out.append(line(X(0), Y(icpt), X(SL[0]), Y(SL[1]), "red", 2, dash="7 5"))
-lt = tB * 0.62                          # label position along the fitted recession line
-ly_ = Y(icpt + slope * lt) + 30
+# recession line: fitted from S_A to S_B (solid), projected from S_B to the peak time (dashed)
+out.append(line(X(0), Y(icpt), X(tB), Y(icpt + slope * tB), "red", 2.2))
+out.append(line(X(tB), Y(SB[1]), X(SL[0]), Y(SL[1]), "red", 2, dash="7 5"))
 ang = math.degrees(math.atan2(Y(icpt + slope) - Y(icpt), X(1) - X(0)))
-out.append(text(X(lt), ly_, "recession line, extended", 12.5, fill=C["red"],
-                style=f'transform="rotate({ang:.1f} {X(lt):.1f} {ly_:.1f})"'))
+for lt, lab in [(tB * 0.5, "recession line, fitted"), (tB + (tP - tB) * 0.4, "projected from S<tspan font-size='9' baseline-shift='sub'>B</tspan>")]:
+    ly_ = (Y(icpt + slope * lt) if lt <= tB else Y(SB[1] + slope * (lt - tB))) + 26
+    out.append(text(X(lt), ly_, lab, 12.5, fill=C["red"],
+                    style=f'transform="rotate({ang:.1f} {X(lt):.1f} {ly_:.1f})"'))
 # series
 poly = " ".join(f"{X(t):.1f},{Y(v):.1f}" for t, v in pts)
 out.append(f'<polyline points="{poly}" fill="none" stroke="{C["navy"]}" stroke-width="3"/>')
@@ -110,8 +112,8 @@ out += [eq(70, "Picks for one water year", 15, "bold", C["navy"]),
         eq(256, f"R{sub('S')} = S{sub('P')} − S{sub('B')}   (visible rise)", 14, col=C["blue"]),
         eq(282, f"R{sub('D')} = S{sub('B')} − S{sub('L')}   (drainage offset)", 14, col=C["red"]),
         f'<rect x="{ex - 10}" y="304" width="340" height="80" rx="8" fill="{C["sky"]}" stroke="{C["blue"]}"/>',
-        eq(334, f"Method 1:  R = R{sub('S')}", 15, "bold", C["navy"]),
-        eq(366, f"Method 2:  R = R{sub('S')} + R{sub('D')} = S{sub('P')} − S{sub('L')}", 15, "bold", C["navy"]),
+        eq(334, f"R1 (lower):  R{sub('S')} = S{sub('P')} − S{sub('B')}", 15, "bold", C["navy"]),
+        eq(366, f"R2 (upper):  R{sub('S')} + R{sub('D')} = S{sub('P')} − S{sub('L')}", 15, "bold", C["navy"]),
         eq(412, "GWSa is already a depth of water, so no", 12.5, col=C["gray"]),
         eq(430, "specific yield is needed: R is in cm per year.", 12.5, col=C["gray"])]
 

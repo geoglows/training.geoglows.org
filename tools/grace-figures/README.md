@@ -22,7 +22,7 @@ python wtf.py            # water table fluctuation method, conceptual
 Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script overwrites its SVG.
 
 `gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/northern_midwest_filled.csv`, the
-app's seasonal fill of a Northern Midwest Aquifer System export (the same values the notebook gives). The WTF example plot (`wtf-example-year`) comes from the notebook in `docs/static/files/grace/`.
+app's seasonal fill of a Northern Midwest Aquifer System export (the same values the notebook gives).
 
 ## App screenshots
 
@@ -32,7 +32,7 @@ app's seasonal fill of a Northern Midwest Aquifer System export (the same values
 cd ../../../webapp-grace-groundwater && npx vite --port 5199 --strictPort   # in another terminal
 npm install puppeteer-core
 mkdir -p raw && node shots.mjs raw                  # all shots
-node shots.mjs raw region,global                    # or a subset: home, panel, region, cv, global, modals, gapfill
+node shots.mjs raw region,global                    # or a subset: home, panel, region, cv, global, modals, gapfill, recharge
 ```
 
 The pages use WebP copies resized to 1800 px wide (quality 86), saved to `docs/static/images/grace/app-*.webp`.

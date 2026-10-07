@@ -37,8 +37,11 @@ The app is free and runs in a web browser at
 [the global view](../app/global-view.md), [trend analysis](../app/trends.md), [gap filling](../app/gap-filling.md) and
 [downloading data](../app/downloading-data.md).
 
-**Part 3, Applications,** uses the downloaded CSV for analysis outside the app: [the gap-filling method](../applications/gap-filling.md) and its
-notebook, [estimating recharge](../applications/recharge-wtf.md) with the water table fluctuation method, and
+**Part 3, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](../recharge/wtf-method.md)
+as applied to GRACE data, then [opening the analysis](../recharge/opening.md) and checking the series, [the water years and
+picks](../recharge/picks.md), and [the results](../recharge/results.md).
+
+**Part 4, Applications,** covers [the gap-filling method](../applications/gap-filling.md) and its notebook, and
 [case studies](../applications/case-studies.md) from Niger, the Volta Basin and California's Central Valley.
 
 ## History
