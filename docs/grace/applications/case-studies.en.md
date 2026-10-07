@@ -216,5 +216,5 @@ With the factor applied, the GRACE storage losses agree with most published esti
 **For app users:** for a small or narrow aquifer, the GRACE average from the app captures the timing and direction of storage change but can
 understate its size several times over. A scale factor calibrated against wells corrects that, for that aquifer only.
 
-To repeat the Niger and Volta analyses for any region, follow [Filling Gaps](gap-filling.md) and [Estimating Recharge](recharge-wtf.md) with a
+To repeat the Niger and Volta analyses for any region, follow [Gap-Filling Method](gap-filling.md) and [Estimating Recharge](recharge-wtf.md) with a
 CSV downloaded from the app.

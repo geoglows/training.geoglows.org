@@ -34,10 +34,11 @@ The app is free and runs in a web browser at
   than its footprint.
 
 **Part 2, Using the App,** walks through the interface: [the layout](../app/interface.md), [the regional view](../app/regional-view.md),
-[the global view](../app/global-view.md), [trend analysis](../app/trends.md) and [downloading data](../app/downloading-data.md).
+[the global view](../app/global-view.md), [trend analysis](../app/trends.md), [gap filling](../app/gap-filling.md) and
+[downloading data](../app/downloading-data.md).
 
-**Part 3, Applications,** uses the downloaded CSV for analysis outside the app: [filling the gaps](../applications/gap-filling.md) in the
-monthly record, [estimating recharge](../applications/recharge-wtf.md) with the water table fluctuation method, and
+**Part 3, Applications,** uses the downloaded CSV for analysis outside the app: [the gap-filling method](../applications/gap-filling.md) and its
+notebook, [estimating recharge](../applications/recharge-wtf.md) with the water table fluctuation method, and
 [case studies](../applications/case-studies.md) from Niger, the Volta Basin and California's Central Valley.
 
 ## History

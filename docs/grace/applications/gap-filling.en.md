@@ -1,4 +1,4 @@
-# Filling Gaps
+# Gap-Filling Method
 
 ## Why fill the gaps
 
@@ -8,43 +8,8 @@ handles gaps by skipping them. Analyses that work year by year, such as estimati
 [water table fluctuation method](recharge-wtf.md), need a value for every month: a missing month at a seasonal peak or trough changes that
 year's result.
 
-The app can fill the gaps for you with a seasonal model, and the [notebook](#using-the-notebook) for this page does the same fill with tests of
-how well it worked.
-
-## In the app
-
-![The Gap filling control in the app's panel](../../static/images/grace/app-gap-fill-control.webp){ width="310" }
-
-The **Gap filling** control in the panel sets what the chart does at months with no GRACE data:
-
-- **None** breaks the line at every gap, so you can see exactly which months were observed.
-- **Straight line** joins the months on either side of each gap. It only bridges the gap on the chart and estimates nothing.
-- **Seasonal model** fills each gap with values estimated from the rest of the record, using the [method](#method) below. Filled months are
-  drawn as a dashed line with open markers, and hovering over one shows its value.
-
-The Northern Midwest Aquifer System has a strong seasonal cycle, which shows the difference well. With **Straight line**, the 11 months between
-GRACE and GRACE-FO become a flat bridge from 9.5 cm in June 2017 to 10.0 cm in June 2018:
-
-![Northern Midwest Aquifer System GWSa with the gaps bridged by straight lines](../../static/images/grace/app-gap-fill-line.webp)
-
-With **Seasonal model**, the filled months carry on the region's annual cycle, rising to 12.8 cm in September 2017 and falling to 4.8 cm in
-March 2018 before climbing to meet the first GRACE-FO month. The short gaps between 2011 and 2017 follow the observed peaks and troughs in the
-same way:
-
-![Northern Midwest Aquifer System GWSa with the gaps filled by the seasonal model](../../static/images/grace/app-gap-fill-seasonal.webp)
-
-How much a fill differs from a straight line depends on the region. Much of the seasonal swing that GRACE sees is soil moisture and snow, which
-are removed before GWSa is computed, so in many regions the groundwater cycle is small and the filled months look close to a straight line.
-
-Some details of the app's fill:
-
-- GWSa and TWSa are each filled from their own record. A filled GWSa value is therefore not exactly the filled TWSa minus the GLDAS terms for
-  that month. The GLDAS layers have no gaps and are never filled.
-- The app chooses the trend breakpoints automatically. To set the number of breakpoints yourself, use the notebook.
-- The uncertainty band is not drawn for filled months, because the error of a filled value comes from the model rather than from GRACE (see
-  [How good is the fill?](#how-good-is-the-fill)).
-- The downloaded CSV always includes the filled values, in the `GWSa_filled` and `TWSa_filled` columns, with `GWSa_is_filled` and
-  `TWSa_is_filled` marking the filled months (see [Downloading Data](../app/downloading-data.md)). This holds whichever option the chart uses.
+The app fills the gaps with a seasonal model (see [Gap Filling](../app/gap-filling.md) in Part 2). This page describes that model, how well it
+works, and the [notebook](#using-the-notebook) that does the same fill outside the app.
 
 ## Method
 

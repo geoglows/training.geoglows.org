@@ -61,7 +61,8 @@ plugins:
             Trend Analysis: "Análisis de Tendencias"
             Downloading Data: "Descarga de Datos"
             Part 3 Applications: "Parte 3: Aplicaciones"
-            Filling Gaps: "Relleno de Vacíos"
+            Gap Filling: "Relleno de Vacíos"
+            Gap-Filling Method: "Método de Relleno de Vacíos"
             Estimating Recharge: "Estimación de la Recarga"
             Case Studies: "Casos de Estudio"
             Webinars: "Seminarios Web"
@@ -109,7 +110,8 @@ plugins:
             Trend Analysis: "Analyse des Tendances"
             Downloading Data: "Téléchargement des Données"
             Part 3 Applications: "Partie 3 : Applications"
-            Filling Gaps: "Comblement des Lacunes"
+            Gap Filling: "Comblement des Lacunes"
+            Gap-Filling Method: "Méthode de Comblement des Lacunes"
             Estimating Recharge: "Estimation de la Recharge"
             Case Studies: "Études de Cas"
             Webinars: "Webinaires"
@@ -163,9 +165,10 @@ nav:
           - Regional View: grace/app/regional-view.md
           - Global View: grace/app/global-view.md
           - Trend Analysis: grace/app/trends.md
+          - Gap Filling: grace/app/gap-filling.md
           - Downloading Data: grace/app/downloading-data.md
       - Part 3 Applications:
-          - Filling Gaps: grace/applications/gap-filling.md
+          - Gap-Filling Method: grace/applications/gap-filling.md
           - Estimating Recharge: grace/applications/recharge-wtf.md
           - Case Studies: grace/applications/case-studies.md
       - Publications: grace/publications.md
