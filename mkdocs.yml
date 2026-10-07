@@ -67,7 +67,7 @@ plugins:
             Water Years and Picks: "Años Hidrológicos y Selección de Puntos"
             Results: "Resultados"
             Part 5 Case Studies: "Parte 5: Casos de Estudio"
-            Gap Filling: "Relleno de Vacíos"
+            Gaps in the Record: "Vacíos en el Registro"
             The Seasonal Model: "El Modelo Estacional"
             Fitting the Model: "Ajuste del Modelo"
             Filling the Gaps: "Relleno de los Vacíos"
@@ -126,7 +126,7 @@ plugins:
             Water Years and Picks: "Années Hydrologiques et Choix des Points"
             Results: "Résultats"
             Part 5 Case Studies: "Partie 5 : Études de Cas"
-            Gap Filling: "Comblement des Lacunes"
+            Gaps in the Record: "Lacunes dans les Données"
             The Seasonal Model: "Le Modèle Saisonnier"
             Fitting the Model: "Ajustement du Modèle"
             Filling the Gaps: "Comblement des Lacunes Mensuelles"
@@ -186,9 +186,9 @@ nav:
           - Regional View: grace/app/regional-view.md
           - Global View: grace/app/global-view.md
           - Trend Analysis: grace/app/trends.md
-          - Gap Filling: grace/app/gap-filling.md
           - Downloading Data: grace/app/downloading-data.md
       - Part 3 Gap Filling:
+          - Gaps in the Record: grace/gap-filling/gaps.md
           - The Seasonal Model: grace/gap-filling/seasonal-model.md
           - Fitting the Model: grace/gap-filling/fitting.md
           - Filling the Gaps: grace/gap-filling/filling.md

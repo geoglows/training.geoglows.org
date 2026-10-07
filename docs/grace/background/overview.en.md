@@ -34,10 +34,11 @@ The app is free and runs in a web browser at
   than its footprint.
 
 **Part 2, Using the App,** walks through the interface: [the layout](../app/interface.md), [the regional view](../app/regional-view.md),
-[the global view](../app/global-view.md), [trend analysis](../app/trends.md), [gap filling](../app/gap-filling.md) and
+[the global view](../app/global-view.md), [trend analysis](../app/trends.md) and
 [downloading data](../app/downloading-data.md).
 
-**Part 3, Gap Filling,** gives the method behind the **Seasonal model** fill: [the model](../gap-filling/seasonal-model.md),
+**Part 3, Gap Filling,** covers the gaps in the record and the method behind the **Seasonal model** fill: [the options in the app](../gap-filling/gaps.md),
+[the model](../gap-filling/seasonal-model.md),
 [how it is fitted](../gap-filling/fitting.md), [how the gaps are filled](../gap-filling/filling.md), and
 [how accurate the filled values are](../gap-filling/accuracy.md).
 

@@ -25,7 +25,7 @@ Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
 
 The file has one row for every month from April 2002 to the latest release. In months with no GRACE data, the `GWSa` and `TWSa` cells are blank,
 while the GLDAS layers (`SMa`, `SWEa`, `CANa`) still have values, because the land surface models run every month. The `_filled` columns
-supply a value for those months (see [Gap Filling](gap-filling.md)). They are written whatever the **Gap filling** setting, so
+supply a value for those months (see [Gaps in the Record](../gap-filling/gaps.md)). They are written whatever the **Gap filling** setting, so
 the file is the same however the chart is drawn.
 
 Excel, Google Sheets, Python and R all read the file directly, and the ISO dates need no conversion (in pandas, use

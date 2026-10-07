@@ -82,7 +82,7 @@ equals R1.
 GRACE data differ from a well record in several ways, and the app handles each one.
 
 **Gaps.** The method needs a value for every month: a missing month at a peak or trough changes that year's result. The Recharge Analysis is
-only available with the **Seasonal model** gap fill, and it runs on the filled series (see [Gap Filling](../app/gap-filling.md)). Years whose
+only available with the **Seasonal model** gap fill, and it runs on the filled series (see [Gaps in the Record](../gap-filling/gaps.md)). Years whose
 picks or recession line fall on filled months are marked in the results.
 
 **Long-term trends.** Many regions have a steady decline or rise in storage over the record. Picked on the raw series, a steep decline would

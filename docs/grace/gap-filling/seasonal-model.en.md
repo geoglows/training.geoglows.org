@@ -1,15 +1,7 @@
 # The Seasonal Model
 
-## Why fill the gaps
-
-The GRACE record is missing 35 of its months: scattered single months, mostly between 2011 and 2017, and the 11 months between the end of
-GRACE and the start of GRACE-FO (see [The GRACE Mission](../background/grace-mission.md#the-record-and-its-gaps)). Trend analysis in the app
-skips missing months. Analyses that work year by year need a value for every month. In the
-[Recharge Analysis](../recharge/wtf-method.md), for example, a missing month at a seasonal peak or trough changes that year's result.
-
-The **Seasonal model** option of the **Gap filling** control (see [Gap Filling](../app/gap-filling.md) in Part 2) estimates each missing month
-from the rest of the record, following the approach of Barbosa et al. (2022). This page gives the model; the pages that follow give how it is
-[fitted](fitting.md), how the [filled values](filling.md) are computed, and how [accurate](accuracy.md) they are.
+The **Seasonal model** option estimates each missing month from a model of the region's own record, fitted to its observed months,
+following the approach of Barbosa et al. (2022) (see [Gaps in the Record](gaps.md)).
 
 ## Trend, seasonal cycle and residual
 

@@ -31,7 +31,7 @@ From top to bottom:
   [Regional View](regional-view.md#the-time-series-chart)).
 - **Gap filling.** What the chart does at months with no GRACE data. **None** breaks the line at each gap, **Straight line** joins the
   months on either side, and **Seasonal model** fills the gaps with values estimated from the rest of the record, drawn as a dashed line with
-  open markers (see [Gap Filling](gap-filling.md)). The setting changes only the chart, never the downloaded CSV.
+  open markers (see [Gaps in the Record](../gap-filling/gaps.md)). The setting changes only the chart, never the downloaded CSV.
 - **Color ramp.** Six palettes. Viridis, Cividis, Brown-Teal and Purple-Green are safe for readers with color vision deficiency.
 - **Layer opacity.** Fade the anomaly cells to see the basemap underneath.
 - **Show cell boundaries / Show mascon boundaries.** Outline the grid cells, or the 3° GRACE mascons that set the true resolution of the data.

@@ -137,8 +137,7 @@ control sets how the chart draws the gaps:
 - **Seasonal model** estimates the missing months from a trend and seasonal cycle fitted to the region's own record, and draws them as a
   dashed line with open markers, as in the chart above.
 
-The setting changes the chart only. [Gap Filling](gap-filling.md) compares the three options, and Part 3 gives the full method, starting with
-[The Seasonal Model](../gap-filling/seasonal-model.md).
+The setting changes the chart only. Part 3 compares the three options in [Gaps in the Record](../gap-filling/gaps.md) and then gives the full method.
 
 ### Trend lines
 

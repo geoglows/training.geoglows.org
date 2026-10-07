@@ -32,6 +32,5 @@ into four trend segments of +1.3, −0.7, +2.9 and −0.5 cm/yr:
 
 The single missing months between 2011 and 2017 sit close to their neighbors. Across the 11-month gap between the missions, the filled values
 rise to 12.8 cm in September 2017 and fall to 4.8 cm in March 2018 before meeting the first GRACE-FO month, carrying on the region's annual
-cycle. The app shows the same values with **Gap filling** set to **Seasonal model**:
-
-![The same series in the app with Gap filling set to Seasonal model](../../static/images/grace/app-gap-fill-seasonal.webp)
+cycle. The app shows the same values with **Gap filling** set to **Seasonal model** (see
+[Gaps in the Record](gaps.md#the-gap-filling-control)).

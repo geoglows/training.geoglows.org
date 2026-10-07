@@ -3,7 +3,7 @@
 ## The Recharge Analysis button
 
 The Recharge Analysis runs on the filled GWSa series, so it is available only when **Gap filling** in the panel is set to **Seasonal model**
-(see [Gap Filling](../app/gap-filling.md)). With that option selected, a **Recharge Analysis** button appears next to **Download CSV** above the
+(see [Gaps in the Record](../gap-filling/gaps.md)). With that option selected, a **Recharge Analysis** button appears next to **Download CSV** above the
 time series chart, for a region and for a single grid cell in the [global view](../app/global-view.md).
 
 ![The Recharge Analysis button above the time series chart for the Northern Midwest Aquifer System](../../static/images/grace/app-recharge-button.webp)
