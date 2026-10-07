@@ -89,7 +89,7 @@ input, button, select, textarea, .btn, legend,
 }
 
 .wy-nav-content {
-  max-width: 900px;
+  max-width: 1200px;
   background: transparent;
 }
 
@@ -539,6 +539,29 @@ td, th {
 
 .rst-content img {
   border-radius: var(--geo-radius-lg);
+}
+
+/* Figures fill the content column unless the page gives them an explicit width
+   (attr_list `{ width="..." }`), which small UI crops use to stay at their natural size. */
+.rst-content img:not([width]) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Images too small to stretch without blurring, and the home page logo, keep their natural size. */
+.rst-content img[src$="river-legend.png"],
+.rst-content img[src$="kge2.png"],
+.rst-content img[src$="saber.png"],
+.rst-content img[src$="forecast.png"],
+.rst-content img[src$="monthly_average_flow.png"] {
+  width: auto;
+  max-width: 100%;
+}
+
+.rst-content img[src$="NewGEOGLOWSLOGO.png"] {
+  width: auto;
+  max-width: min(100%, 520px);
 }
 
 /* ------------------------------------------------- footer / buttons -- */
