@@ -611,7 +611,7 @@ td, th {
 }
 
 .rst-content img[src$="cv-fig3-workflow.webp"] {
-  width: 45%;
+  width: 60%;
 }
 
 @media (max-width: 768px) {
