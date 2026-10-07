@@ -10,6 +10,8 @@ The satellites don't image the surface. They measure the distance between themse
 about a micrometer, a fraction of the width of a human hair. (GRACE-FO also carries an experimental laser ranging instrument that is more precise
 still.) Variations in that distance reveal variations in Earth's gravity along the flight path.
 
+![GRACE mission geometry: altitude, separation, ranging, GPS tracking and accelerometers](../../static/images/grace/grace-mission-geometry.png)
+
 ![How GRACE senses a mass anomaly](../../static/images/grace/grace-ranging.png)
 
 When the pair approaches a region with extra mass, such as an aquifer that has filled after a wet season, the leading satellite feels the extra

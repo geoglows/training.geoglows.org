@@ -9,6 +9,7 @@ pages' other images with Inkscape. They need Python 3.11+ with `pandas` and `sha
 `/Applications/Inkscape.app` (change `INKSCAPE` in `common.py` elsewhere).
 
 ```
+python mission.py        # mission geometry: altitude, separation, ranging, GPS
 python ranging.py        # GRACE satellite ranging over a mass anomaly
 python timeline.py       # GRACE / GRACE-FO record and missing months
 python waterbalance.py   # storage components and the water balance
