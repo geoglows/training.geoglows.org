@@ -37,10 +37,9 @@ The app is free and runs in a web browser at
 [the global view](../app/global-view.md), [trend analysis](../app/trends.md) and
 [downloading data](../app/downloading-data.md).
 
-**Part 3, Gap Filling,** covers the gaps in the record and the method behind the **Seasonal model** fill: [the options in the app](../gap-filling/gaps.md),
-[the model](../gap-filling/seasonal-model.md),
-[how it is fitted](../gap-filling/fitting.md), [how the gaps are filled](../gap-filling/filling.md), and
-[how accurate the filled values are](../gap-filling/accuracy.md).
+**Part 3, Gap Filling,** covers [the gaps in the record and the options in the app](../gap-filling/gaps.md), then
+[the seasonal model](../gap-filling/seasonal-model.md) behind the **Seasonal model** fill: how it is fitted, how the gaps are filled, and how
+accurate the filled values are.
 
 **Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](../recharge/wtf-method.md)
 as applied to GRACE data, then [opening the analysis](../recharge/opening.md) and checking the series, [the water years and

@@ -69,9 +69,6 @@ plugins:
             Part 5 Case Studies: "Parte 5: Casos de Estudio"
             Gaps in the Record: "Vacíos en el Registro"
             The Seasonal Model: "El Modelo Estacional"
-            Fitting the Model: "Ajuste del Modelo"
-            Filling the Gaps: "Relleno de los Vacíos"
-            Fill Accuracy: "Precisión del Relleno"
             Niger: "Níger"
             Volta Basin: "Cuenca del Volta"
             California's Central Valley: "Valle Central de California"
@@ -128,9 +125,6 @@ plugins:
             Part 5 Case Studies: "Partie 5 : Études de Cas"
             Gaps in the Record: "Lacunes dans les Données"
             The Seasonal Model: "Le Modèle Saisonnier"
-            Fitting the Model: "Ajustement du Modèle"
-            Filling the Gaps: "Comblement des Lacunes Mensuelles"
-            Fill Accuracy: "Précision du Comblement"
             Niger: "Niger"
             Volta Basin: "Bassin de la Volta"
             California's Central Valley: "Vallée Centrale de Californie"
@@ -190,9 +184,6 @@ nav:
       - Part 3 Gap Filling:
           - Gaps in the Record: grace/gap-filling/gaps.md
           - The Seasonal Model: grace/gap-filling/seasonal-model.md
-          - Fitting the Model: grace/gap-filling/fitting.md
-          - Filling the Gaps: grace/gap-filling/filling.md
-          - Fill Accuracy: grace/gap-filling/accuracy.md
       - Part 4 Recharge Analysis:
           - The WTF Method: grace/recharge/wtf-method.md
           - Opening the Analysis: grace/recharge/opening.md

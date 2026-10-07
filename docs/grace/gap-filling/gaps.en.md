@@ -9,8 +9,8 @@ months. The GLDAS layers (SMa, SWEa and CANa) come from land surface models that
 Trend analysis in the app skips missing months. Analyses that work year by year need a value for every month. In the
 [Recharge Analysis](../recharge/wtf-method.md), for example, a missing month at a seasonal peak or trough changes that year's result. The app
 estimates the missing months with a seasonal model, following the approach of Barbosa et al. (2022). This page shows the options in the app, and
-the pages that follow give [the model](seasonal-model.md), how it is [fitted](fitting.md), how the [filled values](filling.md) are computed, and
-how [accurate](accuracy.md) they are.
+[The Seasonal Model](seasonal-model.md) gives the method: the model, how it is fitted, how the filled values are computed, and how accurate
+they are.
 
 ## The Gap filling control
 
@@ -37,7 +37,7 @@ With **Seasonal model**, the filled months carry on the region's annual cycle:
 ![Northern Midwest Aquifer System GWSa with the gaps filled by the seasonal model](../../static/images/grace/app-gap-fill-seasonal.webp)
 
 The uncertainty band is not drawn for filled months, because the error of a filled value comes from the model rather than from GRACE (see
-[Fill Accuracy](accuracy.md)).
+[Fill accuracy](seasonal-model.md#fill-accuracy)).
 
 ## Filled values in the CSV
 
