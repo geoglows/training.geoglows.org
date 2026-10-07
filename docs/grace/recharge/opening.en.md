@@ -15,7 +15,7 @@ returns to the map. The page has three numbered sections:
 2. the water years, with the trough and peak picked in each one (see [Water Years and Picks](picks.md))
 3. recharge for each water year, with a chart, a table and a CSV download (see [Results](results.md))
 
-The examples in this section use the Northern Midwest Aquifer System, from the **Large Aquifer Systems (WHYMAP)** region set: an aquifer under
+The examples in this section use the Northern Midwest Aquifer System, from the **Global Aquifers** region set: an aquifer under
 the upper Mississippi basin with a strong, regular annual cycle. Snowmelt and spring rain recharge it each year, and storage drains from
 late summer through winter.
 
