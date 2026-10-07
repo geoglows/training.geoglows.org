@@ -14,8 +14,13 @@ The **Gap filling** control in the panel sets what the chart does at months with
   observed months (see [Gap-Filling Method](../applications/gap-filling.md#method)). Filled months are drawn as a dashed line with open
   markers, and hovering over one shows its value.
 
-The Northern Midwest Aquifer System has a strong seasonal cycle, which shows the difference well. With **Straight line**, the 11 months between
-GRACE and GRACE-FO become a flat bridge from 9.5 cm in June 2017 to 10.0 cm in June 2018:
+The Northern Midwest Aquifer System has a strong seasonal cycle, which shows the difference between the three options well. With **None**,
+each gap breaks the line, and the uncertainty band, so you can see where the record is missing: the scattered months between 2011 and 2017 and
+the 11 months between GRACE and GRACE-FO:
+
+![Northern Midwest Aquifer System GWSa with the line broken at each gap](../../static/images/grace/app-gap-fill-none.webp)
+
+With **Straight line**, the 11 months between GRACE and GRACE-FO become a flat bridge from 9.5 cm in June 2017 to 10.0 cm in June 2018:
 
 ![Northern Midwest Aquifer System GWSa with the gaps bridged by straight lines](../../static/images/grace/app-gap-fill-line.webp)
 
