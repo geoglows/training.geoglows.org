@@ -12,6 +12,8 @@ across the Sahel and East Africa, falling across much of the Middle East, northe
 classes to whole aquifers or basins (see [Regional View](regional-view.md#the-landing-page)), which is the better guide for a particular
 aquifer because each region's trend averages many cells.
 
+![Aquifers in the Global Aquifers set classified by their groundwater storage trend over the last five years](../../static/images/grace/app-home.webp)
+
 The trend is the slope of a straight line fitted by least squares to the monthly values in the trend window, in cm per year. Months with no
 GRACE data are skipped, not filled. A region or cell needs at least 24 months with data in the window to be classified; otherwise it is shown
 as **Insufficient data**.
