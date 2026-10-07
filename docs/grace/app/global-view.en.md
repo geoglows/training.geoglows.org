@@ -24,7 +24,7 @@ Click any land cell to plot its time series. The breadcrumb changes to the cell'
 ![Time series for a single 1° cell in central Iran](../../static/images/grace/app-global-cell.webp)
 
 A single cell is quick to look at, but remember that GRACE resolves about 3°, so the cell's TWSa is shared with its neighbors in the same
-mascon. For a basin or aquifer, use the [regional analysis](regional-analysis.md), which averages over all the cells in the region.
+mascon. For a basin or aquifer, use the [regional view](regional-view.md), which averages over all the cells in the region.
 
 ## Trend map
 

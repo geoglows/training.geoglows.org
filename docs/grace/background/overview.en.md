@@ -33,8 +33,8 @@ The app is free and runs in a web browser at
 - [Resolution, Leakage and Small Regions](resolution-and-leakage.md): what GRACE can and cannot resolve, and how to work with regions smaller
   than its footprint.
 
-**Part 2, Using the App,** walks through the interface: [the layout](../app/interface.md), [the global view](../app/global-view.md),
-[analyzing a region](../app/regional-analysis.md), [trend analysis](../app/trends.md) and [downloading data](../app/downloading-data.md).
+**Part 2, Using the App,** walks through the interface: [the layout](../app/interface.md), [the regional view](../app/regional-view.md),
+[the global view](../app/global-view.md), [trend analysis](../app/trends.md) and [downloading data](../app/downloading-data.md).
 
 **Part 3, Applications,** uses the downloaded CSV for analysis outside the app: [filling the gaps](../applications/gap-filling.md) in the
 monthly record, [estimating recharge](../applications/recharge-wtf.md) with the water table fluctuation method, and

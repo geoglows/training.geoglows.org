@@ -40,6 +40,6 @@ reports the slope, for example "GWSa trend +2.25 cm/yr (last 5 yr)". Each plotte
 
 To classify every region in a set at once, the app averages the cells whose centers fall inside each region, weighted by the cosine of
 latitude. This is faster than the overlap-weighted average used for the chart of a selected region (see
-[Analyzing a Region](regional-analysis.md#which-cells-are-averaged)), and the two can differ slightly for small or narrow regions. The trend in
+[Regional View](regional-view.md#which-cells-are-averaged)), and the two can differ slightly for small or narrow regions. The trend in
 the chart legend is the one computed from the chart's series. A region too small to contain any cell center is classified using the cell at its
 center.

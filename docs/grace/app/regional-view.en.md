@@ -1,8 +1,26 @@
-# Analyzing a Region
+# Regional View
+
+## The landing page
+
+The app opens in the regional view, showing the outlines of every region in the active region set. The default set is Global Aquifers. Each
+outline is colored by the trend in groundwater storage over the last five years, and the legend in the upper right counts the regions in each
+trend class (see [Trend Analysis](trends.md)). Click **Hide trends** to show plain outlines instead.
+
+![The regional view on opening, with the Global Aquifers set classified by groundwater storage trend](../../static/images/grace/app-home.webp)
+
+From here you can:
+
+- pan and zoom the map; region names appear once you zoom in far enough (turn them off with **Show region names**)
+- switch to another region set, or filter the list of names, in the **Regions** section of the control panel
+- change the **Displayed layer** or the trend **Window** to reclassify every region at once, for example to see which aquifers have lost
+  total water storage over the last 20 years
+- open a region for analysis, as described below
+
+The breadcrumb in the header reads **Home** on this page. After you open a region, click **Home** or the **Regions** button to come back.
 
 ## Choosing a region
 
-The regional view starts with the outlines of the active region set on the map. There are three ways to analyze a region:
+There are three ways to open a region for analysis:
 
 1. Click its outline on the map, or its name in the list in the control panel.
 2. Upload a boundary from a GeoJSON file.

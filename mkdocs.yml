@@ -55,7 +55,7 @@ plugins:
             Part 2 Using the App: "Parte 2: Uso de la Aplicación"
             Interface: "Interfaz"
             Global View: "Vista Global"
-            Analyzing a Region: "Análisis de una Región"
+            Regional View: "Vista Regional"
             Trend Analysis: "Análisis de Tendencias"
             Downloading Data: "Descarga de Datos"
             Part 3 Applications: "Parte 3: Aplicaciones"
@@ -103,7 +103,7 @@ plugins:
             Part 2 Using the App: "Partie 2 : Utilisation de l'Application"
             Interface: "Interface"
             Global View: "Vue Globale"
-            Analyzing a Region: "Analyse d'une Région"
+            Regional View: "Vue Régionale"
             Trend Analysis: "Analyse des Tendances"
             Downloading Data: "Téléchargement des Données"
             Part 3 Applications: "Partie 3 : Applications"
@@ -155,8 +155,8 @@ nav:
           - Resolution, Leakage and Small Regions: grace/background/resolution-and-leakage.md
       - Part 2 Using the App:
           - Interface: grace/app/interface.md
+          - Regional View: grace/app/regional-view.md
           - Global View: grace/app/global-view.md
-          - Analyzing a Region: grace/app/regional-analysis.md
           - Trend Analysis: grace/app/trends.md
           - Downloading Data: grace/app/downloading-data.md
       - Part 3 Applications:

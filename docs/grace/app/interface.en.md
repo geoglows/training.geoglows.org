@@ -19,7 +19,7 @@ From top to bottom:
 
 - **Regions / Global.** Switch between the regional view, which shows region outlines and analyzes one region at a time, and the
   [global view](global-view.md), which animates the whole world. Clicking **Regions** while a region is open returns to the overview.
-- **Upload.** Load your own region boundary from a GeoJSON file (see [Analyzing a Region](regional-analysis.md#uploading-a-region)).
+- **Upload.** Load your own region boundary from a GeoJSON file (see [Regional View](regional-view.md#uploading-a-region)).
 - **Settings.** Display settings, described below.
 - **Displayed layer.** The storage component shown on the map and plotted in the chart:
     - Groundwater Storage Anomaly (GWSa), the default
