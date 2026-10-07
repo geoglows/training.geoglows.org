@@ -19,7 +19,8 @@ and in mountains; SMa shows the seasonal wetting and drying of soils.
 ## Time series for a single cell
 
 Click any land cell to plot its time series. The breadcrumb changes to the cell's coordinates, and the chart shows the cell's values with the
-±1σ uncertainty band. The CSV download for a cell is named after its coordinates.
+±1σ uncertainty band. The chart works as it does for a region (see [Regional View](regional-view.md#the-time-series-chart)), and the CSV download for a cell is
+named after its coordinates.
 
 ![Time series for a single 1° cell in central Iran](../../static/images/grace/app-global-cell.webp)
 

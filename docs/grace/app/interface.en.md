@@ -27,7 +27,8 @@ From top to bottom:
     - Soil Moisture Anomaly (SMa)
     - Snow Water Equivalent Anomaly (SWEa)
     - Canopy Water Storage Anomaly (CANa)
-- **Time series.** Check other components to add them to the chart for comparison. The displayed layer is always plotted.
+- **Time series.** Check other components to add them to the chart for comparison. The displayed layer is always plotted (see
+  [Regional View](regional-view.md#the-time-series-chart)).
 - **Gap filling.** What the chart does at months with no GRACE data. **None** breaks the line at each gap, **Straight line** joins the
   months on either side, and **Seasonal model** fills the gaps with values estimated from the rest of the record, drawn as a dashed line with
   open markers (see [Gap Filling](gap-filling.md)). The setting changes only the chart, never the downloaded CSV.

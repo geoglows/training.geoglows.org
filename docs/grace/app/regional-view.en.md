@@ -67,7 +67,7 @@ finish. The app analyzes the polygon straight away. Drawn polygons are not saved
 ## Reading the results
 
 When you open a region, the map zooms to it and shows the anomaly cells for the displayed layer inside its boundary, and the chart shows the
-region's average time series.
+region's average time series (see [The time series chart](#the-time-series-chart)).
 
 ![Regional analysis of an uploaded region over Punjab and Haryana, India](../../static/images/grace/app-upload-result.webp)
 
@@ -81,23 +81,6 @@ Cells mostly outside the region are left out; cells on the edge count in proport
 TWSa is averaged on its 0.5° grid and the other layers on their 1° grid, each with its own overlap weights. A region smaller than about 35% of
 one cell may have no cells that qualify; use a larger region or click the cell in the [global view](global-view.md) instead.
 
-### The chart
-
-The chart plots the region's average for each month in cm of liquid water equivalent, with zero (the 2004–2009 mean) drawn as a solid line.
-When one component is plotted, a shaded band shows ±1σ. The band is averaged over the cells the same way as the values, which treats the errors
-in neighboring cells as fully correlated. That is the cautious choice: errors that partly cancel between cells would give a narrower band.
-
-Check other components under **Time series** to compare them on the same axes:
-
-![GWSa compared with TWSa and SMa for the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-chart-compare.webp)
-
-The uncertainty band is hidden when several components are plotted, to keep the chart readable. Hover over the chart to read values for a
-month. The red dashed line follows the month shown on the map.
-
-Comparing components shows what drives the groundwater signal. In the example above, soil moisture (green) has a strong seasonal cycle but no
-long-term trend, while total water storage (orange) and groundwater (blue) rise together from about 2010, so the rise in total storage is
-groundwater.
-
 ### Showing the grid
 
 Turn on **Show cell boundaries** and **Show mascon boundaries** to see how the region relates to the grid and to GRACE's true resolution:
@@ -106,3 +89,70 @@ Turn on **Show cell boundaries** and **Show mascon boundaries** to see how the r
 
 Here the region spans parts of several mascons (purple), so its average draws on several independent GRACE values. A region inside a single mascon
 is subject to the [leakage](../background/resolution-and-leakage.md) described in the background section.
+
+## The time series chart
+
+The chart below the map plots the region's average for each month in cm of liquid water equivalent, with zero (the 2004–2009 mean) drawn as a
+solid line. Drag the divider between the map and the chart to give the chart more room.
+
+![The GWSa time series chart for the Northern Midwest Aquifer System, with gaps filled by the seasonal model and the 5-year trend](../../static/images/grace/app-recharge-button.webp)
+
+Hover over the chart to read the values for a month. The red dashed line marks the month shown on the map, and it moves as you step or play
+the time control.
+
+### Uncertainty
+
+When one component is plotted, a shaded band shows ±1σ. The band is averaged over the cells the same way as the values, which treats the errors
+in neighboring cells as fully correlated. That is the cautious choice: errors that partly cancel between cells would give a narrower band. The
+band is hidden when several components are plotted, to keep the chart readable.
+
+### Comparing components
+
+The chart always plots the **Displayed layer**. Check other components under **Time series** in the control panel to add them on the same
+axes:
+
+| Component | Source | What it shows |
+|---|---|---|
+| TWSa | GRACE | all the water in the column: groundwater, soil moisture, snow, canopy and surface water |
+| GWSa | TWSa minus the three GLDAS layers | groundwater, with surface water included |
+| SMa | GLDAS | soil moisture |
+| SWEa | GLDAS | snow water equivalent |
+| CANa | GLDAS | water held on vegetation canopies |
+
+[Deriving Groundwater Storage](../background/deriving-groundwater.md) explains how the layers fit together.
+
+![GWSa compared with TWSa and SMa for the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-chart-compare.webp)
+
+Comparing components shows what drives the groundwater signal. In the example above, soil moisture (green) has a strong seasonal cycle but no
+long-term trend, while total water storage (orange) and groundwater (blue) rise together from about 2010, so the rise in total storage is
+groundwater.
+
+### Gap filling
+
+GRACE has no data for 35 months of the record, so TWSa and GWSa have gaps; the GLDAS layers have a value every month. The **Gap filling**
+control sets how the chart draws the gaps:
+
+- **None** breaks the line at every gap.
+- **Straight line** joins the months on either side of each gap.
+- **Seasonal model** estimates the missing months from a trend and seasonal cycle fitted to the region's own record, and draws them as a
+  dashed line with open markers, as in the chart above.
+
+The setting changes the chart only. [Gap Filling](gap-filling.md) compares the three options, and Part 3 gives the full method, starting with
+[The Seasonal Model](../gap-filling/seasonal-model.md).
+
+### Trend lines
+
+While trends are on (**Analyze trends** in the header), each plotted component gets its fitted trend as a dashed line over the trend window,
+and the legend gives its slope, for example "GWSa trend −0.29 cm/yr (last 5 yr)". See [Trend Analysis](trends.md).
+
+### Recharge Analysis
+
+With **Seasonal model** selected, a **Recharge Analysis** button appears above the chart. It opens a page that estimates annual groundwater
+recharge from the filled GWSa series with the water table fluctuation method. The analysis always uses GWSa, whichever layer is displayed.
+Part 4 describes it, starting with [The WTF Method](../recharge/wtf-method.md).
+
+### Downloading the data
+
+**Download CSV** saves the monthly values of all five components for the region, with their ±1σ bounds and the gap-filled TWSa and GWSa
+series, whichever components are plotted and whichever gap-filling option is selected. [Downloading Data](downloading-data.md) lists the
+columns and shows how to convert the values to volumes.
