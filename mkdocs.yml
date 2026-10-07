@@ -177,15 +177,13 @@ nav:
           - Trend Analysis: grace/app/trends.md
           - Gap Filling: grace/app/gap-filling.md
           - Downloading Data: grace/app/downloading-data.md
-      - Part 3 Gap Filling:
-          - Gap-Filling Method: grace/gap-filling/method.md
+      - Part 3 Gap Filling: grace/gap-filling/method.md
       - Part 4 Recharge Analysis:
           - The WTF Method: grace/recharge/wtf-method.md
           - Opening the Analysis: grace/recharge/opening.md
           - Water Years and Picks: grace/recharge/picks.md
           - Results: grace/recharge/results.md
-      - Part 5 Case Studies:
-          - Case Studies: grace/applications/case-studies.md
+      - Part 5 Case Studies: grace/applications/case-studies.md
       - Publications: grace/publications.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
