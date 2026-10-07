@@ -28,8 +28,9 @@ From top to bottom:
     - Snow Water Equivalent Anomaly (SWEa)
     - Canopy Water Storage Anomaly (CANa)
 - **Time series.** Check other components to add them to the chart for comparison. The displayed layer is always plotted.
-- **Fill gaps in the record.** Draws the chart line straight across months with no GRACE data instead of breaking it. This only changes the
-  drawing; the values, the trends and the downloaded CSV are not affected.
+- **Gap filling.** What the chart does at months with no GRACE data. **None** breaks the line at each gap, **Straight line** joins the
+  months on either side, and **Seasonal model** fills the gaps with values estimated from the rest of the record, drawn as a dashed line with
+  open markers (see [Filling Gaps](../applications/gap-filling.md#in-the-app)). The setting changes only the chart, never the downloaded CSV.
 - **Color ramp.** Six palettes. Viridis, Cividis, Brown-Teal and Purple-Green are safe for readers with color vision deficiency.
 - **Layer opacity.** Fade the anomaly cells to see the basemap underneath.
 - **Show cell boundaries / Show mascon boundaries.** Outline the grid cells, or the 3° GRACE mascons that set the true resolution of the data.

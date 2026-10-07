@@ -32,7 +32,7 @@ The gap-filling and WTF example plots (`gap-filling-example`, `wtf-example-year`
 cd ../../../webapp-grace-groundwater && npx vite --port 5199 --strictPort   # in another terminal
 npm install puppeteer-core
 mkdir -p raw && node shots.mjs raw                  # all shots
-node shots.mjs raw region,global                    # or a subset: home, panel, region, cv, global, modals
+node shots.mjs raw region,global                    # or a subset: home, panel, region, cv, global, modals, gapfill
 ```
 
 The pages use WebP copies resized to 1800 px wide (quality 86), saved to `docs/static/images/grace/app-*.webp`.

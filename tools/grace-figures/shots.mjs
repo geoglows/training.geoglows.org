@@ -88,4 +88,19 @@ if (want('modals')) {
   await sleep(3000);
   await shot('app-my-regions');
 }
+if (want('gapfill')) {
+  await load();
+  const setGapFill = async (v) => { await page.click(`#gap-fill-control input[value="${v}"]`); await sleep(2500); };
+  await clickRegion('Northern Midwest Aquifer System');
+  await toEnd(); await toMonth('2024-09'); await topPanel(); await sleep(800);
+  // the trend line is dashed too; turn it off so only the fill is dashed
+  if (await page.$eval('#trends-button', b => b.getAttribute('aria-pressed') === 'true')) { await page.click('#trends-button'); await sleep(3000); }
+  for (const v of ['none', 'line', 'seasonal']) {
+    await setGapFill(v);
+    await page.mouse.move(5, 5); await sleep(500);
+    await shot(`app-gap-fill-${v}`, await rect('#timeseries-plot'));
+  }
+  const c = await rect('#gap-fill-control', 12), l = await rect('#gap-fill-label', 12);
+  await shot('app-gap-fill-control', {x: c.x, y: l.y, width: c.width, height: c.y + c.height - l.y});
+}
 await browser.close();

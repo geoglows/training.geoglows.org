@@ -58,7 +58,7 @@ in, and each entry can set `"peak"`, `"trough"` or both.
 To convert recharge to a volume, set `AREA_KM2` to the area of your region. The notebook then reports km³/yr and million m³/yr as well.
 
 [Open in Google Colab](https://colab.research.google.com/github/Aquaveo/training.geoglows.org/blob/main/docs/static/files/grace/grace_gap_fill_and_recharge.ipynb){:target="_blank"}
-or [download the notebook](../../static/files/grace/grace_gap_fill_and_recharge.ipynb). See [Filling Gaps](gap-filling.md#running-the-notebook)
+or [download the notebook](../../static/files/grace/grace_gap_fill_and_recharge.ipynb). See [Filling Gaps](gap-filling.md#using-the-notebook)
 for how to load your CSV.
 
 ## Interpreting the results

@@ -11,18 +11,22 @@ displayed layer) or `grace_cell_<lat>_<lon>_data.csv` for a single cell.
 | `Date` | First day of the month, `YYYY-MM-DD` |
 | `GWSa`, `TWSa`, `SMa`, `SWEa`, `CANa` | Area-weighted mean anomaly for the month, cm of liquid water equivalent |
 | `<layer>_upper`, `<layer>_lower` | The mean plus and minus 1σ |
+| `GWSa_filled`, `TWSa_filled` | The same series with its gaps filled by the seasonal model; equal to the observed value in every other month |
+| `GWSa_is_filled`, `TWSa_is_filled` | 1 in months the seasonal model filled, 0 otherwise |
 
-For example:
+For example, the start of the gap between missions for the Northern Midwest Aquifer System:
 
 ```text
-Date,GWSa,GWSa_upper,GWSa_lower,TWSa,TWSa_upper,TWSa_lower,SMa,...
-2002-04-01,-2.406,4.184,-8.996,-4.961,1.683,-11.604,-2.584,...
-2002-05-01,-2.238,1.684,-6.160,-5.182,-1.284,-9.081,-2.976,...
+Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
+2017-06-01,9.529,14.913,4.146,9.529,0,12.536,...
+2017-07-01,,,,11.146,1,,...
+2017-08-01,,,,12.694,1,,...
 ```
 
 The file has one row for every month from April 2002 to the latest release. In months with no GRACE data, the `GWSa` and `TWSa` cells are blank,
-while the GLDAS layers (`SMa`, `SWEa`, `CANa`) still have values, because the land surface models run every month. The **Fill gaps** setting
-does not change the file.
+while the GLDAS layers (`SMa`, `SWEa`, `CANa`) still have values, because the land surface models run every month. The `_filled` columns
+supply a value for those months (see [Filling Gaps](../applications/gap-filling.md)). They are written whatever the **Gap filling** setting, so
+the file is the same however the chart is drawn.
 
 Excel, Google Sheets, Python and R all read the file directly, and the ISO dates need no conversion (in pandas, use
 `pd.read_csv(path, parse_dates=["Date"])`). To get

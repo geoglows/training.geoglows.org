@@ -8,18 +8,53 @@ handles gaps by skipping them. Analyses that work year by year, such as estimati
 [water table fluctuation method](recharge-wtf.md), need a value for every month: a missing month at a seasonal peak or trough changes that
 year's result.
 
-The **Fill gaps in the record** checkbox in the app only draws a straight line across a gap on the chart. It doesn't estimate the missing values,
-and the CSV still has blanks in those months.
+The app can fill the gaps for you with a seasonal model, and the [notebook](#using-the-notebook) for this page does the same fill with tests of
+how well it worked.
+
+## In the app
+
+![The Gap filling control in the app's panel](../../static/images/grace/app-gap-fill-control.webp){ width="310" }
+
+The **Gap filling** control in the panel sets what the chart does at months with no GRACE data:
+
+- **None** breaks the line at every gap, so you can see exactly which months were observed.
+- **Straight line** joins the months on either side of each gap. It only bridges the gap on the chart and estimates nothing.
+- **Seasonal model** fills each gap with values estimated from the rest of the record, using the [method](#method) below. Filled months are
+  drawn as a dashed line with open markers, and hovering over one shows its value.
+
+The Northern Midwest Aquifer System has a strong seasonal cycle, which shows the difference well. With **Straight line**, the 11 months between
+GRACE and GRACE-FO become a flat bridge from 9.5 cm in June 2017 to 10.0 cm in June 2018:
+
+![Northern Midwest Aquifer System GWSa with the gaps bridged by straight lines](../../static/images/grace/app-gap-fill-line.webp)
+
+With **Seasonal model**, the filled months carry on the region's annual cycle, rising to 12.8 cm in September 2017 and falling to 4.8 cm in
+March 2018 before climbing to meet the first GRACE-FO month. The short gaps between 2011 and 2017 follow the observed peaks and troughs in the
+same way:
+
+![Northern Midwest Aquifer System GWSa with the gaps filled by the seasonal model](../../static/images/grace/app-gap-fill-seasonal.webp)
+
+How much a fill differs from a straight line depends on the region. Much of the seasonal swing that GRACE sees is soil moisture and snow, which
+are removed before GWSa is computed, so in many regions the groundwater cycle is small and the filled months look close to a straight line.
+
+Some details of the app's fill:
+
+- GWSa and TWSa are each filled from their own record. A filled GWSa value is therefore not exactly the filled TWSa minus the GLDAS terms for
+  that month. The GLDAS layers have no gaps and are never filled.
+- The app chooses the trend breakpoints automatically. To set the number of breakpoints yourself, use the notebook.
+- The uncertainty band is not drawn for filled months, because the error of a filled value comes from the model rather than from GRACE (see
+  [How good is the fill?](#how-good-is-the-fill)).
+- The downloaded CSV always includes the filled values, in the `GWSa_filled` and `TWSa_filled` columns, with `GWSa_is_filled` and
+  `TWSa_is_filled` marking the filled months (see [Downloading Data](../app/downloading-data.md)). This holds whichever option the chart uses.
 
 ## Method
 
-The notebook for this page fills gaps with a statistical model of the series, following the approach of Barbosa et al. (2022):
+The app and the notebook fill gaps with the same statistical model of the series, following the approach of Barbosa et al. (2022):
 
 ```text
 GWSa(t) = trend(t) + seasonal(month of t) + residual(t)
 ```
 
-1. **Trend.** A piecewise straight line, allowed to bend at up to three breakpoints, captures the long-term rise or decline. The notebook
+1. **Trend.** A piecewise straight line, allowed to bend at up to three breakpoints, captures the long-term rise or decline. The model
    chooses the number and position of the breakpoints automatically, adding a breakpoint only when it improves the fit substantially (by the
    Bayesian information criterion), and keeps every segment at least three years long.
 2. **Seasonal cycle.** One value for each calendar month, the average departure from the trend in that month. Together with the trend this gives
@@ -45,7 +80,11 @@ can predict an unusually wet or dry year inside a long gap.
 The test results are printed in the notebook for your region. If the error is close to or larger than the ±1σ uncertainty, treat analyses that
 depend on the filled months with extra caution.
 
-## Running the notebook
+## Using the notebook
+
+The notebook gives the same filled values as the app, and adds the fill-quality tests above, a choice of breakpoints, and the
+[recharge](recharge-wtf.md) calculation.
+
 
 [Open in Google Colab](https://colab.research.google.com/github/Aquaveo/training.geoglows.org/blob/main/docs/static/files/grace/grace_gap_fill_and_recharge.ipynb){:target="_blank"}
 or [download the notebook](../../static/files/grace/grace_gap_fill_and_recharge.ipynb) to run it in Jupyter on your own computer. It needs only
