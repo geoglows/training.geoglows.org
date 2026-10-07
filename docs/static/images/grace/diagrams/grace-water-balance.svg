@@ -483,8 +483,8 @@
 <text x="742.0" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >(mean of Noah, VIC and CLSM) supply:</text>
 <text x="742" y="250" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#4a5568">SWEa, CANa, SMa</text>
 <text x="742.0" y="310.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" text-anchor="start" fill="#1f3a5f" >Groundwater is the remainder:</text>
-<rect x="732" y="322" width="390" height="44" rx="8" fill="#f7fafc" stroke="#2b6cb0" stroke-width="1.5"/>
-<text x="746" y="351" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#1f3a5f">GWSa = TWSa − SWEa − CANa − SMa</text>
+<rect x="732" y="322" width="420" height="44" rx="8" fill="#f7fafc" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="746" y="351" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#1f3a5f">GWSa = TWSa − (SWEa + CANa + SMa)</text>
 <text x="742.0" y="400.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >Each term is an anomaly (suffix “a”): the</text>
 <text x="742.0" y="418.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >departure from its 2004–2009 mean, in cm</text>
 <text x="742.0" y="436.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" text-anchor="start" fill="#4a5568" >of liquid water equivalent.</text>

@@ -62,8 +62,8 @@ out.append(text(x4, 70, "STEP 3", 12, anchor="start", weight="bold", fill=C["gra
 out.append(box(x4, 82, w4, 296, "Water balance (1°)", [
     "TWSa averaged to 1°",
     "",
-    "GWSa = TWSa − SWEa",
-    "\u00a0" * 13 + "− CANa − SMa",
+    "GWSa = TWSa − (SWEa",
+    "\u00a0" * 13 + "+ CANa + SMa)",
     "",
     "σGWSa = √(σ²TWSa + σ²SWEa",
     "\u00a0" * 13 + "+ σ²CANa + σ²SMa)",

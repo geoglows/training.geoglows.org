@@ -144,9 +144,9 @@ out += [text(ex, 110, "GRACE measures the total:", 14, anchor="start", weight="b
         text(ex, 220, "(mean of Noah, VIC and CLSM) supply:", 14, anchor="start", weight="bold", fill=C["navy"]),
         f'<text x="{ex}" y="250" font-family="{FONT}" font-size="17" fill="{C["darkgray"]}">SWEa, CANa, SMa</text>',
         text(ex, 310, "Groundwater is the remainder:", 14, anchor="start", weight="bold", fill=C["navy"]),
-        f'<rect x="{ex - 10}" y="322" width="390" height="44" rx="8" fill="{C["sky"]}" stroke="{C["blue"]}" stroke-width="1.5"/>',
+        f'<rect x="{ex - 10}" y="322" width="420" height="44" rx="8" fill="{C["sky"]}" stroke="{C["blue"]}" stroke-width="1.5"/>',
         f'<text x="{ex + 4}" y="351" font-family="{FONT}" font-size="18" font-weight="bold" fill="{C["navy"]}">'
-        f'GWSa = TWSa − SWEa − CANa − SMa</text>',
+        f'GWSa = TWSa − (SWEa + CANa + SMa)</text>',
         text(ex, 400, "Each term is an anomaly (suffix “a”): the", 13, anchor="start"),
         text(ex, 418, "departure from its 2004–2009 mean, in cm", 13, anchor="start"),
         text(ex, 436, "of liquid water equivalent.", 13, anchor="start")]

@@ -12,7 +12,7 @@ moisture (SMa), groundwater (GWSa) and surface water in rivers, lakes and reserv
 them leaves groundwater:
 
 ```text
-GWSa = TWSa − SWEa − CANa − SMa
+GWSa = TWSa − (SWEa + CANa + SMa)
 ```
 
 The app leaves surface water out of the balance, so any change in surface water storage ends up in GWSa. Over most of the world surface water
