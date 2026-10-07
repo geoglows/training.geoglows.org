@@ -145,6 +145,7 @@ nav:
       - Part 5 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
+      - Publications: publications.md
   - GRACE Regional Analyst:
       - Part 1 Background:
           - Overview: grace/background/overview.md
@@ -161,7 +162,6 @@ nav:
           - Filling Gaps: grace/applications/gap-filling.md
           - Estimating Recharge: grace/applications/recharge-wtf.md
           - Case Studies: grace/applications/case-studies.md
-  - Publications: publications.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md
