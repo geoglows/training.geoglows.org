@@ -28,5 +28,5 @@ The uncertainty band is not drawn for filled months, because the error of a fill
 downloaded CSV always includes the filled values, in the `GWSa_filled` and `TWSa_filled` columns, with `GWSa_is_filled` and `TWSa_is_filled`
 marking the filled months, whichever option the chart uses (see [Downloading Data](downloading-data.md)).
 
-[Gap-Filling Method](../gap-filling/method.md) in Part 3 gives the model and its math, how the filled values are computed, and how accurate
-they are.
+Part 3 gives the full method: [the seasonal model](../gap-filling/seasonal-model.md), [how it is fitted](../gap-filling/fitting.md),
+[how the gaps are filled](../gap-filling/filling.md), and [how accurate the filled values are](../gap-filling/accuracy.md).

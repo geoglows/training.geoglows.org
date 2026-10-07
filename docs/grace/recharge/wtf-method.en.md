@@ -22,7 +22,7 @@ R = \Delta \text{GWSa}
 $$
 
 Barbosa et al. (2022) applied the method this way to the Iullemeden and Chad basins in Niger, using the GRACE groundwater record in place of
-well hydrographs (see [Case Studies](../applications/case-studies.md#niger-storage-change-and-recharge-in-the-iullemeden-and-chad-basins)).
+well hydrographs (see [Case Studies](../case-studies/niger.md)).
 The app's Recharge Analysis page follows their approach.
 
 ## One water year

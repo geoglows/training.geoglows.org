@@ -37,15 +37,19 @@ The app is free and runs in a web browser at
 [the global view](../app/global-view.md), [trend analysis](../app/trends.md), [gap filling](../app/gap-filling.md) and
 [downloading data](../app/downloading-data.md).
 
-**Part 3, Gap Filling,** gives the [gap-filling method](../gap-filling/method.md): the seasonal model, how it is fitted, how the missing
-months are estimated, and how accurate the filled values are.
+**Part 3, Gap Filling,** gives the method behind the **Seasonal model** fill: [the model](../gap-filling/seasonal-model.md),
+[how it is fitted](../gap-filling/fitting.md), [how the gaps are filled](../gap-filling/filling.md), and
+[how accurate the filled values are](../gap-filling/accuracy.md).
 
 **Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](../recharge/wtf-method.md)
 as applied to GRACE data, then [opening the analysis](../recharge/opening.md) and checking the series, [the water years and
 picks](../recharge/picks.md), and [the results](../recharge/results.md).
 
-**Part 5, Case Studies,** summarizes [published studies](../applications/case-studies.md) from Niger, the Volta Basin and California's Central
-Valley.
+**Part 5, Case Studies,** summarizes three published studies by the Brigham Young University team that developed the app and its
+predecessor, the GRACE Groundwater Subsetting Tool (GGST). Each combines the app's GRACE and GLDAS water balance with other data:
+[estimating recharge in Niger](../case-studies/niger.md) where wells are scarce, [accounting for a large reservoir in the Volta
+Basin](../case-studies/volta.md), and [correcting for leakage in California's Central Valley](../case-studies/central-valley.md), a narrow,
+heavily pumped valley.
 
 ## History
 
