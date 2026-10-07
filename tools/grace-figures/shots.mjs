@@ -40,8 +40,11 @@ if (want('region')) {
   // comparison curves
   await page.click('#series-toggles input[value="TWSa"], #series-toggles label:nth-child(2) input').catch(()=>{});
   await page.evaluate(() => { for (const v of ['TWSa','SMa']) { const i=[...document.querySelectorAll('#series-toggles input')].find(x=>x.closest('label')?.textContent.trim().startsWith(v)); if (i && !i.checked) i.click(); } });
-  await sleep(4000);
+  // a taller chart panel than the default, so three curves and their trends read clearly
+  await page.evaluate(() => { document.getElementById('timeseries-plot').style.flexBasis = '52%'; });
+  await sleep(4000); await page.mouse.move(5, 5); await sleep(500);
   await shot('app-chart-compare', await rect('#timeseries-plot'));
+  await page.evaluate(() => { document.getElementById('timeseries-plot').style.flexBasis = ''; }); await sleep(2500);
   await page.evaluate(() => { for (const v of ['TWSa','SMa']) { const i=[...document.querySelectorAll('#series-toggles input')].find(x=>x.closest('label')?.textContent.trim().startsWith(v)); if (i && i.checked) i.click(); } });
   await sleep(1500);
   // cell + mascon boundaries
