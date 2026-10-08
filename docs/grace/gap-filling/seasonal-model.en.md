@@ -100,7 +100,7 @@ rather than a fit to noise, so the trend bends only where the record clearly cha
 For the Northern Midwest Aquifer System each added breakpoint lowers the BIC by more than 10 (by 12, then 113, then 44), so the app keeps
 all three:
 
-![The best trend with 0, 1, 2 and 3 breakpoints for the Northern Midwest Aquifer System, with the BIC of each](../../static/images/grace/seasonal-breakpoints.png){ width="800" }
+![The best trend with 0, 1, 2 and 3 breakpoints for the Northern Midwest Aquifer System, with the BIC of each](../../static/images/grace/seasonal-breakpoints.png){ width="950" }
 
 ## Filling the gaps
 
@@ -143,7 +143,7 @@ filled TWSa minus the GLDAS terms for that month. The GLDAS layers have no gaps 
 For the Northern Midwest Aquifer System, the BIC selects three breakpoints, in September 2006, May 2013 and October 2017, which split the record
 into four trend segments of +1.3, −0.7, +2.9 and −0.5 cm/yr:
 
-![Observed GWSa for the Northern Midwest Aquifer System with the four-segment trend and the filled months in red](../../static/images/grace/gap-filling-example.png){ width="950" }
+![Observed GWSa for the Northern Midwest Aquifer System with the four-segment trend and the filled months in red](../../static/images/grace/gap-filling-example.png){ width="800" }
 
 The single missing months between 2011 and 2017 sit close to their neighbors. Across the 11-month gap between the missions, the filled values
 rise to 12.8 cm in September 2017 and fall to 4.8 cm in March 2018 before meeting the first GRACE-FO month, carrying on the region's annual

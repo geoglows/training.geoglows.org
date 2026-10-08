@@ -100,7 +100,7 @@ y no un ajuste al ruido, así que la tendencia solo se dobla donde el registro c
 Para el Northern Midwest Aquifer System, cada punto de quiebre adicional reduce el BIC en más de 10 (en 12, luego 113 y luego 44), así que la
 aplicación conserva los tres:
 
-![La mejor tendencia con 0, 1, 2 y 3 puntos de quiebre para el Northern Midwest Aquifer System, con el BIC de cada una](../../static/images/grace/seasonal-breakpoints.png){ width="800" }
+![La mejor tendencia con 0, 1, 2 y 3 puntos de quiebre para el Northern Midwest Aquifer System, con el BIC de cada una](../../static/images/grace/seasonal-breakpoints.png){ width="950" }
 
 ## Relleno de los vacíos { #filling-the-gaps }
 
@@ -143,7 +143,7 @@ TWSa rellenado menos los términos de GLDAS de ese mes. Las capas de GLDAS no ti
 Para el Northern Midwest Aquifer System, el BIC selecciona tres puntos de quiebre, en septiembre de 2006, mayo de 2013 y octubre de 2017, que dividen el registro
 en cuatro tramos de tendencia de +1.3, −0.7, +2.9 y −0.5 cm/año:
 
-![GWSa observado del Northern Midwest Aquifer System con la tendencia de cuatro tramos y los meses rellenados en rojo](../../static/images/grace/gap-filling-example.png){ width="950" }
+![GWSa observado del Northern Midwest Aquifer System con la tendencia de cuatro tramos y los meses rellenados en rojo](../../static/images/grace/gap-filling-example.png){ width="800" }
 
 Los meses faltantes sueltos entre 2011 y 2017 quedan cerca de sus vecinos. A lo largo del vacío de 11 meses entre las misiones, los valores rellenados
 suben a 12.8 cm en septiembre de 2017 y bajan a 4.8 cm en marzo de 2018 antes de encontrarse con el primer mes de GRACE-FO, continuando el ciclo anual
