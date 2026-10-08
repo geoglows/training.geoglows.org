@@ -17,7 +17,7 @@ estacional y *r* es el residuo, la parte del valor de cada mes que la tendencia 
 
 Para el Northern Midwest Aquifer System, el modelo separa el GWSa en estas tres partes, con el vacío entre las misiones sombreado:
 
-![GWSa del Northern Midwest Aquifer System separado en tendencia, ciclo estacional y residuo](../../static/images/grace/seasonal-decomposition.png)
+![GWSa del Northern Midwest Aquifer System separado en tendencia, ciclo estacional y residuo](../../static/images/grace/seasonal-decomposition.png){ width="800" }
 
 La tendencia recoge el ascenso y descenso lentos del almacenamiento a lo largo del registro, el ciclo estacional repite la misma oscilación
 anual cada año, y el residuo contiene lo que queda: los años húmedos y secos, y el ruido de los datos GRACE.

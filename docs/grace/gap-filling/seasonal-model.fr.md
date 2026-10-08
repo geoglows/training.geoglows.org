@@ -17,7 +17,7 @@ saisonnier et *r* le résidu, c'est-à-dire la part de la valeur de chaque mois 
 
 Pour le Northern Midwest Aquifer System, le modèle sépare le GWSa en ces trois parties, la lacune entre les missions étant grisée :
 
-![GWSa du Northern Midwest Aquifer System séparé en tendance, cycle saisonnier et résidu](../../static/images/grace/seasonal-decomposition.png)
+![GWSa du Northern Midwest Aquifer System séparé en tendance, cycle saisonnier et résidu](../../static/images/grace/seasonal-decomposition.png){ width="800" }
 
 La tendance porte la hausse et la baisse lentes du stockage sur l'ensemble de la série, le cycle saisonnier répète la même oscillation annuelle
 chaque année, et le résidu contient le reste : les années humides et sèches, et le bruit des données GRACE.

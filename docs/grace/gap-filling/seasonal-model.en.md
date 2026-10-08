@@ -17,7 +17,7 @@ cycle and *r* is the residual, the part of each month's value that the trend and
 
 For the Northern Midwest Aquifer System the model splits GWSa into these three parts, with the gap between the missions shaded:
 
-![GWSa for the Northern Midwest Aquifer System split into trend, seasonal cycle and residual](../../static/images/grace/seasonal-decomposition.png)
+![GWSa for the Northern Midwest Aquifer System split into trend, seasonal cycle and residual](../../static/images/grace/seasonal-decomposition.png){ width="800" }
 
 The trend carries the slow rise and fall of storage over the record, the seasonal cycle repeats the same annual swing every year, and the
 residual holds what is left: wet and dry years, and noise in the GRACE data.
