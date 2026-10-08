@@ -46,7 +46,7 @@
   --geo-surface-card: #fff;
   --geo-border: var(--geo-slate-200);
   --geo-text-strong: var(--geo-slate-800);
-  --geo-text-body: var(--geo-slate-600);
+  --geo-text-body: #000;
   --geo-link: var(--geo-blue-600);
   --geo-link-hover: var(--geo-blue-700);
 
