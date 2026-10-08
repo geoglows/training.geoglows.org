@@ -121,10 +121,16 @@ La correction donne au comblement une forme cohérente quelle que soit la longue
 - Pour une longue lacune, comme les 11 mois entre les missions, les mois comblés suivent la tendance et le cycle saisonnier, montant et descendant
   au rythme habituel des saisons, tandis que la correction les décale pour rejoindre les valeurs observées aux deux extrémités.
 
-Dans la lacune entre les missions du Northern Midwest Aquifer System, les résidus aux deux extrémités sont presque égaux (−0.38 cm en juin 2017
-et −0.53 cm en juin 2018), si bien que la correction place les mois comblés juste sous le modèle seul :
+Les deux résidus qui fixent la correction proviennent de mois différents, et rien ne lie l'un à l'autre. Dans la lacune entre les missions du
+Northern Midwest Aquifer System, ils sont presque égaux (−0.38 cm en juin 2017 et −0.53 cm en juin 2018), si bien que la correction place chaque
+mois comblé juste sous le modèle seul :
 
-![La correction du résidu dans la lacune entre GRACE et GRACE-FO pour le Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png)
+![La correction du résidu dans la lacune entre GRACE et GRACE-FO pour le Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png){ width="720" }
+
+Dans la Vallée Centrale de Californie, la même lacune commence 5.55 cm au-dessus du modèle et se termine 3.64 cm en dessous. La correction
+diminue de 9.2 cm d'un bout à l'autre de la lacune, si bien que les mois comblés commencent bien au-dessus du modèle seul et finissent en dessous :
+
+![La correction du résidu dans la lacune entre GRACE et GRACE-FO pour la Vallée Centrale de Californie](../../static/images/grace/seasonal-gap-correction-cv.png){ width="720" }
 
 Les mois observés ne sont jamais modifiés. Les mois antérieurs à la première observation ou postérieurs à la dernière restent vides, car il n'y a pas de valeur observée
 de l'autre côté à laquelle ancrer une correction.

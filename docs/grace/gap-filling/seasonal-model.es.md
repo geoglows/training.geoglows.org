@@ -121,10 +121,16 @@ La corrección le da al relleno una forma razonable sea cual sea la longitud del
 - Para un vacío largo, como los 11 meses entre las misiones, los meses rellenados siguen la tendencia y el ciclo estacional, subiendo y bajando
   con las estaciones habituales, mientras la corrección los desplaza para que coincidan con los valores observados en ambos extremos.
 
-En el vacío entre las misiones del Northern Midwest Aquifer System, los residuos en los dos extremos son casi iguales (−0.38 cm en junio de 2017
-y −0.53 cm en junio de 2018), así que la corrección deja los meses rellenados apenas por debajo del modelo solo:
+Los dos residuos que definen la corrección provienen de meses distintos, y nada liga uno con el otro. En el vacío entre las misiones del
+Northern Midwest Aquifer System resultan casi iguales (−0.38 cm en junio de 2017 y −0.53 cm en junio de 2018), así que la corrección deja cada
+mes rellenado apenas por debajo del modelo solo:
 
-![La corrección del residuo en el vacío entre GRACE y GRACE-FO para el Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png)
+![La corrección del residuo en el vacío entre GRACE y GRACE-FO para el Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png){ width="720" }
+
+En el Valle Central de California, el mismo vacío empieza 5.55 cm por encima del modelo y termina 3.64 cm por debajo. La corrección baja 9.2 cm
+a lo largo del vacío, así que los meses rellenados empiezan muy por encima del modelo solo y terminan por debajo:
+
+![La corrección del residuo en el vacío entre GRACE y GRACE-FO para el Valle Central de California](../../static/images/grace/seasonal-gap-correction-cv.png){ width="720" }
 
 Los meses observados nunca se modifican. Los meses anteriores a la primera observación o posteriores a la última quedan vacíos, porque no hay un valor observado
 del otro lado al cual anclar una corrección.

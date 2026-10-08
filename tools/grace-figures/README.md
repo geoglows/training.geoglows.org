@@ -26,7 +26,8 @@ app's seasonal fill of a Northern Midwest Aquifer System export.
 
 `seasonal_model.py` refits the app's seasonal model (`src/gapFill.js` in webapp-grace-groundwater) to the same file, checks that it matches
 the app's fill, and draws the four figures on the Seasonal Model page: `seasonal-decomposition.png`, `seasonal-levels.png`,
-`seasonal-breakpoints.png` and `seasonal-gap-correction.png`.
+`seasonal-breakpoints.png` and `seasonal-gap-correction.png`. It also refits `data/central_valley_gwsa.csv`, an app export, for
+`seasonal-gap-correction-cv.png`, the Central Valley's gap between the missions.
 
 ## App screenshots
 

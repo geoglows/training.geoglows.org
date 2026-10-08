@@ -121,10 +121,16 @@ The correction gives the fill a sensible shape whatever the length of the gap:
 - For a long gap, such as the 11 months between the missions, the filled months follow the trend and the seasonal cycle, rising and falling
   with the usual seasons, while the correction shifts them to meet the observed values at both ends.
 
-Across the gap between the missions in the Northern Midwest Aquifer System, the residuals at the two ends are almost the same (−0.38 cm in June
-2017 and −0.53 cm in June 2018), so the correction moves the filled months just under the model alone:
+The two residuals that set the correction come from different months, and nothing ties one to the other. Across the gap between the missions
+in the Northern Midwest Aquifer System they happen to be almost the same (−0.38 cm in June 2017 and −0.53 cm in June 2018), so the correction
+moves every filled month just under the model alone:
 
-![The residual correction across the gap between GRACE and GRACE-FO for the Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png)
+![The residual correction across the gap between GRACE and GRACE-FO for the Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png){ width="720" }
+
+In California's Central Valley the same gap starts 5.55 cm above the model and ends 3.64 cm below it. The correction falls by 9.2 cm across
+the gap, so the filled months start well above the model alone and finish below it:
+
+![The residual correction across the gap between GRACE and GRACE-FO for California's Central Valley](../../static/images/grace/seasonal-gap-correction-cv.png){ width="720" }
 
 Observed months are never changed. Months before the first observation or after the last are left empty, because there is no observed value on
 the far side to anchor a correction to.
