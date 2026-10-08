@@ -206,6 +206,13 @@ def pointer(axis, s, xy, off, col):
                   arrowprops=dict(arrowstyle="-", color=col, lw=0.9, shrinkA=4, shrinkB=4))
 
 
+def corr_area(axis, x, upper, base):
+    for where, col in ((upper >= base, C["green"]), (upper < base, C["red"])):
+        axis.fill_between(x, base, upper, where=where, interpolate=True, facecolor=col, alpha=0.18, lw=0, zorder=1)
+        axis.fill_between(x, base, upper, where=where, interpolate=True, facecolor="none", edgecolor=col, hatch="////",
+                          lw=0, alpha=0.6, zorder=1)
+
+
 def gap_figure(name, dates, observed, ts, resid, filled, a_date, c_date, start, end, offsets):
     """The residual correction across the gap between the observed months a and c."""
     win = (dates >= start) & (dates <= end)
@@ -221,6 +228,11 @@ def gap_figure(name, dates, observed, ts, resid, filled, a_date, c_date, start, 
     # a and c are observed months, so only the months between them get the filled marker
     ax.plot(dates[a:c + 1], filled[a:c + 1], color=C["red"], lw=2, marker="o", ms=4, mfc="white",
             markevery=range(1, c - a), label="Filled, T + S + correction", zorder=3)
+    # the correction: the area between the fill and the model alone, matched in the residual panel by the area
+    # between the interpolated residual and zero, green where it raises the fill and red where it lowers it
+    span = dates[a:c + 1]
+    corr_area(ax, span, filled[a:c + 1], ts[a:c + 1])
+    corr_area(axr, span, r_line, np.zeros_like(r_line))
     ax.set_ylabel("GWSa (cm)")
     ax.legend(loc="lower left", frameon=False, ncol=3, fontsize=9.5)
     pointer(ax, "$a$", (dates[a], observed[a]), offsets["a"], C["navy"])
