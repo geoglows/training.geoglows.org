@@ -15,6 +15,13 @@ $$
 où *y*(*t*) est GWSa (ou TWSa) au mois *t*, *m* est le mois calendaire de *t* (janvier à décembre), *T* est la tendance, *S* le cycle
 saisonnier et *r* le résidu, c'est-à-dire la part de la valeur de chaque mois que la tendance et le cycle saisonnier n'expliquent pas.
 
+Pour le Northern Midwest Aquifer System, le modèle sépare le GWSa en ces trois parties, la lacune entre les missions étant grisée :
+
+![GWSa du Northern Midwest Aquifer System séparé en tendance, cycle saisonnier et résidu](../../static/images/grace/seasonal-decomposition.png)
+
+La tendance porte la hausse et la baisse lentes du stockage sur l'ensemble de la série, le cycle saisonnier répète la même oscillation annuelle
+chaque année, et le résidu contient le reste : les années humides et sèches, et le bruit des données GRACE.
+
 ### La tendance { #the-trend }
 
 La tendance est une droite continue par morceaux comportant jusqu'à trois points de rupture *b*<sub>1</sub>, …, *b*<sub>k</sub>, où sa pente change :
@@ -38,6 +45,11 @@ $$
 
 Les douze niveaux tiennent aussi lieu d'ordonnée à l'origine ; il n'y a donc pas de terme constant séparé. Les niveaux sont les mêmes d'une année à l'autre : le modèle a un
 seul cycle annuel moyen, et une année humide apparaît dans le résidu et non dans *S*.
+
+Pour le Northern Midwest Aquifer System, les niveaux, décalés pour avoir une moyenne nulle comme décrit dans [Ajustement du modèle](#fitting-the-model),
+vont de −4.3 cm en mars à +3.8 cm en août :
+
+![Les douze niveaux mensuels du cycle saisonnier du Northern Midwest Aquifer System](../../static/images/grace/seasonal-levels.png){ width="700" }
 
 ## Ajustement du modèle { #fitting-the-model }
 
@@ -85,6 +97,11 @@ L'application ajuste le meilleur modèle à 0, 1, 2 et 3 points de rupture. En p
 le BIC de ce modèle est inférieur d'au moins 10 à celui du modèle retenu jusque-là. Une baisse de 10 constitue une forte indication que l'inflexion supplémentaire est réelle
 et ne résulte pas d'un ajustement au bruit ; la tendance ne s'infléchit donc que là où la série change nettement de direction.
 
+Pour le Northern Midwest Aquifer System, chaque point de rupture supplémentaire abaisse le BIC de plus de 10 (de 12, puis 113, puis 44), si bien
+que l'application conserve les trois :
+
+![La meilleure tendance avec 0, 1, 2 et 3 points de rupture pour le Northern Midwest Aquifer System, avec le BIC de chacune](../../static/images/grace/seasonal-breakpoints.png)
+
 ## Comblement des lacunes { #filling-the-gaps }
 
 Une lacune est une suite d'un ou plusieurs mois manquants entre deux mois observés, *a* avant et *c* après. Le modèle seul, *T* + *S*, ne
@@ -103,6 +120,11 @@ La correction donne au comblement une forme cohérente quelle que soit la longue
   ses deux voisins.
 - Pour une longue lacune, comme les 11 mois entre les missions, les mois comblés suivent la tendance et le cycle saisonnier, montant et descendant
   au rythme habituel des saisons, tandis que la correction les décale pour rejoindre les valeurs observées aux deux extrémités.
+
+Dans la lacune entre les missions du Northern Midwest Aquifer System, les résidus aux deux extrémités sont presque égaux (−0.38 cm en juin 2017
+et −0.53 cm en juin 2018), si bien que la correction place les mois comblés juste sous le modèle seul :
+
+![La correction du résidu dans la lacune entre GRACE et GRACE-FO pour le Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png)
 
 Les mois observés ne sont jamais modifiés. Les mois antérieurs à la première observation ou postérieurs à la dernière restent vides, car il n'y a pas de valeur observée
 de l'autre côté à laquelle ancrer une correction.

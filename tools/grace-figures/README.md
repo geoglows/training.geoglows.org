@@ -24,6 +24,10 @@ Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script o
 `gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/northern_midwest_filled.csv`, the
 app's seasonal fill of a Northern Midwest Aquifer System export.
 
+`seasonal_model.py` refits the app's seasonal model (`src/gapFill.js` in webapp-grace-groundwater) to the same file, checks that it matches
+the app's fill, and draws the four figures on the Seasonal Model page: `seasonal-decomposition.png`, `seasonal-levels.png`,
+`seasonal-breakpoints.png` and `seasonal-gap-correction.png`.
+
 ## App screenshots
 
 `shots.mjs` drives the GRACE Regional Analyst in headless Chrome with puppeteer-core and saves full-resolution PNGs.

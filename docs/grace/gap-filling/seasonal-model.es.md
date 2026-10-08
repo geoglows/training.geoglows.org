@@ -15,6 +15,13 @@ $$
 donde *y*(*t*) es GWSa (o TWSa) en el mes *t*, *m* es el mes calendario de *t* (enero a diciembre), *T* es la tendencia, *S* es el ciclo
 estacional y *r* es el residuo, la parte del valor de cada mes que la tendencia y el ciclo estacional no explican.
 
+Para el Northern Midwest Aquifer System, el modelo separa el GWSa en estas tres partes, con el vacío entre las misiones sombreado:
+
+![GWSa del Northern Midwest Aquifer System separado en tendencia, ciclo estacional y residuo](../../static/images/grace/seasonal-decomposition.png)
+
+La tendencia recoge el ascenso y descenso lentos del almacenamiento a lo largo del registro, el ciclo estacional repite la misma oscilación
+anual cada año, y el residuo contiene lo que queda: los años húmedos y secos, y el ruido de los datos GRACE.
+
 ### La tendencia { #the-trend }
 
 La tendencia es una línea recta continua por tramos con hasta tres puntos de quiebre *b*<sub>1</sub>, …, *b*<sub>k</sub>, donde cambia su pendiente:
@@ -38,6 +45,11 @@ $$
 
 Los doce niveles también hacen de intercepto, así que no hay un término constante aparte. Los niveles son fijos de un año a otro: el modelo tiene un
 solo ciclo anual promedio, y un año húmedo aparece en el residuo y no en *S*.
+
+Para el Northern Midwest Aquifer System, los niveles, desplazados para promediar cero como se describe en [Ajuste del modelo](#fitting-the-model),
+van de −4.3 cm en marzo a +3.8 cm en agosto:
+
+![Los doce niveles mensuales del ciclo estacional del Northern Midwest Aquifer System](../../static/images/grace/seasonal-levels.png){ width="700" }
 
 ## Ajuste del modelo { #fitting-the-model }
 
@@ -85,6 +97,11 @@ La aplicación ajusta el mejor modelo con 0, 1, 2 y 3 puntos de quiebre. Partien
 el BIC de ese modelo es al menos 10 menor que el BIC del modelo elegido hasta ese momento. Una caída de 10 es evidencia fuerte de que el quiebre adicional es real
 y no un ajuste al ruido, así que la tendencia solo se dobla donde el registro cambia claramente de dirección.
 
+Para el Northern Midwest Aquifer System, cada punto de quiebre adicional reduce el BIC en más de 10 (en 12, luego 113 y luego 44), así que la
+aplicación conserva los tres:
+
+![La mejor tendencia con 0, 1, 2 y 3 puntos de quiebre para el Northern Midwest Aquifer System, con el BIC de cada una](../../static/images/grace/seasonal-breakpoints.png)
+
 ## Relleno de los vacíos { #filling-the-gaps }
 
 Un vacío es una secuencia de uno o más meses faltantes entre dos meses observados, *a* antes y *c* después. El modelo solo, *T* + *S*,
@@ -103,6 +120,11 @@ La corrección le da al relleno una forma razonable sea cual sea la longitud del
   sus dos vecinos.
 - Para un vacío largo, como los 11 meses entre las misiones, los meses rellenados siguen la tendencia y el ciclo estacional, subiendo y bajando
   con las estaciones habituales, mientras la corrección los desplaza para que coincidan con los valores observados en ambos extremos.
+
+En el vacío entre las misiones del Northern Midwest Aquifer System, los residuos en los dos extremos son casi iguales (−0.38 cm en junio de 2017
+y −0.53 cm en junio de 2018), así que la corrección deja los meses rellenados apenas por debajo del modelo solo:
+
+![La corrección del residuo en el vacío entre GRACE y GRACE-FO para el Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png)
 
 Los meses observados nunca se modifican. Los meses anteriores a la primera observación o posteriores a la última quedan vacíos, porque no hay un valor observado
 del otro lado al cual anclar una corrección.

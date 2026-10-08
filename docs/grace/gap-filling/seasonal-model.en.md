@@ -15,6 +15,13 @@ $$
 where *y*(*t*) is GWSa (or TWSa) in month *t*, *m* is the calendar month of *t* (January to December), *T* is the trend, *S* is the seasonal
 cycle and *r* is the residual, the part of each month's value that the trend and the seasonal cycle don't explain.
 
+For the Northern Midwest Aquifer System the model splits GWSa into these three parts, with the gap between the missions shaded:
+
+![GWSa for the Northern Midwest Aquifer System split into trend, seasonal cycle and residual](../../static/images/grace/seasonal-decomposition.png)
+
+The trend carries the slow rise and fall of storage over the record, the seasonal cycle repeats the same annual swing every year, and the
+residual holds what is left: wet and dry years, and noise in the GRACE data.
+
 ### The trend
 
 The trend is a continuous piecewise straight line with up to three breakpoints *b*<sub>1</sub>, …, *b*<sub>k</sub>, where its slope changes:
@@ -38,6 +45,11 @@ $$
 
 The twelve levels also act as the intercept, so there is no separate constant term. The levels are fixed from year to year: the model has one
 average annual cycle, and a wet year shows up in the residual rather than in *S*.
+
+For the Northern Midwest Aquifer System the levels, shifted to average zero as described under [Fitting the model](#fitting-the-model),
+run from −4.3 cm in March to +3.8 cm in August:
+
+![The twelve monthly levels of the seasonal cycle for the Northern Midwest Aquifer System](../../static/images/grace/seasonal-levels.png){ width="700" }
 
 ## Fitting the model
 
@@ -85,6 +97,11 @@ The app fits the best model with 0, 1, 2 and 3 breakpoints. Starting from the st
 that model's BIC is at least 10 lower than the BIC of the model chosen so far. A drop of 10 is strong evidence that the extra bend is real
 rather than a fit to noise, so the trend bends only where the record clearly changes direction.
 
+For the Northern Midwest Aquifer System each added breakpoint lowers the BIC by more than 10 (by 12, then 113, then 44), so the app keeps
+all three:
+
+![The best trend with 0, 1, 2 and 3 breakpoints for the Northern Midwest Aquifer System, with the BIC of each](../../static/images/grace/seasonal-breakpoints.png)
+
 ## Filling the gaps
 
 A gap is a run of one or more missing months between two observed months, *a* before it and *c* after it. The model alone, *T* + *S*, would
@@ -103,6 +120,11 @@ The correction gives the fill a sensible shape whatever the length of the gap:
   its two neighbors.
 - For a long gap, such as the 11 months between the missions, the filled months follow the trend and the seasonal cycle, rising and falling
   with the usual seasons, while the correction shifts them to meet the observed values at both ends.
+
+Across the gap between the missions in the Northern Midwest Aquifer System, the residuals at the two ends are almost the same (−0.38 cm in June
+2017 and −0.53 cm in June 2018), so the correction moves the filled months just under the model alone:
+
+![The residual correction across the gap between GRACE and GRACE-FO for the Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png)
 
 Observed months are never changed. Months before the first observation or after the last are left empty, because there is no observed value on
 the far side to anchor a correction to.
