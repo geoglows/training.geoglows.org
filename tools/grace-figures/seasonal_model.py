@@ -94,7 +94,8 @@ assert np.allclose(trend + seasonal, d.trend + d.seasonal, atol=1e-3), "refit di
 bp_dates = [d.date[b] for b in model["bps"]]
 
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 11})
-GAP = (pd.Timestamp("2017-06-15"), pd.Timestamp("2018-05-15"))
+# the last GRACE month to the first GRACE-FO month
+GAP = (pd.Timestamp("2017-06-01"), pd.Timestamp("2018-06-01"))
 xlim = (d.date.iloc[0] - pd.Timedelta(days=60), d.date.iloc[-1] + pd.Timedelta(days=60))
 
 

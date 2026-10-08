@@ -22,7 +22,7 @@ bps = [0, *bend.tolist(), len(d) - 1]
 lo, hi = np.floor(d.filled.min()) - 4, np.ceil(d.filled.max()) + 4
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 11})
 fig, ax = plt.subplots(figsize=(11, 4.8), dpi=200)
-ax.axvspan(pd.Timestamp("2017-06-15"), pd.Timestamp("2018-05-15"), color=C["lightgray"], alpha=0.7, lw=0)
+ax.axvspan(pd.Timestamp("2017-06-01"), pd.Timestamp("2018-06-01"), color=C["lightgray"], alpha=0.7, lw=0)
 ax.text(pd.Timestamp("2017-12-01"), hi - 0.3, "GRACE / GRACE-FO gap", ha="center", va="top", fontsize=9.5, color=C["gray"])
 
 ax.plot(d.date, d.observed, color=C["navy"], lw=1.4, label="Observed", zorder=3)
@@ -36,7 +36,7 @@ ax.plot(d.date, d.trend, color=C["teal"], lw=2.2, alpha=0.9, label="Piecewise tr
 # slope of each trend segment, labelled along the bottom of the plot, clear of the data
 for a, b in zip(bps[:-1], bps[1:]):
     slope = (d.trend[b] - d.trend[a]) / (b - a) * 12
-    ax.text(d.date[(a + b) // 2], lo + 0.4, f"{slope:+.1f} cm/yr", ha="center", va="bottom", fontsize=10,
+    ax.text(d.date[(a + b) // 2], lo + 0.4, f"{slope:+.1f} cm/yr".replace("-", "−"), ha="center", va="bottom", fontsize=10,
             color=C["teal"], weight="bold")
 for b in bps[1:-1]:
     ax.axvline(d.date[b], color=C["teal"], lw=0.8, ls=":", alpha=0.8)

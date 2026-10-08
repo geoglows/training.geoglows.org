@@ -143,7 +143,7 @@ valeur comblée de TWSa moins les termes GLDAS de ce mois. Les couches GLDAS n'o
 Pour le Northern Midwest Aquifer System, le BIC retient trois points de rupture, en septembre 2006, mai 2013 et octobre 2017, qui divisent la série
 en quatre segments de tendance de +1.3, −0.7, +2.9 et −0.5 cm/an :
 
-![GWSa observé du Northern Midwest Aquifer System avec la tendance à quatre segments et les mois comblés en rouge](../../static/images/grace/gap-filling-example.png)
+![GWSa observé du Northern Midwest Aquifer System avec la tendance à quatre segments et les mois comblés en rouge](../../static/images/grace/gap-filling-example.png){ width="800" }
 
 Les mois manquants isolés entre 2011 et 2017 restent proches de leurs voisins. Sur la lacune de 11 mois entre les missions, les valeurs comblées
 montent à 12.8 cm en septembre 2017 et redescendent à 4.8 cm en mars 2018 avant de rejoindre le premier mois GRACE-FO, prolongeant le cycle annuel
