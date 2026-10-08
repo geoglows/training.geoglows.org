@@ -208,18 +208,21 @@ ax.plot(d.date[a:c + 1], d.filled[a:c + 1], color=C["red"], lw=2, marker="o", ms
         markevery=range(1, c - a), label="Filled, T + S + correction", zorder=3)
 ax.set_ylabel("GWSa (cm)")
 ax.legend(loc="lower left", frameon=False, ncol=3, fontsize=10)
-for i, nm in ((a, "a"), (c, "c")):
-    ax.annotate(nm, (d.date[i], d.observed[i]), xytext=(0, 10), textcoords="offset points", ha="center", fontsize=15,
-                style="italic", color=C["navy"])
+# labels set off in clear space, each with a pointer line to its point
+def pointer(axis, s, xy, off, col):
+    axis.annotate(s, xy, xytext=off, textcoords="offset points", ha="center", va="center", fontsize=16, color=col,
+                  arrowprops=dict(arrowstyle="-", color=col, lw=0.9, shrinkA=4, shrinkB=4))
+
+
+pointer(ax, "$a$", (d.date[a], d.observed[a]), (-45, 40), C["navy"])
+pointer(ax, "$c$", (d.date[c], d.observed[c]), (-45, 45), C["navy"])
 tidy(ax)
 ax.set_ylim(min(np.nanmin(w.observed), model_only[win].min()) - 5, max(np.nanmax(w.observed), model_only[win].max()) + 3)
 axr.axhline(0, color=C["gray"], lw=0.8)
 axr.plot(w.date, resid[win], color=C["gray"], lw=1.1, marker="o", ms=3)
 axr.plot(d.date[a:c + 1], r_line, color=C["red"], lw=2, ls=(0, (4, 3)))
-axr.annotate("$r_a$", (d.date[a], resid[a]), xytext=(6, -8), textcoords="offset points", ha="left", va="top", fontsize=17,
-             color=C["red"])
-axr.annotate("$r_c$", (d.date[c], resid[c]), xytext=(-6, -8), textcoords="offset points", ha="right", va="top", fontsize=17,
-             color=C["red"])
+pointer(axr, "$r_a$", (d.date[a], resid[a]), (40, -38), C["red"])
+pointer(axr, "$r_c$", (d.date[c], resid[c]), (-40, -38), C["red"])
 axr.text(d.date[(a + c) // 2], max(resid[a], resid[c]) + 1.2, "correction, interpolated from $r_a$ to $r_c$", ha="center",
          fontsize=12, color=C["red"])
 axr.set_ylabel("Residual (cm)")
