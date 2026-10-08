@@ -218,8 +218,14 @@ def gap_figure(name, dates, observed, ts, resid, filled, a_date, c_date, start, 
     win = (dates >= start) & (dates <= end)
     a, c = np.flatnonzero(dates == a_date)[0], np.flatnonzero(dates == c_date)[0]
     r_line = np.interp(np.arange(a, c + 1), [a, c], [resid[a], resid[c]])
-    fig, (ax, axr) = plt.subplots(2, 1, figsize=(9, 5.8), dpi=200, sharex=True,
-                                  gridspec_kw=dict(height_ratios=[2.2, 1], hspace=0.12))
+    lo, hi = min(np.nanmin(observed[win]), ts[win].min()), max(np.nanmax(observed[win]), ts[win].max())
+    ylim = (lo - 0.35 * (hi - lo), hi + 0.2 * (hi - lo))
+    rlo, rhi = np.nanmin(resid[win]), np.nanmax(resid[win])
+    rlim = (rlo - 0.3 * (rhi - rlo), rhi + 0.35 * (rhi - rlo))
+    # panel heights in proportion to their ranges, so a centimeter is the same height in both and the two
+    # hatched areas match in size
+    fig, (ax, axr) = plt.subplots(2, 1, figsize=(9, 6.6), dpi=200, sharex=True,
+                                  gridspec_kw=dict(height_ratios=[ylim[1] - ylim[0], rlim[1] - rlim[0]], hspace=0.12))
     # shade from a to c, the observed months that bound the gap
     for x in (ax, axr):
         x.axvspan(dates[a], dates[c], color=C["lightgray"], alpha=0.7, lw=0)
@@ -238,18 +244,16 @@ def gap_figure(name, dates, observed, ts, resid, filled, a_date, c_date, start, 
     pointer(ax, "$a$", (dates[a], observed[a]), offsets["a"], C["navy"])
     pointer(ax, "$c$", (dates[c], observed[c]), offsets["c"], C["navy"])
     tidy(ax)
-    lo, hi = min(np.nanmin(observed[win]), ts[win].min()), max(np.nanmax(observed[win]), ts[win].max())
-    ax.set_ylim(lo - 0.35 * (hi - lo), hi + 0.2 * (hi - lo))
+    ax.set_ylim(*ylim)
     axr.axhline(0, color=C["gray"], lw=0.8)
     axr.plot(dates[win], resid[win], color=C["gray"], lw=1.1, marker="o", ms=3)
     axr.plot(dates[a:c + 1], r_line, color=C["red"], lw=2, ls=(0, (4, 3)))
     pointer(axr, "$r_a$", (dates[a], resid[a]), offsets["ra"], C["red"])
     pointer(axr, "$r_c$", (dates[c], resid[c]), offsets["rc"], C["red"])
-    rlo, rhi = np.nanmin(resid[win]), np.nanmax(resid[win])
     axr.text(dates[(a + c) // 2], rhi + 0.15 * (rhi - rlo), "correction, interpolated from $r_a$ to $r_c$", ha="center",
              fontsize=11, color=C["red"])
     axr.set_ylabel("Residual (cm)")
-    axr.set_ylim(rlo - 0.3 * (rhi - rlo), rhi + 0.35 * (rhi - rlo))
+    axr.set_ylim(*rlim)
     tidy(axr)
     fig.align_ylabels((ax, axr))
     fig.savefig(OUT / f"{name}.png", facecolor="white", bbox_inches="tight", pad_inches=0.15)
@@ -273,6 +277,6 @@ fill = cv_ts + pd.Series(r).interpolate().values
 assert np.allclose(fill[gap], cv.GWSa_filled[gap], atol=2e-3), "Central Valley refit differs from the app's fill"
 gap_figure("seasonal-gap-correction-cv", cv.Date.values, cv.GWSa.values, cv_ts, r, np.where(gap, fill, cv.GWSa.values),
            np.datetime64("2017-06-01"), np.datetime64("2018-06-01"), np.datetime64("2016-09-01"),
-           np.datetime64("2019-03-01"), dict(a=(45, 14), c=(-45, 40), ra=(40, -30), rc=(-50, -22)))
+           np.datetime64("2019-03-01"), dict(a=(45, 14), c=(-45, 40), ra=(30, -75), rc=(-50, -22)))
 
 print("breakpoints", [f"{b:%Y-%m}" for b in bp_dates], "BIC", [round(f["bic"], 1) for f in fits], "chosen", chosen)
