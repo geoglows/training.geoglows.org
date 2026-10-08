@@ -198,12 +198,14 @@ r_line = np.interp(t_all[a:c + 1], [a, c], [resid[a], resid[c]])
 
 fig, (ax, axr) = plt.subplots(2, 1, figsize=(11, 6.2), dpi=200, sharex=True,
                               gridspec_kw=dict(height_ratios=[2.2, 1], hspace=0.12))
+# shade from a to c, the observed months that bound the gap
 for x in (ax, axr):
-    x.axvspan(*GAP, color=C["lightgray"], alpha=0.7, lw=0)
-ax.plot(w.date, w.observed, color=C["navy"], lw=1.5, marker="o", ms=3.5, label="Observed, y")
+    x.axvspan(d.date[a], d.date[c], color=C["lightgray"], alpha=0.7, lw=0)
+ax.plot(w.date, w.observed, color=C["navy"], lw=1.5, marker="o", ms=3.5, label="Observed, y", zorder=4)
 ax.plot(w.date, model_only[win], color=C["orange"], lw=1.4, ls=(0, (4, 3)), label="Model alone, T + S")
+# a and c are observed months, so only the months between them get the filled marker
 ax.plot(d.date[a:c + 1], d.filled[a:c + 1], color=C["red"], lw=2, marker="o", ms=4, mfc="white",
-        label="Filled, T + S + correction")
+        markevery=range(1, c - a), label="Filled, T + S + correction", zorder=3)
 ax.set_ylabel("GWSa (cm)")
 ax.legend(loc="lower left", frameon=False, ncol=3, fontsize=10)
 for i, nm in ((a, "a"), (c, "c")):
