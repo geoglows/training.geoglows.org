@@ -100,7 +100,7 @@ rather than a fit to noise, so the trend bends only where the record clearly cha
 For the Northern Midwest Aquifer System each added breakpoint lowers the BIC by more than 10 (by 12, then 113, then 44), so the app keeps
 all three:
 
-![The best trend with 0, 1, 2 and 3 breakpoints for the Northern Midwest Aquifer System, with the BIC of each](../../static/images/grace/seasonal-breakpoints.png)
+![The best trend with 0, 1, 2 and 3 breakpoints for the Northern Midwest Aquifer System, with the BIC of each](../../static/images/grace/seasonal-breakpoints.png){ width="800" }
 
 ## Filling the gaps
 

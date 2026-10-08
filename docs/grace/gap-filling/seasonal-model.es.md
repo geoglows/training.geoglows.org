@@ -100,7 +100,7 @@ y no un ajuste al ruido, así que la tendencia solo se dobla donde el registro c
 Para el Northern Midwest Aquifer System, cada punto de quiebre adicional reduce el BIC en más de 10 (en 12, luego 113 y luego 44), así que la
 aplicación conserva los tres:
 
-![La mejor tendencia con 0, 1, 2 y 3 puntos de quiebre para el Northern Midwest Aquifer System, con el BIC de cada una](../../static/images/grace/seasonal-breakpoints.png)
+![La mejor tendencia con 0, 1, 2 y 3 puntos de quiebre para el Northern Midwest Aquifer System, con el BIC de cada una](../../static/images/grace/seasonal-breakpoints.png){ width="800" }
 
 ## Relleno de los vacíos { #filling-the-gaps }
 

@@ -100,7 +100,7 @@ et ne résulte pas d'un ajustement au bruit ; la tendance ne s'infléchit donc q
 Pour le Northern Midwest Aquifer System, chaque point de rupture supplémentaire abaisse le BIC de plus de 10 (de 12, puis 113, puis 44), si bien
 que l'application conserve les trois :
 
-![La meilleure tendance avec 0, 1, 2 et 3 points de rupture pour le Northern Midwest Aquifer System, avec le BIC de chacune](../../static/images/grace/seasonal-breakpoints.png)
+![La meilleure tendance avec 0, 1, 2 et 3 points de rupture pour le Northern Midwest Aquifer System, avec le BIC de chacune](../../static/images/grace/seasonal-breakpoints.png){ width="800" }
 
 ## Comblement des lacunes { #filling-the-gaps }
 
