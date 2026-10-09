@@ -4,6 +4,8 @@ markdown_extensions:
   - admonition
   - pymdownx.snippets
   - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -37,15 +39,44 @@ plugins:
             Querying Data: "Consultando Datos"
             Bulk Downloads: "Descargas Masivas"
             API (Data Service): "API (Servicio de Datos)"
-            Web Maps: "Mapas Web"
-            Part 4 Application Tutorials: "Parte 4: Tutoriales de Aplicación"
             Web App: "Aplicación Web"
-            Notebooks: "Notebooks"
             Cookbook: "Recetario"
             Part 5 Bias Correction: "Parte 5: Corrección de Sesgo"
             SABER Method: "Método SABER"
             Correcting Forecasts: "Corregir Pronósticos"
-            Publications: "Publicaciones" 
+            GRACE Regional Analyst: "GRACE Regional Analyst"
+            Overview: "Descripción General"
+            Publications: "Publicaciones"
+            Code Notebooks: "Notebooks de Código"
+            Part 4 Tutorials: "Parte 4: Tutoriales"
+            Web Maps (GIS Layer): "Mapas Web (Capa SIG)"
+            Part 1 Background: "Parte 1: Fundamentos"
+            The GRACE Mission: "La Misión GRACE"
+            Deriving Groundwater Storage: "Cálculo del Almacenamiento de Agua Subterránea"
+            Resolution, Leakage and Small Regions: "Resolución, Fuga de Señal y Regiones Pequeñas"
+            Part 2 Using the App: "Parte 2: Uso de la Aplicación"
+            Interface: "Interfaz"
+            Global View: "Vista Global"
+            Regional View: "Vista Regional"
+            Trend Analysis: "Análisis de Tendencias"
+            Downloading Data: "Descarga de Datos"
+            Part 3 Gap Filling: "Parte 3: Relleno de Vacíos"
+            Part 4 Recharge Analysis: "Parte 4: Análisis de Recarga"
+            The WTF Method: "El Método WTF"
+            Opening the Analysis: "Apertura del Análisis"
+            Water Years and Picks: "Años Hidrológicos y Selección de Puntos"
+            Results: "Resultados"
+            Part 5 Case Studies: "Parte 5: Casos de Estudio"
+            Gaps in the Record: "Vacíos en el Registro"
+            The Seasonal Model: "El Modelo Estacional"
+            Niger: "Níger"
+            Volta Basin: "Cuenca del Volta"
+            California's Central Valley: "Valle Central de California"
+            Webinars: "Seminarios Web"
+            "1. GEOGLOWS History and Introducing RFS Version 2": "1. Historia de GEOGLOWS y Presentación de RFS Versión 2"
+            "2. GEOGLOWS Model Formulation": "2. Formulación del Modelo GEOGLOWS"
+            "3. GEOGLOWS Available Data": "3. Datos Disponibles de GEOGLOWS"
+            "4. GEOGLOWS Hydroviewer 101": "4. Introducción al Hydroviewer de GEOGLOWS"
         - locale: fr
           name: Français
           build: true
@@ -64,38 +95,57 @@ plugins:
             Querying Data: "Interrogation des Données"
             Bulk Downloads: "Téléchargements en Masse"
             API (Data Service): "API (Service de Données)"
-            Web Maps: "Cartes Web"
-            Part 4 Application Tutorials: "Partie 4 : Tutoriels d'Application"
             Web App: "Application Web"
-            Notebooks: "Cahiers"
             Cookbook: "Recueil de Recettes"
             Part 5 Bias Correction: "Partie 5 : Correction du Biais"
             SABER Method: "Méthode SABER"
             Correcting Forecasts: "Correction des Prévisions"
+            GRACE Regional Analyst: "GRACE Regional Analyst"
+            Overview: "Vue d'Ensemble"
             Publications: "Publications"
+            Code Notebooks: "Notebooks de Code"
+            Part 4 Tutorials: "Partie 4 : Tutoriels"
+            Web Maps (GIS Layer): "Cartes Web (Couche SIG)"
+            Part 1 Background: "Partie 1 : Contexte"
+            The GRACE Mission: "La Mission GRACE"
+            Deriving Groundwater Storage: "Calcul du Stockage des Eaux Souterraines"
+            Resolution, Leakage and Small Regions: "Résolution, Fuite du Signal et Petites Régions"
+            Part 2 Using the App: "Partie 2 : Utilisation de l'Application"
+            Interface: "Interface"
+            Global View: "Vue Globale"
+            Regional View: "Vue Régionale"
+            Trend Analysis: "Analyse des Tendances"
+            Downloading Data: "Téléchargement des Données"
+            Part 3 Gap Filling: "Partie 3 : Comblement des Lacunes"
+            Part 4 Recharge Analysis: "Partie 4 : Analyse de la Recharge"
+            The WTF Method: "La Méthode WTF"
+            Opening the Analysis: "Ouverture de l'Analyse"
+            Water Years and Picks: "Années Hydrologiques et Choix des Points"
+            Results: "Résultats"
+            Part 5 Case Studies: "Partie 5 : Études de Cas"
+            Gaps in the Record: "Lacunes dans les Données"
+            The Seasonal Model: "Le Modèle Saisonnier"
+            Niger: "Niger"
+            Volta Basin: "Bassin de la Volta"
+            California's Central Valley: "Vallée Centrale de Californie"
+            Webinars: "Webinaires"
+            "1. GEOGLOWS History and Introducing RFS Version 2": "1. Historique de GEOGLOWS et Présentation de RFS Version 2"
+            "2. GEOGLOWS Model Formulation": "2. Formulation du Modèle GEOGLOWS"
+            "3. GEOGLOWS Available Data": "3. Données Disponibles de GEOGLOWS"
+            "4. GEOGLOWS Hydroviewer 101": "4. Introduction à l'Hydroviewer GEOGLOWS"
 theme:
-  features:
-    - content.code.copy
-    - content.code.select
-    - navigation.path
-    - navigation.footer
-    - toc.follow
-  name: material
-  palette:
-    # Palette toggle for light mode
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    # Palette toggle for dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
+  name: readthedocs
+  custom_dir: overrides
+  navigation_depth: 3
+  logo: static/images/geoglows-logo.png
+hooks:
+  - hooks/i18n_root_templates.py
+extra_css:
+  - stylesheets/geoglows.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - javascripts/mobile-nav.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 nav:
   - Home: index.md
   - River Forecast System:
@@ -119,7 +169,32 @@ nav:
       - Part 5 Bias Correction:
           - SABER Method: rfs/bias-correction/bias-correction.md
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
-      - Publications: rfs/publications.md
+      - Publications: publications.md
+  - GRACE Regional Analyst:
+      - Part 1 Background:
+          - Overview: grace/background/overview.md
+          - The GRACE Mission: grace/background/grace-mission.md
+          - Deriving Groundwater Storage: grace/background/deriving-groundwater.md
+          - Resolution, Leakage and Small Regions: grace/background/resolution-and-leakage.md
+      - Part 2 Using the App:
+          - Interface: grace/app/interface.md
+          - Regional View: grace/app/regional-view.md
+          - Global View: grace/app/global-view.md
+          - Trend Analysis: grace/app/trends.md
+          - Downloading Data: grace/app/downloading-data.md
+      - Part 3 Gap Filling:
+          - Gaps in the Record: grace/gap-filling/gaps.md
+          - The Seasonal Model: grace/gap-filling/seasonal-model.md
+      - Part 4 Recharge Analysis:
+          - The WTF Method: grace/recharge/wtf-method.md
+          - Opening the Analysis: grace/recharge/opening.md
+          - Water Years and Picks: grace/recharge/picks.md
+          - Results: grace/recharge/results.md
+      - Part 5 Case Studies:
+          - Niger: grace/case-studies/niger.md
+          - Volta Basin: grace/case-studies/volta.md
+          - California's Central Valley: grace/case-studies/central-valley.md
+      - Publications: grace/publications.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{#- Adds a close button to the sidebar header. It only shows when the sidebar is the mobile slide-out
+    menu (see docs/javascripts/mobile-nav.js and the mobile sidebar styles in geoglows.css). -#}
+{%- block site_name %}
+  {{ super() }}
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button>
+{%- endblock %}

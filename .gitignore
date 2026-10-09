@@ -1,2 +1,8 @@
 .idea
 site/*
+*:Zone.Identifier
+tools/grace-figures/node_modules/
+tools/grace-figures/.chrome-profile/
+tools/grace-figures/raw/
+tools/grace-figures/package*.json
+__pycache__/
