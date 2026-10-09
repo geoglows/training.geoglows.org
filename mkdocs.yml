@@ -144,6 +144,7 @@ extra_css:
   - stylesheets/geoglows.css
 extra_javascript:
   - javascripts/mathjax.js
+  - javascripts/mobile-nav.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 nav:
   - Home: index.md

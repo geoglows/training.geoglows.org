@@ -69,6 +69,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Long URLs and identifiers wrap instead of widening the page on phones. */
+.rst-content {
+  overflow-wrap: break-word;
+}
+
+/* Equations too wide for the screen scroll sideways on their own. */
+.rst-content mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 input, button, select, textarea, .btn, legend,
 .wy-nav-top, .rst-versions, .wy-menu-vertical {
   font-family: var(--geo-font-sans);
@@ -363,6 +375,107 @@ a:hover code {
   color: transparent;
 }
 
+/* ------------------------------------------ mobile sidebar (<768px) -- */
+
+/* Close button in the sidebar header (overrides/main.html); only used on mobile. */
+.geo-nav-close {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  /* The theme shoves the page 85% to the right and leaves a sliver of it beside the menu. Instead
+     the sidebar slides over the page as a drawer sized to the screen, and the page stays put
+     behind a dimmed backdrop. */
+  .wy-nav-side {
+    left: 0;
+    width: min(85vw, 340px);
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    padding-bottom: 0;
+    transform: translateX(-100%);
+    transition: transform .2s ease, box-shadow .2s ease;
+    z-index: 300;
+  }
+
+  .wy-nav-side.shift {
+    width: min(85vw, 340px);
+    transform: none;
+    box-shadow: 0 0 24px #1d1d2440;
+  }
+
+  .wy-side-scroll {
+    overscroll-behavior: contain;
+    /* room for the Previous / Next bar pinned to the bottom of the drawer */
+    padding-bottom: 3.5em;
+  }
+
+  .wy-nav-content-wrap.shift {
+    position: static;
+    left: auto;
+    top: auto;
+    min-width: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .wy-nav-content-wrap.shift::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 250;
+    background: #1d1d2466;
+  }
+
+  body:has(.wy-nav-side.shift) {
+    overflow: hidden;
+  }
+
+  /* The theme toggles this bar on every nav click, so it falls out of step with the drawer. Tie
+     it to the drawer instead. */
+  .rst-versions,
+  .rst-versions.shift {
+    display: none;
+    width: min(85vw, 340px);
+  }
+
+  body:has(.wy-nav-side.shift) .rst-versions {
+    display: block;
+  }
+
+  .wy-side-nav-search {
+    position: relative;
+  }
+
+  .geo-nav-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: .75em;
+    right: .75em;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    color: var(--geo-slate-700);
+    background: var(--geo-slate-100);
+    border: 1px solid var(--geo-border);
+    border-radius: var(--geo-radius-lg);
+    cursor: pointer;
+  }
+
+  .geo-nav-close:hover {
+    color: var(--geo-link-hover);
+    background: var(--geo-blue-50);
+  }
+
+  /* keep the logo clear of the close button */
+  .wy-side-nav-search > a {
+    margin-right: 44px;
+    margin-left: 44px;
+  }
+}
+
 /* ------------------------------------------------------- breadcrumbs -- */
 
 .wy-breadcrumbs {
@@ -372,6 +485,125 @@ a:hover code {
 
 .wy-breadcrumbs li a {
   color: var(--geo-link);
+}
+
+/* Language menu at the left of the breadcrumbs (overrides/lang-menu.html). The bar is a
+   flex row so the button and the crumbs share a center line. */
+.wy-breadcrumbs:has(> li.geo-lang-item) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 4px;
+}
+
+.wy-breadcrumbs:has(> li.geo-lang-item)::before,
+.wy-breadcrumbs:has(> li.geo-lang-item)::after {
+  display: none;
+}
+
+.wy-breadcrumbs:has(> li.geo-lang-item) > li {
+  padding-top: 0;
+}
+
+/* Flex drops the whitespace the theme relies on before each "/" separator. */
+.wy-breadcrumbs:has(> li.geo-lang-item) > li.breadcrumb-item {
+  margin-left: .3em;
+}
+
+.wy-breadcrumbs > li.geo-lang-item {
+  margin-right: .75em;
+}
+
+.wy-breadcrumbs > li.wy-breadcrumbs-aside {
+  margin-left: auto;
+}
+
+.geo-lang-menu {
+  position: relative;
+  display: inline-block;
+  font-family: var(--geo-font-sans);
+}
+
+.geo-lang-menu summary {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  padding: 3px 9px;
+  color: var(--geo-slate-700);
+  background: var(--geo-surface-card);
+  border: 1px solid var(--geo-border);
+  border-radius: var(--geo-radius-lg);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.geo-lang-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.geo-lang-menu summary:hover,
+.geo-lang-menu[open] summary {
+  color: var(--geo-link-hover);
+  background: var(--geo-blue-50);
+  border-color: var(--geo-blue-100);
+}
+
+.geo-lang-menu summary:focus-visible {
+  outline: 2px solid var(--geo-blue-600);
+  outline-offset: 1px;
+}
+
+.geo-lang-menu .geo-lang-icon,
+.geo-lang-menu .geo-lang-caret {
+  flex: none;
+}
+
+.geo-lang-menu[open] .geo-lang-caret {
+  transform: rotate(180deg);
+}
+
+.geo-lang-menu ul {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 10em;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--geo-surface-card);
+  border: 1px solid var(--geo-border);
+  border-radius: var(--geo-radius-lg);
+  box-shadow: var(--geo-shadow-sm);
+}
+
+.geo-lang-menu li {
+  display: block;
+  padding: 0;
+}
+
+.geo-lang-menu li a,
+.geo-lang-menu li .current {
+  display: block;
+  padding: 5px 10px;
+  border-radius: calc(var(--geo-radius-lg) - 2px);
+  line-height: 1.4;
+}
+
+.wy-breadcrumbs .geo-lang-menu li a {
+  color: var(--geo-slate-700);
+}
+
+.wy-breadcrumbs .geo-lang-menu li a:hover,
+.wy-breadcrumbs .geo-lang-menu li a:focus-visible {
+  color: var(--geo-link-hover);
+  background: var(--geo-blue-50);
+}
+
+.geo-lang-menu li .current {
+  color: var(--geo-blue-700);
+  font-weight: 600;
 }
 
 .rst-content hr,
@@ -456,7 +688,7 @@ td, th {
 /* -------------------------------------------------------- admonitions -- */
 
 .rst-content .admonition,
-.rst-content details {
+.rst-content details:not(.geo-lang-menu) {
   background: var(--geo-blue-50);
   border-left: 4px solid var(--geo-blue-600);
   border-radius: var(--geo-radius-xl);
@@ -554,12 +786,12 @@ td, th {
 }
 
 /* pymdownx.details (??? blocks) */
-.rst-content details {
+.rst-content details:not(.geo-lang-menu) {
   padding: 0 12px;
   margin-bottom: 24px;
 }
 
-.rst-content details > summary {
+.rst-content details:not(.geo-lang-menu) > summary {
   font-family: var(--geo-font-display);
   font-weight: 700;
   color: var(--geo-blue-700);
@@ -569,7 +801,7 @@ td, th {
   cursor: pointer;
 }
 
-.rst-content details[open] > summary {
+.rst-content details:not(.geo-lang-menu)[open] > summary {
   margin-bottom: 12px;
 }
 
