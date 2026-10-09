@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Querying Data - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Querying Data";
+        var mkdocs_page_input_path = "rfs/tutorials/query-data.en.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../..">
+          <img src="../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Available Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/hydrography/">Hydrography</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/retrospective/">Retrospective Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Accessing Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Web App</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Part 4 Tutorials</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Querying Data</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#data-structures">Data Structures</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#geoglows-python-package">geoglows Python Package</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#python-example">Python Example</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#javascript-example">JavaScript Example</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Background</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Resolution, Leakage and Small Regions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Using the App</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. GEOGLOWS Available Data</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../../es/rfs/tutorials/query-data/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../../fr/rfs/tutorials/query-data/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">River Forecast System</li>
+          <li class="breadcrumb-item">Part 4 Tutorials</li>
+      <li class="breadcrumb-item active">Querying Data</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The methods described here are the preferred means of retrieving data from the River Forecast System.</p>
+</div>
+<h2 id="data-structures">Data Structures</h2>
+<p>Most RFS data are stored in Zarr format and chunked in such a way that they can be efficiently queried for timeseries. You can read those Zarr files
+directly from AWS S3 using any programming language with a Zarr client library. The easiest way to do this is in Python using the <code>geoglows</code> package.</p>
+<p>In order to retrieve data, you will need to know the ID number of the rivers you are interested in. Please review
+the <a href="../find-river-numbers/">tutorial on finding river numbers</a> before proceeding.</p>
+<h2 id="geoglows-python-package">geoglows Python Package</h2>
+<p>The simplest way to download data from the data service is using the official Python client package titled "geoglows". For complete tutorials, please
+refer to the <a href="https://geoglows.readthedocs.io" target="_blank">geoglows Python package documentation</a>.</p>
+<p>For snippets of code for commonly needed tasks, see the <a href="../../accessing-data/code-snippets/">Cookbook</a>.</p>
+<h2 id="python-example">Python Example</h2>
+<p>To write your own code Python which reads Zarr directories, you will need the following packages:</p>
+<ul>
+<li><a href="https://zarr.readthedocs.io/en/stable/" target="_blank">zarr</a> &gt;= 3</li>
+<li><a href="https://s3fs.readthedocs.io/en/latest/" target="_blank">s3fs</a> &gt;= 2025</li>
+<li><a href="http://xarray.pydata.org/en/stable/" target="_blank">xarray</a> &gt;= 2025</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Earlier versions of these dependencies also work but are not tested for this training site.</p>
+</div>
+<p>To find the paths to the Zarr directories, you should refer to the <a href="../../datasets/catalog/" target="_blank">data catalog</a>. You can pass
+the URI starting with <code>s3://</code> directly to the <code>xr.open_dataset()</code> function. You do not need an aws account in order to access the data, but you must ensure that you are setting it to query anonymously by setting storage_options={'anon': True}. </p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="n">retro_hourly_zarr_uri</span> <span class="o">=</span> <span class="s1">'s3://geoglows-v2/retrospective/hourly.zarr'</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">retro_hourly_zarr_uri</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">'zarr'</span><span class="p">,</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{</span><span class="s1">'anon'</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+
+<span class="c1"># now select the 1 or more rivers you want to get data for</span>
+<span class="n">rivers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">621054340</span><span class="p">,</span> <span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">river_id</span><span class="o">=</span><span class="n">rivers</span><span class="p">)[</span><span class="s2">"Q"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+
+<span class="c1"># save the dataframe as csv, do some analysis, make a plot, etc</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'./my_river_data.csv'</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="javascript-example">JavaScript Example</h2>
+<p>To write your own JavaScript code, you will need a dependency which reads from Zarr directories. Some options include:</p>
+<ul>
+<li><a href="https://zarrita.dev/" target="_blank">zarrita.js</a></li>
+<li><a href="https://guido.io/zarr.js/" target="_blank">zarr.js</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">zarr</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"https://cdn.jsdelivr.net/npm/zarrita/+esm"</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">baseZarrUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://geoglows-v2.s3-us-west-2.amazonaws.com/retrospective/daily.zarr"</span>
+
+<span class="c1">// open the river_id variable</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">idStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">FetchStore</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">baseZarrUrl</span><span class="si">}</span><span class="sb">/river_id`</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">idNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">idStore</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s2">"r"</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">});</span>
+<span class="c1">// open the discharge variable</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">qStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">FetchStore</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">baseZarrUrl</span><span class="si">}</span><span class="sb">/Q`</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">qNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">qStore</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s2">"r"</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">});</span>
+<span class="c1">// open the time variable</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">FetchStore</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">baseZarrUrl</span><span class="si">}</span><span class="sb">/time`</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">tStore</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s2">"r"</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">});</span>
+
+<span class="c1">// get the time values and convert from "time since origin" values to ISO strings</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tUnits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tNode</span><span class="p">.</span><span class="nx">attrs</span><span class="p">.</span><span class="nx">units</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">tNode</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kc">null</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">originTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tUnits</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"since"</span><span class="p">)[</span><span class="mf">1</span><span class="p">].</span><span class="nx">trim</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">conversionFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">seconds</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">minutes</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">hours</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">days</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="p">,</span>
+<span class="p">}[</span><span class="nx">tUnits</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"since"</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">trim</span><span class="p">()]</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">tArray</span><span class="p">.</span><span class="nx">data</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">originTime</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">origin</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="nx">origin</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">conversionFactor</span><span class="p">))</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">origin</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="c1">// determine the index of the river with your ID of interest</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">idArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">idNode</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kc">null</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">idArray</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mf">760127992</span><span class="p">)</span>
+
+<span class="c1">// get the discharge values for the river with your ID of interest</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">qArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zarr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">qNode</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">idx</span><span class="p">])</span>
+
+<span class="c1">// do something with your arrays of data</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"preview of data retrieved:"</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"times:"</span><span class="p">,</span><span class="w"> </span><span class="nx">times</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"discharge:"</span><span class="p">,</span><span class="w"> </span><span class="nx">qArray</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">))</span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../find-river-numbers/" class="btn btn-neutral float-left" title="Finding River Numbers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../data-service/" class="btn btn-neutral float-right" title="API (Data Service)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../find-river-numbers/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../data-service/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../javascripts/mathjax.js"></script>
+      <script src="../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

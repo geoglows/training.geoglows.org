@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>La Mission GRACE - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "La Mission GRACE";
+        var mkdocs_page_input_path = "grace/background/grace-mission.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 1 : Contexte</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">La Mission GRACE</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#two-satellites-that-weigh-water">Deux satellites qui pèsent l’eau</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-gravity-to-water">De la gravité à l’eau</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-mascon-solution-used-by-the-app">La solution mascon utilisée par l’application</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-record-and-its-gaps">La série et ses lacunes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">Références</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/background/grace-mission/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/background/grace-mission/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 1 : Contexte</li>
+      <li class="breadcrumb-item active">La Mission GRACE</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="la-mission-grace">La Mission GRACE</h1>
+<h2 id="two-satellites-that-weigh-water">Deux satellites qui pèsent l’eau</h2>
+<p>GRACE (Gravity Recovery and Climate Experiment) est une paire de satellites identiques qui volent l’un derrière l’autre sur la même orbite
+polaire, à environ 220 km l’un de l’autre et à quelque 500 km d’altitude. La NASA et le Centre aérospatial allemand ont lancé la première paire en
+mars 2002. GRACE Follow-On (GRACE-FO), lancée en mai 2018, poursuit la mesure avec la même conception.</p>
+<p><img alt="Géométrie de la mission GRACE : altitude, séparation, mesure de distance, suivi GPS et accéléromètres" src="../../../../static/images/grace/grace-mission-geometry.png" /></p>
+<p>Les satellites ne prennent pas d’images de la surface. Ils mesurent en continu la distance qui les sépare, avec un système de mesure de distance
+par micro-ondes précis à environ un micromètre près, une fraction de l’épaisseur d’un cheveu. (GRACE-FO embarque aussi un instrument
+expérimental de mesure de distance par laser, plus précis encore.) Des récepteurs GPS suivent la position de chaque satellite, et des
+accéléromètres embarqués mesurent les forces non gravitationnelles, principalement le frottement atmosphérique, afin de pouvoir les retirer. Ce
+qui reste des variations de cette distance révèle les variations de la gravité terrestre le long de la trajectoire.</p>
+<p><img alt="Comment GRACE détecte une anomalie de masse" src="../../../../static/images/grace/grace-ranging.png" /></p>
+<p>Lorsque la paire s’approche d’une région présentant un excédent de masse, par exemple un aquifère qui s’est rempli après une saison humide, le
+satellite de tête ressent l’attraction supplémentaire en premier et accélère légèrement, si bien que l’écart entre les deux augmente. Une fois que
+le satellite de tête a dépassé la masse, il est freiné tandis que le satellite suiveur est attiré vers l’avant, et l’écart diminue. Au passage du
+satellite suiveur, l’écart augmente de nouveau avant de revenir à la normale.</p>
+<p>L’orbite couvre l’ensemble du globe environ une fois par mois. Le Jet Propulsion Laboratory (JPL) de la NASA, le Center for Space Research de
+l’Université du Texas (CSR) et le Centre allemand de recherche en géosciences (GFZ) transforment chacun un mois de mesures de distance en une carte
+du champ de gravité terrestre. En soustrayant un champ moyen de long terme, on obtient l’anomalie de gravité du mois.</p>
+<h2 id="from-gravity-to-water">De la gravité à l’eau</h2>
+<p>Sur des périodes allant d’un mois à quelques années, la quasi-totalité des variations du champ de gravité terrestre au-dessus des continents
+provient des déplacements de l’eau : accumulation et fonte de la neige, humidification et assèchement des sols, montée et baisse des rivières et
+des lacs, remplissage des aquifères ou prélèvements par pompage. L’anomalie de gravité peut donc être convertie en variation de la masse d’eau
+stockée dans une colonne qui s’étend du sommet de la végétation jusqu’aux aquifères. Ce total est appelé <strong>stockage total en eau (TWS)</strong>, et son
+écart à la moyenne de long terme est l’<strong>anomalie de stockage total en eau (TWSa)</strong>.</p>
+<p>La TWSa est exprimée en hauteur d’<strong>équivalent en eau liquide (LWE)</strong> en centimètres : l’épaisseur de la lame d’eau qui expliquerait la
+variation de masse si elle était répartie uniformément sur la surface. Une TWSa de −10 cm sur une région signifie que la région contient 10 cm
+d’eau de moins que sa moyenne de long terme, ce qui revient à retirer une lame d’eau de 10 cm sur toute sa surface. Comme il s’agit déjà d’une
+hauteur d’eau, une valeur LWE se convertit en volume en la multipliant par la surface : −10 cm sur 50 000 km² représentent −5 km³.</p>
+<div class="admonition note">
+<p class="admonition-title">Des anomalies, pas des quantités</p>
+<p>GRACE mesure des variations de stockage, pas la quantité stockée. Une GWSa nulle signifie que le stockage est égal à sa moyenne 2004–2009,
+et non que l’aquifère est vide. L’anomalie peut vous indiquer combien de stockage a été perdu ou gagné entre deux dates, mais pas combien
+d’eau il reste.</p>
+</div>
+<h2 id="the-mascon-solution-used-by-the-app">La solution mascon utilisée par l’application</h2>
+<p>L’application utilise la solution <strong>mascon</strong> du JPL (RL06.3, avec le filtre Coastline Resolution Improvement). Au lieu de décrire le champ de
+gravité par une série mathématique lisse, le JPL divise la surface de la Terre en 4 551 calottes de même superficie, d’environ 3° (soit environ
+330 km) de diamètre, et calcule directement la variation de masse de chaque calotte. Le filtre côtier scinde les calottes qui chevauchent une
+côte afin que les variations de masse océaniques ne contaminent pas les valeurs continentales.</p>
+<p>Le JPL distribue les valeurs des mascons sur une grille de 0.5° par commodité. Les mailles de 0.5° situées à l’intérieur d’un mascon reprennent
+toutes la valeur de ce mascon : la résolution réelle de la TWSa est donc le mascon de 3°, et non la maille de 0.5°. Vous pouvez le constater dans
+l’application : choisissez TWSa comme couche affichée, zoomez et activez <strong>Show mascon boundaries</strong> (afficher les limites des mascons). Les
+mailles TWSa ne changent de valeur qu’au franchissement d’une limite de mascon.</p>
+<p>La TWSa du JPL est calculée par rapport à la moyenne de janvier 2004 à décembre 2009. La même période de référence est utilisée pour toutes les
+couches de l’application.</p>
+<h2 id="the-record-and-its-gaps">La série et ses lacunes</h2>
+<p><img alt="La série de données GRACE et GRACE-FO" src="../../../../static/images/grace/grace-timeline.png" /></p>
+<p>La série commence en avril 2002 et est mise à jour à mesure que le JPL publie de nouveaux mois GRACE-FO, généralement avec quelques mois de
+décalage. Elle présente deux types de lacunes :</p>
+<ul>
+<li><strong>Des mois manquants isolés.</strong> Quelques mois manquent en 2002–2003, pendant la mise en service de la mission. À partir de 2011, les batteries
+  vieillissantes de GRACE ne pouvaient plus alimenter les instruments sur toutes les portions de l’orbite ; ceux-ci ont donc été éteints environ
+  un mois sur cinq ou six. GRACE-FO a manqué deux mois supplémentaires, août et septembre 2018, peu après son lancement.</li>
+<li><strong>L’intervalle entre les missions.</strong> GRACE a cessé ses opérations scientifiques en juin 2017, et GRACE-FO a commencé à fournir des données en
+  juin 2018, laissant 11 mois sans mesures.</li>
+</ul>
+<p>L’application affiche les mois manquants comme des lacunes dans la série temporelle et les saute dans l’animation de la carte. La page
+<a href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a> montre comment les estimer lorsqu’une analyse nécessite une série mensuelle complète.</p>
+<h2 id="references">Références</h2>
+<ul>
+<li>Tapley, B. D., Bettadpur, S., Watkins, M., and Reigber, C. (2004). The gravity recovery and climate experiment: Mission overview and early
+  results. <em>Geophysical Research Letters</em>, 31, L09607. <a href="https://doi.org/10.1029/2004GL019920" target="_blank">doi:10.1029/2004GL019920</a></li>
+<li>Watkins, M. M., Wiese, D. N., Yuan, D.-N., Boening, C., and Landerer, F. W. (2015). Improved methods for observing Earth's time variable mass
+  distribution with GRACE using spherical cap mascons. <em>Journal of Geophysical Research: Solid Earth</em>, 120, 2648–2671.
+  <a href="https://doi.org/10.1002/2014JB011547" target="_blank">doi:10.1002/2014JB011547</a></li>
+<li>Wiese, D. N., Landerer, F. W., and Watkins, M. M. (2016). Quantifying and reducing leakage errors in the JPL RL05M GRACE mascon solution.
+  <em>Water Resources Research</em>, 52, 7490–7502. <a href="https://doi.org/10.1002/2016WR019344" target="_blank">doi:10.1002/2016WR019344</a></li>
+<li>Landerer, F. W., et al. (2020). Extending the global mass change data record: GRACE Follow-On instrument and science data performance.
+  <em>Geophysical Research Letters</em>, 47, e2020GL088306. <a href="https://doi.org/10.1029/2020GL088306" target="_blank">doi:10.1029/2020GL088306</a></li>
+<li>Données mascon GRACE et GRACE-FO du JPL :
+  <a href="https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/" target="_blank">grace.jpl.nasa.gov/data/get-data/jpl_global_mascons</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../overview/" class="btn btn-neutral float-left" title="Vue d'Ensemble"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../deriving-groundwater/" class="btn btn-neutral float-right" title="Calcul du Stockage des Eaux Souterraines">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../overview/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../deriving-groundwater/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

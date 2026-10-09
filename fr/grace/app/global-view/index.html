@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Vue Globale - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Vue Globale";
+        var mkdocs_page_input_path = "grace/app/global-view.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 2 : Utilisation de l'Application</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Vue Globale</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#the-global-view">La vue globale</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#time-series-for-a-single-cell">Série temporelle d’une maille</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trend-map">Carte des tendances</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/app/global-view/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/app/global-view/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 2 : Utilisation de l'Application</li>
+      <li class="breadcrumb-item active">Vue Globale</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="vue-globale">Vue Globale</h1>
+<h2 id="the-global-view">La vue globale</h2>
+<p>Cliquez sur <strong>Global</strong> pour afficher la couche sélectionnée sur toutes les mailles continentales du monde. À la première ouverture,
+l’application télécharge la série complète de cette couche, ce qui peut prendre un peu de temps ; elle est ensuite mise en cache dans votre
+navigateur.</p>
+<p><img alt="Vue globale de l’anomalie de stockage des eaux souterraines en septembre 2024" src="../../../../static/images/grace/app-global.webp" /></p>
+<p>Appuyez sur lecture dans le contrôle temporel pour animer la série mois par mois. La vue globale défile plus vite que la vue régionale, environ
+quatre mois par seconde, et reprend au début en boucle. L’animation fait ressortir les grandes structures : la baisse continue dans le nord de
+l’Inde, au Moyen-Orient et dans la plaine de Chine du Nord, la hausse du stockage dans le Sahel depuis 2010 environ, et les années humides et
+sèches qui balaient l’Amazonie et l’Afrique australe.</p>
+<p>Changez la couche affichée (<strong>Displayed layer</strong>) pour comparer les composantes. La TWSa montre le contour en blocs des mascons de 3° (voir
+<a href="../../background/grace-mission/#the-mascon-solution-used-by-the-app">La Mission GRACE</a>) ; la SWEa est proche de zéro partout sauf aux hautes
+latitudes et en montagne ; la SMa montre l’humidification et l’assèchement saisonniers des sols.</p>
+<h2 id="time-series-for-a-single-cell">Série temporelle d’une maille</h2>
+<p>Cliquez sur n’importe quelle maille continentale pour tracer sa série temporelle. Le fil d’Ariane affiche alors les coordonnées de la maille, et
+le graphique présente ses valeurs avec la bande d’incertitude ±1σ. Le graphique fonctionne comme pour une région (voir
+<a href="../regional-view/#the-time-series-chart">Vue Régionale</a>), et le fichier CSV téléchargé pour une maille porte le nom de ses coordonnées.</p>
+<p><img alt="Série temporelle d’une maille de 1° dans le centre de l’Iran" src="../../../../static/images/grace/app-global-cell.webp" /></p>
+<p>Une maille isolée se consulte rapidement, mais n’oubliez pas que GRACE résout environ 3° : la TWSa de la maille est donc partagée avec ses
+voisines du même mascon. Pour un bassin ou un aquifère, utilisez la <a href="../regional-view/">vue régionale</a>, qui fait la moyenne de toutes les mailles
+de la région.</p>
+<h2 id="trend-map">Carte des tendances</h2>
+<p>Lorsque les tendances sont activées, la vue globale colore chaque maille selon sa tendance au lieu de l’anomalie mensuelle, et l’animation est
+masquée. La légende compte les mailles de chaque classe.</p>
+<p><img alt="Tendance du stockage des eaux souterraines sur les cinq dernières années, par maille" src="../../../../static/images/grace/app-global-trends.webp" /></p>
+<p>Voir <a href="../trends/">Analyse des Tendances</a> pour le calcul de la tendance et le choix de la fenêtre.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../regional-view/" class="btn btn-neutral float-left" title="Vue Régionale"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../trends/" class="btn btn-neutral float-right" title="Analyse des Tendances">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../regional-view/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../trends/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

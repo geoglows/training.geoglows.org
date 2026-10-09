@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>API (Service de Données) - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API (Service de Donn\u00e9es)";
+        var mkdocs_page_input_path = "rfs/tutorials/data-service.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 4 : Tutoriels</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">API (Service de Données)</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#_1"></a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#utilisation-de-lapi">Utilisation de l'API</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../rfs/tutorials/data-service/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/rfs/tutorials/data-service/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">Système de Prévision Fluviale</li>
+          <li class="breadcrumb-item">Partie 4 : Tutoriels</li>
+      <li class="breadcrumb-item active">API (Service de Données)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="admonition danger">
+<p class="admonition-title">L'API n'est pas nécessaire pour la plupart des utilisateurs</p>
+<p>La plupart des utilisateurs n'ont pas besoin de ce tutoriel. Tous les produits de prévision et de simulation rétrospective sont disponibles pour des requêtes, des téléchargements en masse et via le service de données. Cependant, les instructions pour interroger les données sont les plus rapides et les plus pratiques (et les moins coûteuses pour GEOGLOWS) pour la plupart des usages.<br />
+Veuillez suivre le tutoriel sur <a href="../query-data/">interroger les données de rivière</a> avant de continuer cette section.</p>
+</div>
+<p>Il existe un accès programmatique aux données de débit de RFS via une <strong>API REST</strong>, permettant aux utilisateurs d'intégrer facilement les données hydrologiques mondiales dans leurs applications. Avec cette API, les développeurs et les chercheurs peuvent récupérer des données de débit historiques et prévisionnelles au format <strong>CSV</strong> ou <strong>JSON</strong>, permettant une analyse et une visualisation personnalisées. L'API donne accès à toutes les données rétrospectives et de prévision. Pour plus d'informations, consultez la <a href="https://geoglows.ecmwf.int/documentation">Documentation de l'API RFS</a>.</p>
+<h2 id="_1"><img alt="image" src="../../../../static/images/api.png" /></h2>
+<h2 id="utilisation-de-lapi">Utilisation de l'API</h2>
+<p>Pour utiliser l'API, la plupart des fonctions nécessitent de connaître votre numéro d'identification de rivière. Vous pouvez trouver plus d'informations sur la façon de trouver votre numéro de rivière ici : <a href="../find-river-numbers/">Tutoriel sur la recherche des numéros de rivière</a>. Vous pouvez télécharger les données SIG par VPU via le catalogue de données ou sélectionner un cours d'eau sur l'application web pour obtenir un numéro de rivière.</p>
+<h3 id="utilisation-du-site-web-de-lapi">Utilisation du site Web de l'API</h3>
+<p>Pour utiliser le <a href="https://geoglows.ecmwf.int/documentation">site Web de l'API</a>, suivez ces étapes :</p>
+<p><strong>Étape 1 :</strong> Cliquez sur le bouton bleu <strong>“Get”</strong> à côté de la commande qui vous intéresse. Cela ouvre une fenêtre où vous pouvez saisir vos paramètres.</p>
+<p><img alt="API Window Pop-up" src="../../../../static/images/api-window-pop-up.png" /></p>
+<p><strong>Étape 2 :</strong> Avant d'entrer des nombres, cliquez sur <strong>“Try it out”</strong> pour activer les champs de saisie. Cela vous permet d'entrer des valeurs et de sélectionner les formats de réponse.</p>
+<p><strong>Étape 3 :</strong> Entrez les informations requises :</p>
+<ul>
+<li>Un <strong>numéro d'identification de rivière à 9 chiffres</strong> (également appelé COMID ou Link Number) dans le champ <code>river_id</code>. Ceci est obligatoire.  </li>
+<li>Choisissez <code>csv</code> ou <code>json</code> dans le menu déroulant sous <code>format</code>. La sélection par défaut est <code>csv</code>.  </li>
+<li>Pour les <strong>requêtes de données de prévision</strong>, entrez une date au format <code>YYYYMMDD</code>. Si laissé vide, la prévision la plus récente sera renvoyée.</li>
+</ul>
+<p><img alt="Execute Button" src="../../../../static/images/execute-button.png" /></p>
+<p><strong>Étape 4 :</strong> Cliquez sur le bouton bleu <strong>“Execute”</strong> en bas de l'écran. Le système traitera votre requête et chargera les données pendant quelques secondes. Une fois terminé, vous recevrez un code de réponse avec une option pour télécharger le fichier.</p>
+<p><img alt="API Response" src="../../../../static/images/response-api.png" /></p>
+<h3 id="acceder-a-lapi-via-python">Accéder à l'API via Python</h3>
+<p>Une des façons les plus simples d'accéder à l'API est via Python. Il existe un <strong>package Python GEOGLOWS</strong> (documenté ici : <a href="https://geoglows.readthedocs.io/en/latest/api-documentation.html">Documentation de l'API RFS</a>) qui contient des commandes pour des analyses de base et pour interroger des types de données spécifiques.</p>
+<p>Ce notebook Python fournit des exemples d'utilisation de l'API avec Python, ainsi que l'utilisation du package Python : <a href="https://colab.research.google.com/drive/1iUpZZ8z__7ErtWSy9OcR3wDbL5bzvOOi?usp=sharing">Programmatic_Access Colab.ipynb</a></p>
+<p>L'API peut être utilisée dans des applications nécessitant des données de débit et peut être intégrée directement dans des workflows Python.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../query-data/" class="btn btn-neutral float-left" title="Interrogation des Données"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../web-map/" class="btn btn-neutral float-right" title="Cartes Web (Couche SIG)">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../query-data/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../web-map/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

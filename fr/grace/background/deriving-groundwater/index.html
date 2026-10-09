@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Calcul du Stockage des Eaux Souterraines - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Calcul du Stockage des Eaux Souterraines";
+        var mkdocs_page_input_path = "grace/background/deriving-groundwater.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 1 : Contexte</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Calcul du Stockage des Eaux Souterraines</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#the-water-balance">Le bilan hydrique</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gldas-land-surface-models">Les modèles de surface terrestre GLDAS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#processing-chain">Chaîne de traitement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uncertainty">Incertitude</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-gwsa-is-good-for">À quoi sert la GWSa</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">Références</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/background/deriving-groundwater/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/background/deriving-groundwater/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 1 : Contexte</li>
+      <li class="breadcrumb-item active">Calcul du Stockage des Eaux Souterraines</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="calcul-du-stockage-des-eaux-souterraines">Calcul du Stockage des Eaux Souterraines</h1>
+<h2 id="the-water-balance">Le bilan hydrique</h2>
+<p>GRACE mesure la variation totale de l’eau stockée dans une colonne de la Terre. Pour isoler les eaux souterraines, l’application soustrait les
+parties de ce total qui peuvent être estimées par d’autres moyens :</p>
+<p><img alt="Composantes du stockage d’eau terrestre" src="../../../../static/images/grace/grace-water-balance.png" /></p>
+<p>La TWSa est la somme des anomalies de tous les réservoirs de la colonne : équivalent en eau de la neige (SWEa), eau retenue par la canopée
+végétale (CANa), humidité du sol (SMa), eaux souterraines (GWSa) et eaux de surface des rivières, lacs et réservoirs. Les modèles de surface
+terrestre estiment bien les trois premiers termes. En les retirant, il reste les eaux souterraines :</p>
+<div class="arithmatex">\[
+\mathrm{GWSa} = \mathrm{TWSa} - (\mathrm{SWEa} + \mathrm{CANa} + \mathrm{SMa})
+\]</div>
+<p>L’application ne fait pas figurer les eaux de surface dans le bilan : toute variation du stockage des eaux de surface se retrouve donc dans la
+GWSa. Dans la majeure partie du monde, les variations des eaux de surface sont faibles par rapport aux autres termes. Dans les régions comportant
+de grands réservoirs, des zones humides ou des fleuves aux crues importantes (l’Amazone, le Gange et le Brahmapoutre, la mer Caspienne, le lac
+Victoria, le lac Volta), la GWSa inclut ces variations et surestime l’amplitude saisonnière des eaux souterraines. Dans le bassin de la Volta, par exemple, le lac représente environ la moitié
+du signal total de stockage (<a href="../../case-studies/volta/">étude de cas</a>).</p>
+<h2 id="gldas-land-surface-models">Les modèles de surface terrestre GLDAS</h2>
+<p>Le Global Land Data Assimilation System (GLDAS) de la NASA fait tourner des modèles de surface terrestre forcés par les précipitations, le
+rayonnement et les données météorologiques observés afin d’estimer la quantité d’eau stockée chaque mois à la surface des terres. L’application
+utilise trois modèles GLDAS version 2.1, qui diffèrent par leur représentation des couches de sol et du ruissellement :</p>
+<table>
+<thead>
+<tr>
+<th>Modèle</th>
+<th>Grille</th>
+<th>Humidité du sol utilisée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Noah</td>
+<td>0.25°</td>
+<td>quatre couches, 0–200 cm</td>
+</tr>
+<tr>
+<td>VIC (Variable Infiltration Capacity)</td>
+<td>1°</td>
+<td>trois couches, profondeurs variables selon le lieu</td>
+</tr>
+<tr>
+<td>CLSM (Catchment Land Surface Model)</td>
+<td>1°</td>
+<td>profil de sol complet</td>
+</tr>
+</tbody>
+</table>
+<p>De chaque modèle, l’application extrait l’équivalent en eau de la neige, le stockage par interception de la canopée et l’humidité du sol, les
+convertit de kg/m² en cm d’eau et place les trois modèles sur la même grille de 1° (Noah est moyenné de 0.25° à 1°). L’anomalie de chaque modèle
+est sa valeur moins la moyenne 2004–2009 de la maille, soit la même période de référence que GRACE.</p>
+<p>Les trois modèles sont souvent en désaccord, en particulier sur l’humidité du sol en profondeur. Plutôt que d’en choisir un, l’application en fait
+la moyenne : SWEa, CANa et SMa sont chacun la moyenne des trois modèles, et la dispersion entre les modèles (leur écart-type) sert d’incertitude
+pour chaque terme.</p>
+<h2 id="processing-chain">Chaîne de traitement</h2>
+<p><img alt="Chaîne de traitement de GRACE Regional Analyst" src="../../../../static/images/grace/grace-processing.png" /></p>
+<p>La TWSa de GRACE est moyennée de 0.5° à 1° et combinée à l’ensemble de modèles pour obtenir la GWSa sur une grille de 1°. L’application fournit
+cinq couches : GWSa, SMa, SWEa et CANa à 1°, et TWSa à 0.5° telle que la distribue le JPL. L’utilisation de 1° pour les couches dérivées suit la
+pratique courante qui consiste à combiner GRACE et les données de modèles sur la plus grossière des deux grilles ; fournir la GWSa à 0.5°
+donnerait une impression de détail qu’aucun des deux jeux de données ne possède.</p>
+<p>Aucun facteur de gain ou d’échelle n’est appliqué aux données GRACE, et aucune lacune n’est comblée. Chaque valeur mensuelle de l’application est
+la valeur publiée par le JPL combinée à l’ensemble GLDAS du même mois.</p>
+<h2 id="uncertainty">Incertitude</h2>
+<p>Chaque couche de l’application est accompagnée d’une incertitude à un écart-type (1σ), que le graphique des séries temporelles trace sous forme
+de bande autour de la courbe :</p>
+<ul>
+<li><strong>TWSa :</strong> l’incertitude publiée par le JPL pour chaque mascon et chaque mois.</li>
+<li><strong>SWEa, CANa, SMa :</strong> l’écart-type entre les trois modèles GLDAS.</li>
+<li><strong>GWSa :</strong> les quatre combinées, en les supposant indépendantes :</li>
+</ul>
+<div class="arithmatex">\[
+\sigma_{\mathrm{GWSa}} = \sqrt{\sigma_{\mathrm{TWSa}}^2 + \sigma_{\mathrm{SWEa}}^2 + \sigma_{\mathrm{CANa}}^2 + \sigma_{\mathrm{SMa}}^2}
+\]</div>
+<p>La bande d’incertitude rend compte de l’erreur de mesure de GRACE et du désaccord entre les modèles. Elle ne rend pas compte des erreurs communes
+aux trois modèles, de l’effet de l’omission des eaux de surface, ni de la fuite du signal provenant de l’extérieur d’une région (voir
+<a href="../resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>) : l’incertitude réelle est donc plus grande que ne l’indique la bande.</p>
+<h2 id="what-gwsa-is-good-for">À quoi sert la GWSa</h2>
+<p>La GWSa est surtout utile pour répondre à des questions régionales de sens et de rythme d’évolution : le stockage de cet aquifère diminue-t-il, à
+quelle vitesse, et la baisse a-t-elle ralenti après un changement de politique ou une série d’années humides ? Elle ne convient pas aux décisions
+à l’échelle d’un champ captant ou d’un périmètre irrigué, et elle n’apporte aucune information sur les niveaux piézométriques ni sur la qualité
+de l’eau. Là où des piézomètres existent, comparez la tendance GRACE avec la variation de stockage estimée à partir des puits ; l’accord entre les
+deux renforce l’une et l’autre.</p>
+<h2 id="references">Références</h2>
+<ul>
+<li>Rodell, M., et al. (2004). The Global Land Data Assimilation System. <em>Bulletin of the American Meteorological Society</em>, 85, 381–394.
+  <a href="https://doi.org/10.1175/BAMS-85-3-381" target="_blank">doi:10.1175/BAMS-85-3-381</a></li>
+<li>Données GLDAS au NASA GES DISC : <a href="https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_M_2.1/summary" target="_blank">Noah</a>,
+  <a href="https://disc.gsfc.nasa.gov/datasets/GLDAS_VIC10_M_2.1/summary" target="_blank">VIC</a>,
+  <a href="https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM10_M_2.1/summary" target="_blank">CLSM</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../grace-mission/" class="btn btn-neutral float-left" title="La Mission GRACE"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../resolution-and-leakage/" class="btn btn-neutral float-right" title="Résolution, Fuite du Signal et Petites Régions">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../grace-mission/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../resolution-and-leakage/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

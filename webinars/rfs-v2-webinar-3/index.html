@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>3. GEOGLOWS Available Data - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "3. GEOGLOWS Available Data";
+        var mkdocs_page_input_path = "webinars/rfs-v2-webinar-3.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../..">
+          <img src="../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Available Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/datasets/catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/datasets/hydrography/">Hydrography</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/datasets/retrospective/">Retrospective Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/datasets/forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Accessing Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/accessing-data/web-app/">Web App</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/accessing-data/exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/accessing-data/bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/accessing-data/code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Tutorials</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/tutorials/find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/tutorials/query-data/">Querying Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/tutorials/data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/tutorials/web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../rfs/bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Background</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/background/overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/background/grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/background/deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/background/resolution-and-leakage/">Resolution, Leakage and Small Regions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Using the App</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/app/regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/app/global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/app/trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/app/downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../grace/case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" href="../rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" href="#">3. GEOGLOWS Available Data</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#description">Description:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#about-the-author">About the Author:</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../es/webinars/rfs-v2-webinar-3/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../fr/webinars/rfs-v2-webinar-3/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Webinars</li>
+      <li class="breadcrumb-item active">3. GEOGLOWS Available Data</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3-geoglows-available-data">3. GEOGLOWS Available Data</h1>
+<p><strong>Presenter:</strong> Dr. Michael Souffront<br />
+<strong>Date:</strong> 7 October 2025</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 720px; margin: 0 auto;">
+  <iframe
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube-nocookie.com/embed/jm9AXHNO2RI?controls=1&start=0"
+    title="3. GEOGLOWS Available Data"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+<h2 id="description"><strong>Description:</strong></h2>
+<p>In this session, Dr. Michael Souffront explores GEOGLOWS available data including hydrography data, retrospective, and forecasts. An explanation of each dataset is given along with a demonstration.</p>
+<h2 id="about-the-author"><strong>About the Author:</strong></h2>
+<p>Dr. Michael Souffront is the GEOGLOWS Operations Director. He is also a program manager at Aquaveo. He  specializes in modeling workflow automation and data management and visualization solutions. He completed a Ph.D. at  Brigham Young University, Provo, Utah, USA with an emphasis on Hydroinformatics. He also holds degrees from Utah State  University in Logan, Utah, USA, and Universidad Central del Este in the Dominican Republic. Dr. Souffront's research  contributed to a new approach to hydrologic modeling that combines advances in Information Technology (IT) and cloud  computing to provide hydrologic modeling results as a service. This approach became the first iteration of the GEOGLOWS  RFS. He currently leads the efforts to disseminate the GEOGLOWS streamflow service in collaboration with organizations like The World Bank and WMO.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../rfs-v2-webinar-2/" class="btn btn-neutral float-left" title="2. GEOGLOWS Model Formulation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../rfs-v2-webinar-4/" class="btn btn-neutral float-right" title="4. GEOGLOWS Hydroviewer 101">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rfs-v2-webinar-2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../rfs-v2-webinar-4/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../javascripts/mathjax.js"></script>
+      <script src="../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

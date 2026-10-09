@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Descarga de Datos - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Descarga de Datos";
+        var mkdocs_page_input_path = "grace/app/downloading-data.es.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegación">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Formulación del Modelo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulación del Modelo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Datos Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catálogo de Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hidrografía</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Datos Retrospectivos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Datos Pronosticados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Acceso a los Datos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Aplicación Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Código</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Descargas Masivas</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recetario</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Tutoriales</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Encontrar Números de Río</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Consultando Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Servicio de Datos)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Mapas Web (Capa SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Corrección de Sesgo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Método SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Corregir Pronósticos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Fundamentos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Descripción General</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Misión GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Resolución, Fuga de Señal y Regiones Pequeñas</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Parte 2: Uso de la Aplicación</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../interface/">Interfaz</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../regional-view/">Vista Regional</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../global-view/">Vista Global</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../trends/">Análisis de Tendencias</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Descarga de Datos</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#downloading-a-csv">Descargar un CSV</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#converting-to-volume">Convertir a volumen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-to-do-next">Qué hacer después</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Relleno de Vacíos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Vacíos en el Registro</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">El Modelo Estacional</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Análisis de Recarga</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">El Método WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Apertura del Análisis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Años Hidrológicos y Selección de Puntos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Resultados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Casos de Estudio</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Níger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Cuenca del Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Valle Central de California</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seminarios Web</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historia de GEOGLOWS y Presentación de RFS Versión 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulación del Modelo GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Datos Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introducción al Hydroviewer de GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="es">Español</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/app/downloading-data/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <span class="current" lang="es" aria-current="true">Español</span>
+      </li>
+      <li>
+          <a href="../../../../fr/grace/app/downloading-data/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documentos"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Parte 2: Uso de la Aplicación</li>
+      <li class="breadcrumb-item active">Descarga de Datos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="descarga-de-datos">Descarga de Datos</h1>
+<h2 id="downloading-a-csv">Descargar un CSV</h2>
+<p>Con una región o una celda seleccionada, haz clic en <strong>Download CSV</strong> en la esquina superior derecha del panel del gráfico. El archivo contiene los
+valores mensuales de las cinco capas para esa región o celda, independientemente de cuáles estén graficadas. Se llama <code>grace_gwsa_data.csv</code> para
+una región (la parte central corresponde a la capa mostrada) o <code>grace_cell_&lt;lat&gt;_&lt;lon&gt;_data.csv</code> para una sola celda.</p>
+<table>
+<thead>
+<tr>
+<th>Columna</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Date</code></td>
+<td>Primer día del mes, <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td><code>GWSa</code>, <code>TWSa</code>, <code>SMa</code>, <code>SWEa</code>, <code>CANa</code></td>
+<td>Anomalía media del mes ponderada por área, en cm de equivalente de agua líquida</td>
+</tr>
+<tr>
+<td><code>&lt;layer&gt;_upper</code>, <code>&lt;layer&gt;_lower</code></td>
+<td>La media más y menos 1σ</td>
+</tr>
+<tr>
+<td><code>GWSa_filled</code>, <code>TWSa_filled</code></td>
+<td>La misma serie con sus vacíos rellenados por el modelo estacional; igual al valor observado en todos los demás meses</td>
+</tr>
+<tr>
+<td><code>GWSa_is_filled</code>, <code>TWSa_is_filled</code></td>
+<td>1 en los meses que rellenó el modelo estacional, 0 en los demás</td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, el inicio del vacío entre misiones para el Sistema Acuífero Northern Midwest:</p>
+<div class="highlight"><pre><span></span><code>Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
+2017-06-01,9.529,14.913,4.146,9.529,0,12.536,...
+2017-07-01,,,,11.146,1,,...
+2017-08-01,,,,12.694,1,,...
+</code></pre></div>
+<p>El archivo tiene una fila por cada mes desde abril de 2002 hasta la publicación más reciente. En los meses sin datos de GRACE, las celdas de
+<code>GWSa</code> y <code>TWSa</code> están vacías, mientras que las capas de GLDAS (<code>SMa</code>, <code>SWEa</code>, <code>CANa</code>) sí tienen valores, porque los modelos de superficie terrestre
+se ejecutan todos los meses. Las columnas <code>_filled</code> aportan un valor para esos meses (ver <a href="../../gap-filling/gaps/">Vacíos en el Registro</a>). Se
+escriben con cualquier ajuste de <strong>Gap filling</strong>, así que el archivo es el mismo sin importar cómo se dibuje el gráfico.</p>
+<p>Excel, Google Sheets, Python y R leen el archivo directamente, y las fechas ISO no necesitan conversión (en pandas, usa
+<code>pd.read_csv(path, parse_dates=["Date"])</code>). Para obtener la incertidumbre σ a partir de los límites, calcula <code>(upper − lower) / 2</code>.</p>
+<h2 id="converting-to-volume">Convertir a volumen</h2>
+<p>Las anomalías son láminas de agua promediadas sobre la región. Multiplica por el área de la región para obtener un volumen:</p>
+<div class="highlight"><pre><span></span><code>ΔV (km³) = GWSa (cm) × Area (km²) / 100,000
+</code></pre></div>
+<p>Por ejemplo, una GWSa de −12 cm sobre un acuífero de 400,000 km² equivale a 12 × 400,000 / 100,000 = 4.8 km³ (4,800 millones de m³) de agua menos
+que el promedio de 2004–2009. El cambio entre dos fechas es la diferencia de sus anomalías multiplicada por el área, y una tendencia en cm/año
+multiplicada por el área da una tasa de pérdida o ganancia en km³/año.</p>
+<p>Usa el área de la región tal como la definiste. Para una región subida, un SIG puede calcular el área del polígono; calcúlala en una proyección de
+igual área, no en grados.</p>
+<h2 id="what-to-do-next">Qué hacer después</h2>
+<p>El CSV es el punto de partida para análisis fuera de la aplicación. Para estimar la recarga, usa el <a href="../../recharge/opening/">análisis de recarga</a> de
+la aplicación, que aplica el método de fluctuación del nivel freático a la serie rellenada y tiene su propia descarga en CSV.
+<a href="../../gap-filling/seasonal-model/#filling-the-gaps">El Modelo Estacional</a> describe cómo se estiman las columnas <code>GWSa_filled</code> y <code>TWSa_filled</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegación de pie de página">
+        <a href="../trends/" class="btn btn-neutral float-left" title="Análisis de Tendencias"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../../gap-filling/gaps/" class="btn btn-neutral float-right" title="Vacíos en el Registro">Siguiente <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído con <a href="https://www.mkdocs.org/">MkDocs</a> usando un <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a> provisto por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versiones">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../trends/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../../gap-filling/gaps/" style="color: #fcfcfc">Siguiente &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

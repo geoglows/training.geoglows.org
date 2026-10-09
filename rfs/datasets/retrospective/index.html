@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Retrospective Data - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Retrospective Data";
+        var mkdocs_page_input_path = "rfs/datasets/retrospective.en.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../..">
+          <img src="../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Part 2 Available Data</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../hydrography/">Hydrography</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Retrospective Data</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#terms-and-vocabulary">Terms and Vocabulary</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#derivative-products">Derivative Products</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Accessing Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Web App</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Tutorials</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/query-data/">Querying Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Background</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Resolution, Leakage and Small Regions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Using the App</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. GEOGLOWS Available Data</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../../es/rfs/datasets/retrospective/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../../fr/rfs/datasets/retrospective/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">River Forecast System</li>
+          <li class="breadcrumb-item">Part 2 Available Data</li>
+      <li class="breadcrumb-item active">Retrospective Data</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="terms-and-vocabulary">Terms and Vocabulary</h2>
+<ul>
+<li><strong>ERA5</strong>: The fifth generation of ECMWF atmospheric reanalysis of the global climate. It is the most recent reanalysis dataset produced by the
+  European
+  Centre for Medium-Range Weather Forecasts (ECMWF). It is available from 1940 to present and is updated daily with a 5-day lag.</li>
+<li><strong>Reanalysis</strong>: A modeled product which incorporates in situ and/or remote sensing data to provide the best possible estimate of historical
+  hydrometeorology conditions. Reanalysis data are used as inputs to the RFS model.</li>
+</ul>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The retrospective simulation from RFS is an 85+ year deterministic model simulation at hourly resolution beginning 1 January 1940. The retrospective
+simulation and many derivative products are updated weekly. It is based on the ERA5 dataset. New ERA5 are produced each day with 5 days of lag from
+real time so the least amount of lag possible is 5 days. Once a week, all new ERA5 data since the last simulation are used to extend the retrospective
+simulation bringing the lag back down to 5 days.</p>
+<p><img alt="image" src="../../../static/images/retro_data.png" /></p>
+<p>The dataset is deterministic and based on reanalysis land surface modeling which means that there is only 1 value per timestep unlike the forecasts.
+The retrospective simulation provides hourly average flows which are resampled to daily, monthly, and yearly averages. Flows are reported as the
+average that occurred over the following interval (hour, day, month, or year). Dates are reported at the start of an interval in UTC +00:00 time
+zone (e.g. "left aligned" dates). The value given represents the average flow starting at that time until the next timestep. All values are in cubic
+meters per second.</p>
+<p>The monthly average data is available in two different formats. One is optimized to read the entire time series for a single river or group of rivers,
+which is anticipated to be the most common use case. Another is optimized to read a large chunk of rivers at a given timestep.</p>
+<table>
+<thead>
+<tr>
+<th>Model Property</th>
+<th>Retrospective Simulation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earliest Date</td>
+<td>01 January 1940</td>
+</tr>
+<tr>
+<td>Simulation Type</td>
+<td>Deterministic</td>
+</tr>
+<tr>
+<td>Ensemble Members</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>5-12 Days from present</td>
+</tr>
+<tr>
+<td>Time Step</td>
+<td>Hourly average</td>
+</tr>
+<tr>
+<td>Update Frequency</td>
+<td>Weekly on Sunday 00:00 UTC</td>
+</tr>
+<tr>
+<td>Bulk Download Available</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Query &amp; Subset Available</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="derivative-products">Derivative Products</h2>
+<h3 id="return-periods">Return Periods</h3>
+<p>A return period is an estimate of how infrequently an extreme high flow (flood) or prolonged low flow period (drought) occurs. Return periods have
+been precalculated using the Gumbel Distribution and Log Pearson Type 3 distributions and the hourly average maximum flows from each complete year.
+The precalculated return periods are used to define warning levels for each river segment in the model. The precalculated values are for 2, 5, 10, 25,
+50 and 100 year recurrence intervals. You can calculate a return period using your preferred method by accessing the same annual maximums dataset.</p>
+<h3 id="flow-duration-curves">Flow Duration Curves</h3>
+<p><strong>Flow Duration Curves (FDCs)</strong> are a representation of flow patterns in a river. They relate each discharge to a probability of exceedance. The
+exceedance probability is the chance that any randomly sampled discharge values is greater than or equal to the flow for that probability. Large
+floods have a low chance of exceedance while low flows have a high chance of exceedance. The FDC is a useful tool for understanding the variability of
+streamflow and the likelihood of different flow rates. FDCs are precalculated for each month (e.g. 12 total curves that represent each month) and for
+the entire period of record of the river. These help understand streamflow throughout the year and seasonal changes in flow which is applicable to
+effective water resource management, flood forecasting, and understanding hydrological patterns.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hydrography/" class="btn btn-neutral float-left" title="Hydrography"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../forecast/" class="btn btn-neutral float-right" title="Forecast Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hydrography/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../forecast/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../javascripts/mathjax.js"></script>
+      <script src="../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

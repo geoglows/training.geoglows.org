@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Encontrar Números de Río - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Encontrar N\u00fameros de R\u00edo";
+        var mkdocs_page_input_path = "rfs/tutorials/find-river-numbers.es.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegación">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Formulación del Modelo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Formulación del Modelo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Datos Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/catalog/">Catálogo de Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/hydrography/">Hidrografía</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/retrospective/">Datos Retrospectivos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/forecast/">Datos Pronosticados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Acceso a los Datos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Aplicación Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Notebooks de Código</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Descargas Masivas</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Recetario</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Parte 4: Tutoriales</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Encontrar Números de Río</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#vision-general">Visión general</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#uso-de-la-aplicacion-web">Uso de la aplicación web</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#uso-de-los-datos-de-hidrografia">Uso de los datos de hidrografía</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#encontrar-rios-con-latlon">Encontrar ríos con Lat/Lon</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../query-data/">Consultando Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../data-service/">API (Servicio de Datos)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../web-map/">Mapas Web (Capa SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Corrección de Sesgo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">Método SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Corregir Pronósticos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Fundamentos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Descripción General</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">La Misión GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Resolución, Fuga de Señal y Regiones Pequeñas</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Uso de la Aplicación</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interfaz</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Vista Regional</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Vista Global</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Análisis de Tendencias</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Descarga de Datos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Relleno de Vacíos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Vacíos en el Registro</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">El Modelo Estacional</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Análisis de Recarga</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">El Método WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Apertura del Análisis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Años Hidrológicos y Selección de Puntos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Resultados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Casos de Estudio</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Níger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Cuenca del Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">Valle Central de California</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seminarios Web</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historia de GEOGLOWS y Presentación de RFS Versión 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulación del Modelo GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Datos Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introducción al Hydroviewer de GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="es">Español</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../rfs/tutorials/find-river-numbers/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <span class="current" lang="es" aria-current="true">Español</span>
+      </li>
+      <li>
+          <a href="../../../../fr/rfs/tutorials/find-river-numbers/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documentos"></a></li>
+          <li class="breadcrumb-item">River Forecast System</li>
+          <li class="breadcrumb-item">Parte 4: Tutoriales</li>
+      <li class="breadcrumb-item active">Encontrar Números de Río</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="vision-general">Visión general</h2>
+<p>Existen 6.25 millones de segmentos de río modelados en los conjuntos de datos RFS V2. Estos números son únicos para el conjunto de datos TDX-Hydro y son diferentes de los números en cualquier otro conjunto de datos de arroyos y versiones anteriores del modelo. Todos los números de identificación tienen 9 dígitos. Como referencia, esta tabla proporciona los ID de algunos ríos principales y sus ubicaciones generales.</p>
+<table>
+<thead>
+<tr>
+<th>Número de ID</th>
+<th>Ríos seleccionados y ubicaciones generales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>760021611</td>
+<td>Mississippi, EE. UU.</td>
+</tr>
+<tr>
+<td>160064246</td>
+<td>Nilo, África Oriental</td>
+</tr>
+<tr>
+<td>710462910</td>
+<td>Colorado, EE. UU. y México</td>
+</tr>
+<tr>
+<td>441057380</td>
+<td>Ganges, India</td>
+</tr>
+<tr>
+<td>430157411</td>
+<td>Mekong, Vietnam</td>
+</tr>
+<tr>
+<td>210406913</td>
+<td>Tíber, Italia</td>
+</tr>
+<tr>
+<td>621010293</td>
+<td>Amazonas, Brasil</td>
+</tr>
+<tr>
+<td>130747391</td>
+<td>Congo, República Democrática del Congo</td>
+</tr>
+<tr>
+<td>640255644</td>
+<td>Paraná, Argentina</td>
+</tr>
+</tbody>
+</table>
+<p>Los números de ID de RFS son de 9 dígitos. Aunque los números grandes a menudo se delimitan, comúnmente con una coma o punto en varios idiomas, cualquier código que escribas para recuperar datos <strong><em>no debe</em></strong> incluir delimitadores. Estos ID son enteros. La mayoría de los lenguajes de programación interpretarán las comillas, puntos, comas u otros caracteres como algo distinto a un entero, lo que hará que el proceso de recuperación falle. Por ejemplo, el número <code>123456789</code> <strong><em>no debe</em></strong> escribirse como <code>123,456,789</code> o <code>123.456.789</code> o <code>"123456789"</code> o <code>"123,456,789"</code> o cualquier otra variación. Solo la representación entera <code>123456789</code> funcionará.</p>
+<div class="admonition warning">
+<p class="admonition-title">Usuarios migrando desde V1</p>
+<p>RFS v2 se deriva de un Modelo de Elevación Digital (DEM) diferente al de v1 y tiene significativamente más ríos modelados. Debido a la mayor resolución y los cambios en la ubicación de los canales de ríos, no es posible proporcionar un mapeo de todos los números de la versión 1 a los números de la versión 2. Hemos detallado algunos pasos a continuación para mapear un ID antiguo a un ID RFS 2.</p>
+</div>
+<h2 id="uso-de-la-aplicacion-web">Uso de la aplicación web</h2>
+<p>La forma más fácil de encontrar el ID de un río es utilizar la <a href="https://hydroviewer.geoglows.org/es/" target="_blank">aplicación web RFS</a>. Haz clic en un río en el mapa. Para asegurarte de hacer clic en el río exacto que deseas, el mapa hará un zoom a un nivel de detalle mayor si estás demasiado alejado. Después de hacer clic en un río, el mapa identificará el segmento de río en el que hiciste clic y el ID se presentará en la ventana emergente con gráficos y otra información.</p>
+<h2 id="uso-de-los-datos-de-hidrografia">Uso de los datos de hidrografía</h2>
+<p>Los datos de hidrografía están disponibles en el <a href="../../datasets/catalog/" target="_blank">catálogo de datos</a>. Puedes descargar y ver los ríos o cuencas en un software GIS como ArcGIS o QGIS. Puedes hacer clic en las características o usar herramientas de análisis espacial para seleccionar muchos ríos. Los números de ID de esos ríos están almacenados en el atributo LINKNO.</p>
+<h2 id="encontrar-rios-con-latlon">Encontrar ríos con Lat/Lon</h2>
+<p>Existen muchos métodos para intentar encontrar un ID de río dado una latitud y longitud. Ninguno es perfecto para todos los casos. Existen varios errores potenciales de métodos automatizados debido a la precisión y exactitud de tus puntos lat/lon, la precisión de las líneas de los arroyos en esa ubicación específica, si deseas ajustarte al punto de salida más cercano o al arco de arroyo más cercano, si tu lat/lon está cerca de una confluencia donde el GIS podría confundirse debido a tener múltiples opciones cercanas, etc. Los métodos automatizados deben considerarse imperfectos y verificados por precisión contra otras fuentes como una cuenca conocida aguas arriba en el lat/lon de un punto de medición, el nombre del río, comparaciones con mapas base de imágenes u otros medios.</p>
+<p>Un método para comenzar es cargar los archivos GIS de los arroyos para tu área de interés en un software GIS. Puedes ajustarlos al arco de arroyo más cercano. En QGIS, la herramienta se llama "Snap geometries to layer”. Usa el algoritmo para encontrar el punto más cercano e insertar vértices adicionales si es necesario.</p>
+<p>Otro método es descargar los polígonos de las cuencas y cruzarlos con una capa que contenga tus puntos lat/lon. El trabajo GIS es sencillo, pero ocasionalmente menos preciso y requiere descargas de archivos más grandes.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegación de pie de página">
+        <a href="../../accessing-data/code-snippets/" class="btn btn-neutral float-left" title="Recetario"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../query-data/" class="btn btn-neutral float-right" title="Consultando Datos">Siguiente <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído con <a href="https://www.mkdocs.org/">MkDocs</a> usando un <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a> provisto por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versiones">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../accessing-data/code-snippets/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../query-data/" style="color: #fcfcfc">Siguiente &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

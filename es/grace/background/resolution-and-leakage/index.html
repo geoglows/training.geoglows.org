@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Resolución, Fuga de Señal y Regiones Pequeñas - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Resoluci\u00f3n, Fuga de Se\u00f1al y Regiones Peque\u00f1as";
+        var mkdocs_page_input_path = "grace/background/resolution-and-leakage.es.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegación">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Formulación del Modelo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulación del Modelo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Datos Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catálogo de Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hidrografía</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Datos Retrospectivos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Datos Pronosticados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Acceso a los Datos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Aplicación Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Código</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Descargas Masivas</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recetario</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Tutoriales</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Encontrar Números de Río</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Consultando Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Servicio de Datos)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Mapas Web (Capa SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Corrección de Sesgo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Método SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Corregir Pronósticos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Parte 1: Fundamentos</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../overview/">Descripción General</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../grace-mission/">La Misión GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Resolución, Fuga de Señal y Regiones Pequeñas</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#what-grace-can-resolve">Qué puede resolver GRACE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#leakage">Fuga de señal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-small-regions">Trabajar con regiones pequeñas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-limitations">Otras limitaciones</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">Referencias</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Uso de la Aplicación</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interfaz</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vista Regional</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vista Global</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Análisis de Tendencias</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Descarga de Datos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Relleno de Vacíos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Vacíos en el Registro</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">El Modelo Estacional</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Análisis de Recarga</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">El Método WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Apertura del Análisis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Años Hidrológicos y Selección de Puntos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Resultados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Casos de Estudio</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Níger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Cuenca del Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Valle Central de California</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seminarios Web</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historia de GEOGLOWS y Presentación de RFS Versión 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulación del Modelo GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Datos Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introducción al Hydroviewer de GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="es">Español</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/background/resolution-and-leakage/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <span class="current" lang="es" aria-current="true">Español</span>
+      </li>
+      <li>
+          <a href="../../../../fr/grace/background/resolution-and-leakage/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documentos"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Parte 1: Fundamentos</li>
+      <li class="breadcrumb-item active">Resolución, Fuga de Señal y Regiones Pequeñas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="resolucion-fuga-de-senal-y-regiones-pequenas">Resolución, Fuga de Señal y Regiones Pequeñas</h1>
+<h2 id="what-grace-can-resolve">Qué puede resolver GRACE</h2>
+<p>GRACE detecta la masa a través de la gravedad, y la gravedad se dispersa con la distancia. Desde una órbita a cientos de kilómetros de altura, dos
+masas separadas por menos de unos pocos cientos de kilómetros se confunden en una sola. La solución mascon de JPL refleja ese límite: resuelve un
+valor por cada casquete de 3°, de unos 330 km de ancho, y las mallas de 0.5° y 1° de la aplicación repiten o promedian esos valores. Facilitan el
+almacenamiento y la cartografía de los datos, pero no añaden detalle.</p>
+<p><img alt="Tamaños de malla comparados con el tamaño de la región, y fuga de señal" src="../../../../static/images/grace/grace-resolution-leakage.png" /></p>
+<p>El panel A compara las mallas con dos regiones. La cuenca hidrográfica abarca varios mascons, así que su promedio se basa en varias mediciones
+independientes. El acuífero es más pequeño que un mascon. Su valor refleja sobre todo lo que hizo el mascon en el que se encuentra, incluidos los
+cambios de almacenamiento fuera del acuífero.</p>
+<p>Como regla práctica, los resultados de GRACE son confiables para regiones de unos 200,000 km² o más (aproximadamente 4° × 4° cerca del ecuador),
+utilizables con cuidado hasta el tamaño de un mascon (unos 100,000 km²) y cada vez más inciertos por debajo de eso. La GWSa sí varía de una celda
+de 1° a otra dentro de un mascon, pero solo porque varían los términos de GLDAS; la parte de GRACE de cada celda es el valor del mascon.</p>
+<h2 id="leakage">Fuga de señal</h2>
+<p>Como GRACE difumina la masa a lo largo de unos pocos cientos de kilómetros, un cambio de almacenamiento concentrado en un área pequeña aparece en
+los datos como un cambio menor repartido sobre un área mayor (panel B). La señal <strong>se fuga</strong> de la región donde ocurrió hacia sus vecinas. También
+ocurre lo contrario: los cambios de almacenamiento justo fuera de una región se filtran hacia adentro.</p>
+<p>La fuga de señal importa más cuando el cambio de almacenamiento dentro de la región difiere del cambio a su alrededor. El peor caso es un valle
+irrigado con bombeo intenso de agua subterránea y rodeado de montañas: el descenso se concentra en el valle y GRACE lo reparte también sobre las
+montañas. Un promedio solo sobre el valle subestima entonces la pérdida real, a veces varias veces. Donde el almacenamiento cambia de forma
+similar dentro y fuera de la región, como en una gran cuenca sedimentaria con un clima uniforme, las fugas hacia adentro y hacia afuera se
+compensan aproximadamente y el promedio regional se acerca a la realidad.</p>
+<p>El filtro de línea de costa de JPL limita la fuga entre tierra y océano. La fuga entre áreas terrestres vecinas no se corrige en los datos de la
+aplicación.</p>
+<h2 id="working-with-small-regions">Trabajar con regiones pequeñas</h2>
+<p>Si tu región de interés es más pequeña que un mascon, o es un centro de bombeo rodeado de áreas con un comportamiento distinto, estos enfoques
+ayudan:</p>
+<p><strong>Analiza la unidad hidrológica mayor.</strong> Haz el análisis sobre la cuenca hidrográfica o el sistema acuífero que contiene tu área, usando uno de los
+conjuntos de regiones predefinidos o un límite subido. Si casi todo el cambio de almacenamiento ocurre dentro del área más pequeña (por ejemplo,
+si el bombeo se concentra en el acuífero), el volumen de cambio de la unidad mayor aproxima el volumen del área más pequeña:</p>
+<div class="highlight"><pre><span></span><code>ΔV ≈ GWSa_basin × Area_basin
+</code></pre></div>
+<p>Esto funciona porque un volumen sumado sobre un área suficientemente grande recupera la mayor parte de la señal fugada, mientras que un promedio
+sobre un área pequeña no.</p>
+<p><strong>Calibra con pozos.</strong> Donde los pozos de monitoreo dan una estimación independiente del cambio de almacenamiento durante parte del registro de
+GRACE, la razón entre las estimaciones basadas en pozos y las basadas en GRACE da un factor de escala empírico que corrige la fuga de señal en esa
+región. El factor es específico de la región y del periodo usado para obtenerlo. Stevens et al. (2025) lo hicieron para el Valle Central de
+California (<a href="../../case-studies/central-valley/">caso de estudio</a>).</p>
+<p><strong>Interpreta una sola celda con cautela.</strong> En la vista global puedes hacer clic en una sola celda para ver su serie temporal. Es rápido y útil
+para explorar, pero dos acuíferos vecinos dentro del mismo mascon mostrarán resultados casi idénticos, porque los mide el mismo valor de 3°.</p>
+<p><img alt="Valle Central de California: un acuífero angosto con bombeo intenso rodeado de montañas, cercano al peor caso de fuga de señal" src="../../../../static/images/grace/app-central-valley.webp" /></p>
+<h2 id="other-limitations">Otras limitaciones</h2>
+<ul>
+<li><strong>Almacenamiento, no niveles.</strong> La GWSa es un cambio en la masa de agua. Convertirla en un cambio en la elevación del nivel freático requiere un
+  rendimiento específico del acuífero, que varía mucho y a menudo se conoce mal.</li>
+<li><strong>Sin detalle vertical.</strong> GRACE no puede distinguir acuíferos someros de profundos, ni confinados de libres.</li>
+<li><strong>Error de los modelos.</strong> Los errores en los términos de humedad del suelo, nieve y dosel de GLDAS pasan directamente a la GWSa. Esto es más
+  grave en regiones nevadas y húmedas, donde esos términos son grandes.</li>
+<li><strong>Agua superficial.</strong> Los cambios en embalses, lagos y llanuras de inundación se cuentan como agua subterránea (ver
+  <a href="../deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>).</li>
+</ul>
+<p>Aun con estos límites, GRACE ofrece una visión consistente e independiente del cambio de almacenamiento en sistemas acuíferos completos, que a
+menudo es la única disponible. Úsalo para tendencias regionales y compáralo con datos locales siempre que puedas.</p>
+<h2 id="references">Referencias</h2>
+<ul>
+<li>
+<p>Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
+  to GRACE-derived data. <em>Environmental Modelling &amp; Software</em>, 186, 106368.
+  <a href="https://doi.org/10.1016/j.envsoft.2025.106368" target="_blank">doi:10.1016/j.envsoft.2025.106368</a></p>
+</li>
+<li>
+<p>Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
+  dependent gravity field. <em>Water Resources Research</em>, 35, 2705–2723.
+  <a href="https://doi.org/10.1029/1999WR900141" target="_blank">doi:10.1029/1999WR900141</a></p>
+</li>
+<li>Longuevergne, L., Scanlon, B. R., and Wilson, C. R. (2010). GRACE hydrological estimates for small basins: Evaluating processing approaches on
+  the High Plains Aquifer, USA. <em>Water Resources Research</em>, 46, W11517.
+  <a href="https://doi.org/10.1029/2009WR008564" target="_blank">doi:10.1029/2009WR008564</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegación de pie de página">
+        <a href="../deriving-groundwater/" class="btn btn-neutral float-left" title="Cálculo del Almacenamiento de Agua Subterránea"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../../app/interface/" class="btn btn-neutral float-right" title="Interfaz">Siguiente <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído con <a href="https://www.mkdocs.org/">MkDocs</a> usando un <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a> provisto por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versiones">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../deriving-groundwater/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../../app/interface/" style="color: #fcfcfc">Siguiente &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

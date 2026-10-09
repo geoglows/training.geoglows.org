@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Datos Retrospectivos - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Datos Retrospectivos";
+        var mkdocs_page_input_path = "rfs/datasets/retrospective.es.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegación">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Formulación del Modelo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Formulación del Modelo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Parte 2: Datos Disponibles</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../catalog/">Catálogo de Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../hydrography/">Hidrografía</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Datos Retrospectivos</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#terminos-y-vocabulario">Términos y Vocabulario</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#descripcion-general">Descripción General</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#productos-derivados">Productos Derivados</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../forecast/">Datos Pronosticados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Acceso a los Datos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Aplicación Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Notebooks de Código</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Descargas Masivas</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Recetario</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Tutoriales</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/find-river-numbers/">Encontrar Números de Río</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/query-data/">Consultando Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/data-service/">API (Servicio de Datos)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/web-map/">Mapas Web (Capa SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Corrección de Sesgo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">Método SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Corregir Pronósticos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Fundamentos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Descripción General</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">La Misión GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Resolución, Fuga de Señal y Regiones Pequeñas</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Uso de la Aplicación</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interfaz</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Vista Regional</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Vista Global</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Análisis de Tendencias</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Descarga de Datos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Relleno de Vacíos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Vacíos en el Registro</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">El Modelo Estacional</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Análisis de Recarga</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">El Método WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Apertura del Análisis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Años Hidrológicos y Selección de Puntos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Resultados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Casos de Estudio</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Níger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Cuenca del Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">Valle Central de California</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seminarios Web</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historia de GEOGLOWS y Presentación de RFS Versión 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulación del Modelo GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Datos Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introducción al Hydroviewer de GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="es">Español</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../rfs/datasets/retrospective/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <span class="current" lang="es" aria-current="true">Español</span>
+      </li>
+      <li>
+          <a href="../../../../fr/rfs/datasets/retrospective/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documentos"></a></li>
+          <li class="breadcrumb-item">River Forecast System</li>
+          <li class="breadcrumb-item">Parte 2: Datos Disponibles</li>
+      <li class="breadcrumb-item active">Datos Retrospectivos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="terminos-y-vocabulario">Términos y Vocabulario</h2>
+<ul>
+<li><strong>ERA5</strong>: La quinta generación del reanálisis atmosférico del clima global del ECMWF. Es el conjunto de datos de reanálisis más reciente producido por el Centro Europeo de Pronósticos Meteorológicos a Medio Plazo (ECMWF). Está disponible desde 1940 hasta el presente y se actualiza diariamente con un desfase de 5 días.</li>
+<li><strong>Reanálisis</strong>: Un producto modelado que incorpora datos in situ y/o de teledetección para proporcionar la mejor estimación posible de las condiciones hidrometeorológicas históricas. Los datos de reanálisis se utilizan como insumos para el modelo RFS.</li>
+</ul>
+<hr />
+<h2 id="descripcion-general">Descripción General</h2>
+<p>La simulación retrospectiva de RFS es una simulación determinista con una duración de más de 85 años, a resolución horaria, que comienza el 1 de enero de 1940. La simulación retrospectiva y muchos productos derivados se actualizan semanalmente. Está basada en el conjunto de datos ERA5. Los nuevos datos de ERA5 se producen cada día con un desfase de 5 días respecto al tiempo real, por lo tanto, el mínimo desfase posible es de 5 días. Una vez a la semana, todos los nuevos datos de ERA5 desde la última simulación se utilizan para extender la simulación retrospectiva, devolviendo el desfase a 5 días.</p>
+<p><img alt="image" src="../../../../static/images/retro_es.png" /></p>
+<p>El conjunto de datos es determinista y está basado en modelado de superficie terrestre mediante reanálisis, lo que significa que hay solo 1 valor por intervalo de tiempo, a diferencia de los pronósticos. La simulación retrospectiva proporciona caudales promedio horarios que se remuestrean a promedios diarios, mensuales y anuales. Los caudales se reportan como el promedio que ocurrió durante el siguiente intervalo (hora, día, mes o año). Las fechas se reportan al inicio del intervalo en la zona horaria UTC +00:00 (por ejemplo, fechas "alineadas a la izquierda"). El valor dado representa el caudal promedio desde ese momento hasta el siguiente intervalo. Todos los valores están en metros cúbicos por segundo.</p>
+<p>Los datos de promedios mensuales están disponibles en dos formatos diferentes. Uno está optimizado para leer toda la serie temporal de un solo río o grupo de ríos, lo cual se anticipa como el caso de uso más común. El otro está optimizado para leer múltiples ríos en un momento específico.</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad del Modelo</th>
+<th>Simulación Retrospectiva</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fecha más antigua</td>
+<td>01 de enero de 1940</td>
+</tr>
+<tr>
+<td>Tipo de simulación</td>
+<td>Determinista</td>
+</tr>
+<tr>
+<td>Miembros del conjunto</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Tiempo de desfase</td>
+<td>5-12 días desde el presente</td>
+</tr>
+<tr>
+<td>Paso de tiempo</td>
+<td>Promedio horario</td>
+</tr>
+<tr>
+<td>Frecuencia de actualización</td>
+<td>Semanal, domingo 00:00 UTC</td>
+</tr>
+<tr>
+<td>Descarga masiva disponible</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Consulta y subconjunto disponible</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="productos-derivados">Productos Derivados</h2>
+<h3 id="periodos-de-retorno">Periodos de Retorno</h3>
+<p>Un periodo de retorno es una estimación de cuán infrecuentemente ocurre un flujo alto extremo (inundación) o un periodo prolongado de bajo caudal (sequía). Los periodos de retorno han sido precalculados utilizando la Distribución de Gumbel y la Distribución Log-Pearson Tipo 3, y los caudales máximos horarios promedio de cada año completo. Los periodos de retorno precalculados se usan para definir niveles de alerta para cada segmento de río en el modelo. Los valores precalculados son para intervalos de recurrencia de 2, 5, 10, 25, 50 y 100 años. Puedes calcular un periodo de retorno usando tu método preferido accediendo al mismo conjunto de datos de máximos anuales.</p>
+<h3 id="curvas-de-duracion-de-caudal">Curvas de Duración de Caudal</h3>
+<p><strong>Las Curvas de Duración de Caudal (FDCs)</strong> son una representación de los patrones de flujo en un río. Relacionan cada caudal con una probabilidad de excedencia. La probabilidad de excedencia es la posibilidad de que cualquier valor de caudal muestreado al azar sea mayor o igual al caudal correspondiente a esa probabilidad. Las grandes inundaciones tienen una baja probabilidad de excedencia, mientras que los bajos caudales tienen una alta probabilidad de excedencia. Las FDCs son herramientas útiles para entender la variabilidad del caudal y la probabilidad de diferentes tasas de flujo. Las FDCs están precalculadas para cada mes (es decir, 12 curvas en total que representan cada mes) y para todo el periodo de registro del río. Estas ayudan a comprender el caudal a lo largo del año y los cambios estacionales, lo cual es aplicable a la gestión efectiva de recursos hídricos, la previsión de inundaciones y la comprensión de los patrones hidrológicos.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegación de pie de página">
+        <a href="../hydrography/" class="btn btn-neutral float-left" title="Hidrografía"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../forecast/" class="btn btn-neutral float-right" title="Datos Pronosticados">Siguiente <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído con <a href="https://www.mkdocs.org/">MkDocs</a> usando un <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a> provisto por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versiones">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hydrography/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../forecast/" style="color: #fcfcfc">Siguiente &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

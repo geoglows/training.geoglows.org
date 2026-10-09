@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/"/>
+    </url>
+    <url>
+        <loc>Nonepublications/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonepublications/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/publications/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/publications/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/publications/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/publications/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/publications/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/publications/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/app/downloading-data/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/downloading-data/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/downloading-data/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/downloading-data/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/app/global-view/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/global-view/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/global-view/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/global-view/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/app/interface/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/interface/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/interface/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/interface/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/app/regional-view/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/regional-view/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/regional-view/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/regional-view/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/app/trends/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/trends/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/trends/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/trends/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/background/deriving-groundwater/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/deriving-groundwater/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/deriving-groundwater/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/deriving-groundwater/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/background/grace-mission/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/grace-mission/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/grace-mission/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/grace-mission/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/background/overview/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/overview/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/overview/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/overview/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/background/resolution-and-leakage/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/resolution-and-leakage/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/resolution-and-leakage/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/resolution-and-leakage/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/case-studies/central-valley/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/central-valley/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/central-valley/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/central-valley/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/case-studies/niger/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/niger/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/niger/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/niger/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/case-studies/volta/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/volta/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/volta/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/volta/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/gap-filling/gaps/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/gap-filling/gaps/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/gap-filling/gaps/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/gap-filling/gaps/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/gap-filling/seasonal-model/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/gap-filling/seasonal-model/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/gap-filling/seasonal-model/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/gap-filling/seasonal-model/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/recharge/opening/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/opening/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/opening/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/opening/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/recharge/picks/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/picks/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/picks/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/picks/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/recharge/results/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/results/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/results/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/results/"/>
+    </url>
+    <url>
+        <loc>Nonegrace/recharge/wtf-method/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/wtf-method/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/wtf-method/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/wtf-method/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/bulk-download/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/bulk-download/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/code-snippets/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/code-snippets/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/exercises/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/exercises/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/accessing-data/web-app/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/web-app/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/bias-correction/bias-correction/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/bias-correction/bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/bias-correction/forecasted-bias-correction/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/bias-correction/forecasted-bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/catalog/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/catalog/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/forecast/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/forecast/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/hydrography/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/hydrography/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/datasets/retrospective/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/retrospective/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/model-formulation/model-formulation/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/model-formulation/model-formulation/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/data-service/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/data-service/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/find-river-numbers/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/find-river-numbers/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/query-data/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/query-data/"/>
+    </url>
+    <url>
+        <loc>Nonerfs/tutorials/web-map/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/web-map/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-1/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-1/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-2/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-2/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-3/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-3/"/>
+    </url>
+    <url>
+        <loc>Nonewebinars/rfs-v2-webinar-4/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-4/"/>
+    </url>
+    <url>
+        <loc>Nonees/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/"/>
+    </url>
+    <url>
+        <loc>Nonees/publications/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonepublications/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/publications/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/publications/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/publications/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/publications/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/app/downloading-data/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/downloading-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/downloading-data/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/downloading-data/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/app/global-view/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/global-view/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/global-view/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/global-view/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/app/interface/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/interface/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/interface/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/interface/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/app/regional-view/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/regional-view/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/regional-view/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/regional-view/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/app/trends/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/trends/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/trends/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/trends/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/background/deriving-groundwater/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/deriving-groundwater/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/deriving-groundwater/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/deriving-groundwater/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/background/grace-mission/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/grace-mission/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/grace-mission/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/grace-mission/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/background/overview/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/overview/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/overview/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/background/resolution-and-leakage/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/resolution-and-leakage/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/resolution-and-leakage/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/resolution-and-leakage/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/case-studies/central-valley/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/central-valley/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/central-valley/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/central-valley/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/case-studies/niger/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/niger/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/niger/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/niger/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/case-studies/volta/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/volta/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/volta/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/volta/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/gap-filling/gaps/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/gap-filling/gaps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/gap-filling/gaps/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/gap-filling/gaps/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/gap-filling/seasonal-model/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/gap-filling/seasonal-model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/gap-filling/seasonal-model/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/gap-filling/seasonal-model/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/recharge/opening/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/opening/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/opening/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/opening/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/recharge/picks/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/picks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/picks/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/picks/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/recharge/results/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/results/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/results/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/results/"/>
+    </url>
+    <url>
+        <loc>Nonees/grace/recharge/wtf-method/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/wtf-method/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/wtf-method/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/wtf-method/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/bulk-download/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/bulk-download/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/code-snippets/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/code-snippets/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/exercises/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/exercises/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/accessing-data/web-app/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/web-app/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/bias-correction/bias-correction/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/bias-correction/bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/bias-correction/forecasted-bias-correction/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/bias-correction/forecasted-bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/catalog/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/catalog/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/forecast/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/forecast/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/hydrography/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/hydrography/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/datasets/retrospective/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/retrospective/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/model-formulation/model-formulation/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/model-formulation/model-formulation/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/data-service/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/data-service/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/find-river-numbers/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/find-river-numbers/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/query-data/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/query-data/"/>
+    </url>
+    <url>
+        <loc>Nonees/rfs/tutorials/web-map/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/web-map/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-1/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-1/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-2/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-2/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-3/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-3/"/>
+    </url>
+    <url>
+        <loc>Nonees/webinars/rfs-v2-webinar-4/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-4/"/>
+    </url>
+    <url>
+        <loc>Nonefr/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+    </url>
+    <url>
+        <loc>Nonefr/publications/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonepublications/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/publications/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/publications/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/publications/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/publications/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/publications/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/app/downloading-data/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/downloading-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/downloading-data/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/downloading-data/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/app/global-view/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/global-view/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/global-view/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/global-view/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/app/interface/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/interface/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/interface/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/interface/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/app/regional-view/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/regional-view/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/regional-view/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/regional-view/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/app/trends/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/app/trends/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/app/trends/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/app/trends/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/background/deriving-groundwater/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/deriving-groundwater/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/deriving-groundwater/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/deriving-groundwater/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/background/grace-mission/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/grace-mission/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/grace-mission/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/grace-mission/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/background/overview/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/overview/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/overview/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/background/resolution-and-leakage/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/background/resolution-and-leakage/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/background/resolution-and-leakage/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/background/resolution-and-leakage/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/case-studies/central-valley/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/central-valley/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/central-valley/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/central-valley/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/case-studies/niger/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/niger/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/niger/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/niger/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/case-studies/volta/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/case-studies/volta/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/case-studies/volta/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/case-studies/volta/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/gap-filling/gaps/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/gap-filling/gaps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/gap-filling/gaps/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/gap-filling/gaps/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/gap-filling/seasonal-model/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/gap-filling/seasonal-model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/gap-filling/seasonal-model/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/gap-filling/seasonal-model/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/recharge/opening/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/opening/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/opening/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/opening/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/recharge/picks/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/picks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/picks/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/picks/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/recharge/results/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/results/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/results/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/results/"/>
+    </url>
+    <url>
+        <loc>Nonefr/grace/recharge/wtf-method/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/grace/recharge/wtf-method/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegrace/recharge/wtf-method/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/grace/recharge/wtf-method/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/accessing-data/bulk-download/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/bulk-download/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/bulk-download/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/accessing-data/code-snippets/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/code-snippets/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/code-snippets/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/accessing-data/exercises/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/exercises/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/exercises/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/accessing-data/web-app/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/accessing-data/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/accessing-data/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/accessing-data/web-app/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/bias-correction/bias-correction/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/bias-correction/forecasted-bias-correction/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/bias-correction/forecasted-bias-correction/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/bias-correction/forecasted-bias-correction/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/datasets/catalog/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/catalog/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/catalog/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/datasets/forecast/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/forecast/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/forecast/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/datasets/hydrography/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/hydrography/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/hydrography/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/datasets/retrospective/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/datasets/retrospective/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/datasets/retrospective/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/model-formulation/model-formulation/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/model-formulation/model-formulation/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/model-formulation/model-formulation/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/tutorials/data-service/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/data-service/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/data-service/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/tutorials/find-river-numbers/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/find-river-numbers/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/find-river-numbers/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/tutorials/query-data/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/query-data/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/query-data/"/>
+    </url>
+    <url>
+        <loc>Nonefr/rfs/tutorials/web-map/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/rfs/tutorials/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonerfs/tutorials/web-map/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/rfs/tutorials/web-map/"/>
+    </url>
+    <url>
+        <loc>Nonefr/webinars/rfs-v2-webinar-1/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-1/"/>
+    </url>
+    <url>
+        <loc>Nonefr/webinars/rfs-v2-webinar-2/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-2/"/>
+    </url>
+    <url>
+        <loc>Nonefr/webinars/rfs-v2-webinar-3/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-3/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-3/"/>
+    </url>
+    <url>
+        <loc>Nonefr/webinars/rfs-v2-webinar-4/</loc>
+        <lastmod>2026-10-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/webinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonewebinars/rfs-v2-webinar-4/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="Nonees/webinars/rfs-v2-webinar-4/"/>
+    </url>
+</urlset>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Interface - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Interface";
+        var mkdocs_page_input_path = "grace/app/interface.en.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../..">
+          <img src="../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Available Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrography</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Retrospective Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Accessing Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Web App</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Tutorials</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Querying Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Background</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Resolution, Leakage and Small Regions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Part 2 Using the App</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Interface</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#opening-the-app">Opening the app</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#control-panel">Control panel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#map">Map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-bar">Header bar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. GEOGLOWS Available Data</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../../es/grace/app/interface/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../../fr/grace/app/interface/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Part 2 Using the App</li>
+      <li class="breadcrumb-item active">Interface</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="the-app-interface">The App Interface</h1>
+<h2 id="opening-the-app">Opening the app</h2>
+<p>Open <a href="https://apps.geoglows.org/grace-anomalies" target="_blank">apps.geoglows.org/grace-anomalies</a> in a current version of Chrome, Edge,
+Firefox or Safari. Nothing needs to be installed and there is no login. The first visit downloads the data for the default layers, which can take
+a few seconds on a slow connection; after that the app keeps a copy in the browser and opens quickly.</p>
+<p><img alt="The GRACE Regional Analyst on opening" src="../../../static/images/grace/app-home.webp" /></p>
+<p>The window has three parts: the <strong>control panel</strong> on the left, the <strong>map</strong> at the top right, and the <strong>chart panel</strong> below the map. Drag the
+three dots between the map and the chart to give either one more room; double-click them to restore the default split.</p>
+<h2 id="control-panel">Control panel</h2>
+<p><img align="right" alt="The control panel" src="../../../static/images/grace/app-panel.webp" width="260" /></p>
+<p>From top to bottom:</p>
+<ul>
+<li><strong>Regions / Global.</strong> Switch between the regional view, which shows region outlines and analyzes one region at a time, and the
+  <a href="../global-view/">global view</a>, which animates the whole world. Clicking <strong>Regions</strong> while a region is open returns to the overview.</li>
+<li><strong>Upload.</strong> Load your own region boundary from a GeoJSON file (see <a href="../regional-view/#uploading-a-region">Regional View</a>).</li>
+<li><strong>Settings.</strong> Display settings, described below.</li>
+<li><strong>Displayed layer.</strong> The storage component shown on the map and plotted in the chart:<ul>
+<li>Groundwater Storage Anomaly (GWSa), the default</li>
+<li>Total Water Storage Anomaly (TWSa)</li>
+<li>Soil Moisture Anomaly (SMa)</li>
+<li>Snow Water Equivalent Anomaly (SWEa)</li>
+<li>Canopy Water Storage Anomaly (CANa)</li>
+</ul>
+</li>
+<li><strong>Time series.</strong> Check other components to add them to the chart for comparison. The displayed layer is always plotted (see
+  <a href="../regional-view/#the-time-series-chart">Regional View</a>).</li>
+<li><strong>Gap filling.</strong> What the chart does at months with no GRACE data. <strong>None</strong> breaks the line at each gap, <strong>Straight line</strong> joins the
+  months on either side, and <strong>Seasonal model</strong> fills the gaps with values estimated from the rest of the record, drawn as a dashed line with
+  open markers (see <a href="../../gap-filling/gaps/">Gaps in the Record</a>). The setting changes only the chart, never the downloaded CSV.</li>
+<li><strong>Color ramp.</strong> Six palettes. Viridis, Cividis, Brown-Teal and Purple-Green are safe for readers with color vision deficiency.</li>
+<li><strong>Layer opacity.</strong> Fade the anomaly cells to see the basemap underneath.</li>
+<li><strong>Show cell boundaries / Show mascon boundaries.</strong> Outline the grid cells, or the 3° GRACE mascons that set the true resolution of the data.</li>
+<li><strong>Show region names.</strong> Label region outlines once you zoom in.</li>
+<li><strong>Light mode.</strong> Switch between the light and dark themes.</li>
+<li><strong>Regions.</strong> Choose a region set, filter it by name, and click a name to analyze that region.</li>
+</ul>
+<div style="clear: both;"></div>
+
+<h2 id="map">Map</h2>
+<p>The map has zoom buttons and a basemap menu (the layers icon below the zoom buttons) offering OpenStreetMap, topographic, imagery, streets,
+light gray, dark gray and terrain basemaps. A scale bar sits in the lower right. The color bar in the upper right gives the scale for the
+anomaly cells, always centered on zero; the trend legend appears above it while trends are shown.</p>
+<p>The <strong>time control</strong> at the bottom of the map steps through the months:</p>
+<p><img alt="The time control" src="../../../static/images/grace/app-time-control.webp" width="410" /></p>
+<p>Press play to animate, or drag the slider. The slider only stops on months that have GRACE data. The current month is also marked on the chart
+with a red dashed line.</p>
+<h2 id="header-bar">Header bar</h2>
+<p><img alt="The header bar: breadcrumb on the left, trend controls on the right" src="../../../static/images/grace/app-header.webp" width="800" /></p>
+<p>The breadcrumb on the left shows where you are: <strong>Home</strong> (the overview), a region name, <strong>Global map</strong>, or the coordinates of a selected cell.
+Click <strong>Home</strong> to return to the overview. On the right, <strong>Analyze trends / Hide trends</strong> turns trend classification on and off, and the
+<strong>Window</strong> stepper sets the period the trend is computed over. See <a href="../trends/">Trend Analysis</a>.</p>
+<h2 id="settings">Settings</h2>
+<p><img alt="The Display Settings dialog" src="../../../static/images/grace/app-settings.webp" width="510" /></p>
+<ul>
+<li><strong>GRACE mascon footprints</strong> and <strong>anomaly cell boundaries:</strong> line widths for the two outline layers.</li>
+<li><strong>Show color bar on map:</strong> hide or show the color bar.</li>
+<li><strong>Dynamic scale (fit to data):</strong> with this on, the color scale stretches to fit the data you're looking at, so small anomalies remain visible.
+  In a region it fits the largest absolute value in the region's cells over the whole record; in the global view it fits the 95th percentile of
+  absolute values, so a few extreme cells don't wash out the rest of the map. Turn it off to use a fixed scale of −30 to +30 cm, which is
+  better when comparing screenshots of different regions.</li>
+<li><strong>Clear cached data:</strong> delete the copy of the data the app keeps in your browser. The next visit downloads everything again. Use this if the
+  app behaves oddly after a data update.</li>
+</ul>
+<p>Settings last until you close the page. The light or dark theme and the size of the chart panel are remembered between visits.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../background/resolution-and-leakage/" class="btn btn-neutral float-left" title="Resolution, Leakage and Small Regions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../regional-view/" class="btn btn-neutral float-right" title="Regional View">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../background/resolution-and-leakage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../regional-view/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../javascripts/mathjax.js"></script>
+      <script src="../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

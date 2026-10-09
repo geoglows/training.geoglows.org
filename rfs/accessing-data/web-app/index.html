@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Web App - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Web App";
+        var mkdocs_page_input_path = "rfs/accessing-data/web-app.en.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../..">
+          <img src="../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Available Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/hydrography/">Hydrography</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/retrospective/">Retrospective Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Part 3 Accessing Data</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Web App</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#using-the-rfs-hydroviewer">Using the RFS Hydroviewer</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#graphs-and-charts">Graphs and Charts</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Tutorials</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/query-data/">Querying Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Background</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Resolution, Leakage and Small Regions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Using the App</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. GEOGLOWS Available Data</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../../es/rfs/accessing-data/web-app/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../../fr/rfs/accessing-data/web-app/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">River Forecast System</li>
+          <li class="breadcrumb-item">Part 3 Accessing Data</li>
+      <li class="breadcrumb-item active">Web App</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="using-the-rfs-hydroviewer">Using the RFS Hydroviewer</h1>
+<h2 id="overview">Overview</h2>
+<p>The <a href="https://hydroviewer.geoglows.org/">RFS Hydroviewer</a> is a web-based tool for visualizing and accessing streamflow forecasts and historical data globally. It allows users to:</p>
+<ul>
+<li>Explore real-time streamflow conditions  </li>
+<li>Analyze forecast trends  </li>
+<li>Review hydrological simulations for any river  </li>
+</ul>
+<p>The Hydroviewer supports informed decision-making in water resource management, disaster risk reduction, and climate resilience planning. Users can assess discharge values and identify potential flood or drought risks.</p>
+<p>The Hydroviewer serves two main purposes:</p>
+<ul>
+<li>Visualization of streamflow data  </li>
+<li>Data plotting and retrieval  </li>
+</ul>
+<p>The interface is available in English and Spanish. If the viewer is left in English, automated translation tools can be used, but translations are not guaranteed.</p>
+<p>For more information, view the <a href="../../../webinars/rfs-v2-webinar-4/">webinar</a>
+ on the Hydroviewer.</p>
+<p><img alt="Hydroviewer" src="../../../static/images/hydroviewer.png" /></p>
+<h2 id="map">Map</h2>
+<p>The first major function of the app is to show maps that help users explore and understand the latest RFS forecast results. This is a multi-scale map, with the amount of visible streams changing as you zoom in or out. There are two breakpoints for a total of three views. Streams are based on TDX-Hydro datasets used in RFS, rounded to the nearest meter of accuracy, providing an almost perfect resolution copy of the original data.</p>
+<h3 id="stream-styling">Stream Styling</h3>
+<p>This allows users to quickly identify rivers experiencing high flows.</p>
+<ul>
+<li>Color: Represents the estimated return period exceeded at a given time step. This helps identify rivers experiencing high flows quickly.</li>
+</ul>
+<p><img alt="Legend for Return Periods" src="../../../static/images/river-legend.png" /></p>
+<ul>
+<li>Thickness: Indicates the amount of water predicted in the river. Use thickness as a guide for relative size, but check graphs for precise values.</li>
+</ul>
+<p>Clicking on any river displays its river ID and opens a pop-up window with detailed graphs.</p>
+<h3 id="additional-layers">Additional Layers</h3>
+<p>There are several additional layers that provide additional information. Some of these include:</p>
+<ol>
+<li>Environmental Base Map: This is a pretty new Esri product which brings together several impressive basemaps and technologies. The RFS layer and styling were one of the many things considered in the design of the Environment map so it should have a useful view at many levels. There are brown lines tracing hydrobasins boundaries for useful reference in figuring out which major watershed you’re looking at when zoomed out. There are also some river names shown on the basemap.</li>
+</ol>
+<p><img alt="Environmental Map" src="../../../static/images/environmental-map.png" /></p>
+<ol>
+<li>WMO HydroSOS layers: Many RFS users participate in WMO activities such as HydroSOS. The HydroSOS program is evolving so this is not a finalized product. However, you can enable the layer and use the time slider to find a month that you want to view in the last 35 years. There is a dark red, light red, neutral yellow, light blue and dark blue which indicate if the basin was dry, normal, or wet relative to the normal amount over the period of 1990-2019.</li>
+</ol>
+<p><img alt="HydroSOS Layers" src="../../../static/images/hydrosos-layer.png" /></p>
+<h3 id="filtering-data">Filtering Data</h3>
+<p>Data can also be filtered by clicking on the filter button on the left-hand side. There, you will find options to filter based on:</p>
+<ul>
+<li>River country  </li>
+<li>VPU number  </li>
+<li>River outlet country  </li>
+</ul>
+<p>This will only show rivers that meet these criteria on the map.</p>
+<p><img alt="filter" src="../../../static/images/filtered-streams.png" /></p>
+<h1 id="graphs-and-charts">Graphs and Charts</h1>
+<p>In addition to the map, the Hydroviewer also has information about specific rivers. This fulfills the second purpose of the Hydroviewer as a data retrieval tool. By selecting rivers, users can download .csv files with data on the river as well as view graphs with information about the river.</p>
+<h2 id="accessing-graphs">Accessing Graphs</h2>
+<p>Rivers can be selected:</p>
+<ul>
+<li>By clicking on a river on the map  </li>
+<li>By entering a river ID directly  </li>
+</ul>
+<p>To enter a River ID:</p>
+<ol>
+<li>Open the chart pop-up window by selecting the chart icon in the upper right corner or from a previously selected river.  </li>
+<li>Click “Enter River ID” at the top of the pop-up window.  </li>
+<li>Type the river ID (e.g., Magdalena River in Colombia: 610363879) and click “OK.”  </li>
+</ol>
+<p>The pop-up window will display forecast and retrospective graphs. Data can be downloaded via the camera icon in the upper-right corner of each plot.</p>
+<h2 id="forecast-graphs">Forecast Graphs</h2>
+<p>By default, when you click on a stream, the 15-day forecast from the current day will be displayed. However, if you would like, you can see a forecast from a previous day by choosing a date from the top. </p>
+<p><img alt="Forecast Graph" src="../../../static/images/forecast.png" /></p>
+<p>An example of a forecast graph is shown here. By default, the return periods are off, but by clicking on them, they can be shown on the plot. More information on interpreting this plot is found in the <a href="../../datasets/forecast/">Forecast Data</a> section of this training.</p>
+<p>There is also a table that shows the percentage of ensemble members that exceed each return period each given day. This helps shows the probability of a certain return period being exceeded.</p>
+<h2 id="retrospective-graphs">Retrospective Graphs</h2>
+<p>You can view the retrospective data by switching to the retrospective view at the top of the pop-up window. The highlighted blue icon shows whether you are viewing the forecast or the retrospective data. By default, you will view 10 years of retrospective data, but this can be adjusted using the grey sliders at the bottom. The entire retrospective dataset, dating back to 1940, can be accessed this way.</p>
+<p><img alt="Retro Data" src="../../../static/images/retro_data.png" /></p>
+<p>This is the main retrospective plot, but other graphs exist that are derived from this retrospective data. They are designed to help interpret and analyze the data. They represent interpretations of the retrospective data, but are not all inclusive. Not all plots will be helpful in all use cases. The plots available are evolving based on current research.</p>
+<h3 id="yearly-cumulative-discharge">Yearly Cumulative Discharge</h3>
+<p><img alt="Cumulative Discharge" src="../../../static/images/cumulative_discharge.png" /></p>
+<p>This graph shows one value for each year in the retrospective simulation, representing the total discharge volume over that year for that stream. This is represented by the blue line on the graph. The red lines show 5 year averages of the volume to represent how the volume in the stream may be changing over time.</p>
+<h3 id="cumulative-volume-by-year">Cumulative Volume by Year</h3>
+<p><img alt="Cumulative Volume" src="../../../static/images/cumulative_volume.png" /></p>
+<p>This graph shows the cumulative volume in millions of cubic meters throughout the year. The wettest and driest years are label to show an idea of the range of values that have been seen in the past. By hovering over a line on the hydroviewer it will tell you the specific year for each line. This graph also shows when the volume of water is most rapidly increasing, representing more streamflow.</p>
+<h3 id="monthly-average-flow-with-hydrosos-categories">Monthly Average Flow with HydroSOS Categories</h3>
+<p><img alt="Monthly Average Flow" src="../../../static/images/monthly_average_flow.png" /></p>
+<p>This graph has features that can be toggled on and off to highlight different things.
+The default view shows the monthly average flows from the entire period of record (the dotted blue line) and the year to date monthly averages (the black line). Additional years can be turned on and off to see how those monthly averages compare.
+Additionally, the HydroSOS levels can be toggled on and off to show the range of streamflow conditions—very dry, dry, normal, wet, and very wet—throughout the year. It is based on methods developed by the WMO for their HydroSOS initiative. The category ranges are calculated using historical monthly averages. Each month's values are ranked separately and assigned a percentile. These percentiles are then used to define the thresholds for each category.
+This graph helps users understand how river flow values in a given year compare to what is considered normal, and whether conditions were wetter or drier than usual for each month.</p>
+<h3 id="annual-peak-discharge">Annual Peak Discharge</h3>
+<p><img alt="Peak Discharge" src="../../../static/images/peak_discharge.png" /></p>
+<p>This graph is designed to show information about the peak discharge of a river. The location tells about the time the discharge occurred and the color tells about the amount of water. The y-axis represents the different years. A dots location along the x-axis shows when in the year the peak discharge occurred. The colors represent the values of the peak discharge when it occurred. Outliers are highlighted in red.</p>
+<h3 id="raster-hydrograph">Raster Hydrograph</h3>
+<p><img alt="Rater Hydrograph" src="../../../static/images/raster_hydrograph.png" /></p>
+<p>A raster hydrograph is a grid-based visualization showing the temporal variation of streamflow for a single river. The x-axis represents months, the y-axis represents years, and the color of each cell indicates the streamflow magnitude. The point is that you can see all 85 years at once. Looking across a row shows the flow for one year, while looking up or down a column shows the same date across all years, for example every March 15th. This makes it easy to identify seasonal patterns, quickly see wet and dry periods, and spot outliers or years where the wet season was longer or shorter than normal.</p>
+<h3 id="flow-duration-curve">Flow Duration Curve</h3>
+<p><img alt="FDC" src="../../../static/images/fdc.png" /></p>
+<p>This graph displays streamflow on the y-axis and exceedance probability on the x-axis. Each point represents a monthly flow value, showing how often that level of flow is exceeded. In addition to the individual monthly values, the graph includes an overall flow duration curve based on the entire dataset. This allows users to compare monthly flow patterns with the long-term distribution of flows. By default only the overall curve is shown and the individual months must be toggled on to see them.</p>
+<h2 id="saving-rivers">Saving Rivers</h2>
+<p>Users can save rivers for repeated access via the bookmark tab at the top of the Hydroviewer. Clicking the tab opens a pop-up window. By default, several major rivers are already listed. To add a river:</p>
+<ol>
+<li>Click the plus sign</li>
+<li>Enter the river ID and name.
+Saved rivers can be accessed quickly by clicking the chart icon next to the river.</li>
+</ol>
+<p><img alt="Legend for Return Periods" src="../../../static/images/saved-rivers.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../datasets/forecast/" class="btn btn-neutral float-left" title="Forecast Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exercises/" class="btn btn-neutral float-right" title="Code Notebooks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../datasets/forecast/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../exercises/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../javascripts/mathjax.js"></script>
+      <script src="../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

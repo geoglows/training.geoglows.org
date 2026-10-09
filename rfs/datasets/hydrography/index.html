@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Hydrography - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Hydrography";
+        var mkdocs_page_input_path = "rfs/datasets/hydrography.en.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../..">
+          <img src="../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Part 2 Available Data</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Hydrography</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#terms-and-vocabulary">Terms and Vocabulary</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#modifications-to-tdx-hydro">Modifications to TDX-Hydro</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#vpus">VPUs</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#available-metadata">Available Metadata</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../retrospective/">Retrospective Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Accessing Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Web App</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Tutorials</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/query-data/">Querying Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Background</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Resolution, Leakage and Small Regions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Using the App</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. GEOGLOWS Available Data</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../../es/rfs/datasets/hydrography/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../../fr/rfs/datasets/hydrography/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">River Forecast System</li>
+          <li class="breadcrumb-item">Part 2 Available Data</li>
+      <li class="breadcrumb-item active">Hydrography</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="terms-and-vocabulary">Terms and Vocabulary</h2>
+<ul>
+<li><strong>Hydrography</strong>: GIS datasets of hydrological features such as streams, confluence points, catchment boundaries, watershed boundaries, lake
+  boundaries, and other features.</li>
+<li><strong>Hydrofabric</strong>: hydrography.</li>
+<li><strong>TanDEM-X</strong>: A SAR satellite mission from the German Aerospace Center (DLR) and Airbus Defence and Space. It is used to produce a 12-meter digital
+  elevation model which is the highest accuracy and resolution global product of its kind. It is not publicly available but the Copernicus Glo30 and
+  FABDEM products derived from it are.</li>
+<li><strong>TDX-Hydro</strong>: A stream centerline and catchment boundary dataset produced by the National Geospatial Intelligence Agency in 2023. The streams are
+  delineated from 12-meter TanDEM-X elevation data using TauDEM with extensive elevation preprocessing and stream centerline location correction
+  post-processing.</li>
+<li><strong>TauDEM</strong>: A terrain analysis tool used to delineate streams and catchments from elevation data.</li>
+<li><strong>VPU</strong>: Vector Processing Unit. A group of 1 or more complete watersheds put together to make smaller pieces of the global hydrography dataset for
+  convenience in distributing data, dividing computations, and making maps.</li>
+<li><strong>River ID</strong>: A unique identifier for each stream centerline in the RFS hydrography dataset. GIS and hydrology software usually have different
+  names for this ID. For example, TauDEM and TDX-Hydro uses "link number" (LINKNO) and Esri software calls it a "common identifier" (COMID). For
+  the RFS, it is referred to as a River ID. Any references to LINKNO, COMID, ReachID, StreamID, RiverID, or any similar term should be understood as
+  the same thing.</li>
+<li><strong>Strahler Stream Order</strong>: A number for classifying rivers topologically. The smallest rivers are order 1 and when two order 1 rivers meet, they
+  form an order 2 river. When two order 2 rivers meet, they form an order 3 river, and so on. In TDX-Hydro, the largest stream order is 9.</li>
+</ul>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The RFS hydrography is a modification of the TDX-Hydro streams and catchments dataset. It comes from proprietary TanDEM-X 12-m elevation data. You can
+download the full dataset and review the full technical description document describing its creation at https://earth-info.nga.mil/ under the "Geosciences" tab. The full TDX-Hydro dataset has about 16 million river segments and covers the full globe in 62 pieces corresponding to HydroBASINS
+level 2. We skipped 12 regions and representing islands or the farther north land areas. Additional, many revisions to reduce the stream feature count
+and optimize the network for channel routing reduce the total number of rivers to a total of 6.25 million rivers. This version used in RFS is
+available for users to download and use for their own purposes. This dataset is referred to as hydrography, hydrofabric, or river network. It is
+vector data with points and lines with coordinates, not grid data, and it includes four main components:</p>
+<ul>
+<li>The exact <strong>stream center lines</strong> used in RFS. Each stream has a unique 9 number ID which is referred to as a reachID, link number, or stream ID.
+  This is the file called "streams_{vpu}.gpkg".</li>
+<li>The <strong>catchment boundaries</strong> used RFS. There are the boundaries around each of the streamlines and represent the area connected to that streamline.
+  It is identified using the same link number as the stream center lines. This is the file called "catchments_{vpu}.spatialite". Each stream
+  centerline corresponds to exactly one unique catchment boundary.</li>
+<li>The <strong>connection points</strong> used in RFS where different stream centerlines connect. Each point has the an attribute called DSLINKNO which represents
+  the one downstream link number for each of the points. It has another attribute called USLINKNOs. This is a comma seperated list of the link numbers
+  upstream of the nexus point. This is the file called "nexus_{vpu}.gpkg".</li>
+<li>The <strong>merged lake catchments</strong> used in RFS to represent the locations of lakes. Stream catchments that were identified through GIS searching to be
+  part of a lake were merged to present the lakes. Therefore, it will have a different shape than the actual lake boundary based on the shapes of the
+  merged stream catchments. This is the file called "lakes_{vpu}.gpkg".</li>
+</ul>
+<hr />
+<h2 id="modifications-to-tdx-hydro">Modifications to TDX-Hydro</h2>
+<p>All the modifications we performed on each TDX-Hydro region are recorded in 3 files: 1) processing_options.xlsx, 2) tdx_header_numbers.json, and 3)
+terminal_node_vpu_list.csv. The TDX header number JSON file maps every TDX-Hydro region number to a unique 2-digit number, with the first digit being
+the first digit of the region number, and the second digit corresponding to the index of the sorted order of all the regions that share the first
+digit. The terminal node vpu CSV matches every terminal node (the id associated with the outlet of a watershed) with a VPU number. An overview of these
+changes are included here.</p>
+<p>The regions that were excluded include those that are farther north and some of the smaller islands, where runoff datasets may not be as accurate and
+there is sparser or no population. Future versions may reintroduce these regions. Additionally, we corrected errors found in TDX-Hydro dataset which
+were reported to the NGA for correction in future versions. These errors include:</p>
+<ol>
+<li>Streams that have no length and no upstream/downstream segments, i.e. streams where there are only two points and both points are the same
+   location. These, along with any associated catchments, were removed.</li>
+<li>Streams that have no length with upstream or downstream segments. These were removed along with any associated catchments, and the attributes of
+   the upstream and/or downstream segments were modified to refer to each other and preserve the stream network's connectivity.</li>
+<li>Catchments with a stock identifier of '0' never had an associated stream. These were deleted.</li>
+</ol>
+<p>For most, but not all, of the regions, the headwaters streams were dissolved with the downstream segments, up to and including the downstream
+segment with a Strahler stream order of either 2 or 3. It was decided that regions that were largely coastal (Japan, Carribean islands, Indonesia)
+were more sensitive to changes in their stream networks, and so these regions did not have their headwaters modified. Other areas, such as the
+Saharan desert, were delineated to the same resolution as the rest of the world -- often too much resolution. In these areas, more features could
+be merged without significantly altering the river routing. Thus, the headwaters and downstream streams were dissolved into one feature along with
+their associated catchments, and relevant attributes such as length and slope were recomputed. The stream order to which the headwaters would be
+dissolved was also chosen based on these considerations.</p>
+<p><img alt="image" src="../../../static/images/merged-tdxhydro-streams.png" /></p>
+<p>Small watersheds up to 200 square kilometers were removed from the TDX-Hydro dataset for all regions. This was done for similar reasons as the
+differing headwater stream dissolving. The more coastal regions had watersheds between up to 25 and 75 square kilometers dropped. Other areas, like
+the Saharan desert or northern Canada, had watersheds of 200 square kilometers dropped. In these flatter regions, the high resolution of the
+delineation creates little "pools" or small collections of streams that do not drain to the ocean and do not represent flowing streams. They often
+collectively have an area of less than 200 square kilometers. For the less coastal and flatter/drier regions, bigger watersheds were dropped.</p>
+<p>Headwater streams that led directly into a stream with a Strahler stream order of two or greater were dissolved with the immediate downstream segment
+for most, but not all, of the regions. The decision to prune these streams are the same as above.</p>
+<hr />
+<h2 id="vpus">VPUs</h2>
+<p>The GIS data are divided into 125 smaller pieces, VPUs. This makes the large quantity of data easier to manage and access. Each VPU represents one or
+more complete watersheds.</p>
+<p><img alt="image" src="../../../static/images/vpu-boundary.png" /></p>
+<p>The VPU boundaries are also available for download to help identify which VPU includes a user's area of interest. The other GIS data sets should be
+downloaded based on the VPU of interest and are downloaded as an entire VPU.</p>
+<hr />
+<h2 id="available-metadata">Available Metadata</h2>
+<p>The V2 streams have the following attributes, which come from the TauDEM delineation process. For more explanation of these attributes, please
+check <a href="https://hydrology.usu.edu/taudem/taudem5/help53/StreamReachAndWatershed.html" target="_blank">TauDEM Documentation</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Source</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LINKNO</td>
+<td>TDX-Hydro</td>
+<td>A 9 digit globally unique ID number for that river.</td>
+</tr>
+<tr>
+<td>DSLINKNO</td>
+<td>TDX-Hydro</td>
+<td>The ID (LINKNO) of the river immediately downstream of that river.</td>
+</tr>
+<tr>
+<td>strmOrder</td>
+<td>TDX-Hydro</td>
+<td>The Strahler stream order.</td>
+</tr>
+<tr>
+<td>USContArea</td>
+<td>TDX-Hydro</td>
+<td>The total drainage area upstream of the most upstream point.</td>
+</tr>
+<tr>
+<td>DSContArea</td>
+<td>TDX-Hydro</td>
+<td>The total drainage area upstream of the most downstream point.</td>
+</tr>
+<tr>
+<td>LengthGeodesicMeters</td>
+<td>RFS V2</td>
+<td>Geodesic length of the river arcs in meters.</td>
+</tr>
+<tr>
+<td>TDXHydroRegion</td>
+<td>RFS V2</td>
+<td>The original TDX regional group number of which this stream is part.</td>
+</tr>
+<tr>
+<td>TopologicalOrder</td>
+<td>RFS V2</td>
+<td>The order that streams occurs from headwater to outlet.</td>
+</tr>
+<tr>
+<td>Musk_k</td>
+<td>RFS V2</td>
+<td>The initial Muskingum k parameter calculated for river routing.</td>
+</tr>
+<tr>
+<td>Musk_x</td>
+<td>RFS V2</td>
+<td>The initial Muskingum x parameter calculated for river routing.</td>
+</tr>
+<tr>
+<td>TerminalLink</td>
+<td>RFS V2</td>
+<td>The ID of the final outlet of this stream's watershed.</td>
+</tr>
+<tr>
+<td>VPUCode</td>
+<td>RFS V2</td>
+<td>A three-digit number representing which RFS VPU region this stream is in.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../catalog/" class="btn btn-neutral float-left" title="Data Catalog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../retrospective/" class="btn btn-neutral float-right" title="Retrospective Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../catalog/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../retrospective/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../javascripts/mathjax.js"></script>
+      <script src="../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

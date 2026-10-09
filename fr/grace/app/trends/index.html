@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Analyse des Tendances - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Analyse des Tendances";
+        var mkdocs_page_input_path = "grace/app/trends.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 2 : Utilisation de l'Application</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Analyse des Tendances</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#trend-classification">Classification des tendances</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-trend-window">La fenêtre de tendance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trend-line-on-the-chart">Droite de tendance sur le graphique</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-the-region-classification-is-computed">Calcul de la classification des régions</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/app/trends/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/app/trends/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 2 : Utilisation de l'Application</li>
+      <li class="breadcrumb-item active">Analyse des Tendances</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="analyse-des-tendances">Analyse des Tendances</h1>
+<h2 id="trend-classification">Classification des tendances</h2>
+<p><strong>Analyze trends</strong> colore chaque contour de région (dans la vue régionale) ou chaque maille (dans la vue globale) selon le rythme auquel la
+couche affichée augmente ou diminue. Les tendances sont activées à l’ouverture de l’application ; cliquez sur <strong>Hide trends</strong> pour les
+désactiver.</p>
+<p><img alt="Aquifères du jeu Global Aquifers classés selon la tendance du stockage des eaux souterraines sur les cinq dernières années" src="../../../../static/images/grace/app-home.webp" /></p>
+<p>Dans la vue régionale, ci-dessus, chaque aquifère ou bassin reçoit une tendance unique calculée à partir de la moyenne de ses mailles (voir
+<a href="../regional-view/#the-landing-page">Vue Régionale</a>). C’est le meilleur indicateur pour un aquifère donné.</p>
+<p><img alt="Tendance du stockage des eaux souterraines sur les cinq dernières années pour chaque maille de 1°, dans la vue globale" src="../../../../static/images/grace/app-global-trends.webp" /></p>
+<p>La vue globale, ci-dessus, classe les 15 159 mailles continentales : elle montre donc où le stockage évolue, indépendamment des limites des
+aquifères. Il augmente dans le Sahel et en Afrique de l’Est, et diminue dans une grande partie du Moyen-Orient, le nord de l’Inde et le Brésil.</p>
+<p>La tendance est la pente d’une droite ajustée par moindres carrés sur les valeurs mensuelles de la fenêtre de tendance, en cm par an. Les mois
+sans données GRACE sont ignorés, et non comblés. Une région ou une maille doit disposer d’au moins 24 mois de données dans la fenêtre pour être
+classée ; sinon, elle apparaît comme <strong>Insufficient data</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Tendance (cm/an)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Extreme decline (baisse extrême)</td>
+<td>inférieure à −2</td>
+</tr>
+<tr>
+<td>Decline (baisse)</td>
+<td>−2 à −0.5</td>
+</tr>
+<tr>
+<td>Static (stable)</td>
+<td>−0.5 à +0.5</td>
+</tr>
+<tr>
+<td>Increase (hausse)</td>
+<td>+0.5 à +2</td>
+</tr>
+<tr>
+<td>Extreme increase (hausse extrême)</td>
+<td>supérieure à +2</td>
+</tr>
+</tbody>
+</table>
+<p>La légende compte les régions ou les mailles de chaque classe. À titre de repère, une tendance de −2 cm/an maintenue sur 100 000 km² correspond
+à une perte de 2 km³ d’eau par an.</p>
+<h2 id="the-trend-window">La fenêtre de tendance</h2>
+<p>Le sélecteur <strong>Window</strong> de l’en-tête fixe la période couverte par l’ajustement, en remontant depuis le mois le plus récent : 5, 10, 15 ou 20 ans,
+ou <strong>All</strong> pour l’ensemble de la série depuis 2002. La classification et la légende se mettent à jour lorsque vous la modifiez.</p>
+<p>Dans la plupart des régions, le stockage oscille entre années humides et années sèches ; une fenêtre courte peut donc ne saisir qu’une
+oscillation au lieu de l’évolution de long terme. Dans la Vallée Centrale de Californie, le stockage des eaux souterraines a diminué de 2002
+jusqu’à la sécheresse de 2021–2022, puis s’est partiellement rétabli après l’hiver très humide de 2022–2023. La tendance sur 5 ans est une hausse ;
+la tendance sur 20 ans est une baisse. Les deux sont exactes pour leur fenêtre. Examinez la série temporelle avant de tirer des conclusions d’une
+classe de tendance, et comparez plusieurs fenêtres.</p>
+<h2 id="trend-line-on-the-chart">Droite de tendance sur le graphique</h2>
+<p>Lorsqu’une région ou une maille est sélectionnée et que les tendances sont activées, le graphique ajoute la droite ajustée en tirets sur la
+fenêtre de tendance, et la légende indique la pente, par exemple « GWSa trend +2.25 cm/yr (last 5 yr) ». Chaque composante tracée reçoit sa
+propre droite de tendance.</p>
+<h2 id="how-the-region-classification-is-computed">Calcul de la classification des régions</h2>
+<p>Pour classer d’un coup toutes les régions d’un jeu, l’application fait la moyenne des mailles dont le centre se trouve dans chaque région,
+pondérée par le cosinus de la latitude. Cette méthode est plus rapide que la moyenne pondérée par recouvrement utilisée pour le graphique d’une
+région sélectionnée (voir <a href="../regional-view/#which-cells-are-averaged">Vue Régionale</a>), et les deux peuvent différer légèrement pour les régions
+petites ou étroites. La tendance indiquée dans la légende du graphique est celle calculée à partir de la série du graphique. Une région trop
+petite pour contenir le centre d’une maille est classée à partir de la maille située en son centre.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../global-view/" class="btn btn-neutral float-left" title="Vue Globale"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../downloading-data/" class="btn btn-neutral float-right" title="Téléchargement des Données">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../global-view/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../downloading-data/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

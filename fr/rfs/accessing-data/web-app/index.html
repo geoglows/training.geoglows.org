@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Application Web - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Application Web";
+        var mkdocs_page_input_path = "rfs/accessing-data/web-app.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 3 : Accès aux Données</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Application Web</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#utilisation-du-rfs-hydroviewer">Utilisation du RFS Hydroviewer</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#graphiques-et-diagrammes">Graphiques et diagrammes</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../rfs/accessing-data/web-app/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/rfs/accessing-data/web-app/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">Système de Prévision Fluviale</li>
+          <li class="breadcrumb-item">Partie 3 : Accès aux Données</li>
+      <li class="breadcrumb-item active">Application Web</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="utilisation-du-rfs-hydroviewer">Utilisation du RFS Hydroviewer</h1>
+<h2 id="apercu">Aperçu</h2>
+<p>Le <a href="https://hydroviewer.geoglows.org/">RFS Hydroviewer</a> est un outil web pour visualiser et accéder aux prévisions de débit et aux données historiques des rivières dans le monde entier. Il permet aux utilisateurs de :</p>
+<ul>
+<li>Explorer les conditions de débit en temps réel  </li>
+<li>Analyser les tendances des prévisions  </li>
+<li>Consulter les simulations hydrologiques pour n'importe quelle rivière  </li>
+</ul>
+<p>Le Hydroviewer soutient la prise de décisions éclairées en gestion des ressources en eau, réduction des risques de catastrophe et planification de la résilience climatique. Les utilisateurs peuvent évaluer les valeurs de débit et identifier les risques potentiels d'inondation ou de sécheresse.</p>
+<p>Le Hydroviewer a deux objectifs principaux :</p>
+<ul>
+<li>Visualisation des données de débit  </li>
+<li>Traçage et récupération des données  </li>
+</ul>
+<p>L'interface est disponible en anglais et en espagnol. Si le visualiseur reste en anglais, des outils de traduction automatique peuvent être utilisés, mais les traductions ne sont pas garanties.</p>
+<p>Pour plus d'informations, consultez le <a href="../../../webinars/rfs-v2-webinar-4/">webinaire</a>
+ sur le Hydroviewer.</p>
+<p><img alt="Hydroviewer" src="../../../../static/images/hydroviewer.png" /></p>
+<h2 id="carte">Carte</h2>
+<p>La première fonction majeure de l'application est de montrer des cartes qui aident les utilisateurs à explorer et comprendre les derniers résultats de prévision RFS. Il s'agit d'une carte multi-échelle, avec la quantité de cours d'eau visibles changeant selon le niveau de zoom. Il y a deux points de rupture pour un total de trois vues. Les rivières sont basées sur les ensembles de données TDX-Hydro utilisés dans RFS, arrondis au mètre le plus proche, offrant une copie de résolution quasi parfaite des données originales.</p>
+<h3 id="style-des-cours-deau">Style des cours d'eau</h3>
+<p>Cela permet aux utilisateurs d'identifier rapidement les rivières connaissant des débits élevés.</p>
+<ul>
+<li>Couleur : Représente la période de retour estimée dépassée à un moment donné. Cela aide à identifier rapidement les rivières avec des débits élevés.</li>
+</ul>
+<p><img alt="Légende des périodes de retour" src="../../../../static/images/river-legend.png" /></p>
+<ul>
+<li>Épaisseur : Indique la quantité d'eau prévue dans la rivière. Utilisez l'épaisseur comme guide pour la taille relative, mais consultez les graphiques pour des valeurs précises.</li>
+</ul>
+<p>Cliquer sur une rivière affiche son ID de rivière et ouvre une fenêtre contextuelle avec des graphiques détaillés.</p>
+<h3 id="couches-supplementaires">Couches supplémentaires</h3>
+<p>Il existe plusieurs couches supplémentaires fournissant des informations complémentaires. Parmi elles :</p>
+<ol>
+<li>Carte de base environnementale : Il s'agit d'un produit relativement nouveau d'Esri qui combine plusieurs cartes de base et technologies impressionnantes. La couche et le style RFS ont été pris en compte dans la conception de la carte environnementale afin de fournir une vue utile à différents niveaux. Des lignes brunes tracent les limites des hydrobassins pour aider à identifier quel bassin principal vous regardez lorsque vous êtes dézoomé. Certains noms de rivières sont également affichés sur la carte de base.</li>
+</ol>
+<p><img alt="Carte environnementale" src="../../../../static/images/environmental-map.png" /></p>
+<ol>
+<li>Couches WMO HydroSOS : De nombreux utilisateurs de RFS participent aux activités de la WMO telles que HydroSOS. Le programme HydroSOS évolue, ce n’est donc pas un produit finalisé. Cependant, vous pouvez activer la couche et utiliser le curseur temporel pour trouver un mois à visualiser au cours des 35 dernières années. Les couleurs rouge foncé, rouge clair, jaune neutre, bleu clair et bleu foncé indiquent si le bassin était sec, normal ou humide par rapport à la normale sur la période 1990-2019.</li>
+</ol>
+<p><img alt="Couches HydroSOS" src="../../../../static/images/hydrosos-layer.png" /></p>
+<h3 id="filtrage-des-donnees">Filtrage des données</h3>
+<p>Les données peuvent également être filtrées en cliquant sur le bouton de filtre sur le côté gauche. Vous trouverez des options pour filtrer selon :</p>
+<ul>
+<li>Pays de la rivière  </li>
+<li>Numéro de VPU  </li>
+<li>Pays de l'embouchure de la rivière  </li>
+</ul>
+<p>Cela affichera uniquement les rivières répondant à ces critères sur la carte.</p>
+<p><img alt="filtre" src="../../../../static/images/filtered-streams.png" /></p>
+<h1 id="graphiques-et-diagrammes">Graphiques et diagrammes</h1>
+<p>En plus de la carte, le Hydroviewer fournit également des informations sur des rivières spécifiques. Cela remplit le second objectif du Hydroviewer en tant qu'outil de récupération de données. En sélectionnant des rivières, les utilisateurs peuvent télécharger des fichiers .csv avec des données sur la rivière ainsi que visualiser des graphiques avec des informations sur la rivière.</p>
+<h2 id="acceder-aux-graphiques">Accéder aux graphiques</h2>
+<p>Les rivières peuvent être sélectionnées :</p>
+<ul>
+<li>En cliquant sur une rivière sur la carte  </li>
+<li>En saisissant directement un ID de rivière  </li>
+</ul>
+<p>Pour entrer un ID de rivière :</p>
+<ol>
+<li>Ouvrez la fenêtre contextuelle des graphiques en sélectionnant l'icône graphique dans le coin supérieur droit ou depuis une rivière précédemment sélectionnée.  </li>
+<li>Cliquez sur “Enter River ID” en haut de la fenêtre contextuelle.  </li>
+<li>Tapez l’ID de la rivière (ex : rivière Magdalena en Colombie : 610363879) et cliquez sur “OK”.  </li>
+</ol>
+<p>La fenêtre contextuelle affichera les graphiques de prévision et rétrospectifs. Les données peuvent être téléchargées via l'icône appareil photo dans le coin supérieur droit de chaque graphique.</p>
+<h2 id="graphiques-de-prevision">Graphiques de prévision</h2>
+<p>Par défaut, en cliquant sur un cours d'eau, la prévision sur 15 jours à partir du jour courant s'affiche. Cependant, vous pouvez également visualiser une prévision d’un jour précédent en choisissant une date en haut.</p>
+<p><img alt="Graphique de prévision" src="../../../../static/images/forecast.png" /></p>
+<p>Un exemple de graphique de prévision est présenté ici. Par défaut, les périodes de retour sont désactivées, mais en cliquant dessus, elles peuvent s’afficher sur le graphique. Plus d’informations sur l’interprétation de ce graphique se trouvent dans la section <a href="../../datasets/forecast/">Données de prévision</a> de cette formation.</p>
+<p>Un tableau montre également le pourcentage de membres de l’ensemble dépassant chaque période de retour chaque jour. Cela aide à montrer la probabilité qu’une certaine période de retour soit dépassée.</p>
+<h2 id="graphiques-retrospectifs">Graphiques rétrospectifs</h2>
+<p>Vous pouvez consulter les données rétrospectives en passant à la vue rétrospective en haut de la fenêtre contextuelle. L’icône bleue surlignée indique si vous visualisez les données de prévision ou rétrospectives. Par défaut, vous visualisez 10 ans de données rétrospectives, mais cela peut être ajusté à l’aide des curseurs gris en bas. L’ensemble des données rétrospectives, datant de 1940, peut être consulté de cette manière.</p>
+<p><img alt="Données rétrospectives" src="../../../../static/images/retro_data.png" /></p>
+<p>Il s'agit du graphique rétrospectif principal, mais d'autres graphiques dérivés existent. Ils aident à interpréter et analyser les données, représentant des interprétations mais non exhaustives. Tous les graphiques ne seront pas utiles pour chaque cas d’utilisation. Les graphiques disponibles évoluent en fonction des recherches actuelles.</p>
+<h3 id="debit-cumulatif-annuel">Débit cumulatif annuel</h3>
+<p><img alt="Débit cumulatif" src="../../../../static/images/cumulative_discharge.png" /></p>
+<p>Ce graphique montre une valeur par année dans la simulation rétrospective, représentant le volume total de débit sur cette année pour ce cours d'eau. Cela est représenté par la ligne bleue. Les lignes rouges montrent la moyenne sur 5 ans pour représenter comment le volume de la rivière peut évoluer au fil du temps.</p>
+<h3 id="volume-cumulatif-par-annee">Volume cumulatif par année</h3>
+<p><img alt="Volume cumulatif" src="../../../../static/images/cumulative_volume.png" /></p>
+<p>Ce graphique montre le volume cumulatif en millions de mètres cubes tout au long de l'année. Les années les plus humides et les plus sèches sont étiquetées pour donner une idée de l’éventail des valeurs observées. En survolant une ligne sur le Hydroviewer, l'année spécifique de chaque ligne s'affiche. Ce graphique montre également quand le volume d’eau augmente le plus rapidement, représentant un débit plus élevé.</p>
+<h3 id="debit-moyen-mensuel-avec-categories-hydrosos">Débit moyen mensuel avec catégories HydroSOS</h3>
+<p><img alt="Débit moyen mensuel" src="../../../../static/images/monthly_average_flow.png" /></p>
+<p>Ce graphique comporte des fonctionnalités activables pour mettre en évidence différents éléments.<br />
+La vue par défaut montre les débits moyens mensuels pour toute la période (ligne bleue pointillée) et les moyennes mensuelles cumulées de l’année en cours (ligne noire). Des années supplémentaires peuvent être activées ou désactivées pour comparer les moyennes mensuelles.<br />
+De plus, les niveaux HydroSOS peuvent être activés ou désactivés pour montrer l’éventail des conditions de débit—très sec, sec, normal, humide et très humide—tout au long de l’année. Cela repose sur les méthodes développées par la WMO pour leur initiative HydroSOS. Les plages de catégories sont calculées à partir des moyennes mensuelles historiques. Les valeurs de chaque mois sont classées et assignées à un percentile. Ces percentiles définissent les seuils de chaque catégorie.<br />
+Ce graphique aide les utilisateurs à comprendre comment les valeurs de débit d’une rivière pour une année donnée se comparent à la normale, et si les conditions étaient plus humides ou plus sèches que la normale pour chaque mois.</p>
+<h3 id="debit-de-pointe-annuel">Débit de pointe annuel</h3>
+<p><img alt="Débit de pointe" src="../../../../static/images/peak_discharge.png" /></p>
+<p>Ce graphique montre les informations sur le débit de pointe d’une rivière. La position indique le moment où le débit s’est produit et la couleur indique la quantité d’eau. L’axe des y représente les différentes années. La position des points le long de l’axe des x montre quand le débit de pointe s’est produit dans l’année. Les couleurs représentent les valeurs du débit de pointe. Les valeurs aberrantes sont mises en évidence en rouge.</p>
+<h3 id="hydrogramme-raster">Hydrogramme raster</h3>
+<p><img alt="Hydrogramme raster" src="../../../../static/images/raster_hydrograph.png" /></p>
+<p>Un hydrogramme raster est une visualisation en grille montrant la variation temporelle du débit pour une rivière. L’axe des x représente les mois, l’axe des y les années, et la couleur de chaque cellule indique le débit. Cela permet de voir les 85 années en un coup d’œil. Une ligne horizontale montre le débit pour une année, tandis qu’une colonne verticale montre la même date pour toutes les années, par exemple chaque 15 mars. Cela facilite l’identification des motifs saisonniers, la visualisation rapide des périodes humides et sèches et la détection des valeurs aberrantes ou des années avec des saisons pluvieuses plus longues ou plus courtes que la normale.</p>
+<h3 id="courbe-de-duree-des-debits">Courbe de durée des débits</h3>
+<p><img alt="FDC" src="../../../../static/images/fdc.png" /></p>
+<p>Ce graphique affiche le débit sur l’axe des y et la probabilité de dépassement sur l’axe des x. Chaque point représente un débit mensuel, montrant la fréquence à laquelle ce niveau est dépassé. En plus des valeurs mensuelles individuelles, le graphique inclut une courbe globale de durée des débits basée sur l’ensemble des données. Cela permet aux utilisateurs de comparer les débits mensuels à la distribution à long terme. Par défaut, seule la courbe globale est affichée et les mois individuels doivent être activés pour les visualiser.</p>
+<h2 id="sauvegarde-des-rivieres">Sauvegarde des rivières</h2>
+<p>Les utilisateurs peuvent sauvegarder des rivières pour un accès répété via l’onglet signets en haut du Hydroviewer. Cliquer sur l’onglet ouvre une fenêtre contextuelle. Par défaut, plusieurs grandes rivières sont déjà listées. Pour ajouter une rivière :</p>
+<ol>
+<li>Cliquez sur le signe plus  </li>
+<li>Entrez l’ID et le nom de la rivière.  </li>
+</ol>
+<p>Les rivières sauvegardées peuvent être consultées rapidement en cliquant sur l’icône graphique à côté de la rivière.</p>
+<p><img alt="Légende des périodes de retour" src="../../../../static/images/saved-rivers.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../../datasets/forecast/" class="btn btn-neutral float-left" title="Données Prévisionnelles"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../exercises/" class="btn btn-neutral float-right" title="Notebooks de Code">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../datasets/forecast/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../exercises/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

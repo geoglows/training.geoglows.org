@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Resolution, Leakage and Small Regions - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Resolution, Leakage and Small Regions";
+        var mkdocs_page_input_path = "grace/background/resolution-and-leakage.en.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../..">
+          <img src="../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 1 Model Formulation</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Model Formulation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Available Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Data Catalog</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrography</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Retrospective Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Forecast Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Accessing Data</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Web App</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Code Notebooks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Bulk Downloads</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Cookbook</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Tutorials</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Finding River Numbers</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Querying Data</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Data Service)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Web Maps (GIS Layer)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Bias Correction</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">SABER Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correcting Forecasts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Part 1 Background</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../overview/">Overview</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../grace-mission/">The GRACE Mission</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../deriving-groundwater/">Deriving Groundwater Storage</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Resolution, Leakage and Small Regions</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#what-grace-can-resolve">What GRACE can resolve</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#leakage">Leakage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-small-regions">Working with small regions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-limitations">Other limitations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 2 Using the App</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Regional View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Global View</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Trend Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Downloading Data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 3 Gap Filling</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Gaps in the Record</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">The Seasonal Model</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 4 Recharge Analysis</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">The WTF Method</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Opening the Analysis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Water Years and Picks</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Part 5 Case Studies</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Volta Basin</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">California's Central Valley</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinars</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. GEOGLOWS History and Introducing RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. GEOGLOWS Model Formulation</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. GEOGLOWS Available Data</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. GEOGLOWS Hydroviewer 101</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="en">English</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <span class="current" lang="en" aria-current="true">English</span>
+      </li>
+      <li>
+          <a href="../../../es/grace/background/resolution-and-leakage/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <a href="../../../fr/grace/background/resolution-and-leakage/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Part 1 Background</li>
+      <li class="breadcrumb-item active">Resolution, Leakage and Small Regions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="resolution-leakage-and-small-regions">Resolution, Leakage and Small Regions</h1>
+<h2 id="what-grace-can-resolve">What GRACE can resolve</h2>
+<p>GRACE senses mass through gravity, and gravity spreads out with distance. From an orbit hundreds of kilometers up, two masses closer together
+than a few hundred kilometers blur into one. JPL's mascon solution reflects that limit: it solves for one value per 3° cap, about 330 km across,
+and the 0.5° and 1° grids in the app repeat or average those values. They make the data easier to store and map but add no detail.</p>
+<p><img alt="Grid sizes compared with region size, and signal leakage" src="../../../static/images/grace/grace-resolution-leakage.png" /></p>
+<p>Panel A compares the grids with two regions. The river basin spans several mascons, so its average draws on several independent measurements.
+The aquifer is smaller than one mascon. Its value is mostly whatever the mascon it sits in did, including storage changes outside the aquifer.</p>
+<p>As a rule of thumb, GRACE results are reliable for regions of about 200,000 km² or more (roughly 4° × 4° near the equator), usable with care
+down to the size of one mascon (about 100,000 km²), and increasingly uncertain below that. GWSa does vary from one 1° cell to the next inside a
+mascon, but only because the GLDAS terms vary; the GRACE part of each cell is the mascon value.</p>
+<h2 id="leakage">Leakage</h2>
+<p>Because GRACE blurs mass over a few hundred kilometers, a storage change concentrated in a small area appears in the data as a smaller change
+spread over a larger area (panel B). Signal <strong>leaks out</strong> of the region where it happened and into its neighbors. The reverse also happens:
+storage changes just outside a region leak in.</p>
+<p>Leakage matters most when storage change inside the region differs from storage change around it. Heavy groundwater pumping in an irrigated
+valley surrounded by mountains is the worst case: the decline is concentrated in the valley, and GRACE spreads it over the mountains too. An
+average over the valley alone then underestimates the true loss, sometimes by a factor of several. Where storage changes similarly inside and
+outside the region, as in a large sedimentary basin under a uniform climate, leakage in and out roughly balance and the regional average is
+close to the truth.</p>
+<p>JPL's coastline filter limits leakage between land and ocean. Leakage between neighboring land areas is not corrected in the app's data.</p>
+<h2 id="working-with-small-regions">Working with small regions</h2>
+<p>If your region of interest is smaller than a mascon, or is a pumping center surrounded by areas with different behavior, these approaches help:</p>
+<p><strong>Analyze the larger hydrologic unit.</strong> Run the analysis on the river basin or aquifer system that contains your area, using one of the
+preset region sets or an uploaded boundary. If nearly all the storage change happens inside the smaller area (for example, if pumping is
+concentrated in the aquifer), the volume of change for the larger unit approximates the volume for the smaller area:</p>
+<div class="highlight"><pre><span></span><code>ΔV ≈ GWSa_basin × Area_basin
+</code></pre></div>
+<p>This works because a volume summed over a large enough area recovers most of the leaked signal, while an average over a small area doesn't.</p>
+<p><strong>Calibrate against wells.</strong> Where monitoring wells give an independent estimate of storage change over part of the GRACE record, the ratio
+between the well-based and GRACE-based estimates gives an empirical scale factor that corrects for leakage in that region. The factor is
+specific to the region and the period used to derive it. Stevens et al. (2025) did this for California's Central Valley
+(<a href="../../case-studies/central-valley/">case study</a>).</p>
+<p><strong>Interpret a single cell cautiously.</strong> In the global view you can click a single cell to see its time series. That is quick and useful for
+exploration, but two neighboring aquifers in the same mascon will show nearly identical results, because they are measured by the same 3° value.</p>
+<p><img alt="California Central Valley: a narrow, heavily pumped aquifer surrounded by mountains, close to the worst case for leakage" src="../../../static/images/grace/app-central-valley.webp" /></p>
+<h2 id="other-limitations">Other limitations</h2>
+<ul>
+<li><strong>Storage, not levels.</strong> GWSa is a change in the mass of water. Converting it to a change in water table elevation requires a specific yield
+  for the aquifer, which varies widely and is often poorly known.</li>
+<li><strong>No vertical detail.</strong> GRACE can't distinguish shallow from deep aquifers, or confined from unconfined.</li>
+<li><strong>Model error.</strong> Errors in the GLDAS soil moisture, snow and canopy terms pass directly into GWSa. This is most serious in snowy and wet
+  regions, where those terms are large.</li>
+<li><strong>Surface water.</strong> Changes in reservoirs, lakes and floodplains are counted as groundwater (see
+  <a href="../deriving-groundwater/">Deriving Groundwater Storage</a>).</li>
+</ul>
+<p>Even with these limits, GRACE gives a consistent, independent view of storage change across whole aquifer systems, which is often the only such
+view available. Use it for regional trends and compare it with local data wherever you can.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p>Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
+  to GRACE-derived data. <em>Environmental Modelling &amp; Software</em>, 186, 106368.
+  <a href="https://doi.org/10.1016/j.envsoft.2025.106368" target="_blank">doi:10.1016/j.envsoft.2025.106368</a></p>
+</li>
+<li>
+<p>Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
+  dependent gravity field. <em>Water Resources Research</em>, 35, 2705–2723.
+  <a href="https://doi.org/10.1029/1999WR900141" target="_blank">doi:10.1029/1999WR900141</a></p>
+</li>
+<li>Longuevergne, L., Scanlon, B. R., and Wilson, C. R. (2010). GRACE hydrological estimates for small basins: Evaluating processing approaches on
+  the High Plains Aquifer, USA. <em>Water Resources Research</em>, 46, W11517.
+  <a href="https://doi.org/10.1029/2009WR008564" target="_blank">doi:10.1029/2009WR008564</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../deriving-groundwater/" class="btn btn-neutral float-left" title="Deriving Groundwater Storage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../app/interface/" class="btn btn-neutral float-right" title="Interface">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../deriving-groundwater/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../app/interface/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../javascripts/mathjax.js"></script>
+      <script src="../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

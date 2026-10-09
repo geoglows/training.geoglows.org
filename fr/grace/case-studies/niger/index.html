@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Niger - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Niger";
+        var mkdocs_page_input_path = "grace/case-studies/niger.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 5 : Études de Cas</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Niger</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#setting-and-data">Contexte et données</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#storage-change">Variation du stockage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recharge">Recharge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusions">Conclusions</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/case-studies/niger/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/case-studies/niger/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 5 : Études de Cas</li>
+      <li class="breadcrumb-item active">Niger</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="niger-variation-du-stockage-et-recharge-dans-les-bassins-des-iullemeden-et-du-tchad">Niger : variation du stockage et recharge dans les bassins des Iullemeden et du Tchad</h1>
+<div class="admonition cite">
+<p class="admonition-title">Article</p>
+<p>Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). <strong>Evaluating groundwater storage change
+and recharge using GRACE data: A case study of aquifers in Niger, West Africa.</strong> <em>Remote Sensing</em>, 14(7), 1532.
+<a href="https://doi.org/10.3390/rs14071532" target="_blank">doi:10.3390/rs14071532</a></p>
+</div>
+<p>L'étude a été réalisée dans le cadre du projet NASA SERVIR Afrique de l'Ouest avec le Centre Régional AGRHYMET de Niamey. Elle suit le même déroulement que
+l'application : calculer la GWSa de chaque aquifère, combler les lacunes de la série et estimer la recharge annuelle par la méthode de fluctuation de la nappe (WTF).</p>
+<h2 id="setting-and-data">Contexte et données</h2>
+<p>Le sud du Niger repose sur deux grands bassins sédimentaires. Le bassin des Iullemeden, à l'ouest, couvre environ 620 000 km² et reçoit 550–650 mm de pluie par
+an ; l'étude a analysé ses aquifères du Continental Intercalaire et du Continental Terminal. Le bassin du lac Tchad, à l'est, couvre environ
+2.5 millions de km² et reçoit 200–400 mm par an ; l'étude a analysé ses aquifères du Manga et du Korama. Presque toute la pluie tombe entre juin et
+septembre, et les puits de surveillance sont peu nombreux.</p>
+<p><img alt="Aquifères retenus des bassins des Iullemeden et du Tchad" src="../../../../static/images/grace/papers/niger-fig4-study-aquifers.webp" /></p>
+<p><em>Aquifères retenus des bassins des Iullemeden et du Tchad. Barbosa et al. (2022), Fig. 4, CC BY 4.0.</em></p>
+<p>La GWSa a été calculée dans GGST à partir de la TWSa des mascons du JPL et de la moyenne des modèles GLDAS Noah, VIC et CLSM, par rapport à la moyenne 2004–2009, d'avril
+2002 à septembre 2021. Les mois manquants ont été comblés par décomposition saisonnière : chaque valeur manquante est la tendance de ce mois plus les valeurs saisonnière et
+résiduelle moyennes de ce mois calendaire.</p>
+<p><img alt="GWSa mesurée et imputée" src="../../../../static/images/grace/papers/niger-fig7-gwsa-imputed.webp" /></p>
+<p><em>Données de GWSa mesurées (noir) et imputées (rouge), montrant qu'à l'œil les données imputées respectent la tendance à long terme et la variation saisonnière présentes
+dans les données. Barbosa et al. (2022), Fig. 7, CC BY 4.0.</em></p>
+<h2 id="storage-change">Variation du stockage</h2>
+<p>Dans le bassin des Iullemeden, le stockage a légèrement augmenté de 2002 à 2011, puis beaucoup plus vite de 2011 à 2021, pour une hausse totale de plus de 10 cm
+d'eau. Dans le bassin du Tchad, le stockage a légèrement diminué jusqu'en 2011 et augmenté de 2011 à 2020. Les précipitations ont augmenté sur la même période, mais la
+corrélation entre stockage et précipitations était faible (0.2 pour les Iullemeden et 0.35 pour le Tchad, avec un décalage de 7 mois) ; les auteurs suggèrent donc que le changement
+d'occupation des sols y a aussi contribué.</p>
+<p><img alt="Anomalies de stockage des eaux souterraines dans la région du bassin des Iullemeden" src="../../../../static/images/grace/papers/niger-fig10-gwsa-iullemeden.webp" /></p>
+<p><em>Anomalies de stockage des eaux souterraines dans la région du bassin des Iullemeden. Barbosa et al. (2022), Fig. 10, CC BY 4.0.</em></p>
+<h2 id="recharge">Recharge</h2>
+<p>Les auteurs ont appliqué la méthode de fluctuation de la nappe à chaque année de la série de GWSa comblée. La Method 1 ne compte que la remontée saisonnière visible
+et donne une estimation basse ; la Method 2 ajoute le drainage compensé par la remontée et donne une estimation haute.</p>
+<p><img alt="Valeurs de recharge estimées dans les bassins des Iullemeden" src="../../../../static/images/grace/papers/niger-fig17-recharge-iullemeden.webp" /></p>
+<p><em>Valeurs de recharge estimées dans les bassins des Iullemeden. Barbosa et al. (2022), Fig. 17, CC BY 4.0.</em></p>
+<p>L'article a comparé ses moyennes à des études antérieures au Niger (son Table 1) :</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Région</th>
+<th>Méthode</th>
+<th>Période</th>
+<th>Recharge (cm/an)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barbosa et al. (2022)</td>
+<td>Bassin des Iullemeden</td>
+<td>WTF, GRACE</td>
+<td>2002–2011</td>
+<td>4.0–7.3</td>
+</tr>
+<tr>
+<td>Barbosa et al. (2022)</td>
+<td>Bassin des Iullemeden</td>
+<td>WTF, GRACE</td>
+<td>2012–2021</td>
+<td>4.5–9.2</td>
+</tr>
+<tr>
+<td>Barbosa et al. (2022)</td>
+<td>Bassin du Tchad</td>
+<td>WTF, GRACE</td>
+<td>2002–2011</td>
+<td>2.9–5.4</td>
+</tr>
+<tr>
+<td>Barbosa et al. (2022)</td>
+<td>Bassin du Tchad</td>
+<td>WTF, GRACE</td>
+<td>2012–2021</td>
+<td>4.1–7.6</td>
+</tr>
+<tr>
+<td>Bromley et al. (1997)</td>
+<td>Sud-ouest du Niger</td>
+<td>Bilan de masse des chlorures</td>
+<td>1992</td>
+<td>1.3</td>
+</tr>
+<tr>
+<td>Leduc et al. (1997)</td>
+<td>Sud du Niger</td>
+<td>WTF, puits</td>
+<td>1991</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td>Leduc et al. (2001); Favreau et al. (2002)</td>
+<td>Sud-ouest du Niger</td>
+<td>Radio-isotopes (¹⁴C et ³H)</td>
+<td>années 1950–2000</td>
+<td>0.1–0.5</td>
+</tr>
+<tr>
+<td>Leduc et al. (2001)</td>
+<td>Sud-ouest du Niger</td>
+<td>WTF, puits</td>
+<td>années 1990–2000</td>
+<td>2–5</td>
+</tr>
+<tr>
+<td>Vouillamoz et al. (2008)</td>
+<td>Sud-ouest du Niger</td>
+<td>WTF, puits</td>
+<td>années 1990–2000</td>
+<td>2–5</td>
+</tr>
+</tbody>
+</table>
+<p>Les fourchettes de cette étude vont de la Method 1 à la Method 2. La Method 1 se situe dans la fourchette des études antérieures par fluctuation de la nappe ; la Method 2 est
+plus élevée, ce que les auteurs jugent raisonnable pour une période d'accumulation du stockage. Les méthodes par chlorures et par isotopes, qui intègrent des périodes
+beaucoup plus longues, donnent des valeurs plus faibles.</p>
+<h2 id="conclusions">Conclusions</h2>
+<ul>
+<li>Le stockage des eaux souterraines augmente dans les deux bassins depuis une dizaine d'années ; les aquifères ne sont donc pas surexploités et une mise en valeur
+  supplémentaire est possible, à condition de continuer à surveiller le stockage.</li>
+<li>Les données satellitaires ont rendu cette analyse possible là où les séries de puits sont trop clairsemées pour la mener à partir du terrain.</li>
+<li>Présenter les deux méthodes WTF permet d'encadrer la recharge probable.</li>
+</ul>
+<p>Pour reproduire cette analyse sur n'importe quelle région, réglez <strong>Gap filling</strong> sur <strong>Seasonal model</strong> et ouvrez
+l'<a href="../../recharge/opening/">Analyse de la Recharge</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../../recharge/results/" class="btn btn-neutral float-left" title="Résultats"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../volta/" class="btn btn-neutral float-right" title="Bassin de la Volta">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../recharge/results/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../volta/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

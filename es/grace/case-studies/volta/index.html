@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Cuenca del Volta - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Cuenca del Volta";
+        var mkdocs_page_input_path = "grace/case-studies/volta.es.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegación">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Formulación del Modelo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulación del Modelo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Datos Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catálogo de Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hidrografía</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Datos Retrospectivos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Datos Pronosticados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Acceso a los Datos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Aplicación Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Código</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Descargas Masivas</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recetario</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Tutoriales</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Encontrar Números de Río</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Consultando Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Servicio de Datos)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Mapas Web (Capa SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Corrección de Sesgo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Método SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Corregir Pronósticos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Fundamentos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Descripción General</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Misión GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Resolución, Fuga de Señal y Regiones Pequeñas</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Uso de la Aplicación</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interfaz</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vista Regional</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vista Global</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Análisis de Tendencias</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Descarga de Datos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Relleno de Vacíos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Vacíos en el Registro</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">El Modelo Estacional</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Análisis de Recarga</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">El Método WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Apertura del Análisis</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Años Hidrológicos y Selección de Puntos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Resultados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Parte 5: Casos de Estudio</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../niger/">Níger</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Cuenca del Volta</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#setting-and-data">Contexto y datos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-the-lake-matters">Por qué importa el lago</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recharge">Recarga</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusions">Conclusiones</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../central-valley/">Valle Central de California</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seminarios Web</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historia de GEOGLOWS y Presentación de RFS Versión 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulación del Modelo GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Datos Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introducción al Hydroviewer de GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="es">Español</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/case-studies/volta/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <span class="current" lang="es" aria-current="true">Español</span>
+      </li>
+      <li>
+          <a href="../../../../fr/grace/case-studies/volta/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documentos"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Parte 5: Casos de Estudio</li>
+      <li class="breadcrumb-item active">Cuenca del Volta</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cuenca-del-volta-separar-un-gran-embalse-del-agua-subterranea">Cuenca del Volta: separar un gran embalse del agua subterránea</h1>
+<div class="admonition cite">
+<p class="admonition-title">Artículo</p>
+<p>Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., Sanchez, J. L., Nelson, E. J., Ames, D. P., and
+Miller, A. W. (2025). <strong>A multi-source approach to groundwater storage and recharge assessment in the Volta Basin.</strong> <em>Science of The Total
+Environment</em>, 1001, 180421. <a href="https://doi.org/10.1016/j.scitotenv.2025.180421" target="_blank">doi:10.1016/j.scitotenv.2025.180421</a></p>
+</div>
+<h2 id="setting-and-data">Contexto y datos</h2>
+<p>La cuenca del Volta abarca unos 400,000 km² en Ghana, Burkina Faso, Togo, Malí, Costa de Marfil y Benín. El lago Volta, detrás de la presa de Akosombo,
+cubre solo cerca del 2% de la cuenca, pero almacena un volumen de agua grande y variable.</p>
+<p><img alt="Ubicación de la cuenca del Volta" src="../../../../static/images/grace/papers/volta-fig1-study-area.webp" /></p>
+<p><em>Ubicación de la cuenca del Volta. Barbosa et al. (2025), Fig. 1, CC BY 4.0.</em></p>
+<p>El estudio usó la TWSa de los mascons de JPL y el ensamble de GLDAS 2.1 de abril de 2002 a diciembre de 2022, el mismo balance hídrico que la aplicación, y agregó un
+término de agua superficial, SWSa, calculado a partir de la altimetría Copernicus del lago Volta:</p>
+<div class="highlight"><pre><span></span><code>GWSa = TWSa − (SMa + SWEa + CANa + SWSa)
+</code></pre></div>
+<p>Los vacíos se rellenaron por descomposición estacional con una tendencia lineal por tramos, el enfoque que usa la aplicación (consulta
+<a href="../../gap-filling/seasonal-model/">El Modelo Estacional</a>). El estudio también comparó los resultados con el almacenamiento de agua subterránea calculado directamente por el modelo
+Catchment de GLDAS 2.2, con la lluvia de CHIRPS y con 10 pozos de monitoreo en la subcuenca del Nasia.</p>
+<h2 id="why-the-lake-matters">Por qué importa el lago</h2>
+<p>El lago Volta representa cerca de la mitad del cambio total de almacenamiento de agua de la cuenca. Sin el término del lago, la GWSa calculada sigue al lago: de
+2002 a 2012 es casi por completo agua del lago. Al quitar el lago, el almacenamiento de agua subterránea cambió poco hasta cerca de 2012 y luego subió, con una
+ganancia total de unos 30 km³, o unos 10 cm de agua, en 2002–2022.</p>
+<p><img alt="SWSa a partir de la altimetría del lago Volta, y GWSa con y sin el lago" src="../../../../static/images/grace/papers/volta-fig6-swsa-gwsa.webp" /></p>
+<p><em>Anomalía de almacenamiento de agua superficial (SWSa) calculada a partir de datos de altimetría del lago Volta y anomalía de almacenamiento de agua subterránea (GWSa) obtenida con y sin
+considerar la SWSa. Barbosa et al. (2025), Fig. 6, CC BY 4.0.</em></p>
+<p>La GWSa de la aplicación para esta cuenca corresponde a la curva verde, porque la aplicación no resta el agua superficial (consulta
+<a href="../../background/deriving-groundwater/#the-water-balance">Cálculo del Almacenamiento de Agua Subterránea</a>).</p>
+<p>GLDAS 2.2, que asimila GRACE, mostró la misma tendencia pero oscilaciones estacionales mucho mayores, así que los autores lo recomiendan para tendencias pero no para
+estimar la recarga.</p>
+<p><img alt="GWSa de la cuenca del Volta según el modelo CLSM de GLDAS 2.2" src="../../../../static/images/grace/papers/volta-fig7-gldas22-vs-grace.webp" /></p>
+<p><em>Anomalía de almacenamiento de agua subterránea (GWSa) de la cuenca del Volta obtenida con el modelo CLSM de GLDAS 2.2. Barbosa et al. (2025), Fig. 7, CC BY 4.0.</em></p>
+<h2 id="recharge">Recarga</h2>
+<p>Aplicado a la GWSa de GRACE para 2010–2020 (los años anteriores a 2010 no tenían un ciclo estacional claro), el método de fluctuación del nivel freático dio una recarga
+promedio de 5.8 cm/año (Método 1) y 10.7 cm/año (Método 2). Los pozos de la subcuenca del Nasia dieron una mediana de 10.4 cm/año, suponiendo un rendimiento
+específico de 0.05, y un estudio anterior de Obuobie et al. (2012) dio 8.6 cm/año. GLDAS 2.2 dio 17.4 y 36.1 cm/año, muy por encima de las demás estimaciones.</p>
+<p><img alt="Diagrama de caja de la recarga en la cuenca del Volta" src="../../../../static/images/grace/papers/volta-fig8-recharge-boxplot.webp" /></p>
+<p><em>Diagrama de caja de la recarga en la cuenca del Volta estimada con los Métodos 1 y 2 de WTF usando datos de GRACE, usando el nuevo conjunto de datos de GLDAS V2.2, con WTF
+usando datos de pozos de observación, y según un estudio previo de Obuobie et al. (2012). Barbosa et al. (2025), Fig. 8, CC BY 4.0.</em></p>
+<h2 id="conclusions">Conclusiones</h2>
+<ul>
+<li>El almacenamiento de agua subterránea en la cuenca subió unos 30 km³ en 2002–2022, sobre todo después de principios de la década de 2010.</li>
+<li>En una cuenca con un gran embalse, dejar el agua superficial fuera del balance atribuye al agua subterránea los cambios del embalse.</li>
+<li>La recarga basada en GRACE concuerda con las estimaciones basadas en pozos y con estudios anteriores, así que GRACE puede respaldar estimaciones de recarga donde el monitoreo es
+  escaso.</li>
+</ul>
+<p><strong>Para usuarios de la aplicación:</strong> antes de interpretar la GWSa como agua subterránea en una cuenca con un gran lago, embalse o humedal, revisa qué parte de la señal de almacenamiento
+corresponde al agua superficial, y quítala si es grande.</p>
+<p>Para repetir este análisis en cualquier región, pon <strong>Gap filling</strong> en <strong>Seasonal model</strong> y abre el
+<a href="../../recharge/opening/">Análisis de Recarga</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegación de pie de página">
+        <a href="../niger/" class="btn btn-neutral float-left" title="Níger"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../central-valley/" class="btn btn-neutral float-right" title="Valle Central de California">Siguiente <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído con <a href="https://www.mkdocs.org/">MkDocs</a> usando un <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a> provisto por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versiones">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../niger/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../central-valley/" style="color: #fcfcfc">Siguiente &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

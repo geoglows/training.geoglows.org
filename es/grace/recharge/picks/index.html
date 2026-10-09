@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Años Hidrológicos y Selección de Puntos - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "A\u00f1os Hidrol\u00f3gicos y Selecci\u00f3n de Puntos";
+        var mkdocs_page_input_path = "grace/recharge/picks.es.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegación">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">River Forecast System</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Formulación del Modelo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulación del Modelo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Datos Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catálogo de Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hidrografía</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Datos Retrospectivos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Datos Pronosticados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Acceso a los Datos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Aplicación Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Código</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Descargas Masivas</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recetario</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 4: Tutoriales</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Encontrar Números de Río</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Consultando Datos</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Servicio de Datos)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Mapas Web (Capa SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Corrección de Sesgo</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Método SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Corregir Pronósticos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 1: Fundamentos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Descripción General</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Misión GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Cálculo del Almacenamiento de Agua Subterránea</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Resolución, Fuga de Señal y Regiones Pequeñas</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 2: Uso de la Aplicación</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interfaz</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vista Regional</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vista Global</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Análisis de Tendencias</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Descarga de Datos</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 3: Relleno de Vacíos</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Vacíos en el Registro</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">El Modelo Estacional</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Parte 4: Análisis de Recarga</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../wtf-method/">El Método WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../opening/">Apertura del Análisis</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Años Hidrológicos y Selección de Puntos</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#the-water-year">El año hidrológico</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-overview-chart">El gráfico general</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-year-editor">El editor del año</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../results/">Resultados</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Parte 5: Casos de Estudio</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Níger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Cuenca del Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Valle Central de California</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publicaciones</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seminarios Web</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historia de GEOGLOWS y Presentación de RFS Versión 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulación del Modelo GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Datos Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introducción al Hydroviewer de GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="es">Español</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/recharge/picks/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <span class="current" lang="es" aria-current="true">Español</span>
+      </li>
+      <li>
+          <a href="../../../../fr/grace/recharge/picks/" lang="fr" hreflang="fr">Français</a>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documentos"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Parte 4: Análisis de Recarga</li>
+      <li class="breadcrumb-item active">Años Hidrológicos y Selección de Puntos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="anos-hidrologicos-y-seleccion-de-puntos">Años Hidrológicos y Selección de Puntos</h1>
+<p>La segunda sección de la página Recharge Analysis divide el registro en años hidrológicos y selecciona el valle y el pico de cada uno. La aplicación los selecciona
+automáticamente, como se describe en <a href="../wtf-method/#applying-the-method-to-grace-data">El Método WTF</a>. Cada punto seleccionado se puede revisar y mover
+a mano en el editor del año.</p>
+<h2 id="the-water-year">El año hidrológico</h2>
+<p><strong>Water year starts in</strong> (el año hidrológico comienza en) define el mes calendario en que comienza cada año hidrológico. Por defecto es el mínimo habitual encontrado en la
+<a href="../opening/#is-this-series-suited-to-the-wtf-method">verificación de estacionalidad</a>, mostrado como "(auto, the usual low)". Cámbialo si sabes que la
+hidrología de la región requiere otro inicio. El análisis usa solo años hidrológicos completos, así que un año parcial en cualquiera de los extremos del registro
+queda fuera. Los años hidrológicos se nombran por el año calendario en que comienzan: para el Northern Midwest Aquifer System, el año hidrológico 2004 va de marzo
+de 2004 a febrero de 2005.</p>
+<p>Cambiar el mes de inicio desplaza todos los años hidrológicos, así que borra los puntos que hayas fijado a mano. <strong>Reset all picks</strong> los borra sin cambiar
+el mes de inicio.</p>
+<h2 id="the-overview-chart">El gráfico general</h2>
+<p>El gráfico muestra toda la serie rellenada con los puntos seleccionados de cada año:</p>
+<p><img alt="El valle, el pico y la línea de recesión de cada año hidrológico del Northern Midwest Aquifer System" src="../../../../static/images/grace/app-recharge-picks.webp" /></p>
+<ul>
+<li>la GWSa observada en azul y los meses rellenados en rojo, para que destaque un punto seleccionado sobre un mes estimado</li>
+<li>cada valle (S<sub>B</sub>) como un ▼ naranja y cada pico (S<sub>P</sub>) como un ▲ verde</li>
+<li>la línea de recesión de cada año en morado, ajustada desde el pico anterior hasta el valle y prolongada hasta el mes del pico</li>
+</ul>
+<p>Un vistazo al gráfico muestra si los puntos siguen el ciclo: un ▼ en el fondo de cada descenso y un ▲ en la cima del ascenso siguiente.
+La banda sombreada marca el año hidrológico abierto en el editor. Haz clic en cualquier punto de otro año para abrirlo.</p>
+<h2 id="the-year-editor">El editor del año</h2>
+<p>El editor debajo del gráfico muestra un año hidrológico de cerca, con los meses que determinan su recarga:</p>
+<p><img alt="El editor del año hidrológico 2004 del Northern Midwest Aquifer System" src="../../../../static/images/grace/app-recharge-editor.webp" /></p>
+<p>El gráfico comienza en el valle del año anterior, así que muestra el ascenso del año anterior hasta S<sub>A</sub>, la recesión desde S<sub>A</sub> hasta
+el valle de este año, y el ascenso de este año hasta el pico. La leyenda de arriba enumera cada marca:</p>
+<table>
+<thead>
+<tr>
+<th>Marca</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Línea y puntos azules</td>
+<td>meses observados</td>
+</tr>
+<tr>
+<td>Línea y puntos rojos</td>
+<td>meses rellenados por el modelo estacional</td>
+</tr>
+<tr>
+<td>▼ naranja, S_B</td>
+<td>el valle de este año</td>
+</tr>
+<tr>
+<td>▲ verde, S_P</td>
+<td>el pico de este año</td>
+</tr>
+<tr>
+<td>△ verde hueco, S_A</td>
+<td>el pico anterior, donde comienza la línea de recesión</td>
+</tr>
+<tr>
+<td>Línea morada continua</td>
+<td>la línea de recesión, ajustada a GWSa desde S_A hasta el valle</td>
+</tr>
+<tr>
+<td>Línea morada discontinua</td>
+<td>la línea de recesión prolongada desde el valle hasta el mes del pico, terminando en S_L</td>
+</tr>
+<tr>
+<td>Barra azul claro</td>
+<td>R1, desde S_B hasta S_P</td>
+</tr>
+<tr>
+<td>Barra morada</td>
+<td>R2, desde S_L hasta S_P</td>
+</tr>
+</tbody>
+</table>
+<p>Unas guías punteadas llevan S<sub>P</sub>, S<sub>B</sub> y S<sub>L</sub> hasta las barras, para que veas qué niveles abarca cada estimación. El
+panel de la derecha muestra el valle y el pico con sus meses y valores, S<sub>L</sub>, R1 y R2 en cm y, para una región, como volúmenes en
+km³. Una nota debajo de los valores indica los meses sobre los que se ajustó la línea de recesión y las notas de la tabla para ese año (consulta
+<a href="../results/#the-table">Resultados</a>).</p>
+<p>En el año hidrológico 2004, el valle cae en marzo de 2004 en −9.38 cm y el pico en agosto de 2004 en 1.60 cm, así que R1 es 10.98 cm. La línea de recesión se
+ajusta desde el pico de septiembre de 2003 (S<sub>A</sub>) hasta el valle de marzo. Prolongada hasta agosto, alcanza S<sub>L</sub> = −20.17 cm, así que R2 es
+21.77 cm. Sobre los 320,368 km² del sistema acuífero, eso equivale a 35.2 km³ (R1) a 69.7 km³ (R2) de recarga.</p>
+<p>El primer año hidrológico no tiene pico anterior. Su S<sub>A</sub> es el mes más alto antes de su valle, una vez eliminada la tendencia de largo plazo.</p>
+<h3 id="moving-through-the-years">Navegar entre los años</h3>
+<p><strong>◀</strong> y <strong>▶</strong>, a ambos lados del título del año, pasan al año hidrológico anterior y al siguiente, igual que las flechas ← y → del teclado. El título muestra los
+meses que abarca el año hidrológico y su posición en el registro ("year 2 of 23"). Hacer clic en una fila de la tabla de resultados también abre ese año.</p>
+<h3 id="changing-a-pick">Cambiar un punto seleccionado</h3>
+<p>Revisa el valle y el pico de cada año. Un punto puede estar mal seleccionado cuando un mes con ruido, a menudo un pico anómalo en los datos de GRACE o un mes rellenado, queda más alto o más bajo
+que el verdadero punto de inflexión. Hay dos formas de mover un punto:</p>
+<ul>
+<li><strong>Arrastra</strong> el valle ▼ o el pico ▲ a lo largo de la curva. El marcador se ajusta a los meses mientras arrastras, y el año se recalcula cuando lo sueltas.</li>
+<li><strong>Muévelo</strong> un mes a la vez con los botones <strong>‹</strong> y <strong>›</strong> junto al valle o al pico en el panel de la derecha.</li>
+</ul>
+<p>Los puntos se limitan a los meses que el método permite. El pico se mantiene dentro de su año hidrológico y después del pico del año anterior. El valle se mantiene entre el pico anterior y el pico de este año. Un botón de paso se desactiva cuando el mes siguiente violaría
+estos límites.</p>
+<p>Mover un punto recalcula todo el análisis. Un pico fija S<sub>A</sub> para el año siguiente, así que mover un pico también cambia la
+línea de recesión del año siguiente, su R2 y posiblemente su valle. Los años con un punto fijado a mano se marcan con ✎ en la tabla de resultados y con "set by hand" en sus notas.
+<strong>Reset this year</strong> devuelve un año a los puntos automáticos, y <strong>Reset all picks</strong> hace lo mismo para todos los años.</p>
+<p>Los puntos fijados a mano se conservan hasta que cierras la página. Para guardarlos, descarga el CSV, que registra los puntos seleccionados y marca los fijados a mano.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegación de pie de página">
+        <a href="../opening/" class="btn btn-neutral float-left" title="Apertura del Análisis"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../results/" class="btn btn-neutral float-right" title="Resultados">Siguiente <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído con <a href="https://www.mkdocs.org/">MkDocs</a> usando un <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a> provisto por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versiones">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../opening/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../results/" style="color: #fcfcfc">Siguiente &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

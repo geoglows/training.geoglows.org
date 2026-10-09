@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Le Modèle Saisonnier - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Le Mod\u00e8le Saisonnier";
+        var mkdocs_page_input_path = "grace/gap-filling/seasonal-model.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 3 : Comblement des Lacunes</a>
+    <ul class="current">
+                <li class="toctree-l2">
+<a class="reference internal" href="../gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Le Modèle Saisonnier</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#trend-seasonal-cycle-and-residual">Tendance, cycle saisonnier et résidu</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fitting-the-model">Ajustement du modèle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filling-the-gaps">Comblement des lacunes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fill-accuracy">Précision du comblement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reference">Référence</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/gap-filling/seasonal-model/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/gap-filling/seasonal-model/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 3 : Comblement des Lacunes</li>
+      <li class="breadcrumb-item active">Le Modèle Saisonnier</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="le-modele-saisonnier">Le Modèle Saisonnier</h1>
+<p>L'option <strong>Seasonal model</strong> estime chaque mois manquant à partir d'un modèle de la série propre à la région, ajusté sur ses mois observés,
+selon l'approche de Barbosa et al. (2022) (voir <a href="../gaps/">Lacunes dans les Données</a>). Cette page présente le modèle, son ajustement, le calcul
+des valeurs comblées et leur précision.</p>
+<h2 id="trend-seasonal-cycle-and-residual">Tendance, cycle saisonnier et résidu</h2>
+<p>La série est décomposée en une tendance à long terme, un cycle saisonnier qui se répète chaque année, et un résidu :</p>
+<div class="arithmatex">\[
+y(t) = T(t) + S(m) + r(t)
+\]</div>
+<p>où <em>y</em>(<em>t</em>) est GWSa (ou TWSa) au mois <em>t</em>, <em>m</em> est le mois calendaire de <em>t</em> (janvier à décembre), <em>T</em> est la tendance, <em>S</em> le cycle
+saisonnier et <em>r</em> le résidu, c'est-à-dire la part de la valeur de chaque mois que la tendance et le cycle saisonnier n'expliquent pas.</p>
+<p>Pour le Northern Midwest Aquifer System, le modèle sépare le GWSa en ces trois parties, la lacune entre les missions étant grisée :</p>
+<p><img alt="GWSa du Northern Midwest Aquifer System séparé en tendance, cycle saisonnier et résidu" src="../../../../static/images/grace/seasonal-decomposition.png" width="800" /></p>
+<p>La tendance porte la hausse et la baisse lentes du stockage sur l'ensemble de la série, le cycle saisonnier répète la même oscillation annuelle
+chaque année, et le résidu contient le reste : les années humides et sèches, et le bruit des données GRACE.</p>
+<h3 id="the-trend">La tendance</h3>
+<p>La tendance est une droite continue par morceaux comportant jusqu'à trois points de rupture <em>b</em><sub>1</sub>, …, <em>b</em><sub>k</sub>, où sa pente change :</p>
+<div class="arithmatex">\[
+T(t) = \beta \, t + \sum_{j=1}^{k} \gamma_j \max(t - b_j,\, 0)
+\]</div>
+<p>Le temps <em>t</em> est compté en mois à partir du premier mois observé. Chaque terme charnière max(<em>t</em> − <em>b</em><sub>j</sub>, 0) est nul avant son point de rupture et
+augmente d'une unité par mois ensuite ; la pente vaut donc <em>β</em> avant le premier point de rupture, <em>β</em> + <em>γ</em><sub>1</sub> après celui-ci, et ainsi de suite. La droite s'infléchit à chaque
+point de rupture sans saut. Une série avec <em>k</em> = 0 a une tendance rectiligne unique.</p>
+<h3 id="the-seasonal-cycle">Le cycle saisonnier</h3>
+<p>Le cycle saisonnier a un niveau pour chaque mois calendaire, <em>α</em><sub>Jan</sub>, …, <em>α</em><sub>Dec</sub>. Le modèle complet pour un mois observé <em>i</em>
+s'écrit</p>
+<div class="arithmatex">\[
+y_i = \beta \, t_i + \sum_{j=1}^{k} \gamma_j \max(t_i - b_j,\, 0) + \alpha_{m_i} + \varepsilon_i
+\]</div>
+<p>Les douze niveaux tiennent aussi lieu d'ordonnée à l'origine ; il n'y a donc pas de terme constant séparé. Les niveaux sont les mêmes d'une année à l'autre : le modèle a un
+seul cycle annuel moyen, et une année humide apparaît dans le résidu et non dans <em>S</em>.</p>
+<p>Pour le Northern Midwest Aquifer System, les niveaux, décalés pour avoir une moyenne nulle comme décrit dans <a href="#fitting-the-model">Ajustement du modèle</a>,
+vont de −4.3 cm en mars à +3.8 cm en août :</p>
+<p><img alt="Les douze niveaux mensuels du cycle saisonnier du Northern Midwest Aquifer System" src="../../../../static/images/grace/seasonal-levels.png" width="700" /></p>
+<h2 id="fitting-the-model">Ajustement du modèle</h2>
+<h3 id="least-squares-for-fixed-breakpoints">Moindres carrés à points de rupture fixés</h3>
+<p>Pour un ensemble donné de points de rupture, les pentes <em>β</em> et <em>γ</em><sub>j</sub> et les douze niveaux <em>α</em><sub>m</sub> sont obtenus par moindres carrés ordinaires
+sur les seuls mois observés. Les mois manquants ne participent pas à l'ajustement. Chaque mois calendaire doit être observé au moins deux fois ; sinon son niveau
+ne peut pas être estimé de façon fiable et l'application laisse la série sans comblement.</p>
+<p>Après l'ajustement, les niveaux sont décalés de sorte que le cycle saisonnier ait une moyenne nulle sur l'année, et la tendance est relevée de la même quantité :</p>
+<div class="arithmatex">\[
+S(m) = \alpha_m - \bar{\alpha}, \qquad T(t) = \beta \, t + \sum_{j} \gamma_j \max(t - b_j,\, 0) + \bar{\alpha}, \qquad
+\bar{\alpha} = \frac{1}{12} \sum_{m} \alpha_m
+\]</div>
+<p>La somme <em>T</em> + <em>S</em> reste inchangée. Avec ce décalage, <em>T</em> donne le niveau à long terme et <em>S</em> l'écart de chaque mois par rapport à ce niveau.</p>
+<h3 id="placing-the-breakpoints">Placement des points de rupture</h3>
+<p>Pour un nombre donné <em>k</em> de points de rupture, l'application choisit leurs positions de façon à minimiser la somme des carrés des résidus (RSS) de l'ajustement. Les points de rupture
+sont contraints pour que chaque segment de la tendance ait un sens :</p>
+<ul>
+<li>au moins 48 mois (quatre ans) de chaque extrémité de la série, pour qu'un segment terminal ne soit pas ajusté sur quelques mois</li>
+<li>au moins 36 mois (trois ans) d'écart entre eux, pour que chaque segment entre deux points de rupture couvre plusieurs cycles saisonniers</li>
+</ul>
+<p>La recherche se fait en deux étapes. D'abord, des points de rupture candidats sont placés tous les trois mois, et chaque combinaison valide de <em>k</em> candidats est
+ajustée. La combinaison de plus faible RSS est retenue. Ensuite, chaque point de rupture est tour à tour déplacé d'un mois plus tôt ou plus tard, et le déplacement est conservé
+s'il réduit la RSS. Cela se répète jusqu'à ce qu'aucun déplacement d'un mois n'améliore l'ajustement ; chaque point de rupture se retrouve ainsi au meilleur mois proche du meilleur
+candidat trimestriel.</p>
+<h3 id="choosing-the-number-of-breakpoints">Choix du nombre de points de rupture</h3>
+<p>Davantage de points de rupture ajustent toujours les mois observés au moins aussi bien ; le nombre est donc choisi avec le critère d'information bayésien (BIC),
+qui ajoute une pénalité pour chaque paramètre :</p>
+<div class="arithmatex">\[
+\text{BIC} = n \ln\!\left(\frac{\text{RSS}}{n}\right) + p \ln n, \qquad p = 1 + 2k + 12
+\]</div>
+<p>où <em>n</em> est le nombre de mois observés et <em>p</em> compte les paramètres : la première pente, un changement de pente et une position pour chaque point de rupture,
+et les douze niveaux mensuels.</p>
+<p>L'application ajuste le meilleur modèle à 0, 1, 2 et 3 points de rupture. En partant de la tendance rectiligne, elle ne passe à un modèle comportant plus de points de rupture que si
+le BIC de ce modèle est inférieur d'au moins 10 à celui du modèle retenu jusque-là. Une baisse de 10 constitue une forte indication que l'inflexion supplémentaire est réelle
+et ne résulte pas d'un ajustement au bruit ; la tendance ne s'infléchit donc que là où la série change nettement de direction.</p>
+<p>Pour le Northern Midwest Aquifer System, chaque point de rupture supplémentaire abaisse le BIC de plus de 10 (de 12, puis 113, puis 44), si bien
+que l'application conserve les trois :</p>
+<p><img alt="La meilleure tendance avec 0, 1, 2 et 3 points de rupture pour le Northern Midwest Aquifer System, avec le BIC de chacune" src="../../../../static/images/grace/seasonal-breakpoints.png" width="950" /></p>
+<h2 id="filling-the-gaps">Comblement des lacunes</h2>
+<p>Une lacune est une suite d'un ou plusieurs mois manquants entre deux mois observés, <em>a</em> avant et <em>c</em> après. Le modèle seul, <em>T</em> + <em>S</em>, ne
+rejoindrait les valeurs observées à aucune des extrémités de la lacune, car chaque mois observé a son propre résidu. La valeur comblée ajoute une correction
+du résidu interpolée linéairement à travers la lacune :</p>
+<div class="arithmatex">\[
+\hat{y}_g = T(t_g) + S(m_g) + r_a + \frac{t_g - t_a}{t_c - t_a}\,(r_c - r_a), \qquad r_a = y_a - T(t_a) - S(m_a), \quad r_c = y_c - T(t_c) - S(m_c)
+\]</div>
+<p>pour chaque mois manquant <em>g</em> de la lacune.</p>
+<p>La correction donne au comblement une forme cohérente quelle que soit la longueur de la lacune :</p>
+<ul>
+<li>Pour un seul mois manquant, la variation saisonnière d'un mois au suivant est faible ; la valeur comblée est donc proche d'une droite entre
+  ses deux voisins.</li>
+<li>Pour une longue lacune, comme les 11 mois entre les missions, les mois comblés suivent la tendance et le cycle saisonnier, montant et descendant
+  au rythme habituel des saisons, tandis que la correction les décale pour rejoindre les valeurs observées aux deux extrémités.</li>
+</ul>
+<p>Les deux résidus qui fixent la correction proviennent de mois différents, et rien ne lie l'un à l'autre. Dans la lacune entre les missions du
+Northern Midwest Aquifer System, ils sont presque égaux (−0.38 cm en juin 2017 et −0.53 cm en juin 2018), si bien que la correction place chaque
+mois comblé juste sous le modèle seul :</p>
+<p><img alt="La correction du résidu dans la lacune entre GRACE et GRACE-FO pour le Northern Midwest Aquifer System" src="../../../../static/images/grace/seasonal-gap-correction.png" width="720" /></p>
+<p>Dans la Vallée Centrale de Californie, la même lacune commence 5.55 cm au-dessus du modèle et se termine 3.64 cm en dessous. La correction
+diminue de 9.2 cm d'un bout à l'autre de la lacune, si bien que les mois comblés commencent bien au-dessus du modèle seul et finissent en dessous :</p>
+<p><img alt="La correction du résidu dans la lacune entre GRACE et GRACE-FO pour la Vallée Centrale de Californie" src="../../../../static/images/grace/seasonal-gap-correction-cv.png" width="720" /></p>
+<p>Les mois observés ne sont jamais modifiés. Les mois antérieurs à la première observation ou postérieurs à la dernière restent vides, car il n'y a pas de valeur observée
+de l'autre côté à laquelle ancrer une correction.</p>
+<p>GWSa et TWSa sont chacun comblés à partir de leur propre série, avec leur propre tendance et leur propre cycle saisonnier. Une valeur comblée de GWSa n'est donc pas exactement la
+valeur comblée de TWSa moins les termes GLDAS de ce mois. Les couches GLDAS n'ont pas de lacunes et ne sont jamais comblées.</p>
+<h3 id="example-the-northern-midwest-aquifer-system">Exemple : le Northern Midwest Aquifer System</h3>
+<p>Pour le Northern Midwest Aquifer System, le BIC retient trois points de rupture, en septembre 2006, mai 2013 et octobre 2017, qui divisent la série
+en quatre segments de tendance de +1.3, −0.7, +2.9 et −0.5 cm/an :</p>
+<p><img alt="GWSa observé du Northern Midwest Aquifer System avec la tendance à quatre segments et les mois comblés en rouge" src="../../../../static/images/grace/gap-filling-example.png" width="800" /></p>
+<p>Les mois manquants isolés entre 2011 et 2017 restent proches de leurs voisins. Sur la lacune de 11 mois entre les missions, les valeurs comblées
+montent à 12.8 cm en septembre 2017 et redescendent à 4.8 cm en mars 2018 avant de rejoindre le premier mois GRACE-FO, prolongeant le cycle annuel
+de la région. L'application affiche les mêmes valeurs avec <strong>Gap filling</strong> réglé sur <strong>Seasonal model</strong> (voir
+<a href="../gaps/#the-gap-filling-control">Lacunes dans les Données</a>).</p>
+<h2 id="fill-accuracy">Précision du comblement</h2>
+<p>Le comblement a été testé sur des mois qui disposent de données. Certains mois observés sont masqués, le modèle est réajusté sans eux, et les valeurs comblées
+sont comparées aux valeurs réelles. Il y a deux tests :</p>
+<ul>
+<li><strong>Mois isolés :</strong> 10 % des mois observés (26 mois), choisis au hasard sur l'ensemble de la série, sont masqués ensemble.</li>
+<li><strong>Longues lacunes :</strong> un bloc de 11 mois est masqué, pour reproduire la lacune entre les missions. L'opération est répétée pour six blocs répartis sur la
+  série.</li>
+</ul>
+<p>Chaque test compare le modèle saisonnier à deux comblements plus simples : la tendance et le cycle saisonnier sans la correction du résidu, et l'interpolation
+linéaire entre les mois observés voisins. Le tableau donne l'erreur quadratique moyenne (RMSE) de chacun, en cm, avec l'incertitude GRACE médiane ±1σ
+de la région à titre de comparaison :</p>
+<p><strong>Mois isolés</strong> (RMSE, cm) :</p>
+<table>
+<thead>
+<tr>
+<th>Région</th>
+<th>±1σ</th>
+<th>Modèle saisonnier</th>
+<th>Tendance + saisonnier</th>
+<th>Linéaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Northern Midwest Aquifer System</td>
+<td>4.4</td>
+<td>1.3</td>
+<td>2.4</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>Bassin de la Volta</td>
+<td>3.9</td>
+<td>1.6</td>
+<td>2.5</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>Iullemeden-Irhazer Aquifer System</td>
+<td>1.9</td>
+<td>0.9</td>
+<td>1.1</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>Vallée Centrale de Californie</td>
+<td>3.4</td>
+<td>3.1</td>
+<td>5.3</td>
+<td>3.3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Blocs de 11 mois</strong> (RMSE, cm) :</p>
+<table>
+<thead>
+<tr>
+<th>Région</th>
+<th>±1σ</th>
+<th>Modèle saisonnier</th>
+<th>Tendance + saisonnier</th>
+<th>Linéaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Northern Midwest Aquifer System</td>
+<td>4.4</td>
+<td>1.5</td>
+<td>2.3</td>
+<td>4.7</td>
+</tr>
+<tr>
+<td>Bassin de la Volta</td>
+<td>3.9</td>
+<td>2.6</td>
+<td>2.4</td>
+<td>5.1</td>
+</tr>
+<tr>
+<td>Iullemeden-Irhazer Aquifer System</td>
+<td>1.9</td>
+<td>1.4</td>
+<td>1.4</td>
+<td>1.7</td>
+</tr>
+<tr>
+<td>Vallée Centrale de Californie</td>
+<td>3.4</td>
+<td>4.2</td>
+<td>4.8</td>
+<td>5.2</td>
+</tr>
+</tbody>
+</table>
+<p>Trois résultats se dégagent :</p>
+<ul>
+<li>Pour les mois isolés, le modèle saisonnier vaut à peu près l'interpolation linéaire, comme prévu : sur un seul mois, la correction du résidu rend
+  les deux presque identiques.</li>
+<li>Pour les lacunes de 11 mois, l'interpolation linéaire coupe en ligne droite tout un cycle saisonnier, et son erreur est deux à trois fois celle du
+  modèle saisonnier dans les régions à cycle marqué (4.7 contre 1.5 cm pour le Northern Midwest).</li>
+<li>Dans les trois premières régions, l'erreur du modèle saisonnier est nettement inférieure à l'incertitude GRACE. La Vallée Centrale de Californie se comble
+  moins bien, avec des erreurs supérieures à l'incertitude, car son stockage est gouverné par des sécheresses et des années humides pluriannuelles qu'aucun cycle saisonnier moyen
+  ne peut prévoir à l'intérieur d'une longue lacune.</li>
+</ul>
+<p>L'erreur d'une valeur comblée provient du modèle et non de GRACE ; l'application ne trace donc pas la bande d'incertitude pour les mois comblés. Dans une
+région comme la Vallée Centrale, traitez avec une prudence accrue les résultats qui dépendent de mois comblés, par exemple la recharge des années que
+l'<a href="../../recharge/results/#the-table">Analyse de la Recharge</a> signale comme utilisant des mois comblés.</p>
+<h2 id="reference">Référence</h2>
+<p>Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). Evaluating groundwater storage change and
+recharge using GRACE data: A case study of aquifers in Niger, West Africa. <em>Remote Sensing</em>, 14(7), 1532.
+<a href="https://doi.org/10.3390/rs14071532" target="_blank">doi:10.3390/rs14071532</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../gaps/" class="btn btn-neutral float-left" title="Lacunes dans les Données"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../../recharge/wtf-method/" class="btn btn-neutral float-right" title="La Méthode WTF">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../gaps/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../../recharge/wtf-method/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

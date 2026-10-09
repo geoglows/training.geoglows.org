@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>La Méthode WTF - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "La M\u00e9thode WTF";
+        var mkdocs_page_input_path = "grace/recharge/wtf-method.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Données Disponibles</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/catalog/">Catalogue de Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/datasets/forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../rfs/bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 4 : Analyse de la Recharge</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">La Méthode WTF</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#recharge-from-a-rising-water-table">La recharge à partir de la remontée de la nappe</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#one-water-year">Une année hydrologique</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#two-estimates-of-recharge">Deux estimations de la recharge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#applying-the-method-to-grace-data">Application de la méthode aux données GRACE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#where-the-method-applies">Domaine d'application de la méthode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">Références</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../grace/recharge/wtf-method/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/grace/recharge/wtf-method/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">GRACE Regional Analyst</li>
+          <li class="breadcrumb-item">Partie 4 : Analyse de la Recharge</li>
+      <li class="breadcrumb-item active">La Méthode WTF</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="la-methode-wtf">La Méthode WTF</h1>
+<h2 id="recharge-from-a-rising-water-table">La recharge à partir de la remontée de la nappe</h2>
+<p>La méthode de fluctuation de la nappe (WTF) estime la recharge des eaux souterraines à partir de la remontée des niveaux piézométriques qui suit une saison humide (Healy et
+Cook, 2002). Sous un climat comportant une saison sèche et une saison humide par an, le stockage diminue pendant les mois secs à mesure que les eaux souterraines se déchargent vers
+les cours d'eau, les sources, les puits et l'évapotranspiration. Quand la pluie ou la fonte des neiges atteint la nappe, le stockage remonte. L'ampleur de cette remontée
+mesure la quantité d'eau entrée dans l'aquifère.</p>
+<p>Sur l'hydrogramme d'un puits, la remontée est une variation de charge, Δh, et la recharge est le produit du rendement spécifique de l'aquifère par cette remontée :</p>
+<div class="arithmatex">\[
+R = S_y \, \Delta h
+\]</div>
+<p>Le rendement spécifique est rarement bien connu, et il varie au sein d'un aquifère ; c'est donc souvent la principale source d'erreur d'une estimation fondée sur des puits.
+GRACE supprime cette étape. GWSa est déjà une hauteur d'eau, la variation du stockage des eaux souterraines moyennée sur la région ; appliquée à GWSa, la
+méthode donne donc directement la recharge en centimètres par an, sans rendement spécifique :</p>
+<div class="arithmatex">\[
+R = \Delta \text{GWSa}
+\]</div>
+<p>Barbosa et al. (2022) ont appliqué la méthode de cette façon aux bassins des Iullemeden et du Tchad au Niger, en utilisant la série GRACE des eaux souterraines à la place
+des hydrogrammes de puits (voir <a href="../../case-studies/niger/">Études de Cas</a>).
+La page Recharge Analysis de l'application suit leur approche.</p>
+<h2 id="one-water-year">Une année hydrologique</h2>
+<p>La méthode travaille une année hydrologique à la fois. Une année hydrologique comprend une saison sèche suivie d'une saison humide ; elle commence donc au mois où
+le stockage est habituellement le plus bas. Pour chaque année hydrologique, la méthode a besoin de quatre valeurs de GWSa :</p>
+<p><img alt="La méthode de fluctuation de la nappe appliquée à une année hydrologique" src="../../../../static/images/grace/wtf-concept.png" /></p>
+<ul>
+<li><strong>S<sub>A</sub></strong>, le pic de la saison humide précédente, où commence la récession de saison sèche</li>
+<li><strong>S<sub>B</sub></strong>, le creux, le stockage le plus bas avant la remontée de l'année</li>
+<li><strong>S<sub>P</sub></strong>, le pic atteint pendant cette saison humide</li>
+<li><strong>S<sub>L</sub></strong>, le stockage que l'aquifère aurait atteint au moment du pic s'il avait continué à se vider sans recharge</li>
+</ul>
+<p>La droite de récession donne S<sub>L</sub>. Une droite est ajustée sur GWSa de S<sub>A</sub> jusqu'à S<sub>B</sub>, ce qui donne le rythme auquel
+le stockage se vide sans recharge. Cette pente est ensuite prolongée de S<sub>B</sub> jusqu'au mois du pic :</p>
+<div class="arithmatex">\[
+S_L = S_B + m \, (t_P - t_B)
+\]</div>
+<p>où <em>m</em> est la pente de la droite ajustée (cm par mois), et <em>t</em><sub>B</sub> et <em>t</em><sub>P</sub> sont les mois du creux et du pic.</p>
+<h2 id="two-estimates-of-recharge">Deux estimations de la recharge</h2>
+<p>La remontée visible du creux au pic est</p>
+<div class="arithmatex">\[
+R_S = S_P - S_B
+\]</div>
+<p>L'aquifère continue de se vider pendant qu'il est rechargé ; une partie de l'eau arrivée pendant la saison humide repart donc avant le pic
+et n'apparaît jamais dans la remontée. La droite de récession estime cette perte comme la baisse supplémentaire qu'aurait montrée le stockage sans recharge :</p>
+<div class="arithmatex">\[
+R_D = S_B - S_L
+\]</div>
+<p>Ensemble, elles donnent deux estimations, que l'application présente sous les noms R1 et R2 :</p>
+<div class="arithmatex">\[
+\begin{aligned}
+R_1 &amp;= R_S = S_P - S_B \\
+R_2 &amp;= R_S + R_D = S_P - S_L
+\end{aligned}
+\]</div>
+<p>R1 ne compte que la remontée visible ; c'est donc une estimation basse. R2 réintègre le drainage pendant la remontée, mais il repose sur le prolongement de la
+droite de récession sur des mois où elle n'a pas été ajustée, et le rythme de drainage ralentit généralement à mesure que le stockage baisse ; R2 est donc une estimation haute.
+Barbosa et al. (2022) les appellent Method 1 et Method 2 et présentent les deux. La recharge réelle se situe très probablement entre elles.</p>
+<p>Lorsque le stockage était stable ou en hausse avant le creux, il n'y a pas de drainage à corriger : l'application pose S<sub>L</sub> = S<sub>B</sub>, et R2
+est égal à R1.</p>
+<h2 id="applying-the-method-to-grace-data">Application de la méthode aux données GRACE</h2>
+<p>Les données GRACE diffèrent d'une série de puits sur plusieurs points, et l'application traite chacun d'eux.</p>
+<p><strong>Lacunes.</strong> La méthode a besoin d'une valeur pour chaque mois : un mois manquant au pic ou au creux modifie le résultat de l'année. L'analyse de la recharge n'est
+disponible qu'avec le comblement <strong>Seasonal model</strong>, et elle s'exécute sur la série comblée (voir <a href="../../gap-filling/gaps/">Lacunes dans les Données</a>). Les années dont
+les points choisis ou la droite de récession tombent sur des mois comblés sont signalées dans les résultats.</p>
+<p><strong>Tendances à long terme.</strong> De nombreuses régions présentent une baisse ou une hausse régulière du stockage sur l'ensemble de la série. Sur la série brute, une forte baisse
+repousserait le mois le plus haut de chaque année au début de l'année hydrologique et son mois le plus bas à la fin. L'application choisit les mois du pic et du creux sur
+la série dont la tendance à long terme a été retirée (la tendance du modèle saisonnier), puis lit S<sub>P</sub>, S<sub>B</sub> et la droite de récession
+sur la série comblée elle-même.</p>
+<p><strong>L'année hydrologique.</strong> L'application repère le mois de plus faible valeur dans le cycle saisonnier moyen et fait commencer chaque année hydrologique à ce mois. Vous pouvez
+choisir un autre mois de début (voir <a href="../picks/">Années Hydrologiques et Choix des Points</a>).</p>
+<p><strong>Les points choisis.</strong> Dans chaque année hydrologique, S<sub>P</sub> est le mois le plus haut de la série sans tendance. S<sub>B</sub> est le mois sans tendance le plus bas
+entre le pic de l'année précédente et celui de l'année en cours. S<sub>A</sub> est le pic de l'année précédente. La première année hydrologique de la série n'a pas de
+pic précédent ; son S<sub>A</sub> est donc le mois sans tendance le plus haut avant son creux.</p>
+<p><strong>La droite de récession.</strong> La droite est un ajustement par moindres carrés sur la GWSa comblée de S<sub>A</sub> à S<sub>B</sub>. Lorsque le creux survient moins
+de quatre mois après S<sub>A</sub>, l'ajustement utilise à la place les quatre mois qui se terminent au creux, de sorte qu'une pente n'est jamais ajustée sur deux ou trois
+points.</p>
+<p><strong>Unités.</strong> GWSa est exprimé en centimètres d'eau ; R1 et R2 sont donc en cm par an, moyennés sur la région. Multipliés par la superficie de la région,
+ils donnent un volume :</p>
+<div class="arithmatex">\[
+V\,[\text{km}^3/\text{an}] = R\,[\text{cm/an}] \times 10^{-5} \times A\,[\text{km}^2]
+\]</div>
+<h2 id="where-the-method-applies">Domaine d'application de la méthode</h2>
+<p>La méthode interprète la remontée de chaque année comme la recharge de cette année ; elle exige donc un cycle annuel net avec une seule saison de recharge par an. Elle fonctionne le mieux
+lorsque :</p>
+<ul>
+<li>le stockage monte et descend une fois par an, à peu près à la même époque chaque année</li>
+<li>l'amplitude saisonnière est grande par rapport à l'incertitude ±1σ d'une valeur mensuelle GRACE</li>
+<li>la baisse de saison sèche correspond à un drainage naturel et non à des pompages</li>
+</ul>
+<p>Elle ne s'applique pas lorsque la recharge a lieu toute l'année sans remontée nette, dans les régions arides à faible recharge saisonnière, ni lorsque des périodes humides
+et sèches pluriannuelles dominent la série. L'application vérifie ces conditions sur chaque série avant d'exécuter la méthode (voir
+<a href="../opening/">Ouverture de l'Analyse</a>).</p>
+<h2 id="references">Références</h2>
+<ul>
+<li>Healy, R. W., and Cook, P. G. (2002). Using groundwater levels to estimate recharge. <em>Hydrogeology Journal</em>, 10, 91–109.
+  <a href="https://doi.org/10.1007/s10040-001-0178-0" target="_blank">doi:10.1007/s10040-001-0178-0</a></li>
+<li>Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). Evaluating groundwater storage change and
+  recharge using GRACE data: A case study of aquifers in Niger, West Africa. <em>Remote Sensing</em>, 14(7), 1532.
+  <a href="https://doi.org/10.3390/rs14071532" target="_blank">doi:10.3390/rs14071532</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../../gap-filling/seasonal-model/" class="btn btn-neutral float-left" title="Le Modèle Saisonnier"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../opening/" class="btn btn-neutral float-right" title="Ouverture de l'Analyse">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../gap-filling/seasonal-model/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../opening/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

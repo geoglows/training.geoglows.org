@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="500" viewBox="0 0 1180 500">
+<title>Water table fluctuation method</title>
+<defs>
+<marker id="ah-navy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0"/></marker>
+<marker id="ah-lightblue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bee3f8"/></marker>
+<marker id="ah-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a7b"/></marker>
+<marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+<marker id="ah-darkgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/></marker>
+<marker id="ah-lightgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+<marker id="ah-ground" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e6dcc6"/></marker>
+<marker id="ah-groundline" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a89474"/></marker>
+<marker id="ah-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d69e2e"/></marker>
+<marker id="ah-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f7fafc"/></marker>
+<marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
+</defs>
+<rect width="1180" height="500" fill="white"/>
+<rect x="115.8" y="50" width="263.4" height="370" fill="#fdf6ec"/>
+<rect x="379.2" y="50" width="166.1" height="370" fill="#eaf4fb"/>
+<rect x="545.3" y="50" width="143.2" height="370" fill="#fdf6ec"/>
+<text x="247.5" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#9c6a1d" >dry season: storage drains</text>
+<text x="462.2" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="italic" text-anchor="middle" fill="#2b6cb0" >wet season</text>
+<line x1="80.0" y1="420.0" x2="760.0" y2="420.0" stroke="#4a5568" stroke-width="1.2" stroke-linecap="round" opacity="1"/>
+<line x1="80.0" y1="50.0" x2="80.0" y2="420.0" stroke="#4a5568" stroke-width="1.2" stroke-linecap="round" opacity="1"/>
+<text x="0" y="0" transform="translate(34,235.0) rotate(-90)" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#4a5568">GWSa (cm)</text>
+<text x="420.0" y="454.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" text-anchor="middle" fill="#4a5568" >time (months)</text>
+<line x1="115.8" y1="137.5" x2="379.2" y2="288.3" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="379.2" y1="277.3" x2="545.3" y2="372.4" stroke="#c53030" stroke-width="2" stroke-linecap="round" opacity="1" stroke-dasharray="7 5"/>
+<text x="247.5" y="238.9" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#c53030" transform="rotate(29.8 247.5 238.9)">recession line, fitted</text>
+<text x="445.6" y="341.4" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#c53030" transform="rotate(29.8 445.6 341.4)">projected from S<tspan font-size='9' baseline-shift='sub'>B</tspan></text>
+<polyline points="115.8,142.4 118.7,142.5 121.5,142.8 124.4,143.2 127.2,143.7 130.1,144.4 133.0,145.2 135.8,146.1 138.7,147.1 141.6,148.3 144.4,149.8 147.3,151.7 150.1,153.6 153.0,155.4 155.9,157.3 158.7,159.2 161.6,161.0 164.5,162.9 167.3,164.7 170.2,166.6 173.1,168.4 175.9,170.3 178.8,172.1 181.6,174.0 184.5,175.8 187.4,177.6 190.2,179.4 193.1,181.2 196.0,183.0 198.8,184.8 201.7,186.6 204.5,188.4 207.4,190.2 210.3,192.0 213.1,193.8 216.0,195.6 218.9,197.4 221.7,199.1 224.6,200.9 227.5,202.7 230.3,204.4 233.2,206.2 236.0,207.9 238.9,209.7 241.8,211.4 244.6,213.1 247.5,214.9 250.4,216.6 253.2,218.3 256.1,220.1 258.9,221.8 261.8,223.5 264.7,225.2 267.5,226.9 270.4,228.6 273.3,230.3 276.1,232.0 279.0,233.6 281.9,235.3 284.7,237.0 287.6,238.7 290.4,240.3 293.3,242.0 296.2,243.6 299.0,245.2 301.9,246.9 304.8,248.5 307.6,250.1 310.5,251.7 313.3,253.2 316.2,254.8 319.1,256.3 321.9,257.9 324.8,259.4 327.7,260.8 330.5,262.3 333.4,263.7 336.3,265.1 339.1,266.4 342.0,267.7 344.8,268.9 347.7,270.1 350.6,271.2 353.4,272.3 356.3,273.3 359.2,274.1 362.0,274.9 364.9,275.6 367.7,276.2 370.6,276.7 373.5,277.1 376.3,277.3 379.2,277.3 382.1,277.2 384.9,277.0 387.8,276.5 390.7,275.9 393.5,275.1 396.4,274.1 399.2,272.9 402.1,271.4 405.0,269.8 407.8,267.9 410.7,265.8 413.6,263.4 416.4,260.9 419.3,258.1 422.1,255.0 425.0,251.8 427.9,248.3 430.7,244.6 433.6,240.7 436.5,236.6 439.3,232.3 442.2,227.9 445.1,223.3 447.9,218.6 450.8,213.7 453.6,208.8 456.5,203.8 459.4,198.7 462.2,193.6 465.1,188.5 468.0,183.5 470.8,178.4 473.7,173.4 476.5,168.5 479.4,163.7 482.3,159.0 485.1,154.5 488.0,150.1 490.9,145.8 493.7,141.8 496.6,138.0 499.5,134.4 502.3,131.0 505.2,127.8 508.0,124.9 510.9,122.2 513.8,119.7 516.6,117.5 519.5,115.6 522.4,113.9 525.2,112.4 528.1,111.1 530.9,110.1 533.8,109.3 536.7,108.7 539.5,108.3 542.4,108.1 545.3,108.1 548.1,108.3 551.0,108.6 553.9,109.1 556.7,109.8 559.6,110.5 562.4,111.4 565.3,112.4 568.2,113.5 571.0,114.7 573.9,116.3 576.8,118.3 579.6,120.2 582.5,122.2 585.3,124.1 588.2,126.1 591.1,128.0 593.9,130.0 596.8,131.9 599.7,133.8 602.5,135.8 605.4,137.7 608.3,139.6 611.1,141.5 614.0,143.4 616.8,145.3 619.7,147.2 622.6,149.1 625.4,151.0 628.3,152.9 631.2,154.7 634.0,156.6 636.9,158.5 639.7,160.3 642.6,162.2 645.5,164.1 648.3,165.9 651.2,167.8 654.1,169.6 656.9,171.4 659.8,173.3 662.7,175.1 665.5,176.9 668.4,178.7 671.2,180.6 674.1,182.4 677.0,184.2 679.8,186.0 682.7,187.8 685.6,189.6 688.4,191.4" fill="none" stroke="#1f3a5f" stroke-width="3"/>
+<line x1="379.2" y1="277.3" x2="722.4" y2="277.3" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<line x1="553.3" y1="108.1" x2="722.4" y2="108.1" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<line x1="553.3" y1="372.4" x2="722.4" y2="372.4" stroke="#718096" stroke-width="1.2" stroke-linecap="round" opacity="1" stroke-dasharray="2 4"/>
+<circle cx="115.8" cy="142.4" r="6" fill="white" stroke="#718096" stroke-width="2.5"/>
+<text x="115.8" y="128.4" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#718096">S<tspan font-size='11' baseline-shift='sub'>A</tspan></text>
+<circle cx="379.2" cy="277.3" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="379.2" y="303.3" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>B</tspan></text>
+<circle cx="545.3" cy="108.1" r="6" fill="white" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="545.3" y="94.1" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b6cb0">S<tspan font-size='11' baseline-shift='sub'>P</tspan></text>
+<circle cx="545.3" cy="372.4" r="6" fill="white" stroke="#c53030" stroke-width="2.5"/>
+<text x="525.3" y="378.4" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#c53030">S<tspan font-size='11' baseline-shift='sub'>L</tspan></text>
+<line x1="722.4" y1="108.1" x2="722.4" y2="277.3" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="108.1" x2="729.4" y2="108.1" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="277.3" x2="729.4" y2="277.3" stroke="#2b6cb0" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<text x="736.421052631465" y="197.7" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2b6cb0">R<tspan font-size='11' baseline-shift='sub'>S</tspan></text>
+<line x1="722.4" y1="277.3" x2="722.4" y2="372.4" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="277.3" x2="729.4" y2="277.3" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<line x1="715.4" y1="372.4" x2="729.4" y2="372.4" stroke="#c53030" stroke-width="2.2" stroke-linecap="round" opacity="1"/>
+<text x="736.421052631465" y="329.9" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#c53030">R<tspan font-size='11' baseline-shift='sub'>D</tspan></text>
+<text x="115.8" y="438.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >previous peak</text>
+<text x="545.3" y="438.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" text-anchor="middle" fill="#718096" >this year's peak</text>
+<text x="820" y="70" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Picks for one water year</text>
+<text x="820" y="98" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>A</tspan>  previous wet-season peak</text>
+<text x="820" y="120" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>B</tspan>  lowest point before the rise</text>
+<text x="820" y="142" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>P</tspan>  this wet season's peak</text>
+<text x="820" y="164" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">S<tspan font-size='10' baseline-shift='sub'>L</tspan>  where storage would have been</text>
+<text x="820" y="182" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#4a5568">      at the peak with no recharge</text>
+<text x="820" y="226" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">Recharge</text>
+<text x="820" y="256" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2b6cb0">R<tspan font-size='10' baseline-shift='sub'>S</tspan> = S<tspan font-size='10' baseline-shift='sub'>P</tspan> − S<tspan font-size='10' baseline-shift='sub'>B</tspan>   (visible rise)</text>
+<text x="820" y="282" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#c53030">R<tspan font-size='10' baseline-shift='sub'>D</tspan> = S<tspan font-size='10' baseline-shift='sub'>B</tspan> − S<tspan font-size='10' baseline-shift='sub'>L</tspan>   (drainage offset)</text>
+<rect x="810" y="304" width="340" height="80" rx="8" fill="#f7fafc" stroke="#2b6cb0"/>
+<text x="820" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">R1 (lower):  R<tspan font-size='10' baseline-shift='sub'>S</tspan> = S<tspan font-size='10' baseline-shift='sub'>P</tspan> − S<tspan font-size='10' baseline-shift='sub'>B</tspan></text>
+<text x="820" y="366" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f3a5f">R2 (upper):  R<tspan font-size='10' baseline-shift='sub'>S</tspan> + R<tspan font-size='10' baseline-shift='sub'>D</tspan> = S<tspan font-size='10' baseline-shift='sub'>P</tspan> − S<tspan font-size='10' baseline-shift='sub'>L</tspan></text>
+<text x="820" y="412" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#718096">GWSa is already a depth of water, so no</text>
+<text x="820" y="430" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#718096">specific yield is needed: R is in cm per year.</text>
+</svg>

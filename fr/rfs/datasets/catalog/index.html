@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Catalogue de Données - GEOGLOWS Training</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../stylesheets/geoglows.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Catalogue de Donn\u00e9es";
+        var mkdocs_page_input_path = "rfs/datasets/catalog.fr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+  
+          <a href="../../../">
+          <img src="../../../../static/images/geoglows-logo.png" class="logo" alt="Logo"/>
+        </a>
+  <button type="button" class="geo-nav-close" aria-label="Close menu" title="Close menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </svg>
+  </button><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1">
+<a class="reference internal" href="../../../">Accueil</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Système de Prévision Fluviale</span></p>
+              <ul class="current">
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Formulation du Modèle</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../model-formulation/model-formulation/">Formulation du Modèle</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current">
+<a class="reference internal current" >Partie 2 : Données Disponibles</a>
+    <ul class="current">
+                <li class="toctree-l2 current">
+<a class="reference internal current" href="#">Catalogue de Données</a>
+    <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="#resume">Résumé</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#tableau-des-jeux-de-donnees">Tableau des jeux de données</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#references-techniques-et-scripts">Références techniques et scripts</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#telechargement-des-donnees-via-linterface-en-ligne-de-commande-recommande">Téléchargement des données via l’interface en ligne de commande (recommandé)</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="#telechargement-des-donnees-via-un-navigateur-web">Téléchargement des données via un navigateur web</a></li>
+    </ul>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../hydrography/">Hydrographie</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../retrospective/">Données Rétrospectives</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../forecast/">Données Prévisionnelles</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Accès aux Données</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/web-app/">Application Web</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/exercises/">Notebooks de Code</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/bulk-download/">Téléchargements en Masse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../accessing-data/code-snippets/">Recueil de Recettes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Tutoriels</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/find-river-numbers/">Trouver les Numéros de Rivière</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/query-data/">Interrogation des Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/data-service/">API (Service de Données)</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../tutorials/web-map/">Cartes Web (Couche SIG)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Correction du Biais</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/bias-correction/">Méthode SABER</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../bias-correction/forecasted-bias-correction/">Correction des Prévisions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GRACE Regional Analyst</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 1 : Contexte</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/overview/">Vue d'Ensemble</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/grace-mission/">La Mission GRACE</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/deriving-groundwater/">Calcul du Stockage des Eaux Souterraines</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/background/resolution-and-leakage/">Résolution, Fuite du Signal et Petites Régions</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 2 : Utilisation de l'Application</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/interface/">Interface</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/regional-view/">Vue Régionale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/global-view/">Vue Globale</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/trends/">Analyse des Tendances</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/app/downloading-data/">Téléchargement des Données</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 3 : Comblement des Lacunes</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/gaps/">Lacunes dans les Données</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/gap-filling/seasonal-model/">Le Modèle Saisonnier</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 4 : Analyse de la Recharge</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/wtf-method/">La Méthode WTF</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/opening/">Ouverture de l'Analyse</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/picks/">Années Hydrologiques et Choix des Points</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/recharge/results/">Résultats</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" >Partie 5 : Études de Cas</a>
+    <ul>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/niger/">Niger</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/volta/">Bassin de la Volta</a>
+                </li>
+                <li class="toctree-l2">
+<a class="reference internal" href="../../../grace/case-studies/central-valley/">Vallée Centrale de Californie</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../grace/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Webinaires</span></p>
+              <ul>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-1/">1. Historique de GEOGLOWS et Présentation de RFS Version 2</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-2/">2. Formulation du Modèle GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-3/">3. Données Disponibles de GEOGLOWS</a>
+                  </li>
+                  <li class="toctree-l1">
+<a class="reference internal" href="../../../webinars/rfs-v2-webinar-4/">4. Introduction à l'Hydroviewer GEOGLOWS</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">GEOGLOWS Training</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="geo-lang-item"><details class="geo-lang-menu">
+  <summary aria-label="Language / Idioma / Langue" title="Language / Idioma / Langue">
+    <svg class="geo-lang-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+      <span lang="fr">Français</span>
+    <svg class="geo-lang-caret" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </summary>
+  <ul>
+      <li>
+          <a href="../../../../rfs/datasets/catalog/" lang="en" hreflang="en">English</a>
+      </li>
+      <li>
+          <a href="../../../../es/rfs/datasets/catalog/" lang="es" hreflang="es">Español</a>
+      </li>
+      <li>
+          <span class="current" lang="fr" aria-current="true">Français</span>
+      </li>
+  </ul>
+</details>
+<script>
+  (function () {
+    var menu = document.currentScript.previousElementSibling;
+    document.addEventListener("click", function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary").focus();
+      }
+    });
+  })();
+</script></li>
+    <li><a href="../../../" class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">Système de Prévision Fluviale</li>
+          <li class="breadcrumb-item">Partie 2 : Données Disponibles</li>
+      <li class="breadcrumb-item active">Catalogue de Données</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="resume">Résumé</h2>
+<p>Il existe 3 principaux types de jeux de données fluviales fournis par le Système de Prévision Fluviale (RFS). Toutes ces données sont disponibles gratuitement.</p>
+<ol>
+<li><strong>Hydrographie</strong> : Données SIG pour les emplacements des cours d’eau et des bassins versants dans le monde entier.  </li>
+<li><strong>Simulation Rétrospective</strong> : Données horaires de débit des rivières depuis janvier 1940.  </li>
+<li><strong>Prévisions</strong> : Prévisions de débit sur 15 jours générées chaque jour à minuit.  </li>
+</ol>
+<p><a href="https://www.geoglows.org" target="_blank">Le Système de Prévision Fluviale GEOGLOWS V2</a> © <a href="https://hales.app">Dr. Riley Hales</a> 2025 est sous licence
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</p>
+<h2 id="tableau-des-jeux-de-donnees">Tableau des jeux de données</h2>
+<p>Tous les jeux de données RFS V2 sont sponsorisés par le Programme AWS Open Data Sponsorship. Cela rend les données publiquement disponibles gratuitement. Vous <strong>n’avez pas besoin</strong> d’un compte AWS, d’une carte bancaire, ni d’un identifiant ou mot de passe pour utiliser ce service AWS. Pour en savoir plus, consultez le <a href="https://registry.opendata.aws/geoglows-v2/">Registry of Open Data</a> et
+le <a href="https://aws.amazon.com/marketplace/pp/prodview-aboaljwcz64zs">AWS Data Exchange</a>.</p>
+<p>Lors de l’accès aux données depuis AWS, vous devrez peut-être spécifier que vous y accédez de manière anonyme si vous n’avez pas de compte AWS ou préférez ne pas fournir vos identifiants.</p>
+<p>Les données sont stockées dans 2 buckets. Le premier contient les fichiers de configuration du modèle, les données SIG, les simulations rétrospectives et d’autres données essentiellement statiques. Le second contient les prévisions quotidiennes produites par le RFS.</p>
+<ul>
+<li>Prévisions : <a href="http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html" target="_blank">http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html</a>  </li>
+<li>SIG + Rétrospective : <a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html" target="_blank">http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Jeu de données</th>
+<th>Format(s) de fichier</th>
+<th>URI du Bucket et Chemin</th>
+<th>Région AWS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prévisions quotidiennes</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2-forecasts.s3-website-us-west-2.amazonaws.com/index.html" target="_blank">s3://geoglows-v2-forecasts/</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Hydrographie - VPUs</td>
+<td>GeoPackage (sqlite)</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#hydrography/" target="_blank">s3://geoglows-v2/hydrography/</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Hydrographie - Global</td>
+<td>GeoPackage (sqlite)</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#hydrography-global/" target="_blank">s3://geoglows-v2/hydrography-global/</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Hydrographie - Tables Supplémentaires</td>
+<td>Parquet</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#tables/" target="_blank">s3://geoglows-v2/tables/</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Moyenne horaire</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/hourly.zarr/" target="_blank">s3://geoglows-v2/retrospective/hourly.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Moyenne quotidienne</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/daily.zarr/" target="_blank">s3://geoglows-v2/retrospective/daily.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Moyenne mensuelle</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/monthly-timeseries.zarr/" target="_blank">s3://geoglows-v2/retrospective/monthly-timeseries.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Moyenne annuelle</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-timeseries.zarr/" target="_blank">s3://geoglows-v2/retrospective/yearly-timeseries.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Maximum annuel</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/yearly-maximums.zarr/" target="_blank">s3://geoglows-v2/retrospective/yearly-maximums.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Périodes de retour</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/return-periods.zarr/" target="_blank">s3://geoglows-v2/retrospective/return-periods.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>Rétrospective - Courbes de durée de débit</td>
+<td>Zarr</td>
+<td><a href="http://geoglows-v2.s3-website-us-west-2.amazonaws.com/index.html#retrospective/fdc.zarr/" target="_blank">s3://geoglows-v2/retrospective/fdc.zarr</a></td>
+<td>us-west-2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references-techniques-et-scripts">Références techniques et scripts</h2>
+<ul>
+<li>Scripts de calcul des prévisions : <a href="https://github.com/geoglows/geoglows_ecflow" target="_blank">https://github.com/geoglows/geoglows_ecflow</a>  </li>
+<li>Scripts de mise à jour hebdomadaire rétrospective : <a href="https://github.com/geoglows/retrospective-update" target="_blank">https://github.com/geoglows/retrospective-update</a></li>
+</ul>
+<h2 id="telechargement-des-donnees-via-linterface-en-ligne-de-commande-recommande">Téléchargement des données via l’interface en ligne de commande (recommandé)</h2>
+<p>Le moyen le plus rapide de télécharger les données RFS est d’utiliser l’AWS Command Line Interface (CLI). Si vous n’êtes pas familier avec la programmation ou les outils en ligne de commande, passez à la section suivante sur le téléchargement via un navigateur web.</p>
+<p>L’utilisation de la CLI permet de télécharger les données plus rapidement que via le navigateur et est recommandée pour de grandes quantités de données. Veuillez vous référer aux instructions AWS pour le téléchargement de données depuis S3. Vous devrez peut-être ajouter l’option <code>--no-sign-request</code> dans vos commandes <code>copy</code> ou <code>sync</code>.</p>
+<h2 id="telechargement-des-donnees-via-un-navigateur-web">Téléchargement des données via un navigateur web</h2>
+<p>La manière la plus simple de parcourir les jeux de données RFS V2 est d’utiliser les sites web qui permettent de naviguer dans les datasets disponibles. Ce n’est pas la méthode la plus rapide.<br />
+Pour un téléchargement plus performant, il est conseillé d’utiliser la CLI.</p>
+<p>Le RFS permet aux utilisateurs de télécharger les données mondiales de débit fluvial directement depuis AWS. Cela donne accès à la fois aux données de simulation rétrospective et aux prévisions de débit sur 15 jours. Ces jeux de données sont hébergés dans des buckets S3, optimisés pour l’analyse des séries temporelles et les téléchargements en masse.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../../model-formulation/model-formulation/" class="btn btn-neutral float-left" title="Formulation du Modèle"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../hydrography/" class="btn btn-neutral float-right" title="Hydrographie">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../model-formulation/model-formulation/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../hydrography/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../javascripts/mathjax.js"></script>
+      <script src="../../../../javascripts/mobile-nav.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
