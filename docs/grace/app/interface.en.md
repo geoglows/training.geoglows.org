@@ -78,7 +78,7 @@ Click **Home** to return to the overview. On the right, **Analyze trends / Hide 
 ![The Display Settings dialog](../../static/images/grace/app-settings.webp){ width="510" }
 
 - **GRACE Mascon Footprints** and **Anomaly Cell Boundaries:** a **Boundary width** slider for each of the two outline layers. The mascon
-  section also carries a note on why the finer grids add no GRACE detail.
+  section also carries a note on why a finer grid is not a finer measurement.
 - **Show color bar on map:** hide or show the color bar.
 - **Dynamic scale (fit to data):** with this on, the color scale stretches to fit the data you're looking at, so small anomalies remain visible.
   In a region it fits the largest absolute value in the region's cells over the whole record; in the global view it fits the 95th percentile of
