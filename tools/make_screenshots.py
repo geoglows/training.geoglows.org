@@ -41,7 +41,9 @@ WIDTH, HEIGHT = 1800, 1125
 REGION = "Iullemeden-Irhazer Aquifer System"      # the regional-view examples
 SEASONAL = "Northern Midwest Aquifer System"      # strong annual cycle: gaps, recharge
 CENTRAL_VALLEY = "California Central Valley"      # the leakage and poor-candidate examples
-VOLTA = ("igrac-tba", "Volta Basin")              # a published basin with a case study behind it
+# A large, heavily pumped aquifer with a long decline: the example for reading
+# an ordinary result.
+RESULT_REGION = ("whymap-lgas", "Ogallala Aquifer (high Plains)")
 SETTLE = 2500          # after an interaction that redraws the map
 LOAD = 6000            # after one that fetches a variable it has not read yet
 
@@ -131,13 +133,9 @@ def shot_region(pw) -> None:
 
 
 def shot_region_result(pw) -> None:
-    """What a region looks like once analyzed, for Reading the results.
-
-    A published basin rather than a drawn box: the section is about reading an
-    ordinary result, and the Volta has a case study behind it.
-    """
+    """What a region looks like once analyzed, for Reading the results."""
     b, pg = open_app(pw)
-    pick_region(pg, VOLTA[1], region_set=VOLTA[0])
+    pick_region(pg, RESULT_REGION[1], region_set=RESULT_REGION[0])
     save(pg, "app-region-result")
     b.close()
 

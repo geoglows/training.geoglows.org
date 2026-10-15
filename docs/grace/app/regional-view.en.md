@@ -74,11 +74,12 @@ finish. The app analyzes the polygon straight away. Drawn polygons are not saved
 When you open a region, the map zooms to it and shows the anomaly cells for the displayed layer inside its boundary, and the chart shows the
 region's average time series (see [The time series chart](#the-time-series-chart)).
 
-![The Volta Basin analyzed, with its cells on the map and its average time series below](../../static/images/grace/app-region-result.webp)
+![The Ogallala Aquifer analyzed, with its cells on the map and its average time series below](../../static/images/grace/app-region-result.webp)
 
-The Volta Basin, above, is a good one to read. Its cells run from a strong decline in the south to a slight rise in the north, the average
-swings about 20 cm between wet and dry seasons, and there is a published study of the same basin to compare with
-([case study](../case-studies/volta.md)).
+The Ogallala, above, shows what a regional result looks like. The cells sit above the 2004–2009 average across the northern half of the aquifer
+and close to it in the south, so the colours are not uniform even within one region. The average series runs roughly level through the 2010s and
+then falls from about 2020, which is what produces the −1.70 cm/yr in the trend legend: that figure is the slope over the last five years, not
+over the record. Changing the **Window** stepper changes it (see [Trend Analysis](trends.md#the-trend-window)).
 
 ### Which cells are averaged
 
