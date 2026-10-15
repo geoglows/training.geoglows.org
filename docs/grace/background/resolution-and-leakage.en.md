@@ -4,7 +4,9 @@
 
 GRACE senses mass through gravity, and gravity spreads out with distance. From an orbit hundreds of kilometers up, two masses closer together
 than a few hundred kilometers blur into one. JPL's mascon solution reflects that limit: it solves for one value per 3° cap, about 330 km across,
-and the 0.5° and 1° grids in the app repeat or average those values. They make the data easier to store and map but add no detail.
+and the 0.5° and 1° grids are that solution sampled onto a finer mesh. The app does apply JPL's gain factors, which give the 0.5° grid some
+structure within each mascon (see [Deriving Groundwater Storage](deriving-groundwater.md#gain-factors)), but the measurement underneath is still
+one value per 3° cap.
 
 ![Grid sizes compared with region size, and signal leakage](../../static/images/grace/grace-resolution-leakage.png)
 
@@ -12,8 +14,10 @@ Panel A compares the grids with two regions. The river basin spans several masco
 The aquifer is smaller than one mascon. Its value is mostly whatever the mascon it sits in did, including storage changes outside the aquifer.
 
 As a rule of thumb, GRACE results are reliable for regions of about 200,000 km² or more (roughly 4° × 4° near the equator), usable with care
-down to the size of one mascon (about 100,000 km²), and increasingly uncertain below that. GWSa does vary from one 1° cell to the next inside a
-mascon, but only because the GLDAS terms vary; the GRACE part of each cell is the mascon value.
+down to the size of one mascon (about 100,000 km²), and increasingly uncertain below that. Two sources of variation separate neighboring cells
+inside one mascon: the GLDAS terms, which are measured on their own 0.25° and 1° grids, and the gain factors, which redistribute the mascon's
+amplitude across its cells. Neither adds a second GRACE measurement. The number of independent observations under a region is the number of
+mascons it covers, whatever the grid the app draws.
 
 ## Leakage
 
@@ -27,7 +31,9 @@ average over the valley alone then underestimates the true loss, sometimes by a 
 outside the region, as in a large sedimentary basin under a uniform climate, leakage in and out roughly balance and the regional average is
 close to the truth.
 
-JPL's coastline filter limits leakage between land and ocean. Leakage between neighboring land areas is not corrected in the app's data.
+JPL's coastline filter limits leakage between land and ocean, and the gain factors restore some of the amplitude the GRACE processing removes
+within a mascon. Neither corrects leakage between neighboring land areas, which is what matters most for a pumped aquifer beside a region that
+behaves differently. The gain factors are least reliable in exactly that case: they come from a model that does not simulate pumping.
 
 ## Working with small regions
 
@@ -49,7 +55,8 @@ specific to the region and the period used to derive it. Stevens et al. (2025) d
 ([case study](../case-studies/central-valley.md)).
 
 **Interpret a single cell cautiously.** In the global view you can click a single cell to see its time series. That is quick and useful for
-exploration, but two neighboring aquifers in the same mascon will show nearly identical results, because they are measured by the same 3° value.
+exploration, but two neighboring aquifers in the same mascon rest on the same 3° measurement. The gain factors will give them different numbers;
+that difference comes from a land surface model, not from GRACE.
 
 ![California Central Valley: a narrow, heavily pumped aquifer surrounded by mountains, close to the worst case for leakage](../../static/images/grace/app-central-valley.webp)
 
@@ -71,6 +78,10 @@ view available. Use it for regional trends and compare it with local data wherev
 - Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
   to GRACE-derived data. *Environmental Modelling & Software*, 186, 106368.
   [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
+
+- Landerer, F. W., and Swenson, S. C. (2012). Accuracy of scaled GRACE terrestrial water storage estimates. *Water Resources Research*, 48,
+  W04531. [doi:10.1029/2011WR011453](https://doi.org/10.1029/2011WR011453){:target="_blank"}
+  The derivation of the gain factors the app applies, and the authority the GRACE-FO Level-3 Handbook defers to on their use and limits.
 
 - Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
   dependent gravity field. *Water Resources Research*, 35, 2705–2723.

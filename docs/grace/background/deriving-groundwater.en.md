@@ -47,14 +47,41 @@ GRACE TWSa is averaged from 0.5° to 1° and combined with the model ensemble to
 and CANa at 1°, and TWSa at 0.5° as JPL distributes it. Using 1° for the derived layers follows the usual practice of combining GRACE with model data at
 the coarser of the two grids; reporting GWSa at 0.5° would give an impression of detail that neither dataset has.
 
-No gain or scale factors are applied to the GRACE data, and no gaps are filled. Each monthly value in the app is the published JPL value combined
-with the GLDAS ensemble for that month.
+No gaps are filled. Each monthly value in the app is the published JPL value, scaled as described below, combined with the GLDAS ensemble for
+that month.
+
+### Gain factors
+
+The mascon solution is natively 3°, and the 0.5° file repeats each mascon's value across all 36 of its cells, so the published grid on its own
+carries no detail finer than a mascon. JPL ships a grid of **gain factors** in the same file to recover some of that detail. They are derived by
+putting the CLM land surface model through the same processing GRACE goes through and estimating, cell by cell, the multiplier that restores the
+model's original amplitude. The correction is a single multiplication, with the factor constant in time:
+
+$$
+g'(x,y,t) = g(x,y,t) \times s(x,y)
+$$
+
+JPL does not apply this scaling before distributing the data; the GRACE-FO Level-3 Handbook states that users must apply it, and its own
+groundwater example follows the same TWSa-minus-GLDAS approach this app uses and lists the multiplication as a pre-processing step. The app
+applies the factors to TWSa at 0.5°, before TWSa is averaged to 1°, since the structure they add is finer than a 1° cell.
+
+Every factor is applied as JPL distributes it. About 83% fall between 0.5 and 1.5, and 1.3% of cells sit outside the range 0 to 3, including
+several hundred that are negative and so reverse the sign of the anomaly in that cell. JPL marks the full range as valid and sets no bounds, and
+excluding the extremes changes a basin average by at most 0.2 cm, so the app does not second-guess them. Cells with no factor at all keep the
+mascon value: the ocean, which the GLDAS land mask removes anyway, and ice — all of Antarctica and 18% of land above 60°N — which the factors
+are not meant for, because CLM does not represent ice sheets or mountain glaciers.
+
+What the factors do not do is make the 0.5° grid 36 independent measurements. The underlying mascon is still one estimate, and the factors
+redistribute its amplitude using a model's idea of how storage varies within it. The handbook is explicit that the models behind them carry
+biases and "typically do not include groundwater or human activities in their simulations," so a heavily pumped aquifer is exactly where the
+redistribution is least informed by the thing being measured.
 
 ## Uncertainty
 
 Each layer in the app comes with a one-standard-deviation (1σ) uncertainty, which the time series chart draws as a band around the line:
 
-- **TWSa:** JPL's published uncertainty for each mascon and month.
+- **TWSa:** JPL's published uncertainty for each mascon and month, multiplied by the same gain factor as the data, so the band stays in
+  proportion to the value it describes.
 - **SWEa, CANa, SMa:** the standard deviation across the three GLDAS models.
 - **GWSa:** the four combined, treating them as independent:
 
@@ -63,8 +90,13 @@ $$
 $$
 
 The uncertainty band captures the measurement error in GRACE and the disagreement between models. It doesn't capture errors the three models
-share, the effect of leaving out surface water, or leakage from outside a region (see
-[Resolution, Leakage and Small Regions](resolution-and-leakage.md)), so the true uncertainty is larger than the band shows.
+share, the effect of leaving out surface water, leakage from outside a region (see
+[Resolution, Leakage and Small Regions](resolution-and-leakage.md)), or the uncertainty in the gain factors themselves, which JPL does not
+publish. The true uncertainty is larger than the band shows.
+
+One caution about combining them: JPL's TWSa uncertainty is a measurement error, while the three GLDAS terms are the spread across NOAH, VIC and
+CLSM, which measures how much the models disagree rather than how wrong they are. Adding them in quadrature treats the two as comparable. Over
+most basins the model spread dominates — in the Congo, 3.1 cm from GRACE against 5.7 cm combined.
 
 ## What GWSa is good for
 

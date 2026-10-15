@@ -30,6 +30,21 @@ as **Insufficient data**.
 The legend counts the regions or cells in each class. For reference, a trend of −2 cm/yr sustained over 100,000 km² is a loss of 2 km³ of water
 a year.
 
+### Gain factors and trend magnitudes
+
+The TWSa the app serves has JPL's gain factors applied (see
+[Deriving Groundwater Storage](../background/deriving-groundwater.md#gain-factors)), and those factors flow straight into the trends, because a
+constant multiplier on a time series multiplies its slope. JPL attaches a caution to this use: the factors are dominated by the annual cycle,
+and the GRACE-FO Level-3 Handbook says they "can potentially introduce biases in frequency bands outside the annual component, in particular for
+longer term trends," for which factors derived per averaging kernel would be needed. No such factors are published for this product, so the app
+applies the standard ones throughout and reports one value of GWSa everywhere rather than one number for the map and a different one for the
+trend.
+
+In practice this moves most trends very little. Across the 0.5° land record the median change is 0.05 cm/yr and the median trend magnitude is
+near enough unchanged, but about 11% of cells cross a class boundary — nearly all of them cells already sitting close to the ±0.5 or ±2 cm/yr
+lines, where a small change in slope moves the label. Treat a class as a summary rather than a measurement, and read the trend magnitude and the
+time series together.
+
 ## The trend window
 
 The **Window** stepper in the header sets how far back the fit reaches from the most recent month: 5, 10, 15 or 20 years, or **All** for the
