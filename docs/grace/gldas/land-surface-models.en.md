@@ -58,15 +58,48 @@ storage signal).
 Himalayas, snow water equivalent accumulates without limit. NASA's documentation for GLDAS Version 2 says so plainly and advises masking those
 cells. Two glacier basins in the app's river basin sets, Alsek and Santa Cruz, carry very large groundwater anomalies for exactly this reason.
 
+
+### The forcing data
+
+A land surface model computes nothing about the weather; it is handed the weather and works out what the ground does with it. GLDAS supplies
+seven fields at every time step:
+
+| Field | Variable | Units |
+|---|---|---|
+| Total precipitation rate | `Rainf_f_tavg` | kg m⁻² s⁻¹ |
+| Air temperature | `Tair_f_inst` | K |
+| Specific humidity | `Qair_f_inst` | kg kg⁻¹ |
+| Surface pressure | `Psurf_f_inst` | Pa |
+| Wind speed | `Wind_f_inst` | m s⁻¹ |
+| Downward shortwave radiation | `SWdown_f_tavg` | W m⁻² |
+| Downward longwave radiation | `LWdown_f_tavg` | W m⁻² |
+
+Precipitation matters most for storage, and it is the field each GLDAS version treats differently:
+
+| | Atmospheric fields | Precipitation | Radiation |
+|---|---|---|---|
+| **GLDAS-2.0** | Princeton global forcing dataset (Sheffield et al., 2006) | Princeton | Princeton |
+| **GLDAS-2.1** | NOAA GDAS analysis (Derber et al., 1991) | GPCP v1.3 daily, disaggregated to 3-hourly | AGRMET, now GALWEM |
+| **GLDAS-2.2** | ECMWF IFS operational analysis | ECMWF IFS | ECMWF IFS |
+
+The 2.1 radiation source changed under the app's feet: AGRMET was built on the Air Force's World-Wide Merged Cloud Analysis, which stopped
+being produced on 8 June 2025, so from 9 June 2025 GLDAS 2.1 has been forced with the UK Met Office's GALWEM radiation instead. Months before
+and after that date were produced with different radiation inputs, which is one more reason the uncertainty band is the model spread rather
+than a published error.
+
+Two more consequences of the forcing worth carrying into a reading of the data. GLDAS 2.1 ran on GDAS and GPCP alone from January 2000 until
+AGRMET was added on 1 March 2001, so its earliest months are not forced the same way as the rest; the app's record starts in April 2002 and is
+clear of that. And because 2.2's forcing is ECMWF's, which ECMWF's licence does not allow NASA to redistribute, the 2.2 product publishes no
+meteorological fields at all — you can see what the model did but not what it was told.
+
 The models also carry no routing between grid cells. Noah and VIC treat each cell as an independent column. The Catchment model is the
 exception within a cell: it divides the land into hydrologic catchments delineated from elevation data and redistributes water across each one
 according to topography (Koster et al., 2000; Ducharne et al., 2000).
 
 ## The three models of GLDAS 2.1
 
-GLDAS 2.1 started on 1 January 2000 from the GLDAS-2.0 state. It is forced with NOAA's GDAS atmospheric analysis, disaggregated GPCP v1.3 daily
-precipitation, and AGRMET radiation fields — which switched to the UK Met Office's GALWEM on 9 June 2025, when the cloud analysis behind AGRMET
-was retired. It runs three models, which differ most in how they carry soil water:
+GLDAS 2.1 started on 1 January 2000 from the GLDAS-2.0 state, forced as the table above describes. It runs three models, which differ most in
+how they carry soil water:
 
 | Model | Grid | Soil moisture used by the app |
 |---|---|---|
@@ -84,9 +117,7 @@ the uncertainty on each term. Bringing them together means working at the coarse
 
 ![How the 2.1 and 2.2 routes to groundwater differ](../../static/images/grace/gldas-2.1-vs-2.2.png)
 
-GLDAS 2.2 is one daily product: the Catchment model at 0.25°, started on 1 February 2003 from the GLDAS-2.0 Catchment state and forced with the
-operational ECMWF Integrated Forecasting System analysis. ECMWF's data agreement prohibits redistributing those fields, so unlike the other
-GLDAS products, 2.2 publishes no meteorological variables alongside its model output.
+GLDAS 2.2 is one daily product: the Catchment model at 0.25°, started on 1 February 2003 from the GLDAS-2.0 Catchment state.
 
 What makes it different is that the total water storage anomaly measured by GRACE is assimilated into the run (Li et al., 2019), through the
 assimilation machinery in the Land Information System (Kumar et al., 2016). The Catchment model was chosen for this because of how it handles
@@ -103,6 +134,30 @@ are working well.
 
 NASA publishes 2.2 in two streams: a main stream with the GRACE assimilation, running 2–6 months behind, and an early stream without it, running
 about 1.5 months behind. The app reads the main stream, so every month it shows has been corrected.
+
+
+## Output, and where the app gets it
+
+GLDAS publishes at 3-hourly and daily steps, with monthly means built from the 3-hourly files. What exists differs by version, and the app
+takes the monthly value either way:
+
+| | Published as | Resolutions | The app reads |
+|---|---|---|---|
+| **GLDAS-2.0** | 3-hourly, daily, monthly | 1°, 0.25° | nothing |
+| **GLDAS-2.1** | 3-hourly, monthly | 1°, 0.25° | the monthly files |
+| **GLDAS-2.2** | daily only | 0.25° | the daily files, averaged to calendar months |
+
+The 2.1 files come from the GES DISC archive as NetCDF-4, one file per model per month: `GLDAS_NOAH025_M.2.1`, `GLDAS_VIC10_M.2.1` and
+`GLDAS_CLSM10_M.2.1`. An Earthdata Login account is needed to download them, and they are also reachable through Earthdata Search, OPeNDAP,
+THREDDS and the GES DISC subsetter.
+
+GLDAS 2.2 has no monthly product, so the app builds one. It reads the daily `GLDAS_CLSM025_DA1_D.2.2` collection through Google Earth Engine,
+which carries the same fields, averages each calendar month, and stores the result. That is also why the 2.2 record in the app is monthly like
+everything else rather than daily.
+
+Both versions run behind the present: 2.1's main production stream by three to four months, 2.2's by two to six, since it waits for the GRACE
+field it assimilates. Each also has an early stream at about 1.5 months, which for 2.2 means no GRACE assimilation at all. The app reads the
+main streams, so the most recent month it shows is some months old and every 2.2 month in it has been corrected.
 
 ## Accuracy, and mixing versions
 
