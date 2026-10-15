@@ -3,16 +3,21 @@
 ## Downloading a CSV
 
 With a region or a cell selected, click **Download CSV** in the upper right of the chart panel. The file contains the monthly values of all
-five layers for that region or cell, whichever ones are plotted. It is named `grace_gwsa_data.csv` for a region (the middle part follows the
-displayed layer) or `grace_cell_<lat>_<lon>_data.csv` for a single cell.
+five layers of the selected dataset for that region or cell, whether or not they are plotted, and of the other dataset's five as well if the
+comparison is ticked. It is named `grace_gwsa_data.csv` for a region (the middle part follows the displayed layer) or
+`grace_cell_<lat>_<lon>_data.csv` for a single cell.
 
 | Column | Contents |
 |---|---|
 | `Date` | First day of the month, `YYYY-MM-DD` |
 | `GWSa`, `TWSa`, `SMa`, `SWEa`, `CANa` | Area-weighted mean anomaly for the month, cm of liquid water equivalent |
-| `<layer>_upper`, `<layer>_lower` | The mean plus and minus 1σ |
+| `GWSa_22`, `TWSa_22`, `SMa_22`, `SWEa_22`, `CANa_22` | The same five from GLDAS 2.2 |
+| `<layer>_upper`, `<layer>_lower` | The mean plus and minus 1σ; GRACE layers only, since GLDAS 2.2 has no uncertainty |
 | `GWSa_filled`, `TWSa_filled` | The same series with its gaps filled by the seasonal model; equal to the observed value in every other month |
 | `GWSa_is_filled`, `TWSa_is_filled` | 1 in months the seasonal model filled, 0 otherwise |
+
+Only the layers present in the file get columns, so a download taken with GLDAS 2.2 selected and the comparison off has the five `_22` columns
+and nothing else. The `_filled` and `_is_filled` pairs belong to the two GRACE-derived layers, which are the only ones with gaps.
 
 For example, the start of the gap between missions for the Northern Midwest Aquifer System:
 
@@ -23,8 +28,10 @@ Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
 2017-08-01,,,,12.694,1,,...
 ```
 
-The file has one row for every month from April 2002 to the latest release. In months with no GRACE data, the `GWSa` and `TWSa` cells are blank,
-while the GLDAS layers (`SMa`, `SWEa`, `CANa`) still have values, because the land surface models run every month. The `_filled` columns
+The file has one row for every month that any of its columns has a value for: April 2002 onward for the GRACE layers, February 2003 onward for
+the GLDAS 2.2 ones, so a file with both has blank `_22` cells in its first ten rows. In months with no GRACE data, the `GWSa` and `TWSa` cells
+are blank, while the GLDAS layers (`SMa`, `SWEa`, `CANa`, and all five `_22` columns) still have values, because the land surface models run
+every month. The `_filled` columns
 supply a value for those months (see [Gaps and Gap Filling](../mission/gap-filling.md)). They are written whatever the **Gap filling** setting, so
 the file is the same however the chart is drawn.
 

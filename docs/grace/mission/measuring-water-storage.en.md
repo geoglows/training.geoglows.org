@@ -47,11 +47,16 @@ smooth mathematical series, JPL divides Earth's surface into 4,551 equal-area ca
 mass change in each cap directly. The coastline filter splits caps that straddle a coast so that ocean mass changes don't contaminate the land
 values.
 
-JPL distributes the mascon values on a 0.5° grid for convenience. The 0.5° cells inside a mascon all repeat that mascon's value, so the true
-resolution of TWSa is the 3° mascon, not the 0.5° cell. You can see this in the app: switch the displayed layer to TWSa, zoom in, and turn on
-**Show mascon boundaries**. The TWSa cells change value only where they cross a mascon boundary.
+JPL distributes the mascon values on a 0.5° grid for convenience, and in the published file every 0.5° cell inside a mascon repeats that
+mascon's value. The app multiplies them by JPL's gain factors, which vary from cell to cell and so give the grid some structure within each
+mascon (see [Gain factors](../gldas/deriving-groundwater.md#gain-factors)). That structure comes from a land surface model. The measurement
+underneath is still one value per 3° cap, and the true resolution of TWSa is the mascon.
 
-JPL's TWSa is relative to the mean over January 2004 through December 2009. The same baseline is used for every layer in the app.
+You can see the mascons in the app: switch the displayed layer to TWSa, zoom in, and turn on **Show mascon boundaries**. The large steps in
+value fall on the mascon edges; the smaller cell-to-cell variation inside one is the gain factors.
+
+JPL's TWSa is relative to the mean over January 2004 through December 2009. Every layer of both datasets uses that same baseline, which is what
+lets them be plotted on one axis.
 
 ## The record, and its gaps
 
@@ -66,8 +71,10 @@ gaps:
 - **The gap between missions.** GRACE ended science operations in June 2017, and GRACE-FO began delivering data in June 2018, leaving 11 months
   with no measurements.
 
-The app shows missing months as gaps in the time series and skips them in the map animation. [Gaps and Gap Filling](gap-filling.md)
-page shows how to estimate them when an analysis needs a complete monthly record.
+The app shows missing months as gaps in the time series and skips them in the map animation.
+[Gaps and Gap Filling](gap-filling.md) shows how to estimate them when an analysis needs a complete monthly record. GLDAS 2.2 has no gaps of
+its own — the model runs through these months uncorrected — so switching datasets is another way past them, with the caution that the
+uncorrected months are not marked.
 
 ## References
 
