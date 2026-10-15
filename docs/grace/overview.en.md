@@ -1,11 +1,23 @@
 # GRACE Regional Analyst Overview
 
-## Overview
+## What the app does
 
-The GRACE Regional Analyst is a web application for tracking how groundwater storage has changed since 2002 in any region of the world. It
-combines monthly gravity measurements from NASA's GRACE and GRACE Follow-On satellites with land surface model output from NASA's Global Land
-Data Assimilation System (GLDAS), and reports the result as a groundwater storage anomaly: how much more or less water is stored underground in a
-given month than the 2004–2009 average, expressed as a depth of liquid water in centimeters.
+The GRACE Regional Analyst tracks how groundwater storage has changed since 2002 in any region of the world. It reports a groundwater storage
+anomaly: how much more or less water is stored underground in a given month than the 2004–2009 average, as a depth of liquid water in
+centimeters.
+
+It reaches that number two different ways, and carries both.
+
+**GRACE + GLDAS 2.1** starts from the total column of water weighed by NASA's GRACE and GRACE Follow-On satellites and subtracts the snow,
+canopy water and soil moisture estimated by three land surface models. What is left is groundwater. The record runs from April 2002, and the
+part of it that matters most — the storage change itself — is measured rather than modelled.
+
+**GLDAS 2.2** reads groundwater out of a single land surface model, NASA's Catchment model, which carries groundwater as a state of its own and
+is corrected every month by assimilating GRACE. The record runs from February 2003, has no missing months, and is served at 0.25° inside a
+region, four times finer in each direction than the other dataset, which is what makes smaller basins workable.
+
+Neither is the right answer everywhere, and they disagree in informative ways, so the app will draw both on one chart.
+[Deriving Groundwater Storage](gldas/deriving-groundwater.md) gives the two derivations in full and says where each one is worth trusting.
 
 Most aquifers have too few monitoring wells, or wells with too many gaps, to say with confidence whether storage is rising or falling across the
 whole system. GRACE sees every aquifer on Earth, every month, with the same instrument. Its resolution is coarse, about 300 km, so it is suited
@@ -17,29 +29,35 @@ little else exists.
 The app is free and runs in a web browser at
 [apps.geoglows.org/grace-anomalies](https://apps.geoglows.org/grace-anomalies){:target="_blank"}. With it you can:
 
+- switch between the two datasets, or plot both on the same chart to compare them
 - animate monthly maps of groundwater, total water, soil moisture, snow and canopy water storage anomalies for the whole globe
 - pick an aquifer or river basin from one of five published region sets, upload your own boundary as GeoJSON, or draw one on the map
-- plot the area-averaged time series for that region, with its uncertainty band, and compare storage components
+- plot the area-averaged time series for that region, with its uncertainty band where the dataset has one, and compare storage components
 - classify regions or grid cells by the trend in storage over the last 5, 10, 15 or 20 years, or the whole record
+- fill the months GRACE is missing with a seasonal model fitted to the region's own record
+- estimate annual groundwater recharge with the water table fluctuation method
 - download the monthly values for any region or cell as a CSV file for your own analysis
 
 ## What this training covers
 
-**Part 1, Background,** explains where the numbers come from:
+**Part 1, The GRACE Mission,** is about the measurement — what it is, how far it can be pushed, and where it has holes:
 
-- [How GRACE Measures Water Storage](mission/measuring-water-storage.md): how two satellites measure changes in Earth's gravity, and what a monthly water storage anomaly is.
-- [Deriving Groundwater Storage](gldas/deriving-groundwater.md): how the app separates groundwater from the total using GLDAS, and how the
-  uncertainty is estimated.
-- [Resolution, Leakage and Small Regions](mission/resolution-and-leakage.md): what GRACE can and cannot resolve, and how to work with regions smaller
-  than its footprint.
+- [How GRACE Measures Water Storage](mission/measuring-water-storage.md): how two satellites measure changes in Earth's gravity, and what a
+  monthly water storage anomaly is.
+- [Resolution, Leakage and Small Regions](mission/resolution-and-leakage.md): what GRACE can and cannot resolve, and how to work with regions
+  smaller than its footprint.
+- [Gaps and Gap Filling](mission/gap-filling.md): the 35 months the record is missing, the options in the app, and the seasonal model behind
+  the **Seasonal model** fill — how it is fitted, how the filled values are computed, and how accurate they are.
 
-**Part 2, Using the App,** walks through the interface: [the layout](app/interface.md), [the regional view](app/regional-view.md),
-[the global view](app/global-view.md), [trend analysis](app/trends.md) and
-[downloading data](app/downloading-data.md).
+**Part 2, GLDAS,** is about the models, which supply everything in the app that is not a gravity measurement:
 
-**Part 3, Gap Filling,** covers [the gaps in the record and the options in the app](mission/gap-filling.md), then
-[the seasonal model](mission/gap-filling.md) behind the **Seasonal model** fill: how it is fitted, how the gaps are filled, and how
-accurate the filled values are.
+- [The GLDAS Land Surface Models](gldas/land-surface-models.md): what GLDAS is, what a land surface model computes, the three models behind the
+  2.1 dataset, and what the GRACE assimilation in 2.2 changes.
+- [Deriving Groundwater Storage](gldas/deriving-groundwater.md): both routes to groundwater, the gain factors applied to the GRACE data, and
+  how the uncertainty is estimated.
+
+**Part 3, Using the App,** walks through the interface: [the layout](app/interface.md), [the regional view](app/regional-view.md),
+[the global view](app/global-view.md), [trend analysis](app/trends.md) and [downloading data](app/downloading-data.md).
 
 **Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](recharge/wtf-method.md)
 as applied to GRACE data, then [opening the analysis](recharge/opening.md) and checking the series, [the water years and
@@ -55,8 +73,9 @@ heavily pumped valley.
 
 The GRACE Regional Analyst replaces the GRACE Groundwater Subsetting Tool (GGST), a Tethys Platform app developed at Brigham Young University
 under the NASA SERVIR West Africa project (2019–2023) and used in training workshops in West Africa, Jordan and Palestine. The new app keeps
-GGST's method for separating groundwater from total water storage and adds trend classification, published aquifer and basin boundaries, and
-user-drawn regions. It runs entirely in the browser, reading the processed data directly from cloud storage, so no account or login is needed.
+GGST's method for separating groundwater from total water storage and adds trend classification, published aquifer and basin boundaries,
+user-drawn regions, recharge analysis, and the GLDAS 2.2 dataset alongside it. It runs entirely in the browser, reading the processed data
+directly from cloud storage, so no account or login is needed.
 
 ## Further reading
 
