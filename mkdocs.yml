@@ -177,6 +177,7 @@ nav:
           - Resolution, Leakage and Small Regions: grace/mission/resolution-and-leakage.md
           - Gaps and Gap Filling: grace/mission/gap-filling.md
       - Part 2 GLDAS:
+          - The GLDAS Land Surface Models: grace/gldas/land-surface-models.md
           - Deriving Groundwater Storage: grace/gldas/deriving-groundwater.md
       - Part 3 Using the App:
           - Interface: grace/app/interface.md

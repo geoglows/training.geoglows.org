@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<title>GLDAS 2.1 and 2.2 compared</title>
+<defs>
+<marker id="ah-navy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0"/></marker>
+<marker id="ah-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a7b"/></marker>
+<marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+<marker id="ah-darkgray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/></marker>
+<marker id="ah-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d69e2e"/></marker>
+<marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
+</defs>
+<rect width="1200" height="700" fill="white"/>
+<text x="25" y="42" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1f3a5f">Two ways to the same quantity</text>
+<text x="25" y="68" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#718096">The app carries both. One subtracts models from a measurement; the other reads a model that has been corrected by that measurement.</text>
+<text x="25" y="112" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#2c7a7b">GLDAS 2.1  —  open loop, no assimilation</text>
+<rect x="25" y="128" width="560" height="240" rx="8" fill="white" stroke="#2c7a7b" stroke-width="1.8"/>
+<rect x="25" y="128" width="560" height="36" rx="8" fill="#2c7a7b"/>
+<rect x="25" y="154" width="560" height="10" fill="#2c7a7b"/>
+<text x="305.0" y="153" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Three models, run blind</text>
+<text x="39" y="192" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">Noah 3.6 (0.25°), VIC 4.1.2 (1°), CLSM-F2.5 (1°)</text>
+<text x="39" y="217" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">Forcing: NOAA GDAS analysis, GPCP precipitation,</text>
+<text x="39" y="242" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">AGRMET (now GALWEM) radiation</text>
+<text x="39" y="267" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">No observation is assimilated — the models run from</text>
+<text x="39" y="292" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">their forcing alone, so nothing tells them about pumping</text>
+<text x="39" y="317" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">January 2000 to present</text>
+<rect x="25" y="392" width="560" height="196" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.8"/>
+<rect x="25" y="392" width="560" height="36" rx="8" fill="#dd6b20"/>
+<rect x="25" y="418" width="560" height="10" fill="#dd6b20"/>
+<text x="305.0" y="417" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Groundwater by subtraction</text>
+<text x="39" y="456" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">GRACE measures the whole column, TWSa</text>
+<text x="39" y="481" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">The models supply the parts that are not</text>
+<text x="39" y="506" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">groundwater, and the rest is what is left</text>
+<text x="45" y="556" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#dd6b20">GWSa = TWSa − (SWEa + CANa + SMa)</text>
+<line x1="305" y1="368" x2="305" y2="388" stroke="#718096" stroke-width="2.2" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<text x="615" y="112" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#2b6cb0">GLDAS 2.2  —  GRACE assimilated</text>
+<rect x="615" y="128" width="560" height="240" rx="8" fill="white" stroke="#2b6cb0" stroke-width="1.8"/>
+<rect x="615" y="128" width="560" height="36" rx="8" fill="#2b6cb0"/>
+<rect x="615" y="154" width="560" height="10" fill="#2b6cb0"/>
+<text x="895.0" y="153" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">One model, corrected monthly</text>
+<text x="629" y="192" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">Catchment (CLSM-F2.5) only, 0.25°</text>
+<text x="629" y="217" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">Forcing: ECMWF IFS operational analysis</text>
+<text x="629" y="242" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">Assimilates the GRACE total water storage anomaly</text>
+<text x="629" y="267" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">(CSR mascons) through the Land Information System,</text>
+<text x="629" y="292" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">which is what puts pumping into the groundwater state</text>
+<text x="629" y="317" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">February 2003 to present</text>
+<rect x="615" y="392" width="560" height="196" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.8"/>
+<rect x="615" y="392" width="560" height="36" rx="8" fill="#dd6b20"/>
+<rect x="615" y="418" width="560" height="10" fill="#dd6b20"/>
+<text x="895.0" y="417" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Groundwater read straight out</text>
+<text x="629" y="456" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">The Catchment model carries groundwater as a</text>
+<text x="629" y="481" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">state, so GWS is a published variable and the</text>
+<text x="629" y="506" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4a5568">anomaly is taken from it directly</text>
+<text x="635" y="556" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#dd6b20">GWSa = GWS − its 2004–2009 mean</text>
+<line x1="895" y1="368" x2="895" y2="388" stroke="#718096" stroke-width="2.2" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="25" y="612" width="1150" height="72" rx="8" fill="#f7fafc" stroke="#e2e8f0"/>
+<text x="45" y="644" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#1f3a5f">In the app</text>
+<text x="160" y="644" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">2.1 route: 1° everywhere, with an uncertainty band, and 35 months missing with GRACE</text>
+<text x="160" y="670" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">2.2 route: 0.25° in a region and 1° globally, no band, no missing months</text>
+</svg>

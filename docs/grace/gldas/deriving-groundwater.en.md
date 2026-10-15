@@ -20,21 +20,12 @@ changes are small next to the other terms. In regions with large reservoirs, wet
 Brahmaputra, the Caspian Sea, Lake Victoria, Lake Volta), GWSa includes those changes and overstates the seasonal swing in groundwater. In the Volta Basin, for example, the lake accounts for about half
 of the total storage signal ([case study](../case-studies/volta.md)).
 
-## GLDAS land surface models
+## The GLDAS terms
 
-NASA's Global Land Data Assimilation System (GLDAS) runs land surface models forced with observed precipitation, radiation and meteorology to
-estimate how much water the land surface stores each month. The app uses three GLDAS version 2.1 models, which differ in how they represent soil
-layers and runoff:
-
-| Model | Grid | Soil moisture used |
-|---|---|---|
-| Noah | 0.25° | four layers, 0–200 cm |
-| VIC (Variable Infiltration Capacity) | 1° | three layers, depths vary by location |
-| CLSM (Catchment Land Surface Model) | 1° | total soil profile |
-
-From each model the app takes snow water equivalent, canopy interception storage and soil moisture, converts them from kg/m² to cm of water, and
-puts all three models on the same 1° grid (Noah is averaged from 0.25° up to 1°). Each model's anomaly is its value minus that cell's mean for
-2004–2009, the same baseline as GRACE.
+The app takes snow water equivalent, canopy interception storage and soil moisture from each of the three GLDAS 2.1 models — Noah, VIC and the
+Catchment model, described in [The GLDAS Land Surface Models](land-surface-models.md) — converts them from kg/m² to cm of water, and puts all
+three on the same 1° grid (Noah is averaged from 0.25° up to 1°). Each model's anomaly is its value minus that cell's mean for 2004–2009, the
+same baseline as GRACE.
 
 The three models often disagree, particularly about deep soil moisture. Rather than choose one, the app averages them: SWEa, CANa and SMa are each
 the mean of the three models, and the spread between the models (their standard deviation) is used as the uncertainty of each term.
