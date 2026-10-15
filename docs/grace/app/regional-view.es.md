@@ -94,7 +94,7 @@ Activa **Show cell boundaries** y **Show mascon boundaries** para ver cómo se r
 ![Límites de celdas y de mascons sobre el Sistema Acuífero Iullemeden-Irhazer](../../static/images/grace/app-region-boundaries.webp)
 
 Aquí la región abarca partes de varios mascons (en morado), así que su promedio se basa en varios valores independientes de GRACE. Una región
-dentro de un solo mascon está sujeta a la [fuga de señal](../background/resolution-and-leakage.md) descrita en la sección de fundamentos.
+dentro de un solo mascon está sujeta a la [fuga de señal](../mission/resolution-and-leakage.md) descrita en la sección de fundamentos.
 
 ## El gráfico de series temporales { #the-time-series-chart }
 
@@ -125,7 +125,7 @@ mismos ejes:
 | SWEa | GLDAS | equivalente de agua de la nieve |
 | CANa | GLDAS | agua retenida en el dosel vegetal |
 
-[Cálculo del Almacenamiento de Agua Subterránea](../background/deriving-groundwater.md) explica cómo encajan las capas entre sí.
+[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md) explica cómo encajan las capas entre sí.
 
 ![GWSa comparada con TWSa y SMa para el Sistema Acuífero Iullemeden-Irhazer](../../static/images/grace/app-chart-compare.webp)
 
@@ -143,7 +143,7 @@ GRACE no tiene datos para 35 meses del registro, así que la TWSa y la GWSa tien
 - **Seasonal model** estima los meses faltantes a partir de una tendencia y un ciclo estacional ajustados al propio registro de la región, y los
   dibuja como una línea discontinua con marcadores huecos, como en el gráfico de arriba.
 
-El ajuste solo cambia el gráfico. La Parte 3 compara las tres opciones en [Vacíos en el Registro](../gap-filling/gaps.md) y luego presenta el
+El ajuste solo cambia el gráfico. La Parte 3 compara las tres opciones en [Vacíos y Relleno de Vacíos](../mission/gap-filling.md) y luego presenta el
 método completo.
 
 ### Líneas de tendencia { #trend-lines }

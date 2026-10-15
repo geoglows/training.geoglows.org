@@ -13,7 +13,7 @@ norte de la India, Oriente Medio y la llanura del Norte de China, el aumento del
 húmedos y secos que recorren la Amazonía y el sur de África.
 
 Cambia la **Displayed layer** para comparar componentes. La TWSa muestra el contorno en bloques de los mascons de 3° (ver
-[La Misión GRACE](../background/grace-mission.md#the-mascon-solution-used-by-the-app)); la SWEa es casi cero en todas partes excepto en latitudes
+[Cómo GRACE Mide el Almacenamiento de Agua](../mission/measuring-water-storage.md#the-mascon-solution-used-by-the-app)); la SWEa es casi cero en todas partes excepto en latitudes
 altas y en montañas; la SMa muestra el humedecimiento y secado estacional de los suelos.
 
 ## Serie temporal de una sola celda { #time-series-for-a-single-cell }

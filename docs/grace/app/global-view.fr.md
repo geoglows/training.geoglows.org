@@ -14,7 +14,7 @@ l’Inde, au Moyen-Orient et dans la plaine de Chine du Nord, la hausse du stock
 sèches qui balaient l’Amazonie et l’Afrique australe.
 
 Changez la couche affichée (**Displayed layer**) pour comparer les composantes. La TWSa montre le contour en blocs des mascons de 3° (voir
-[La Mission GRACE](../background/grace-mission.md#the-mascon-solution-used-by-the-app)) ; la SWEa est proche de zéro partout sauf aux hautes
+[Comment GRACE Mesure le Stockage de l'Eau](../mission/measuring-water-storage.md#the-mascon-solution-used-by-the-app)) ; la SWEa est proche de zéro partout sauf aux hautes
 latitudes et en montagne ; la SMa montre l’humidification et l’assèchement saisonniers des sols.
 
 ## Série temporelle d’une maille { #time-series-for-a-single-cell }

@@ -50,25 +50,25 @@ plugins:
             Code Notebooks: "Notebooks de Código"
             Part 4 Tutorials: "Parte 4: Tutoriales"
             Web Maps (GIS Layer): "Mapas Web (Capa SIG)"
-            Part 1 Background: "Parte 1: Fundamentos"
-            The GRACE Mission: "La Misión GRACE"
+            Part 1 The GRACE Mission: "Parte 1: La Misión GRACE"
+            How GRACE Measures Water Storage: "Cómo GRACE Mide el Almacenamiento de Agua"
             Deriving Groundwater Storage: "Cálculo del Almacenamiento de Agua Subterránea"
             Resolution, Leakage and Small Regions: "Resolución, Fuga de Señal y Regiones Pequeñas"
-            Part 2 Using the App: "Parte 2: Uso de la Aplicación"
+            Part 2 GLDAS: "Parte 2: GLDAS"
+            The GLDAS Land Surface Models: "Los Modelos de Superficie Terrestre GLDAS"
+            Part 3 Using the App: "Parte 3: Uso de la Aplicación"
             Interface: "Interfaz"
             Global View: "Vista Global"
             Regional View: "Vista Regional"
             Trend Analysis: "Análisis de Tendencias"
             Downloading Data: "Descarga de Datos"
-            Part 3 Gap Filling: "Parte 3: Relleno de Vacíos"
             Part 4 Recharge Analysis: "Parte 4: Análisis de Recarga"
             The WTF Method: "El Método WTF"
             Opening the Analysis: "Apertura del Análisis"
             Water Years and Picks: "Años Hidrológicos y Selección de Puntos"
             Results: "Resultados"
             Part 5 Case Studies: "Parte 5: Casos de Estudio"
-            Gaps in the Record: "Vacíos en el Registro"
-            The Seasonal Model: "El Modelo Estacional"
+            Gaps and Gap Filling: "Vacíos y Relleno de Vacíos"
             Niger: "Níger"
             Volta Basin: "Cuenca del Volta"
             California's Central Valley: "Valle Central de California"
@@ -106,25 +106,25 @@ plugins:
             Code Notebooks: "Notebooks de Code"
             Part 4 Tutorials: "Partie 4 : Tutoriels"
             Web Maps (GIS Layer): "Cartes Web (Couche SIG)"
-            Part 1 Background: "Partie 1 : Contexte"
-            The GRACE Mission: "La Mission GRACE"
+            Part 1 The GRACE Mission: "Partie 1 : La Mission GRACE"
+            How GRACE Measures Water Storage: "Comment GRACE Mesure le Stockage de l'Eau"
             Deriving Groundwater Storage: "Calcul du Stockage des Eaux Souterraines"
             Resolution, Leakage and Small Regions: "Résolution, Fuite du Signal et Petites Régions"
-            Part 2 Using the App: "Partie 2 : Utilisation de l'Application"
+            Part 2 GLDAS: "Partie 2 : GLDAS"
+            The GLDAS Land Surface Models: "Les Modèles de Surface Terrestre GLDAS"
+            Part 3 Using the App: "Partie 3 : Utilisation de l'Application"
             Interface: "Interface"
             Global View: "Vue Globale"
             Regional View: "Vue Régionale"
             Trend Analysis: "Analyse des Tendances"
             Downloading Data: "Téléchargement des Données"
-            Part 3 Gap Filling: "Partie 3 : Comblement des Lacunes"
             Part 4 Recharge Analysis: "Partie 4 : Analyse de la Recharge"
             The WTF Method: "La Méthode WTF"
             Opening the Analysis: "Ouverture de l'Analyse"
             Water Years and Picks: "Années Hydrologiques et Choix des Points"
             Results: "Résultats"
             Part 5 Case Studies: "Partie 5 : Études de Cas"
-            Gaps in the Record: "Lacunes dans les Données"
-            The Seasonal Model: "Le Modèle Saisonnier"
+            Gaps and Gap Filling: "Lacunes et Comblement des Lacunes"
             Niger: "Niger"
             Volta Basin: "Bassin de la Volta"
             California's Central Valley: "Vallée Centrale de Californie"
@@ -171,20 +171,19 @@ nav:
           - Correcting Forecasts: rfs/bias-correction/forecasted-bias-correction.md
       - Publications: publications.md
   - GRACE Regional Analyst:
-      - Part 1 Background:
-          - Overview: grace/background/overview.md
-          - The GRACE Mission: grace/background/grace-mission.md
-          - Deriving Groundwater Storage: grace/background/deriving-groundwater.md
-          - Resolution, Leakage and Small Regions: grace/background/resolution-and-leakage.md
-      - Part 2 Using the App:
+      - Overview: grace/overview.md
+      - Part 1 The GRACE Mission:
+          - How GRACE Measures Water Storage: grace/mission/measuring-water-storage.md
+          - Resolution, Leakage and Small Regions: grace/mission/resolution-and-leakage.md
+          - Gaps and Gap Filling: grace/mission/gap-filling.md
+      - Part 2 GLDAS:
+          - Deriving Groundwater Storage: grace/gldas/deriving-groundwater.md
+      - Part 3 Using the App:
           - Interface: grace/app/interface.md
           - Regional View: grace/app/regional-view.md
           - Global View: grace/app/global-view.md
           - Trend Analysis: grace/app/trends.md
           - Downloading Data: grace/app/downloading-data.md
-      - Part 3 Gap Filling:
-          - Gaps in the Record: grace/gap-filling/gaps.md
-          - The Seasonal Model: grace/gap-filling/seasonal-model.md
       - Part 4 Recharge Analysis:
           - The WTF Method: grace/recharge/wtf-method.md
           - Opening the Analysis: grace/recharge/opening.md

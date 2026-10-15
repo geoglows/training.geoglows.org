@@ -96,7 +96,7 @@ réelle de GRACE :
 ![Limites des mailles et des mascons sur le Système Aquifère d’Iullemeden-Irhazer](../../static/images/grace/app-region-boundaries.webp)
 
 Ici, la région couvre des parties de plusieurs mascons (en violet) ; sa moyenne s’appuie donc sur plusieurs valeurs GRACE indépendantes. Une
-région située à l’intérieur d’un seul mascon est sujette à la [fuite du signal](../background/resolution-and-leakage.md) décrite dans la partie
+région située à l’intérieur d’un seul mascon est sujette à la [fuite du signal](../mission/resolution-and-leakage.md) décrite dans la partie
 Contexte.
 
 ## Le graphique des séries temporelles { #the-time-series-chart }
@@ -129,7 +129,7 @@ pour les ajouter sur les mêmes axes :
 | SWEa | GLDAS | équivalent en eau de la neige |
 | CANa | GLDAS | eau retenue par la canopée végétale |
 
-[Calcul du Stockage des Eaux Souterraines](../background/deriving-groundwater.md) explique comment les couches s’articulent.
+[Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md) explique comment les couches s’articulent.
 
 ![GWSa comparée à TWSa et SMa pour le Système Aquifère d’Iullemeden-Irhazer](../../static/images/grace/app-chart-compare.webp)
 
@@ -147,7 +147,7 @@ valeur chaque mois. Le contrôle **Gap filling** détermine comment le graphique
 - **Seasonal model** estime les mois manquants à partir d’une tendance et d’un cycle saisonnier ajustés sur la série propre à la région, et les
   trace en tirets avec des marqueurs creux, comme dans le graphique ci-dessus.
 
-Ce réglage ne modifie que le graphique. La Partie 3 compare les trois options dans [Lacunes dans les Données](../gap-filling/gaps.md), puis
+Ce réglage ne modifie que le graphique. La Partie 3 compare les trois options dans [Lacunes et Comblement des Lacunes](../mission/gap-filling.md), puis
 présente la méthode complète.
 
 ### Droites de tendance { #trend-lines }

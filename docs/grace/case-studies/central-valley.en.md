@@ -10,7 +10,7 @@
 
 California's Central Valley is about 700 km long and 80 km wide, about 52,000 km², and one of the most heavily pumped aquifer systems in the
 world. It is narrower than a single 3° GRACE mascon (about 333 × 264 km at that latitude), and the pumping decline is concentrated in the valley
-while the surrounding mountains behave differently. That makes it a textbook case of [leakage](../background/resolution-and-leakage.md#leakage):
+while the surrounding mountains behave differently. That makes it a textbook case of [leakage](../mission/resolution-and-leakage.md#leakage):
 averaged over the valley, GRACE understates the storage loss.
 
 ## An independent estimate from wells

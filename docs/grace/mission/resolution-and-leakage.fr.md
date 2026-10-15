@@ -7,7 +7,7 @@ d’altitude, deux masses distantes de moins de quelques centaines de kilomètre
 limite : elle calcule une valeur par calotte de 3°, d’environ 330 km de diamètre, et les grilles de 0.5° et 1° sont cette solution
 échantillonnée sur un maillage plus fin. L’application applique bien les facteurs de gain du JPL, qui donnent à la grille à 0.5° une certaine
 structure à l’intérieur de chaque mascon (voir
-[Calcul du Stockage des Eaux Souterraines](deriving-groundwater.md#gain-factors)), mais la mesure sous-jacente reste une valeur par calotte
+[Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md#gain-factors)), mais la mesure sous-jacente reste une valeur par calotte
 de 3°.
 
 ![Tailles de grille comparées à la taille des régions, et fuite du signal](../../static/images/grace/grace-resolution-leakage.png)
@@ -76,7 +76,7 @@ valeurs différentes ; cet écart vient d’un modèle de surface terrestre, non
 - **Erreur des modèles.** Les erreurs des termes GLDAS d’humidité du sol, de neige et de canopée se reportent directement sur la GWSa. C’est
   surtout problématique dans les régions enneigées et humides, où ces termes sont importants.
 - **Eaux de surface.** Les variations des réservoirs, des lacs et des plaines inondables sont comptabilisées comme eaux souterraines (voir
-  [Calcul du Stockage des Eaux Souterraines](deriving-groundwater.md)).
+  [Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md)).
 
 Malgré ces limites, GRACE offre une vision cohérente et indépendante de la variation du stockage sur des systèmes aquifères entiers, souvent la
 seule disponible. Utilisez-le pour les tendances régionales et comparez-le aux données locales chaque fois que possible.

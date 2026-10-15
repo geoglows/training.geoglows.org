@@ -25,7 +25,7 @@ Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
 
 El archivo tiene una fila por cada mes desde abril de 2002 hasta la publicación más reciente. En los meses sin datos de GRACE, las celdas de
 `GWSa` y `TWSa` están vacías, mientras que las capas de GLDAS (`SMa`, `SWEa`, `CANa`) sí tienen valores, porque los modelos de superficie terrestre
-se ejecutan todos los meses. Las columnas `_filled` aportan un valor para esos meses (ver [Vacíos en el Registro](../gap-filling/gaps.md)). Se
+se ejecutan todos los meses. Las columnas `_filled` aportan un valor para esos meses (ver [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). Se
 escriben con cualquier ajuste de **Gap filling**, así que el archivo es el mismo sin importar cómo se dibuje el gráfico.
 
 Excel, Google Sheets, Python y R leen el archivo directamente, y las fechas ISO no necesitan conversión (en pandas, usa
@@ -50,4 +50,4 @@ igual área, no en grados.
 
 El CSV es el punto de partida para análisis fuera de la aplicación. Para estimar la recarga, usa el [análisis de recarga](../recharge/opening.md) de
 la aplicación, que aplica el método de fluctuación del nivel freático a la serie rellenada y tiene su propia descarga en CSV.
-[El Modelo Estacional](../gap-filling/seasonal-model.md#filling-the-gaps) describe cómo se estiman las columnas `GWSa_filled` y `TWSa_filled`.
+[Vacíos y Relleno de Vacíos](../mission/gap-filling.md#filling-the-gaps) describe cómo se estiman las columnas `GWSa_filled` y `TWSa_filled`.

@@ -13,7 +13,7 @@ East and the North China Plain, the rising storage across the Sahel since about 
 and southern Africa.
 
 Change the **Displayed layer** to compare components. TWSa shows the blocky outline of the 3° mascons (see
-[The GRACE Mission](../background/grace-mission.md#the-mascon-solution-used-by-the-app)); SWEa is near zero everywhere except at high latitudes
+[How GRACE Measures Water Storage](../mission/measuring-water-storage.md#the-mascon-solution-used-by-the-app)); SWEa is near zero everywhere except at high latitudes
 and in mountains; SMa shows the seasonal wetting and drying of soils.
 
 ## Time series for a single cell

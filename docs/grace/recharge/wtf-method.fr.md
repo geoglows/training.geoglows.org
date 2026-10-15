@@ -82,7 +82,7 @@ est égal à R1.
 Les données GRACE diffèrent d'une série de puits sur plusieurs points, et l'application traite chacun d'eux.
 
 **Lacunes.** La méthode a besoin d'une valeur pour chaque mois : un mois manquant au pic ou au creux modifie le résultat de l'année. L'analyse de la recharge n'est
-disponible qu'avec le comblement **Seasonal model**, et elle s'exécute sur la série comblée (voir [Lacunes dans les Données](../gap-filling/gaps.md)). Les années dont
+disponible qu'avec le comblement **Seasonal model**, et elle s'exécute sur la série comblée (voir [Lacunes et Comblement des Lacunes](../mission/gap-filling.md)). Les années dont
 les points choisis ou la droite de récession tombent sur des mois comblés sont signalées dans les résultats.
 
 **Tendances à long terme.** De nombreuses régions présentent une baisse ou une hausse régulière du stockage sur l'ensemble de la série. Sur la série brute, une forte baisse

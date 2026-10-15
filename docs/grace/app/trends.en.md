@@ -33,7 +33,7 @@ a year.
 ### Gain factors and trend magnitudes
 
 The TWSa the app serves has JPL's gain factors applied (see
-[Deriving Groundwater Storage](../background/deriving-groundwater.md#gain-factors)), and those factors flow straight into the trends, because a
+[Deriving Groundwater Storage](../gldas/deriving-groundwater.md#gain-factors)), and those factors flow straight into the trends, because a
 constant multiplier on a time series multiplies its slope. JPL attaches a caution to this use: the factors are dominated by the annual cycle,
 and the GRACE-FO Level-3 Handbook says they "can potentially introduce biases in frequency bands outside the annual component, in particular for
 longer term trends," for which factors derived per averaging kernel would be needed. No such factors are published for this product, so the app

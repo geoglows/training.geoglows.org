@@ -34,7 +34,7 @@ pérdida de 2 km³ de agua al año.
 ### Factores de ganancia y magnitud de las tendencias { #gain-factors-and-trend-magnitudes }
 
 La TWSa que sirve la aplicación tiene aplicados los factores de ganancia de JPL (ver
-[Cálculo del Almacenamiento de Agua Subterránea](../background/deriving-groundwater.md#gain-factors)), y esos factores pasan directamente a las
+[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md#gain-factors)), y esos factores pasan directamente a las
 tendencias, porque un multiplicador constante sobre una serie temporal multiplica su pendiente. JPL acompaña este uso de una advertencia: los
 factores están dominados por el ciclo anual, y el GRACE-FO Level-3 Handbook dice que «pueden introducir sesgos en bandas de frecuencia distintas
 de la componente anual, en particular en las tendencias de largo plazo», para las que harían falta factores obtenidos por núcleo de promediado.

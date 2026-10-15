@@ -22,7 +22,7 @@ GWSa = TWSa − (SMa + SWEa + CANa + SWSa)
 ```
 
 Los vacíos se rellenaron por descomposición estacional con una tendencia lineal por tramos, el enfoque que usa la aplicación (consulta
-[El Modelo Estacional](../gap-filling/seasonal-model.md)). El estudio también comparó los resultados con el almacenamiento de agua subterránea calculado directamente por el modelo
+[Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). El estudio también comparó los resultados con el almacenamiento de agua subterránea calculado directamente por el modelo
 Catchment de GLDAS 2.2, con la lluvia de CHIRPS y con 10 pozos de monitoreo en la subcuenca del Nasia.
 
 ## Por qué importa el lago { #why-the-lake-matters }
@@ -37,7 +37,7 @@ ganancia total de unos 30 km³, o unos 10 cm de agua, en 2002–2022.
 considerar la SWSa. Barbosa et al. (2025), Fig. 6, CC BY 4.0.*
 
 La GWSa de la aplicación para esta cuenca corresponde a la curva verde, porque la aplicación no resta el agua superficial (consulta
-[Cálculo del Almacenamiento de Agua Subterránea](../background/deriving-groundwater.md#the-water-balance)).
+[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md#the-water-balance)).
 
 GLDAS 2.2, que asimila GRACE, mostró la misma tendencia pero oscilaciones estacionales mucho mayores, así que los autores lo recomiendan para tendencias pero no para
 estimar la recarga.

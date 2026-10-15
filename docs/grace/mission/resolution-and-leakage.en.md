@@ -5,7 +5,7 @@
 GRACE senses mass through gravity, and gravity spreads out with distance. From an orbit hundreds of kilometers up, two masses closer together
 than a few hundred kilometers blur into one. JPL's mascon solution reflects that limit: it solves for one value per 3° cap, about 330 km across,
 and the 0.5° and 1° grids are that solution sampled onto a finer mesh. The app does apply JPL's gain factors, which give the 0.5° grid some
-structure within each mascon (see [Deriving Groundwater Storage](deriving-groundwater.md#gain-factors)), but the measurement underneath is still
+structure within each mascon (see [Deriving Groundwater Storage](../gldas/deriving-groundwater.md#gain-factors)), but the measurement underneath is still
 one value per 3° cap.
 
 ![Grid sizes compared with region size, and signal leakage](../../static/images/grace/grace-resolution-leakage.png)
@@ -68,7 +68,7 @@ that difference comes from a land surface model, not from GRACE.
 - **Model error.** Errors in the GLDAS soil moisture, snow and canopy terms pass directly into GWSa. This is most serious in snowy and wet
   regions, where those terms are large.
 - **Surface water.** Changes in reservoirs, lakes and floodplains are counted as groundwater (see
-  [Deriving Groundwater Storage](deriving-groundwater.md)).
+  [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)).
 
 Even with these limits, GRACE gives a consistent, independent view of storage change across whole aquifer systems, which is often the only such
 view available. Use it for regional trends and compare it with local data wherever you can.

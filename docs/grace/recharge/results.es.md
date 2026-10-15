@@ -80,6 +80,6 @@ queda fuera de las medias.
   recesión prolonga ese descenso, así que R<sub>D</sub>, y con él R2, cuenta el bombeo como recarga. Ahí R1 es la estimación más segura.
 - **Las regiones pequeñas subestiman el ascenso.** GRACE suaviza los cambios de almacenamiento sobre unos cuantos cientos de kilómetros, así que en una región pequeña o angosta el
   ascenso estacional, y con él la recarga, puede quedar subestimado (consulta
-  [Resolución, Fuga de Señal y Regiones Pequeñas](../background/resolution-and-leakage.md)).
+  [Resolución, Fuga de Señal y Regiones Pequeñas](../mission/resolution-and-leakage.md)).
 - **Compara con estimaciones independientes.** Los hidrogramas de pozos, el balance de masa de cloruros o los estudios publicados sobre el mismo acuífero sirven para verificar los
   valores de GRACE. Los casos de estudio de [Níger](../case-studies/niger.md) y del [Volta](../case-studies/volta.md) comparan la recarga de GRACE con estimaciones basadas en pozos.

@@ -3,7 +3,7 @@
 ## El botón Recharge Analysis { #the-recharge-analysis-button }
 
 El Análisis de Recarga se ejecuta sobre la serie GWSa rellenada, así que solo está disponible cuando **Gap filling** en el panel está en **Seasonal model**
-(consulta [Vacíos en el Registro](../gap-filling/gaps.md)). Con esa opción seleccionada, aparece un botón **Recharge Analysis** junto a **Download CSV** encima del
+(consulta [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). Con esa opción seleccionada, aparece un botón **Recharge Analysis** junto a **Download CSV** encima del
 gráfico de series de tiempo, tanto para una región como para una celda individual de la cuadrícula en la [vista global](../app/global-view.md).
 
 ![El botón Recharge Analysis encima del gráfico de series de tiempo del Northern Midwest Aquifer System](../../static/images/grace/app-recharge-button.webp)

@@ -1,8 +1,53 @@
-# The Seasonal Model
+# Gaps and Gap Filling
 
-The **Seasonal model** option estimates each missing month from a model of the region's own record, fitted to its observed months,
-following the approach of Barbosa et al. (2022) (see [Gaps in the Record](gaps.md)). This page gives the model, how it is fitted, how the
-filled values are computed, and how accurate they are.
+## Missing months
+
+The GRACE record is missing 35 months: scattered single months, mostly between 2011 and 2017, and the 11 months between the end of GRACE and
+the start of GRACE-FO (see [How GRACE Measures Water Storage](measuring-water-storage.md#the-record-and-its-gaps)). TWSa and GWSa have gaps in those
+months. The GLDAS layers (SMa, SWEa and CANa) come from land surface models that run every month, so they have no gaps.
+
+Trend analysis in the app skips missing months. Analyses that work year by year need a value for every month. In the
+[Recharge Analysis](../recharge/wtf-method.md), for example, a missing month at a seasonal peak or trough changes that year's result. The app
+estimates the missing months with a seasonal model, following the approach of Barbosa et al. (2022). The options in the app come first below,
+then the method behind them: the model, how it is fitted, how the filled values are computed, and how accurate they are.
+
+## The Gap filling control
+
+The **Gap filling** control in the panel sets what the chart does at the missing months:
+
+![The Gap filling control in the app's panel](../../static/images/grace/app-gap-fill-control.webp){ width="310" }
+
+- **None** breaks the line at every gap, so you can see exactly which months were observed.
+- **Straight line** joins the months on either side of each gap. It only bridges the gap on the chart and estimates nothing.
+- **Seasonal model** estimates each missing month from a trend and seasonal cycle fitted to the observed months. Filled months are drawn as a
+  dashed line with open markers, and hovering over one shows its value. This option also adds the **Recharge Analysis** button above the
+  chart (see [Opening the Analysis](../recharge/opening.md)).
+
+The Northern Midwest Aquifer System, which has a strong seasonal cycle, shows the difference between the three options. With **None**:
+
+![Northern Midwest Aquifer System GWSa with the line broken at each gap](../../static/images/grace/app-gap-fill-none.webp)
+
+With **Straight line**, the 11 months between the missions become a flat bridge:
+
+![Northern Midwest Aquifer System GWSa with the gaps bridged by straight lines](../../static/images/grace/app-gap-fill-line.webp)
+
+With **Seasonal model**, the filled months carry on the region's annual cycle:
+
+![Northern Midwest Aquifer System GWSa with the gaps filled by the seasonal model](../../static/images/grace/app-gap-fill-seasonal.webp)
+
+The uncertainty band is not drawn for filled months, because the error of a filled value comes from the model rather than from GRACE (see
+[Fill accuracy](#fill-accuracy)).
+
+## Filled values in the CSV
+
+The downloaded CSV always includes the filled values, in the `GWSa_filled` and `TWSa_filled` columns, with `GWSa_is_filled` and
+`TWSa_is_filled` marking the filled months, whichever option the chart uses (see [Downloading Data](../app/downloading-data.md)).
+
+## The seasonal model
+
+The **Seasonal model** option estimates each missing month from a model of the region's own record, fitted to its observed months, following
+Barbosa et al. (2022). The rest of this page gives that model, how it is fitted, how the filled values are computed, and how accurate they
+are.
 
 ## Trend, seasonal cycle and residual
 
@@ -148,7 +193,7 @@ into four trend segments of +1.3, −0.7, +2.9 and −0.5 cm/yr:
 The single missing months between 2011 and 2017 sit close to their neighbors. Across the 11-month gap between the missions, the filled values
 rise to 12.8 cm in September 2017 and fall to 4.8 cm in March 2018 before meeting the first GRACE-FO month, carrying on the region's annual
 cycle. The app shows the same values with **Gap filling** set to **Seasonal model** (see
-[Gaps in the Record](gaps.md#the-gap-filling-control)).
+[The Gap filling control](#the-gap-filling-control)).
 
 ## Fill accuracy
 

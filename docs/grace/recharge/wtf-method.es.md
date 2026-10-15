@@ -82,7 +82,7 @@ es igual a R1.
 Los datos de GRACE difieren del registro de un pozo en varios aspectos, y la aplicación maneja cada uno.
 
 **Vacíos.** El método necesita un valor para cada mes: un mes faltante en un pico o un valle cambia el resultado de ese año. El Análisis de Recarga
-solo está disponible con el relleno de vacíos **Seasonal model**, y se ejecuta sobre la serie rellenada (consulta [Vacíos en el Registro](../gap-filling/gaps.md)). Los años cuyos
+solo está disponible con el relleno de vacíos **Seasonal model**, y se ejecuta sobre la serie rellenada (consulta [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). Los años cuyos
 puntos seleccionados o cuya línea de recesión caen en meses rellenados se marcan en los resultados.
 
 **Tendencias de largo plazo.** Muchas regiones tienen un descenso o ascenso sostenido del almacenamiento a lo largo del registro. Si se seleccionaran sobre la serie original, un descenso pronunciado

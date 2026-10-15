@@ -12,7 +12,7 @@ whole system. GRACE sees every aquifer on Earth, every month, with the same inst
 to aquifers, basins and countries rather than individual well fields, but at that scale it gives a consistent record of storage change where
 little else exists.
 
-![GRACE Regional Analyst, regional view of the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-region.webp)
+![GRACE Regional Analyst, regional view of the Iullemeden-Irhazer Aquifer System](../static/images/grace/app-region.webp)
 
 The app is free and runs in a web browser at
 [apps.geoglows.org/grace-anomalies](https://apps.geoglows.org/grace-anomalies){:target="_blank"}. With it you can:
@@ -27,28 +27,28 @@ The app is free and runs in a web browser at
 
 **Part 1, Background,** explains where the numbers come from:
 
-- [The GRACE Mission](grace-mission.md): how two satellites measure changes in Earth's gravity, and what a monthly water storage anomaly is.
-- [Deriving Groundwater Storage](deriving-groundwater.md): how the app separates groundwater from the total using GLDAS, and how the
+- [How GRACE Measures Water Storage](mission/measuring-water-storage.md): how two satellites measure changes in Earth's gravity, and what a monthly water storage anomaly is.
+- [Deriving Groundwater Storage](gldas/deriving-groundwater.md): how the app separates groundwater from the total using GLDAS, and how the
   uncertainty is estimated.
-- [Resolution, Leakage and Small Regions](resolution-and-leakage.md): what GRACE can and cannot resolve, and how to work with regions smaller
+- [Resolution, Leakage and Small Regions](mission/resolution-and-leakage.md): what GRACE can and cannot resolve, and how to work with regions smaller
   than its footprint.
 
-**Part 2, Using the App,** walks through the interface: [the layout](../app/interface.md), [the regional view](../app/regional-view.md),
-[the global view](../app/global-view.md), [trend analysis](../app/trends.md) and
-[downloading data](../app/downloading-data.md).
+**Part 2, Using the App,** walks through the interface: [the layout](app/interface.md), [the regional view](app/regional-view.md),
+[the global view](app/global-view.md), [trend analysis](app/trends.md) and
+[downloading data](app/downloading-data.md).
 
-**Part 3, Gap Filling,** covers [the gaps in the record and the options in the app](../gap-filling/gaps.md), then
-[the seasonal model](../gap-filling/seasonal-model.md) behind the **Seasonal model** fill: how it is fitted, how the gaps are filled, and how
+**Part 3, Gap Filling,** covers [the gaps in the record and the options in the app](mission/gap-filling.md), then
+[the seasonal model](mission/gap-filling.md) behind the **Seasonal model** fill: how it is fitted, how the gaps are filled, and how
 accurate the filled values are.
 
-**Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](../recharge/wtf-method.md)
-as applied to GRACE data, then [opening the analysis](../recharge/opening.md) and checking the series, [the water years and
-picks](../recharge/picks.md), and [the results](../recharge/results.md).
+**Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](recharge/wtf-method.md)
+as applied to GRACE data, then [opening the analysis](recharge/opening.md) and checking the series, [the water years and
+picks](recharge/picks.md), and [the results](recharge/results.md).
 
 **Part 5, Case Studies,** summarizes three published studies by the Brigham Young University team that developed the app and its
 predecessor, the GRACE Groundwater Subsetting Tool (GGST). Each combines the app's GRACE and GLDAS water balance with other data:
-[estimating recharge in Niger](../case-studies/niger.md) where wells are scarce, [accounting for a large reservoir in the Volta
-Basin](../case-studies/volta.md), and [correcting for leakage in California's Central Valley](../case-studies/central-valley.md), a narrow,
+[estimating recharge in Niger](case-studies/niger.md) where wells are scarce, [accounting for a large reservoir in the Volta
+Basin](case-studies/volta.md), and [correcting for leakage in California's Central Valley](case-studies/central-valley.md), a narrow,
 heavily pumped valley.
 
 ## History

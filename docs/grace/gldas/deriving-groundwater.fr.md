@@ -125,7 +125,7 @@ $$
 
 La bande d’incertitude rend compte de l’erreur de mesure de GRACE et du désaccord entre les modèles. Elle ne rend pas compte des erreurs
 communes aux trois modèles, de l’effet de l’omission des eaux de surface, de la fuite du signal provenant de l’extérieur d’une région (voir
-[Résolution, Fuite du Signal et Petites Régions](resolution-and-leakage.md)), ni de l’incertitude des facteurs de gain eux-mêmes, que le JPL ne
+[Résolution, Fuite du Signal et Petites Régions](../mission/resolution-and-leakage.md)), ni de l’incertitude des facteurs de gain eux-mêmes, que le JPL ne
 publie pas : l’incertitude réelle est donc plus grande que ne l’indique la bande.
 
 Une précaution sur leur combinaison : l’incertitude TWSa du JPL est une erreur de mesure, tandis que les trois termes GLDAS correspondent à la

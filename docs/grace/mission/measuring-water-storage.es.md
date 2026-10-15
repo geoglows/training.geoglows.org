@@ -1,4 +1,4 @@
-# La Misión GRACE
+# Cómo GRACE Mide el Almacenamiento de Agua
 
 ## Dos satélites que pesan el agua { #two-satellites-that-weigh-water }
 
@@ -70,7 +70,7 @@ Tiene dos tipos de vacíos:
   lo que deja 11 meses sin mediciones.
 
 La aplicación muestra los meses faltantes como vacíos en la serie temporal y los omite en la animación del mapa. La página
-[El Modelo Estacional](../gap-filling/seasonal-model.md) muestra cómo estimarlos cuando un análisis necesita un registro mensual completo.
+[Vacíos y Relleno de Vacíos](gap-filling.md) muestra cómo estimarlos cuando un análisis necesita un registro mensual completo.
 
 ## Referencias { #references }
 

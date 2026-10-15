@@ -114,7 +114,7 @@ $$
 
 The uncertainty band captures the measurement error in GRACE and the disagreement between models. It doesn't capture errors the three models
 share, the effect of leaving out surface water, leakage from outside a region (see
-[Resolution, Leakage and Small Regions](resolution-and-leakage.md)), or the uncertainty in the gain factors themselves, which JPL does not
+[Resolution, Leakage and Small Regions](../mission/resolution-and-leakage.md)), or the uncertainty in the gain factors themselves, which JPL does not
 publish. The true uncertainty is larger than the band shows.
 
 One caution about combining them: JPL's TWSa uncertainty is a measurement error, while the three GLDAS terms are the spread across NOAH, VIC and

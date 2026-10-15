@@ -80,6 +80,6 @@ exclue des moyennes.
   récession prolonge cette baisse, de sorte que R<sub>D</sub>, et avec lui R2, comptent le pompage comme de la recharge. R1 y est l'estimation la plus sûre.
 - **Les petites régions sous-estiment la remontée.** GRACE lisse les variations de stockage sur quelques centaines de kilomètres ; dans une région petite ou étroite, la
   remontée saisonnière, et avec elle la recharge, peut être sous-estimée (voir
-  [Résolution, Fuite du Signal et Petites Régions](../background/resolution-and-leakage.md)).
+  [Résolution, Fuite du Signal et Petites Régions](../mission/resolution-and-leakage.md)).
 - **Comparez avec des estimations indépendantes.** Les hydrogrammes de puits, le bilan de masse des chlorures ou les études publiées sur le même aquifère permettent de vérifier
   les valeurs GRACE. Les études de cas [Niger](../case-studies/niger.md) et [Volta](../case-studies/volta.md) comparent la recharge GRACE à des estimations fondées sur des puits.

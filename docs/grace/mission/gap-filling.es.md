@@ -1,8 +1,53 @@
-# El Modelo Estacional
+# Vacíos y Relleno de Vacíos
+
+## Meses faltantes { #missing-months }
+
+Al registro de GRACE le faltan 35 meses: meses sueltos, la mayoría entre 2011 y 2017, y los 11 meses entre el fin de GRACE y el inicio
+de GRACE-FO (consulta [Cómo GRACE Mide el Almacenamiento de Agua](measuring-water-storage.md#the-record-and-its-gaps)). TWSa y GWSa tienen vacíos en esos
+meses. Las capas de GLDAS (SMa, SWEa y CANa) provienen de modelos de superficie terrestre que se ejecutan todos los meses, así que no tienen vacíos.
+
+El análisis de tendencias de la aplicación omite los meses faltantes. Los análisis que trabajan año por año necesitan un valor para cada mes. En el
+[Análisis de Recarga](../recharge/wtf-method.md), por ejemplo, un mes faltante en un pico o un valle estacional cambia el resultado de ese año. La aplicación
+estima los meses faltantes con un modelo estacional, siguiendo el enfoque de Barbosa et al. (2022). Abajo vienen primero las opciones de la
+aplicación y después el método que las sustenta: el modelo, cómo se ajusta, cómo se calculan los valores rellenados y qué tan precisos son.
+
+## El control Gap filling { #the-gap-filling-control }
+
+El control **Gap filling** (relleno de vacíos) del panel define qué hace el gráfico en los meses faltantes:
+
+![El control Gap filling en el panel de la aplicación](../../static/images/grace/app-gap-fill-control.webp){ width="310" }
+
+- **None** corta la línea en cada vacío, para que veas exactamente qué meses se observaron.
+- **Straight line** une los meses a ambos lados de cada vacío. Solo cubre el vacío en el gráfico y no estima nada.
+- **Seasonal model** estima cada mes faltante a partir de una tendencia y un ciclo estacional ajustados a los meses observados. Los meses rellenados se dibujan
+  con una línea discontinua y marcadores huecos, y al pasar el cursor sobre uno se muestra su valor. Esta opción también agrega el botón **Recharge Analysis** encima del
+  gráfico (consulta [Apertura del Análisis](../recharge/opening.md)).
+
+El Sistema Acuífero del Norte del Medio Oeste (Northern Midwest Aquifer System), que tiene un ciclo estacional marcado, muestra la diferencia entre las tres opciones. Con **None**:
+
+![GWSa del Northern Midwest Aquifer System con la línea cortada en cada vacío](../../static/images/grace/app-gap-fill-none.webp)
+
+Con **Straight line**, los 11 meses entre las misiones se convierten en un puente plano:
+
+![GWSa del Northern Midwest Aquifer System con los vacíos unidos por líneas rectas](../../static/images/grace/app-gap-fill-line.webp)
+
+Con **Seasonal model**, los meses rellenados continúan el ciclo anual de la región:
+
+![GWSa del Northern Midwest Aquifer System con los vacíos rellenados por el modelo estacional](../../static/images/grace/app-gap-fill-seasonal.webp)
+
+La banda de incertidumbre no se dibuja en los meses rellenados, porque el error de un valor rellenado proviene del modelo y no de GRACE (consulta
+[Precisión del relleno](#fill-accuracy)).
+
+## Valores rellenados en el CSV { #filled-values-in-the-csv }
+
+El CSV descargado siempre incluye los valores rellenados, en las columnas `GWSa_filled` y `TWSa_filled`, con `GWSa_is_filled` y
+`TWSa_is_filled` marcando los meses rellenados, sin importar qué opción use el gráfico (consulta [Descarga de Datos](../app/downloading-data.md)).
+
+## El modelo estacional { #the-seasonal-model }
 
 La opción **Seasonal model** estima cada mes faltante a partir de un modelo del propio registro de la región, ajustado a sus meses observados,
-siguiendo el enfoque de Barbosa et al. (2022) (consulta [Vacíos en el Registro](gaps.md)). Esta página presenta el modelo, cómo se ajusta, cómo se
-calculan los valores rellenados y qué tan precisos son.
+siguiendo a Barbosa et al. (2022). El resto de esta página presenta ese modelo, cómo se ajusta, cómo se calculan los valores rellenados y qué
+tan precisos son.
 
 ## Tendencia, ciclo estacional y residuo { #trend-seasonal-cycle-and-residual }
 
@@ -148,7 +193,7 @@ en cuatro tramos de tendencia de +1.3, −0.7, +2.9 y −0.5 cm/año:
 Los meses faltantes sueltos entre 2011 y 2017 quedan cerca de sus vecinos. A lo largo del vacío de 11 meses entre las misiones, los valores rellenados
 suben a 12.8 cm en septiembre de 2017 y bajan a 4.8 cm en marzo de 2018 antes de encontrarse con el primer mes de GRACE-FO, continuando el ciclo anual
 de la región. La aplicación muestra los mismos valores con **Gap filling** en **Seasonal model** (consulta
-[Vacíos en el Registro](gaps.md#the-gap-filling-control)).
+[El control Gap filling](#the-gap-filling-control)).
 
 ## Precisión del relleno { #fill-accuracy }
 

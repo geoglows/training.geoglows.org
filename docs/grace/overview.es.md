@@ -13,7 +13,7 @@ almacenamiento está subiendo o bajando en todo el sistema. GRACE observa todos 
 resolución es gruesa, de unos 300 km, por lo que es adecuado para acuíferos, cuencas y países y no para campos de pozos individuales, pero a esa
 escala ofrece un registro consistente del cambio de almacenamiento donde hay poca información más.
 
-![GRACE Regional Analyst, vista regional del Sistema Acuífero Iullemeden-Irhazer](../../static/images/grace/app-region.webp)
+![GRACE Regional Analyst, vista regional del Sistema Acuífero Iullemeden-Irhazer](../static/images/grace/app-region.webp)
 
 La aplicación es gratuita y funciona en un navegador web en
 [apps.geoglows.org/grace-anomalies](https://apps.geoglows.org/grace-anomalies){:target="_blank"}. Con ella puedes:
@@ -28,29 +28,29 @@ La aplicación es gratuita y funciona en un navegador web en
 
 **La Parte 1, Fundamentos,** explica de dónde vienen los números:
 
-- [La Misión GRACE](grace-mission.md): cómo dos satélites miden los cambios en la gravedad de la Tierra y qué es una anomalía mensual de
+- [Cómo GRACE Mide el Almacenamiento de Agua](mission/measuring-water-storage.md): cómo dos satélites miden los cambios en la gravedad de la Tierra y qué es una anomalía mensual de
   almacenamiento de agua.
-- [Cálculo del Almacenamiento de Agua Subterránea](deriving-groundwater.md): cómo la aplicación separa el agua subterránea del total usando GLDAS
+- [Cálculo del Almacenamiento de Agua Subterránea](gldas/deriving-groundwater.md): cómo la aplicación separa el agua subterránea del total usando GLDAS
   y cómo se estima la incertidumbre.
-- [Resolución, Fuga de Señal y Regiones Pequeñas](resolution-and-leakage.md): qué puede y qué no puede resolver GRACE, y cómo trabajar con
+- [Resolución, Fuga de Señal y Regiones Pequeñas](mission/resolution-and-leakage.md): qué puede y qué no puede resolver GRACE, y cómo trabajar con
   regiones más pequeñas que su huella.
 
-**La Parte 2, Uso de la Aplicación,** recorre la interfaz: [la disposición](../app/interface.md), [la vista regional](../app/regional-view.md),
-[la vista global](../app/global-view.md), [el análisis de tendencias](../app/trends.md) y
-[la descarga de datos](../app/downloading-data.md).
+**La Parte 2, Uso de la Aplicación,** recorre la interfaz: [la disposición](app/interface.md), [la vista regional](app/regional-view.md),
+[la vista global](app/global-view.md), [el análisis de tendencias](app/trends.md) y
+[la descarga de datos](app/downloading-data.md).
 
-**La Parte 3, Relleno de Vacíos,** trata [los vacíos del registro y las opciones de la aplicación](../gap-filling/gaps.md), y luego
-[el modelo estacional](../gap-filling/seasonal-model.md) en el que se basa el relleno **Seasonal model**: cómo se ajusta, cómo se rellenan los
+**La Parte 3, Relleno de Vacíos,** trata [los vacíos del registro y las opciones de la aplicación](mission/gap-filling.md), y luego
+[el modelo estacional](mission/gap-filling.md) en el que se basa el relleno **Seasonal model**: cómo se ajusta, cómo se rellenan los
 vacíos y qué tan precisos son los valores rellenados.
 
 **La Parte 4, Análisis de Recarga,** estima la recarga anual de agua subterránea con el método de fluctuación del nivel freático:
-[el método](../recharge/wtf-method.md) aplicado a datos de GRACE, luego [la apertura del análisis](../recharge/opening.md) y la revisión de la
-serie, [los años hidrológicos y la selección de puntos](../recharge/picks.md), y [los resultados](../recharge/results.md).
+[el método](recharge/wtf-method.md) aplicado a datos de GRACE, luego [la apertura del análisis](recharge/opening.md) y la revisión de la
+serie, [los años hidrológicos y la selección de puntos](recharge/picks.md), y [los resultados](recharge/results.md).
 
 **La Parte 5, Casos de Estudio,** resume tres estudios publicados por el equipo de Brigham Young University que desarrolló la aplicación y su
 predecesora, la GRACE Groundwater Subsetting Tool (GGST). Cada uno combina el balance hídrico de GRACE y GLDAS de la aplicación con otros datos:
-[la estimación de la recarga en Níger](../case-studies/niger.md), donde los pozos son escasos, [la consideración de un gran embalse en la Cuenca
-del Volta](../case-studies/volta.md), y [la corrección de la fuga de señal en el Valle Central de California](../case-studies/central-valley.md),
+[la estimación de la recarga en Níger](case-studies/niger.md), donde los pozos son escasos, [la consideración de un gran embalse en la Cuenca
+del Volta](case-studies/volta.md), y [la corrección de la fuga de señal en el Valle Central de California](case-studies/central-valley.md),
 un valle angosto con bombeo intenso.
 
 ## Historia { #history }

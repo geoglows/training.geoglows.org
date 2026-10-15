@@ -88,7 +88,7 @@ Turn on **Show cell boundaries** and **Show mascon boundaries** to see how the r
 ![Cell and mascon boundaries over the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-region-boundaries.webp)
 
 Here the region spans parts of several mascons (purple), so its average draws on several independent GRACE values. A region inside a single mascon
-is subject to the [leakage](../background/resolution-and-leakage.md) described in the background section.
+is subject to the [leakage](../mission/resolution-and-leakage.md) described in the background section.
 
 ## The time series chart
 
@@ -119,7 +119,7 @@ axes:
 | SWEa | GLDAS | snow water equivalent |
 | CANa | GLDAS | water held on vegetation canopies |
 
-[Deriving Groundwater Storage](../background/deriving-groundwater.md) explains how the layers fit together.
+[Deriving Groundwater Storage](../gldas/deriving-groundwater.md) explains how the layers fit together.
 
 ![GWSa compared with TWSa and SMa for the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-chart-compare.webp)
 
@@ -137,7 +137,7 @@ control sets how the chart draws the gaps:
 - **Seasonal model** estimates the missing months from a trend and seasonal cycle fitted to the region's own record, and draws them as a
   dashed line with open markers, as in the chart above.
 
-The setting changes the chart only. Part 3 compares the three options in [Gaps in the Record](../gap-filling/gaps.md) and then gives the full method.
+The setting changes the chart only. Part 3 compares the three options in [Gaps and Gap Filling](../mission/gap-filling.md) and then gives the full method.
 
 ### Trend lines
 

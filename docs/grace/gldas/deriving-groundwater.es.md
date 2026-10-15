@@ -122,7 +122,7 @@ $$
 
 La banda de incertidumbre recoge el error de medición de GRACE y el desacuerdo entre modelos. No recoge los errores que comparten los tres
 modelos, el efecto de dejar fuera el agua superficial, la fuga de señal desde fuera de una región (ver
-[Resolución, Fuga de Señal y Regiones Pequeñas](resolution-and-leakage.md)) ni la incertidumbre de los propios factores de ganancia, que JPL no
+[Resolución, Fuga de Señal y Regiones Pequeñas](../mission/resolution-and-leakage.md)) ni la incertidumbre de los propios factores de ganancia, que JPL no
 publica. La incertidumbre real es mayor que la que muestra la banda.
 
 Una advertencia sobre combinarlas: la incertidumbre de la TWSa de JPL es un error de medición, mientras que los tres términos de GLDAS son la

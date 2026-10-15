@@ -13,7 +13,7 @@ augmente ou diminue à l’échelle de l’ensemble du système. GRACE observe c
 résolution est grossière, environ 300 km : elle convient donc aux aquifères, aux bassins et aux pays plutôt qu’aux champs captants individuels,
 mais à cette échelle elle fournit un enregistrement cohérent de la variation du stockage là où il n’existe guère d’autres données.
 
-![GRACE Regional Analyst, vue régionale du Système Aquifère d’Iullemeden-Irhazer](../../static/images/grace/app-region.webp)
+![GRACE Regional Analyst, vue régionale du Système Aquifère d’Iullemeden-Irhazer](../static/images/grace/app-region.webp)
 
 L’application est gratuite et s’exécute dans un navigateur web à l’adresse
 [apps.geoglows.org/grace-anomalies](https://apps.geoglows.org/grace-anomalies){:target="_blank"}. Elle vous permet de :
@@ -30,29 +30,29 @@ L’application est gratuite et s’exécute dans un navigateur web à l’adres
 
 **Partie 1, Contexte,** explique d’où viennent les chiffres :
 
-- [La Mission GRACE](grace-mission.md) : comment deux satellites mesurent les variations de la gravité terrestre, et ce qu’est une anomalie
+- [Comment GRACE Mesure le Stockage de l'Eau](mission/measuring-water-storage.md) : comment deux satellites mesurent les variations de la gravité terrestre, et ce qu’est une anomalie
   mensuelle de stockage d’eau.
-- [Calcul du Stockage des Eaux Souterraines](deriving-groundwater.md) : comment l’application isole les eaux souterraines du total à l’aide de
+- [Calcul du Stockage des Eaux Souterraines](gldas/deriving-groundwater.md) : comment l’application isole les eaux souterraines du total à l’aide de
   GLDAS, et comment l’incertitude est estimée.
-- [Résolution, Fuite du Signal et Petites Régions](resolution-and-leakage.md) : ce que GRACE peut et ne peut pas résoudre, et comment travailler
+- [Résolution, Fuite du Signal et Petites Régions](mission/resolution-and-leakage.md) : ce que GRACE peut et ne peut pas résoudre, et comment travailler
   avec des régions plus petites que son empreinte.
 
-**Partie 2, Utilisation de l’Application,** présente l’interface : [la disposition](../app/interface.md), [la vue régionale](../app/regional-view.md),
-[la vue globale](../app/global-view.md), [l’analyse des tendances](../app/trends.md) et
-[le téléchargement des données](../app/downloading-data.md).
+**Partie 2, Utilisation de l’Application,** présente l’interface : [la disposition](app/interface.md), [la vue régionale](app/regional-view.md),
+[la vue globale](app/global-view.md), [l’analyse des tendances](app/trends.md) et
+[le téléchargement des données](app/downloading-data.md).
 
-**Partie 3, Comblement des Lacunes,** traite [des lacunes de la série et des options de l’application](../gap-filling/gaps.md), puis
-[du modèle saisonnier](../gap-filling/seasonal-model.md) utilisé par l’option **Seasonal model** : comment il est ajusté, comment les lacunes
+**Partie 3, Comblement des Lacunes,** traite [des lacunes de la série et des options de l’application](mission/gap-filling.md), puis
+[du modèle saisonnier](mission/gap-filling.md) utilisé par l’option **Seasonal model** : comment il est ajusté, comment les lacunes
 sont comblées et quelle est la précision des valeurs reconstituées.
 
 **Partie 4, Analyse de la Recharge,** estime la recharge annuelle des eaux souterraines par la méthode de fluctuation de la nappe (WTF) :
-[la méthode](../recharge/wtf-method.md) appliquée aux données GRACE, puis [l’ouverture de l’analyse](../recharge/opening.md) et la vérification de
-la série, [les années hydrologiques et le choix des points](../recharge/picks.md), et [les résultats](../recharge/results.md).
+[la méthode](recharge/wtf-method.md) appliquée aux données GRACE, puis [l’ouverture de l’analyse](recharge/opening.md) et la vérification de
+la série, [les années hydrologiques et le choix des points](recharge/picks.md), et [les résultats](recharge/results.md).
 
 **Partie 5, Études de Cas,** résume trois études publiées par l’équipe de l’Université Brigham Young qui a développé l’application et son
 prédécesseur, le GRACE Groundwater Subsetting Tool (GGST). Chacune combine le bilan hydrique GRACE et GLDAS de l’application avec d’autres
-données : [l’estimation de la recharge au Niger](../case-studies/niger.md), où les puits sont rares, [la prise en compte d’un grand réservoir dans
-le bassin de la Volta](../case-studies/volta.md), et [la correction de la fuite du signal dans la Vallée Centrale de Californie](../case-studies/central-valley.md),
+données : [l’estimation de la recharge au Niger](case-studies/niger.md), où les puits sont rares, [la prise en compte d’un grand réservoir dans
+le bassin de la Volta](case-studies/volta.md), et [la correction de la fuite du signal dans la Vallée Centrale de Californie](case-studies/central-valley.md),
 une vallée étroite et fortement exploitée par pompage.
 
 ## Historique { #history }

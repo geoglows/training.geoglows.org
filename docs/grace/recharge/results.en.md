@@ -80,6 +80,6 @@ left out of the means.
   line carries that decline forward, so R<sub>D</sub>, and with it R2, counts the pumping as recharge. R1 is the safer estimate there.
 - **Small regions understate the rise.** GRACE smooths storage changes over a few hundred kilometers, so in a small or narrow region the
   seasonal rise, and with it the recharge, can be understated (see
-  [Resolution, Leakage and Small Regions](../background/resolution-and-leakage.md)).
+  [Resolution, Leakage and Small Regions](../mission/resolution-and-leakage.md)).
 - **Compare with independent estimates.** Well hydrographs, chloride mass balance or published studies for the same aquifer give a check on the
   GRACE numbers. The [Niger](../case-studies/niger.md) and [Volta](../case-studies/volta.md) case studies compare GRACE recharge with well-based estimates.

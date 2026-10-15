@@ -32,7 +32,7 @@ De arriba hacia abajo:
   [Vista Regional](regional-view.md#the-time-series-chart)).
 - **Gap filling** (relleno de vacíos). Lo que hace el gráfico en los meses sin datos de GRACE. **None** corta la línea en cada vacío,
   **Straight line** une los meses a ambos lados, y **Seasonal model** rellena los vacíos con valores estimados a partir del resto del registro,
-  dibujados como una línea discontinua con marcadores huecos (ver [Vacíos en el Registro](../gap-filling/gaps.md)). Este ajuste solo cambia el
+  dibujados como una línea discontinua con marcadores huecos (ver [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). Este ajuste solo cambia el
   gráfico, nunca el CSV descargado.
 - **Color ramp.** Seis paletas. Viridis, Cividis, Brown-Teal y Purple-Green son seguras para personas con deficiencia en la visión de los colores.
 - **Layer opacity.** Atenúa las celdas de anomalía para ver el mapa base debajo.

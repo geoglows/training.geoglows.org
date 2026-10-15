@@ -34,7 +34,7 @@ La légende compte les régions ou les mailles de chaque classe. À titre de rep
 ### Facteurs de gain et amplitude des tendances { #gain-factors-and-trend-magnitudes }
 
 La TWSa servie par l’application a les facteurs de gain du JPL appliqués (voir
-[Calcul du Stockage des Eaux Souterraines](../background/deriving-groundwater.md#gain-factors)), et ces facteurs se répercutent directement sur
+[Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md#gain-factors)), et ces facteurs se répercutent directement sur
 les tendances, car un multiplicateur constant appliqué à une série temporelle multiplie sa pente. Le JPL assortit cet usage d’une mise en garde :
 les facteurs sont dominés par le cycle annuel, et le GRACE-FO Level-3 Handbook indique qu’ils « peuvent introduire des biais dans des bandes de
 fréquence autres que la composante annuelle, en particulier pour les tendances de long terme », pour lesquelles il faudrait des facteurs dérivés

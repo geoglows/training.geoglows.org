@@ -1,4 +1,4 @@
-# The GRACE Mission
+# How GRACE Measures Water Storage
 
 ## Two satellites that weigh water
 
@@ -66,7 +66,7 @@ gaps:
 - **The gap between missions.** GRACE ended science operations in June 2017, and GRACE-FO began delivering data in June 2018, leaving 11 months
   with no measurements.
 
-The app shows missing months as gaps in the time series and skips them in the map animation. [The Seasonal Model](../gap-filling/seasonal-model.md)
+The app shows missing months as gaps in the time series and skips them in the map animation. [Gaps and Gap Filling](gap-filling.md)
 page shows how to estimate them when an analysis needs a complete monthly record.
 
 ## References

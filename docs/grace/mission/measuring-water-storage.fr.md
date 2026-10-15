@@ -1,4 +1,4 @@
-# La Mission GRACE
+# Comment GRACE Mesure le Stockage de l'Eau
 
 ## Deux satellites qui pèsent l’eau { #two-satellites-that-weigh-water }
 
@@ -72,7 +72,7 @@ décalage. Elle présente deux types de lacunes :
   juin 2018, laissant 11 mois sans mesures.
 
 L’application affiche les mois manquants comme des lacunes dans la série temporelle et les saute dans l’animation de la carte. La page
-[Le Modèle Saisonnier](../gap-filling/seasonal-model.md) montre comment les estimer lorsqu’une analyse nécessite une série mensuelle complète.
+[Lacunes et Comblement des Lacunes](gap-filling.md) montre comment les estimer lorsqu’une analyse nécessite une série mensuelle complète.
 
 ## Références { #references }
 

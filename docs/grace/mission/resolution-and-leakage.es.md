@@ -6,7 +6,7 @@ GRACE detecta la masa a través de la gravedad, y la gravedad se dispersa con la
 masas separadas por menos de unos pocos cientos de kilómetros se confunden en una sola. La solución mascon de JPL refleja ese límite: resuelve un
 valor por cada casquete de 3°, de unos 330 km de ancho, y las mallas de 0.5° y 1° son esa solución muestreada sobre una malla más fina. La
 aplicación sí aplica los factores de ganancia de JPL, que dan a la malla de 0.5° cierta estructura dentro de cada mascon (ver
-[Cálculo del Almacenamiento de Agua Subterránea](deriving-groundwater.md#gain-factors)), pero la medición que hay debajo sigue siendo un valor
+[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md#gain-factors)), pero la medición que hay debajo sigue siendo un valor
 por cada casquete de 3°.
 
 ![Tamaños de malla comparados con el tamaño de la región, y fuga de señal](../../static/images/grace/grace-resolution-leakage.png)
@@ -73,7 +73,7 @@ distintos; esa diferencia viene de un modelo de superficie terrestre, no de GRAC
 - **Error de los modelos.** Los errores en los términos de humedad del suelo, nieve y dosel de GLDAS pasan directamente a la GWSa. Esto es más
   grave en regiones nevadas y húmedas, donde esos términos son grandes.
 - **Agua superficial.** Los cambios en embalses, lagos y llanuras de inundación se cuentan como agua subterránea (ver
-  [Cálculo del Almacenamiento de Agua Subterránea](deriving-groundwater.md)).
+  [Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md)).
 
 Aun con estos límites, GRACE ofrece una visión consistente e independiente del cambio de almacenamiento en sistemas acuíferos completos, que a
 menudo es la única disponible. Úsalo para tendencias regionales y compáralo con datos locales siempre que puedas.

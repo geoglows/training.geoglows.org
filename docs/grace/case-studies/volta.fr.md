@@ -22,7 +22,7 @@ GWSa = TWSa − (SMa + SWEa + CANa + SWSa)
 ```
 
 Les lacunes ont été comblées par décomposition saisonnière avec une tendance linéaire par morceaux, l'approche qu'utilise l'application (voir
-[Le Modèle Saisonnier](../gap-filling/seasonal-model.md)). L'étude a aussi comparé les résultats au stockage des eaux souterraines calculé directement par le modèle GLDAS 2.2
+[Lacunes et Comblement des Lacunes](../mission/gap-filling.md)). L'étude a aussi comparé les résultats au stockage des eaux souterraines calculé directement par le modèle GLDAS 2.2
 Catchment, aux précipitations CHIRPS et à 10 puits de surveillance du sous-bassin de la Nasia.
 
 ## Pourquoi le lac compte { #why-the-lake-matters }
@@ -37,7 +37,7 @@ gain total d'environ 30 km³, soit environ 10 cm d'eau, sur 2002–2022.
 prise en compte de SWSa. Barbosa et al. (2025), Fig. 6, CC BY 4.0.*
 
 La GWSa de l'application pour ce bassin correspond à la courbe verte, car l'application ne soustrait pas les eaux de surface (voir
-[Calcul du Stockage des Eaux Souterraines](../background/deriving-groundwater.md#the-water-balance)).
+[Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md#the-water-balance)).
 
 GLDAS 2.2, qui assimile GRACE, montre la même tendance mais des amplitudes saisonnières bien plus grandes ; les auteurs le recommandent donc pour les tendances mais pas pour
 les estimations de recharge.

@@ -10,7 +10,7 @@
 
 La Vallée Centrale de Californie mesure environ 700 km de long et 80 km de large, soit environ 52 000 km², et c'est l'un des systèmes aquifères les plus exploités par pompage au
 monde. Elle est plus étroite qu'un seul mascon GRACE de 3° (environ 333 × 264 km à cette latitude), et la baisse due aux pompages est concentrée dans la vallée
-tandis que les montagnes environnantes se comportent différemment. C'est donc un cas d'école de [fuite du signal](../background/resolution-and-leakage.md#leakage) :
+tandis que les montagnes environnantes se comportent différemment. C'est donc un cas d'école de [fuite du signal](../mission/resolution-and-leakage.md#leakage) :
 moyenné sur la vallée, GRACE sous-estime la perte de stockage.
 
 ## Une estimation indépendante à partir des puits { #an-independent-estimate-from-wells }
