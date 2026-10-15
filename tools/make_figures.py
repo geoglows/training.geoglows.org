@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Draw the two GLDAS figures, in the same visual grammar as the GRACE diagrams.
+Draw the figures that have a source, in the visual grammar of the GRACE set.
 
-The older diagrams in docs/static/images/grace/diagrams were committed as SVG
-with no source; these have one, so a number or a label can be corrected without
-redrawing. Each figure is written as SVG and rendered to PNG at 2x, which is
-what the committed GRACE PNGs are.
+Most diagrams under docs/static/images/grace/diagrams were committed as SVG with
+no source, so correcting a label meant redrawing one by hand. These are
+generated: a number or a wording changes here and both the SVG and the PNG
+follow. Each is written as SVG and rendered to PNG at 2x, which is what the
+committed GRACE PNGs are.
 
 Usage:
-    uv run --with cairosvg python tools/make_gldas_figures.py
+    uv run --with cairosvg python tools/make_figures.py
 """
 
 from pathlib import Path
@@ -195,6 +196,66 @@ def versions():
     svg("gldas-2.1-vs-2.2", "GLDAS 2.1 and 2.2 compared", W, H, "\n".join(b))
 
 
+# ------------------------------------------------------------- processing chain
+def processing_chain():
+    """
+    The GRACE + GLDAS 2.1 chain. Redrawn from the hand-authored original to add
+    the gain factors, which the pipeline had never applied and the figure
+    therefore never showed.
+    """
+    W, H = 1200, 700
+    COL, GAP = 265, 30
+    xs = [25, 320, 615, 910]
+    b = [text(25, 42, "From satellite and model data to groundwater storage anomalies", 22, "bold", "start", NAVY),
+         text(25, 68, "The GRACE + GLDAS 2.1 route. GLDAS 2.2 reaches groundwater without any of this; see the "
+                      "page text.", 16, "normal", "start", GRAY)]
+
+    for i, label in enumerate(["INPUTS (monthly)", "STEP 1", "STEP 2", "STEP 3"]):
+        b.append(text(xs[i], 112, label, 15, "bold", "start", GRAY))
+
+    b.append(card(xs[0], 126, COL, 190, "GRACE / GRACE-FO", [
+        "JPL mascon RL06.3 (CRI)", "TWS anomaly + \u03c3", "0.5\u00b0 grid (3\u00b0 mascons)",
+        "Relative to 2004\u20132009",
+    ], NAVY, 16, 24))
+    b.append(card(xs[1], 126, COL, 190, "Gain factors", [
+        "Multiply TWSa and its \u03c3", "by JPL's factor for the cell,", "at 0.5\u00b0, before averaging",
+        "Factors outside (0, 3] are", "left unapplied",
+    ], GOLD, 16, 24))
+    b.append(card(xs[0], 346, COL, 230, "GLDAS 2.1 models", [
+        "Noah (0.25\u00b0)", "VIC (1\u00b0)", "CLSM (1\u00b0)", "Snow water equivalent,",
+        "canopy water, soil", "moisture (all layers)",
+    ], TEAL, 16, 24))
+    b.append(card(xs[1], 346, COL, 230, "Anomalies", [
+        "Convert kg/m\u00b2 to cm", "Regrid all models to 1\u00b0", "Subtract each cell's",
+        "2004\u20132009 mean, so GLDAS", "shares GRACE's baseline",
+    ], TEAL, 16, 24))
+    b.append(card(xs[2], 346, COL, 230, "Model ensemble", [
+        "SWEa, CANa, SMa =", "mean of the three models", "Uncertainty of each =",
+        "standard deviation", "across the three",
+    ], TEAL, 16, 24))
+    b.append(card(xs[3], 126, COL, 450, "Water balance (1\u00b0)", [
+        "Scaled TWSa averaged to 1\u00b0", "", "GWSa = TWSa \u2212 (SWEa", "        + CANa + SMa)", "",
+        "\u03c3GWSa = \u221a(\u03c3\u00b2TWSa", "        + \u03c3\u00b2SWEa + \u03c3\u00b2CANa", "        + \u03c3\u00b2SMa)", "",
+        "Errors treated as", "independent",
+    ], ORANGE, 16, 24))
+
+    b.append(arrow(xs[0] + COL, 221, xs[1] - 3, 221))
+    b.append(arrow(xs[1] + COL, 170, xs[3] - 3, 170))
+    b.append(arrow(xs[0] + COL, 461, xs[1] - 3, 461))
+    b.append(arrow(xs[1] + COL, 461, xs[2] - 3, 461))
+    b.append(arrow(xs[2] + COL, 461, xs[3] - 3, 461))
+
+    b.append(panel(25, 606, 1150, 80))
+    b.append(text(45, 640, "In the app", 18, "bold", "start", NAVY))
+    b.append(text(45, 668, "Five layers, each \u00b11\u03c3:", 16))
+    b.append(text(255, 640, "GWSa, SMa, SWEa, CANa on the 1\u00b0 grid", 16))
+    b.append(text(255, 668, "TWSa on the 0.5\u00b0 grid, with the gain factors applied", 16))
+    b.append(text(700, 640, "Monthly, April 2002 to the latest GRACE-FO release", 16))
+    b.append(text(700, 668, "Units: cm of liquid water equivalent", 16))
+    svg("grace-processing", "GRACE Regional Analyst processing chain", W, H, "\n".join(b))
+
+
 if __name__ == "__main__":
     water_cycle()
     versions()
+    processing_chain()

@@ -38,11 +38,12 @@ the mean of the three models, and the spread between the models (their standard 
 
 ### Processing chain
 
-![GRACE Regional Analyst processing chain](../../static/images/grace/grace-processing.png)
+![The GRACE + GLDAS 2.1 processing chain, from the published inputs to the five layers the app serves](../../static/images/grace/grace-processing.png)
 
-GRACE TWSa is averaged from 0.5° to 1° and combined with the model ensemble to give GWSa on a 1° grid. The app serves five layers: GWSa, SMa, SWEa
-and CANa at 1°, and TWSa at 0.5° as JPL distributes it. Using 1° for the derived layers follows the usual practice of combining GRACE with model data at
-the coarser of the two grids; reporting GWSa at 0.5° would give an impression of detail that neither dataset has.
+GRACE TWSa is scaled by the gain factors at 0.5°, averaged to 1°, and combined with the model ensemble to give GWSa on a 1° grid. The app serves
+five layers: GWSa, SMa, SWEa and CANa at 1°, and TWSa at 0.5°, on the grid JPL distributes it on. Using 1° for the derived layers follows the
+usual practice of combining GRACE with model data at the coarser of the two grids; reporting GWSa at 0.5° would give an impression of detail
+that neither dataset has.
 
 No gaps are filled. Each monthly value in the app is the published JPL value, scaled as described below, combined with the GLDAS ensemble for
 that month. The 35 months GRACE is missing are missing here too, and the app's gap filling acts on them in the chart alone (see
