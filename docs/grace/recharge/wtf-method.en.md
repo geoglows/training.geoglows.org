@@ -127,9 +127,9 @@ Either will run, and they do not give the same answer. In the Volta Basin, Barbo
 by the two methods below, 17.4 and 36.1 cm/yr from GLDAS 2.2, and a median of 10.4 cm/yr from wells in the Nasia sub-basin. Their recommendation
 is to use 2.2 for trends and the GRACE series for recharge.
 
-The reason is in how each series gets its annual rise. On the GRACE route the rise is a measured change in mass. On the 2.2 route it is a model
-state that GRACE corrects once a month, and the correction is itself part of the seasonal movement, so the rise the method reads is not purely
-the storage change the method assumes. Run both, and treat a large gap between them as a reason to look at the wells rather than to pick the
+The two series get their annual rise differently. On the GRACE route the rise is a measured change in mass. On the 2.2 route it is a model state
+that GRACE corrects once a month, and the correction is itself part of the seasonal movement, so the rise the method reads is not purely the
+storage change the method assumes. Run both, and treat a large gap between them as a reason to look at the wells rather than to pick the
 larger number.
 
 ## References
