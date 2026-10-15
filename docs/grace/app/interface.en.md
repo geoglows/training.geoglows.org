@@ -26,12 +26,9 @@ From top to bottom:
   groundwater read out of a model that assimilates GRACE (see [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)). A line under
   the control says how that dataset obtains groundwater and at what resolution. Switching datasets keeps the same quantity selected and the
   same region open, so the comparison is one click.
-- **Displayed layer.** The storage component shown on the map and plotted in the chart:
-    - Groundwater Storage Anomaly (GWSa), the default
-    - Total Water Storage Anomaly (TWSa)
-    - Soil Moisture Anomaly (SMa)
-    - Snow Water Equivalent Anomaly (SWEa)
-    - Canopy Water Storage Anomaly (CANa)
+- **Displayed layer.** The storage component shown on the map and plotted in the chart: Groundwater Storage Anomaly (GWSa, the default),
+  Total Water Storage Anomaly (TWSa), Soil Moisture Anomaly (SMa), Snow Water Equivalent Anomaly (SWEa) and Canopy Water Storage Anomaly
+  (CANa). The dropdown gives the full names; the abbreviations are what the chart legend and the CSV use.
 - **Time series.** Check other components to add them to the chart for comparison. The displayed layer is always plotted (see
   [Regional View](regional-view.md#the-time-series-chart)).
 - **Also show …** Draw the same quantities from the other dataset on the chart as well, so the two can be read against each other. It mirrors
@@ -42,9 +39,9 @@ From top to bottom:
   GLDAS 2.2 has no missing months, so this control is hidden while that dataset is selected.
 - **Color ramp.** Six palettes. Viridis, Cividis, Brown-Teal and Purple-Green are safe for readers with color vision deficiency.
 - **Layer opacity.** Fade the anomaly cells to see the basemap underneath.
-- **Show cell boundaries / Show mascon boundaries.** Outline the grid cells, or the 3° GRACE mascons that set the true resolution of the data.
-  Mascon boundaries belong to the GRACE measurement, so that control is hidden under GLDAS 2.2.
-- **Show region names.** Label region outlines once you zoom in.
+- **Cell boundaries / Mascon boundaries.** Outline the grid cells, or the 3° GRACE mascons that set the true resolution of the data. Mascons
+  belong to the GRACE measurement, so that control is hidden under GLDAS 2.2.
+- **Region names.** Label region outlines once you zoom in.
 - **Light mode.** Switch between the light and dark themes.
 - **Regions.** Choose a region set, filter it by name, and click a name to analyze that region.
 
@@ -80,7 +77,8 @@ Click **Home** to return to the overview. On the right, **Analyze trends / Hide 
 
 ![The Display Settings dialog](../../static/images/grace/app-settings.webp){ width="510" }
 
-- **GRACE mascon footprints** and **anomaly cell boundaries:** line widths for the two outline layers.
+- **GRACE Mascon Footprints** and **Anomaly Cell Boundaries:** a **Boundary width** slider for each of the two outline layers. The mascon
+  section also carries a note on why the finer grids add no GRACE detail.
 - **Show color bar on map:** hide or show the color bar.
 - **Dynamic scale (fit to data):** with this on, the color scale stretches to fit the data you're looking at, so small anomalies remain visible.
   In a region it fits the largest absolute value in the region's cells over the whole record; in the global view it fits the 95th percentile of
