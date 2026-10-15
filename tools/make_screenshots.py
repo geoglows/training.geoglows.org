@@ -41,6 +41,7 @@ WIDTH, HEIGHT = 1800, 1125
 REGION = "Iullemeden-Irhazer Aquifer System"      # the regional-view examples
 SEASONAL = "Northern Midwest Aquifer System"      # strong annual cycle: gaps, recharge
 CENTRAL_VALLEY = "California Central Valley"      # the leakage and poor-candidate examples
+VOLTA = ("igrac-tba", "Volta Basin")              # a published basin with a case study behind it
 SETTLE = 2500          # after an interaction that redraws the map
 LOAD = 6000            # after one that fetches a variable it has not read yet
 
@@ -68,7 +69,10 @@ def open_app(pw, width=WIDTH, height=HEIGHT, scale=1) -> tuple:
     return browser, page
 
 
-def pick_region(page: Page, name: str = REGION) -> None:
+def pick_region(page: Page, name: str = REGION, region_set: str | None = None) -> None:
+    if region_set:
+        page.locator("#region-set-select").select_option(region_set)
+        page.wait_for_timeout(SETTLE)
     page.locator("#region-filter").fill(name.split()[0])
     page.wait_for_timeout(400)
     page.locator("#region-list").get_by_text(name, exact=True).first.click()
@@ -123,6 +127,18 @@ def shot_region(pw) -> None:
     b, pg = open_app(pw)
     pick_region(pg)
     save(pg, "app-region")
+    b.close()
+
+
+def shot_region_result(pw) -> None:
+    """What a region looks like once analyzed, for Reading the results.
+
+    A published basin rather than a drawn box: the section is about reading an
+    ordinary result, and the Volta has a case study behind it.
+    """
+    b, pg = open_app(pw)
+    pick_region(pg, VOLTA[1], region_set=VOLTA[0])
+    save(pg, "app-region-result")
     b.close()
 
 
@@ -303,6 +319,7 @@ SHOTS = {
     "header": shot_header,
     "settings": shot_settings,
     "region": shot_region,
+    "region-result": shot_region_result,
     "region-boundaries": shot_region_boundaries,
     "chart-compare": shot_chart_compare,
     "global": shot_global,

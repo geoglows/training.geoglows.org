@@ -48,7 +48,7 @@ From top to bottom:
 <div style="clear: both;"></div>
 
 Three of these controls are hidden rather than greyed out while **GLDAS 2.2** is selected, because they describe things that dataset does not
-have: **Gap filling** (its record has no gaps), **Show mascon boundaries** (it is a model, not a mascon solution), and the uncertainty band on
+have: **Gap filling** (its record has no gaps), **Mascon boundaries** (it is a model, not a mascon solution), and the uncertainty band on
 the chart (it is a single model run, with no ensemble to take a spread from). A greyed control invites the question of how to turn it on, so
 they are taken away instead.
 

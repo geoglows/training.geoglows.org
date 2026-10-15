@@ -10,7 +10,7 @@ trend class (see [Trend Analysis](trends.md)). Click **Hide trends** to show pla
 
 From here you can:
 
-- pan and zoom the map; region names appear once you zoom in far enough (turn them off with **Show region names**)
+- pan and zoom the map; region names appear once you zoom in far enough (turn them off with **Region names**)
 - switch to another region set, or filter the list of names, in the **Regions** section of the control panel
 - change the **Displayed layer** or the trend **Window** to reclassify every region at once, for example to see which aquifers have lost
   total water storage over the last 20 years
@@ -56,6 +56,11 @@ feature, they are merged into a single region. Holes in polygons are ignored.
     the `.shp`, `.dbf` and `.prj` files together and export as GeoJSON. Simplifying a very detailed boundary first makes the file smaller
     without changing the result, since the grid cells are 1° across.
 
+![A GeoJSON box over Punjab and Haryana, analyzed as its own region](../../static/images/grace/app-upload-result.webp)
+
+The region is analyzed as soon as it is uploaded, the same way a published one is, and the breadcrumb takes the name you gave it. The example
+above is a plain rectangle over Punjab and Haryana, where the groundwater decline is steep enough to be obvious at a glance.
+
 Uploaded regions are saved in **My Regions**, where you can open them again or delete them with the × next to the name. They are stored in your
 browser only: they are not shared with anyone, and they won't appear on another computer or in another browser.
 
@@ -69,7 +74,11 @@ finish. The app analyzes the polygon straight away. Drawn polygons are not saved
 When you open a region, the map zooms to it and shows the anomaly cells for the displayed layer inside its boundary, and the chart shows the
 region's average time series (see [The time series chart](#the-time-series-chart)).
 
-![Regional analysis of an uploaded region over Punjab and Haryana, India](../../static/images/grace/app-upload-result.webp)
+![The Volta Basin analyzed, with its cells on the map and its average time series below](../../static/images/grace/app-region-result.webp)
+
+The Volta Basin, above, is a good one to read. Its cells run from a strong decline in the south to a slight rise in the north, the average
+swings about 20 cm between wet and dry seasons, and there is a published study of the same basin to compare with
+([case study](../case-studies/volta.md)).
 
 ### Which cells are averaged
 
@@ -87,14 +96,14 @@ click the cell in the [global view](global-view.md) instead.
 
 ### Showing the grid
 
-Turn on **Show cell boundaries** and **Show mascon boundaries** to see how the region relates to the grid and to GRACE's true resolution:
+Turn on **Cell boundaries** and **Mascon boundaries** to see how the region relates to the grid and to GRACE's true resolution:
 
 ![Cell and mascon boundaries over the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-region-boundaries.webp)
 
 Here the region spans parts of several mascons (purple), so its average draws on several independent GRACE values. A region inside a single mascon
 is subject to the [leakage](../mission/resolution-and-leakage.md) described in Part 1.
 
-Mascons belong to the GRACE solution, so **Show mascon boundaries** is hidden under GLDAS 2.2. The caution behind it has not gone away: 2.2
+Mascons belong to the GRACE solution, so **Mascon boundaries** is hidden under GLDAS 2.2. The caution behind it has not gone away: 2.2
 assimilates GRACE, so the correction that puts pumping into its groundwater arrives at GRACE's resolution however fine the model grid is.
 
 ## The time series chart

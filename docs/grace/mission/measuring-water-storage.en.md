@@ -52,7 +52,7 @@ mascon's value. The app multiplies them by JPL's gain factors, which vary from c
 mascon (see [Gain factors](../gldas/deriving-groundwater.md#gain-factors)). That structure comes from a land surface model. The measurement
 underneath is still one value per 3° cap, and the true resolution of TWSa is the mascon.
 
-You can see the mascons in the app: switch the displayed layer to TWSa, zoom in, and turn on **Show mascon boundaries**. The large steps in
+You can see the mascons in the app: switch the displayed layer to TWSa, zoom in, and turn on **Mascon boundaries**. The large steps in
 value fall on the mascon edges; the smaller cell-to-cell variation inside one is the gain factors.
 
 JPL's TWSa is relative to the mean over January 2004 through December 2009. Every layer of both datasets uses that same baseline, which is what
