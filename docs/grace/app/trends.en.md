@@ -12,12 +12,17 @@ In the regional view, above, each aquifer or basin gets one trend from the avera
 
 ![Groundwater storage trend over the last five years for every 1° cell, in the global view](../../static/images/grace/app-global-trends.webp)
 
-The global view, above, classifies all 15,159 land cells, so it shows where storage is changing regardless of aquifer boundaries: rising
-across the Sahel and East Africa, falling across much of the Middle East, northern India and Brazil.
+The global view, above, classifies every land cell — 15,159 of them on the GRACE dataset's 1° grid and 17,346 on GLDAS 2.2's, which carries a
+slightly larger land mask — so it shows where storage is changing regardless of aquifer boundaries: rising across the Sahel and East Africa,
+falling across much of the Middle East, northern India and Brazil.
 
 The trend is the slope of a straight line fitted by least squares to the monthly values in the trend window, in cm per year. Months with no
-GRACE data are skipped, not filled. A region or cell needs at least 24 months with data in the window to be classified; otherwise it is shown
-as **Insufficient data**.
+GRACE data are skipped rather than filled, which affects the GRACE dataset only; GLDAS 2.2 has a value in every month. A region or cell needs at
+least 24 months with data in the window to be classified; otherwise it is shown as **Insufficient data**.
+
+Trends are computed on whichever dataset is selected, so the classification changes when you switch. Two differences matter when comparing the
+two maps. GLDAS 2.2 starts in February 2003 against GRACE's April 2002, so the **All** window covers ten fewer months. And a 2.2 trend is a
+trend in a model state that GRACE corrects monthly, which inherits GRACE's resolution however fine the model grid looks.
 
 | Class | Trend (cm/yr) |
 |---|---|
@@ -31,6 +36,9 @@ The legend counts the regions or cells in each class. For reference, a trend of 
 a year.
 
 ### Gain factors and trend magnitudes
+
+This section is about the GRACE dataset. GLDAS 2.2 is unaffected: no gain factor is applied to it, and the GRACE solution assimilated into it is
+CSR's rather than JPL's.
 
 The TWSa the app serves has JPL's gain factors applied (see
 [Deriving Groundwater Storage](../gldas/deriving-groundwater.md#gain-factors)), and those factors flow straight into the trends, because a

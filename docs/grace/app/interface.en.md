@@ -21,6 +21,11 @@ From top to bottom:
   [global view](global-view.md), which animates the whole world. Clicking **Regions** while a region is open returns to the overview.
 - **Upload.** Load your own region boundary from a GeoJSON file (see [Regional View](regional-view.md#uploading-a-region)).
 - **Settings.** Display settings, described below.
+- **Dataset.** Which of the two groundwater datasets the panel, the map and the chart are about:
+  **GRACE + GLDAS 2.1**, groundwater derived by subtracting three land surface models from the GRACE measurement, and **GLDAS 2.2**,
+  groundwater read out of a model that assimilates GRACE (see [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)). A line under
+  the control says how that dataset obtains groundwater and at what resolution. Switching datasets keeps the same quantity selected and the
+  same region open, so the comparison is one click.
 - **Displayed layer.** The storage component shown on the map and plotted in the chart:
     - Groundwater Storage Anomaly (GWSa), the default
     - Total Water Storage Anomaly (TWSa)
@@ -29,17 +34,26 @@ From top to bottom:
     - Canopy Water Storage Anomaly (CANa)
 - **Time series.** Check other components to add them to the chart for comparison. The displayed layer is always plotted (see
   [Regional View](regional-view.md#the-time-series-chart)).
+- **Also show …** Draw the same quantities from the other dataset on the chart as well, so the two can be read against each other. It mirrors
+  whatever is ticked above rather than offering a second set of boxes, and it changes nothing on the map.
 - **Gap filling.** What the chart does at months with no GRACE data. **None** breaks the line at each gap, **Straight line** joins the
   months on either side, and **Seasonal model** fills the gaps with values estimated from the rest of the record, drawn as a dashed line with
   open markers (see [Gaps and Gap Filling](../mission/gap-filling.md)). The setting changes only the chart, never the downloaded CSV.
+  GLDAS 2.2 has no missing months, so this control is hidden while that dataset is selected.
 - **Color ramp.** Six palettes. Viridis, Cividis, Brown-Teal and Purple-Green are safe for readers with color vision deficiency.
 - **Layer opacity.** Fade the anomaly cells to see the basemap underneath.
 - **Show cell boundaries / Show mascon boundaries.** Outline the grid cells, or the 3° GRACE mascons that set the true resolution of the data.
+  Mascon boundaries belong to the GRACE measurement, so that control is hidden under GLDAS 2.2.
 - **Show region names.** Label region outlines once you zoom in.
 - **Light mode.** Switch between the light and dark themes.
 - **Regions.** Choose a region set, filter it by name, and click a name to analyze that region.
 
 <div style="clear: both;"></div>
+
+Three of these controls are hidden rather than greyed out while **GLDAS 2.2** is selected, because they describe things that dataset does not
+have: **Gap filling** (its record has no gaps), **Show mascon boundaries** (it is a model, not a mascon solution), and the uncertainty band on
+the chart (it is a single model run, with no ensemble to take a spread from). A greyed control invites the question of how to turn it on, so
+they are taken away instead.
 
 ## Map
 
@@ -51,8 +65,8 @@ The **time control** at the bottom of the map steps through the months:
 
 ![The time control](../../static/images/grace/app-time-control.webp){ width="410" }
 
-Press play to animate, or drag the slider. The slider only stops on months that have GRACE data. The current month is also marked on the chart
-with a red dashed line.
+Press play to animate, or drag the slider. On the GRACE dataset the slider only stops on months that have GRACE data; GLDAS 2.2 has a value
+every month from February 2003 on, so it steps through all of them. The current month is also marked on the chart with a red dashed line.
 
 ## Header bar
 

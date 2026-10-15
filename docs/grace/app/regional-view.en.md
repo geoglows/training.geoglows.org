@@ -78,8 +78,12 @@ Cells mostly outside the region are left out; cells on the edge count in proport
 
 ![How the app averages cells over a region](../../static/images/grace/grace-region-averaging.png)
 
-TWSa is averaged on its 0.5° grid and the other layers on their 1° grid, each with its own overlap weights. A region smaller than about 35% of
-one cell may have no cells that qualify; use a larger region or click the cell in the [global view](global-view.md) instead.
+Which grid that is depends on the dataset. On **GRACE + GLDAS 2.1**, TWSa is averaged on its 0.5° grid and the other layers on their 1° grid,
+each with its own overlap weights. On **GLDAS 2.2** every layer is averaged on the model's native 0.25° grid, so a region gets sixteen times as
+many cells and the 35% rule excludes far less of it. That is the main practical reason to reach for 2.2 on a small basin.
+
+A region smaller than about 35% of one cell may have no cells that qualify; use a larger region, switch to GLDAS 2.2 for its finer grid, or
+click the cell in the [global view](global-view.md) instead.
 
 ### Showing the grid
 
@@ -88,7 +92,10 @@ Turn on **Show cell boundaries** and **Show mascon boundaries** to see how the r
 ![Cell and mascon boundaries over the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-region-boundaries.webp)
 
 Here the region spans parts of several mascons (purple), so its average draws on several independent GRACE values. A region inside a single mascon
-is subject to the [leakage](../mission/resolution-and-leakage.md) described in the background section.
+is subject to the [leakage](../mission/resolution-and-leakage.md) described in Part 1.
+
+Mascons belong to the GRACE solution, so **Show mascon boundaries** is hidden under GLDAS 2.2. The caution behind it has not gone away: 2.2
+assimilates GRACE, so the correction that puts pumping into its groundwater arrives at GRACE's resolution however fine the model grid is.
 
 ## The time series chart
 
@@ -102,24 +109,36 @@ the time control.
 
 ### Uncertainty
 
-When one component is plotted, a shaded band shows ±1σ. The band is averaged over the cells the same way as the values, which treats the errors
-in neighboring cells as fully correlated. That is the cautious choice: errors that partly cancel between cells would give a narrower band. The
-band is hidden when several components are plotted, to keep the chart readable.
+On **GRACE + GLDAS 2.1**, a shaded band shows ±1σ when one component is plotted. The band is averaged over the cells the same way as the
+values, which treats the errors in neighboring cells as fully correlated. That is the cautious choice: errors that partly cancel between cells
+would give a narrower band. The band is hidden when several components are plotted, to keep the chart readable.
+
+**GLDAS 2.2 has no band.** It is a single model run, so there is no ensemble to take a spread from, and NASA publishes no per-month uncertainty
+for it. The absence of a band means no estimate was available, never that the values are more certain than the ones that have one — in general
+the opposite, since a model run carries all the error sources listed in
+[The GLDAS Land Surface Models](../gldas/land-surface-models.md#accuracy-and-mixing-versions) with nothing reporting them.
 
 ### Comparing components
 
 The chart always plots the **Displayed layer**. Check other components under **Time series** in the control panel to add them on the same
 axes:
 
-| Component | Source | What it shows |
-|---|---|---|
-| TWSa | GRACE | all the water in the column: groundwater, soil moisture, snow, canopy and surface water |
-| GWSa | TWSa minus the three GLDAS layers | groundwater, with surface water included |
-| SMa | GLDAS | soil moisture |
-| SWEa | GLDAS | snow water equivalent |
-| CANa | GLDAS | water held on vegetation canopies |
+| Component | On GRACE + GLDAS 2.1 | On GLDAS 2.2 | What it shows |
+|---|---|---|---|
+| TWSa | measured by GRACE | the model's own total | all the water in the column: groundwater, soil moisture, snow, canopy and surface water |
+| GWSa | TWSa minus the three GLDAS layers | a model state, corrected by GRACE | groundwater, with surface water included |
+| SMa | mean of three GLDAS 2.1 models | Catchment profile, less groundwater | soil moisture |
+| SWEa | mean of three GLDAS 2.1 models | Catchment | snow water equivalent |
+| CANa | mean of three GLDAS 2.1 models | Catchment | water held on vegetation canopies |
 
-[Deriving Groundwater Storage](../gldas/deriving-groundwater.md) explains how the layers fit together.
+The same five names mean the same physical quantities in both datasets, which is what makes them comparable, but they are arrived at
+differently and will not agree exactly. [Deriving Groundwater Storage](../gldas/deriving-groundwater.md) explains how the layers fit together
+in each.
+
+Ticking **Also show GLDAS 2.2** (or **Also show GRACE + GLDAS 2.1**, depending on which dataset is selected) adds the other dataset's version
+of whatever is already plotted, in a second set of colors. Where the two groundwater series agree, the result rests on a measurement and a model
+that were built independently of each other and is worth more than either alone. Where they diverge, the divergence itself is the finding, and
+the case studies give examples of both.
 
 ![GWSa compared with TWSa and SMa for the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-chart-compare.webp)
 
@@ -129,15 +148,15 @@ groundwater.
 
 ### Gap filling
 
-GRACE has no data for 35 months of the record, so TWSa and GWSa have gaps; the GLDAS layers have a value every month. The **Gap filling**
-control sets how the chart draws the gaps:
+GRACE has no data for 35 months of the record, so on the GRACE dataset TWSa and GWSa have gaps; its GLDAS layers, and every layer of GLDAS 2.2,
+have a value every month. The **Gap filling** control sets how the chart draws the gaps, and is hidden entirely under GLDAS 2.2:
 
 - **None** breaks the line at every gap.
 - **Straight line** joins the months on either side of each gap.
 - **Seasonal model** estimates the missing months from a trend and seasonal cycle fitted to the region's own record, and draws them as a
   dashed line with open markers, as in the chart above.
 
-The setting changes the chart only. Part 3 compares the three options in [Gaps and Gap Filling](../mission/gap-filling.md) and then gives the full method.
+The setting changes the chart only. [Gaps and Gap Filling](../mission/gap-filling.md) compares the three options and then gives the full method.
 
 ### Trend lines
 
@@ -146,12 +165,18 @@ and the legend gives its slope, for example "GWSa trend −0.29 cm/yr (last 5 yr
 
 ### Recharge Analysis
 
-With **Seasonal model** selected, a **Recharge Analysis** button appears above the chart. It opens a page that estimates annual groundwater
-recharge from the filled GWSa series with the water table fluctuation method. The analysis always uses GWSa, whichever layer is displayed.
-Part 4 describes it, starting with [The WTF Method](../recharge/wtf-method.md).
+The water table fluctuation method needs a value every month, so a **Recharge Analysis** button appears above the chart once the series has
+one: with **Seasonal model** selected on the GRACE dataset, and always on GLDAS 2.2, whose record has no gaps to fill. It opens a page that
+estimates annual groundwater recharge from the GWSa series. The analysis always uses GWSa, whichever layer is displayed. Part 4 describes it,
+starting with [The WTF Method](../recharge/wtf-method.md).
+
+Being able to run it on 2.2 is not the same as the answer being right. Barbosa et al. (2025) ran both in the Volta Basin and found 2.2 gave
+recharge two to three times the well-based estimate, and recommended it for trends rather than for recharge (see
+[Volta Basin](../case-studies/volta.md)). Read a 2.2 recharge number against a 2.1 one before using it.
 
 ### Downloading the data
 
-**Download CSV** saves the monthly values of all five components for the region, with their ±1σ bounds and the gap-filled TWSa and GWSa
-series, whichever components are plotted and whichever gap-filling option is selected. [Downloading Data](downloading-data.md) lists the
+**Download CSV** saves the monthly values of all five components for the region, whichever components are plotted and whichever gap-filling
+option is selected, along with the ±1σ bounds and gap-filled series where the dataset has them. With the comparison ticked, the other dataset's
+columns come too. [Downloading Data](downloading-data.md) lists the
 columns and shows how to convert the values to volumes.
