@@ -4,8 +4,11 @@
 
 GRACE détecte la masse par la gravité, et la gravité s’atténue avec la distance. Depuis une orbite située à plusieurs centaines de kilomètres
 d’altitude, deux masses distantes de moins de quelques centaines de kilomètres se confondent en une seule. La solution mascon du JPL reflète cette
-limite : elle calcule une valeur par calotte de 3°, d’environ 330 km de diamètre, et les grilles de 0.5° et 1° de l’application répètent ou
-moyennent ces valeurs. Elles facilitent le stockage et la cartographie des données, mais n’ajoutent aucun détail.
+limite : elle calcule une valeur par calotte de 3°, d’environ 330 km de diamètre, et les grilles de 0.5° et 1° sont cette solution
+échantillonnée sur un maillage plus fin. L’application applique bien les facteurs de gain du JPL, qui donnent à la grille à 0.5° une certaine
+structure à l’intérieur de chaque mascon (voir
+[Calcul du Stockage des Eaux Souterraines](deriving-groundwater.md#gain-factors)), mais la mesure sous-jacente reste une valeur par calotte
+de 3°.
 
 ![Tailles de grille comparées à la taille des régions, et fuite du signal](../../static/images/grace/grace-resolution-leakage.png)
 
@@ -14,9 +17,10 @@ indépendantes. L’aquifère est plus petit qu’un mascon. Sa valeur reflète 
 compris les variations de stockage à l’extérieur de l’aquifère.
 
 En règle générale, les résultats de GRACE sont fiables pour des régions d’environ 200 000 km² ou plus (environ 4° × 4° près de l’équateur),
-utilisables avec précaution jusqu’à la taille d’un mascon (environ 100 000 km²), et de plus en plus incertains en deçà. La GWSa varie bien d’une
-maille de 1° à l’autre à l’intérieur d’un mascon, mais uniquement parce que les termes GLDAS varient ; la part GRACE de chaque maille est la
-valeur du mascon.
+utilisables avec précaution jusqu’à la taille d’un mascon (environ 100 000 km²), et de plus en plus incertains en deçà. Deux sources de variation
+séparent des mailles voisines au sein d’un même mascon : les termes GLDAS, mesurés sur leurs propres grilles à 0.25° et 1°, et les facteurs de
+gain, qui redistribuent l’amplitude du mascon entre ses mailles. Ni l’une ni l’autre n’ajoute une seconde mesure GRACE. Le nombre d’observations
+indépendantes sous une région est le nombre de mascons qu’elle couvre, quelle que soit la grille que dessine l’application.
 
 ## Fuite du signal { #leakage }
 
@@ -30,8 +34,10 @@ l’étale aussi sur les montagnes. Une moyenne calculée sur la seule vallée s
 unités. Là où le stockage évolue de façon similaire à l’intérieur et à l’extérieur de la région, comme dans un grand bassin sédimentaire sous un
 climat uniforme, les fuites entrantes et sortantes s’équilibrent à peu près et la moyenne régionale est proche de la réalité.
 
-Le filtre côtier du JPL limite la fuite entre continents et océans. La fuite entre zones continentales voisines n’est pas corrigée dans les
-données de l’application.
+Le filtre côtier du JPL limite la fuite entre continents et océans, et les facteurs de gain rétablissent une partie de l’amplitude que le
+traitement GRACE supprime à l’intérieur d’un mascon. Ni l’un ni l’autre ne corrige la fuite entre zones continentales voisines, qui est ce qui
+compte le plus pour un aquifère intensément pompé voisin d’une région au comportement différent. Et c’est précisément dans ce cas que les
+facteurs de gain sont les moins fiables : ils proviennent d’un modèle qui ne simule pas le pompage.
 
 ## Travailler avec de petites régions { #working-with-small-regions }
 
@@ -56,8 +62,8 @@ fuite du signal dans cette région. Ce facteur est propre à la région et à la
 pour la Vallée Centrale de Californie ([étude de cas](../case-studies/central-valley.md)).
 
 **Interpréter une maille isolée avec prudence.** Dans la vue globale, vous pouvez cliquer sur une maille pour afficher sa série temporelle. C’est
-rapide et utile pour l’exploration, mais deux aquifères voisins situés dans le même mascon donneront des résultats presque identiques, car ils
-sont mesurés par la même valeur de 3°.
+rapide et utile pour l’exploration, mais deux aquifères voisins situés dans le même mascon reposent sur la même mesure à 3°. Les facteurs de gain leur donneront des
+valeurs différentes ; cet écart vient d’un modèle de surface terrestre, non de GRACE.
 
 ![Vallée Centrale de Californie : un aquifère étroit et fortement exploité, entouré de montagnes, proche du cas le plus défavorable pour la fuite du signal](../../static/images/grace/app-central-valley.webp)
 
@@ -80,6 +86,11 @@ seule disponible. Utilisez-le pour les tendances régionales et comparez-le aux 
 - Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
   to GRACE-derived data. *Environmental Modelling & Software*, 186, 106368.
   [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
+
+- Landerer, F. W., and Swenson, S. C. (2012). Accuracy of scaled GRACE terrestrial water storage estimates. *Water Resources Research*, 48,
+  W04531. [doi:10.1029/2011WR011453](https://doi.org/10.1029/2011WR011453){:target="_blank"}
+  La dérivation des facteurs de gain que l’application applique, et la référence à laquelle le GRACE-FO Level-3 Handbook renvoie pour leur usage
+  et leurs limites.
 
 - Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
   dependent gravity field. *Water Resources Research*, 35, 2705–2723.

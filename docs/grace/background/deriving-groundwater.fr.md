@@ -50,15 +50,72 @@ cinq couches : GWSa, SMa, SWEa et CANa à 1°, et TWSa à 0.5° telle que la dis
 pratique courante qui consiste à combiner GRACE et les données de modèles sur la plus grossière des deux grilles ; fournir la GWSa à 0.5°
 donnerait une impression de détail qu’aucun des deux jeux de données ne possède.
 
-Aucun facteur de gain ou d’échelle n’est appliqué aux données GRACE, et aucune lacune n’est comblée. Chaque valeur mensuelle de l’application est
-la valeur publiée par le JPL combinée à l’ensemble GLDAS du même mois.
+Aucune lacune n’est comblée. Chaque valeur mensuelle de l’application est la valeur publiée par le JPL, mise à l’échelle comme décrit ci-dessous,
+combinée à l’ensemble GLDAS du même mois.
+
+### Facteurs de gain { #gain-factors }
+
+La solution mascon est nativement à 3°, et le fichier à 0.5° répète la valeur de chaque mascon sur ses 36 mailles : la grille publiée ne porte
+donc à elle seule aucun détail plus fin qu’un mascon. Le JPL distribue dans le même fichier une grille de **facteurs de gain** destinée à
+récupérer une partie de ce détail. Ils sont obtenus en faisant passer le modèle de surface terrestre CLM par le même traitement que subit GRACE,
+puis en estimant maille par maille le multiplicateur qui rétablit l’amplitude initiale du modèle. La correction est une simple multiplication, le
+facteur étant constant dans le temps :
+
+$$
+g'(x,y,t) = g(x,y,t) \times s(x,y)
+$$
+
+Le JPL n’applique pas cette mise à l’échelle avant de distribuer les données ; le GRACE-FO Level-3 Handbook précise qu’il revient aux
+utilisateurs de l’appliquer, et son propre exemple consacré aux eaux souterraines suit la même approche TWSa moins GLDAS que cette application,
+en indiquant la multiplication comme étape de prétraitement. L’application applique les facteurs à la TWSa à 0.5°, avant que celle-ci ne soit
+moyennée à 1°, car la structure qu’ils ajoutent est plus fine qu’une maille de 1°.
+
+La plupart des facteurs sont proches de 1 : environ 83 % se situent entre 0.5 et 1.5. Une maille conserve la valeur du mascon non mise à
+l’échelle dans deux cas.
+
+**Là où le JPL ne publie aucun facteur.** Il s’agit de l’océan, que le masque continental de GLDAS retire de toute façon, et de la glace : toute
+l’Antarctique et 18 % des terres au nord de 60°N. Les facteurs ne sont pas destinés à la glace, car CLM ne représente ni les calottes glaciaires
+ni les glaciers de montagne. Cela concerne 5.6 % des mailles que dessine l’application.
+
+**Là où le facteur est implausible**, c’est-à-dire nul ou négatif, ou supérieur à 3. Cela représente 1 604 mailles sur la grille à 0.5°, soit
+0.74 % du total, et c’est une règle de l’application et non du JPL : le fichier déclare valide l’ensemble de sa plage et ne fixe aucune borne.
+
+Ce que ces mailles ont en commun, c’est que la régression produisant le facteur disposait de très peu de signal : sa pente est donc instable.
+Elles sont côtières environ trois fois plus souvent que les mailles conservées (51 % à moins de deux mailles de l’eau, contre 19 %) et portent de
+la neige toute l’année treize fois plus souvent (18.5 % contre 1.4 %). Près de la moitié ne relève ni de l’un ni de l’autre et se situe dans des
+intérieurs arides — le Kalahari, l’intérieur australien, le Karoo, l’Atacama — où la variation de stockage de CLM est suffisamment faible pour
+que l’ajustement divise par presque rien. Glace, littoral et désert sont la même défaillance dans trois contextes : c’est pourquoi une borne sur
+le facteur les détecte là où un masque de glaciers seul n’y parviendrait pas.
+
+Dans ces mailles, les facteurs vont jusqu’à 24 et −1.35. Un facteur négatif inverse le signe de l’anomalie ; un facteur de 24 a transformé
+−292 cm en −7048 cm sur l’île d’Ellesmere. Dans les bassins arides, l’exclusion est sans conséquence dans un sens comme dans l’autre — quatre des
+806 mailles du Grand Bassin Artésien, pour un déplacement de 0.00 cm de sa série — car une petite anomalie multipliée par un mauvais facteur
+reste petite.
+
+Elle compte en revanche dans au moins un endroit qu’un utilisateur remarquerait. Une de ces mailles tombe dans le **bassin du Caucase du Nord**,
+un aquifère des jeux de régions de l’application. Appliquer tous les facteurs a doublé la série des eaux souterraines de ce bassin : l’écart-type
+de sa moyenne est passé de 13.3 cm sans mise à l’échelle à 23.5 cm, et s’établit à 13.6 cm dès lors que les mailles implausibles sont laissées
+telles quelles. Presque toute cette amplitude apparente venait d’une poignée de mailles dégénérées, et non du signal. Le gain que les facteurs
+servent à rétablir survit à la règle : la Vallée Centrale de Californie le conserve entièrement, de 10.2 cm à 12.4 cm, et le Congo presque
+entièrement, de 7.6 cm sans mise à l’échelle à 7.9 cm, contre 8.1 cm avec tous les facteurs appliqués.
+
+Deux bassins glaciaires des jeux de bassins fluviaux, l’Alsek et le Santa Cruz, présentent une GWSa très élevée quoi qu’on fasse des facteurs de
+gain. GRACE y détecte la perte de masse glaciaire et GLDAS ne modélise pas les glaciers : le bilan hydrique l’attribue donc aux eaux
+souterraines. Ces valeurs sont un artefact de la méthode, non de la mise à l’échelle.
+
+Ce que les facteurs ne font pas, c’est transformer la grille à 0.5° en 36 mesures indépendantes. Le mascon sous-jacent reste une estimation
+unique, et les facteurs redistribuent son amplitude selon l’idée qu’un modèle se fait de la variation du stockage en son sein. Le handbook est
+explicite : les modèles qui les sous-tendent comportent des biais et « n’incluent typiquement ni les eaux souterraines ni les activités humaines
+dans leurs simulations ». Un aquifère intensément pompé est donc précisément l’endroit où la redistribution est la moins informée par ce que
+l’on mesure.
 
 ## Incertitude { #uncertainty }
 
 Chaque couche de l’application est accompagnée d’une incertitude à un écart-type (1σ), que le graphique des séries temporelles trace sous forme
 de bande autour de la courbe :
 
-- **TWSa :** l’incertitude publiée par le JPL pour chaque mascon et chaque mois.
+- **TWSa :** l’incertitude publiée par le JPL pour chaque mascon et chaque mois, multipliée par le même facteur de gain que les données, afin
+  que la bande reste proportionnelle à la valeur qu’elle décrit.
 - **SWEa, CANa, SMa :** l’écart-type entre les trois modèles GLDAS.
 - **GWSa :** les quatre combinées, en les supposant indépendantes :
 
@@ -66,9 +123,15 @@ $$
 \sigma_{\mathrm{GWSa}} = \sqrt{\sigma_{\mathrm{TWSa}}^2 + \sigma_{\mathrm{SWEa}}^2 + \sigma_{\mathrm{CANa}}^2 + \sigma_{\mathrm{SMa}}^2}
 $$
 
-La bande d’incertitude rend compte de l’erreur de mesure de GRACE et du désaccord entre les modèles. Elle ne rend pas compte des erreurs communes
-aux trois modèles, de l’effet de l’omission des eaux de surface, ni de la fuite du signal provenant de l’extérieur d’une région (voir
-[Résolution, Fuite du Signal et Petites Régions](resolution-and-leakage.md)) : l’incertitude réelle est donc plus grande que ne l’indique la bande.
+La bande d’incertitude rend compte de l’erreur de mesure de GRACE et du désaccord entre les modèles. Elle ne rend pas compte des erreurs
+communes aux trois modèles, de l’effet de l’omission des eaux de surface, de la fuite du signal provenant de l’extérieur d’une région (voir
+[Résolution, Fuite du Signal et Petites Régions](resolution-and-leakage.md)), ni de l’incertitude des facteurs de gain eux-mêmes, que le JPL ne
+publie pas : l’incertitude réelle est donc plus grande que ne l’indique la bande.
+
+Une précaution sur leur combinaison : l’incertitude TWSa du JPL est une erreur de mesure, tandis que les trois termes GLDAS correspondent à la
+dispersion entre Noah, VIC et CLSM, qui mesure l’ampleur du désaccord entre les modèles plutôt que celle de leur erreur. Les additionner en
+quadrature traite les deux comme comparables. Sur la plupart des bassins, la dispersion entre modèles domine : dans le Congo, 3.1 cm pour GRACE
+contre 5.7 cm au total.
 
 ## À quoi sert la GWSa { #what-gwsa-is-good-for }
 

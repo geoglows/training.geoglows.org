@@ -31,6 +31,24 @@ clasificarse; de lo contrario se muestra como **Insufficient data** (datos insuf
 La leyenda cuenta las regiones o celdas de cada clase. Como referencia, una tendencia de −2 cm/año sostenida sobre 100,000 km² equivale a una
 pérdida de 2 km³ de agua al año.
 
+### Factores de ganancia y magnitud de las tendencias { #gain-factors-and-trend-magnitudes }
+
+La TWSa que sirve la aplicación tiene aplicados los factores de ganancia de JPL (ver
+[Cálculo del Almacenamiento de Agua Subterránea](../background/deriving-groundwater.md#gain-factors)), y esos factores pasan directamente a las
+tendencias, porque un multiplicador constante sobre una serie temporal multiplica su pendiente. JPL acompaña este uso de una advertencia: los
+factores están dominados por el ciclo anual, y el GRACE-FO Level-3 Handbook dice que «pueden introducir sesgos en bandas de frecuencia distintas
+de la componente anual, en particular en las tendencias de largo plazo», para las que harían falta factores obtenidos por núcleo de promediado.
+Para este producto no se publican tales factores, así que la aplicación aplica los estándar en todo momento y reporta un solo valor de GWSa en
+todas partes, en lugar de un número para el mapa y otro distinto para la tendencia.
+
+En la práctica esto mueve muy poco la mayoría de las tendencias. En la ventana de cinco años con que abre la aplicación, la tendencia de agua
+subterránea de la celda mediana se desplaza 0.12 cm/año y la magnitud mediana de la tendencia pasa de 0.95 a 0.93 cm/año; sobre todo el registro
+el desplazamiento mediano es de 0.05 cm/año. Cerca del 15% de las celdas cruza un límite de clase en cinco años, y el 10% sobre todo el registro;
+casi todas ellas son celdas que ya estaban cerca de las líneas de ±0.5 o ±2 cm/año, donde un cambio pequeño de pendiente mueve la etiqueta. Las
+excepciones son celdas glaciares, en Svalbard, Nueva Zembla y los campos de hielo de la Patagonia, donde se aplica un factor grande a una señal
+de hielo enorme y la tendencia puede moverse decenas de cm por año. Esas celdas nunca fueron agua subterránea. Trata una clase como un resumen y
+no como una medición, y lee juntas la magnitud de la tendencia y la serie temporal.
+
 ## La ventana de tendencia { #the-trend-window }
 
 El selector **Window** del encabezado fija cuánto retrocede el ajuste desde el mes más reciente: 5, 10, 15 o 20 años, o **All** para todo el

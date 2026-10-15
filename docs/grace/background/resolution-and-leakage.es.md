@@ -4,8 +4,10 @@
 
 GRACE detecta la masa a través de la gravedad, y la gravedad se dispersa con la distancia. Desde una órbita a cientos de kilómetros de altura, dos
 masas separadas por menos de unos pocos cientos de kilómetros se confunden en una sola. La solución mascon de JPL refleja ese límite: resuelve un
-valor por cada casquete de 3°, de unos 330 km de ancho, y las mallas de 0.5° y 1° de la aplicación repiten o promedian esos valores. Facilitan el
-almacenamiento y la cartografía de los datos, pero no añaden detalle.
+valor por cada casquete de 3°, de unos 330 km de ancho, y las mallas de 0.5° y 1° son esa solución muestreada sobre una malla más fina. La
+aplicación sí aplica los factores de ganancia de JPL, que dan a la malla de 0.5° cierta estructura dentro de cada mascon (ver
+[Cálculo del Almacenamiento de Agua Subterránea](deriving-groundwater.md#gain-factors)), pero la medición que hay debajo sigue siendo un valor
+por cada casquete de 3°.
 
 ![Tamaños de malla comparados con el tamaño de la región, y fuga de señal](../../static/images/grace/grace-resolution-leakage.png)
 
@@ -14,8 +16,10 @@ independientes. El acuífero es más pequeño que un mascon. Su valor refleja so
 cambios de almacenamiento fuera del acuífero.
 
 Como regla práctica, los resultados de GRACE son confiables para regiones de unos 200,000 km² o más (aproximadamente 4° × 4° cerca del ecuador),
-utilizables con cuidado hasta el tamaño de un mascon (unos 100,000 km²) y cada vez más inciertos por debajo de eso. La GWSa sí varía de una celda
-de 1° a otra dentro de un mascon, pero solo porque varían los términos de GLDAS; la parte de GRACE de cada celda es el valor del mascon.
+utilizables con cuidado hasta el tamaño de un mascon (unos 100,000 km²) y cada vez más inciertos por debajo de eso. Dos fuentes de variación
+separan a las celdas vecinas dentro de un mismo mascon: los términos de GLDAS, que se miden en sus propias mallas de 0.25° y 1°, y los factores
+de ganancia, que redistribuyen la amplitud del mascon entre sus celdas. Ninguna de las dos añade una segunda medición de GRACE. El número de
+observaciones independientes bajo una región es el número de mascons que cubre, sea cual sea la malla que dibuje la aplicación.
 
 ## Fuga de señal { #leakage }
 
@@ -29,8 +33,10 @@ montañas. Un promedio solo sobre el valle subestima entonces la pérdida real, 
 similar dentro y fuera de la región, como en una gran cuenca sedimentaria con un clima uniforme, las fugas hacia adentro y hacia afuera se
 compensan aproximadamente y el promedio regional se acerca a la realidad.
 
-El filtro de línea de costa de JPL limita la fuga entre tierra y océano. La fuga entre áreas terrestres vecinas no se corrige en los datos de la
-aplicación.
+El filtro de línea de costa de JPL limita la fuga entre tierra y océano, y los factores de ganancia restituyen parte de la amplitud que el
+procesamiento de GRACE elimina dentro de un mascon. Ninguno de los dos corrige la fuga entre áreas terrestres vecinas, que es lo que más importa
+para un acuífero con bombeo intenso junto a una región que se comporta de otro modo. Y los factores de ganancia son menos confiables precisamente
+en ese caso: provienen de un modelo que no simula el bombeo.
 
 ## Trabajar con regiones pequeñas { #working-with-small-regions }
 
@@ -54,7 +60,8 @@ región. El factor es específico de la región y del periodo usado para obtener
 California ([caso de estudio](../case-studies/central-valley.md)).
 
 **Interpreta una sola celda con cautela.** En la vista global puedes hacer clic en una sola celda para ver su serie temporal. Es rápido y útil
-para explorar, pero dos acuíferos vecinos dentro del mismo mascon mostrarán resultados casi idénticos, porque los mide el mismo valor de 3°.
+para explorar, pero dos acuíferos vecinos dentro del mismo mascon se apoyan en la misma medición de 3°. Los factores de ganancia les darán números
+distintos; esa diferencia viene de un modelo de superficie terrestre, no de GRACE.
 
 ![Valle Central de California: un acuífero angosto con bombeo intenso rodeado de montañas, cercano al peor caso de fuga de señal](../../static/images/grace/app-central-valley.webp)
 
@@ -76,6 +83,11 @@ menudo es la única disponible. Úsalo para tendencias regionales y compáralo c
 - Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
   to GRACE-derived data. *Environmental Modelling & Software*, 186, 106368.
   [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
+
+- Landerer, F. W., and Swenson, S. C. (2012). Accuracy of scaled GRACE terrestrial water storage estimates. *Water Resources Research*, 48,
+  W04531. [doi:10.1029/2011WR011453](https://doi.org/10.1029/2011WR011453){:target="_blank"}
+  La derivación de los factores de ganancia que aplica la aplicación, y la autoridad a la que remite el GRACE-FO Level-3 Handbook sobre su uso y
+  sus límites.
 
 - Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
   dependent gravity field. *Water Resources Research*, 35, 2705–2723.

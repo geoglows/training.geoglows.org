@@ -31,6 +31,24 @@ classée ; sinon, elle apparaît comme **Insufficient data**.
 La légende compte les régions ou les mailles de chaque classe. À titre de repère, une tendance de −2 cm/an maintenue sur 100 000 km² correspond
 à une perte de 2 km³ d’eau par an.
 
+### Facteurs de gain et amplitude des tendances { #gain-factors-and-trend-magnitudes }
+
+La TWSa servie par l’application a les facteurs de gain du JPL appliqués (voir
+[Calcul du Stockage des Eaux Souterraines](../background/deriving-groundwater.md#gain-factors)), et ces facteurs se répercutent directement sur
+les tendances, car un multiplicateur constant appliqué à une série temporelle multiplie sa pente. Le JPL assortit cet usage d’une mise en garde :
+les facteurs sont dominés par le cycle annuel, et le GRACE-FO Level-3 Handbook indique qu’ils « peuvent introduire des biais dans des bandes de
+fréquence autres que la composante annuelle, en particulier pour les tendances de long terme », pour lesquelles il faudrait des facteurs dérivés
+par noyau de moyennage. Aucun facteur de ce type n’est publié pour ce produit : l’application applique donc partout les facteurs standard et
+fournit une seule valeur de GWSa, plutôt qu’un chiffre pour la carte et un autre pour la tendance.
+
+En pratique, cela déplace très peu la plupart des tendances. Sur la fenêtre de cinq ans par laquelle s’ouvre l’application, la tendance des eaux
+souterraines de la maille médiane se déplace de 0.12 cm/an et l’amplitude médiane des tendances passe de 0.95 à 0.93 cm/an ; sur l’ensemble de la
+série, le déplacement médian est de 0.05 cm/an. Environ 15 % des mailles franchissent une limite de classe sur cinq ans, et 10 % sur l’ensemble
+de la série — presque toutes des mailles déjà proches des seuils de ±0.5 ou ±2 cm/an, où une faible variation de pente change l’étiquette. Les
+exceptions sont les mailles englacées, au Svalbard, en Nouvelle-Zemble et dans les champs de glace de Patagonie, où un facteur élevé s’applique à
+un signal glaciaire énorme et où la tendance peut se déplacer de plusieurs dizaines de cm par an. Ces mailles n’ont jamais représenté des eaux
+souterraines. Traitez une classe comme un résumé et non comme une mesure, et lisez ensemble l’amplitude de la tendance et la série temporelle.
+
 ## La fenêtre de tendance { #the-trend-window }
 
 Le sélecteur **Window** de l’en-tête fixe la période couverte par l’ajustement, en remontant depuis le mois le plus récent : 5, 10, 15 ou 20 ans,
