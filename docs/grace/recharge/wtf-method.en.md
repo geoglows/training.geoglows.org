@@ -121,6 +121,17 @@ It does not apply where recharge happens all year with no clear rise, in arid re
 and dry periods dominate the record. The app tests each series for these conditions before it runs the method (see
 [Opening the Analysis](opening.md)).
 
+### Which dataset to run it on
+
+Either will run, and they do not give the same answer. In the Volta Basin, Barbosa et al. (2025) got 5.8 and 10.7 cm/yr from the GRACE dataset
+by the two methods below, 17.4 and 36.1 cm/yr from GLDAS 2.2, and a median of 10.4 cm/yr from wells in the Nasia sub-basin. Their recommendation
+is to use 2.2 for trends and the GRACE series for recharge.
+
+The reason is in how each series gets its annual rise. On the GRACE route the rise is a measured change in mass. On the 2.2 route it is a model
+state that GRACE corrects once a month, and the correction is itself part of the seasonal movement, so the rise the method reads is not purely
+the storage change the method assumes. Run both, and treat a large gap between them as a reason to look at the wells rather than to pick the
+larger number.
+
 ## References
 
 - Healy, R. W., and Cook, P. G. (2002). Using groundwater levels to estimate recharge. *Hydrogeology Journal*, 10, 91–109.

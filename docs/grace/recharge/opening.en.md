@@ -2,9 +2,15 @@
 
 ## The Recharge Analysis button
 
-The Recharge Analysis runs on the filled GWSa series, so it is available only when **Gap filling** in the panel is set to **Seasonal model**
-(see [Gaps and Gap Filling](../mission/gap-filling.md)). With that option selected, a **Recharge Analysis** button appears next to **Download CSV** above the
-time series chart, for a region and for a single grid cell in the [global view](../app/global-view.md).
+The Recharge Analysis needs a GWSa value in every month, so a **Recharge Analysis** button appears next to **Download CSV** above the time
+series chart once the series has one: on the GRACE dataset, with **Gap filling** set to **Seasonal model** (see
+[Gaps and Gap Filling](../mission/gap-filling.md)); on GLDAS 2.2, always, since its record has no gaps. It works for a region and for a single
+grid cell in the [global view](../app/global-view.md).
+
+Run it on both datasets before trusting either number. Barbosa et al. (2025) did exactly that in the Volta Basin and found GLDAS 2.2 gave
+17.4 and 36.1 cm/yr against 5.8 and 10.7 cm/yr from GRACE, where wells gave a median of 10.4 cm/yr; they recommend 2.2 for trends rather than
+for recharge (see [Volta Basin](../case-studies/volta.md)). The method reads each year's rise as recharge, and the GRACE assimilation puts a
+monthly correction into the 2.2 groundwater state that can enlarge that rise.
 
 ![The Recharge Analysis button above the time series chart for the Northern Midwest Aquifer System](../../static/images/grace/app-recharge-button.webp)
 

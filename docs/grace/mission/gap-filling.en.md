@@ -6,6 +6,11 @@ The GRACE record is missing 35 months: scattered single months, mostly between 2
 the start of GRACE-FO (see [How GRACE Measures Water Storage](measuring-water-storage.md#the-record-and-its-gaps)). TWSa and GWSa have gaps in those
 months. The GLDAS layers (SMa, SWEa and CANa) come from land surface models that run every month, so they have no gaps.
 
+This page is about the GRACE dataset. GLDAS 2.2 has a value in every month of its record, because the model keeps running whether or not there
+is a GRACE field to correct it against that month — so nothing in it needs filling, and the **Gap filling** control is hidden while it is
+selected. The flip side is that a 2.2 series gives no sign of where the correction lapsed: the line is continuous through the same 35 months,
+drawn from the model alone.
+
 Trend analysis in the app skips missing months. Analyses that work year by year need a value for every month. In the
 [Recharge Analysis](../recharge/wtf-method.md), for example, a missing month at a seasonal peak or trough changes that year's result. The app
 estimates the missing months with a seasonal model, following the approach of Barbosa et al. (2022). The options in the app come first below,

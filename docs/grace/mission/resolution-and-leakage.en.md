@@ -1,5 +1,11 @@
 # Resolution, Leakage and Small Regions
 
+Everything on this page is about the GRACE measurement, and it applies to both of the app's datasets. GLDAS 2.2 draws on a 0.25° model grid, but
+the groundwater in it comes from assimilating GRACE, so it inherits GRACE's resolution and GRACE's leakage. A finer picture is not a finer
+measurement, and
+[Where GLDAS 2.2 does and does not help](#where-gldas-22-does-and-does-not-help) at the foot of the page says which of these cautions it
+relieves.
+
 ## What GRACE can resolve
 
 GRACE senses mass through gravity, and gravity spreads out with distance. From an orbit hundreds of kilometers up, two masses closer together
@@ -60,6 +66,22 @@ that difference comes from a land surface model, not from GRACE.
 
 ![California Central Valley: a narrow, heavily pumped aquifer surrounded by mountains, close to the worst case for leakage](../../static/images/grace/app-central-valley.webp)
 
+### Where GLDAS 2.2 does and does not help
+
+Switching to GLDAS 2.2 changes the grid from 1° to 0.25° inside a region, which helps with one of the problems above and none of the others.
+
+It helps with **sampling**. A basin a few degrees across is described by sixteen times as many cells, so the 35% area rule throws away far less
+of it, the area-weighted average is better behaved, and a region too small to have any qualifying 1° cell may well have several at 0.25°. If the
+difficulty is that your region barely registers on the grid, 2.2 is the answer.
+
+It does not help with **leakage or resolution**. The groundwater in 2.2 is a model state corrected by assimilating GRACE, and that correction
+arrives at GRACE's resolution however fine the model grid is. Two 0.25° cells inside one mascon differ by what the Catchment model says about
+them, which is the same situation as two 1° cells differing by their gain factors. Neither is a second measurement.
+
+Nor does it remove the rule of thumb. A basin of 20,000 km² read from 2.2 is still a basin GRACE cannot resolve, drawn more finely. The
+approaches above — analyze the larger hydrologic unit, calibrate against wells, read a single cell with suspicion — apply to a 2.2 map exactly
+as they do to a GRACE one.
+
 ## Other limitations
 
 - **Storage, not levels.** GWSa is a change in the mass of water. Converting it to a change in water table elevation requires a specific yield
@@ -68,7 +90,8 @@ that difference comes from a land surface model, not from GRACE.
 - **Model error.** Errors in the GLDAS soil moisture, snow and canopy terms pass directly into GWSa. This is most serious in snowy and wet
   regions, where those terms are large.
 - **Surface water.** Changes in reservoirs, lakes and floodplains are counted as groundwater (see
-  [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)).
+  [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)). This is true of both datasets: no GLDAS model carries rivers, lakes or
+  reservoirs either.
 
 Even with these limits, GRACE gives a consistent, independent view of storage change across whole aquifer systems, which is often the only such
 view available. Use it for regional trends and compare it with local data wherever you can.
