@@ -55,8 +55,8 @@ somewhere else, which in practice is groundwater (see the [Volta Basin](../case-
 storage signal).
 
 **No glaciers or ice sheets.** None of the GLDAS models has one, so in Greenland, parts of the Arctic and permanently frozen ground in the
-Himalayas, snow water equivalent "accumulates indefinitely" in the README's words, and NASA advises masking those cells. Two glacier basins in
-the app's river basin sets, Alsek and Santa Cruz, carry very large groundwater anomalies for exactly this reason.
+Himalayas, snow water equivalent accumulates without limit. NASA's documentation for GLDAS Version 2 says so plainly and advises masking those
+cells. Two glacier basins in the app's river basin sets, Alsek and Santa Cruz, carry very large groundwater anomalies for exactly this reason.
 
 The models also carry no routing between grid cells. Noah and VIC treat each cell as an independent column. The Catchment model is the
 exception within a cell: it divides the land into hydrologic catchments delineated from elevation data and redistributes water across each one
@@ -112,9 +112,10 @@ parameters describing vegetation, soils and elevation; and inadequate calibratio
 alongside the data, which is why the app's uncertainty band for the 2.1 route is built from the spread between the three models rather than from
 anything NASA publishes.
 
-The README also warns against joining the GLDAS versions into one time series: the forcing datasets are biased relative to one another, and
-assimilation changes both the states and the fluxes in 2.2. The app keeps them strictly separate. Each dataset is its own record, with its own
-baseline, and the two are drawn as separate series when both are shown on one chart.
+NASA also warns against joining the GLDAS versions into one time series: their forcing datasets are biased relative to one another, and
+assimilation changes both the states and the fluxes in 2.2. The app never splices them. Each dataset is its own record from end to end, and when
+both are shown on one chart they are drawn as separate series. They do share the 2004–2009 baseline, which is what puts them on a common zero
+and makes the comparison readable; it is the records that stay apart, not the reference period.
 
 ## References
 
@@ -139,9 +140,9 @@ baseline, and the two are drawn as separate series when both are shown on one ch
   in a general circulation model: 2. Parameter estimation and model demonstration. *Journal of Geophysical Research*, 105(D20), 24823–24838.
   [doi:10.1029/2000JD900328](https://doi.org/10.1029/2000JD900328){:target="_blank"}
 
-- GES DISC (2025). *README Document for NASA GLDAS Version 2 Data Products*.
+- Rui, H., and Beaudoing, H. (2025). *README Document for NASA GLDAS Version 2 Data Products*. NASA GES DISC.
   [hydro1.gesdisc.eosdis.nasa.gov](https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_CLSM025_DA1_D.2.2/doc/README_GLDAS2.pdf){:target="_blank"}
-  The source for the forcing, periods, model versions and cautions on this page.
+  NASA's own documentation for the GLDAS products, and the source for the forcing, record periods, model versions and cautions on this page.
 
 - GLDAS data at the NASA GES DISC: [Noah](https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_M_2.1/summary){:target="_blank"},
   [VIC](https://disc.gsfc.nasa.gov/datasets/GLDAS_VIC10_M_2.1/summary){:target="_blank"},
