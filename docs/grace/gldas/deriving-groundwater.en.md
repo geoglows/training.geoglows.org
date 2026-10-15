@@ -1,5 +1,9 @@
 # Deriving Groundwater Storage
 
+The app reaches groundwater two ways. The GRACE + GLDAS 2.1 dataset subtracts modelled storage from a gravity measurement. The GLDAS 2.2
+dataset reads a model state that GRACE has corrected. Both report the same quantity on the same baseline, and both are given here, followed by
+what the uncertainty covers and when to prefer one over the other.
+
 ## The water balance
 
 GRACE measures the total change in water stored in a column of the Earth. To isolate groundwater, the app subtracts the parts of that total that
@@ -20,7 +24,9 @@ changes are small next to the other terms. In regions with large reservoirs, wet
 Brahmaputra, the Caspian Sea, Lake Victoria, Lake Volta), GWSa includes those changes and overstates the seasonal swing in groundwater. In the Volta Basin, for example, the lake accounts for about half
 of the total storage signal ([case study](../case-studies/volta.md)).
 
-## The GLDAS terms
+## Route 1: GRACE minus GLDAS 2.1
+
+### The GLDAS terms
 
 The app takes snow water equivalent, canopy interception storage and soil moisture from each of the three GLDAS 2.1 models — Noah, VIC and the
 Catchment model, described in [The GLDAS Land Surface Models](land-surface-models.md) — converts them from kg/m² to cm of water, and puts all
@@ -30,7 +36,7 @@ same baseline as GRACE.
 The three models often disagree, particularly about deep soil moisture. Rather than choose one, the app averages them: SWEa, CANa and SMa are each
 the mean of the three models, and the spread between the models (their standard deviation) is used as the uncertainty of each term.
 
-## Processing chain
+### Processing chain
 
 ![GRACE Regional Analyst processing chain](../../static/images/grace/grace-processing.png)
 
@@ -39,7 +45,8 @@ and CANa at 1°, and TWSa at 0.5° as JPL distributes it. Using 1° for the deri
 the coarser of the two grids; reporting GWSa at 0.5° would give an impression of detail that neither dataset has.
 
 No gaps are filled. Each monthly value in the app is the published JPL value, scaled as described below, combined with the GLDAS ensemble for
-that month.
+that month. The 35 months GRACE is missing are missing here too, and the app's gap filling acts on them in the chart alone (see
+[Gaps and Gap Filling](../mission/gap-filling.md)).
 
 ### Gain factors
 
@@ -90,9 +97,62 @@ redistribute its amplitude using a model's idea of how storage varies within it.
 biases and "typically do not include groundwater or human activities in their simulations," so a heavily pumped aquifer is exactly where the
 redistribution is least informed by the thing being measured.
 
+## Route 2: groundwater from GLDAS 2.2
+
+The Catchment model carries groundwater as a state of its own, and the GLDAS 2.2 run corrects that state every month by assimilating the GRACE
+total water storage anomaly. Groundwater therefore arrives as a published variable, `GWS_tavg`, and the derivation is one subtraction:
+
+$$
+\mathrm{GWSa}_{22} = \mathrm{GWS} - \overline{\mathrm{GWS}}_{2004\text{–}2009}
+$$
+
+The same 2004–2009 baseline as GRACE, so the two datasets' anomalies are about the same zero and can be plotted on one axis.
+
+NASA publishes 2.2 as daily fields; the app averages them to calendar months to match the rest. Everything is converted from kg/m² to cm. The
+0.25° store keeps values to a hundredth of a centimetre, because that grid exists for small regions where half a centimetre is part of the
+signal and there is no ensemble spread to hide it in. A 1° store, averaged from the same cells the GRACE stores use, feeds the global map at a
+tenth of a centimetre, which keeps the first view of a whole-world layer down from 10.5 MB to 7.1 MB.
+
+### Soil moisture, and why it is not what NASA publishes
+
+The Catchment model's published soil moisture already contains the groundwater. `SoilMoist_P_tavg` is the whole profile from the surface down,
+and `SoilMoist_P − GWS` is positive everywhere, a median 277 mm of water sitting above the water table. The product's own budget closes on three
+terms:
+
+$$
+\mathrm{TWS} = \mathrm{SoilMoist\_P} + \mathrm{SWE} + \mathrm{CanopInt}
+$$
+
+Served that way, SMa in the 2.2 dataset would mean something different from SMa in the GRACE dataset, and the five layers would not add up in
+the chart. The app therefore stores SMa for 2.2 as the anomaly of `SoilMoist_P − GWS`, which is soil moisture above the water table — the same
+physical quantity the GLDAS 2.1 ensemble supplies. With that substitution the five layers close exactly:
+
+$$
+\mathrm{TWSa}_{22} = \mathrm{SWEa}_{22} + \mathrm{CANa}_{22} + \mathrm{SMa}_{22} + \mathrm{GWSa}_{22}
+$$
+
+Measured on the published 0.25° store, the largest residual anywhere in the record is 0.02 cm, which is two units of its own rounding.
+
+### What the assimilation does and does not do
+
+GRACE sees the whole column and cannot tell which store a discrepancy belongs to, so the scheme spreads each month's correction across the
+model's states, groundwater among them. Pumping is absent from the model physics and reaches the groundwater state only through this correction.
+
+That has consequences for reading a 2.2 series.
+
+The record starts in February 2003, ten months after GRACE's April 2002, because that is when the assimilating run was started.
+
+There are no missing months. Where GRACE has a gap the model still runs; it simply goes uncorrected for that month, so the series is continuous
+and nothing marks where the correction lapsed.
+
+The grid is finer than the correction. A 0.25° cell is a model cell, and the GRACE information reaching it came from a 3° mascon, so neighbouring
+cells differ by what the model says rather than by what was measured — the same caution as the gain factors on the other route, arriving by a
+different road.
+
 ## Uncertainty
 
-Each layer in the app comes with a one-standard-deviation (1σ) uncertainty, which the time series chart draws as a band around the line:
+Every layer of the GRACE dataset comes with a one-standard-deviation (1σ) uncertainty, which the time series chart draws as a band around the
+line:
 
 - **TWSa:** JPL's published uncertainty for each mascon and month, multiplied by the same gain factor as the data, so the band stays in
   proportion to the value it describes.
@@ -112,17 +172,57 @@ One caution about combining them: JPL's TWSa uncertainty is a measurement error,
 CLSM, which measures how much the models disagree rather than how wrong they are. Adding them in quadrature treats the two as comparable. Over
 most basins the model spread dominates — in the Congo, 3.1 cm from GRACE against 5.7 cm combined.
 
+GLDAS 2.2 carries no uncertainty at all. It is one model run rather than an ensemble, so there is no spread to take, and NASA publishes no
+per-month error for the product. The chart draws no band for it. That silence is an absence of an estimate; everything in
+[The GLDAS Land Surface Models](land-surface-models.md#accuracy-and-mixing-versions) that makes a land surface model wrong still applies, with
+nothing reporting it.
+
+## Which one to use
+
+Neither dataset wins everywhere, and the useful habit is to plot both and look at where they part company.
+
+**The GRACE route is the one to lean on for how much storage changed.** Its groundwater rests on a measurement of mass, and the models enter
+only as the terms being subtracted. Where the GLDAS terms are small next to the groundwater signal — most arid and semi-arid aquifers — very
+little of the answer depends on the models being right.
+
+**The 2.2 route is the one to reach for on a small region**, because it is averaged on a 0.25° grid where the other is on 1°, so a basin a few
+cells across is described by sixteen times as many of them. Its continuous record also makes it the easier series to work with year by year.
+What it buys is sampling, not resolution: the GRACE information inside it still arrived at 3°.
+
+**Prefer the GRACE route for recharge.** Barbosa et al. (2025) ran the water table fluctuation method on both in the Volta Basin and got
+17.4 and 36.1 cm/yr from 2.2 against 5.8 and 10.7 cm/yr from GRACE, with wells giving a median of 10.4. They recommend 2.2 for trends and not
+for recharge (see [Volta Basin](../case-studies/volta.md)).
+
+**Agreement between them is worth more than either alone.** A measurement and an independently constructed model that say the same thing are
+hard to explain away. Where they disagree, plot the components: a divergence that lives in SMa is a different problem from one that lives in
+TWSa.
+
+The 2.2 record starts ten months later than GRACE's, in February 2003, and the GRACE solution behind 2.2 is CSR's while the app's own GRACE
+layers are JPL's. Neither is a fault in the data; both will show up whenever the two are overlaid.
+
 ## What GWSa is good for
 
 GWSa is best used to answer regional questions about direction and rate: is storage in this aquifer declining, how fast, and did the decline
 slow after a policy change or a run of wet years? It is not suited to decisions at the scale of a well field or a single irrigation district,
-and it says nothing about water levels or water quality. Where monitoring wells exist, compare the GRACE trend with storage change estimated from
-the wells; agreement between the two strengthens both.
+and it says nothing about water levels or water quality. Where monitoring wells exist, compare the trend with storage change estimated from the
+wells; agreement between the two strengthens both.
+
+That holds for either dataset. Both are a storage change averaged over an area far larger than a well field, both include surface water in the
+groundwater term, and a well-based comparison is the strongest check available on either.
 
 ## References
 
 - Rodell, M., et al. (2004). The Global Land Data Assimilation System. *Bulletin of the American Meteorological Society*, 85, 381–394.
   [doi:10.1175/BAMS-85-3-381](https://doi.org/10.1175/BAMS-85-3-381){:target="_blank"}
+- Li, B., Rodell, M., Kumar, S., Beaudoing, H. K., Getirana, A., Zaitchik, B. F., et al. (2019). Global GRACE data assimilation for groundwater
+  and drought monitoring: Advances and challenges. *Water Resources Research*, 55, 7564–7586.
+  [doi:10.1029/2018WR024618](https://doi.org/10.1029/2018WR024618){:target="_blank"}
+  The GLDAS 2.2 run the second route reads.
+- Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., et al. (2025). A Multi-Source Approach to Groundwater
+  Storage and Recharge Assessment in the Volta Basin. *Science of the Total Environment*.
+  [doi:10.1016/j.scitotenv.2025.180421](https://doi.org/10.1016/j.scitotenv.2025.180421){:target="_blank"}
+  The comparison of the two datasets' recharge estimates; see [Volta Basin](../case-studies/volta.md).
 - GLDAS data at the NASA GES DISC: [Noah](https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_M_2.1/summary){:target="_blank"},
   [VIC](https://disc.gsfc.nasa.gov/datasets/GLDAS_VIC10_M_2.1/summary){:target="_blank"},
-  [CLSM](https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM10_M_2.1/summary){:target="_blank"}
+  [CLSM](https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM10_M_2.1/summary){:target="_blank"},
+  [Catchment GRACE-DA1 2.2](https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary){:target="_blank"}
