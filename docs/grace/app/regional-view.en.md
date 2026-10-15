@@ -137,8 +137,8 @@ in each.
 
 Ticking **Also show GLDAS 2.2** (or **Also show GRACE + GLDAS 2.1**, depending on which dataset is selected) adds the other dataset's version
 of whatever is already plotted, in a second set of colors. Where the two groundwater series agree, the result rests on a measurement and a model
-that were built independently of each other and is worth more than either alone. Where they diverge, the divergence itself is the finding, and
-the case studies give examples of both.
+built independently of each other, which is stronger evidence than either on its own. Where they diverge, look at the components to see which
+term the disagreement is in; the case studies work through examples.
 
 ![GWSa compared with TWSa and SMa for the Iullemeden-Irhazer Aquifer System](../../static/images/grace/app-chart-compare.webp)
 

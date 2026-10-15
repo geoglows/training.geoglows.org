@@ -44,11 +44,11 @@ every GLDAS model and both of the app's datasets use them. Groundwater exists on
 through GLDAS 2.2 alone. Each store is reported as a depth of liquid water in kg/m², which is the same as a millimetre, or a tenth of a
 centimetre; the app converts all of them to centimetres so they can be added to and subtracted from GRACE.
 
-Three things these models leave out, and all three end up in groundwater in the app:
+What the models leave out ends up in groundwater in the app:
 
 **No pumping or irrigation.** GLDAS simulates the natural water cycle. Nothing in the model abstracts water from an aquifer, so a GLDAS run on
-its own cannot produce the depletion that is the whole subject of this app. This is the single most important fact about the models, and it is
-why the 2.1 route subtracts them from a measurement and why the 2.2 route has to assimilate one.
+its own cannot produce the depletion that is the whole subject of this app. That is why the 2.1 route subtracts the models from a measurement
+and why the 2.2 route has to assimilate one.
 
 **No surface water.** There are no rivers, lakes or reservoirs. A basin where a large reservoir fills and empties has that change counted
 somewhere else, which in practice is groundwater (see the [Volta Basin](../case-studies/volta.md) case study, where the lake is about half the
@@ -97,13 +97,12 @@ GRACE measures the whole column and cannot see which store a discrepancy belongs
 the model's stores, groundwater among them. Depletion from pumping reaches the 2.2 groundwater state only through this route. The model physics
 still has no wells in it.
 
-Two details are worth knowing before comparing the two datasets in the app:
+The GRACE solution assimilated into 2.2 is the **CSR** mascon product (Save et al., 2012, 2016), while the app's own GRACE layers use the
+**JPL** mascons. The two routes to groundwater therefore do not rest on the same GRACE solution, and they will not agree exactly even where both
+are working well.
 
-- The GRACE solution assimilated into 2.2 is the **CSR** mascon product (Save et al., 2012, 2016). The app's own GRACE layers use the **JPL**
-  mascons. The two routes to groundwater therefore do not rest on the same GRACE solution, and they will not agree exactly even where both are
-  working well.
-- NASA publishes 2.2 in two streams: a main stream with the GRACE assimilation, running 2–6 months behind, and an early stream without it,
-  running about 1.5 months behind. The app reads the main stream, so every month it shows has been corrected.
+NASA publishes 2.2 in two streams: a main stream with the GRACE assimilation, running 2–6 months behind, and an early stream without it, running
+about 1.5 months behind. The app reads the main stream, so every month it shows has been corrected.
 
 ## Accuracy, and mixing versions
 
