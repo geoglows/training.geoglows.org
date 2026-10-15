@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
 <title>What a GLDAS land surface model computes</title>
 <defs>
 <marker id="ah-navy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
@@ -11,72 +11,83 @@
 <marker id="ah-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d69e2e"/></marker>
 <marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#68a063"/></marker>
 </defs>
-<rect width="1200" height="760" fill="white"/>
+<rect width="1200" height="800" fill="white"/>
 <text x="25" y="42" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1f3a5f">What a GLDAS land surface model computes for one cell</text>
-<text x="25" y="68" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#718096">Water enters as precipitation, is held in four stores, and leaves as evaporation or runoff. The model solves this budget every time step.</text>
-<text x="25" y="112" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#718096">METEOROLOGICAL FORCING</text>
-<rect x="25" y="126" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
-<text x="115.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Precipitation</text>
-<rect x="221" y="126" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
-<text x="311.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Radiation</text>
-<rect x="417" y="126" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
-<text x="507.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Air temperature</text>
-<rect x="613" y="126" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
-<text x="703.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Humidity</text>
-<rect x="809" y="126" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
-<text x="899.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Wind</text>
-<rect x="1005" y="126" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
-<text x="1095.0" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Pressure</text>
-<line x1="115" y1="168" x2="115" y2="196" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
-<line x1="311" y1="168" x2="311" y2="196" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
-<line x1="507" y1="168" x2="507" y2="196" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
-<line x1="703" y1="168" x2="703" y2="196" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
-<line x1="899" y1="168" x2="899" y2="196" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
-<line x1="1095" y1="168" x2="1095" y2="196" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
-<text x="25" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#718096">STORES  (what the model carries from one step to the next)</text>
-<rect x="25" y="248" width="640" height="72" rx="8" fill="white" stroke="#2c7a7b" stroke-width="1.8"/>
-<rect x="25" y="248" width="10" height="72" rx="4" fill="#2c7a7b"/>
-<text x="50" y="278" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Canopy water</text>
-<text x="50" y="303" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Rain caught on leaves before it reaches the ground</text>
-<text x="650" y="278" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#2c7a7b">CanopInt</text>
-<line x1="345" y1="320" x2="345" y2="334" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
-<rect x="25" y="334" width="640" height="72" rx="8" fill="white" stroke="#2b6cb0" stroke-width="1.8"/>
-<rect x="25" y="334" width="10" height="72" rx="4" fill="#2b6cb0"/>
-<text x="50" y="364" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Snowpack</text>
-<text x="50" y="389" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Snow held as water equivalent; melts into the soil</text>
-<text x="650" y="364" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#2b6cb0">SWE</text>
-<line x1="345" y1="406" x2="345" y2="420" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
-<rect x="25" y="420" width="640" height="72" rx="8" fill="white" stroke="#d69e2e" stroke-width="1.8"/>
-<rect x="25" y="420" width="10" height="72" rx="4" fill="#d69e2e"/>
-<text x="50" y="450" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Soil moisture</text>
-<text x="50" y="475" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Surface, root zone and whole profile</text>
-<text x="650" y="450" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#d69e2e">SoilMoist</text>
-<line x1="345" y1="492" x2="345" y2="506" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
-<rect x="25" y="506" width="640" height="72" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.8"/>
-<rect x="25" y="506" width="10" height="72" rx="4" fill="#dd6b20"/>
-<text x="50" y="536" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Groundwater</text>
-<text x="50" y="561" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Below the water table — Catchment model only</text>
-<text x="650" y="536" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#dd6b20">GWS</text>
-<text x="720" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#718096">FLUXES OUT</text>
-<rect x="720" y="248" width="455" height="72" rx="8" fill="white" stroke="#68a063" stroke-width="1.8"/>
-<text x="740" y="278" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Evapotranspiration</text>
-<text x="740" y="303" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">From canopy, bare soil and plants</text>
-<text x="1160" y="278" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#68a063">Evap</text>
-<line x1="668" y1="284" x2="716" y2="284" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
-<rect x="720" y="334" width="455" height="72" rx="8" fill="white" stroke="#718096" stroke-width="1.8"/>
-<text x="740" y="364" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Surface runoff</text>
-<text x="740" y="389" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Storm runoff that never infiltrates</text>
-<text x="1160" y="364" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#718096">Qs</text>
-<line x1="668" y1="370" x2="716" y2="370" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
-<rect x="720" y="420" width="455" height="72" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.8"/>
-<text x="740" y="450" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Baseflow</text>
-<text x="740" y="475" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Drainage out of the groundwater store</text>
-<text x="1160" y="450" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#dd6b20">Qsb</text>
-<line x1="668" y1="456" x2="716" y2="456" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
-<rect x="25" y="608" width="1150" height="128" rx="8" fill="#f7fafc" stroke="#e2e8f0"/>
-<text x="45" y="644" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#1f3a5f">The storage the app reads</text>
-<text x="45" y="676" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#2c7a7b">TWS  =  CanopInt + SWE + SoilMoist</text>
-<text x="45" y="706" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Each is a depth of water, in kg/m² — the same as mm, a tenth of a centimetre.</text>
-<text x="560" y="676" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Groundwater is not added again: in the Catchment model it lies inside the soil</text>
-<text x="560" y="706" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">profile. Noah and VIC have no groundwater store at all.</text>
+<text x="25" y="68" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#718096">Every GLDAS model solves this budget each time step. What differs between versions is which stores exist and which the app reads,</text>
+<text x="25" y="90" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#718096">and that is set out at the foot of the figure. Every store is a depth of water in kg/m², which is the same as a millimetre.</text>
+<text x="25" y="134" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#718096">METEOROLOGICAL FORCING</text>
+<rect x="25" y="148" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="115.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Precipitation</text>
+<rect x="221" y="148" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="311.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Radiation</text>
+<rect x="417" y="148" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="507.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Air temperature</text>
+<rect x="613" y="148" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="703.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Humidity</text>
+<rect x="809" y="148" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="899.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Wind</text>
+<rect x="1005" y="148" width="180" height="40" rx="6" fill="#ebf4fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="1095.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#4a5568">Pressure</text>
+<line x1="115" y1="190" x2="115" y2="218" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
+<line x1="311" y1="190" x2="311" y2="218" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
+<line x1="507" y1="190" x2="507" y2="218" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
+<line x1="703" y1="190" x2="703" y2="218" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
+<line x1="899" y1="190" x2="899" y2="218" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
+<line x1="1095" y1="190" x2="1095" y2="218" stroke="#2b6cb0" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-blue)"/>
+<text x="25" y="254" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#718096">STORES  (carried from one time step to the next)</text>
+<rect x="25" y="270" width="640" height="72" rx="8" fill="white" stroke="#2c7a7b" stroke-width="1.8"/>
+<rect x="25" y="270" width="10" height="72" rx="4" fill="#2c7a7b"/>
+<text x="50" y="300" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Canopy water</text>
+<text x="50" y="325" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Rain caught on leaves before it reaches the ground</text>
+<text x="560" y="300" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#2c7a7b">CanopInt</text>
+<text x="560" y="325" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="end" fill="#718096">in both versions</text>
+<line x1="345" y1="342" x2="345" y2="356" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="25" y="356" width="640" height="72" rx="8" fill="white" stroke="#2b6cb0" stroke-width="1.8"/>
+<rect x="25" y="356" width="10" height="72" rx="4" fill="#2b6cb0"/>
+<text x="50" y="386" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Snowpack</text>
+<text x="50" y="411" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Snow held as water equivalent; melts into the soil</text>
+<text x="560" y="386" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#2b6cb0">SWE</text>
+<text x="560" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="end" fill="#718096">in both versions</text>
+<line x1="345" y1="428" x2="345" y2="442" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="25" y="442" width="640" height="72" rx="8" fill="white" stroke="#d69e2e" stroke-width="1.8"/>
+<rect x="25" y="442" width="10" height="72" rx="4" fill="#d69e2e"/>
+<text x="50" y="472" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Soil moisture</text>
+<text x="50" y="497" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Surface, root zone and whole profile</text>
+<text x="560" y="472" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#d69e2e">SoilMoist</text>
+<text x="560" y="497" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="end" fill="#718096">in both versions</text>
+<line x1="345" y1="514" x2="345" y2="528" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="25" y="528" width="640" height="72" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.8"/>
+<rect x="25" y="528" width="10" height="72" rx="4" fill="#dd6b20"/>
+<text x="50" y="558" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Groundwater</text>
+<text x="50" y="583" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Below the water table</text>
+<text x="560" y="558" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#dd6b20">GWS</text>
+<text x="560" y="583" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="end" fill="#dd6b20">GLDAS 2.2 only</text>
+<text x="720" y="254" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#718096">FLUXES OUT</text>
+<rect x="720" y="270" width="455" height="72" rx="8" fill="white" stroke="#68a063" stroke-width="1.8"/>
+<text x="740" y="300" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Evapotranspiration</text>
+<text x="740" y="325" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">From canopy, bare soil and plants</text>
+<text x="1160" y="300" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#68a063">Evap</text>
+<line x1="668" y1="306" x2="716" y2="306" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="720" y="356" width="455" height="72" rx="8" fill="white" stroke="#718096" stroke-width="1.8"/>
+<text x="740" y="386" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Surface runoff</text>
+<text x="740" y="411" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Storm runoff that never infiltrates</text>
+<text x="1160" y="386" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#718096">Qs</text>
+<line x1="668" y1="392" x2="716" y2="392" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="720" y="442" width="455" height="72" rx="8" fill="white" stroke="#dd6b20" stroke-width="1.8"/>
+<text x="740" y="472" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#1f3a5f">Baseflow</text>
+<text x="740" y="497" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#4a5568">Drainage out of the groundwater store</text>
+<text x="1160" y="472" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" text-anchor="end" fill="#dd6b20">Qsb</text>
+<line x1="668" y1="478" x2="716" y2="478" stroke="#718096" stroke-width="2.0" stroke-linecap="round" marker-end="url(#ah-gray)"/>
+<rect x="25" y="630" width="1150" height="150" rx="8" fill="#f7fafc" stroke="#e2e8f0"/>
+<line x1="600" y1="652" x2="600" y2="758" stroke="#e2e8f0" stroke-width="2"/>
+<text x="45" y="678" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#2c7a7b">GLDAS 2.1  —  three models, run blind</text>
+<text x="45" y="706" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">The app takes CanopInt, SWE and SoilMoist from Noah, VIC and</text>
+<text x="45" y="729" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">the Catchment model and averages the three. It takes no</text>
+<text x="45" y="752" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">groundwater: Noah and VIC have no such store, and with nothing</text>
+<text x="45" y="775" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">assimilated the Catchment model's follows rainfall alone.</text>
+<text x="625" y="678" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#2b6cb0">GLDAS 2.2  —  Catchment model, corrected by GRACE</text>
+<text x="625" y="706" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">TWS = CanopInt + SWE + SoilMoist. Groundwater is not added</text>
+<text x="625" y="729" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">again: in the Catchment model it lies inside the soil profile.</text>
+<text x="625" y="752" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">GWS is published as its own variable, and the app reads it</text>
+<text x="625" y="775" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#4a5568">directly as groundwater.</text>
 </svg>

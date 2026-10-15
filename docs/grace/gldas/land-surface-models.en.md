@@ -29,16 +29,20 @@ is the one product in the family that assimilates data.
 
 ## What a land surface model computes
 
-![The stores and fluxes a GLDAS land surface model carries for each grid cell](../../static/images/grace/gldas-water-cycle.png)
+The budget below is the same in every GLDAS version. What changes between them is which stores exist and which ones the app takes, and the
+foot of the figure gives that for each.
+
+![The stores and fluxes a GLDAS land surface model carries for each grid cell, and what each GLDAS version contributes to the app](../../static/images/grace/gldas-water-cycle.png)
 
 For each cell and each time step, the model takes the weather above the surface and solves a water and energy budget below it. Rain and snow
 arrive. Some rain is caught on leaves and evaporates straight back; snow accumulates and later melts; what reaches the ground infiltrates, moves
 down through the soil, and leaves again as evaporation, transpiration, surface runoff or drainage. Whatever has not left by the end of the step
 is storage, and it is carried into the next step.
 
-The four stores are what the app is built on: canopy water, snow water equivalent, soil moisture and — in one model — groundwater. Each is
-reported as a depth of liquid water in kg/m², which is the same as a millimetre, or a tenth of a centimetre. The app converts all of them to
-centimetres so they can be added to and subtracted from GRACE.
+The four stores are what the app is built on: canopy water, snow water equivalent, soil moisture, and groundwater. The first three exist in
+every GLDAS model and both of the app's datasets use them. Groundwater exists only in the Catchment model, which is why it reaches the app
+through GLDAS 2.2 alone. Each store is reported as a depth of liquid water in kg/m², which is the same as a millimetre, or a tenth of a
+centimetre; the app converts all of them to centimetres so they can be added to and subtracted from GRACE.
 
 Three things these models leave out, and all three end up in groundwater in the app:
 

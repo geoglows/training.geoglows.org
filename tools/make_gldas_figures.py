@@ -77,57 +77,73 @@ def svg(name, title, width, height, body):
 
 # ---------------------------------------------------------------- water cycle
 def water_cycle():
-    W, H = 1200, 760
+    W, H = 1200, 800
     b = [text(25, 42, "What a GLDAS land surface model computes for one cell", 22, "bold", "start", NAVY),
-         text(25, 68, "Water enters as precipitation, is held in four stores, and leaves as evaporation or runoff. "
-                      "The model solves this budget every time step.", 16, "normal", "start", GRAY)]
+         text(25, 68, "Every GLDAS model solves this budget each time step. What differs between versions is which stores "
+                      "exist and which the app reads,", 16, "normal", "start", GRAY),
+         text(25, 90, "and that is set out at the foot of the figure. Every store is a depth of water in kg/m², "
+                      "which is the same as a millimetre.", 16, "normal", "start", GRAY)]
 
     # Forcing across the top.
-    b.append(text(25, 112, "METEOROLOGICAL FORCING", 15, "bold", "start", GRAY))
+    b.append(text(25, 134, "METEOROLOGICAL FORCING", 15, "bold", "start", GRAY))
     forcing = ["Precipitation", "Radiation", "Air temperature", "Humidity", "Wind", "Pressure"]
     for i, f in enumerate(forcing):
-        b.append(chip(25 + i * 196, 126, 180, 40, f, BLUE, "#ebf4fb"))
+        b.append(chip(25 + i * 196, 148, 180, 40, f, BLUE, "#ebf4fb"))
     for i in range(6):
-        b.append(arrow(115 + i * 196, 168, 115 + i * 196, 196, "blue", BLUE, 2.0))
+        b.append(arrow(115 + i * 196, 190, 115 + i * 196, 218, "blue", BLUE, 2.0))
 
     # The column of stores.
-    b.append(text(25, 232, "STORES  (what the model carries from one step to the next)", 15, "bold", "start", GRAY))
+    b.append(text(25, 254, "STORES  (carried from one time step to the next)", 15, "bold", "start", GRAY))
     stores = [
-        (TEAL,  "Canopy water", "CanopInt", "Rain caught on leaves before it reaches the ground"),
-        (BLUE,  "Snowpack", "SWE", "Snow held as water equivalent; melts into the soil"),
-        (GOLD,  "Soil moisture", "SoilMoist", "Surface, root zone and whole profile"),
-        (ORANGE, "Groundwater", "GWS", "Below the water table — Catchment model only"),
+        (TEAL,  "Canopy water", "CanopInt", "Rain caught on leaves before it reaches the ground", "both"),
+        (BLUE,  "Snowpack", "SWE", "Snow held as water equivalent; melts into the soil", "both"),
+        (GOLD,  "Soil moisture", "SoilMoist", "Surface, root zone and whole profile", "both"),
+        (ORANGE, "Groundwater", "GWS", "Below the water table", "2.2 only"),
     ]
-    for i, (c, label, var, note) in enumerate(stores):
-        y = 248 + i * 86
+    for i, (c, label, var, note, which) in enumerate(stores):
+        y = 270 + i * 86
         b.append(f'<rect x="25" y="{y}" width="640" height="72" rx="8" fill="white" stroke="{c}" stroke-width="1.8"/>')
         b.append(f'<rect x="25" y="{y}" width="10" height="72" rx="4" fill="{c}"/>')
         b.append(text(50, y + 30, label, 19, "bold", "start", NAVY))
         b.append(text(50, y + 55, note, 16, "normal", "start", DARK))
-        b.append(text(650, y + 30, var, 17, "bold", "end", c))
+        b.append(text(560, y + 30, var, 17, "bold", "end", c))
+        tag = "in both versions" if which == "both" else "GLDAS 2.2 only"
+        tagc = GRAY if which == "both" else ORANGE
+        b.append(text(560, y + 55, tag, 14, "bold", "end", tagc))
         if i < 3:
             b.append(arrow(345, y + 72, 345, y + 86, "gray", GRAY, 2.0))
 
     # Fluxes out, to the right.
-    b.append(text(720, 232, "FLUXES OUT", 15, "bold", "start", GRAY))
+    b.append(text(720, 254, "FLUXES OUT", 15, "bold", "start", GRAY))
     fluxes = [(GREEN, "Evapotranspiration", "Evap", "From canopy, bare soil and plants"),
               (GRAY, "Surface runoff", "Qs", "Storm runoff that never infiltrates"),
               (ORANGE, "Baseflow", "Qsb", "Drainage out of the groundwater store")]
     for i, (c, label, var, note) in enumerate(fluxes):
-        y = 248 + i * 86
+        y = 270 + i * 86
         b.append(f'<rect x="720" y="{y}" width="455" height="72" rx="8" fill="white" stroke="{c}" stroke-width="1.8"/>')
         b.append(text(740, y + 30, label, 19, "bold", "start", NAVY))
         b.append(text(740, y + 55, note, 16, "normal", "start", DARK))
         b.append(text(1160, y + 30, var, 17, "bold", "end", c))
         b.append(arrow(668, y + 36, 716, y + 36, "gray", GRAY, 2.0))
 
-    # The budget, and what the app takes from it.
-    b.append(panel(25, 608, 1150, 128))
-    b.append(text(45, 644, "The storage the app reads", 18, "bold", "start", NAVY))
-    b.append(text(45, 676, "TWS  =  CanopInt + SWE + SoilMoist", 18, "bold", "start", TEAL))
-    b.append(text(45, 706, "Each is a depth of water, in kg/m² — the same as mm, a tenth of a centimetre.", 16))
-    b.append(text(560, 676, "Groundwater is not added again: in the Catchment model it lies inside the soil", 16))
-    b.append(text(560, 706, "profile. Noah and VIC have no groundwater store at all.", 16))
+    # What each version gives the app. Two columns, with a rule between them so
+    # a line from one cannot be read as part of the other.
+    b.append(panel(25, 630, 1150, 150))
+    b.append(f'<line x1="600" y1="652" x2="600" y2="758" stroke="{LIGHT}" stroke-width="2"/>')
+    b.append(text(45, 678, "GLDAS 2.1  —  three models, run blind", 18, "bold", "start", TEAL))
+    for i, line in enumerate([
+            "The app takes CanopInt, SWE and SoilMoist from Noah, VIC and",
+            "the Catchment model and averages the three. It takes no",
+            "groundwater: Noah and VIC have no such store, and with nothing",
+            "assimilated the Catchment model's follows rainfall alone."]):
+        b.append(text(45, 706 + i * 23, line, 15))
+    b.append(text(625, 678, "GLDAS 2.2  —  Catchment model, corrected by GRACE", 18, "bold", "start", BLUE))
+    for i, line in enumerate([
+            "TWS = CanopInt + SWE + SoilMoist. Groundwater is not added",
+            "again: in the Catchment model it lies inside the soil profile.",
+            "GWS is published as its own variable, and the app reads it",
+            "directly as groundwater."]):
+        b.append(text(625, 706 + i * 23, line, 15))
     svg("gldas-water-cycle", "What a GLDAS land surface model computes", W, H, "\n".join(b))
 
 
