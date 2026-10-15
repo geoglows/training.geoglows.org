@@ -6,25 +6,37 @@ what the uncertainty covers and when to prefer one over the other.
 
 ## The water balance
 
-GRACE measures the total change in water stored in a column of the Earth. To isolate groundwater, the app subtracts the parts of that total that
-can be estimated by other means:
+Total water storage is the sum of every store in a column of the Earth: snow water equivalent (SWEa), water held on vegetation canopies (CANa),
+soil moisture (SMa), groundwater (GWSa) and surface water in rivers, lakes and reservoirs.
 
 ![Terrestrial water storage components](../../static/images/grace/grace-water-balance.png)
 
-TWSa is the sum of the anomalies of every store in the column: snow water equivalent (SWEa), water held on vegetation canopies (CANa), soil
-moisture (SMa), groundwater (GWSa) and surface water in rivers, lakes and reservoirs. Land surface models estimate the first three well. Removing
-them leaves groundwater:
+Both of the app's datasets rest on this identity, and both leave surface water out of it:
+
+$$
+\mathrm{TWSa} = \mathrm{SWEa} + \mathrm{CANa} + \mathrm{SMa} + \mathrm{GWSa}
+$$
+
+So any change in surface water storage ends up in GWSa, in either dataset — no GLDAS model carries rivers, lakes or reservoirs either. Over most
+of the world surface water changes are small next to the other terms. In regions with large reservoirs, wetlands, or rivers with big floods (the
+Amazon, the Ganges and Brahmaputra, the Caspian Sea, Lake Victoria, Lake Volta), GWSa includes those changes and overstates the seasonal swing in
+groundwater. In the Volta Basin, for example, the lake accounts for about half of the total storage signal
+([case study](../case-studies/volta.md)).
+
+What separates the two routes is which term is measured and which is solved for. Route 1 measures TWSa with GRACE and rearranges the identity to
+get GWSa. Route 2 reads GWSa out of a model, and TWSa is that same model's own total.
+
+## Route 1: GRACE minus GLDAS 2.1
+
+GRACE measures the total change in water stored in the column, and land surface models estimate the three terms that are not groundwater well
+enough to subtract. Rearranging the identity above leaves groundwater as the residual:
 
 $$
 \mathrm{GWSa} = \mathrm{TWSa} - (\mathrm{SWEa} + \mathrm{CANa} + \mathrm{SMa})
 $$
 
-The app leaves surface water out of the balance, so any change in surface water storage ends up in GWSa. Over most of the world surface water
-changes are small next to the other terms. In regions with large reservoirs, wetlands, or rivers with big floods (the Amazon, the Ganges and
-Brahmaputra, the Caspian Sea, Lake Victoria, Lake Volta), GWSa includes those changes and overstates the seasonal swing in groundwater. In the Volta Basin, for example, the lake accounts for about half
-of the total storage signal ([case study](../case-studies/volta.md)).
-
-## Route 1: GRACE minus GLDAS 2.1
+Nothing in this route models groundwater. Whatever GRACE weighed that the three model terms do not account for is reported as groundwater,
+which is the method's strength where those terms are small and its weakness where they are not.
 
 ### The GLDAS terms
 
@@ -64,14 +76,15 @@ JPL does not apply this scaling before distributing the data; the GRACE-FO Level
 groundwater example follows the same TWSa-minus-GLDAS approach this app uses and lists the multiplication as a pre-processing step. The app
 applies the factors to TWSa at 0.5°, before TWSa is averaged to 1°, since the structure they add is finer than a 1° cell.
 
-Most factors are close to 1: about 83% fall between 0.5 and 1.5. A cell keeps the unscaled mascon value in two cases.
+Most factors are close to 1: 84% of the cells that get one fall between 0.5 and 1.5. The app draws 60,064 cells at 0.5°, and a cell keeps the
+unscaled mascon value in two cases.
 
-**Where JPL publishes no factor.** That is the ocean, which the GLDAS land mask removes anyway, and ice — all of Antarctica and 18% of land
-above 60°N. The factors are not meant for ice, because CLM does not represent ice sheets or mountain glaciers. This covers 5.6% of the cells
-the app draws.
+**Where JPL publishes no factor.** 3,365 cells, 5.6% of the grid, and 84% of them lie north of 60°N. The factors are not meant for ice, because
+CLM represents neither ice sheets nor mountain glaciers. JPL also leaves the ocean unscaled, which the GLDAS land mask removes from the app
+anyway. Antarctica never arises: GLDAS runs from 60°S northward, so the app has no Antarctic cells at all.
 
-**Where the factor is implausible**, meaning zero or negative, or greater than 3. This is 1,604 cells on the 0.5° grid, 0.74% of the total, and
-it is the app's rule rather than JPL's — the file marks its whole range as valid and sets no bounds.
+**Where the factor is implausible**, meaning zero or negative, or greater than 3. 790 cells, 1.3% of the grid, and it is the app's rule rather
+than JPL's — the file marks its whole range as valid and sets no bounds.
 
 What these cells have in common is that the regression producing the factor had almost no signal to work with, so its slope is unstable. They
 are coastal about three times as often as the cells that are kept (51% within two cells of water, against 19%) and carry year-round snow
