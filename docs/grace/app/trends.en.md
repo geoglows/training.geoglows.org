@@ -40,10 +40,12 @@ longer term trends," for which factors derived per averaging kernel would be nee
 applies the standard ones throughout and reports one value of GWSa everywhere rather than one number for the map and a different one for the
 trend.
 
-In practice this moves most trends very little. Across the 0.5° land record the median change is 0.05 cm/yr and the median trend magnitude is
-near enough unchanged, but about 11% of cells cross a class boundary — nearly all of them cells already sitting close to the ±0.5 or ±2 cm/yr
-lines, where a small change in slope moves the label. Treat a class as a summary rather than a measurement, and read the trend magnitude and the
-time series together.
+In practice this moves most trends very little. Over the app's default five-year window the median cell's groundwater trend shifts by
+0.12 cm/yr and the median trend magnitude goes from 0.95 to 0.93 cm/yr; over the whole record the median shift is 0.05 cm/yr. About 15% of cells
+cross a class boundary over five years and 10% over the whole record — nearly all of them cells already sitting close to the ±0.5 or ±2 cm/yr
+lines, where a small change in slope moves the label. The exceptions are glaciated cells, in Svalbard, Novaya Zemlya and the Patagonian
+icefields, where a large factor is applied to an enormous ice signal and the trend can move by tens of cm per year. Those cells were never
+groundwater. Treat a class as a summary rather than a measurement, and read the trend magnitude and the time series together.
 
 ## The trend window
 

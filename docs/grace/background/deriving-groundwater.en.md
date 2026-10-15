@@ -65,11 +65,34 @@ JPL does not apply this scaling before distributing the data; the GRACE-FO Level
 groundwater example follows the same TWSa-minus-GLDAS approach this app uses and lists the multiplication as a pre-processing step. The app
 applies the factors to TWSa at 0.5°, before TWSa is averaged to 1°, since the structure they add is finer than a 1° cell.
 
-Every factor is applied as JPL distributes it. About 83% fall between 0.5 and 1.5, and 1.3% of cells sit outside the range 0 to 3, including
-several hundred that are negative and so reverse the sign of the anomaly in that cell. JPL marks the full range as valid and sets no bounds, and
-excluding the extremes changes a basin average by at most 0.2 cm, so the app does not second-guess them. Cells with no factor at all keep the
-mascon value: the ocean, which the GLDAS land mask removes anyway, and ice — all of Antarctica and 18% of land above 60°N — which the factors
-are not meant for, because CLM does not represent ice sheets or mountain glaciers.
+Most factors are close to 1: about 83% fall between 0.5 and 1.5. A cell keeps the unscaled mascon value in two cases.
+
+**Where JPL publishes no factor.** That is the ocean, which the GLDAS land mask removes anyway, and ice — all of Antarctica and 18% of land
+above 60°N. The factors are not meant for ice, because CLM does not represent ice sheets or mountain glaciers. This covers 5.6% of the cells
+the app draws.
+
+**Where the factor is implausible**, meaning zero or negative, or greater than 3. This is 1,604 cells on the 0.5° grid, 0.74% of the total, and
+it is the app's rule rather than JPL's — the file marks its whole range as valid and sets no bounds.
+
+What these cells have in common is that the regression producing the factor had almost no signal to work with, so its slope is unstable. They
+are coastal about three times as often as the cells that are kept (51% within two cells of water, against 19%) and carry year-round snow
+thirteen times as often (18.5% against 1.4%). Nearly half are neither, sitting instead in arid interiors — the Kalahari, the Australian
+interior, the Karoo, the Atacama — where CLM's storage variation is small enough that the fit divides by nearly nothing. Ice, coastline and
+desert are the same failure in three settings, which is why a bound on the factor catches them where a glacier mask alone would not.
+
+The factors in these cells run as far as 24 and −1.35. A negative factor reverses the sign of the anomaly; a factor of 24 turned −292 cm into
+−7048 cm at Ellesmere Island. In the arid basins the exclusion is harmless either way — four of the Great Artesian Basin's 806 cells, moving its
+series by 0.00 cm — because a small anomaly multiplied by a bad factor is still small.
+
+It matters in at least one place a user would notice. One such cell falls inside the **North Caucasus Basin**, an aquifer in the app's own
+region sets. Applying every factor doubled that basin's groundwater series: the standard deviation of its mean went from 13.3 cm unscaled to
+23.5 cm, and sits at 13.6 cm once implausible cells are left alone. Nearly all of that apparent amplitude was a handful of degenerate cells
+rather than signal. The gain the factors exist to restore survives the rule — California's Central Valley keeps all of it, 10.2 cm to 12.4 cm,
+and the Congo nearly all, 7.6 cm unscaled to 7.9 cm against 8.1 cm with every factor applied.
+
+Two glacier basins in the river basin sets, Alsek and Santa Cruz, carry very large GWSa whatever is done with the gain factors. GRACE sees ice
+mass loss there and GLDAS does not model glaciers, so the water balance attributes it to groundwater. Those numbers are an artifact of the
+method, not of the scaling.
 
 What the factors do not do is make the 0.5° grid 36 independent measurements. The underlying mascon is still one estimate, and the factors
 redistribute its amplitude using a model's idea of how storage varies within it. The handbook is explicit that the models behind them carry
