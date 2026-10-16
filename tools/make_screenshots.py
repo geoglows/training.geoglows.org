@@ -180,7 +180,7 @@ def shot_global_cell(pw) -> None:
     b, pg = open_app(pw)
     go_global(pg)
     trends_off(pg)
-    # Central Iran, which the existing caption names.
+    # Northwest Iran, at 37.50N 48.50E -- a cell with a strong depletion trend.
     pg.mouse.click(1255, 330)
     pg.wait_for_selector("#timeseries-plot canvas", timeout=60_000)
     pg.wait_for_timeout(LOAD)

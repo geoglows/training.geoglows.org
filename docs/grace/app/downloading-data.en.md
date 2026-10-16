@@ -47,7 +47,7 @@ The anomalies are depths of water averaged over the region. Multiply by the regi
 ΔV (km³) = GWSa (cm) × Area (km²) / 100,000
 ```
 
-For example, a GWSa of −12 cm over a 400,000 km² aquifer is 12 × 400,000 / 100,000 = 4.8 km³ (4,800 million m³) less water than the 2004–2009
+For example, a GWSa of −12 cm over a 400,000 km² aquifer is 12 × 400,000 / 100,000 = 48 km³ (48,000 million m³) less water than the 2004–2009
 average. The change between two dates is the difference of their anomalies times the area, and a trend in cm/yr times the area gives a rate of
 loss or gain in km³/yr.
 

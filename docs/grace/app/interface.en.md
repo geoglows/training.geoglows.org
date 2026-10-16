@@ -81,9 +81,9 @@ Click **Home** to return to the overview. On the right, **Analyze trends / Hide 
   section also carries a note on why a finer grid is not a finer measurement.
 - **Show color bar on map:** hide or show the color bar.
 - **Dynamic scale (fit to data):** with this on, the color scale stretches to fit the data you're looking at, so small anomalies remain visible.
-  In a region it fits the largest absolute value in the region's cells over the whole record; in the global view it fits the 95th percentile of
-  absolute values, so a few extreme cells don't wash out the rest of the map. Turn it off to use a fixed scale of −30 to +30 cm, which is
-  better when comparing screenshots of different regions.
+  It runs to the 95th percentile of absolute values over the cells on show and every month, in a region and in the global view alike, so a few
+  extreme cells saturate instead of flattening everything else. Turn it off to use a fixed scale of −30 to +30 cm, which is better when
+  comparing screenshots of different regions.
 - **Clear cached data:** delete the copy of the data the app keeps in your browser. The next visit downloads everything again. Use this if the
   app behaves oddly after a data update.
 

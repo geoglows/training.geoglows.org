@@ -191,7 +191,7 @@ def versions():
 
     b.append(panel(25, 612, 1150, 72))
     b.append(text(45, 644, "In the app", 18, "bold", "start", NAVY))
-    b.append(text(160, 644, "2.1 route: 1° everywhere, with an uncertainty band, and 35 months missing with GRACE", 16))
+    b.append(text(160, 644, "2.1 route: 1°, except TWSa at 0.5°, with an uncertainty band, and 35 months missing with GRACE", 16))
     b.append(text(160, 670, "2.2 route: 0.25° in a region and 1° globally, no band, no missing months", 16))
     svg("gldas-2.1-vs-2.2", "GLDAS 2.1 and 2.2 compared", W, H, "\n".join(b))
 

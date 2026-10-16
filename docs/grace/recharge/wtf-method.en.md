@@ -97,9 +97,18 @@ choose a different starting month (see [Water Years and Picks](picks.md)).
 between the previous year's peak and this year's peak. S<sub>A</sub> is the previous year's peak. The first water year in the record has no
 previous peak, so its S<sub>A</sub> is the highest detrended month before its trough.
 
-**The recession line.** The line is a least-squares fit to the filled GWSa from S<sub>A</sub> to S<sub>B</sub>. When the trough comes less
-than four months after S<sub>A</sub>, the fit uses the four months ending at the trough instead, so a slope is never fitted to two or three
-points.
+**The recession line.** The line runs over the filled GWSa from S<sub>A</sub> down to S<sub>B</sub>, and the **Recession slope** control on the
+recharge page offers two ways to measure it:
+
+- **Endpoints** (the default) draws the straight line through S<sub>A</sub> and S<sub>B</sub>. Two months define it, so it always starts on
+  S<sub>A</sub> and meets the projection exactly at the trough.
+- **Fitted** is a least-squares fit over every month of the decline, which is what Barbosa et al. (2022) describe. Its ends land where the fit
+  puts them rather than on the picks. When the trough comes less than four months after S<sub>A</sub>, the fit uses the four months ending at
+  the trough instead, so a slope is never fitted to two or three points.
+
+The two agree whenever the fitted line sits the same distance from both ends of the decline, which is most years. The regional averages barely
+move between them — 3.2% on Iullemeden, 1.8% on the Central Valley — but a single water year can shift by 15%, and a fitted slope that comes out
+flat drops that year's drainage correction altogether.
 
 **Units.** GWSa is in centimeters of water, so R1 and R2 are in cm per year, averaged over the region. Multiplied by the area of the region
 they give a volume:

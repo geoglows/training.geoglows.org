@@ -66,7 +66,8 @@ that month. The 35 months GRACE is missing are missing here too, and the app's g
 
 ### Gain factors
 
-The mascon solution is natively 3°, and the 0.5° file repeats each mascon's value across all 36 of its cells, so the published grid on its own
+The mascon solution is natively 3°, and the 0.5° file repeats each mascon's value across every cell inside it — 36 at the equator, a median of
+42 over land, and more toward the poles, where a mascon of the same area spans more longitude — so the published grid on its own
 carries no detail finer than a mascon. JPL ships a grid of **gain factors** in the same file to recover some of that detail. They are derived by
 putting the CLM land surface model through the same processing GRACE goes through and estimating, cell by cell, the multiplier that restores the
 model's original amplitude. The correction is a single multiplication, with the factor constant in time:

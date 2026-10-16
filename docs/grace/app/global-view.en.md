@@ -9,7 +9,7 @@ The global map is on a 1° grid for both datasets, even though GLDAS 2.2 is nati
 browser for a single variable, which no amount of patience makes workable. The finer grid is read only inside a region, where there is a
 boundary to cut it down to; see [Regional View](regional-view.md#which-cells-are-averaged).
 
-![Global view of the groundwater storage anomaly in September 2024](../../static/images/grace/app-global.webp)
+![Global view of the groundwater storage anomaly in April 2002, the first month of the record](../../static/images/grace/app-global.webp)
 
 Press play on the time control to animate the record month by month. The global view plays faster than the regional view, about four months a
 second, and loops back to the start. The animation makes the big patterns easy to spot: the steady decline across northern India, the Middle
@@ -32,7 +32,7 @@ Click any land cell to plot its time series. The breadcrumb changes to the cell'
 ±1σ uncertainty band on the GRACE dataset; GLDAS 2.2 has no band (see [Regional View](regional-view.md#uncertainty)). The chart works as it does for a region (see [Regional View](regional-view.md#the-time-series-chart)), and the CSV download for a cell is
 named after its coordinates.
 
-![Time series for a single 1° cell in central Iran](../../static/images/grace/app-global-cell.webp)
+![Time series for a single 1° cell in northwest Iran](../../static/images/grace/app-global-cell.webp)
 
 A single cell is quick to look at, but remember that GRACE resolves about 3°, so the cell's TWSa rests on the same measurement as its
 neighbors in the same mascon. The gain factors give those neighbors different numbers, and that difference comes from a land surface model
