@@ -32,8 +32,9 @@ Reproduit de Stevens et al. (2025), Fig. 3, © 2025 Elsevier, réutilisé en ver
 1. Les puits des bases de données de l’USGS et du California Department of Water Resources ont été sélectionnés selon la longueur de leur série ; l’étude a comparé des seuils de
    150, 75 et 50 mois d’observations (181, 572 et 921 puits).
 2. Les lacunes de la série de chaque puits ont été comblées en trois étapes : une interpolation PCHIP sur les lacunes de moins de 120 jours,
-   puis un modèle d’apprentissage automatique entraîné puits par puits sur le Palmer Drought Severity Index et GLDAS (Noah à 0.25°, version 2.0
-   avant 2000 et 2.1 après), puis un affinement itératif réentraîné sur les trois puits les mieux corrélés.
+   puis une extreme learning machine entraînée puits par puits sur le Palmer Drought Severity Index et GLDAS (Noah à 0.25°, version 2.0 avant
+   2000 et 2.1 après), puis un affinement itératif réentraîné sur les trois puits les mieux corrélés. L’imputation suit une série d’articles du
+   même groupe qui développe ce modèle (Evans et al., 2020 ; Ramirez et al., 2022b, 2023).
 3. Les séries comblées ont été krigées en surfaces mensuelles de niveau d’eau sur une grille de 0.1°, découpée sur la vallée.
 4. Les variations de niveau d’eau ont été converties en variations de stockage à l’aide de la carte de rendement spécifique du Central Valley Hydrologic Model (CVHM) de l’USGS.
 
@@ -42,11 +43,10 @@ Avec le seuil de 75 mois, la courbe de stockage issue des puits concorde étroit
 ## Calibration de GRACE { #calibrating-grace }
 
 La GWSa GRACE de la vallée, convertie en volume, suivait la courbe issue des puits dans sa chronologie mais était beaucoup plus faible.
-L’étude l’a prise dans GGST, le prédécesseur de cette application, en lisant les mascons du JPL déjà rééchantillonnés à 0.5° avec les facteurs
-de gain de la NASA : le même produit et la même mise à l’échelle que ceux servis aujourd’hui par l’application, dans une version antérieure
-(RL06.1 v03 contre la RL06.3 v04 de l’application ; voir
-[Facteurs de gain](../gldas/deriving-groundwater.md#gain-factors)). La correction de la fuite du signal qui suit s’applique par-dessus cette
-mise à l’échelle.
+Son entrée GRACE était constituée des mascons du JPL rééchantillonnés à 0.5° avec les facteurs de gain de la NASA déjà appliqués (RL06.1 v03,
+là où l’application sert aujourd’hui la RL06.3 v04) : le facteur de fuite qui suit s’applique donc par-dessus cette mise à l’échelle et non à
+sa place — voir [Facteurs de gain](../gldas/deriving-groundwater.md#gain-factors) pour ce que ces facteurs corrigent et ce qu’ils ne corrigent
+pas.
 
 Sur 2002–2021, les deux séries sont corrélées à r² = 0.725, et ce chiffre tient quel que soit le facteur d’échelle, car un multiplicateur
 constant laisse une corrélation inchangée. Ce sont les erreurs qui fixent le facteur. Un test de sensibilité de 3.5 à 6 a placé la RMSE la plus

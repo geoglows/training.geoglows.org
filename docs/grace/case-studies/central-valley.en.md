@@ -31,9 +31,10 @@ Reprinted from Stevens et al. (2025), Fig. 3, © 2025 Elsevier, reused under the
 
 1. Wells from USGS and California Department of Water Resources databases were screened by record length; the study compared thresholds of
    150, 75 and 50 months with observations (181, 572 and 921 wells).
-2. Gaps in each well's record were filled in three stages: PCHIP interpolation across gaps shorter than 120 days, then a machine learning
-   model trained per well on the Palmer Drought Severity Index and GLDAS (Noah at 0.25°, version 2.0 before 2000 and 2.1 after), then an
-   iterative refinement that retrained on the three most closely correlated wells.
+2. Gaps in each well's record were filled in three stages: PCHIP interpolation across gaps shorter than 120 days, then an extreme learning
+   machine trained per well on the Palmer Drought Severity Index and GLDAS (Noah at 0.25°, version 2.0 before 2000 and 2.1 after), then an
+   iterative refinement that retrained on the three most closely correlated wells. The imputation follows a series of papers from the same
+   group developing this model (Evans et al., 2020; Ramirez et al., 2022b, 2023).
 3. The filled records were kriged into monthly water level surfaces on a 0.1° grid, clipped to the valley.
 4. Changes in water level were converted to changes in storage with the specific yield map of the USGS Central Valley Hydrologic Model (CVHM).
 
@@ -41,10 +42,10 @@ Using the 75-month threshold, the well-based storage curve matched CVHM closely 
 
 ## Calibrating GRACE
 
-The GRACE GWSa for the valley, converted to volume, tracked the well-based curve in timing but was much smaller. The study took it from GGST,
-this app's predecessor, reading the JPL mascons already resampled to 0.5° with NASA's gain factors — the same product and the same scaling the
-app serves today, at an earlier release (RL06.1 v03 against the app's RL06.3 v04; see
-[Gain factors](../gldas/deriving-groundwater.md#gain-factors)). The leakage correction below sits on top of that scaling.
+The GRACE GWSa for the valley, converted to volume, tracked the well-based curve in timing but was much smaller. Its GRACE input was the JPL
+mascons resampled to 0.5° with NASA's gain factors already applied (RL06.1 v03, where the app now serves RL06.3 v04), so the leakage factor
+below is on top of that scaling rather than in place of it — see
+[Gain factors](../gldas/deriving-groundwater.md#gain-factors) for what those factors do and do not fix.
 
 Over 2002–2021 the two series correlate at r² = 0.725, and that figure holds whatever scale factor is used, because a constant multiplier
 leaves a correlation alone. The errors set it instead. A sensitivity test from 3.5 to 6 put the lowest RMSE at 5.5 with the series

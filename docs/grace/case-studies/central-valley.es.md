@@ -31,9 +31,10 @@ Reproducido de Stevens et al. (2025), Fig. 3, © 2025 Elsevier, reutilizado bajo
 
 1. Los pozos de las bases de datos del USGS y del California Department of Water Resources se filtraron por longitud de registro; el estudio comparó umbrales de
    150, 75 y 50 meses con observaciones (181, 572 y 921 pozos).
-2. Los vacíos del registro de cada pozo se rellenaron en tres etapas: interpolación PCHIP en los vacíos de menos de 120 días, luego un modelo
-   de aprendizaje automático entrenado para cada pozo con el Índice de Severidad de Sequía de Palmer y GLDAS (Noah a 0.25°, versión 2.0 antes
-   de 2000 y 2.1 después), y luego un refinamiento iterativo que se reentrenaba con los tres pozos mejor correlacionados.
+2. Los vacíos del registro de cada pozo se rellenaron en tres etapas: interpolación PCHIP en los vacíos de menos de 120 días, luego una
+   máquina de aprendizaje extremo entrenada para cada pozo con el Índice de Severidad de Sequía de Palmer y GLDAS (Noah a 0.25°, versión 2.0
+   antes de 2000 y 2.1 después), y luego un refinamiento iterativo que se reentrenaba con los tres pozos mejor correlacionados. La imputación
+   sigue una serie de artículos del mismo grupo que desarrolla este modelo (Evans et al., 2020; Ramirez et al., 2022b, 2023).
 3. Los registros rellenados se interpolaron por kriging en superficies mensuales de nivel de agua sobre una cuadrícula de 0.1°, recortada al valle.
 4. Los cambios de nivel de agua se convirtieron en cambios de almacenamiento con el mapa de rendimiento específico del USGS Central Valley Hydrologic Model (CVHM).
 
@@ -41,11 +42,10 @@ Con el umbral de 75 meses, la curva de almacenamiento basada en pozos coincidió
 
 ## Calibración de GRACE { #calibrating-grace }
 
-La GWSa de GRACE para el valle, convertida a volumen, siguió la curva basada en pozos en su temporalidad pero fue mucho menor. El estudio la
-tomó de GGST, la predecesora de esta aplicación, leyendo los mascones de JPL ya remuestreados a 0.5° con los factores de ganancia de la NASA:
-el mismo producto y el mismo escalado que la aplicación ofrece hoy, en una versión anterior (RL06.1 v03 frente a la RL06.3 v04 de la
-aplicación; ver [Factores de ganancia](../gldas/deriving-groundwater.md#gain-factors)). La corrección de la fuga de señal que sigue se aplica
-encima de ese escalado.
+La GWSa de GRACE para el valle, convertida a volumen, siguió la curva basada en pozos en su temporalidad pero fue mucho menor. Su entrada de
+GRACE eran los mascones de JPL remuestreados a 0.5° con los factores de ganancia de la NASA ya aplicados (RL06.1 v03, donde la aplicación
+ofrece hoy la RL06.3 v04), así que el factor de fuga que sigue se aplica encima de ese escalado y no en su lugar; ver
+[Factores de ganancia](../gldas/deriving-groundwater.md#gain-factors) para lo que esos factores corrigen y lo que no.
 
 En 2002–2021 las dos series correlacionan con r² = 0.725, y esa cifra se mantiene con cualquier factor de escala, porque un multiplicador
 constante deja la correlación intacta. Son los errores los que fijan el factor. Una prueba de sensibilidad de 3.5 a 6 situó el RMSE más bajo en
