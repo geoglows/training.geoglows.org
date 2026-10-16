@@ -8,6 +8,11 @@
 
 ## Setting
 
+!!! tip "Which region to pick in the app"
+    **Central Valley aquifer system**, in the **Principal Aquifers, USA (USGS)** set — 52,500 km², which is the extent this study used. The
+    **Global Aquifers** set also offers **California Central Valley**, but that outline is 71,000 km², a third larger, and it averages GRACE
+    over ground the study did not include.
+
 California's Central Valley is about 700 km long and 80 km wide, about 52,000 km², and one of the most heavily pumped aquifer systems in the
 world. It is narrower than a single 3° GRACE mascon (about 333 × 264 km at that latitude), and the pumping decline is concentrated in the valley
 while the surrounding mountains behave differently. That makes it a textbook case of [leakage](../mission/resolution-and-leakage.md#leakage):

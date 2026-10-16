@@ -10,6 +10,11 @@
 The Volta Basin covers about 400,000 km² in Ghana, Burkina Faso, Togo, Mali, Côte d'Ivoire and Benin. Lake Volta, behind the Akosombo Dam,
 covers only about 2% of the basin but holds a large and variable volume of water.
 
+!!! tip "Which region to pick in the app"
+    **VOLTA**, in the **Major River Basins (GRDC)** set — 412,000 km², the drainage basin the study used. The **Transboundary Aquifers
+    (IGRAC)** set also offers a region called **Volta Basin**, but that is the aquifer rather than the river basin, 130,000 km², and it will
+    not reproduce anything on this page.
+
 ![Volta Basin location](../../static/images/grace/papers/volta-fig1-study-area.webp)
 
 *Volta Basin location. Barbosa et al. (2025), Fig. 1, CC BY 4.0.*

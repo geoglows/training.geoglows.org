@@ -181,8 +181,9 @@ estimates annual groundwater recharge from the GWSa series. The analysis always 
 starting with [The WTF Method](../recharge/wtf-method.md).
 
 Being able to run it on 2.2 is not the same as the answer being right. Barbosa et al. (2025) ran both in the Volta Basin and found 2.2 gave
-recharge two to three times the well-based estimate, and recommended it for trends rather than for recharge (see
-[Volta Basin](../case-studies/volta.md)). Read a 2.2 recharge number against a 2.1 one before using it.
+recharge 1.7 to 3.5 times the well-based estimate, depending on the WTF method, and did not recommend it for recharge at all, though they
+recommended it for monitoring trends (see [Volta Basin](../case-studies/volta.md)). Read a 2.2 recharge number against a 2.1 one before using
+it.
 
 ### Downloading the data
 

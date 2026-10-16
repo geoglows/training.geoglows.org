@@ -12,8 +12,17 @@ the app: derive GWSa for each aquifer, fill the gaps in the record, and estimate
 
 Southern Niger overlies two large sedimentary basins. The Iullemeden Basin in the west covers about 620,000 km² and receives 550–650 mm of rain a
 year; the study analyzed its Continental Intercalaire and Continental Terminal aquifers. The Lake Chad Basin in the east covers about
-2.5 million km² and receives 200–400 mm a year; the study analyzed its Manga and Korama aquifers. Nearly all rain falls between June and
-September, and monitoring wells are few.
+2.5 million km² and receives 200–400 mm a year; the study analyzed its Manga and Korama aquifers. The wet season runs May to October in the
+Iullemeden Basin and May to September in the Chad Basin, and monitoring wells are few.
+
+!!! tip "Which region to pick in the app"
+    For Iullemeden, **Iullemeden-Irhazer Aquifer System** in **Global Aquifers** (the same outline appears in **Large Aquifer Systems
+    (WHYMAP)**) — 583,000 km² against the 620,000 km² the paper gives. For Chad, the paper's 2.5 million km² is the drainage basin, which is
+    **CHAD** in **Major River Basins (GRDC)** at 2,470,000 km²; the aquifer outline, **Bassin du lac Tchad** in **Global Aquifers**, is
+    1,522,000 km².
+
+    Either way the app averages over the whole outline, while the study analyzed named aquifers inside it — the Continental Intercalaire and
+    Continental Terminal, and the Manga and Korama. Expect the same behavior, not the same numbers.
 
 ![Selected aquifers of the Iullemeden and Chad basins](../../static/images/grace/papers/niger-fig4-study-aquifers.webp)
 
