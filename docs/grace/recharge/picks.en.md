@@ -9,8 +9,8 @@ hand in the year editor.
 **Water year starts in** sets the calendar month each water year begins. It defaults to the usual low found in the
 [seasonality check](opening.md#is-this-series-suited-to-the-wtf-method), shown as "(auto, the usual low)". Change it if you know the
 region's hydrology calls for a different start. The analysis uses complete water years only, so a partial year at either end of the record is
-left out. Water years are named by the calendar year they start in: for the Northern Midwest Aquifer System, water year 2004 runs from March
-2004 to February 2005.
+left out. Water years are named by the calendar year they start in: for the Northern Midwest Aquifer System, water year 2004 runs from February
+2004 to January 2005.
 
 Changing the start month moves every water year, so it clears any picks you have set by hand. **Reset all picks** clears them without changing
 the start month.
@@ -54,9 +54,9 @@ panel on the right lists the trough and peak with their months and values, S<sub
 km³. A note below the values gives the months the recession line was fitted over, and the table notes for the year (see
 [Results](results.md#the-table)).
 
-In water year 2004 the trough falls in March 2004 at −9.38 cm and the peak in August 2004 at 1.60 cm, so R1 is 10.98 cm. The recession line is
-fitted from the September 2003 peak (S<sub>A</sub>) to the March trough. Carried on to August, it reaches S<sub>L</sub> = −20.17 cm, so R2 is
-21.77 cm. Over the 320,368 km² of the aquifer system, that is 35.2 km³ (R1) to 69.7 km³ (R2) of recharge.
+In water year 2004 the trough falls in February 2004 at −8.25 cm and the peak in July 2004 at 4.56 cm, so R1 is 12.82 cm. The recession line
+runs from the July 2003 peak (S<sub>A</sub>) to the February trough. Carried on to July, it reaches S<sub>L</sub> = −13.84 cm, so R2 is
+18.41 cm. Over the 320,368 km² of the aquifer system, that is 41.1 km³ (R1) to 59.0 km³ (R2) of recharge.
 
 The first water year has no previous peak. Its S<sub>A</sub> is the highest month before its trough, after the long-term trend is removed.
 

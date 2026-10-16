@@ -97,7 +97,7 @@ The twelve levels also act as the intercept, so there is no separate constant te
 average annual cycle, and a wet year shows up in the residual rather than in *S*.
 
 For the Northern Midwest Aquifer System the levels, shifted to average zero as described under [Fitting the model](#fitting-the-model),
-run from −4.3 cm in March to +3.8 cm in August:
+run from −3.4 cm in February to +3.2 cm in June:
 
 ![The twelve monthly levels of the seasonal cycle for the Northern Midwest Aquifer System](../../static/images/grace/seasonal-levels.png){ width="700" }
 
@@ -147,7 +147,7 @@ The app fits the best model with 0, 1, 2 and 3 breakpoints. Starting from the st
 that model's BIC is at least 10 lower than the BIC of the model chosen so far. A drop of 10 is strong evidence that the extra bend is real
 rather than a fit to noise, so the trend bends only where the record clearly changes direction.
 
-For the Northern Midwest Aquifer System each added breakpoint lowers the BIC by more than 10 (by 12, then 113, then 44), so the app keeps
+For the Northern Midwest Aquifer System each added breakpoint lowers the BIC by more than 10 (by 115, then 181, then 43), so the app keeps
 all three:
 
 ![The best trend with 0, 1, 2 and 3 breakpoints for the Northern Midwest Aquifer System, with the BIC of each](../../static/images/grace/seasonal-breakpoints.png){ width="950" }
@@ -172,13 +172,13 @@ The correction gives the fill a sensible shape whatever the length of the gap:
   with the usual seasons, while the correction shifts them to meet the observed values at both ends.
 
 The two residuals that set the correction come from different months, and nothing ties one to the other. Across the gap between the missions
-in the Northern Midwest Aquifer System they happen to be almost the same (−0.38 cm in June 2017 and −0.53 cm in June 2018), so the correction
-moves every filled month just under the model alone:
+in the Northern Midwest Aquifer System, June 2017 sits 1.39 cm above the model and June 2018 sits 3.59 cm below it, so the correction tilts
+by 5.0 cm over the eleven months: the filled values start above the model alone and end below it.
 
 ![The residual correction across the gap between GRACE and GRACE-FO for the Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png){ width="720" }
 
-In California's Central Valley the same gap starts 5.55 cm above the model and ends 3.64 cm below it. The correction falls by 9.2 cm across
-the gap, so the filled months start well above the model alone and finish below it:
+In California's Central Valley the same gap starts 13.66 cm above the model and ends 3.94 cm above it. The correction falls by 9.7 cm across
+the gap, nearly twice the tilt, so the filled months start far above the model alone and come back toward it:
 
 ![The residual correction across the gap between GRACE and GRACE-FO for California's Central Valley](../../static/images/grace/seasonal-gap-correction-cv.png){ width="720" }
 
@@ -190,13 +190,13 @@ filled TWSa minus the GLDAS terms for that month. The GLDAS layers have no gaps 
 
 ### Example: the Northern Midwest Aquifer System
 
-For the Northern Midwest Aquifer System, the BIC selects three breakpoints, in September 2006, May 2013 and October 2017, which split the record
-into four trend segments of +1.3, −0.7, +2.9 and −0.5 cm/yr:
+For the Northern Midwest Aquifer System, the BIC selects three breakpoints, in January 2010, January 2013 and June 2019, which split the record
+into four trend segments of +0.5, −2.0, +3.2 and −2.6 cm/yr:
 
 ![Observed GWSa for the Northern Midwest Aquifer System with the four-segment trend and the filled months in red](../../static/images/grace/gap-filling-example.png){ width="800" }
 
 The single missing months between 2011 and 2017 sit close to their neighbors. Across the 11-month gap between the missions, the filled values
-rise to 12.8 cm in September 2017 and fall to 4.8 cm in March 2018 before meeting the first GRACE-FO month, carrying on the region's annual
+rise to 13.9 cm in July 2017 and fall to 6.6 cm in February 2018 before meeting the first GRACE-FO month, carrying on the region's annual
 cycle. The app shows the same values with **Gap filling** set to **Seasonal model** (see
 [The Gap filling control](#the-gap-filling-control)).
 
@@ -217,29 +217,29 @@ GRACE uncertainty of the region for comparison:
 
 | Region | ±1σ | Seasonal model | Trend + seasonal | Linear |
 |---|---|---|---|---|
-| Northern Midwest Aquifer System | 4.4 | 1.3 | 2.4 | 1.1 |
-| Volta basin | 3.9 | 1.6 | 2.5 | 2.0 |
-| Iullemeden-Irhazer Aquifer System | 1.9 | 0.9 | 1.1 | 0.8 |
-| California Central Valley | 3.4 | 3.1 | 5.3 | 3.3 |
+| Northern Midwest Aquifer System | 3.5 | 1.5 | 2.6 | 1.8 |
+| Volta Basin (GRDC) | 3.3 | 1.7 | 2.8 | 2.2 |
+| Iullemeden-Irhazer Aquifer System | 2.1 | 0.8 | 1.5 | 0.6 |
+| California Central Valley | 4.2 | 3.1 | 6.6 | 3.1 |
 
 **11-month blocks** (RMSE, cm):
 
 | Region | ±1σ | Seasonal model | Trend + seasonal | Linear |
 |---|---|---|---|---|
-| Northern Midwest Aquifer System | 4.4 | 1.5 | 2.3 | 4.7 |
-| Volta basin | 3.9 | 2.6 | 2.4 | 5.1 |
-| Iullemeden-Irhazer Aquifer System | 1.9 | 1.4 | 1.4 | 1.7 |
-| California Central Valley | 3.4 | 4.2 | 4.8 | 5.2 |
+| Northern Midwest Aquifer System | 3.5 | 2.4 | 3.5 | 4.0 |
+| Volta Basin (GRDC) | 3.3 | 2.3 | 3.1 | 7.5 |
+| Iullemeden-Irhazer Aquifer System | 2.1 | 1.5 | 1.6 | 2.2 |
+| California Central Valley | 4.2 | 4.9 | 7.5 | 7.4 |
 
 Three results stand out:
 
 - For single months, the seasonal model is about as good as linear interpolation, as expected: across one month, the residual correction makes
   the two nearly the same.
-- For 11-month gaps, linear interpolation cuts straight through a whole seasonal cycle, and its error is two to three times that of the
-  seasonal model in regions with a strong cycle (4.7 against 1.5 cm for the Northern Midwest).
-- In the first three regions the error of the seasonal model is well below the GRACE uncertainty. California's Central Valley fills less
-  well, with errors above the uncertainty, because its storage is driven by multi-year droughts and wet years that no average seasonal cycle
-  can predict inside a long gap.
+- For 11-month gaps, linear interpolation cuts straight through a whole seasonal cycle, and its error is 1.7 times the seasonal model's in
+  the Northern Midwest (4.0 against 2.4 cm) and 3.3 times in the Volta Basin (7.5 against 2.3).
+- In the first three regions the error of the seasonal model stays below the GRACE uncertainty for both tests. California's Central Valley
+  fills less well: across a long gap its error rises above the uncertainty, because its storage is driven by multi-year droughts and wet
+  years that no average seasonal cycle can predict inside eleven months.
 
 The error of a filled value comes from the model rather than from GRACE, so the app doesn't draw the uncertainty band for filled months. In a
 region like the Central Valley, treat results that depend on filled months with extra caution, such as recharge for the years the

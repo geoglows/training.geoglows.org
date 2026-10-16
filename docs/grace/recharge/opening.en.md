@@ -62,9 +62,9 @@ The verdict combines the second and third numbers:
 
 The chart beside the numbers shows the average annual cycle of GWSa, one bar per calendar month, with the lowest month highlighted.
 
-For the Northern Midwest Aquifer System the seasonal swing is 8.1 cm against a typical uncertainty of ±4.4 cm, the annual cycle explains 64% of
-the variation, and all 23 water years peak within two months of August. Storage is lowest in March, so each water year runs from March to the
-following February.
+For the Northern Midwest Aquifer System the seasonal swing is 6.6 cm against a typical uncertainty of ±3.5 cm, the annual cycle explains 43% of
+the variation, and all 23 water years peak within two months of June. Storage is lowest in February, so each water year runs from February to the
+following January.
 
 California's Central Valley gets a different verdict. Its storage does have an annual cycle, but multi-year droughts and wet periods, and the
 heavy pumping during droughts, are as large as the seasonal swing:

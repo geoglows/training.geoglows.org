@@ -251,7 +251,14 @@ def shot_recharge_pages(pw) -> None:
     sec = pg.locator(".rc-section")
     save(sec.nth(0), "app-recharge-seasonality")                       # the whole check
     save(sec.nth(1).locator(".rc-chart-box").first, "app-recharge-picks")
-    save(sec.nth(1).locator(".rc-editor").first, "app-recharge-editor")
+    # The editor opens on the first water year, which has no previous year to
+    # take S_A from and falls back to the highest month before its trough. The
+    # page works through the second year instead, where S_A is a real previous
+    # peak, so step forward once before shooting.
+    editor = sec.nth(1).locator(".rc-editor").first
+    editor.locator(".rc-nav-btn").nth(1).click()   # the forward arrow
+    pg.wait_for_timeout(SETTLE)
+    save(editor, "app-recharge-editor")
     save(sec.nth(2).locator(".rc-summary").first, "app-recharge-summary")
     save(sec.nth(2).locator(".rc-chart-box").first, "app-recharge-chart")
     save(sec.nth(2).locator(".rc-table-wrap").first, "app-recharge-table")
