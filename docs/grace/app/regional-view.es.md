@@ -11,7 +11,7 @@ la leyenda en la esquina superior derecha cuenta las regiones de cada clase de t
 
 Desde aquí puedes:
 
-- desplazar y acercar el mapa; los nombres de las regiones aparecen al acercarte lo suficiente (desactívalos con **Show region names**)
+- desplazar y acercar el mapa; los nombres de las regiones aparecen al acercarte lo suficiente (desactívalos con **Region names**)
 - cambiar a otro conjunto de regiones, o filtrar la lista de nombres, en la sección **Regions** del panel de control
 - cambiar la **Displayed layer** o la **Window** de tendencia para reclasificar todas las regiones a la vez, por ejemplo para ver qué acuíferos
   han perdido almacenamiento total de agua en los últimos 20 años
@@ -59,6 +59,12 @@ entidad, se fusionan en una sola región. Los huecos de los polígonos se ignora
     hace lo mismo en el navegador: importa juntos los archivos `.shp`, `.dbf` y `.prj` y exporta como GeoJSON. Simplificar primero un límite muy
     detallado reduce el tamaño del archivo sin cambiar el resultado, ya que las celdas de la malla miden 1°.
 
+![Un recuadro GeoJSON sobre Punjab y Haryana, analizado como su propia región](../../static/images/grace/app-upload-result.webp)
+
+La región se analiza en cuanto se sube, igual que una publicada, y la ruta de navegación toma el nombre que le hayas dado. El ejemplo de arriba
+es un simple rectángulo sobre Punjab y Haryana, donde el descenso del agua subterránea es lo bastante pronunciado como para resultar evidente de
+un vistazo.
+
 Las regiones subidas se guardan en **My Regions**, donde puedes volver a abrirlas o eliminarlas con la × junto al nombre. Se almacenan solo en tu
 navegador: no se comparten con nadie y no aparecerán en otra computadora ni en otro navegador.
 
@@ -73,7 +79,13 @@ archivo si quieres conservar una región.
 Cuando abres una región, el mapa se acerca a ella y muestra las celdas de anomalía de la capa mostrada dentro de su límite, y el gráfico muestra la
 serie temporal promedio de la región (ver [El gráfico de series temporales](#the-time-series-chart)).
 
-![Análisis regional de una región subida sobre Punjab y Haryana, India](../../static/images/grace/app-upload-result.webp)
+![El Acuífero Ogallala analizado, con sus celdas en el mapa y su serie temporal promedio debajo](../../static/images/grace/app-region-result.webp)
+
+El Ogallala, arriba, muestra cómo se ve un resultado regional. Las celdas quedan por encima de la media de 2004–2009 en la mitad norte del
+acuífero y cerca de ella en el sur, así que los colores no son uniformes ni dentro de una misma región. La serie promedio va más o menos plana
+durante la década de 2010 y luego cae desde alrededor de 2020, que es lo que produce los −1.70 cm/año de la leyenda de tendencias: esa cifra es
+la pendiente de los últimos cinco años, no de todo el registro. Cambiar el selector **Window** la cambia (ver
+[Análisis de Tendencias](trends.md#the-trend-window)).
 
 ### Qué celdas se promedian { #which-cells-are-averaged }
 
@@ -83,18 +95,26 @@ dentro.
 
 ![Cómo promedia la aplicación las celdas sobre una región](../../static/images/grace/grace-region-averaging.png)
 
-La TWSa se promedia en su malla de 0.5° y las demás capas en su malla de 1°, cada una con sus propios pesos de superposición. Una región más
-pequeña que aproximadamente el 35% de una celda puede no tener ninguna celda que cumpla el criterio; usa una región más grande o haz clic en la
-celda en la [vista global](global-view.md).
+Cuál sea esa malla depende del conjunto de datos. En **GRACE + GLDAS 2.1**, la TWSa se promedia en su malla de 0.5° y las demás capas en su
+malla de 1°, cada una con sus propios pesos de superposición. En **GLDAS 2.2** todas las capas se promedian en la malla nativa del modelo, de
+0.25°, así que una región recibe dieciséis veces más celdas y la regla del 35% excluye mucho menos de ella. Esa es la principal razón práctica
+para recurrir a 2.2 en una cuenca pequeña.
+
+Una región más pequeña que aproximadamente el 35% de una celda puede no tener ninguna celda que cumpla el criterio; usa una región más grande,
+cambia a GLDAS 2.2 por su malla más fina, o haz clic en la celda en la [vista global](global-view.md).
 
 ### Mostrar la malla { #showing-the-grid }
 
-Activa **Show cell boundaries** y **Show mascon boundaries** para ver cómo se relaciona la región con la malla y con la resolución real de GRACE:
+Activa **Cell boundaries** y **Mascon boundaries** para ver cómo se relaciona la región con la malla y con la resolución real de GRACE:
 
 ![Límites de celdas y de mascons sobre el Sistema Acuífero Iullemeden-Irhazer](../../static/images/grace/app-region-boundaries.webp)
 
-Aquí la región abarca partes de varios mascons (en morado), así que su promedio se basa en varios valores independientes de GRACE. Una región
-dentro de un solo mascon está sujeta a la [fuga de señal](../mission/resolution-and-leakage.md) descrita en la sección de fundamentos.
+Aquí la región abarca partes de varios mascones (en morado), así que su promedio se basa en varios valores independientes de GRACE. Una región
+dentro de un solo mascon está sujeta a la [fuga de señal](../mission/resolution-and-leakage.md) descrita en la Parte 1.
+
+Los mascones pertenecen a la solución de GRACE, así que **Mascon boundaries** queda oculto con GLDAS 2.2. La advertencia que hay detrás no ha
+desaparecido: 2.2 asimila GRACE, así que la corrección que mete el bombeo en su agua subterránea llega con la resolución de GRACE por fina que
+sea la malla del modelo.
 
 ## El gráfico de series temporales { #the-time-series-chart }
 
@@ -108,24 +128,36 @@ medida que avanzas o reproduces el control de tiempo.
 
 ### Incertidumbre { #uncertainty }
 
-Cuando se grafica un solo componente, una banda sombreada muestra ±1σ. La banda se promedia sobre las celdas igual que los valores, lo que trata
-los errores de celdas vecinas como totalmente correlacionados. Es la opción prudente: errores que se cancelan en parte entre celdas darían una
-banda más estrecha. La banda se oculta cuando se grafican varios componentes, para que el gráfico siga siendo legible.
+En **GRACE + GLDAS 2.1**, una banda sombreada muestra ±1σ cuando se grafica un solo componente. La banda se promedia sobre las celdas igual que
+los valores, lo que trata los errores de celdas vecinas como totalmente correlacionados. Es la opción prudente: errores que se cancelan en parte
+entre celdas darían una banda más estrecha. La banda se oculta cuando se grafican varios componentes, para que el gráfico siga siendo legible.
+
+**GLDAS 2.2 no tiene banda.** Es una sola ejecución de un modelo, así que no hay un conjunto del que tomar una dispersión, y la NASA no publica
+ninguna incertidumbre por mes para él. La ausencia de banda significa que no había ninguna estimación disponible, nunca que los valores sean más
+seguros que los que la tienen: en general es lo contrario, ya que una ejecución de modelo arrastra todas las fuentes de error enumeradas en
+[Los Modelos de Superficie Terrestre GLDAS](../gldas/land-surface-models.md#accuracy-and-mixing-versions) sin que nada las reporte.
 
 ### Comparar componentes { #comparing-components }
 
 El gráfico siempre representa la **Displayed layer**. Marca otros componentes bajo **Time series** en el panel de control para añadirlos en los
 mismos ejes:
 
-| Componente | Fuente | Qué muestra |
-|---|---|---|
-| TWSa | GRACE | toda el agua de la columna: agua subterránea, humedad del suelo, nieve, dosel y agua superficial |
-| GWSa | TWSa menos las tres capas de GLDAS | agua subterránea, con el agua superficial incluida |
-| SMa | GLDAS | humedad del suelo |
-| SWEa | GLDAS | equivalente de agua de la nieve |
-| CANa | GLDAS | agua retenida en el dosel vegetal |
+| Componente | En GRACE + GLDAS 2.1 | En GLDAS 2.2 | Qué muestra |
+|---|---|---|---|
+| TWSa | medida por GRACE | el total propio del modelo | toda el agua de la columna: agua subterránea, humedad del suelo, nieve, dosel y agua superficial |
+| GWSa | TWSa menos las tres capas de GLDAS | un estado del modelo, corregido por GRACE | agua subterránea, con el agua superficial incluida |
+| SMa | media de tres modelos de GLDAS 2.1 | perfil de Catchment, menos el agua subterránea | humedad del suelo |
+| SWEa | media de tres modelos de GLDAS 2.1 | Catchment | equivalente de agua de la nieve |
+| CANa | media de tres modelos de GLDAS 2.1 | Catchment | agua retenida en el dosel vegetal |
 
-[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md) explica cómo encajan las capas entre sí.
+Los mismos cinco nombres significan las mismas magnitudes físicas en los dos conjuntos de datos, que es lo que los hace comparables, pero se
+obtienen de maneras distintas y no coincidirán exactamente.
+[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md) explica cómo encajan las capas entre sí en cada uno.
+
+Marcar **Also show GLDAS 2.2** (o **Also show GRACE + GLDAS 2.1**, según el conjunto seleccionado) añade la versión del otro conjunto de datos
+de lo que ya esté graficado, con un segundo juego de colores. Donde las dos series de agua subterránea concuerdan, el resultado se apoya en una
+medición y en un modelo construidos de forma independiente, que es una evidencia más fuerte que cualquiera por separado. Donde divergen, mira
+los componentes para ver en qué término está el desacuerdo; los casos de estudio recorren ejemplos.
 
 ![GWSa comparada con TWSa y SMa para el Sistema Acuífero Iullemeden-Irhazer](../../static/images/grace/app-chart-compare.webp)
 
@@ -135,16 +167,17 @@ suben juntos desde aproximadamente 2010, así que el aumento del almacenamiento 
 
 ### Relleno de vacíos { #gap-filling }
 
-GRACE no tiene datos para 35 meses del registro, así que la TWSa y la GWSa tienen vacíos; las capas de GLDAS tienen un valor cada mes. El control
-**Gap filling** define cómo dibuja el gráfico los vacíos:
+GRACE no tiene datos para 35 meses del registro, así que en el conjunto de datos de GRACE la TWSa y la GWSa tienen vacíos; sus capas de GLDAS, y
+todas las capas de GLDAS 2.2, tienen un valor cada mes. El control **Gap filling** define cómo dibuja el gráfico los vacíos, y queda oculto por
+completo con GLDAS 2.2:
 
 - **None** corta la línea en cada vacío.
 - **Straight line** une los meses a ambos lados de cada vacío.
 - **Seasonal model** estima los meses faltantes a partir de una tendencia y un ciclo estacional ajustados al propio registro de la región, y los
   dibuja como una línea discontinua con marcadores huecos, como en el gráfico de arriba.
 
-El ajuste solo cambia el gráfico. La Parte 3 compara las tres opciones en [Vacíos y Relleno de Vacíos](../mission/gap-filling.md) y luego presenta el
-método completo.
+El ajuste solo cambia el gráfico. [Vacíos y Relleno de Vacíos](../mission/gap-filling.md) compara las tres opciones y luego presenta el método
+completo.
 
 ### Líneas de tendencia { #trend-lines }
 
@@ -154,12 +187,19 @@ discontinua sobre la ventana de tendencia, y la leyenda da su pendiente, por eje
 
 ### Análisis de recarga { #recharge-analysis }
 
-Con **Seasonal model** seleccionado, aparece un botón **Recharge Analysis** encima del gráfico. Abre una página que estima la recarga anual de
-agua subterránea a partir de la serie de GWSa rellenada con el método de fluctuación del nivel freático. El análisis siempre usa la GWSa,
-cualquiera que sea la capa mostrada. La Parte 4 lo describe, comenzando con [El Método WTF](../recharge/wtf-method.md).
+El método de fluctuación del nivel freático necesita un valor cada mes, así que un botón **Recharge Analysis** aparece encima del gráfico en
+cuanto la serie lo tiene: con **Seasonal model** seleccionado en el conjunto de datos de GRACE, y siempre en GLDAS 2.2, cuyo registro no tiene
+vacíos que rellenar. Abre una página que estima la recarga anual de agua subterránea a partir de la serie de GWSa. El análisis siempre usa la
+GWSa, cualquiera que sea la capa mostrada. La Parte 4 lo describe, comenzando con [El Método WTF](../recharge/wtf-method.md).
+
+Poder ejecutarlo sobre 2.2 no es lo mismo que la respuesta sea correcta. Barbosa et al. (2025) ejecutaron los dos en la Cuenca del Volta y
+encontraron que 2.2 daba una recarga de 1.7 a 3.5 veces la estimación basada en pozos, según el método WTF, y no lo recomendaron en absoluto
+para recarga, aunque sí lo recomendaron para seguir tendencias (ver [Cuenca del Volta](../case-studies/volta.md)). Lee un número de recarga de
+2.2 contra uno de 2.1 antes de usarlo.
 
 ### Descargar los datos { #downloading-the-data }
 
-**Download CSV** guarda los valores mensuales de los cinco componentes para la región, con sus límites de ±1σ y las series de TWSa y GWSa con los
-vacíos rellenados, independientemente de qué componentes estén graficados y de qué opción de relleno esté seleccionada.
-[Descarga de Datos](downloading-data.md) enumera las columnas y muestra cómo convertir los valores en volúmenes.
+**Download CSV** guarda los valores mensuales de los cinco componentes para la región, independientemente de qué componentes estén graficados y
+de qué opción de relleno esté seleccionada, junto con los límites de ±1σ y las series con los vacíos rellenados cuando el conjunto de datos las
+tiene. Con la comparación marcada, vienen también las columnas del otro conjunto. [Descarga de Datos](downloading-data.md) enumera las columnas
+y muestra cómo convertir los valores en volúmenes.

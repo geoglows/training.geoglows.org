@@ -3,25 +3,30 @@
 ## Mois manquants { #missing-months }
 
 Il manque 35 mois dans les données GRACE : des mois isolés, surtout entre 2011 et 2017, et les 11 mois entre la fin de GRACE et
-le début de GRACE-FO (voir [Comment GRACE Mesure le Stockage de l'Eau](measuring-water-storage.md#the-record-and-its-gaps)). TWSa et GWSa présentent des lacunes pour
-ces mois. Les couches GLDAS (SMa, SWEa et CANa) proviennent de modèles de surface terrestre exécutés chaque mois ; elles n'ont donc pas de lacunes.
+le début de GRACE-FO (voir [Comment GRACE Mesure le Stockage de l’Eau](measuring-water-storage.md#the-record-and-its-gaps)). TWSa et GWSa présentent des lacunes pour
+ces mois. Les couches GLDAS (SMa, SWEa et CANa) proviennent de modèles de surface terrestre exécutés chaque mois ; elles n’ont donc pas de lacunes.
 
-L'analyse des tendances dans l'application ignore les mois manquants. Les analyses qui travaillent année par année ont besoin d'une valeur pour chaque mois. Dans
-l'[Analyse de la Recharge](../recharge/wtf-method.md), par exemple, un mois manquant au moment d'un pic ou d'un creux saisonnier modifie le résultat de l'année. L'application
-estime les mois manquants à l'aide d'un modèle saisonnier, selon l'approche de Barbosa et al. (2022). Les options de l'application viennent
-d'abord ci-dessous, puis la méthode qui les sous-tend : le modèle, son ajustement, le calcul des valeurs comblées et leur précision.
+Cette page porte sur le jeu de données GRACE. GLDAS 2.2 a une valeur à chaque mois de son enregistrement, parce que le modèle continue de
+tourner qu’il y ait ou non un champ GRACE pour le corriger ce mois-là : il n’y a donc rien à combler, et le contrôle **Gap filling** est masqué
+tant qu’il est sélectionné. Le revers est qu’une série 2.2 ne donne aucun indice de l’endroit où la correction s’est interrompue : la ligne est
+continue à travers ces mêmes 35 mois, tracée à partir du seul modèle.
+
+L’analyse des tendances dans l’application ignore les mois manquants. Les analyses qui travaillent année par année ont besoin d’une valeur pour chaque mois. Dans
+l’[Analyse de la Recharge](../recharge/wtf-method.md), par exemple, un mois manquant au moment d’un pic ou d’un creux saisonnier modifie le résultat de l’année. L’application
+estime les mois manquants à l’aide d’un modèle saisonnier, selon l’approche de Barbosa et al. (2022). Les options de l’application viennent
+d’abord ci-dessous, puis la méthode qui les sous-tend : le modèle, son ajustement, le calcul des valeurs comblées et leur précision.
 
 ## Le contrôle Gap filling { #the-gap-filling-control }
 
 Le contrôle **Gap filling** (comblement des lacunes) du panneau définit ce que fait le graphique aux mois manquants :
 
-![Le contrôle Gap filling dans le panneau de l'application](../../static/images/grace/app-gap-fill-control.webp){ width="310" }
+![Le contrôle Gap filling dans le panneau de l’application](../../static/images/grace/app-gap-fill-control.webp){ width="310" }
 
 - **None** interrompt la courbe à chaque lacune, ce qui permet de voir exactement quels mois ont été observés.
-- **Straight line** relie les mois de part et d'autre de chaque lacune. Cette option ne fait que franchir la lacune sur le graphique et n'estime rien.
-- **Seasonal model** estime chaque mois manquant à partir d'une tendance et d'un cycle saisonnier ajustés sur les mois observés. Les mois comblés sont tracés
-  en tirets avec des marqueurs vides, et le survol de l'un d'eux affiche sa valeur. Cette option ajoute aussi le bouton **Recharge Analysis** au-dessus du
-  graphique (voir [Ouverture de l'Analyse](../recharge/opening.md)).
+- **Straight line** relie les mois de part et d’autre de chaque lacune. Cette option ne fait que franchir la lacune sur le graphique et n’estime rien.
+- **Seasonal model** estime chaque mois manquant à partir d’une tendance et d’un cycle saisonnier ajustés sur les mois observés. Les mois comblés sont tracés
+  en tirets avec des marqueurs vides, et le survol de l’un d’eux affiche sa valeur. Cette option ajoute aussi le bouton **Recharge Analysis** au-dessus du
+  graphique (voir [Ouverture de l’Analyse](../recharge/opening.md)).
 
 Le Northern Midwest Aquifer System, dont le cycle saisonnier est marqué, montre la différence entre les trois options. Avec **None** :
 
@@ -35,17 +40,17 @@ Avec **Seasonal model**, les mois comblés prolongent le cycle annuel de la rég
 
 ![GWSa du Northern Midwest Aquifer System avec les lacunes comblées par le modèle saisonnier](../../static/images/grace/app-gap-fill-seasonal.webp)
 
-La bande d'incertitude n'est pas tracée pour les mois comblés, car l'erreur d'une valeur comblée provient du modèle et non de GRACE (voir
+La bande d’incertitude n’est pas tracée pour les mois comblés, car l’erreur d’une valeur comblée provient du modèle et non de GRACE (voir
 [Précision du comblement](#fill-accuracy)).
 
 ## Valeurs comblées dans le CSV { #filled-values-in-the-csv }
 
 Le CSV téléchargé contient toujours les valeurs comblées, dans les colonnes `GWSa_filled` et `TWSa_filled`, avec `GWSa_is_filled` et
-`TWSa_is_filled` qui signalent les mois comblés, quelle que soit l'option choisie pour le graphique (voir [Téléchargement des Données](../app/downloading-data.md)).
+`TWSa_is_filled` qui signalent les mois comblés, quelle que soit l’option choisie pour le graphique (voir [Téléchargement des Données](../app/downloading-data.md)).
 
 ## Le modèle saisonnier { #the-seasonal-model }
 
-L'option **Seasonal model** estime chaque mois manquant à partir d'un modèle de la série propre à la région, ajusté sur ses mois observés,
+L’option **Seasonal model** estime chaque mois manquant à partir d’un modèle de la série propre à la région, ajusté sur ses mois observés,
 selon Barbosa et al. (2022). La suite de cette page présente ce modèle, son ajustement, le calcul des valeurs comblées et leur précision.
 
 ## Tendance, cycle saisonnier et résidu { #trend-seasonal-cycle-and-residual }
@@ -57,41 +62,41 @@ y(t) = T(t) + S(m) + r(t)
 $$
 
 où *y*(*t*) est GWSa (ou TWSa) au mois *t*, *m* est le mois calendaire de *t* (janvier à décembre), *T* est la tendance, *S* le cycle
-saisonnier et *r* le résidu, c'est-à-dire la part de la valeur de chaque mois que la tendance et le cycle saisonnier n'expliquent pas.
+saisonnier et *r* le résidu, c’est-à-dire la part de la valeur de chaque mois que la tendance et le cycle saisonnier n’expliquent pas.
 
 Pour le Northern Midwest Aquifer System, le modèle sépare le GWSa en ces trois parties, la lacune entre les missions étant grisée :
 
 ![GWSa du Northern Midwest Aquifer System séparé en tendance, cycle saisonnier et résidu](../../static/images/grace/seasonal-decomposition.png){ width="800" }
 
-La tendance porte la hausse et la baisse lentes du stockage sur l'ensemble de la série, le cycle saisonnier répète la même oscillation annuelle
+La tendance porte la hausse et la baisse lentes du stockage sur l’ensemble de la série, le cycle saisonnier répète la même oscillation annuelle
 chaque année, et le résidu contient le reste : les années humides et sèches, et le bruit des données GRACE.
 
 ### La tendance { #the-trend }
 
-La tendance est une droite continue par morceaux comportant jusqu'à trois points de rupture *b*<sub>1</sub>, …, *b*<sub>k</sub>, où sa pente change :
+La tendance est une droite continue par morceaux comportant jusqu’à trois points de rupture *b*<sub>1</sub>, …, *b*<sub>k</sub>, où sa pente change :
 
 $$
 T(t) = \beta \, t + \sum_{j=1}^{k} \gamma_j \max(t - b_j,\, 0)
 $$
 
 Le temps *t* est compté en mois à partir du premier mois observé. Chaque terme charnière max(*t* − *b*<sub>j</sub>, 0) est nul avant son point de rupture et
-augmente d'une unité par mois ensuite ; la pente vaut donc *β* avant le premier point de rupture, *β* + *γ*<sub>1</sub> après celui-ci, et ainsi de suite. La droite s'infléchit à chaque
+augmente d’une unité par mois ensuite ; la pente vaut donc *β* avant le premier point de rupture, *β* + *γ*<sub>1</sub> après celui-ci, et ainsi de suite. La droite s’infléchit à chaque
 point de rupture sans saut. Une série avec *k* = 0 a une tendance rectiligne unique.
 
 ### Le cycle saisonnier { #the-seasonal-cycle }
 
 Le cycle saisonnier a un niveau pour chaque mois calendaire, *α*<sub>Jan</sub>, …, *α*<sub>Dec</sub>. Le modèle complet pour un mois observé *i*
-s'écrit
+s’écrit
 
 $$
 y_i = \beta \, t_i + \sum_{j=1}^{k} \gamma_j \max(t_i - b_j,\, 0) + \alpha_{m_i} + \varepsilon_i
 $$
 
-Les douze niveaux tiennent aussi lieu d'ordonnée à l'origine ; il n'y a donc pas de terme constant séparé. Les niveaux sont les mêmes d'une année à l'autre : le modèle a un
+Les douze niveaux tiennent aussi lieu d’ordonnée à l’origine ; il n’y a donc pas de terme constant séparé. Les niveaux sont les mêmes d’une année à l’autre : le modèle a un
 seul cycle annuel moyen, et une année humide apparaît dans le résidu et non dans *S*.
 
 Pour le Northern Midwest Aquifer System, les niveaux, décalés pour avoir une moyenne nulle comme décrit dans [Ajustement du modèle](#fitting-the-model),
-vont de −4.3 cm en mars à +3.8 cm en août :
+vont de −3.4 cm en février à +3.2 cm en juin :
 
 ![Les douze niveaux mensuels du cycle saisonnier du Northern Midwest Aquifer System](../../static/images/grace/seasonal-levels.png){ width="700" }
 
@@ -100,34 +105,34 @@ vont de −4.3 cm en mars à +3.8 cm en août :
 ### Moindres carrés à points de rupture fixés { #least-squares-for-fixed-breakpoints }
 
 Pour un ensemble donné de points de rupture, les pentes *β* et *γ*<sub>j</sub> et les douze niveaux *α*<sub>m</sub> sont obtenus par moindres carrés ordinaires
-sur les seuls mois observés. Les mois manquants ne participent pas à l'ajustement. Chaque mois calendaire doit être observé au moins deux fois ; sinon son niveau
-ne peut pas être estimé de façon fiable et l'application laisse la série sans comblement.
+sur les seuls mois observés. Les mois manquants ne participent pas à l’ajustement. Chaque mois calendaire doit être observé au moins deux fois ; sinon son niveau
+ne peut pas être estimé de façon fiable et l’application laisse la série sans comblement.
 
-Après l'ajustement, les niveaux sont décalés de sorte que le cycle saisonnier ait une moyenne nulle sur l'année, et la tendance est relevée de la même quantité :
+Après l’ajustement, les niveaux sont décalés de sorte que le cycle saisonnier ait une moyenne nulle sur l’année, et la tendance est relevée de la même quantité :
 
 $$
 S(m) = \alpha_m - \bar{\alpha}, \qquad T(t) = \beta \, t + \sum_{j} \gamma_j \max(t - b_j,\, 0) + \bar{\alpha}, \qquad
 \bar{\alpha} = \frac{1}{12} \sum_{m} \alpha_m
 $$
 
-La somme *T* + *S* reste inchangée. Avec ce décalage, *T* donne le niveau à long terme et *S* l'écart de chaque mois par rapport à ce niveau.
+La somme *T* + *S* reste inchangée. Avec ce décalage, *T* donne le niveau à long terme et *S* l’écart de chaque mois par rapport à ce niveau.
 
 ### Placement des points de rupture { #placing-the-breakpoints }
 
-Pour un nombre donné *k* de points de rupture, l'application choisit leurs positions de façon à minimiser la somme des carrés des résidus (RSS) de l'ajustement. Les points de rupture
+Pour un nombre donné *k* de points de rupture, l’application choisit leurs positions de façon à minimiser la somme des carrés des résidus (RSS) de l’ajustement. Les points de rupture
 sont contraints pour que chaque segment de la tendance ait un sens :
 
-- au moins 48 mois (quatre ans) de chaque extrémité de la série, pour qu'un segment terminal ne soit pas ajusté sur quelques mois
-- au moins 36 mois (trois ans) d'écart entre eux, pour que chaque segment entre deux points de rupture couvre plusieurs cycles saisonniers
+- au moins 48 mois (quatre ans) de chaque extrémité de la série, pour qu’un segment terminal ne soit pas ajusté sur quelques mois
+- au moins 36 mois (trois ans) d’écart entre eux, pour que chaque segment entre deux points de rupture couvre plusieurs cycles saisonniers
 
-La recherche se fait en deux étapes. D'abord, des points de rupture candidats sont placés tous les trois mois, et chaque combinaison valide de *k* candidats est
-ajustée. La combinaison de plus faible RSS est retenue. Ensuite, chaque point de rupture est tour à tour déplacé d'un mois plus tôt ou plus tard, et le déplacement est conservé
-s'il réduit la RSS. Cela se répète jusqu'à ce qu'aucun déplacement d'un mois n'améliore l'ajustement ; chaque point de rupture se retrouve ainsi au meilleur mois proche du meilleur
+La recherche se fait en deux étapes. D’abord, des points de rupture candidats sont placés tous les trois mois, et chaque combinaison valide de *k* candidats est
+ajustée. La combinaison de plus faible RSS est retenue. Ensuite, chaque point de rupture est tour à tour déplacé d’un mois plus tôt ou plus tard, et le déplacement est conservé
+s’il réduit la RSS. Cela se répète jusqu’à ce qu’aucun déplacement d’un mois n’améliore l’ajustement ; chaque point de rupture se retrouve ainsi au meilleur mois proche du meilleur
 candidat trimestriel.
 
 ### Choix du nombre de points de rupture { #choosing-the-number-of-breakpoints }
 
-Davantage de points de rupture ajustent toujours les mois observés au moins aussi bien ; le nombre est donc choisi avec le critère d'information bayésien (BIC),
+Davantage de points de rupture ajustent toujours les mois observés au moins aussi bien ; le nombre est donc choisi avec le critère d’information bayésien (BIC),
 qui ajoute une pénalité pour chaque paramètre :
 
 $$
@@ -137,18 +142,18 @@ $$
 où *n* est le nombre de mois observés et *p* compte les paramètres : la première pente, un changement de pente et une position pour chaque point de rupture,
 et les douze niveaux mensuels.
 
-L'application ajuste le meilleur modèle à 0, 1, 2 et 3 points de rupture. En partant de la tendance rectiligne, elle ne passe à un modèle comportant plus de points de rupture que si
-le BIC de ce modèle est inférieur d'au moins 10 à celui du modèle retenu jusque-là. Une baisse de 10 constitue une forte indication que l'inflexion supplémentaire est réelle
-et ne résulte pas d'un ajustement au bruit ; la tendance ne s'infléchit donc que là où la série change nettement de direction.
+L’application ajuste le meilleur modèle à 0, 1, 2 et 3 points de rupture. En partant de la tendance rectiligne, elle ne passe à un modèle comportant plus de points de rupture que si
+le BIC de ce modèle est inférieur d’au moins 10 à celui du modèle retenu jusque-là. Une baisse de 10 constitue une forte indication que l’inflexion supplémentaire est réelle
+et ne résulte pas d’un ajustement au bruit ; la tendance ne s’infléchit donc que là où la série change nettement de direction.
 
-Pour le Northern Midwest Aquifer System, chaque point de rupture supplémentaire abaisse le BIC de plus de 10 (de 12, puis 113, puis 44), si bien
-que l'application conserve les trois :
+Pour le Northern Midwest Aquifer System, chaque point de rupture supplémentaire abaisse le BIC de plus de 10 (de 115, puis 181, puis 43), si bien
+que l’application conserve les trois :
 
 ![La meilleure tendance avec 0, 1, 2 et 3 points de rupture pour le Northern Midwest Aquifer System, avec le BIC de chacune](../../static/images/grace/seasonal-breakpoints.png){ width="950" }
 
 ## Comblement des lacunes { #filling-the-gaps }
 
-Une lacune est une suite d'un ou plusieurs mois manquants entre deux mois observés, *a* avant et *c* après. Le modèle seul, *T* + *S*, ne
+Une lacune est une suite d’un ou plusieurs mois manquants entre deux mois observés, *a* avant et *c* après. Le modèle seul, *T* + *S*, ne
 rejoindrait les valeurs observées à aucune des extrémités de la lacune, car chaque mois observé a son propre résidu. La valeur comblée ajoute une correction
 du résidu interpolée linéairement à travers la lacune :
 
@@ -160,38 +165,40 @@ pour chaque mois manquant *g* de la lacune.
 
 La correction donne au comblement une forme cohérente quelle que soit la longueur de la lacune :
 
-- Pour un seul mois manquant, la variation saisonnière d'un mois au suivant est faible ; la valeur comblée est donc proche d'une droite entre
+- Pour un seul mois manquant, la variation saisonnière d’un mois au suivant est faible ; la valeur comblée est donc proche d’une droite entre
   ses deux voisins.
 - Pour une longue lacune, comme les 11 mois entre les missions, les mois comblés suivent la tendance et le cycle saisonnier, montant et descendant
   au rythme habituel des saisons, tandis que la correction les décale pour rejoindre les valeurs observées aux deux extrémités.
 
-Les deux résidus qui fixent la correction proviennent de mois différents, et rien ne lie l'un à l'autre. Dans la lacune entre les missions du
-Northern Midwest Aquifer System, ils sont presque égaux (−0.38 cm en juin 2017 et −0.53 cm en juin 2018), si bien que la correction place chaque
+Les deux résidus qui fixent la correction proviennent de mois différents, et rien ne lie l’un à l’autre. Dans la lacune entre les missions du
+Northern Midwest Aquifer System, juin 2017 se situe 1.39 cm au-dessus du modèle et juin 2018 3.59 cm en dessous, si bien que la correction
+s’incline de 5.0 cm sur les onze mois : les valeurs comblées commencent au-dessus du modèle seul et finissent en dessous. La correction place chaque
 mois comblé juste sous le modèle seul :
 
 ![La correction du résidu dans la lacune entre GRACE et GRACE-FO pour le Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png){ width="720" }
 
-Dans la Vallée Centrale de Californie, la même lacune commence 5.55 cm au-dessus du modèle et se termine 3.64 cm en dessous. La correction
-diminue de 9.2 cm d'un bout à l'autre de la lacune, si bien que les mois comblés commencent bien au-dessus du modèle seul et finissent en dessous :
+Dans la Vallée Centrale de Californie, la même lacune commence 13.66 cm au-dessus du modèle et se termine 3.94 cm au-dessus. La correction
+diminue de 9.7 cm d’un bout à l’autre de la lacune, soit presque le double de l’inclinaison, si bien que les mois comblés commencent très
+au-dessus du modèle seul et reviennent vers lui :
 
 ![La correction du résidu dans la lacune entre GRACE et GRACE-FO pour la Vallée Centrale de Californie](../../static/images/grace/seasonal-gap-correction-cv.png){ width="720" }
 
-Les mois observés ne sont jamais modifiés. Les mois antérieurs à la première observation ou postérieurs à la dernière restent vides, car il n'y a pas de valeur observée
-de l'autre côté à laquelle ancrer une correction.
+Les mois observés ne sont jamais modifiés. Les mois antérieurs à la première observation ou postérieurs à la dernière restent vides, car il n’y a pas de valeur observée
+de l’autre côté à laquelle ancrer une correction.
 
-GWSa et TWSa sont chacun comblés à partir de leur propre série, avec leur propre tendance et leur propre cycle saisonnier. Une valeur comblée de GWSa n'est donc pas exactement la
-valeur comblée de TWSa moins les termes GLDAS de ce mois. Les couches GLDAS n'ont pas de lacunes et ne sont jamais comblées.
+GWSa et TWSa sont chacun comblés à partir de leur propre série, avec leur propre tendance et leur propre cycle saisonnier. Une valeur comblée de GWSa n’est donc pas exactement la
+valeur comblée de TWSa moins les termes GLDAS de ce mois. Les couches GLDAS n’ont pas de lacunes et ne sont jamais comblées.
 
 ### Exemple : le Northern Midwest Aquifer System { #example-the-northern-midwest-aquifer-system }
 
-Pour le Northern Midwest Aquifer System, le BIC retient trois points de rupture, en septembre 2006, mai 2013 et octobre 2017, qui divisent la série
-en quatre segments de tendance de +1.3, −0.7, +2.9 et −0.5 cm/an :
+Pour le Northern Midwest Aquifer System, le BIC retient trois points de rupture, en janvier 2010, janvier 2013 et juin 2019, qui divisent la série
+en quatre segments de tendance de +0.5, −2.0, +3.2 et −2.6 cm/an :
 
 ![GWSa observé du Northern Midwest Aquifer System avec la tendance à quatre segments et les mois comblés en rouge](../../static/images/grace/gap-filling-example.png){ width="800" }
 
 Les mois manquants isolés entre 2011 et 2017 restent proches de leurs voisins. Sur la lacune de 11 mois entre les missions, les valeurs comblées
-montent à 12.8 cm en septembre 2017 et redescendent à 4.8 cm en mars 2018 avant de rejoindre le premier mois GRACE-FO, prolongeant le cycle annuel
-de la région. L'application affiche les mêmes valeurs avec **Gap filling** réglé sur **Seasonal model** (voir
+montent à 13.9 cm en juillet 2017 et redescendent à 6.6 cm en février 2018 avant de rejoindre le premier mois GRACE-FO, prolongeant le cycle annuel
+de la région. L’application affiche les mêmes valeurs avec **Gap filling** réglé sur **Seasonal model** (voir
 [Le contrôle Gap filling](#the-gap-filling-control)).
 
 ## Précision du comblement { #fill-accuracy }
@@ -199,45 +206,45 @@ de la région. L'application affiche les mêmes valeurs avec **Gap filling** ré
 Le comblement a été testé sur des mois qui disposent de données. Certains mois observés sont masqués, le modèle est réajusté sans eux, et les valeurs comblées
 sont comparées aux valeurs réelles. Il y a deux tests :
 
-- **Mois isolés :** 10 % des mois observés (26 mois), choisis au hasard sur l'ensemble de la série, sont masqués ensemble.
-- **Longues lacunes :** un bloc de 11 mois est masqué, pour reproduire la lacune entre les missions. L'opération est répétée pour six blocs répartis sur la
+- **Mois isolés :** 10 % des mois observés (26 mois), choisis au hasard sur l’ensemble de la série, sont masqués ensemble.
+- **Longues lacunes :** un bloc de 11 mois est masqué, pour reproduire la lacune entre les missions. L’opération est répétée pour six blocs répartis sur la
   série.
 
-Chaque test compare le modèle saisonnier à deux comblements plus simples : la tendance et le cycle saisonnier sans la correction du résidu, et l'interpolation
-linéaire entre les mois observés voisins. Le tableau donne l'erreur quadratique moyenne (RMSE) de chacun, en cm, avec l'incertitude GRACE médiane ±1σ
+Chaque test compare le modèle saisonnier à deux comblements plus simples : la tendance et le cycle saisonnier sans la correction du résidu, et l’interpolation
+linéaire entre les mois observés voisins. Le tableau donne l’erreur quadratique moyenne (RMSE) de chacun, en cm, avec l’incertitude GRACE médiane ±1σ
 de la région à titre de comparaison :
 
 **Mois isolés** (RMSE, cm) :
 
 | Région | ±1σ | Modèle saisonnier | Tendance + saisonnier | Linéaire |
 |---|---|---|---|---|
-| Northern Midwest Aquifer System | 4.4 | 1.3 | 2.4 | 1.1 |
-| Bassin de la Volta | 3.9 | 1.6 | 2.5 | 2.0 |
-| Iullemeden-Irhazer Aquifer System | 1.9 | 0.9 | 1.1 | 0.8 |
-| Vallée Centrale de Californie | 3.4 | 3.1 | 5.3 | 3.3 |
+| Northern Midwest Aquifer System | 3.5 | 1.5 | 2.6 | 1.8 |
+| Bassin de la Volta (GRDC) | 3.3 | 1.7 | 2.8 | 2.2 |
+| Iullemeden-Irhazer Aquifer System | 2.1 | 0.8 | 1.5 | 0.6 |
+| Vallée Centrale de Californie | 4.2 | 3.1 | 6.6 | 3.1 |
 
 **Blocs de 11 mois** (RMSE, cm) :
 
 | Région | ±1σ | Modèle saisonnier | Tendance + saisonnier | Linéaire |
 |---|---|---|---|---|
-| Northern Midwest Aquifer System | 4.4 | 1.5 | 2.3 | 4.7 |
-| Bassin de la Volta | 3.9 | 2.6 | 2.4 | 5.1 |
-| Iullemeden-Irhazer Aquifer System | 1.9 | 1.4 | 1.4 | 1.7 |
-| Vallée Centrale de Californie | 3.4 | 4.2 | 4.8 | 5.2 |
+| Northern Midwest Aquifer System | 3.5 | 2.4 | 3.5 | 4.0 |
+| Bassin de la Volta (GRDC) | 3.3 | 2.3 | 3.1 | 7.5 |
+| Iullemeden-Irhazer Aquifer System | 2.1 | 1.5 | 1.6 | 2.2 |
+| Vallée Centrale de Californie | 4.2 | 4.9 | 7.5 | 7.4 |
 
 Trois résultats se dégagent :
 
-- Pour les mois isolés, le modèle saisonnier vaut à peu près l'interpolation linéaire, comme prévu : sur un seul mois, la correction du résidu rend
+- Pour les mois isolés, le modèle saisonnier vaut à peu près l’interpolation linéaire, comme prévu : sur un seul mois, la correction du résidu rend
   les deux presque identiques.
-- Pour les lacunes de 11 mois, l'interpolation linéaire coupe en ligne droite tout un cycle saisonnier, et son erreur est deux à trois fois celle du
-  modèle saisonnier dans les régions à cycle marqué (4.7 contre 1.5 cm pour le Northern Midwest).
-- Dans les trois premières régions, l'erreur du modèle saisonnier est nettement inférieure à l'incertitude GRACE. La Vallée Centrale de Californie se comble
-  moins bien, avec des erreurs supérieures à l'incertitude, car son stockage est gouverné par des sécheresses et des années humides pluriannuelles qu'aucun cycle saisonnier moyen
-  ne peut prévoir à l'intérieur d'une longue lacune.
+- Pour les lacunes de 11 mois, l’interpolation linéaire coupe en ligne droite tout un cycle saisonnier, et son erreur vaut 1.7 fois celle du
+  modèle saisonnier dans le Northern Midwest (4.0 contre 2.4 cm) et 3.3 fois dans le Bassin de la Volta (7.5 contre 2.3).
+- Dans les trois premières régions, l’erreur du modèle saisonnier reste inférieure à l’incertitude GRACE pour les deux tests. La Vallée Centrale
+  de Californie se comble moins bien : sur une longue lacune son erreur dépasse l’incertitude, car son stockage est gouverné par des sécheresses
+  et des années humides pluriannuelles qu’aucun cycle saisonnier moyen ne peut prévoir à l’intérieur de onze mois.
 
-L'erreur d'une valeur comblée provient du modèle et non de GRACE ; l'application ne trace donc pas la bande d'incertitude pour les mois comblés. Dans une
+L’erreur d’une valeur comblée provient du modèle et non de GRACE ; l’application ne trace donc pas la bande d’incertitude pour les mois comblés. Dans une
 région comme la Vallée Centrale, traitez avec une prudence accrue les résultats qui dépendent de mois comblés, par exemple la recharge des années que
-l'[Analyse de la Recharge](../recharge/results.md#the-table) signale comme utilisant des mois comblés.
+l’[Analyse de la Recharge](../recharge/results.md#the-table) signale comme utilisant des mois comblés.
 
 ## Référence { #reference }
 

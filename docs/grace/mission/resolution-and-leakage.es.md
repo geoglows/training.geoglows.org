@@ -1,5 +1,11 @@
 # Resolución, Fuga de Señal y Regiones Pequeñas
 
+Todo lo de esta página trata de la medición de GRACE, y se aplica a los dos conjuntos de datos de la aplicación. GLDAS 2.2 se apoya en una malla
+de modelo de 0.25°, pero el agua subterránea que contiene viene de asimilar GRACE, así que hereda la resolución de GRACE y la fuga de señal de
+GRACE. Una imagen más fina no es una medición más fina, y
+[Dónde ayuda y dónde no ayuda GLDAS 2.2](#where-gldas-22-does-and-does-not-help), al pie de la página, dice de cuáles de estas advertencias
+libera.
+
 ## Qué puede resolver GRACE { #what-grace-can-resolve }
 
 GRACE detecta la masa a través de la gravedad, y la gravedad se dispersa con la distancia. Desde una órbita a cientos de kilómetros de altura, dos
@@ -65,6 +71,24 @@ distintos; esa diferencia viene de un modelo de superficie terrestre, no de GRAC
 
 ![Valle Central de California: un acuífero angosto con bombeo intenso rodeado de montañas, cercano al peor caso de fuga de señal](../../static/images/grace/app-central-valley.webp)
 
+### Dónde ayuda y dónde no ayuda GLDAS 2.2 { #where-gldas-22-does-and-does-not-help }
+
+Cambiar a GLDAS 2.2 lleva la malla de 1° a 0.25° dentro de una región, lo que ayuda con uno de los problemas de arriba y con ninguno de los
+demás.
+
+Ayuda con el **muestreo**. Una cuenca de unos pocos grados de ancho queda descrita por dieciséis veces más celdas, así que la regla del 35% del
+área descarta mucho menos de ella, el promedio ponderado por área se comporta mejor, y una región demasiado pequeña para tener una sola celda de
+1° que califique puede tener varias a 0.25°. Si la dificultad es que tu región apenas aparece en la malla, 2.2 es la respuesta.
+
+No ayuda con la **fuga de señal ni la resolución**. El agua subterránea de 2.2 es un estado de modelo corregido asimilando GRACE, y esa
+corrección llega con la resolución de GRACE por fina que sea la malla del modelo. Dos celdas de 0.25° dentro de un mismo mascon difieren por lo
+que el modelo Catchment dice de ellas, que es la misma situación que dos celdas de 1° difiriendo por sus factores de ganancia. Ninguna de las dos
+cosas es una segunda medición.
+
+Tampoco elimina la regla práctica. Una cuenca de 20,000 km² leída de 2.2 sigue siendo una cuenca que GRACE no puede resolver, dibujada con más
+finura. Los enfoques de arriba —analizar la unidad hidrológica mayor, calibrar contra pozos, leer una sola celda con sospecha— se aplican a un
+mapa de 2.2 igual que a uno de GRACE.
+
 ## Otras limitaciones { #other-limitations }
 
 - **Almacenamiento, no niveles.** La GWSa es un cambio en la masa de agua. Convertirla en un cambio en la elevación del nivel freático requiere un
@@ -73,7 +97,8 @@ distintos; esa diferencia viene de un modelo de superficie terrestre, no de GRAC
 - **Error de los modelos.** Los errores en los términos de humedad del suelo, nieve y dosel de GLDAS pasan directamente a la GWSa. Esto es más
   grave en regiones nevadas y húmedas, donde esos términos son grandes.
 - **Agua superficial.** Los cambios en embalses, lagos y llanuras de inundación se cuentan como agua subterránea (ver
-  [Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md)).
+  [Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md)). Esto vale para los dos conjuntos de datos: ningún modelo
+  de GLDAS lleva ríos, lagos ni embalses tampoco.
 
 Aun con estos límites, GRACE ofrece una visión consistente e independiente del cambio de almacenamiento en sistemas acuíferos completos, que a
 menudo es la única disponible. Úsalo para tendencias regionales y compáralo con datos locales siempre que puedas.

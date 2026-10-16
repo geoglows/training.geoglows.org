@@ -97,9 +97,18 @@ elegir otro mes de inicio (consulta [Años Hidrológicos y Selección de Puntos]
 entre el pico del año anterior y el pico de este año. S<sub>A</sub> es el pico del año anterior. El primer año hidrológico del registro no tiene
 pico anterior, así que su S<sub>A</sub> es el mes más alto sin tendencia antes de su valle.
 
-**La línea de recesión.** La línea es un ajuste por mínimos cuadrados a la GWSa rellenada desde S<sub>A</sub> hasta S<sub>B</sub>. Cuando el valle llega menos
-de cuatro meses después de S<sub>A</sub>, el ajuste usa en su lugar los cuatro meses que terminan en el valle, de modo que nunca se ajusta una pendiente a dos o tres
-puntos.
+**La línea de recesión.** La línea va sobre la GWSa rellenada desde S<sub>A</sub> hasta S<sub>B</sub>, y el control **Recession slope** de la
+página de recarga ofrece dos maneras de medirla:
+
+- **Endpoints** (el valor predeterminado) traza la recta que pasa por S<sub>A</sub> y S<sub>B</sub>. Dos meses la definen, así que siempre
+  empieza en S<sub>A</sub> y encuentra la proyección exactamente en el valle.
+- **Fitted** es un ajuste por mínimos cuadrados sobre todos los meses del descenso, que es lo que describen Barbosa et al. (2022). Sus extremos
+  caen donde los pone el ajuste y no sobre los puntos seleccionados. Cuando el valle llega menos de cuatro meses después de S<sub>A</sub>, el
+  ajuste usa en su lugar los cuatro meses que terminan en el valle, de modo que nunca se ajusta una pendiente a dos o tres puntos.
+
+Las dos coinciden siempre que la línea ajustada queda a la misma distancia de los dos extremos del descenso, que es lo que pasa en la mayoría de
+los años. Los promedios regionales apenas se mueven entre una y otra —el 3.2% en Iullemeden, el 1.8% en el Valle Central—, pero un año
+hidrológico suelto puede desplazarse un 15%, y una pendiente ajustada que sale plana elimina por completo la corrección por drenaje de ese año.
 
 **Unidades.** GWSa está en centímetros de agua, así que R1 y R2 están en cm por año, promediados sobre la región. Multiplicados por el área de la región
 dan un volumen:
@@ -121,6 +130,17 @@ No se aplica donde la recarga ocurre todo el año sin un ascenso claro, en regio
 y secos plurianuales dominan el registro. La aplicación evalúa estas condiciones en cada serie antes de ejecutar el método (consulta
 [Apertura del Análisis](opening.md)).
 
+### Sobre qué conjunto de datos ejecutarlo { #which-dataset-to-run-it-on }
+
+Cualquiera de los dos funciona, y no dan la misma respuesta. En la Cuenca del Volta, Barbosa et al. (2025) obtuvieron 5.8 y 10.7 cm/año del
+conjunto de datos de GRACE con los dos métodos de arriba, 17.4 y 36.1 cm/año de GLDAS 2.2, y una mediana de 10.4 cm/año de los pozos de la
+subcuenca del Nasia. Su recomendación es usar 2.2 para tendencias y la serie de GRACE para recarga.
+
+Las dos series obtienen su ascenso anual de maneras distintas. En la ruta de GRACE, el ascenso es un cambio de masa medido. En la ruta 2.2 es un
+estado de modelo que GRACE corrige una vez al mes, y la corrección es ella misma parte del movimiento estacional, así que el ascenso que lee el
+método no es solo el cambio de almacenamiento que el método supone. Ejecuta los dos, y toma una diferencia grande entre ellos como razón para
+mirar los pozos y no para elegir el número mayor.
+
 ## Referencias { #references }
 
 - Healy, R. W., and Cook, P. G. (2002). Using groundwater levels to estimate recharge. *Hydrogeology Journal*, 10, 91–109.
@@ -128,3 +148,7 @@ y secos plurianuales dominan el registro. La aplicación evalúa estas condicion
 - Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). Evaluating groundwater storage change and
   recharge using GRACE data: A case study of aquifers in Niger, West Africa. *Remote Sensing*, 14(7), 1532.
   [doi:10.3390/rs14071532](https://doi.org/10.3390/rs14071532){:target="_blank"}
+- Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., et al. (2025). A Multi-Source Approach to Groundwater
+  Storage and Recharge Assessment in the Volta Basin. *Science of the Total Environment*.
+  [doi:10.1016/j.scitotenv.2025.180421](https://doi.org/10.1016/j.scitotenv.2025.180421){:target="_blank"}
+  La comparación de las estimaciones de recarga de los dos conjuntos de datos; ver [Cuenca del Volta](../case-studies/volta.md).

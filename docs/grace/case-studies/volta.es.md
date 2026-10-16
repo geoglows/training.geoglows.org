@@ -7,6 +7,11 @@
 
 ## Contexto y datos { #setting-and-data }
 
+!!! tip "Qué región elegir en la aplicación"
+    **VOLTA**, del conjunto **Major River Basins (GRDC)**: 412,000 km², la cuenca hidrográfica que usó el estudio. El conjunto
+    **Transboundary Aquifers (IGRAC)** también ofrece una región llamada **Volta Basin**, pero esa es el acuífero y no la cuenca del río,
+    130,000 km², y no reproducirá nada de esta página.
+
 La cuenca del Volta abarca unos 400,000 km² en Ghana, Burkina Faso, Togo, Malí, Costa de Marfil y Benín. El lago Volta, detrás de la presa de Akosombo,
 cubre solo cerca del 2% de la cuenca, pero almacena un volumen de agua grande y variable.
 

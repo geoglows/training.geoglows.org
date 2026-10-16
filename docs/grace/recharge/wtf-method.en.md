@@ -148,3 +148,7 @@ larger number.
 - Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). Evaluating groundwater storage change and
   recharge using GRACE data: A case study of aquifers in Niger, West Africa. *Remote Sensing*, 14(7), 1532.
   [doi:10.3390/rs14071532](https://doi.org/10.3390/rs14071532){:target="_blank"}
+- Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., et al. (2025). A Multi-Source Approach to Groundwater
+  Storage and Recharge Assessment in the Volta Basin. *Science of the Total Environment*.
+  [doi:10.1016/j.scitotenv.2025.180421](https://doi.org/10.1016/j.scitotenv.2025.180421){:target="_blank"}
+  The comparison of the two datasets' recharge estimates; see [Volta Basin](../case-studies/volta.md).

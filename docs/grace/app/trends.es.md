@@ -13,12 +13,19 @@ En la vista regional, arriba, cada acuífero o cuenca recibe una tendencia a par
 
 ![Tendencia del almacenamiento de agua subterránea en los últimos cinco años para cada celda de 1°, en la vista global](../../static/images/grace/app-global-trends.webp)
 
-La vista global, arriba, clasifica las 15,159 celdas terrestres, así que muestra dónde está cambiando el almacenamiento sin importar los límites
-de los acuíferos: aumenta en el Sahel y África Oriental, y disminuye en gran parte de Oriente Medio, el norte de la India y Brasil.
+La vista global, arriba, clasifica todas las celdas terrestres —15,159 en la malla de 1° del conjunto de datos de GRACE y 17,346 en la de
+GLDAS 2.2, que lleva una máscara de tierra algo mayor—, así que muestra dónde está cambiando el almacenamiento sin importar los límites de los
+acuíferos: aumenta en el Sahel y África Oriental, y disminuye en gran parte de Oriente Medio, el norte de la India y Brasil.
 
 La tendencia es la pendiente de una recta ajustada por mínimos cuadrados a los valores mensuales dentro de la ventana de tendencia, en cm por año.
-Los meses sin datos de GRACE se omiten, no se rellenan. Una región o celda necesita al menos 24 meses con datos dentro de la ventana para
-clasificarse; de lo contrario se muestra como **Insufficient data** (datos insuficientes).
+Los meses sin datos de GRACE se omiten en lugar de rellenarse, lo que afecta solo al conjunto de datos de GRACE; GLDAS 2.2 tiene un valor en
+todos los meses. Una región o celda necesita al menos 24 meses con datos dentro de la ventana para clasificarse; de lo contrario se muestra como
+**Insufficient data** (datos insuficientes).
+
+Las tendencias se calculan sobre el conjunto de datos que esté seleccionado, así que la clasificación cambia al cambiar de conjunto. Dos
+diferencias importan al comparar los dos mapas. GLDAS 2.2 empieza en febrero de 2003 frente al abril de 2002 de GRACE, así que la ventana
+**All** cubre diez meses menos. Y una tendencia de 2.2 es una tendencia en un estado de modelo que GRACE corrige cada mes, que hereda la
+resolución de GRACE por fina que parezca la malla del modelo.
 
 | Clase | Tendencia (cm/año) |
 |---|---|
@@ -32,6 +39,9 @@ La leyenda cuenta las regiones o celdas de cada clase. Como referencia, una tend
 pérdida de 2 km³ de agua al año.
 
 ### Factores de ganancia y magnitud de las tendencias { #gain-factors-and-trend-magnitudes }
+
+Esta sección trata del conjunto de datos de GRACE. GLDAS 2.2 no se ve afectado: no se le aplica ningún factor de ganancia, y la solución de
+GRACE que se asimila en él es la del CSR y no la del JPL.
 
 La TWSa que sirve la aplicación tiene aplicados los factores de ganancia de JPL (ver
 [Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md#gain-factors)), y esos factores pasan directamente a las

@@ -54,11 +54,6 @@
   Water Resources Research, 1999  
   [DOI: 10.1029/1999WR900141](https://doi.org/10.1029/1999WR900141){:target="_blank"}
 
-- **The Global Land Data Assimilation System**  
-  *Matthew Rodell et al.*  
-  Bulletin of the American Meteorological Society, 2004  
-  [DOI: 10.1175/BAMS-85-3-381](https://doi.org/10.1175/BAMS-85-3-381){:target="_blank"}
-
 - **Satellite-Based Estimates of Groundwater Depletion in India**  
   *Matthew Rodell, Isabella Velicogna, James S. Famiglietti*  
   Nature, 2009  
@@ -83,6 +78,38 @@
   *James S. Famiglietti*  
   Nature Climate Change, 2014  
   [DOI: 10.1038/nclimate2425](https://doi.org/10.1038/nclimate2425){:target="_blank"}
+
+### GLDAS y los modelos de superficie terrestre { #gldas-and-the-land-surface-models }
+
+- **The Global Land Data Assimilation System**  
+  *Matthew Rodell et al.*  
+  Bulletin of the American Meteorological Society, 2004  
+  [DOI: 10.1175/BAMS-85-3-381](https://doi.org/10.1175/BAMS-85-3-381){:target="_blank"}  
+  El sistema detrás de cada término de modelo de la aplicación.
+
+- **A Catchment-Based Approach to Modeling Land Surface Processes in a General Circulation Model: 1. Model Structure**  
+  *Randal D. Koster, Max J. Suarez, Agnès Ducharne, Marc Stieglitz, Praveen Kumar*  
+  Journal of Geophysical Research, 2000  
+  [DOI: 10.1029/2000JD900327](https://doi.org/10.1029/2000JD900327){:target="_blank"}  
+  El modelo Catchment, el único modelo de superficie terrestre de GLDAS que lleva el agua subterránea como un estado.
+
+- **Assimilation of Gridded GRACE Terrestrial Water Storage Estimates in the North American Land Data Assimilation System**  
+  *Sujay V. Kumar et al.*  
+  Journal of Hydrometeorology, 2016  
+  [DOI: 10.1175/JHM-D-15-0157.1](https://doi.org/10.1175/JHM-D-15-0157.1){:target="_blank"}  
+  El esquema de asimilación que usa GLDAS 2.2.
+
+- **Global GRACE Data Assimilation for Groundwater and Drought Monitoring: Advances and Challenges**  
+  *Bailing Li, Matthew Rodell, Sujay Kumar, Hiroko Kato Beaudoing, Augusto Getirana, Benjamin F. Zaitchik et al.*  
+  Water Resources Research, 2019  
+  [DOI: 10.1029/2018WR024618](https://doi.org/10.1029/2018WR024618){:target="_blank"}  
+  El estudio del que salió GLDAS 2.2, y la referencia de lo que la asimilación le hace al agua subterránea.
+
+- **Accuracy of Scaled GRACE Terrestrial Water Storage Estimates**  
+  *Felix W. Landerer, Sean C. Swenson*  
+  Water Resources Research, 2012  
+  [DOI: 10.1029/2011WR011453](https://doi.org/10.1029/2011WR011453){:target="_blank"}  
+  La derivación de los factores de ganancia que la aplicación aplica a GRACE, que también vienen de un modelo de superficie terrestre.
 
 ### Estimación de la recarga { #recharge-estimation }
 

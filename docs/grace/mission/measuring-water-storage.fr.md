@@ -50,13 +50,18 @@ gravité par une série mathématique lisse, le JPL divise la surface de la Terr
 330 km) de diamètre, et calcule directement la variation de masse de chaque calotte. Le filtre côtier scinde les calottes qui chevauchent une
 côte afin que les variations de masse océaniques ne contaminent pas les valeurs continentales.
 
-Le JPL distribue les valeurs des mascons sur une grille de 0.5° par commodité. Les mailles de 0.5° situées à l’intérieur d’un mascon reprennent
-toutes la valeur de ce mascon : la résolution réelle de la TWSa est donc le mascon de 3°, et non la maille de 0.5°. Vous pouvez le constater dans
-l’application : choisissez TWSa comme couche affichée, zoomez et activez **Show mascon boundaries** (afficher les limites des mascons). Les
-mailles TWSa ne changent de valeur qu’au franchissement d’une limite de mascon.
+Le JPL distribue les valeurs des mascons sur une grille de 0.5° par commodité, et dans le fichier publié chaque maille de 0.5° située à
+l’intérieur d’un mascon reprend la valeur de ce mascon. L’application les multiplie par les facteurs de gain du JPL, qui varient d’une maille à
+l’autre et donnent donc à la grille une certaine structure à l’intérieur de chaque mascon (voir
+[Facteurs de gain](../gldas/deriving-groundwater.md#gain-factors)). Cette structure vient d’un modèle de surface terrestre. La mesure en dessous
+reste une valeur par calotte de 3°, et la résolution réelle de la TWSa est le mascon.
 
-La TWSa du JPL est calculée par rapport à la moyenne de janvier 2004 à décembre 2009. La même période de référence est utilisée pour toutes les
-couches de l’application.
+Les mascons sont visibles dans l’application : choisissez TWSa comme couche affichée, zoomez et activez **Mascon boundaries** (les limites des
+mascons). Les grands sauts de valeur tombent sur les bords des mascons ; la variation plus faible d’une maille à l’autre à l’intérieur d’un
+mascon, ce sont les facteurs de gain.
+
+La TWSa du JPL est calculée par rapport à la moyenne de janvier 2004 à décembre 2009. Toutes les couches des deux jeux de données utilisent cette
+même période de référence, et c’est ce qui permet de les tracer sur un seul axe.
 
 ## La série et ses lacunes { #the-record-and-its-gaps }
 
@@ -72,7 +77,9 @@ décalage. Elle présente deux types de lacunes :
   juin 2018, laissant 11 mois sans mesures.
 
 L’application affiche les mois manquants comme des lacunes dans la série temporelle et les saute dans l’animation de la carte. La page
-[Lacunes et Comblement des Lacunes](gap-filling.md) montre comment les estimer lorsqu’une analyse nécessite une série mensuelle complète.
+[Lacunes et Comblement des Lacunes](gap-filling.md) montre comment les estimer lorsqu’une analyse nécessite une série mensuelle complète. GLDAS
+2.2 n’a pas de lacunes qui lui soient propres — le modèle tourne pendant ces mois sans être corrigé — et changer de jeu de données est donc une
+autre façon de les contourner, avec la réserve que les mois non corrigés ne sont pas signalés.
 
 ## Références { #references }
 

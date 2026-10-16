@@ -50,11 +50,17 @@ gravitatorio con una serie matemática suave, JPL divide la superficie de la Tie
 (aproximadamente 330 km) de ancho, y resuelve directamente el cambio de masa en cada casquete. El filtro de línea de costa divide los casquetes
 que cruzan una costa para que los cambios de masa del océano no contaminen los valores en tierra.
 
-JPL distribuye los valores mascon en una malla de 0.5° por conveniencia. Todas las celdas de 0.5° dentro de un mascon repiten el valor de ese
-mascon, así que la resolución real de la TWSa es el mascon de 3°, no la celda de 0.5°. Puedes verlo en la aplicación: cambia la capa mostrada a
-TWSa, acércate y activa **Show mascon boundaries**. Las celdas de TWSa solo cambian de valor donde cruzan el límite de un mascon.
+JPL distribuye los valores mascon en una malla de 0.5° por conveniencia, y en el archivo publicado cada celda de 0.5° dentro de un mascon repite
+el valor de ese mascon. La aplicación los multiplica por los factores de ganancia de JPL, que varían de celda a celda y por tanto dan a la malla
+cierta estructura dentro de cada mascon (ver [Factores de ganancia](../gldas/deriving-groundwater.md#gain-factors)). Esa estructura viene de un
+modelo de superficie terrestre. La medición que hay debajo sigue siendo un valor por casquete de 3°, y la resolución real de la TWSa es el
+mascon.
 
-La TWSa de JPL es relativa a la media de enero de 2004 a diciembre de 2009. La aplicación usa la misma línea base para todas las capas.
+Los mascones pueden verse en la aplicación: cambia la capa mostrada a TWSa, acércate y activa **Mascon boundaries**. Los saltos grandes de valor
+caen en los bordes de los mascones; la variación menor de celda a celda dentro de uno son los factores de ganancia.
+
+La TWSa de JPL es relativa a la media de enero de 2004 a diciembre de 2009. Todas las capas de los dos conjuntos de datos usan esa misma línea
+base, que es lo que permite dibujarlas en un solo eje.
 
 ## El registro y sus vacíos { #the-record-and-its-gaps }
 
@@ -70,7 +76,9 @@ Tiene dos tipos de vacíos:
   lo que deja 11 meses sin mediciones.
 
 La aplicación muestra los meses faltantes como vacíos en la serie temporal y los omite en la animación del mapa. La página
-[Vacíos y Relleno de Vacíos](gap-filling.md) muestra cómo estimarlos cuando un análisis necesita un registro mensual completo.
+[Vacíos y Relleno de Vacíos](gap-filling.md) muestra cómo estimarlos cuando un análisis necesita un registro mensual completo. GLDAS 2.2 no
+tiene vacíos propios —el modelo corre durante esos meses sin corregir—, así que cambiar de conjunto de datos es otra manera de sortearlos, con
+la advertencia de que los meses sin corregir no están marcados.
 
 ## Referencias { #references }
 

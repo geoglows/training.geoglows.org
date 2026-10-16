@@ -9,7 +9,7 @@ Dos tarjetas dan la media de R1 y R2 sobre todos los años hidrológicos, en cm/
 
 ![R1 y R2 medios del Northern Midwest Aquifer System](../../static/images/grace/app-recharge-summary.webp)
 
-Para el Northern Midwest Aquifer System, la recarga media es de 9.81 cm/año (R1) a 17.88 cm/año (R2), o de 31.4 a 57.3 km³/año sobre 320,368 km².
+Para el Northern Midwest Aquifer System, la recarga media es de 8.08 cm/año (R1) a 13.67 cm/año (R2), o de 25.9 a 43.8 km³/año sobre 320,368 km².
 
 ## Recarga por año hidrológico { #recharge-by-water-year }
 
@@ -17,9 +17,9 @@ El gráfico muestra R1 y R2 de cada año hidrológico como pares de barras, con 
 
 ![R1 y R2 por año hidrológico del Northern Midwest Aquifer System](../../static/images/grace/app-recharge-chart.webp)
 
-El gráfico muestra cuánto varía la recarga de un año a otro. Para el Northern Midwest Aquifer System, R1 va de 4.1 cm en 2024 a 18.1 cm
-en 2023. La diferencia entre cada par de barras es R<sub>D</sub>, el drenaje que suma la línea de recesión, y es mayor en los años con una recesión
-pronunciada, como 2013.
+El gráfico muestra cuánto varía la recarga de un año a otro. Para el Northern Midwest Aquifer System, R1 va de 3.4 cm en 2020 a 12.8 cm
+en 2004. La diferencia entre cada par de barras es R<sub>D</sub>, el drenaje que suma la línea de recesión, y es mayor en los años con una recesión
+pronunciada, como 2020.
 
 ## La tabla { #the-table }
 
@@ -71,8 +71,8 @@ queda fuera de las medias.
 
 - **Reporta R1 y R2 juntos.** Acotan la recarga: R1 deja fuera el drenaje durante el ascenso, y R2 prolonga la línea de recesión mucho
   más allá de los meses a los que se ajustó. Lo más probable es que el valor real esté entre ambos.
-- **Usa promedios plurianuales.** La incertidumbre ±1σ de un valor mensual de GWSa suele ser tan grande como el ascenso de un solo año: ±4.4 cm frente a un
-  R1 medio de 9.8 cm para el Northern Midwest Aquifer System. La estimación de un solo año es incierta, y una media de diez o más años es mucho más
+- **Usa promedios plurianuales.** La incertidumbre ±1σ de un valor mensual de GWSa suele ser tan grande como el ascenso de un solo año: ±3.5 cm frente a un
+  R1 medio de 8.1 cm para el Northern Midwest Aquifer System. La estimación de un solo año es incierta, y una media de diez o más años es mucho más
   robusta.
 - **Revisa los años que usan meses rellenados.** Los resultados de esos años dependen del modelo de relleno de vacíos, sobre todo alrededor del vacío de 2017–2018 entre
   las misiones.

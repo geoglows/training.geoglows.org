@@ -13,12 +13,19 @@ Dans la vue régionale, ci-dessus, chaque aquifère ou bassin reçoit une tendan
 
 ![Tendance du stockage des eaux souterraines sur les cinq dernières années pour chaque maille de 1°, dans la vue globale](../../static/images/grace/app-global-trends.webp)
 
-La vue globale, ci-dessus, classe les 15 159 mailles continentales : elle montre donc où le stockage évolue, indépendamment des limites des
-aquifères. Il augmente dans le Sahel et en Afrique de l’Est, et diminue dans une grande partie du Moyen-Orient, le nord de l’Inde et le Brésil.
+La vue globale, ci-dessus, classe toutes les mailles continentales — 15 159 sur la grille à 1° du jeu de données GRACE et 17 346 sur celle de
+GLDAS 2.2, qui porte un masque terrestre un peu plus large : elle montre donc où le stockage évolue, indépendamment des limites des aquifères.
+Il augmente dans le Sahel et en Afrique de l’Est, et diminue dans une grande partie du Moyen-Orient, le nord de l’Inde et le Brésil.
 
 La tendance est la pente d’une droite ajustée par moindres carrés sur les valeurs mensuelles de la fenêtre de tendance, en cm par an. Les mois
-sans données GRACE sont ignorés, et non comblés. Une région ou une maille doit disposer d’au moins 24 mois de données dans la fenêtre pour être
-classée ; sinon, elle apparaît comme **Insufficient data**.
+sans données GRACE sont ignorés plutôt que comblés, ce qui ne concerne que le jeu de données GRACE ; GLDAS 2.2 a une valeur à chaque mois. Une
+région ou une maille doit disposer d’au moins 24 mois de données dans la fenêtre pour être classée ; sinon, elle apparaît comme
+**Insufficient data**.
+
+Les tendances sont calculées sur le jeu de données sélectionné : la classification change donc quand vous en changez. Deux différences comptent
+quand on compare les deux cartes. GLDAS 2.2 commence en février 2003 contre avril 2002 pour GRACE, et la fenêtre **All** couvre donc dix mois de
+moins. Et une tendance 2.2 est une tendance dans un état de modèle que GRACE corrige chaque mois, qui hérite de la résolution de GRACE quelque
+fine que paraisse la grille du modèle.
 
 | Classe | Tendance (cm/an) |
 |---|---|
@@ -32,6 +39,9 @@ La légende compte les régions ou les mailles de chaque classe. À titre de rep
 à une perte de 2 km³ d’eau par an.
 
 ### Facteurs de gain et amplitude des tendances { #gain-factors-and-trend-magnitudes }
+
+Cette section porte sur le jeu de données GRACE. GLDAS 2.2 n’est pas concerné : aucun facteur de gain ne lui est appliqué, et la solution GRACE
+qui y est assimilée est celle du CSR et non celle du JPL.
 
 La TWSa servie par l’application a les facteurs de gain du JPL appliqués (voir
 [Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md#gain-factors)), et ces facteurs se répercutent directement sur

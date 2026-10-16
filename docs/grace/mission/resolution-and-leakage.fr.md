@@ -1,5 +1,11 @@
 # Résolution, Fuite du Signal et Petites Régions
 
+Tout ce qui est sur cette page porte sur la mesure GRACE, et s’applique aux deux jeux de données de l’application. GLDAS 2.2 s’appuie sur une
+grille de modèle à 0.25°, mais les eaux souterraines qu’il contient viennent de l’assimilation de GRACE : il hérite donc de la résolution de
+GRACE et de la fuite du signal de GRACE. Une image plus fine n’est pas une mesure plus fine, et
+[Là où GLDAS 2.2 aide et là où il n’aide pas](#where-gldas-22-does-and-does-not-help), au bas de la page, dit de quelles mises en garde il
+dispense.
+
 ## Ce que GRACE peut résoudre { #what-grace-can-resolve }
 
 GRACE détecte la masse par la gravité, et la gravité s’atténue avec la distance. Depuis une orbite située à plusieurs centaines de kilomètres
@@ -67,6 +73,25 @@ valeurs différentes ; cet écart vient d’un modèle de surface terrestre, non
 
 ![Vallée Centrale de Californie : un aquifère étroit et fortement exploité, entouré de montagnes, proche du cas le plus défavorable pour la fuite du signal](../../static/images/grace/app-central-valley.webp)
 
+### Là où GLDAS 2.2 aide et là où il n’aide pas { #where-gldas-22-does-and-does-not-help }
+
+Passer à GLDAS 2.2 fait passer la grille de 1° à 0.25° à l’intérieur d’une région, ce qui aide pour un des problèmes ci-dessus et pour aucun des
+autres.
+
+Cela aide pour l’**échantillonnage**. Un bassin large de quelques degrés est décrit par seize fois plus de mailles : la règle des 35 % de
+surface en écarte donc beaucoup moins, la moyenne pondérée par la surface se comporte mieux, et une région trop petite pour avoir une seule
+maille de 1° admissible peut très bien en avoir plusieurs à 0.25°. Si la difficulté est que votre région apparaît à peine sur la grille, 2.2 est
+la réponse.
+
+Cela n’aide pas pour la **fuite du signal ni la résolution**. Les eaux souterraines de 2.2 sont un état de modèle corrigé par assimilation de
+GRACE, et cette correction arrive à la résolution de GRACE, quelque fine que soit la grille du modèle. Deux mailles de 0.25° à l’intérieur d’un
+même mascon diffèrent par ce que le modèle Catchment dit d’elles, ce qui est la même situation que deux mailles de 1° qui diffèrent par leurs
+facteurs de gain. Ni l’une ni l’autre n’est une seconde mesure.
+
+Cela ne supprime pas non plus la règle empirique. Un bassin de 20 000 km² lu dans 2.2 reste un bassin que GRACE ne peut pas résoudre, dessiné
+plus finement. Les approches ci-dessus — analyser l’unité hydrologique plus grande, calibrer sur des puits, lire une maille isolée avec
+méfiance — s’appliquent à une carte 2.2 exactement comme à une carte GRACE.
+
 ## Autres limites { #other-limitations }
 
 - **Du stockage, pas des niveaux.** La GWSa est une variation de la masse d’eau. La convertir en variation du niveau de la nappe nécessite un
@@ -76,7 +101,8 @@ valeurs différentes ; cet écart vient d’un modèle de surface terrestre, non
 - **Erreur des modèles.** Les erreurs des termes GLDAS d’humidité du sol, de neige et de canopée se reportent directement sur la GWSa. C’est
   surtout problématique dans les régions enneigées et humides, où ces termes sont importants.
 - **Eaux de surface.** Les variations des réservoirs, des lacs et des plaines inondables sont comptabilisées comme eaux souterraines (voir
-  [Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md)).
+  [Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md)). Cela vaut pour les deux jeux de données : aucun modèle GLDAS ne
+  porte davantage de rivières, de lacs ou de réservoirs.
 
 Malgré ces limites, GRACE offre une vision cohérente et indépendante de la variation du stockage sur des systèmes aquifères entiers, souvent la
 seule disponible. Utilisez-le pour les tendances régionales et comparez-le aux données locales chaque fois que possible.

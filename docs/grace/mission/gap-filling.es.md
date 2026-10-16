@@ -6,6 +6,11 @@ Al registro de GRACE le faltan 35 meses: meses sueltos, la mayoría entre 2011 y
 de GRACE-FO (consulta [Cómo GRACE Mide el Almacenamiento de Agua](measuring-water-storage.md#the-record-and-its-gaps)). TWSa y GWSa tienen vacíos en esos
 meses. Las capas de GLDAS (SMa, SWEa y CANa) provienen de modelos de superficie terrestre que se ejecutan todos los meses, así que no tienen vacíos.
 
+Esta página trata del conjunto de datos de GRACE. GLDAS 2.2 tiene un valor en todos los meses de su registro, porque el modelo sigue corriendo
+haya o no un campo de GRACE con el que corregirlo ese mes, así que no hay nada que rellenar en él y el control **Gap filling** queda oculto
+mientras está seleccionado. El revés es que una serie de 2.2 no da ninguna señal de dónde se interrumpió la corrección: la línea es continua a
+lo largo de esos mismos 35 meses, trazada solo con el modelo.
+
 El análisis de tendencias de la aplicación omite los meses faltantes. Los análisis que trabajan año por año necesitan un valor para cada mes. En el
 [Análisis de Recarga](../recharge/wtf-method.md), por ejemplo, un mes faltante en un pico o un valle estacional cambia el resultado de ese año. La aplicación
 estima los meses faltantes con un modelo estacional, siguiendo el enfoque de Barbosa et al. (2022). Abajo vienen primero las opciones de la
@@ -92,7 +97,7 @@ Los doce niveles también hacen de intercepto, así que no hay un término const
 solo ciclo anual promedio, y un año húmedo aparece en el residuo y no en *S*.
 
 Para el Northern Midwest Aquifer System, los niveles, desplazados para promediar cero como se describe en [Ajuste del modelo](#fitting-the-model),
-van de −4.3 cm en marzo a +3.8 cm en agosto:
+van de −3.4 cm en febrero a +3.2 cm en junio:
 
 ![Los doce niveles mensuales del ciclo estacional del Northern Midwest Aquifer System](../../static/images/grace/seasonal-levels.png){ width="700" }
 
@@ -142,7 +147,7 @@ La aplicación ajusta el mejor modelo con 0, 1, 2 y 3 puntos de quiebre. Partien
 el BIC de ese modelo es al menos 10 menor que el BIC del modelo elegido hasta ese momento. Una caída de 10 es evidencia fuerte de que el quiebre adicional es real
 y no un ajuste al ruido, así que la tendencia solo se dobla donde el registro cambia claramente de dirección.
 
-Para el Northern Midwest Aquifer System, cada punto de quiebre adicional reduce el BIC en más de 10 (en 12, luego 113 y luego 44), así que la
+Para el Northern Midwest Aquifer System, cada punto de quiebre adicional reduce el BIC en más de 10 (en 115, luego 181 y luego 43), así que la
 aplicación conserva los tres:
 
 ![La mejor tendencia con 0, 1, 2 y 3 puntos de quiebre para el Northern Midwest Aquifer System, con el BIC de cada una](../../static/images/grace/seasonal-breakpoints.png){ width="950" }
@@ -167,13 +172,14 @@ La corrección le da al relleno una forma razonable sea cual sea la longitud del
   con las estaciones habituales, mientras la corrección los desplaza para que coincidan con los valores observados en ambos extremos.
 
 Los dos residuos que definen la corrección provienen de meses distintos, y nada liga uno con el otro. En el vacío entre las misiones del
-Northern Midwest Aquifer System resultan casi iguales (−0.38 cm en junio de 2017 y −0.53 cm en junio de 2018), así que la corrección deja cada
-mes rellenado apenas por debajo del modelo solo:
+Northern Midwest Aquifer System, junio de 2017 queda 1.39 cm por encima del modelo y junio de 2018 queda 3.59 cm por debajo, así que la
+corrección se inclina 5.0 cm a lo largo de los once meses: los valores rellenados empiezan por encima del modelo solo y terminan por debajo:
 
 ![La corrección del residuo en el vacío entre GRACE y GRACE-FO para el Northern Midwest Aquifer System](../../static/images/grace/seasonal-gap-correction.png){ width="720" }
 
-En el Valle Central de California, el mismo vacío empieza 5.55 cm por encima del modelo y termina 3.64 cm por debajo. La corrección baja 9.2 cm
-a lo largo del vacío, así que los meses rellenados empiezan muy por encima del modelo solo y terminan por debajo:
+En el Valle Central de California, el mismo vacío empieza 13.66 cm por encima del modelo y termina 3.94 cm por encima. La corrección baja
+9.7 cm a lo largo del vacío, casi el doble de inclinación, así que los meses rellenados empiezan muy por encima del modelo solo y vuelven hacia
+él:
 
 ![La corrección del residuo en el vacío entre GRACE y GRACE-FO para el Valle Central de California](../../static/images/grace/seasonal-gap-correction-cv.png){ width="720" }
 
@@ -185,13 +191,13 @@ TWSa rellenado menos los términos de GLDAS de ese mes. Las capas de GLDAS no ti
 
 ### Ejemplo: el Northern Midwest Aquifer System { #example-the-northern-midwest-aquifer-system }
 
-Para el Northern Midwest Aquifer System, el BIC selecciona tres puntos de quiebre, en septiembre de 2006, mayo de 2013 y octubre de 2017, que dividen el registro
-en cuatro tramos de tendencia de +1.3, −0.7, +2.9 y −0.5 cm/año:
+Para el Northern Midwest Aquifer System, el BIC selecciona tres puntos de quiebre, en enero de 2010, enero de 2013 y junio de 2019, que dividen el registro
+en cuatro tramos de tendencia de +0.5, −2.0, +3.2 y −2.6 cm/año:
 
 ![GWSa observado del Northern Midwest Aquifer System con la tendencia de cuatro tramos y los meses rellenados en rojo](../../static/images/grace/gap-filling-example.png){ width="800" }
 
 Los meses faltantes sueltos entre 2011 y 2017 quedan cerca de sus vecinos. A lo largo del vacío de 11 meses entre las misiones, los valores rellenados
-suben a 12.8 cm en septiembre de 2017 y bajan a 4.8 cm en marzo de 2018 antes de encontrarse con el primer mes de GRACE-FO, continuando el ciclo anual
+suben a 13.9 cm en julio de 2017 y bajan a 6.6 cm en febrero de 2018 antes de encontrarse con el primer mes de GRACE-FO, continuando el ciclo anual
 de la región. La aplicación muestra los mismos valores con **Gap filling** en **Seasonal model** (consulta
 [El control Gap filling](#the-gap-filling-control)).
 
@@ -212,29 +218,29 @@ de GRACE de la región como referencia:
 
 | Región | ±1σ | Modelo estacional | Tendencia + estacional | Lineal |
 |---|---|---|---|---|
-| Northern Midwest Aquifer System | 4.4 | 1.3 | 2.4 | 1.1 |
-| Cuenca del Volta | 3.9 | 1.6 | 2.5 | 2.0 |
-| Iullemeden-Irhazer Aquifer System | 1.9 | 0.9 | 1.1 | 0.8 |
-| Valle Central de California | 3.4 | 3.1 | 5.3 | 3.3 |
+| Northern Midwest Aquifer System | 3.5 | 1.5 | 2.6 | 1.8 |
+| Cuenca del Volta (GRDC) | 3.3 | 1.7 | 2.8 | 2.2 |
+| Iullemeden-Irhazer Aquifer System | 2.1 | 0.8 | 1.5 | 0.6 |
+| Valle Central de California | 4.2 | 3.1 | 6.6 | 3.1 |
 
 **Bloques de 11 meses** (RMSE, cm):
 
 | Región | ±1σ | Modelo estacional | Tendencia + estacional | Lineal |
 |---|---|---|---|---|
-| Northern Midwest Aquifer System | 4.4 | 1.5 | 2.3 | 4.7 |
-| Cuenca del Volta | 3.9 | 2.6 | 2.4 | 5.1 |
-| Iullemeden-Irhazer Aquifer System | 1.9 | 1.4 | 1.4 | 1.7 |
-| Valle Central de California | 3.4 | 4.2 | 4.8 | 5.2 |
+| Northern Midwest Aquifer System | 3.5 | 2.4 | 3.5 | 4.0 |
+| Cuenca del Volta (GRDC) | 3.3 | 2.3 | 3.1 | 7.5 |
+| Iullemeden-Irhazer Aquifer System | 2.1 | 1.5 | 1.6 | 2.2 |
+| Valle Central de California | 4.2 | 4.9 | 7.5 | 7.4 |
 
 Tres resultados destacan:
 
 - Para meses sueltos, el modelo estacional es casi tan bueno como la interpolación lineal, como era de esperar: en un solo mes, la corrección del residuo hace
   que ambos sean prácticamente iguales.
-- Para vacíos de 11 meses, la interpolación lineal atraviesa en línea recta un ciclo estacional completo, y su error es de dos a tres veces el del
-  modelo estacional en regiones con un ciclo marcado (4.7 frente a 1.5 cm en el Northern Midwest).
-- En las tres primeras regiones, el error del modelo estacional está muy por debajo de la incertidumbre de GRACE. El Valle Central de California se rellena peor,
-  con errores por encima de la incertidumbre, porque su almacenamiento responde a sequías plurianuales y años húmedos que ningún ciclo estacional promedio
-  puede predecir dentro de un vacío largo.
+- Para vacíos de 11 meses, la interpolación lineal atraviesa en línea recta un ciclo estacional completo, y su error es 1.7 veces el del modelo
+  estacional en el Northern Midwest (4.0 frente a 2.4 cm) y 3.3 veces en la Cuenca del Volta (7.5 frente a 2.3).
+- En las tres primeras regiones, el error del modelo estacional se mantiene por debajo de la incertidumbre de GRACE en las dos pruebas. El Valle
+  Central de California se rellena peor: a lo largo de un vacío largo su error sube por encima de la incertidumbre, porque su almacenamiento
+  responde a sequías plurianuales y años húmedos que ningún ciclo estacional promedio puede predecir dentro de once meses.
 
 El error de un valor rellenado proviene del modelo y no de GRACE, así que la aplicación no dibuja la banda de incertidumbre en los meses rellenados. En una
 región como el Valle Central, trata con especial cautela los resultados que dependen de meses rellenados, como la recarga de los años que el

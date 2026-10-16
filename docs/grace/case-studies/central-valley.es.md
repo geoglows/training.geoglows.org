@@ -8,6 +8,11 @@
 
 ## Contexto { #setting }
 
+!!! tip "Qué región elegir en la aplicación"
+    **Central Valley aquifer system**, del conjunto **Principal Aquifers, USA (USGS)**: 52,500 km², que es la extensión que usó este estudio. El
+    conjunto **Global Aquifers** también ofrece **California Central Valley**, pero ese contorno tiene 71,000 km², un tercio más grande, y
+    promedia GRACE sobre terreno que el estudio no incluyó.
+
 El Valle Central de California mide unos 700 km de largo y 80 km de ancho, unos 52,000 km², y es uno de los sistemas acuíferos con más bombeo del
 mundo. Es más angosto que un solo mascon de GRACE de 3° (unos 333 × 264 km a esa latitud), y el descenso por bombeo se concentra en el valle
 mientras las montañas circundantes se comportan de otra manera. Eso lo convierte en un caso típico de [fuga de señal](../mission/resolution-and-leakage.md#leakage):
