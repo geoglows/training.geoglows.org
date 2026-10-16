@@ -105,13 +105,53 @@ how they carry soil water:
 |---|---|---|
 | Noah 3.6 | 0.25° | four layers, 0–200 cm |
 | VIC 4.1.2 | 1° | three layers, depths varying by location |
-| Catchment (CLSM-F2.5) | 1° | whole soil profile |
+| Catchment (CLSM-F2.5) | 1° | root zone, 0–100 cm |
 
-None of the three carries a groundwater store the app can use. Noah and VIC have none at all. The Catchment model has one, but run open loop it
-has no way to know about pumping, so its groundwater follows rainfall and little else.
+None of the three carries a groundwater store the app can use. Noah and VIC have none at all: water that drains past the bottom layer leaves the
+column as baseflow and the model stops tracking it. The Catchment model does carry groundwater, but run open loop it has no way to know about
+pumping, so its groundwater follows rainfall and little else.
 
 The three models often disagree, deep soil moisture most of all. Rather than pick one, the app averages them and uses the spread between them as
 the uncertainty on each term. Bringing them together means working at the coarsest of the three grids, which is 1°.
+
+### Why the Catchment model needs separate handling
+
+Noah and VIC report soil moisture by depth layer, so the app adds the layers up. The Catchment model has no layers. It reports three reservoirs,
+and NASA's documentation for GLDAS Version 2 is explicit that they are nested: profile includes root zone, and root zone includes surface.
+
+| Reservoir | Depth | Variable |
+|---|---|---|
+| Surface | 0–2 cm | `SoilMoist_S_inst` |
+| Root zone | 0–100 cm | `SoilMoist_RZ_inst` |
+| Profile | to bedrock, varying cell by cell | `SoilMoist_P_inst` |
+
+The profile reservoir runs down past the water table, so it holds the model's groundwater along with its soil moisture. NASA defines the
+Catchment model's groundwater from that fact:
+
+$$
+\mathrm{GWS} = \mathrm{TWS} - \mathrm{RootZone} - \mathrm{SWE} - \mathrm{CanopInt}
+$$
+
+The model's total water storage is its profile water plus snow plus canopy, which closes to 5×10⁻⁴ mm on the published files. Substituting that
+leaves the groundwater as the gap between the two reservoirs:
+
+$$
+\mathrm{GWS} = \mathrm{SoilMoist\_P} - \mathrm{RootZone}
+$$
+
+Across the land surface that gap holds a median of 746 mm of water — more than three times what the root zone itself holds.
+
+So the app takes the root zone for the Catchment model and leaves the profile alone. Feeding the profile into the soil moisture term would hand
+the model's groundwater to the wrong side of the water balance: it would be subtracted from what GRACE measured, when groundwater is the very
+quantity being solved for. One third of the ensemble carrying groundwater in its soil moisture term is enough to damp the result everywhere.
+
+This also lines the two datasets up with each other. The 2.2 route starts from the same model and subtracts its groundwater from the profile, and
+by the identity above `SoilMoist_P − GWS` *is* the root zone. Both datasets' soil moisture layers therefore describe the same reservoir of the
+same model.
+
+What the change does not fix is depth. Noah sums 0–200 cm, the Catchment root zone stops at 100 cm, and VIC's lower two layers vary by location,
+so the ensemble still averages three different soil columns. That is an ordinary disagreement between models, of the kind the spread between them
+is there to express, and it is a different thing from counting groundwater as soil moisture.
 
 ## GLDAS 2.2 and the GRACE correction
 
@@ -197,7 +237,9 @@ and makes the comparison readable; it is the records that stay apart, not the re
 
 - Rui, H., and Beaudoing, H. (2025). *README Document for NASA GLDAS Version 2 Data Products*. NASA GES DISC.
   [hydro1.gesdisc.eosdis.nasa.gov](https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_CLSM025_DA1_D.2.2/doc/README_GLDAS2.pdf){:target="_blank"}
-  NASA's own documentation for the GLDAS products, and the source for the forcing, record periods, model versions and cautions on this page.
+  NASA's own documentation for the GLDAS products, and the source for the forcing, record periods, model versions and cautions on this page. Its
+  "Data Interpretation" section is where the nesting of the Catchment model's three soil moisture reservoirs and the definition of its
+  groundwater storage come from.
 
 - GLDAS data at the NASA GES DISC: [Noah](https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_M_2.1/summary){:target="_blank"},
   [VIC](https://disc.gsfc.nasa.gov/datasets/GLDAS_VIC10_M_2.1/summary){:target="_blank"},

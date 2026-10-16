@@ -45,6 +45,9 @@ Catchment model, described in [The GLDAS Land Surface Models](land-surface-model
 three on the same 1° grid (Noah is averaged from 0.25° up to 1°). Each model's anomaly is its value minus that cell's mean for 2004–2009, the
 same baseline as GRACE.
 
+Soil moisture means the summed layers for Noah and VIC, and the root zone reservoir for the Catchment model, whose published profile reservoir
+would bring the model's own groundwater along with it ([why](land-surface-models.md#why-the-catchment-model-needs-separate-handling)).
+
 The three models often disagree, particularly about deep soil moisture. Rather than choose one, the app averages them: SWEa, CANa and SMa are each
 the mean of the three models, and the spread between the models (their standard deviation) is used as the uncertainty of each term.
 
@@ -138,8 +141,10 @@ $$
 $$
 
 Served that way, SMa in the 2.2 dataset would mean something different from SMa in the GRACE dataset, and the five layers would not add up in
-the chart. The app therefore stores SMa for 2.2 as the anomaly of `SoilMoist_P − GWS`, which is soil moisture above the water table — the same
-physical quantity the GLDAS 2.1 ensemble supplies. With that substitution the five layers close exactly:
+the chart. The app therefore stores SMa for 2.2 as the anomaly of `SoilMoist_P − GWS`, which is soil moisture above the water table. By NASA's
+own definition of the model's groundwater, that difference is the root zone reservoir, which is what the GRACE dataset's ensemble takes from the
+same model — see [why the Catchment model needs separate
+handling](land-surface-models.md#why-the-catchment-model-needs-separate-handling). With that substitution the five layers close exactly:
 
 $$
 \mathrm{TWSa}_{22} = \mathrm{SWEa}_{22} + \mathrm{CANa}_{22} + \mathrm{SMa}_{22} + \mathrm{GWSa}_{22}
