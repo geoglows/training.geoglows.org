@@ -9,9 +9,9 @@
 ## Setting
 
 !!! tip "Which region to pick in the app"
-    **Central Valley aquifer system**, in the **Principal Aquifers, USA (USGS)** set — 52,500 km², which is the extent this study used. The
-    **Global Aquifers** set also offers **California Central Valley**, but that outline is 71,000 km², a third larger, and it averages GRACE
-    over ground the study did not include.
+    **Central Valley aquifer system**, in the **Principal Aquifers, USA (USGS)** set — 52,500 km², the closest of the app's outlines to the
+    ~52,000 km² the study worked over. The **Global Aquifers** set also offers **California Central Valley**, but that outline is 71,000 km², a
+    third larger, and it averages GRACE over ground the study did not include.
 
 California's Central Valley is about 700 km long and 80 km wide, about 52,000 km², and one of the most heavily pumped aquifer systems in the
 world. It is narrower than a single 3° GRACE mascon (about 333 × 264 km at that latitude), and the pumping decline is concentrated in the valley
@@ -31,18 +31,25 @@ Reprinted from Stevens et al. (2025), Fig. 3, © 2025 Elsevier, reused under the
 
 1. Wells from USGS and California Department of Water Resources databases were screened by record length; the study compared thresholds of
    150, 75 and 50 months with observations (181, 572 and 921 wells).
-2. Gaps in each well's record were filled in two steps: a machine learning model (an extreme learning machine) driven by the Palmer Drought
-   Severity Index and GLDAS soil moisture, then an iterative refinement using the three best-correlated neighboring wells.
-3. The filled records were kriged into monthly water level surfaces on a 0.1° grid.
+2. Gaps in each well's record were filled in three stages: PCHIP interpolation across gaps shorter than 120 days, then a machine learning
+   model trained per well on the Palmer Drought Severity Index and GLDAS (Noah at 0.25°, version 2.0 before 2000 and 2.1 after), then an
+   iterative refinement that retrained on the three most closely correlated wells.
+3. The filled records were kriged into monthly water level surfaces on a 0.1° grid, clipped to the valley.
 4. Changes in water level were converted to changes in storage with the specific yield map of the USGS Central Valley Hydrologic Model (CVHM).
 
 Using the 75-month threshold, the well-based storage curve matched CVHM closely (r² = 0.87, RMSE 9.04 km³).
 
 ## Calibrating GRACE
 
-The GRACE GWSa for the valley, converted to volume, tracked the well-based curve in timing but was much smaller. Multiplying it by a scale factor
-corrected for the leakage. The best factor was about 5 (± 1.0); with it, GRACE and the wells agreed with r² = 0.725, a mean error of −14.4 km³
-and an RMSE of 21.2 km³ over 2002–2021.
+The GRACE GWSa for the valley, converted to volume, tracked the well-based curve in timing but was much smaller. The study took it from GGST,
+this app's predecessor, reading the JPL mascons already resampled to 0.5° with NASA's gain factors — the same product and the same scaling the
+app serves today, at an earlier release (RL06.1 v03 against the app's RL06.3 v04; see
+[Gain factors](../gldas/deriving-groundwater.md#gain-factors)). The leakage correction below sits on top of that scaling.
+
+Over 2002–2021 the two series correlate at r² = 0.725, and that figure holds whatever scale factor is used, because a constant multiplier
+leaves a correlation alone. The errors set it instead. A sensitivity test from 3.5 to 6 put the lowest RMSE at 5.5 with the series
+aligned on the GRACE start date, and at 4.5 with the wells lagged six months; the authors settled on 5 (± 1.0) as the value that serves under
+either alignment. At 5 the mean error is −14.4 km³ and the RMSE 21.2 km³.
 
 ![Comparison of the well-based storage curve with GRACE scaled by 5](../../static/images/grace/papers/cv-fig11-grace-75obs.webp)
 
@@ -57,6 +64,10 @@ With the factor applied, the GRACE storage losses agree with most published esti
 | Scanlon et al. (2012) | Oct 2006 – Mar 2010 | 31 km³ | 31.1 km³ |
 | Xiao et al. (2017) | Apr 2002 – Sep 2016 | 64.6 km³ | 70.7 km³ |
 | Ojha et al. (2018) | Dec 2006 – Jan 2010 | 21.3 km³ | 53.2 km³ |
+
+The ± 1.0 shows its effect here: a factor of 4 puts the Famiglietti period at 21.4 km³ against their 20.3 km³, closer than the 26.7 km³ a factor
+of 5 gives. Ojha et al. (2018) stays more than double, and the authors flag it without accounting for it. The GRACE figure for Xiao et al. runs
+through August 2016, because September was not yet available.
 
 ## Conclusions
 
