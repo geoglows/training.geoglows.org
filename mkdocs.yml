@@ -56,18 +56,22 @@ plugins:
             Resolution, Leakage and Small Regions: "Resolución, Fuga de Señal y Regiones Pequeñas"
             Part 2 GLDAS: "Parte 2: GLDAS"
             The GLDAS Land Surface Models: "Los Modelos de Superficie Terrestre GLDAS"
-            Part 3 Using the App: "Parte 3: Uso de la Aplicación"
+            Part 3 Comparing the Two Datasets: "Parte 3: Comparación de los Dos Conjuntos"
+            Why the Two Datasets Differ: "Por qué Difieren los Dos Conjuntos"
+            Where Each One Is Trustworthy: "Cuándo Fiarse de Cada Uno"
+            Known Artifacts: "Artefactos Conocidos"
+            Part 4 Using the App: "Parte 4: Uso de la Aplicación"
             Interface: "Interfaz"
             Global View: "Vista Global"
             Regional View: "Vista Regional"
             Trend Analysis: "Análisis de Tendencias"
             Downloading Data: "Descarga de Datos"
-            Part 4 Recharge Analysis: "Parte 4: Análisis de Recarga"
+            Part 5 Recharge Analysis: "Parte 5: Análisis de Recarga"
             The WTF Method: "El Método WTF"
             Opening the Analysis: "Apertura del Análisis"
             Water Years and Picks: "Años Hidrológicos y Selección de Puntos"
             Results: "Resultados"
-            Part 5 Case Studies: "Parte 5: Casos de Estudio"
+            Part 6 Case Studies: "Parte 6: Casos de Estudio"
             Gaps and Gap Filling: "Vacíos y Relleno de Vacíos"
             Niger: "Níger"
             Volta Basin: "Cuenca del Volta"
@@ -112,18 +116,22 @@ plugins:
             Resolution, Leakage and Small Regions: "Résolution, Fuite du Signal et Petites Régions"
             Part 2 GLDAS: "Partie 2 : GLDAS"
             The GLDAS Land Surface Models: "Les Modèles de Surface Terrestre GLDAS"
-            Part 3 Using the App: "Partie 3 : Utilisation de l'Application"
+            Part 3 Comparing the Two Datasets: "Partie 3 : Comparaison des Deux Jeux de Données"
+            Why the Two Datasets Differ: "Pourquoi les Deux Jeux de Données Diffèrent"
+            Where Each One Is Trustworthy: "Quand se Fier à Chacun"
+            Known Artifacts: "Artefacts Connus"
+            Part 4 Using the App: "Partie 4 : Utilisation de l'Application"
             Interface: "Interface"
             Global View: "Vue Globale"
             Regional View: "Vue Régionale"
             Trend Analysis: "Analyse des Tendances"
             Downloading Data: "Téléchargement des Données"
-            Part 4 Recharge Analysis: "Partie 4 : Analyse de la Recharge"
+            Part 5 Recharge Analysis: "Partie 5 : Analyse de la Recharge"
             The WTF Method: "La Méthode WTF"
             Opening the Analysis: "Ouverture de l'Analyse"
             Water Years and Picks: "Années Hydrologiques et Choix des Points"
             Results: "Résultats"
-            Part 5 Case Studies: "Partie 5 : Études de Cas"
+            Part 6 Case Studies: "Partie 6 : Études de Cas"
             Gaps and Gap Filling: "Lacunes et Comblement des Lacunes"
             Niger: "Niger"
             Volta Basin: "Bassin de la Volta"
@@ -179,18 +187,22 @@ nav:
       - Part 2 GLDAS:
           - The GLDAS Land Surface Models: grace/gldas/land-surface-models.md
           - Deriving Groundwater Storage: grace/gldas/deriving-groundwater.md
-      - Part 3 Using the App:
+      - Part 3 Comparing the Two Datasets:
+          - Why the Two Datasets Differ: grace/compare/why-they-differ.md
+          - Where Each One Is Trustworthy: grace/compare/trusting-each-one.md
+          - Known Artifacts: grace/compare/known-artifacts.md
+      - Part 4 Using the App:
           - Interface: grace/app/interface.md
           - Regional View: grace/app/regional-view.md
           - Global View: grace/app/global-view.md
           - Trend Analysis: grace/app/trends.md
           - Downloading Data: grace/app/downloading-data.md
-      - Part 4 Recharge Analysis:
+      - Part 5 Recharge Analysis:
           - The WTF Method: grace/recharge/wtf-method.md
           - Opening the Analysis: grace/recharge/opening.md
           - Water Years and Picks: grace/recharge/picks.md
           - Results: grace/recharge/results.md
-      - Part 5 Case Studies:
+      - Part 6 Case Studies:
           - Niger: grace/case-studies/niger.md
           - Volta Basin: grace/case-studies/volta.md
           - California's Central Valley: grace/case-studies/central-valley.md

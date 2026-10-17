@@ -117,3 +117,32 @@
   *Richard W. Healy, Peter G. Cook*  
   Hydrogeology Journal, 2002  
   [DOI: 10.1007/s10040-001-0178-0](https://doi.org/10.1007/s10040-001-0178-0){:target="_blank"}
+
+### Comparación de los dos conjuntos { #comparing-the-two-datasets }
+
+Estudios independientes, de grupos distintos al nuestro, que respaldan las recomendaciones de [Cuándo fiarse de cada uno](compare/trusting-each-one.md).
+
+- **Global Models Underestimate Large Decadal Declining and Rising Water Storage Trends Relative to GRACE Satellite Data**  
+  *Bridget R. Scanlon, Zizhan Zhang, Himanshu Save, Alexander Y. Sun, Hannes Müller Schmied, Ludovicus P. H. van Beek et al.*  
+  Proceedings of the National Academy of Sciences, 2018  
+  [DOI: 10.1073/pnas.1704665115](https://doi.org/10.1073/pnas.1704665115){:target="_blank"}
+
+- **Inconsistencies in GRACE-Based Groundwater Storage Estimation — A Call for a Proper Use of Land Surface Models**  
+  *Augusto Getirana, Sujay Kumar, Matthew Rodell*  
+  Geophysical Research Letters, 2025  
+  [DOI: 10.1029/2025GL119197](https://doi.org/10.1029/2025GL119197){:target="_blank"}
+
+- **Global Evaluation of New GRACE Mascon Products for Hydrologic Applications**  
+  *Bridget R. Scanlon, Zizhan Zhang, Himanshu Save, David N. Wiese, Felix W. Landerer, Di Long, Laurent Longuevergne, Jianli Chen*  
+  Water Resources Research, 2016  
+  [DOI: 10.1002/2016WR019494](https://doi.org/10.1002/2016WR019494){:target="_blank"}
+
+- **Groundwater Storage Changes: Present Status from GRACE Observations**  
+  *Jianli Chen, James S. Famiglietti, Bridget R. Scanlon, Matthew Rodell*  
+  Surveys in Geophysics, 2016  
+  [DOI: 10.1007/s10712-015-9332-4](https://doi.org/10.1007/s10712-015-9332-4){:target="_blank"}
+
+- **Validation of GRACE Based Groundwater Storage Anomaly Using In-Situ Groundwater Level Measurements in India**  
+  *Soumendra N. Bhanja, Abhijit Mukherjee, Dipankar Saha, Isabella Velicogna, James S. Famiglietti*  
+  Journal of Hydrology, 2016  
+  [DOI: 10.1016/j.jhydrol.2016.10.042](https://doi.org/10.1016/j.jhydrol.2016.10.042){:target="_blank"}

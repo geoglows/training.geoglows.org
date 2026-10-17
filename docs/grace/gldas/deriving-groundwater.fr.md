@@ -217,103 +217,14 @@ inexact s’applique encore, sans que rien ne le rapporte.
 
 ## Lequel utiliser { #which-one-to-use }
 
-Aucun des deux jeux de données ne l’emporte partout, et la bonne habitude est de tracer les deux et de regarder où ils se séparent.
-
-**C’est sur la voie GRACE qu’il faut s’appuyer pour savoir de combien le stockage a changé.** Ses eaux souterraines reposent sur une mesure de
-masse, et les modèles n’entrent que comme les termes retranchés. Là où les termes GLDAS sont faibles devant le signal d’eau souterraine — la
-plupart des aquifères arides et semi-arides —, très peu de la réponse dépend de la justesse des modèles.
-
-**C’est dans GRACE qu’il faut lire l’ampleur d’une tendance.** Moyennée sur les 37 grands bassins d’eau souterraine WHYMAP, la tendance de GWSa de
-2.2 vaut environ le quart de celle de GRACE : un rapport médian de 0.26 sur les bassins qui perdent du stockage et de 0.33 sur ceux qui en
-gagnent, l’aplatissement joue donc dans les deux sens :
-
-| Bassin | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
-| Gange-Brahmapoutre | −1.53 | −0.44 | 0.29 |
-| Indus | −1.45 | −0.21 | 0.14 |
-| Vallée centrale de Californie | −1.37 | −0.24 | 0.18 |
-| Caucase du Nord | −1.03 | −0.68 | 0.66 |
-| Plaine de Chine du Nord | −0.67 | −0.25 | 0.38 |
-| Arabique | −0.65 | −0.10 | 0.16 |
-| Tarim | −0.55 | −0.06 | 0.11 |
-| Ogallala (High Plains) | −0.45 | −0.22 | 0.49 |
-| Sahara septentrional | −0.44 | −0.10 | 0.23 |
-
-Tendances en cm/an, moyennées par surface sur chaque bassin, de février 2003 à juin 2026.
-
-Le pompage est absent de la physique de Catchment : l’épuisement n’atteint donc le stock d’eau souterraine de 2.2 que par la correction mensuelle
-GRACE, et cette correction se répartit entre les réservoirs de surface, de zone racinaire et de profil au lieu de tomber dans la seule eau
-souterraine. Entre deux corrections, le modèle se relâche vers son propre bilan hydrique. Barbosa et al. (2025) recommandent 2.2 pour les
-tendances : prenez-y la direction et la forme de la tendance, et l’ampleur dans GRACE. Trois bassins divergent sur le signe — l’Amazone, le Congo
-et la Petchora —, tous des endroits où la tendance est faible devant le cycle saisonnier.
-
-**C’est la voie 2.2 qu’il faut saisir sur une petite région**, parce qu’elle est moyennée sur une grille à 0.25° là où l’autre est à 1° : un
-bassin large de quelques mailles est donc décrit par seize fois plus de mailles. Son enregistrement continu en fait aussi la série la plus facile
-à travailler année par année. Elle achète de l’échantillonnage et non de la résolution : l’information GRACE qu’elle contient est
-tout de même arrivée à 1°.
-
-**Préférer la voie GRACE pour la recharge.** Barbosa et al. (2025) ont appliqué la méthode de fluctuation de la nappe aux deux jeux de données
-dans le Bassin de la Volta et ont obtenu 17.4 et 36.1 cm/an avec 2.2 contre 5.8 et 10.7 cm/an avec GRACE, les puits donnant une médiane de 10.4.
-Ils recommandent 2.2 pour les tendances et non pour la recharge (voir [Bassin de la Volta](../case-studies/volta.md)).
-
-**Appuyez-vous d’abord sur ce dont les deux conviennent.** Une mesure et un modèle construit indépendamment qui disent la même chose sont difficiles à
-écarter. Là où ils divergent, tracez les composantes : une divergence qui vit dans la SMa est un autre problème qu’une divergence qui vit dans la
-TWSa.
+Aucun des deux jeux de données ne l’emporte partout. Pour l’ampleur d’une tendance, utilisez GRACE ; pour la forme d’un cycle saisonnier dans une
+région où le cycle d’humidité du sol rivalise avec celui de l’eau totale, utilisez 2.2 ; pour la recharge, utilisez GRACE. La comparaison complète
+se trouve dans [Pourquoi les deux jeux de données diffèrent](../compare/why-they-differ.md) et les deux pages qui la suivent : d’où vient le
+désaccord, quelle série citer pour quelle question, et les endroits où l’un des deux rapporte autre chose que de l’eau souterraine.
 
 L’enregistrement de 2.2 commence dix mois plus tard que celui de GRACE, en février 2003, et la solution GRACE derrière 2.2 est celle du CSR
 tandis que les couches GRACE de l’application elle-même sont celles du JPL. Ni l’un ni l’autre n’est un défaut des données ; tous deux
 apparaîtront chaque fois que les deux seront superposés.
-
-
-### Quand le cycle saisonnier diverge { #when-the-seasonal-cycle-disagrees }
-
-Les deux jeux de données peuvent différer par l’ampleur de l’oscillation saisonnière et par son calendrier, et ces deux écarts sortent de la
-soustraction.
-
-Sur les 37 bassins WHYMAP, l’amplitude saisonnière de 2.2 vaut une médiane de 1.23 fois celle de GRACE ; sur les 31 aquifères principaux de l’USGS,
-1.52. À quelques endroits elle est plusieurs fois plus grande :
-
-| Aquifère | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
-| Willamette Lowland | 4.8 | 33.3 | 7.0 |
-| Bassin parisien | 3.0 | 17.3 | 5.7 |
-| Denver Basin | 1.2 | 4.7 | 4.0 |
-| Northern Atlantic Coastal Plain | 2.9 | 9.9 | 3.4 |
-| Bassin Sénégalo-Mauritanien | 5.8 | 18.7 | 3.2 |
-
-Du pic au creux de la climatologie de GWSa en cm, tendance retirée, de février 2003 à juin 2026.
-
-Le calendrier peut lui aussi se séparer. Dans le Northern Atlantic Coastal Plain, la GWSa de GRACE culmine en juin et celle de 2.2 en février,
-quatre mois d’écart, et les deux cycles saisonniers corrèlent à −0.54. Le Sahara septentrional est décalé d’une demi-année ; l’Indus oppose mars à
-septembre.
-
-Comparer l’ampleur saisonnière de la SMa à celle de la TWSa indique quelles régions feront cela. Sur les bassins WHYMAP, le rapport entre ces deux
-amplitudes corrèle à −0.65 avec la concordance des deux cycles d’eau souterraine, et à −0.83 sur les aquifères de l’USGS. Toute région dont les
-cycles saisonniers tournent à l’envers a une humidité du sol qui oscille autant que l’eau totale, ou davantage :
-
-| Aquifère | amplitude de TWSa | amplitude de SMa | SMa / TWSa | r saisonnier |
-|---|---:|---:|---:|---:|
-| Ogaden-Juba | 2.0 | 3.3 | 1.70 | −0.74 |
-| Upper carbonate | 7.2 | 9.9 | 1.37 | −0.60 |
-| Sahara Septentrional | 0.5 | 0.7 | 1.35 | −0.83 |
-| Cambrian-Ordovician | 9.9 | 11.4 | 1.15 | −0.38 |
-| Indus | 5.7 | 6.3 | 1.11 | −0.39 |
-| Northern Atlantic Coastal Plain | 7.9 | 8.4 | 1.06 | −0.54 |
-
-Les régions où les deux s’accordent se situent entre 0.4 et 0.6.
-
-La GWSa de la voie GRACE vaut TWSa − SMa − SWEa − CANa. Là où le cycle d’humidité du sol du modèle est aussi grand que le cycle mesuré d’eau totale
-et presque en phase avec lui, le reste culmine quand l’humidité du sol est au plus sec, et le cycle d’eau souterraine qui subsiste est la petite
-différence de deux grands nombres voisins. Dans le Northern Atlantic Coastal Plain, cela place le pic GRACE quatre mois après le moment où la nappe
-est réellement la plus haute, tandis que le pic de février de 2.2 tombe là où la recharge de fin d’hiver le placerait. La cause probable est une
-nappe peu profonde : une partie de ce que GLDAS 2.1 compte comme humidité du sol est de l’eau souterraine, et la soustraire retire le signal deux
-fois.
-
-**Préférer 2.2 pour la forme saisonnière là où la SMa oscille autant que la TWSa**, à l’inverse du conseil sur les tendances ci-dessus.
-
-La même comparaison explique les régions où l’amplitude la plus grande est celle de GRACE : l’Amazone à 40.8 cm contre 18.1, la Sibérie occidentale,
-la Petchora, le Tarim. Le stockage qu’aucun modèle GLDAS ne porte — l’eau des fleuves et des plaines d’inondation en Amazonie, la neige et la glace
-aux hautes latitudes — n’a nulle part où aller dans la soustraction et finit dans la GWSa.
 
 ## À quoi sert la GWSa { #what-gwsa-is-good-for }
 

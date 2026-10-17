@@ -212,101 +212,14 @@ terrestre se equivoque sigue aplicándose, sin que nada lo reporte.
 
 ## Cuál usar { #which-one-to-use }
 
-Ninguno de los dos conjuntos gana en todas partes, y la costumbre útil es dibujar los dos y mirar dónde se separan.
-
-**En la ruta de GRACE conviene apoyarse para saber cuánto cambió el almacenamiento.** Su agua subterránea se apoya en una medición de masa, y
-los modelos entran solo como los términos que se restan. Donde los términos de GLDAS son pequeños frente a la señal de agua subterránea —la
-mayoría de los acuíferos áridos y semiáridos—, muy poco de la respuesta depende de que los modelos acierten.
-
-**El tamaño de una tendencia hay que leerlo en GRACE.** Promediada sobre las 37 grandes cuencas de agua subterránea de WHYMAP, la tendencia de
-GWSa de 2.2 ronda la cuarta parte de la de GRACE: una razón mediana de 0.26 en las cuencas que pierden almacenamiento y de 0.33 en las que lo
-ganan, así que el aplanamiento va en los dos sentidos:
-
-| Cuenca | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
-| Ganges-Brahmaputra | −1.53 | −0.44 | 0.29 |
-| Indo | −1.45 | −0.21 | 0.14 |
-| Valle Central de California | −1.37 | −0.24 | 0.18 |
-| Cáucaso Norte | −1.03 | −0.68 | 0.66 |
-| Llanura del Norte de China | −0.67 | −0.25 | 0.38 |
-| Arábigo | −0.65 | −0.10 | 0.16 |
-| Tarim | −0.55 | −0.06 | 0.11 |
-| Ogallala (High Plains) | −0.45 | −0.22 | 0.49 |
-| Sahara Septentrional | −0.44 | −0.10 | 0.23 |
-
-Tendencias en cm/año, promediadas por área en cada cuenca, de febrero de 2003 a junio de 2026.
-
-El bombeo no está en la física de Catchment, así que el agotamiento llega al almacén de agua subterránea de 2.2 solo por la corrección mensual de
-GRACE, y esa corrección se reparte entre los almacenes de superficie, zona radicular y perfil en lugar de caer solo en el agua subterránea. Entre
-correcciones el modelo se relaja hacia su propio balance hídrico. Barbosa et al. (2025) recomiendan 2.2 para tendencias: tomar de ahí la dirección
-y la forma de la tendencia, y la magnitud de GRACE. Tres cuencas discrepan en el signo —el Amazonas, el Congo y el Pechora—, todas ellas lugares
-donde la tendencia es pequeña frente al ciclo estacional.
-
-**A la ruta 2.2 hay que recurrir en una región pequeña**, porque se promedia en una malla de 0.25° donde la otra está en 1°, así que una cuenca
-de unas pocas celdas de ancho queda descrita por dieciséis veces más celdas. Su registro continuo la hace además la serie más fácil de trabajar
-año por año. Eso compra muestreo y no resolución: la información de GRACE que contiene siguió llegando a 1°.
-
-**Para la recarga, preferir la ruta de GRACE.** Barbosa et al. (2025) aplicaron el método de fluctuación del nivel freático a ambos conjuntos en
-la Cuenca del Volta y obtuvieron 17.4 y 36.1 cm/año con 2.2 frente a 5.8 y 10.7 cm/año con GRACE, mientras que los pozos daban una mediana de
-10.4. Recomiendan 2.2 para tendencias y no para recarga (ver [Cuenca del Volta](../case-studies/volta.md)).
-
-**Apóyate sobre todo en aquello en lo que ambos coinciden.** Una medición y un modelo construido de forma independiente que dicen lo
-mismo son difíciles de descartar. Donde discrepen, dibuja las componentes: una divergencia que vive en la SMa es un problema distinto de una que
-vive en la TWSa.
+Ninguno de los dos conjuntos gana en todas partes. Para el tamaño de una tendencia, usa GRACE; para la forma de un ciclo estacional en una región
+donde el ciclo de humedad del suelo rivaliza con el del agua total, usa 2.2; para la recarga, usa GRACE. La comparación completa está en
+[Por qué difieren los dos conjuntos](../compare/why-they-differ.md) y en las dos páginas que le siguen: de dónde viene el desacuerdo, qué serie
+citar para cada pregunta y los lugares donde uno de los dos informa algo que no es agua subterránea.
 
 El registro de 2.2 empieza diez meses después que el de GRACE, en febrero de 2003, y la solución de GRACE que hay detrás de 2.2 es la del CSR
 mientras que las capas de GRACE de la propia aplicación son las del JPL. Ninguna de las dos cosas es un defecto de los datos; ambas aparecerán
 cada vez que se superpongan los dos.
-
-
-### Cuando el ciclo estacional discrepa { #when-the-seasonal-cycle-disagrees }
-
-Los dos conjuntos pueden diferir en el tamaño del vaivén estacional y en su momento, y ambas diferencias salen de la resta.
-
-En las 37 cuencas de WHYMAP la amplitud estacional de 2.2 es una mediana de 1.23 veces la de GRACE; en los 31 acuíferos principales del USGS, 1.52.
-En algunos sitios es varias veces mayor:
-
-| Acuífero | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
-| Willamette Lowland | 4.8 | 33.3 | 7.0 |
-| Cuenca de París | 3.0 | 17.3 | 5.7 |
-| Denver Basin | 1.2 | 4.7 | 4.0 |
-| Northern Atlantic Coastal Plain | 2.9 | 9.9 | 3.4 |
-| Bassin Sénégalo-Mauritanien | 5.8 | 18.7 | 3.2 |
-
-De pico a valle de la climatología de GWSa en cm, sin la tendencia, de febrero de 2003 a junio de 2026.
-
-El momento también puede separarse. En el Northern Atlantic Coastal Plain la GWSa de GRACE alcanza su máximo en junio y la de 2.2 en febrero,
-cuatro meses de diferencia, y los dos ciclos estacionales correlacionan a −0.54. El Sahara Septentrional está medio año desfasado; el Indo enfrenta
-marzo contra septiembre.
-
-Comparar el tamaño estacional de la SMa con el de la TWSa dice qué regiones harán esto. En las cuencas de WHYMAP la razón entre esas dos amplitudes
-correlaciona a −0.65 con lo bien que concuerdan los dos ciclos de agua subterránea, y a −0.83 en los acuíferos del USGS. Toda región cuyos ciclos
-estacionales corren al revés tiene la humedad del suelo oscilando tanto como el agua total, o más:
-
-| Acuífero | amplitud de TWSa | amplitud de SMa | SMa / TWSa | r estacional |
-|---|---:|---:|---:|---:|
-| Ogaden-Juba | 2.0 | 3.3 | 1.70 | −0.74 |
-| Upper carbonate | 7.2 | 9.9 | 1.37 | −0.60 |
-| Sahara Septentrional | 0.5 | 0.7 | 1.35 | −0.83 |
-| Cambrian-Ordovician | 9.9 | 11.4 | 1.15 | −0.38 |
-| Indo | 5.7 | 6.3 | 1.11 | −0.39 |
-| Northern Atlantic Coastal Plain | 7.9 | 8.4 | 1.06 | −0.54 |
-
-Las regiones donde ambos concuerdan se sitúan entre 0.4 y 0.6.
-
-La GWSa de la ruta de GRACE es TWSa − SMa − SWEa − CANa. Donde el ciclo de humedad del suelo del modelo es tan grande como el ciclo medido de agua
-total y va casi en fase con él, el resto alcanza su máximo cuando la humedad del suelo está más seca, y el ciclo de agua subterránea que queda es la
-pequeña diferencia de dos números grandes y parecidos. En el Northern Atlantic Coastal Plain eso coloca el máximo de GRACE cuatro meses después de
-que el nivel freático esté realmente más alto, mientras que el máximo de febrero de 2.2 cae donde lo pondría la recarga de fin de invierno. La causa
-probable es un nivel freático somero: parte de lo que GLDAS 2.1 cuenta como humedad del suelo es agua subterránea, y restarla elimina la señal dos
-veces.
-
-**Preferir 2.2 para la forma estacional donde la SMa oscila tanto como la TWSa**, lo contrario del consejo sobre tendencias de más arriba.
-
-La misma comparación explica las regiones donde la amplitud mayor es la de GRACE: el Amazonas con 40.8 cm frente a 18.1, Siberia Occidental, el
-Pechora, el Tarim. El almacenamiento que ningún modelo de GLDAS lleva —el agua de ríos y llanuras de inundación en el Amazonas, y la nieve y el
-hielo en latitudes altas— no tiene adónde ir en la resta y acaba en la GWSa.
 
 ## Para qué sirve la GWSa { #what-gwsa-is-good-for }
 

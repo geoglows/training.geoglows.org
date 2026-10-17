@@ -199,97 +199,13 @@ nothing reporting it.
 
 ## Which one to use
 
-Neither dataset wins everywhere, and the useful habit is to plot both and look at where they part company.
-
-**The GRACE route is the one to lean on for how much storage changed.** Its groundwater rests on a measurement of mass, and the models enter
-only as the terms being subtracted. Where the GLDAS terms are small next to the groundwater signal — most arid and semi-arid aquifers — very
-little of the answer depends on the models being right.
-
-**Read the size of a trend from GRACE.** Averaged over the 37 WHYMAP large groundwater basins, the 2.2 GWSa trend runs about a quarter of the
-GRACE one — a median ratio of 0.26 across the basins losing storage and 0.33 across those gaining it, so the flattening goes both ways:
-
-| Basin | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
-| Ganges-Brahmaputra | −1.53 | −0.44 | 0.29 |
-| Indus | −1.45 | −0.21 | 0.14 |
-| California Central Valley | −1.37 | −0.24 | 0.18 |
-| North Caucasus | −1.03 | −0.68 | 0.66 |
-| North China Plain | −0.67 | −0.25 | 0.38 |
-| Arabian | −0.65 | −0.10 | 0.16 |
-| Tarim | −0.55 | −0.06 | 0.11 |
-| Ogallala (High Plains) | −0.45 | −0.22 | 0.49 |
-| Sahara Septentrional | −0.44 | −0.10 | 0.23 |
-
-Trends in cm/yr, area-weighted over each basin, February 2003 to June 2026.
-
-Pumping is absent from the Catchment physics, so depletion reaches the 2.2 groundwater store only through the monthly GRACE correction, and that
-correction is spread across the surface, root zone and profile stores rather than landing in groundwater alone. Between corrections the model
-relaxes toward its own water balance. Barbosa et al. (2025) recommend 2.2 for trends: take the direction and the shape of the trend from it and
-the magnitude from GRACE. Three basins disagree on sign — the Amazon, the Congo and the Pechora — all of them places where the trend is small
-beside the seasonal cycle.
-
-**The 2.2 route is the one to reach for on a small region**, because it is averaged on a 0.25° grid where the other is on 1°, so a basin a few
-cells across is described by sixteen times as many of them. Its continuous record also makes it the easier series to work with year by year.
-That buys sampling rather than resolution: the GRACE information inside it still arrived at 1°.
-
-**Prefer the GRACE route for recharge.** Barbosa et al. (2025) ran the water table fluctuation method on both in the Volta Basin and got
-17.4 and 36.1 cm/yr from 2.2 against 5.8 and 10.7 cm/yr from GRACE, with wells giving a median of 10.4. They recommend 2.2 for trends and not
-for recharge (see [Volta Basin](../case-studies/volta.md)).
-
-**Lean hardest on what both datasets agree about.** A measurement and an independently constructed model that say the same thing are
-hard to explain away. Where they disagree, plot the components: a divergence that lives in SMa is a different problem from one that lives in
-TWSa.
+Neither dataset wins everywhere. For the size of a trend, use GRACE; for the shape of a seasonal cycle in a region where the soil moisture cycle
+rivals the total-water cycle, use 2.2; for recharge, use GRACE. The full comparison is in
+[Why the Two Datasets Differ](../compare/why-they-differ.md) and the two pages that follow it: where the disagreement comes from, which series to
+quote for which question, and the places where one of them is reporting something other than groundwater.
 
 The 2.2 record starts ten months later than GRACE's, in February 2003, and the GRACE solution behind 2.2 is CSR's while the app's own GRACE
 layers are JPL's. Neither is a fault in the data; both will show up whenever the two are overlaid.
-
-
-### When the seasonal cycle disagrees
-
-The two datasets can differ in the size of the seasonal swing and in its timing, and both differences come out of the subtraction.
-
-Across the 37 WHYMAP basins the 2.2 seasonal amplitude runs a median 1.23 times the GRACE one; across the 31 USGS principal aquifers, 1.52. In a
-few places it is several times larger:
-
-| Aquifer | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
-| Willamette Lowland | 4.8 | 33.3 | 7.0 |
-| Parisian Basin | 3.0 | 17.3 | 5.7 |
-| Denver Basin | 1.2 | 4.7 | 4.0 |
-| Northern Atlantic Coastal Plain | 2.9 | 9.9 | 3.4 |
-| Bassin Sénégalo-Mauritanien | 5.8 | 18.7 | 3.2 |
-
-Peak to trough of the GWSa climatology in cm, trend removed, February 2003 to June 2026.
-
-Timing can part company as well. In the Northern Atlantic Coastal Plain the GRACE GWSa peaks in June and the 2.2 GWSa in February, four months
-apart, and the two seasonal cycles correlate at −0.54. The Sahara Septentrional is half a year apart; the Indus runs March against September.
-
-Comparing the seasonal size of SMa against that of TWSa tells you which regions will do this. Across the WHYMAP basins the ratio between those two
-amplitudes correlates at −0.65 with how well the two groundwater cycles agree, and at −0.83 across the USGS aquifers. Every region whose seasonal
-cycles run opposite has soil moisture swinging as hard as total water, or harder:
-
-| Aquifer | TWSa amplitude | SMa amplitude | SMa / TWSa | seasonal r |
-|---|---:|---:|---:|---:|
-| Ogaden-Juba | 2.0 | 3.3 | 1.70 | −0.74 |
-| Upper carbonate | 7.2 | 9.9 | 1.37 | −0.60 |
-| Sahara Septentrional | 0.5 | 0.7 | 1.35 | −0.83 |
-| Cambrian-Ordovician | 9.9 | 11.4 | 1.15 | −0.38 |
-| Indus | 5.7 | 6.3 | 1.11 | −0.39 |
-| Northern Atlantic Coastal Plain | 7.9 | 8.4 | 1.06 | −0.54 |
-
-Regions where the two agree sit between 0.4 and 0.6.
-
-GWSa on the GRACE route is TWSa − SMa − SWEa − CANa. Where the model's soil moisture cycle is as large as the measured total-water cycle and close
-to it in phase, the remainder peaks when soil moisture is at its driest, and the groundwater cycle left behind is the small difference of two large
-similar numbers. In the Northern Atlantic Coastal Plain that puts the GRACE peak four months after the water table there is actually highest, while
-2.2's February peak falls where late-winter recharge would put it. A shallow water table is the likely reason: part of what GLDAS 2.1 counts as
-soil moisture is groundwater, and subtracting it removes the signal twice.
-
-**Prefer 2.2 for seasonal shape where SMa swings as hard as TWSa**, which inverts the advice on trends above.
-
-The same comparison explains the regions where GRACE carries the larger amplitude — the Amazon at 40.8 cm against 18.1, West Siberia, the Pechora,
-the Tarim. Storage that no GLDAS model carries, river and floodplain water in the Amazon and snow and ice at high latitude, has nowhere to go in
-the subtraction and lands in GWSa.
 
 ## What GWSa is good for
 
