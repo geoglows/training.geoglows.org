@@ -218,15 +218,39 @@ Ninguno de los dos conjuntos gana en todas partes, y la costumbre útil es dibuj
 los modelos entran solo como los términos que se restan. Donde los términos de GLDAS son pequeños frente a la señal de agua subterránea —la
 mayoría de los acuíferos áridos y semiáridos—, muy poco de la respuesta depende de que los modelos acierten.
 
+**El tamaño de una tendencia hay que leerlo en GRACE.** Promediada sobre las 37 grandes cuencas de agua subterránea de WHYMAP, la tendencia de
+GWSa de 2.2 ronda la cuarta parte de la de GRACE: una razón mediana de 0.26 en las cuencas que pierden almacenamiento y de 0.33 en las que lo
+ganan, así que el aplanamiento va en los dos sentidos:
+
+| Cuenca | GRACE | GLDAS 2.2 | 2.2 / GRACE |
+|---|---:|---:|---:|
+| Ganges-Brahmaputra | −1.53 | −0.44 | 0.29 |
+| Indo | −1.45 | −0.21 | 0.14 |
+| Valle Central de California | −1.37 | −0.24 | 0.18 |
+| Cáucaso Norte | −1.03 | −0.68 | 0.66 |
+| Llanura del Norte de China | −0.67 | −0.25 | 0.38 |
+| Arábigo | −0.65 | −0.10 | 0.16 |
+| Tarim | −0.55 | −0.06 | 0.11 |
+| Ogallala (High Plains) | −0.45 | −0.22 | 0.49 |
+| Sahara Septentrional | −0.44 | −0.10 | 0.23 |
+
+Tendencias en cm/año, promediadas por área en cada cuenca, de febrero de 2003 a junio de 2026.
+
+El bombeo no está en la física de Catchment, así que el agotamiento llega al almacén de agua subterránea de 2.2 solo por la corrección mensual de
+GRACE, y esa corrección se reparte entre los almacenes de superficie, zona radicular y perfil en lugar de caer solo en el agua subterránea. Entre
+correcciones el modelo se relaja hacia su propio balance hídrico. Barbosa et al. (2025) recomiendan 2.2 para tendencias: tomar de ahí la dirección
+y la forma de la tendencia, y la magnitud de GRACE. Tres cuencas discrepan en el signo —el Amazonas, el Congo y el Pechora—, todas ellas lugares
+donde la tendencia es pequeña frente al ciclo estacional.
+
 **A la ruta 2.2 hay que recurrir en una región pequeña**, porque se promedia en una malla de 0.25° donde la otra está en 1°, así que una cuenca
 de unas pocas celdas de ancho queda descrita por dieciséis veces más celdas. Su registro continuo la hace además la serie más fácil de trabajar
-año por año. Lo que compra es muestreo, no resolución: la información de GRACE que contiene siguió llegando a 3°.
+año por año. Eso compra muestreo y no resolución: la información de GRACE que contiene siguió llegando a 1°.
 
 **Para la recarga, preferir la ruta de GRACE.** Barbosa et al. (2025) aplicaron el método de fluctuación del nivel freático a ambos conjuntos en
 la Cuenca del Volta y obtuvieron 17.4 y 36.1 cm/año con 2.2 frente a 5.8 y 10.7 cm/año con GRACE, mientras que los pozos daban una mediana de
 10.4. Recomiendan 2.2 para tendencias y no para recarga (ver [Cuenca del Volta](../case-studies/volta.md)).
 
-**La concordancia entre ambos vale más que cualquiera por separado.** Una medición y un modelo construido de forma independiente que dicen lo
+**Apóyate sobre todo en aquello en lo que ambos coinciden.** Una medición y un modelo construido de forma independiente que dicen lo
 mismo son difíciles de descartar. Donde discrepen, dibuja las componentes: una divergencia que vive en la SMa es un problema distinto de una que
 vive en la TWSa.
 

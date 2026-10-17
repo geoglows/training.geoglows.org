@@ -205,15 +205,38 @@ Neither dataset wins everywhere, and the useful habit is to plot both and look a
 only as the terms being subtracted. Where the GLDAS terms are small next to the groundwater signal — most arid and semi-arid aquifers — very
 little of the answer depends on the models being right.
 
+**Read the size of a trend from GRACE.** Averaged over the 37 WHYMAP large groundwater basins, the 2.2 GWSa trend runs about a quarter of the
+GRACE one — a median ratio of 0.26 across the basins losing storage and 0.33 across those gaining it, so the flattening goes both ways:
+
+| Basin | GRACE | GLDAS 2.2 | 2.2 / GRACE |
+|---|---:|---:|---:|
+| Ganges-Brahmaputra | −1.53 | −0.44 | 0.29 |
+| Indus | −1.45 | −0.21 | 0.14 |
+| California Central Valley | −1.37 | −0.24 | 0.18 |
+| North Caucasus | −1.03 | −0.68 | 0.66 |
+| North China Plain | −0.67 | −0.25 | 0.38 |
+| Arabian | −0.65 | −0.10 | 0.16 |
+| Tarim | −0.55 | −0.06 | 0.11 |
+| Ogallala (High Plains) | −0.45 | −0.22 | 0.49 |
+| Sahara Septentrional | −0.44 | −0.10 | 0.23 |
+
+Trends in cm/yr, area-weighted over each basin, February 2003 to June 2026.
+
+Pumping is absent from the Catchment physics, so depletion reaches the 2.2 groundwater store only through the monthly GRACE correction, and that
+correction is spread across the surface, root zone and profile stores rather than landing in groundwater alone. Between corrections the model
+relaxes toward its own water balance. Barbosa et al. (2025) recommend 2.2 for trends: take the direction and the shape of the trend from it and
+the magnitude from GRACE. Three basins disagree on sign — the Amazon, the Congo and the Pechora — all of them places where the trend is small
+beside the seasonal cycle.
+
 **The 2.2 route is the one to reach for on a small region**, because it is averaged on a 0.25° grid where the other is on 1°, so a basin a few
 cells across is described by sixteen times as many of them. Its continuous record also makes it the easier series to work with year by year.
-What it buys is sampling, not resolution: the GRACE information inside it still arrived at 3°.
+That buys sampling rather than resolution: the GRACE information inside it still arrived at 1°.
 
 **Prefer the GRACE route for recharge.** Barbosa et al. (2025) ran the water table fluctuation method on both in the Volta Basin and got
 17.4 and 36.1 cm/yr from 2.2 against 5.8 and 10.7 cm/yr from GRACE, with wells giving a median of 10.4. They recommend 2.2 for trends and not
 for recharge (see [Volta Basin](../case-studies/volta.md)).
 
-**Agreement between them is worth more than either alone.** A measurement and an independently constructed model that say the same thing are
+**Lean hardest on what both datasets agree about.** A measurement and an independently constructed model that say the same thing are
 hard to explain away. Where they disagree, plot the components: a divergence that lives in SMa is a different problem from one that lives in
 TWSa.
 

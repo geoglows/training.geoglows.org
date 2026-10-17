@@ -223,16 +223,40 @@ Aucun des deux jeux de données ne l’emporte partout, et la bonne habitude est
 masse, et les modèles n’entrent que comme les termes retranchés. Là où les termes GLDAS sont faibles devant le signal d’eau souterraine — la
 plupart des aquifères arides et semi-arides —, très peu de la réponse dépend de la justesse des modèles.
 
+**C’est dans GRACE qu’il faut lire l’ampleur d’une tendance.** Moyennée sur les 37 grands bassins d’eau souterraine WHYMAP, la tendance de GWSa de
+2.2 vaut environ le quart de celle de GRACE : un rapport médian de 0.26 sur les bassins qui perdent du stockage et de 0.33 sur ceux qui en
+gagnent, l’aplatissement joue donc dans les deux sens :
+
+| Bassin | GRACE | GLDAS 2.2 | 2.2 / GRACE |
+|---|---:|---:|---:|
+| Gange-Brahmapoutre | −1.53 | −0.44 | 0.29 |
+| Indus | −1.45 | −0.21 | 0.14 |
+| Vallée centrale de Californie | −1.37 | −0.24 | 0.18 |
+| Caucase du Nord | −1.03 | −0.68 | 0.66 |
+| Plaine de Chine du Nord | −0.67 | −0.25 | 0.38 |
+| Arabique | −0.65 | −0.10 | 0.16 |
+| Tarim | −0.55 | −0.06 | 0.11 |
+| Ogallala (High Plains) | −0.45 | −0.22 | 0.49 |
+| Sahara septentrional | −0.44 | −0.10 | 0.23 |
+
+Tendances en cm/an, moyennées par surface sur chaque bassin, de février 2003 à juin 2026.
+
+Le pompage est absent de la physique de Catchment : l’épuisement n’atteint donc le stock d’eau souterraine de 2.2 que par la correction mensuelle
+GRACE, et cette correction se répartit entre les réservoirs de surface, de zone racinaire et de profil au lieu de tomber dans la seule eau
+souterraine. Entre deux corrections, le modèle se relâche vers son propre bilan hydrique. Barbosa et al. (2025) recommandent 2.2 pour les
+tendances : prenez-y la direction et la forme de la tendance, et l’ampleur dans GRACE. Trois bassins divergent sur le signe — l’Amazone, le Congo
+et la Petchora —, tous des endroits où la tendance est faible devant le cycle saisonnier.
+
 **C’est la voie 2.2 qu’il faut saisir sur une petite région**, parce qu’elle est moyennée sur une grille à 0.25° là où l’autre est à 1° : un
 bassin large de quelques mailles est donc décrit par seize fois plus de mailles. Son enregistrement continu en fait aussi la série la plus facile
-à travailler année par année. Ce qu’elle achète, c’est de l’échantillonnage et non de la résolution : l’information GRACE qu’elle contient est
-tout de même arrivée à 3°.
+à travailler année par année. Elle achète de l’échantillonnage et non de la résolution : l’information GRACE qu’elle contient est
+tout de même arrivée à 1°.
 
 **Préférer la voie GRACE pour la recharge.** Barbosa et al. (2025) ont appliqué la méthode de fluctuation de la nappe aux deux jeux de données
 dans le Bassin de la Volta et ont obtenu 17.4 et 36.1 cm/an avec 2.2 contre 5.8 et 10.7 cm/an avec GRACE, les puits donnant une médiane de 10.4.
 Ils recommandent 2.2 pour les tendances et non pour la recharge (voir [Bassin de la Volta](../case-studies/volta.md)).
 
-**Leur accord vaut plus que l’un ou l’autre seul.** Une mesure et un modèle construit indépendamment qui disent la même chose sont difficiles à
+**Appuyez-vous d’abord sur ce dont les deux conviennent.** Une mesure et un modèle construit indépendamment qui disent la même chose sont difficiles à
 écarter. Là où ils divergent, tracez les composantes : une divergence qui vit dans la SMa est un autre problème qu’une divergence qui vit dans la
 TWSa.
 
