@@ -258,6 +258,56 @@ El registro de 2.2 empieza diez meses después que el de GRACE, en febrero de 20
 mientras que las capas de GRACE de la propia aplicación son las del JPL. Ninguna de las dos cosas es un defecto de los datos; ambas aparecerán
 cada vez que se superpongan los dos.
 
+
+### Cuando el ciclo estacional discrepa { #when-the-seasonal-cycle-disagrees }
+
+Los dos conjuntos pueden diferir en el tamaño del vaivén estacional y en su momento, y ambas diferencias salen de la resta.
+
+En las 37 cuencas de WHYMAP la amplitud estacional de 2.2 es una mediana de 1.23 veces la de GRACE; en los 31 acuíferos principales del USGS, 1.52.
+En algunos sitios es varias veces mayor:
+
+| Acuífero | GRACE | GLDAS 2.2 | 2.2 / GRACE |
+|---|---:|---:|---:|
+| Willamette Lowland | 4.8 | 33.3 | 7.0 |
+| Cuenca de París | 3.0 | 17.3 | 5.7 |
+| Denver Basin | 1.2 | 4.7 | 4.0 |
+| Northern Atlantic Coastal Plain | 2.9 | 9.9 | 3.4 |
+| Bassin Sénégalo-Mauritanien | 5.8 | 18.7 | 3.2 |
+
+De pico a valle de la climatología de GWSa en cm, sin la tendencia, de febrero de 2003 a junio de 2026.
+
+El momento también puede separarse. En el Northern Atlantic Coastal Plain la GWSa de GRACE alcanza su máximo en junio y la de 2.2 en febrero,
+cuatro meses de diferencia, y los dos ciclos estacionales correlacionan a −0.54. El Sahara Septentrional está medio año desfasado; el Indo enfrenta
+marzo contra septiembre.
+
+Comparar el tamaño estacional de la SMa con el de la TWSa dice qué regiones harán esto. En las cuencas de WHYMAP la razón entre esas dos amplitudes
+correlaciona a −0.65 con lo bien que concuerdan los dos ciclos de agua subterránea, y a −0.83 en los acuíferos del USGS. Toda región cuyos ciclos
+estacionales corren al revés tiene la humedad del suelo oscilando tanto como el agua total, o más:
+
+| Acuífero | amplitud de TWSa | amplitud de SMa | SMa / TWSa | r estacional |
+|---|---:|---:|---:|---:|
+| Ogaden-Juba | 2.0 | 3.3 | 1.70 | −0.74 |
+| Upper carbonate | 7.2 | 9.9 | 1.37 | −0.60 |
+| Sahara Septentrional | 0.5 | 0.7 | 1.35 | −0.83 |
+| Cambrian-Ordovician | 9.9 | 11.4 | 1.15 | −0.38 |
+| Indo | 5.7 | 6.3 | 1.11 | −0.39 |
+| Northern Atlantic Coastal Plain | 7.9 | 8.4 | 1.06 | −0.54 |
+
+Las regiones donde ambos concuerdan se sitúan entre 0.4 y 0.6.
+
+La GWSa de la ruta de GRACE es TWSa − SMa − SWEa − CANa. Donde el ciclo de humedad del suelo del modelo es tan grande como el ciclo medido de agua
+total y va casi en fase con él, el resto alcanza su máximo cuando la humedad del suelo está más seca, y el ciclo de agua subterránea que queda es la
+pequeña diferencia de dos números grandes y parecidos. En el Northern Atlantic Coastal Plain eso coloca el máximo de GRACE cuatro meses después de
+que el nivel freático esté realmente más alto, mientras que el máximo de febrero de 2.2 cae donde lo pondría la recarga de fin de invierno. La causa
+probable es un nivel freático somero: parte de lo que GLDAS 2.1 cuenta como humedad del suelo es agua subterránea, y restarla elimina la señal dos
+veces.
+
+**Preferir 2.2 para la forma estacional donde la SMa oscila tanto como la TWSa**, lo contrario del consejo sobre tendencias de más arriba.
+
+La misma comparación explica las regiones donde la amplitud mayor es la de GRACE: el Amazonas con 40.8 cm frente a 18.1, Siberia Occidental, el
+Pechora, el Tarim. El almacenamiento que ningún modelo de GLDAS lleva —el agua de ríos y llanuras de inundación en el Amazonas, y la nieve y el
+hielo en latitudes altas— no tiene adónde ir en la resta y acaba en la GWSa.
+
 ## Para qué sirve la GWSa { #what-gwsa-is-good-for }
 
 La GWSa sirve mejor para responder preguntas regionales sobre dirección y tasa: ¿está disminuyendo el almacenamiento en este acuífero, a qué

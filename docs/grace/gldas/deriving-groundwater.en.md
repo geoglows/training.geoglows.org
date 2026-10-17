@@ -243,6 +243,54 @@ TWSa.
 The 2.2 record starts ten months later than GRACE's, in February 2003, and the GRACE solution behind 2.2 is CSR's while the app's own GRACE
 layers are JPL's. Neither is a fault in the data; both will show up whenever the two are overlaid.
 
+
+### When the seasonal cycle disagrees
+
+The two datasets can differ in the size of the seasonal swing and in its timing, and both differences come out of the subtraction.
+
+Across the 37 WHYMAP basins the 2.2 seasonal amplitude runs a median 1.23 times the GRACE one; across the 31 USGS principal aquifers, 1.52. In a
+few places it is several times larger:
+
+| Aquifer | GRACE | GLDAS 2.2 | 2.2 / GRACE |
+|---|---:|---:|---:|
+| Willamette Lowland | 4.8 | 33.3 | 7.0 |
+| Parisian Basin | 3.0 | 17.3 | 5.7 |
+| Denver Basin | 1.2 | 4.7 | 4.0 |
+| Northern Atlantic Coastal Plain | 2.9 | 9.9 | 3.4 |
+| Bassin Sénégalo-Mauritanien | 5.8 | 18.7 | 3.2 |
+
+Peak to trough of the GWSa climatology in cm, trend removed, February 2003 to June 2026.
+
+Timing can part company as well. In the Northern Atlantic Coastal Plain the GRACE GWSa peaks in June and the 2.2 GWSa in February, four months
+apart, and the two seasonal cycles correlate at −0.54. The Sahara Septentrional is half a year apart; the Indus runs March against September.
+
+Comparing the seasonal size of SMa against that of TWSa tells you which regions will do this. Across the WHYMAP basins the ratio between those two
+amplitudes correlates at −0.65 with how well the two groundwater cycles agree, and at −0.83 across the USGS aquifers. Every region whose seasonal
+cycles run opposite has soil moisture swinging as hard as total water, or harder:
+
+| Aquifer | TWSa amplitude | SMa amplitude | SMa / TWSa | seasonal r |
+|---|---:|---:|---:|---:|
+| Ogaden-Juba | 2.0 | 3.3 | 1.70 | −0.74 |
+| Upper carbonate | 7.2 | 9.9 | 1.37 | −0.60 |
+| Sahara Septentrional | 0.5 | 0.7 | 1.35 | −0.83 |
+| Cambrian-Ordovician | 9.9 | 11.4 | 1.15 | −0.38 |
+| Indus | 5.7 | 6.3 | 1.11 | −0.39 |
+| Northern Atlantic Coastal Plain | 7.9 | 8.4 | 1.06 | −0.54 |
+
+Regions where the two agree sit between 0.4 and 0.6.
+
+GWSa on the GRACE route is TWSa − SMa − SWEa − CANa. Where the model's soil moisture cycle is as large as the measured total-water cycle and close
+to it in phase, the remainder peaks when soil moisture is at its driest, and the groundwater cycle left behind is the small difference of two large
+similar numbers. In the Northern Atlantic Coastal Plain that puts the GRACE peak four months after the water table there is actually highest, while
+2.2's February peak falls where late-winter recharge would put it. A shallow water table is the likely reason: part of what GLDAS 2.1 counts as
+soil moisture is groundwater, and subtracting it removes the signal twice.
+
+**Prefer 2.2 for seasonal shape where SMa swings as hard as TWSa**, which inverts the advice on trends above.
+
+The same comparison explains the regions where GRACE carries the larger amplitude — the Amazon at 40.8 cm against 18.1, West Siberia, the Pechora,
+the Tarim. Storage that no GLDAS model carries, river and floodplain water in the Amazon and snow and ice at high latitude, has nowhere to go in
+the subtraction and lands in GWSa.
+
 ## What GWSa is good for
 
 GWSa is best used to answer regional questions about direction and rate: is storage in this aquifer declining, how fast, and did the decline
