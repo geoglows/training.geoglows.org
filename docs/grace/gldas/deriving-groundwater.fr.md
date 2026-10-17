@@ -183,7 +183,7 @@ Il n’y a aucun mois manquant. Là où GRACE a une lacune, le modèle continue 
 que la série est continue et que rien ne marque l’endroit où la correction s’est interrompue.
 
 La grille est plus fine que la correction. Une maille de 0.25° est une maille du modèle, et l’information GRACE qui l’a atteinte venait d’un
-mascon de 3° : les mailles voisines diffèrent donc par ce que dit le modèle et non par ce qui a été mesuré — la même mise en garde que les
+mascon CSR, de 1° à surface égale à l’équateur : les mailles voisines diffèrent donc par ce que dit le modèle et non par ce qui a été mesuré — la même mise en garde que les
 facteurs de gain sur l’autre voie, arrivant par un autre chemin.
 
 ## Incertitude { #uncertainty }

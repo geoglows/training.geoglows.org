@@ -165,7 +165,7 @@ The record starts in February 2003, ten months after GRACE's April 2002, because
 There are no missing months. Where GRACE has a gap the model still runs; it simply goes uncorrected for that month, so the series is continuous
 and nothing marks where the correction lapsed.
 
-The grid is finer than the correction. A 0.25° cell is a model cell, and the GRACE information reaching it came from a 3° mascon, so neighbouring
+The grid is finer than the correction. A 0.25° cell is a model cell, and the GRACE information reaching it came from a CSR mascon, 1° equal-area at the equator, so neighbouring
 cells differ by what the model says rather than by what was measured — the same caution as the gain factors on the other route, arriving by a
 different road.
 

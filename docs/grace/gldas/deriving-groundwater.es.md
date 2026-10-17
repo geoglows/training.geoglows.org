@@ -178,8 +178,8 @@ El registro empieza en febrero de 2003, diez meses después del abril de 2002 de
 No falta ningún mes. Donde GRACE tiene un vacío el modelo sigue corriendo; simplemente queda sin corregir ese mes, así que la serie es continua
 y nada marca dónde se interrumpió la corrección.
 
-La malla es más fina que la corrección. Una celda de 0.25° es una celda del modelo, y la información de GRACE que le llegó venía de un mascon de
-3°, así que las celdas vecinas difieren por lo que dice el modelo y no por lo que se midió: la misma advertencia que los factores de ganancia en
+La malla es más fina que la corrección. Una celda de 0.25° es una celda del modelo, y la información de GRACE que le llegó venía de un mascon CSR, de
+1° de área igual en el ecuador, así que las celdas vecinas difieren por lo que dice el modelo y no por lo que se midió: la misma advertencia que los factores de ganancia en
 la otra ruta, llegando por otro camino.
 
 ## Incertidumbre { #uncertainty }
