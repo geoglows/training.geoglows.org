@@ -38,6 +38,16 @@ de 0.26 sur les bassins qui perdent du stockage et de 0.33 sur ceux qui en gagne
 
 Tendances en cm/an, moyennées par surface sur chaque bassin, de février 2003 à juin 2026.
 
+![Les enregistrements d’eau souterraine de la Central Valley de Californie dans les deux jeux de données, avec la droite de tendance ajustée à chacun](../../static/images/grace/compare-trend.png)
+
+La Central Valley est le cas le plus net. Les deux jeux de données voient les mêmes sécheresses et les mêmes hivers humides — la baisse de
+2012–2016 et la reprise de 2023 figurent dans les deux —, mais les droites sur lesquelles ils s’appuient divergent régulièrement. Sur les 23 ans
+d’enregistrement, la voie GRACE perd 32 cm d’eau et 2.2 en perd 6 : un bassin en net épuisement contre un bassin qui décline doucement.
+
+Les puits tranchent, et ils vont plus loin que GRACE. L’étude de la Central Valley a trouvé que l’enregistrement GRACE suivait dans le temps un
+historique de stockage établi à partir des puits, tout en restant plusieurs fois trop faible, et a calibré un facteur d’échelle d’environ 5 pour
+l’y ramener (voir [Central Valley](../case-studies/central-valley.md)). Des trois, 2.2 est le plus éloigné de ce que montrent les puits.
+
 La raison tient à la construction de 2.2. Le modèle Catchment ne comporte aucun pompage : personne n’irrigue dans le monde du modèle, qui ne
 videra donc jamais un aquifère de lui-même. L’épuisement n’atteint l’eau souterraine de 2.2 que par la correction mensuelle que GRACE applique au
 modèle, et cette correction se répartit entre les réservoirs de surface, de zone racinaire et profond au lieu de tomber dans la seule eau
@@ -67,6 +77,17 @@ endroits elle est plusieurs fois plus grande :
 
 Hauteur entre le mois bas et le mois haut du cycle saisonnier moyen, en cm, tendance de long terme retirée, de février 2003 à juin 2026.
 
+![Les cycles d’eau souterraine du Bassin sénégalo-mauritanien dans les deux jeux de données, et les cycles d’eau totale et d’humidité du sol que la voie GRACE retranche](../../static/images/grace/compare-amplitude.png)
+
+Le Bassin sénégalo-mauritanien sépare nettement les deux questions. Sur le calendrier, les deux jeux de données s’accordent presque parfaitement :
+tous deux montent avec les pluies d’été, tous deux culminent en octobre, et leurs cycles corrèlent à 0.94. Sur l’ampleur, non : 2.2 oscille
+3.2 fois plus loin. Le panneau de droite montre d’où vient la plus faible oscillation de la voie GRACE. L’eau totale monte et descend de 15.8 cm
+au fil de l’année et l’humidité du sol des modèles de 11.7 cm : retrancher l’une de l’autre laisse un reste de 5.8 cm. Le modèle Catchment au
+cœur de 2.2 divise la même colonne autrement et garde une part bien plus grande du cycle dans son réservoir d’eau souterraine.
+
+Aucune des deux oscillations ne peut être confrontée ici à un puits : la lecture honnête est donc que les deux jeux de données divergent sur la
+façon dont une saison humide se partage entre le sol et l’aquifère qui se trouve en dessous.
+
 Le calendrier peut lui aussi se séparer. Dans le Northern Atlantic Coastal Plain, l’eau souterraine de GRACE culmine en juin et celle de 2.2 en
 février, quatre mois d’écart, et les deux cycles saisonniers corrèlent à −0.54 : ils tournent presque à l’opposé. Le Sahara septentrional est
 décalé d’une demi-année ; l’Indus oppose mars à septembre.
@@ -92,6 +113,13 @@ L’arithmétique l’explique. Sur la voie GRACE, l’eau souterraine est ce qu
 l’eau de la canopée. Là où l’humidité du sol du modèle monte et descend autant que le total mesuré, et au même moment de l’année, les deux
 s’annulent presque, et ce qui reste culmine quand le sol est au plus sec. Le cycle d’eau souterraine qui subsiste est la petite différence entre
 deux grands nombres voisins : il est donc sensible à la moindre erreur sur l’un ou l’autre.
+
+![Les cycles d’eau souterraine du Northern Atlantic Coastal Plain dans les deux jeux de données, et les cycles d’eau totale et d’humidité du sol derrière celui de GRACE](../../static/images/grace/compare-phase.png)
+
+Le panneau de gauche est le cas lui-même : la voie GRACE culmine en juin, 2.2 en février, et les deux cycles corrèlent à −0.54. Le panneau de
+droite en est la cause. L’eau totale de cet aquifère oscille de 7.9 cm au fil de l’année et l’humidité du sol des modèles de 8.4 cm, un peu plus,
+et les deux montent et descendent ensemble. Retrancher d’une courbe une autre qui lui ressemble presque exactement laisse le reste en pointillé :
+petit, et décalé de façon à culminer quand le sol est au plus sec, c’est-à-dire au milieu de l’été.
 
 Dans le Northern Atlantic Coastal Plain, cela place le pic d’eau souterraine GRACE quatre mois après le moment où la nappe est réellement la plus
 haute, tandis que le pic de février de 2.2 tombe là où la recharge de fin d’hiver le placerait. La cause probable est la faible profondeur des

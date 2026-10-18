@@ -24,6 +24,13 @@ modèle Catchment n’a pas de glace non plus, et la correction GRACE qu’il re
 rapporte un chiffre bien plus petit, pour la raison même qui l’amène à aplatir les tendances ailleurs. Ni l’une ni l’autre série ne signifie quoi
 que ce soit comme eau souterraine ici.
 
+![Les enregistrements d’eau souterraine d’une seule maille de 1° au Groenland oriental, où la voie GRACE rapporte une perte de 19 mètres](../../static/images/grace/compare-artifact-ice.png)
+
+Une seule maille suffit à le montrer. À 66.5°N 36.5°O, la voie GRACE rapporte une eau souterraine qui baisse de 19 mètres sur la période, en une
+droite interrompue par le seul trou entre les missions, dans un lieu sans aquifère et sans eau souterraine à perdre. Cette droite, c’est la
+calotte du Groenland. 2.2 reste à zéro parce que son modèle n’a pas non plus de glace à perdre, et parce que sa correction GRACE se répartit
+entre des réservoirs incapables de recevoir cette perte.
+
 Deux bassins fluviaux des jeux de l’application elle-même, Alsek et Santa Cruz, portent une GWSa très grande pour cette raison (voir
 [Calcul du stockage d’eau souterraine](../gldas/deriving-groundwater.md)).
 
@@ -36,6 +43,13 @@ En Amazonie, l’eau souterraine de GRACE oscille de 40.8 cm au fil de l’anné
 pour 2.2 : les deux jeux de données ne s’accordent même pas sur le sens. L’essentiel du cycle de l’eau amazonien se joue dans les chenaux et sur
 la plaine d’inondation, et aucun modèle GLDAS ne représente l’un ni l’autre. Sur la voie GRACE, cette eau n’a nulle part où aller dans la
 soustraction : elle finit donc dans l’eau souterraine. Le Congo se comporte de même.
+
+![Les cycles d’eau souterraine du bassin amazonien dans les deux jeux de données, celui de GRACE étant plus de deux fois plus ample](../../static/images/grace/compare-artifact-amazon.png)
+
+Le calendrier n’est pas en cause : les deux cycles corrèlent à 0.99 et culminent tous deux en mai avec la crue. L’ampleur, si : la voie GRACE
+oscille de 40.8 cm contre 18.1 cm, et l’eau en trop est le fleuve lui-même, qui monte et descend sur la plaine d’inondation sans nulle part
+ailleurs où aller dans la soustraction. Les tendances pointent alors en sens opposés : qui demande si l’eau souterraine amazonienne gagne ou perd
+obtient une réponse différente de chaque jeu de données.
 
 Tout bassin où un grand fleuve monte et descend au fil des saisons sur une large plaine d’inondation en fera une version.
 

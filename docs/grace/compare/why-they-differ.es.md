@@ -69,6 +69,17 @@ se dejan dentro, así que un descenso que ambos conjuntos ven cuenta a favor de 
 En las 37 cuencas de WHYMAP los dos registros de agua total correlacionan a una mediana de 0.87, y 15 de las 37 superan 0.9. La concordancia se
 debilita a medida que el área se reduce: comparando una celda de 1° cada vez, la mediana baja a 0.75, porque promediar sobre una cuenca cancela
 el ruido de mes a mes que una sola celda arrastra por su cuenta.
+
+El Sistema Acuífero Guaraní muestra qué aspecto tiene una buena concordancia:
+
+![Los registros de agua subterránea de la ruta de GRACE y de GLDAS 2.2 sobre el Sistema Acuífero Guaraní, mes a mes y como ciclo estacional promedio](../../static/images/grace/compare-agreement.png)
+
+Los dos conjuntos acompañan los años húmedos hasta 2016 y los dos giran a la baja después de 2020. Sus registros mensuales de agua subterránea
+correlacionan a 0.85, sus ciclos estacionales a 0.96, y sus vaivenes estacionales se diferencian en un centímetro. Nada de lo que un gestor del
+agua concluiría sobre este acuífero cambia con la elección del conjunto.
+
+El resto de esta página trata de las cuencas donde eso no se cumple, y [Cuándo fiarse de cada uno](trusting-each-one.md) recorre cuatro de
+ellas.
 ## De dónde viene la diferencia { #where-the-difference-comes-from }
 
 Ninguno de los dos conjuntos mide el agua subterránea. Los dos llegan a ella por resta: se parte del agua total almacenada en la columna y se

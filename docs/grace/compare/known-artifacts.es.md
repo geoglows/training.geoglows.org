@@ -23,6 +23,13 @@ en celdas que no tienen acuífero alguno. 2.2 esquiva la aritmética sin escapar
 corrección de GRACE que recibe se reparte entre todos los almacenes del modelo, así que informa una cifra mucho menor por la misma razón por la
 que aplana tendencias en otros sitios. Ninguna de las dos series significa nada como agua subterránea aquí.
 
+![Los registros de agua subterránea de una sola celda de 1° en Groenlandia oriental, donde la ruta de GRACE informa una pérdida de 19 metros](../../static/images/grace/compare-artifact-ice.png)
+
+Una sola celda basta. En 66.5°N 36.5°O la ruta de GRACE informa que el agua subterránea cae 19 metros a lo largo del registro, en una recta
+interrumpida solo por el hueco entre misiones, en un lugar sin acuífero y sin agua subterránea que perder. Esa recta es la capa de hielo de
+Groenlandia. 2.2 se queda en cero porque su modelo tampoco tiene hielo que perder, y su corrección de GRACE se reparte entre almacenes que no
+pueden albergar esa pérdida.
+
 Dos cuencas fluviales de los propios conjuntos de la aplicación, Alsek y Santa Cruz, cargan con una GWSa enorme por este motivo (ver
 [Cálculo del almacenamiento de agua subterránea](../gldas/deriving-groundwater.md)).
 
@@ -35,6 +42,13 @@ En el Amazonas el agua subterránea de GRACE oscila 40.8 cm a lo largo del año 
 los −0.40 de 2.2: los dos conjuntos ni siquiera coinciden en la dirección. La mayor parte del ciclo del agua del Amazonas ocurre en los cauces y
 en la llanura de inundación, y ningún modelo de GLDAS representa ninguno de los dos. En la ruta de GRACE esa agua no tiene adónde ir en la resta,
 así que acaba en el agua subterránea. El Congo se comporta igual.
+
+![Los ciclos de agua subterránea de la cuenca del Amazonas en los dos conjuntos, con el de GRACE más del doble de grande](../../static/images/grace/compare-artifact-amazon.png)
+
+El momento no está en disputa: los dos ciclos correlacionan a 0.99 y ambos alcanzan su máximo en mayo con la crecida. El tamaño sí: la ruta de
+GRACE oscila 40.8 cm frente a 18.1 cm, y el agua de más es el propio río, subiendo y bajando por la llanura de inundación sin ningún otro sitio
+adonde ir en la resta. Las tendencias apuntan entonces en direcciones opuestas, así que quien pregunte si el agua subterránea del Amazonas gana o
+pierde obtiene una respuesta distinta de cada conjunto.
 
 Cualquier cuenca donde un río grande suba y baje estacionalmente sobre una llanura de inundación amplia hará alguna versión de esto.
 

@@ -38,6 +38,16 @@ mediana de 0.26 en las cuencas que pierden almacenamiento y de 0.33 en las que l
 
 Tendencias en cm/año, promediadas por área en cada cuenca, de febrero de 2003 a junio de 2026.
 
+![Los registros de agua subterránea del Valle Central de California de los dos conjuntos, con la recta de tendencia ajustada a cada uno](../../static/images/grace/compare-trend.png)
+
+El Valle Central es el caso más claro. Los dos conjuntos ven las mismas sequías y los mismos inviernos húmedos —el descenso de 2012–2016 y la
+recuperación de 2023 están en ambos—, pero las rectas sobre las que se asientan divergen de forma sostenida. A lo largo de los 23 años de
+registro, la ruta de GRACE pierde 32 cm de agua y 2.2 pierde 6 cm: una cuenca en agotamiento serio frente a otra que baja suavemente.
+
+Los pozos lo zanjan, y van más lejos que GRACE. El estudio del Valle Central encontró que el registro de GRACE seguía en el tiempo a un historial
+de almacenamiento basado en pozos pero resultaba varias veces demasiado pequeño, y calibró un factor de escala de unos 5 para igualarlo (ver
+[Valle Central](../case-studies/central-valley.md)). De los tres, 2.2 es el que queda más lejos de lo que muestran los pozos.
+
 La razón está en cómo se construye 2.2. El modelo Catchment no tiene bombeo: en el mundo del modelo nadie riega, así que el modelo por sí solo
 nunca agotará un acuífero. El agotamiento llega al agua subterránea de 2.2 únicamente a través de la corrección mensual que GRACE aplica al
 modelo, y esa corrección se reparte entre los almacenes de superficie, zona radicular y profundo en lugar de caer solo en el agua subterránea.
@@ -67,6 +77,17 @@ mayor:
 
 Altura entre el mes bajo y el mes alto del ciclo estacional promedio, en cm, sin la tendencia a largo plazo, de febrero de 2003 a junio de 2026.
 
+![Los ciclos de agua subterránea del Bassin Sénégalo-Mauritanien en los dos conjuntos, y los ciclos de agua total y humedad del suelo que resta la ruta de GRACE](../../static/images/grace/compare-amplitude.png)
+
+El Bassin Sénégalo-Mauritanien separa las dos preguntas con nitidez. En el momento, los dos conjuntos coinciden casi a la perfección: ambos suben
+con las lluvias de verano, ambos alcanzan su máximo en octubre y sus ciclos correlacionan a 0.94. En el tamaño no, con 2.2 oscilando 3.2 veces más
+lejos. El panel derecho muestra de dónde sale el vaivén menor de la ruta de GRACE. El agua total sube y baja 15.8 cm a lo largo del año y la
+humedad del suelo de los modelos 11.7 cm, así que restar una de otra deja un resto de 5.8 cm. El modelo Catchment dentro de 2.2 divide la misma
+columna de otra forma y retiene una porción mucho mayor del ciclo en su almacén de agua subterránea.
+
+Ninguno de los dos vaivenes se puede contrastar aquí con un pozo, así que la lectura honesta es que los dos conjuntos discrepan sobre cómo se
+reparte una estación húmeda entre el suelo y el acuífero que hay debajo.
+
 El momento también puede separarse. En el Northern Atlantic Coastal Plain el agua subterránea de GRACE alcanza su máximo en junio y la de 2.2 en
 febrero, cuatro meses de diferencia, y los dos ciclos estacionales correlacionan a −0.54: van casi opuestos. El Sahara Septentrional está medio
 año desfasado; el Indo enfrenta marzo contra septiembre.
@@ -92,6 +113,13 @@ La aritmética lo explica. En la ruta de GRACE, el agua subterránea es lo que q
 el agua del dosel. Donde la humedad del suelo del modelo sube y baja tanto como el total medido, y en la misma época del año, ambas casi se
 cancelan, y lo que queda alcanza su máximo cuando el suelo está más seco. El ciclo de agua subterránea resultante es la pequeña diferencia entre
 dos números grandes y parecidos, así que es sensible a cualquier error en cualquiera de los dos.
+
+![Los ciclos de agua subterránea del Northern Atlantic Coastal Plain en los dos conjuntos, y los ciclos de agua total y humedad del suelo que hay detrás del de GRACE](../../static/images/grace/compare-phase.png)
+
+El panel izquierdo es el caso en sí: la ruta de GRACE alcanza su máximo en junio, 2.2 en febrero, y los dos ciclos correlacionan a −0.54. El panel
+derecho es la causa. El agua total de ese acuífero oscila 7.9 cm a lo largo del año y la humedad del suelo de los modelos 8.4 cm, algo más, y las
+dos suben y bajan juntas. Restar de una curva otra casi idéntica deja el resto discontinuo: pequeño, y desplazado para alcanzar su máximo cuando
+el suelo está más seco, que es a mitad del verano.
 
 En el Northern Atlantic Coastal Plain eso coloca el máximo de agua subterránea de GRACE cuatro meses después de que el nivel freático esté
 realmente más alto, mientras que el máximo de febrero de 2.2 cae donde lo pondría la recarga de fin de invierno. La causa probable son los

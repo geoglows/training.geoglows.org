@@ -72,6 +72,17 @@ sorte qu’une baisse que les deux jeux voient compte en faveur de leur accord.
 Sur les 37 bassins WHYMAP, les deux enregistrements d’eau totale corrèlent à une médiane de 0.87, et 15 des 37 dépassent 0.9. L’accord faiblit à
 mesure que la surface diminue : maille de 1° par maille de 1°, la médiane tombe à 0.75, car moyenner sur un bassin annule le bruit d’un mois à
 l’autre qu’une seule maille porte à elle seule.
+
+Le Système aquifère Guarani montre à quoi ressemble un bon accord :
+
+![Les enregistrements d’eau souterraine de la voie GRACE et de GLDAS 2.2 sur le Système aquifère Guarani, mois par mois et en cycle saisonnier moyen](../../static/images/grace/compare-agreement.png)
+
+Les deux jeux de données suivent les années humides jusqu’en 2016 et tous deux s’infléchissent à la baisse après 2020. Leurs enregistrements
+mensuels d’eau souterraine corrèlent à 0.85, leurs cycles saisonniers à 0.96, et leurs oscillations saisonnières diffèrent d’un centimètre. Rien
+de ce qu’un gestionnaire de l’eau conclurait sur cet aquifère ne change avec le choix du jeu de données.
+
+Le reste de cette page porte sur les bassins où ce n’est pas le cas, et [Où faire confiance à chacun](trusting-each-one.md) en parcourt
+quatre.
 ## D’où vient l’écart { #where-the-difference-comes-from }
 
 Aucun des deux jeux de données ne mesure l’eau souterraine. Tous deux y parviennent par soustraction : on part de l’eau totale stockée dans la

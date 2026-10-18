@@ -23,6 +23,12 @@ all. 2.2 sidesteps the arithmetic without escaping the problem: its Catchment mo
 spread across all the model's stores, so it reports a much smaller number for the same reason it flattens trends elsewhere. Neither series means
 anything as groundwater here.
 
+![The groundwater records of a single 1 degree cell in east Greenland, where the GRACE route reports a loss of 19 metres](../../static/images/grace/compare-artifact-ice.png)
+
+One cell makes the point. At 66.5°N 36.5°W the GRACE route reports groundwater falling 19 metres over the record, a straight line interrupted
+only by the mission gap, in a place with no aquifer and no groundwater to lose. That line is the Greenland ice sheet. 2.2 sits at zero because
+its model has no ice to lose either, and its GRACE correction is spread across stores that cannot hold the loss.
+
 Two river basins in the app's own basin sets, Alsek and Santa Cruz, carry very large GWSa for this reason (see
 [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)).
 
@@ -35,6 +41,13 @@ In the Amazon the GRACE groundwater swings 40.8 cm through the year against 2.2'
 two datasets do not even agree on the direction. Most of the Amazon's water cycle happens in the river channels and on the floodplain, and no
 GLDAS model represents either. On the GRACE route that water has nowhere to go in the subtraction, so it lands in groundwater. The Congo behaves
 the same way.
+
+![The Amazon Basin groundwater cycles from both datasets, with the GRACE one more than twice as large](../../static/images/grace/compare-artifact-amazon.png)
+
+The timing is not in dispute — the two cycles correlate at 0.99, both peaking in May with the flood. The size is: the GRACE route swings
+40.8 cm against 18.1 cm, and the extra water is the river itself, rising and falling across the floodplain with nowhere else to go in the
+subtraction. The trends then point in opposite directions, so a reader asking whether Amazon groundwater is gaining or losing gets a different
+answer from each dataset.
 
 Any basin where a large river rises and falls seasonally over a wide floodplain will do some version of this.
 

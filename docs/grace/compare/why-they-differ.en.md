@@ -67,6 +67,17 @@ see counts toward their agreement.
 Across the 37 WHYMAP basins the two total-water records correlate at a median of 0.87, and 15 of the 37 are above 0.9. Agreement weakens as the
 area shrinks: comparing one 1° cell at a time, the median falls to 0.75, because averaging over a basin cancels month-to-month noise that a
 single cell carries on its own.
+
+The Guarani Aquifer System shows what good agreement looks like:
+
+![The GRACE route and GLDAS 2.2 groundwater records over the Guarani Aquifer System, month by month and as an average seasonal cycle](../../static/images/grace/compare-agreement.png)
+
+Both datasets ride the wet years to 2016 and both turn down after 2020. Their monthly groundwater records correlate at 0.85, their seasonal
+cycles at 0.96, and their seasonal swings differ by a centimetre. Nothing a water manager would conclude from this aquifer changes with the
+choice of dataset.
+
+The rest of this page is about the basins where that is not true, and [Where Each One Is Trustworthy](trusting-each-one.md) works through four
+of them.
 ## Where the difference comes from
 
 Neither dataset measures groundwater. Both arrive at it by subtraction: start from the total water stored in the column, then take away the water

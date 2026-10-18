@@ -36,6 +36,16 @@ the basins losing storage and 0.33 across those gaining it, so the flattening go
 
 Trends in cm/yr, area-weighted over each basin, February 2003 to June 2026.
 
+![The California Central Valley groundwater records from both datasets, with the straight-line trend fitted to each](../../static/images/grace/compare-trend.png)
+
+The Central Valley is the clearest case. Both datasets see the same droughts and the same wet winters — the 2012–2016 drawdown and the 2023
+recovery are in both — but the lines they sit on diverge steadily. Over the 23-year record the GRACE route loses 32 cm of water and 2.2 loses
+6 cm: a basin in serious depletion against one drifting gently down.
+
+Wells settle it, and they go further than GRACE does. The Central Valley study found the GRACE record tracking a well-based storage history in
+timing while running several times too small, and calibrated a scale factor of about 5 to match it (see
+[Central Valley](../case-studies/central-valley.md)). 2.2 is the furthest of the three from what the wells show.
+
 The reason sits in how 2.2 is built. The Catchment model has no pumping in it: nobody irrigates in the model world, so the model by itself will
 never deplete an aquifer. Depletion reaches 2.2's groundwater only through the monthly correction GRACE applies to the model, and that correction
 gets spread across the model's surface, root-zone and deep stores rather than landing on groundwater alone. Between corrections the model drifts
@@ -63,6 +73,17 @@ median 1.23 times the GRACE one; across the 31 USGS principal aquifers, 1.52. In
 
 Height from the low month to the high month of the average seasonal cycle, in cm, with the long-term trend removed, February 2003 to June 2026.
 
+![The Senegalo-Mauritanian Basin groundwater cycles from both datasets, and the total water and soil moisture cycles the GRACE route subtracts](../../static/images/grace/compare-amplitude.png)
+
+The Senegalo-Mauritanian Basin separates the two questions cleanly. On timing the two datasets agree almost perfectly: both rise with the summer
+rains, both peak in October, and their cycles correlate at 0.94. On size they do not, with 2.2 swinging 3.2 times as far. The right panel shows
+where the GRACE route's smaller swing comes from. Total water rises and falls by 15.8 cm over the year, the models' soil moisture by 11.7 cm, so
+subtracting one from the other leaves a 5.8 cm remainder. The Catchment model inside 2.2 divides the same column differently and keeps a much
+larger share of the cycle in its groundwater store.
+
+Neither swing can be checked against a well here, so the honest reading is that the two datasets disagree about how a wet season is shared
+between the soil and the aquifer beneath it.
+
 Timing can part company as well. In the Northern Atlantic Coastal Plain the GRACE groundwater peaks in June and 2.2's in February, four months
 apart, and the two seasonal cycles correlate at −0.54 — they run close to opposite. The Sahara Septentrional is half a year apart; the Indus runs
 March against September.
@@ -88,6 +109,13 @@ The arithmetic explains it. On the GRACE route, groundwater is what is left afte
 measured total. Where the model's soil moisture rises and falls as much as the measured total does, and at the same time of year, the two nearly
 cancel, and what remains peaks when the soil is at its driest. The groundwater cycle left behind is the small difference between two large
 similar numbers, so it is sensitive to any error in either.
+
+![The Northern Atlantic Coastal Plain groundwater cycles from both datasets, and the total water and soil moisture cycles behind the GRACE one](../../static/images/grace/compare-phase.png)
+
+The left panel is the case itself: the GRACE route peaks in June, 2.2 peaks in February, and the two cycles correlate at −0.54. The right panel
+is the cause. Total water in that aquifer swings 7.9 cm over the year and the models' soil moisture swings 8.4 cm, slightly more, and the two
+rise and fall together. Subtracting a curve from one almost exactly like it leaves the dashed remainder: small, and shifted to peak when the
+soil is at its driest, which is midsummer.
 
 In the Northern Atlantic Coastal Plain that puts the GRACE groundwater peak four months after the water table there is actually highest, while
 2.2's February peak falls where late-winter recharge would put it. Shallow water tables are the likely reason: part of what the GLDAS 2.1 models

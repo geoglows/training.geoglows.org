@@ -21,6 +21,19 @@ python wtf.py            # water table fluctuation method, conceptual
 
 Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script overwrites its SVG.
 
+`compare_examples.py` draws the six worked examples on the Comparing the Two Datasets pages (`compare-agreement.png`,
+`compare-amplitude.png`, `compare-phase.png`, `compare-trend.png`, `compare-artifact-ice.png`, `compare-artifact-amazon.png`). It needs
+pandas and matplotlib, and reads `data/compare_*.csv`, which `data/export_compare_series.py` in webapp-grace-groundwater writes from the
+published stores:
+
+```
+cd ../../../webapp-grace-groundwater && data/.venv/bin/python -I data/export_compare_series.py
+cd -  &&  python compare_examples.py
+```
+
+Each CSV is one region's monthly area-weighted mean of both datasets' GWSa, TWSa and SMa, plus GRACE SWEa, which is the series the app's
+regional view plots. Regenerate the CSVs after a data rebuild and the figures follow.
+
 `gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/northern_midwest_filled.csv`, the
 app's seasonal fill of a Northern Midwest Aquifer System export.
 
