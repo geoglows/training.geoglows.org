@@ -5,16 +5,17 @@ quote for which question, and gives the diagnostic to run when you want to decid
 
 ## Agreement follows the size of the signal
 
-Grouping the 1° land cells by how much the GRACE groundwater actually moves:
+Sorting the 1° land cells by how much the GRACE groundwater actually moves, measured by its standard deviation — the typical distance of a month
+from that cell's own long-run average:
 
-| GRACE GWSa standard deviation | median correlation | median RMS difference | cells |
-|---|---:|---:|---:|
+| How much GRACE groundwater moves | Median correlation | Median gap between the two | Cells |
+|:---|:---:|:---:|:---:|
 | under 5 cm | 0.19 | 4.58 cm | 5,854 |
 | 5–15 cm | 0.51 | 8.32 cm | 7,110 |
 | over 15 cm | 0.77 | 27.32 cm | 2,171 |
 
-A quiet cell correlating at 0.2 is two small signals failing to line up, and it carries no information about whether either dataset is sound. The
-aquifers anyone would analyse sit in the bottom row. Read the correlation alongside the amount of water in play, never on its own.
+A quiet cell correlating at 0.2 is two small signals failing to line up, and it says nothing about whether either dataset is sound. The aquifers
+anyone would analyse sit in the bottom row. Read a correlation alongside the amount of water in play, never on its own.
 
 ## For the size of a trend, use GRACE
 
@@ -22,7 +23,7 @@ Averaged over the 37 WHYMAP large groundwater basins, the 2.2 GWSa trend runs ab
 the basins losing storage and 0.33 across those gaining it, so the flattening goes both ways:
 
 | Basin | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
+|:---|:---:|:---:|:---:|
 | Ganges-Brahmaputra | −1.53 | −0.44 | 0.29 |
 | Indus | −1.45 | −0.21 | 0.14 |
 | California Central Valley | −1.37 | −0.24 | 0.18 |
@@ -35,41 +36,44 @@ the basins losing storage and 0.33 across those gaining it, so the flattening go
 
 Trends in cm/yr, area-weighted over each basin, February 2003 to June 2026.
 
-Pumping is absent from the Catchment physics, so depletion reaches the 2.2 groundwater store only through the monthly GRACE correction, and that
-correction is spread across the surface, root zone and profile stores rather than landing in groundwater alone. Between corrections the model
-relaxes toward its own water balance.
+The reason sits in how 2.2 is built. The Catchment model has no pumping in it: nobody irrigates in the model world, so the model by itself will
+never deplete an aquifer. Depletion reaches 2.2's groundwater only through the monthly correction GRACE applies to the model, and that correction
+gets spread across the model's surface, root-zone and deep stores rather than landing on groundwater alone. Between corrections the model drifts
+back toward its own water balance.
 
-Scanlon et al. (2018) found the same flattening in open-loop models, comparing seven of them against three GRACE solutions over 186 river basins
-and 2002–2014: the models badly understate the large decadal trends GRACE sees, in both directions, which they attribute to irrigation and other
-human use being outside the model physics. 2.2 is a model with GRACE assimilated rather than an open-loop run, so the correction pulls it part of
-the way back, and the ratios above are what is left.
+Scanlon et al. (2018) found the same flattening in models run without any GRACE correction. Comparing seven of them against three GRACE solutions
+over 186 river basins and 2002–2014, they found the models badly understating the large decade-scale trends GRACE sees, in both directions, which
+they put down to irrigation and other human water use sitting outside the model physics. 2.2 does receive a GRACE correction, so it is pulled
+part of the way back; the ratios above are what remains.
 
 Three basins disagree on sign — the Amazon, the Congo and the Pechora — all of them places where the trend is small beside the seasonal cycle.
 
-## For the shape of the seasonal cycle, check SMa against TWSa first
+## For the shape of the seasonal cycle, compare soil moisture against total water
 
-The two datasets can differ in the size of the seasonal swing and in its timing. Across the 37 WHYMAP basins the 2.2 seasonal amplitude runs a
+The two datasets can differ in how big the seasonal swing is and in when it peaks. Across the 37 WHYMAP basins the 2.2 seasonal swing runs a
 median 1.23 times the GRACE one; across the 31 USGS principal aquifers, 1.52. In a few places it is several times larger:
 
 | Aquifer | GRACE | GLDAS 2.2 | 2.2 / GRACE |
-|---|---:|---:|---:|
+|:---|:---:|:---:|:---:|
 | Willamette Lowland | 4.8 | 33.3 | 7.0 |
 | Parisian Basin | 3.0 | 17.3 | 5.7 |
 | Denver Basin | 1.2 | 4.7 | 4.0 |
 | Northern Atlantic Coastal Plain | 2.9 | 9.9 | 3.4 |
 | Bassin Sénégalo-Mauritanien | 5.8 | 18.7 | 3.2 |
 
-Peak to trough of the GWSa climatology in cm, trend removed, February 2003 to June 2026.
+Height from the low month to the high month of the average seasonal cycle, in cm, with the long-term trend removed, February 2003 to June 2026.
 
-Timing can part company as well. In the Northern Atlantic Coastal Plain the GRACE GWSa peaks in June and the 2.2 GWSa in February, four months
-apart, and the two seasonal cycles correlate at −0.54. The Sahara Septentrional is half a year apart; the Indus runs March against September.
+Timing can part company as well. In the Northern Atlantic Coastal Plain the GRACE groundwater peaks in June and 2.2's in February, four months
+apart, and the two seasonal cycles correlate at −0.54 — they run close to opposite. The Sahara Septentrional is half a year apart; the Indus runs
+March against September.
 
-Comparing the seasonal size of SMa against that of TWSa tells you which regions will do this. Across the WHYMAP basins the ratio between those two
-amplitudes correlates at −0.65 with how well the two groundwater cycles agree, and at −0.83 across the USGS aquifers. Every region whose seasonal
-cycles run opposite has soil moisture swinging as hard as total water, or harder:
+One comparison tells you which regions will do this: how big the soil moisture cycle is beside the total water cycle. Across the WHYMAP basins
+that ratio correlates at −0.65 with how well the two groundwater cycles agree, and at −0.83 across the USGS aquifers — the harder soil moisture
+swings relative to total water, the worse the two datasets agree. Every region whose seasonal cycles run opposite has soil moisture swinging as
+hard as total water, or harder:
 
-| Aquifer | TWSa amplitude | SMa amplitude | SMa / TWSa | seasonal r |
-|---|---:|---:|---:|---:|
+| Aquifer | Total water swing | Soil moisture swing | Ratio | Seasonal correlation |
+|:---|:---:|:---:|:---:|:---:|
 | Ogaden-Juba | 2.0 | 3.3 | 1.70 | −0.74 |
 | Upper carbonate | 7.2 | 9.9 | 1.37 | −0.60 |
 | Sahara Septentrional | 0.5 | 0.7 | 1.35 | −0.83 |
@@ -77,17 +81,21 @@ cycles run opposite has soil moisture swinging as hard as total water, or harder
 | Indus | 5.7 | 6.3 | 1.11 | −0.39 |
 | Northern Atlantic Coastal Plain | 7.9 | 8.4 | 1.06 | −0.54 |
 
-Regions where the two agree sit between 0.4 and 0.6.
+Regions where the two datasets agree have ratios between 0.4 and 0.6: soil moisture accounts for about half the total swing, and the groundwater
+left over still has a cycle of its own.
 
-GWSa on the GRACE route is TWSa − SMa − SWEa − CANa. Where the model's soil moisture cycle is as large as the measured total-water cycle and close
-to it in phase, the remainder peaks when soil moisture is at its driest, and the groundwater cycle left behind is the small difference of two large
-similar numbers. In the Northern Atlantic Coastal Plain that puts the GRACE peak four months after the water table there is actually highest, while
-2.2's February peak falls where late-winter recharge would put it. A shallow water table is the likely reason: part of what GLDAS 2.1 counts as
-soil moisture is groundwater, and subtracting it removes the signal twice. Getirana, Kumar and Rodell (2025) make the general form of this
-argument, that the models' compartments are not the physically separate stores the subtraction assumes them to be.
+The arithmetic explains it. On the GRACE route, groundwater is what is left after soil moisture, snow and canopy water are taken out of the
+measured total. Where the model's soil moisture rises and falls as much as the measured total does, and at the same time of year, the two nearly
+cancel, and what remains peaks when the soil is at its driest. The groundwater cycle left behind is the small difference between two large
+similar numbers, so it is sensitive to any error in either.
 
-**Prefer 2.2 for seasonal shape where SMa swings as hard as TWSa.** You can run the check in the app: plot SMa and TWSa for the region and compare
-the height of their seasonal cycles.
+In the Northern Atlantic Coastal Plain that puts the GRACE groundwater peak four months after the water table there is actually highest, while
+2.2's February peak falls where late-winter recharge would put it. Shallow water tables are the likely reason: part of what the GLDAS 2.1 models
+count as soil moisture is groundwater, so the subtraction removes the groundwater signal twice. Getirana, Kumar and Rodell (2025) make the
+general form of this argument — that a model's compartments are not the physically separate stores the subtraction assumes.
+
+**Prefer 2.2 for seasonal shape where soil moisture swings as hard as total water.** The check takes a minute in the app: plot the SMa and TWSa
+layers for your region and compare the heights of their seasonal cycles.
 
 ## For recharge, use GRACE
 
@@ -99,9 +107,9 @@ peak off the series, and if their months are wrong the recharge estimate is wron
 ## Summary
 
 | What you want | Use | Because |
-|---|---|---|
+|:---|:---|:---|
 | A depletion or recovery rate, in cm/yr or km³/yr | GRACE | 2.2 flattens trends to roughly a quarter |
-| The shape and timing of the seasonal cycle | 2.2 where SMa swings as hard as TWSa, otherwise either | the subtraction can invert the phase |
+| The shape and timing of the seasonal cycle | 2.2 where soil moisture swings as hard as total water, otherwise either | the subtraction can flip the timing |
 | A region a few cells across | 2.2 | averaged on 0.25° where the other is on 1° |
 | An unbroken monthly series | 2.2 | the model runs through the GRACE gaps |
 | Recharge by the WTF method | GRACE | Barbosa et al. (2025), plus the phase risk |
@@ -109,8 +117,8 @@ peak off the series, and if their months are wrong the recharge estimate is wron
 | Anything before February 2003 | GRACE | the 2.2 record starts there |
 | A result you mean to publish | both | and say where they agree and where they do not |
 
-Two independent answers that agree are hard to explain away. Where they disagree, plot the components: a divergence that lives in SMa is a
-different problem from one that lives in TWSa.
+Two independent answers that agree are hard to explain away. Where they disagree, plot the pieces: a gap that lives in soil moisture is a
+different problem from one that lives in total water.
 
 ## How far any of this is validated
 

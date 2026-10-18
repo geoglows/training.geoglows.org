@@ -11,10 +11,16 @@ l’origine du désaccord. [Quand se fier à chacun](trusting-each-one.md) trait
 - **La voie GLDAS 2.2.** La NASA fait tourner le modèle de surface terrestre Catchment avec GRACE assimilé dedans, et le modèle rapporte
   directement un état d’eau souterraine. Rien n’est retranché.
 
+Ces pages emploient partout les noms des couches de l’application. **TWSa** est l’eau totale stockée : toutes les formes d’eau retenues dans la
+colonne à cet endroit — humidité du sol, neige, eau sur les feuilles, eau de surface et eau souterraine. **GWSa** en est la part souterraine,
+**SMa** l’humidité du sol, **SWEa** la neige et **CANa** l’eau retenue par la végétation. Le *a* de chacune signifie anomalie : chaque valeur est
+un écart à la moyenne 2004–2009 de la maille elle-même, en centimètres d’eau répartis uniformément sur la maille. Zéro signifie des conditions
+moyennes pour ce lieu, jamais un aquifère vide.
+
 ## Ce qui diffère déjà avant de compter la moindre goutte { #what-already-differs-before-any-water-is-counted }
 
 | | Voie GRACE | GLDAS 2.2 |
-|---|---|---|
+|:---|:---|:---|
 | Solution GRACE | mascons du JPL, RL06.3 v04 CRI | mascons du CSR, RL06 |
 | Empreinte GRACE native | calottes de 3° à surface égale | 1° à surface égale à l’équateur |
 | Grille servie | 1° | 0.25°, moyennée à 1° pour la grille globale |
@@ -29,64 +35,113 @@ désaccord. Toutes les autres lignes changent les chiffres.
 
 ## Deux groupes, une paire de satellites { #two-groups-one-pair-of-satellites }
 
-GRACE n’a jamais mesuré d’eau. Il a mesuré la distance entre deux satellites, à quelques microns près, pendant qu’ils tombaient autour de la Terre
-et que la masse située en dessous les tirait. Reconstituer une carte des masses à partir de cet enregistrement est sous-déterminé — bien des
-répartitions de masse différentes s’accordent avec les mêmes orbites — et chaque centre de traitement impose donc des hypothèses supplémentaires
-pour aboutir à une réponse unique. Le JPL et le CSR en imposent de différentes.
+GRACE n’a jamais mesuré d’eau. Deux satellites volaient en formation, l’un devant l’autre, et l’instrument placé entre eux mesurait leur
+séparation à quelques microns près. La masse supplémentaire du sol en dessous — de l’eau, pour l’essentiel — attire d’abord le satellite de tête,
+puis celui de queue un instant plus tard, ce qui modifie très légèrement cette séparation. Des mois de ces mesures se retraduisent en une carte
+des gains et des pertes de masse.
+
+Cette conversion n’a pas de réponse unique. Beaucoup de répartitions différentes de l’eau au sol correspondent aussi bien au même enregistrement
+orbital, si bien que chaque centre de traitement ajoute ses propres hypothèses pour n’en retenir qu’une. Le JPL et le CSR ajoutent des hypothèses
+différentes. Tous deux publient le résultat sous forme de **mascons** : des blocs de la surface terrestre, chacun recevant une valeur d’eau par
+mois.
 
 | | JPL | CSR |
-|---|---|---|
-| Résolu sur | calottes sphériques de 3° à surface égale | grille géodésique à surface égale, 1° à l’équateur |
-| Livré en | 0.5° | 0.25° |
-| Régularisation | contrainte informée par un modèle de surface terrestre | contrainte tirée des seules données GRACE, paramètre choisi par une L-ribbon |
-| Côtes | un filtre CRI sépare terre et océan à l’intérieur d’un mascon à cheval | les tuiles côtières sont coupées en deux le long de la côte |
-| Facteurs d’échelle | publiés, et le JPL recommande de les appliquer | le CSR indique que ses mascons n’en ont pas besoin |
+|:---|:---|:---|
+| Blocs sur lesquels la solution est calculée | calottes d’égale surface de 3°, environ 300 km | tuiles d’égale surface de 1° à l’équateur, environ 110 km |
+| Grille de diffusion des fichiers | 0.5° | 0.25° |
+| Ce qui oriente la réponse là où GRACE seul est ambigu | un modèle de surface continentale | les seules données GRACE |
+| Blocs à cheval sur une côte | un filtre sépare la part terrestre de la part océanique | le bloc est coupé en deux le long du trait de côte |
+| Facteurs de correction | le JPL publie des facteurs de gain et recommande de les appliquer | le CSR indique que ses mascons n’en ont pas besoin |
 
-Scanlon et al. (2016) ont comparé les mascons du CSR et du JPL entre eux et aux harmoniques sphériques remises à l’échelle sur 176 bassins
-fluviaux, et ont trouvé des séries d’eau totale corrélant pour la plupart au-dessus de 0.9, les tendances restant la part qui diverge. Cela
-correspond à ce que font ici les deux jeux de données : sur les 37 bassins WHYMAP, les séries de TWSa corrèlent à une médiane de 0.87, et 15 des
-37 dépassent 0.9. L’accord se dégrade à mesure que la région rétrécit, et maille par maille sur tout le globe la corrélation médiane de TWSa vaut
-0.75.
+Les deux grilles sont plus fines que ce que GRACE peut réellement voir. Les satellites résolvent des structures de quelques centaines de
+kilomètres, quel que soit le centre qui les traite : la grille est la façon d’emballer une réponse, pas la quantité de détail qu’elle contient.
 
-## Répartir l’écart entre ses deux causes { #splitting-the-difference-into-its-two-causes }
+Scanlon et al. (2016) ont comparé les produits des deux centres sur 176 bassins fluviaux et trouvé que leurs enregistrements d’eau totale se
+suivent de près, les tendances de long terme restant la part qui diverge. Les deux jeux de données de cette application se comportent de la même
+façon.
 
-Les deux jeux de données satisfont le même bilan hydrique, TWSa = GWSa + SMa + SWEa + CANa. En notant REST tout ce qui n’est pas de l’eau
-souterraine, l’écart entre les deux séries d’eau souterraine est donc fixé par deux autres écarts :
+L’accord, dans ces pages, se mesure par une **corrélation** : un seul nombre entre −1 et 1 qui dit avec quelle fidélité deux enregistrements
+mensuels montent et descendent ensemble. À 1 ils bougent à l’unisson, à 0 il n’y a aucune relation, à −1 l’un monte chaque fois que l’autre
+descend. Une corrélation ne dit rien sur le fait que les deux s’accordent sur la quantité d’eau, seulement sur le calendrier et la forme des
+hausses et des baisses.
+
+Chaque corrélation porte ici sur les 281 mois que les deux jeux fournissent, de février 2003 à juin 2026. Pour un bassin, chaque jeu est d’abord
+moyenné sur le bassin — la série que trace la vue régionale de l’application — et ces deux moyennes sont comparées. Les tendances y restent, de
+sorte qu’une baisse que les deux jeux voient compte en faveur de leur accord.
+
+Sur les 37 bassins WHYMAP, les deux enregistrements d’eau totale corrèlent à une médiane de 0.87, et 15 des 37 dépassent 0.9. L’accord faiblit à
+mesure que la surface diminue : maille de 1° par maille de 1°, la médiane tombe à 0.75, car moyenner sur un bassin annule le bruit d’un mois à
+l’autre qu’une seule maille porte à elle seule.
+## D’où vient l’écart { #where-the-difference-comes-from }
+
+Aucun des deux jeux de données ne mesure l’eau souterraine. Tous deux y parviennent par soustraction : on part de l’eau totale stockée dans la
+colonne, puis on retranche l’eau retenue sous forme d’humidité du sol, de neige et d’eau de la canopée. Ce qui reste est appelé eau souterraine.
+
+Les deux séries d’eau souterraine peuvent donc diverger de deux façons, et d’aucune autre.
+
+1. **Elles partent d’un total différent.** Les couches GRACE de l’application portent la solution du JPL et GLDAS 2.2 intègre celle du CSR. Là où
+   ces deux solutions sont en désaccord sur l’eau totale, l’eau souterraine qu’elles impliquent hérite intégralement de ce désaccord.
+2. **Elles retranchent une quantité différente.** Les trois modèles GLDAS 2.1 que la route GRACE moyenne, et le modèle Catchment au cœur de 2.2,
+   retiennent des quantités différentes d’humidité du sol et de neige pour le même lieu au même mois. Retrancher davantage laisse moins d’eau
+   souterraine.
+
+Rien d’autre n’intervient, de sorte que les trois écarts sont liés exactement : l’écart d’eau souterraine est égal à l’écart d’eau totale moins
+l’écart de la soustraction. En notant d « l’écart entre les deux jeux de données », TWS l’eau totale et REST tout ce qui, dans la colonne, n’est
+pas de l’eau souterraine,
 
 $$ d_{GW} = d_{TWS} - d_{REST} $$
 
-Chaque terme se mesure. Maille par maille, médianes pondérées par la surface entre 2003-02 et 2026-06 :
+Les trois se mesurent, ce qui tranche la question de la cause dominante selon les endroits.
 
-| | RMS | part médiane de la variance de d<sub>GW</sub> |
-|---|---:|---:|
-| d<sub>GW</sub>, l’écart d’eau souterraine que l’on voit | 6.42 cm | — |
-| d<sub>TWS</sub>, les deux solutions GRACE en désaccord | 5.73 cm | 0.85 |
-| d<sub>REST</sub>, la colonne partagée autrement | 3.38 cm | 0.32 |
+Le **RMS** est la taille typique d’un écart, en centimètres d’eau : on prend la différence entre les deux jeux de données à chaque mois, on
+l’élève au carré, on moyenne sur la période, on prend la racine carrée. Le décalage fixe propre à chaque maille est retiré d’abord, si bien que
+le RMS mesure le désaccord qui évolue dans le temps plutôt qu’une distance constante entre les deux.
 
-Les parts dépassent 1 ensemble parce que les deux écarts sont en partie corrélés.
+La **part** dit quelle fraction de l’écart d’eau souterraine une seule cause pourrait expliquer. Chaque écart oscille d’une certaine ampleur
+autour de sa propre moyenne, et la part compare l’ampleur de cette oscillation à celle de l’écart d’eau souterraine.
 
-Moyenné sur un bassin, l’équilibre se déplace. Les médianes par bassin valent 0.72 pour d<sub>TWS</sub> et 0.32 pour d<sub>REST</sub>, et dans 11
-des 37 bassins le partage est le plus grand des deux. La moyenne annule une bonne part du bruit de maille des solutions GRACE tout en laissant
-l’écart systématique dans la façon de diviser la colonne : plus la région est grande, plus le désaccord porte sur le partage et moins sur JPL
-contre CSR.
+Les deux sont des médianes sur les mailles terrestres communes aux deux jeux, de février 2003 à juin 2026, chaque maille comptant
+proportionnellement à sa surface, de sorte qu’une maille large à l’équateur pèse plus qu’une maille étroite près d’un pôle.
 
-L’eau souterraine diverge partout plus que l’eau totale. Maille par maille, les médianes valent 0.42 pour la GWSa contre 0.75 pour la TWSa ; par
-bassin, 0.61 contre 0.87. Plus une grandeur s’éloigne de la mesure brute, plus les deux constructions s’écartent.
+| L’écart entre les deux jeux de données sur | RMS | Part de l’écart d’eau souterraine |
+|:---|:---:|:---:|
+| l’eau souterraine, ce qui s’affiche à l’écran | 6.42 cm | — |
+| l’eau totale, JPL contre CSR | 5.73 cm | 0.85 |
+| la soustraction : sol, neige et canopée | 3.38 cm | 0.32 |
+
+Les deux parts totalisent plus de 1 parce que les écarts évoluent en partie ensemble : elles ne répartissent donc pas la responsabilité en
+pourcentages nets. À lire comme un classement : dans une maille typique de 1°, le désaccord entre le JPL et le CSR explique l’essentiel de
+l’écart d’eau souterraine, et la soustraction environ un tiers.
+
+Moyenner sur un bassin déplace cet équilibre. La moyenne annule une bonne part du bruit de maille des solutions GRACE tout en laissant l’écart
+systématique dans la façon de diviser la colonne : plus la région est grande, plus le désaccord provient de la soustraction. Les parts par bassin
+atteignent une médiane de 0.72 pour l’eau totale et de 0.32 pour la soustraction, et dans 11 des 37 bassins la soustraction est la cause la plus
+importante.
+
+L’eau souterraine diverge partout plus que l’eau totale. Maille par maille, les séries d’eau souterraine des deux jeux corrèlent à une médiane de
+0.42, contre 0.75 pour l’eau totale ; par bassin, 0.61 contre 0.87. Chaque pas qui éloigne de la mesure brute ajoute un choix de modélisation que
+les deux jeux de données font différemment.
 
 ## Ce que dit la littérature sur la soustraction { #what-the-literature-says-about-the-subtraction }
 
-Getirana, Kumar et Rodell (2025) soutiennent que la méthode du résidu — retrancher de la TWS de GRACE l’humidité du sol, la neige et l’eau de la
-canopée modélisées, puis lire le reste comme de l’eau souterraine — repose sur une hypothèse qui ne tient pas : que les modèles représentent
-chaque réservoir autre que l’eau souterraine dans des compartiments séparés et physiquement signifiants. Ils demandent aux utilisateurs de peser
-ce que les simplifications et les conventions des modèles font au résultat, et recommandent l’assimilation de données et des modèles dotés d’une
-représentation plus complète du sous-sol.
+Getirana, Kumar et Rodell (2025) mettent en cause la méthode qui sous-tend la route GRACE. Retrancher l’humidité du sol et la neige d’un modèle à
+un total GRACE ne donne de l’eau souterraine que si les compartiments de sol et de neige du modèle contiennent exactement l’eau que ces
+étiquettes suggèrent, ce qui n’est pas le cas dans beaucoup de modèles. Les couches de sol s’arrêtent à une profondeur fixe, ce qui se trouve en
+dessous est traité par convention, et là où la nappe est peu profonde l’eau qu’un modèle classe en humidité du sol est celle qu’un hydrologue
+appellerait eau souterraine. En la retranchant, on emporte le signal recherché. Ils recommandent des modèles dotés d’un sous-sol plus complet et
+assimilant GRACE, ce qui décrit GLDAS 2.2.
 
-Cette critique vise la voie GRACE de cette application, et les sections sur les cycles saisonniers de
-[Quand se fier à chacun](trusting-each-one.md) chiffrent un cas précis. Elle ne rend pas la voie GRACE inutile. Scanlon et al. (2018) ont comparé
-sept modèles globaux à trois solutions GRACE sur 186 bassins fluviaux et ont trouvé que les modèles sous-estiment gravement les grandes tendances
-décennales que voit GRACE, dans les deux sens, ce qui est une raison de garder la mesure dans le tableau plutôt que de confier la question à un
-modèle. Les deux articles pointent dans le même sens : prendre le partage du modèle le mieux posé et l’ampleur du changement de la mesure.
+La critique s’applique à la route GRACE de cette application. Les sections sur les cycles saisonniers de [Où faire confiance à
+chacun](trusting-each-one.md) chiffrent un cas précis : sur la plaine côtière atlantique, où les nappes sont peu profondes, la route GRACE place
+son maximum d’eau souterraine à la mauvaise saison.
 
+Cela ne rend pas la route GRACE inutile. Scanlon et al. (2018) ont confronté sept modèles globaux de surface continentale à trois solutions GRACE
+sur 186 bassins fluviaux et trouvé les modèles systématiquement trop plats : là où GRACE voit un gain ou une perte importante sur plusieurs
+années, les modèles en montrent une moindre, dans les deux sens. Un modèle est le meilleur guide pour savoir comment la colonne se partage entre
+sol, neige et eau souterraine ; les satellites sont le meilleur guide pour savoir de combien le total a changé.
+
+Les deux articles appuient le partage que recommandent ces pages : prendre de 2.2 la forme du cycle et le partage de la colonne, et de GRACE
+l’ampleur d’un gain ou d’une perte de long terme.
 ## Références { #references }
 
 - Getirana, A., Kumar, S., et Rodell, M. (2025). Inconsistencies in GRACE-Based Groundwater Storage Estimation — A Call for a Proper Use of
