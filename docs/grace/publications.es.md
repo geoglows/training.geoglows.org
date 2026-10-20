@@ -120,7 +120,8 @@
 
 ### Comparación de los dos conjuntos { #comparing-the-two-datasets }
 
-Estudios independientes, de grupos distintos al nuestro, que respaldan las recomendaciones de [Cuándo fiarse de cada uno](compare/trusting-each-one.md).
+Estudios independientes, de grupos distintos al nuestro, que respaldan las recomendaciones de [Cuál usar](compare/which-one-to-use.md) y que se
+sopesan en [Hasta dónde está validado](compare/validation.md).
 
 - **Global Models Underestimate Large Decadal Declining and Rising Water Storage Trends Relative to GRACE Satellite Data**  
   *Bridget R. Scanlon, Zizhan Zhang, Himanshu Save, Alexander Y. Sun, Hannes Müller Schmied, Ludovicus P. H. van Beek et al.*  

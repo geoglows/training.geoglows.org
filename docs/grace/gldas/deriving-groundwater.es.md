@@ -144,20 +144,15 @@ usan los almacenes de GRACE, alimenta el mapa global con una décima de centíme
 
 ### La humedad del suelo, y por qué no es la que publica la NASA { #soil-moisture-and-why-it-is-not-what-nasa-publishes }
 
-La humedad del suelo publicada del modelo Catchment ya contiene el agua subterránea. `SoilMoist_P_tavg` es todo el perfil desde la superficie
-hacia abajo, y `SoilMoist_P − GWS` es positivo en todas partes: una mediana de 277 mm de agua situada por encima del nivel freático. El balance
-propio del producto cierra con tres términos:
+La humedad del suelo publicada del modelo Catchment, `SoilMoist_P_tavg`, es todo el perfil desde la superficie hacia abajo, así que ya contiene
+el agua subterránea del propio modelo
+([por qué](land-surface-models.md#why-the-catchment-model-needs-separate-handling)). Ofrecida así, la SMa del conjunto 2.2 significaría algo
+distinto de la SMa del conjunto de GRACE, y las cinco capas no sumarían en el gráfico.
 
-$$
-\mathrm{TWS} = \mathrm{SoilMoist\_P} + \mathrm{SWE} + \mathrm{CanopInt}
-$$
-
-Ofrecida así, la SMa del conjunto 2.2 significaría algo distinto de la SMa del conjunto de GRACE, y las cinco capas no sumarían en el gráfico.
 Por eso la aplicación guarda la SMa de 2.2 como la anomalía de `SoilMoist_P − GWS`, que es la humedad del suelo por encima del nivel freático.
-Por la definición que la propia NASA da del agua subterránea del modelo, esa diferencia es el reservorio de la zona radicular, que es lo que el
-promedio de modelos del conjunto de datos de GRACE toma del mismo modelo: ver
-[por qué el modelo Catchment necesita un tratamiento aparte](land-surface-models.md#why-the-catchment-model-needs-separate-handling). Con esa
-sustitución las cinco capas cierran exactamente:
+Por la definición que la propia NASA da del agua subterránea del modelo, esa diferencia es el reservorio de la zona radicular, que es justo lo
+que el promedio de modelos del conjunto de GRACE toma del mismo modelo, de modo que las capas de humedad del suelo de ambos conjuntos describen
+el mismo reservorio. Con esa sustitución las cinco capas cierran exactamente:
 
 $$
 \mathrm{TWSa}_{22} = \mathrm{SWEa}_{22} + \mathrm{CANa}_{22} + \mathrm{SMa}_{22} + \mathrm{GWSa}_{22}
@@ -165,13 +160,10 @@ $$
 
 Medido sobre el almacén publicado de 0.25°, el residuo más grande de todo el registro es de 0.02 cm, que son dos unidades de su propio redondeo.
 
-### Qué hace y qué no hace la asimilación { #what-the-assimilation-does-and-does-not-do }
+### Qué significa eso al leer una serie de 2.2 { #what-that-means-for-reading-a-22-series }
 
-GRACE ve la columna entera y no puede distinguir a qué almacenamiento pertenece una discrepancia, así que el esquema reparte la corrección de
-cada mes entre los estados del modelo, el agua subterránea incluida. El bombeo está ausente de la física del modelo y llega al estado de agua
-subterránea solo a través de esta corrección.
-
-Eso tiene consecuencias para leer una serie de 2.2.
+La corrección que aplica GRACE se reparte entre todos los almacenes del modelo, y el bombeo llega al estado de agua subterránea solo a través de
+ella ([cómo](land-surface-models.md#gldas-22-and-the-grace-correction)). De ahí se siguen tres consecuencias para quien lea la serie.
 
 El registro empieza en febrero de 2003, diez meses después del abril de 2002 de GRACE, porque es cuando se arrancó la ejecución asimiladora.
 
@@ -212,14 +204,10 @@ terrestre se equivoque sigue aplicándose, sin que nada lo reporte.
 
 ## Cuál usar { #which-one-to-use }
 
-Ninguno de los dos conjuntos gana en todas partes. Para el tamaño de una tendencia, usa GRACE; para la forma de un ciclo estacional en una región
-donde el ciclo de humedad del suelo rivaliza con el del agua total, usa 2.2; para la recarga, usa GRACE. La comparación completa está en
-[Por qué difieren los dos conjuntos](../compare/why-they-differ.md) y en las dos páginas que le siguen: de dónde viene el desacuerdo, qué serie
-citar para cada pregunta y los lugares donde uno de los dos informa algo que no es agua subterránea.
-
-El registro de 2.2 empieza diez meses después que el de GRACE, en febrero de 2003, y la solución de GRACE que hay detrás de 2.2 es la del CSR
-mientras que las capas de GRACE de la propia aplicación son las del JPL. Ninguna de las dos cosas es un defecto de los datos; ambas aparecerán
-cada vez que se superpongan los dos.
+Ninguno de los dos conjuntos gana en todas partes, y la elección depende de la pregunta. La parte 3 lo recorre: [Por qué difieren los dos
+conjuntos](../compare/why-they-differ.md) para el origen del desacuerdo, [Cómo se ven las diferencias](../compare/examples.md) para los casos,
+[Cuál usar](../compare/which-one-to-use.md) para la recomendación y [Hasta dónde está validado](../compare/validation.md) para el peso que
+soporta.
 
 ## Para qué sirve la GWSa { #what-gwsa-is-good-for }
 

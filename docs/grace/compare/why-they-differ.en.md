@@ -1,8 +1,8 @@
 # Why the Two Datasets Differ
 
 The app serves two groundwater records for the same month in the same cell, and they do not agree. This page covers where the disagreement comes
-from. [Where Each One Is Trustworthy](trusting-each-one.md) covers which one to believe, and [Known Artifacts](known-artifacts.md) covers the
-places where one of them is simply wrong.
+from. [What the Differences Look Like](examples.md) shows the cases, [Which One to Use](which-one-to-use.md) says which series to quote for which
+question, and [How Far This Is Validated](validation.md) says how much weight that advice can carry.
 
 [Deriving Groundwater Storage](../gldas/deriving-groundwater.md) gives both constructions in full. In short:
 
@@ -56,9 +56,11 @@ processes them, so the grid is how an answer gets packaged rather than how much 
 Scanlon et al. (2016) compared the two centers' products across 176 river basins and found their total-water records tracking each other closely,
 with long-term trends the part that still diverges. The two datasets in this app behave the same way.
 
-Agreement throughout these pages is measured as a **correlation**: one number between −1 and 1 saying how closely two monthly records rise and
-fall together. At 1 they move in lockstep, at 0 there is no relationship, at −1 one rises whenever the other falls. A correlation says nothing
-about whether the two agree on how much water there is — only on the timing and shape of the ups and downs.
+## How agreement is measured on these pages
+
+Agreement is measured as a **correlation**: one number between −1 and 1 saying how closely two monthly records rise and fall together. At 1 they
+move in lockstep, at 0 there is no relationship, at −1 one rises whenever the other falls. A correlation says nothing about whether the two agree
+on how much water there is — only on the timing and shape of the ups and downs.
 
 Each correlation here covers the 281 months both datasets provide, February 2003 to June 2026. For a basin, each dataset is first averaged across
 the basin, which is the series the app's regional view plots, and those two averages are compared. Trends are left in, so a decline both datasets
@@ -68,16 +70,6 @@ Across the 37 WHYMAP basins the two total-water records correlate at a median of
 area shrinks: comparing one 1° cell at a time, the median falls to 0.75, because averaging over a basin cancels month-to-month noise that a
 single cell carries on its own.
 
-The Guarani Aquifer System shows what good agreement looks like:
-
-![The GRACE route and GLDAS 2.2 groundwater records over the Guarani Aquifer System, month by month and as an average seasonal cycle](../../static/images/grace/compare-agreement.png)
-
-Both datasets ride the wet years to 2016 and both turn down after 2020. Their monthly groundwater records correlate at 0.85, their seasonal
-cycles at 0.96, and their seasonal swings differ by a centimetre. Nothing a water manager would conclude from this aquifer changes with the
-choice of dataset.
-
-The rest of this page is about the basins where that is not true, and [Where Each One Is Trustworthy](trusting-each-one.md) works through four
-of them.
 ## Where the difference comes from
 
 Neither dataset measures groundwater. Both arrive at it by subtraction: start from the total water stored in the column, then take away the water
@@ -125,38 +117,24 @@ Groundwater disagrees more than total water throughout. Cell by cell the two dat
 0.75 for total water; by basin, 0.61 against 0.87. Each step away from the raw measurement adds a modelling choice the two datasets make
 differently.
 
-## What the literature says about the subtraction
+## What that looks like on the ground
 
-Getirana, Kumar and Rodell (2025) question the method behind the GRACE route. Subtracting a model's soil moisture and snow from a GRACE total
-gives you groundwater only if the model's soil and snow compartments hold exactly the water those labels imply, and in many models they do not.
-Soil layers stop at a fixed depth, what lies below gets handled by convention, and where the water table is shallow the water a model files under
-soil moisture is the same water a hydrologist would call groundwater. Subtract it and the signal you were after goes with it. They recommend
-models that carry a fuller subsurface with GRACE assimilated into them, which describes GLDAS 2.2.
+The two causes above produce four recognisable patterns, and one more that is not a disagreement at all:
 
-The critique applies to the GRACE route in this app. The seasonal-cycle sections of [Where Each One Is Trustworthy](trusting-each-one.md) show
-one case of it with numbers: along the Atlantic coastal plain, where water tables are shallow, the GRACE route puts its groundwater peak in the
-wrong season.
+| Pattern | What you see | Which cause |
+|:---|:---|:---|
+| The two agree | both records rise and fall together, within a centimetre or two | neither dominates |
+| The trend differs | the same wet and dry years, on lines that drift apart | mostly the subtraction, through what 2.2 does with a correction |
+| The swing differs | the same timing, one cycle several times taller | the subtraction |
+| The cycles run opposite | peaks months apart, correlation below zero | the subtraction, where soil moisture is nearly as large as total water |
+| One record is not groundwater | metres of change, or a cycle that belongs to a river | ice, surface water or frozen ground, which no model carries |
 
-It does not make the GRACE route useless. Scanlon et al. (2018) checked seven global land models against three GRACE solutions across 186 river
-basins and found the models consistently too flat — where GRACE sees a large multi-year gain or loss, the models show a smaller one, in both
-directions. A model is the better guide to how the column divides between soil, snow and groundwater; the satellites are the better guide to how
-much the total has changed.
+[What the Differences Look Like](examples.md) works through each one with named aquifers on five continents.
 
-The two papers support the split these pages recommend: take the shape of the cycle and the division of the column from 2.2, and the size of a
-long-term gain or loss from GRACE.
 ## References
 
-- Getirana, A., Kumar, S., and Rodell, M. (2025). Inconsistencies in GRACE-Based Groundwater Storage Estimation — A Call for a Proper Use of
-  Land Surface Models. *Geophysical Research Letters*, 52, e2025GL119197.
-  [doi:10.1029/2025GL119197](https://doi.org/10.1029/2025GL119197){:target="_blank"}
-- Li, B., Rodell, M., Kumar, S., Beaudoing, H. K., Getirana, A., Zaitchik, B. F., et al. (2019). Global GRACE Data Assimilation for Groundwater
-  and Drought Monitoring: Advances and Challenges. *Water Resources Research*, 55, 7564–7586.
-  [doi:10.1029/2018WR024618](https://doi.org/10.1029/2018WR024618){:target="_blank"}
 - Save, H., Bettadpur, S., and Tapley, B. D. (2016). High-resolution CSR GRACE RL05 mascons. *Journal of Geophysical Research: Solid Earth*,
   121, 7547–7569. [doi:10.1002/2016JB013007](https://doi.org/10.1002/2016JB013007){:target="_blank"}
 - Scanlon, B. R., Zhang, Z., Save, H., Wiese, D. N., Landerer, F. W., Long, D., Longuevergne, L., and Chen, J. (2016). Global evaluation of new
   GRACE mascon products for hydrologic applications. *Water Resources Research*, 52, 9412–9429.
   [doi:10.1002/2016WR019494](https://doi.org/10.1002/2016WR019494){:target="_blank"}
-- Scanlon, B. R., Zhang, Z., Save, H., Sun, A. Y., Müller Schmied, H., van Beek, L. P. H., et al. (2018). Global models underestimate large
-  decadal declining and rising water storage trends relative to GRACE satellite data. *Proceedings of the National Academy of Sciences*, 115(6),
-  E1080–E1089. [doi:10.1073/pnas.1704665115](https://doi.org/10.1073/pnas.1704665115){:target="_blank"}

@@ -120,7 +120,8 @@
 
 ### Comparing the Two Datasets
 
-Independent studies, from groups other than ours, behind the recommendations in [Where Each One Is Trustworthy](compare/trusting-each-one.md).
+Independent studies, from groups other than ours, behind the recommendations in [Which One to Use](compare/which-one-to-use.md) and weighed in
+[How Far This Is Validated](compare/validation.md).
 
 - **Global Models Underestimate Large Decadal Declining and Rising Water Storage Trends Relative to GRACE Satellite Data**  
   *Bridget R. Scanlon, Zizhan Zhang, Himanshu Save, Alexander Y. Sun, Hannes Müller Schmied, Ludovicus P. H. van Beek et al.*  

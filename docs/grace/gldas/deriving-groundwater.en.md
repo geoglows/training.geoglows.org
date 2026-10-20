@@ -133,19 +133,13 @@ tenth of a centimetre, which keeps the first view of a whole-world layer down fr
 
 ### Soil moisture, and why it is not what NASA publishes
 
-The Catchment model's published soil moisture already contains the groundwater. `SoilMoist_P_tavg` is the whole profile from the surface down,
-and `SoilMoist_P − GWS` is positive everywhere, a median 277 mm of water sitting above the water table. The product's own budget closes on three
-terms:
+The Catchment model's published soil moisture, `SoilMoist_P_tavg`, is the whole profile from the surface down, so it already contains the
+model's own groundwater ([why](land-surface-models.md#why-the-catchment-model-needs-separate-handling)). Served that way, SMa in the 2.2 dataset
+would mean something different from SMa in the GRACE dataset, and the five layers would not add up in the chart.
 
-$$
-\mathrm{TWS} = \mathrm{SoilMoist\_P} + \mathrm{SWE} + \mathrm{CanopInt}
-$$
-
-Served that way, SMa in the 2.2 dataset would mean something different from SMa in the GRACE dataset, and the five layers would not add up in
-the chart. The app therefore stores SMa for 2.2 as the anomaly of `SoilMoist_P − GWS`, which is soil moisture above the water table. By NASA's
-own definition of the model's groundwater, that difference is the root zone reservoir, which is what the GRACE dataset's ensemble takes from the
-same model — see [why the Catchment model needs separate
-handling](land-surface-models.md#why-the-catchment-model-needs-separate-handling). With that substitution the five layers close exactly:
+The app therefore stores SMa for 2.2 as the anomaly of `SoilMoist_P − GWS`, which is soil moisture above the water table. By NASA's own
+definition of the model's groundwater that difference is the root zone reservoir, which is exactly what the GRACE dataset's ensemble takes from
+the same model, so both datasets' soil moisture layers describe the same reservoir. With that substitution the five layers close exactly:
 
 $$
 \mathrm{TWSa}_{22} = \mathrm{SWEa}_{22} + \mathrm{CANa}_{22} + \mathrm{SMa}_{22} + \mathrm{GWSa}_{22}
@@ -153,12 +147,10 @@ $$
 
 Measured on the published 0.25° store, the largest residual anywhere in the record is 0.02 cm, which is two units of its own rounding.
 
-### What the assimilation does and does not do
+### What that means for reading a 2.2 series
 
-GRACE sees the whole column and cannot tell which store a discrepancy belongs to, so the scheme spreads each month's correction across the
-model's states, groundwater among them. Pumping is absent from the model physics and reaches the groundwater state only through this correction.
-
-That has consequences for reading a 2.2 series.
+The correction GRACE applies is spread across all the model's stores, and pumping reaches the groundwater state only through it
+([how](land-surface-models.md#gldas-22-and-the-grace-correction)). Three consequences follow for anyone reading the series.
 
 The record starts in February 2003, ten months after GRACE's April 2002, because that is when the assimilating run was started.
 
@@ -199,13 +191,10 @@ nothing reporting it.
 
 ## Which one to use
 
-Neither dataset wins everywhere. For the size of a trend, use GRACE; for the shape of a seasonal cycle in a region where the soil moisture cycle
-rivals the total-water cycle, use 2.2; for recharge, use GRACE. The full comparison is in
-[Why the Two Datasets Differ](../compare/why-they-differ.md) and the two pages that follow it: where the disagreement comes from, which series to
-quote for which question, and the places where one of them is reporting something other than groundwater.
-
-The 2.2 record starts ten months later than GRACE's, in February 2003, and the GRACE solution behind 2.2 is CSR's while the app's own GRACE
-layers are JPL's. Neither is a fault in the data; both will show up whenever the two are overlaid.
+Neither dataset wins everywhere, and the choice depends on the question. Part 3 works through it: [Why the Two Datasets
+Differ](../compare/why-they-differ.md) for where the disagreement comes from, [What the Differences Look
+Like](../compare/examples.md) for the cases, [Which One to Use](../compare/which-one-to-use.md) for the recommendation, and [How Far This Is
+Validated](../compare/validation.md) for how much weight it carries.
 
 ## What GWSa is good for
 

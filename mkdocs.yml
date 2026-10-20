@@ -58,8 +58,9 @@ plugins:
             The GLDAS Land Surface Models: "Los Modelos de Superficie Terrestre GLDAS"
             Part 3 Comparing the Two Datasets: "Parte 3: Comparación de los Dos Conjuntos"
             Why the Two Datasets Differ: "Por qué Difieren los Dos Conjuntos"
-            Where Each One Is Trustworthy: "Cuándo Fiarse de Cada Uno"
-            Known Artifacts: "Artefactos Conocidos"
+            What the Differences Look Like: "Cómo Se Ven las Diferencias"
+            Which One to Use: "Cuál Usar"
+            How Far This Is Validated: "Hasta Dónde Está Validado"
             Part 4 Using the App: "Parte 4: Uso de la Aplicación"
             Interface: "Interfaz"
             Global View: "Vista Global"
@@ -118,8 +119,9 @@ plugins:
             The GLDAS Land Surface Models: "Les Modèles de Surface Terrestre GLDAS"
             Part 3 Comparing the Two Datasets: "Partie 3 : Comparaison des Deux Jeux de Données"
             Why the Two Datasets Differ: "Pourquoi les Deux Jeux de Données Diffèrent"
-            Where Each One Is Trustworthy: "Quand se Fier à Chacun"
-            Known Artifacts: "Artefacts Connus"
+            What the Differences Look Like: "À Quoi Ressemblent les Écarts"
+            Which One to Use: "Lequel Utiliser"
+            How Far This Is Validated: "Jusqu'où Cela Est Validé"
             Part 4 Using the App: "Partie 4 : Utilisation de l'Application"
             Interface: "Interface"
             Global View: "Vue Globale"
@@ -189,8 +191,9 @@ nav:
           - Deriving Groundwater Storage: grace/gldas/deriving-groundwater.md
       - Part 3 Comparing the Two Datasets:
           - Why the Two Datasets Differ: grace/compare/why-they-differ.md
-          - Where Each One Is Trustworthy: grace/compare/trusting-each-one.md
-          - Known Artifacts: grace/compare/known-artifacts.md
+          - What the Differences Look Like: grace/compare/examples.md
+          - Which One to Use: grace/compare/which-one-to-use.md
+          - How Far This Is Validated: grace/compare/validation.md
       - Part 4 Using the App:
           - Interface: grace/app/interface.md
           - Regional View: grace/app/regional-view.md

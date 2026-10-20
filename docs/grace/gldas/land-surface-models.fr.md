@@ -53,13 +53,13 @@ simulation GLDAS seule ne peut pas produire l’épuisement qui est tout le suje
 modèles d’une mesure et la voie 2.2 doit en assimiler une.
 
 **Pas d’eaux de surface.** Il n’y a ni rivières, ni lacs, ni réservoirs. Dans un bassin où un grand réservoir se remplit et se vide, cette
-variation est comptée ailleurs, ce qui en pratique veut dire dans les eaux souterraines (voir l’étude de cas du
-[Bassin de la Volta](../case-studies/volta.md), où le lac représente environ la moitié du signal de stockage).
+variation est comptée ailleurs, ce qui en pratique veut dire dans les eaux souterraines.
 
 **Ni glaciers ni calottes glaciaires.** Aucun des modèles GLDAS n’en comporte, de sorte qu’au Groenland, dans certaines parties de l’Arctique et
 dans les sols perpétuellement gelés de l’Himalaya, l’équivalent en eau de la neige s’accumule sans limite. La documentation de la NASA pour
-GLDAS version 2 le dit clairement et conseille de masquer ces mailles. Deux bassins glaciaires des jeux de bassins versants de l’application,
-l’Alsek et la Santa Cruz, portent des anomalies d’eau souterraine très importantes pour exactement cette raison.
+GLDAS version 2 le dit clairement et conseille de masquer ces mailles.
+
+[À quoi ressemblent les écarts](../compare/examples.md) montre ce que chacune de ces trois absences produit sur la carte.
 
 ### Les données de forçage { #the-forcing-data }
 
@@ -114,9 +114,9 @@ couche inférieure quitte la colonne en débit de base et le modèle cesse de la
 mais tournant en boucle ouverte il n’a aucun moyen de connaître le pompage, de sorte que ses eaux souterraines suivent la pluie et peu d’autre
 chose.
 
-Les trois modèles sont souvent en désaccord, et c’est sur l’humidité du sol profond que le désaccord est le plus fort. Plutôt que d’en choisir
-un, l’application en fait la moyenne et utilise la dispersion entre eux comme incertitude de chaque terme. Les réunir impose de travailler sur
-la plus grossière des trois grilles, celle à 1°.
+Les trois modèles sont souvent en désaccord, et c’est sur l’humidité du sol profond que le désaccord est le plus fort. L’application en fait la
+moyenne plutôt que d’en choisir un, ce qui impose de travailler sur la plus grossière des trois grilles, celle à 1°
+([comment](deriving-groundwater.md#the-gldas-terms)).
 
 ### Pourquoi le modèle Catchment demande un traitement à part { #why-the-catchment-model-needs-separate-handling }
 
@@ -181,8 +181,6 @@ La solution GRACE assimilée dans 2.2 est le produit de mascons du **CSR** (Save
 l’application elle-même utilisent les mascons du **JPL**. Les deux voies vers les eaux souterraines ne reposent donc pas sur la même solution
 GRACE, et elles ne concorderont pas exactement, même là où toutes deux fonctionnent bien.
 
-La NASA publie 2.2 en deux flux : un flux principal avec l’assimilation GRACE, qui accuse 2 à 6 mois de retard, et un flux précoce sans elle,
-qui accuse environ 1.5 mois de retard. L’application lit le flux principal, et chaque mois qu’elle affiche est donc corrigé.
 
 ## La sortie, et où l’application la prend { #output-and-where-the-app-gets-it }
 

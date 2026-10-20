@@ -51,12 +51,13 @@ its own cannot produce the depletion that is the whole subject of this app. That
 and why the 2.2 route has to assimilate one.
 
 **No surface water.** There are no rivers, lakes or reservoirs. A basin where a large reservoir fills and empties has that change counted
-somewhere else, which in practice is groundwater (see the [Volta Basin](../case-studies/volta.md) case study, where the lake is about half the
-storage signal).
+somewhere else, which in practice is groundwater.
 
 **No glaciers or ice sheets.** None of the GLDAS models has one, so in Greenland, parts of the Arctic and permanently frozen ground in the
 Himalayas, snow water equivalent accumulates without limit. NASA's documentation for GLDAS Version 2 says so plainly and advises masking those
-cells. Two glacier basins in the app's river basin sets, Alsek and Santa Cruz, carry very large groundwater anomalies for exactly this reason.
+cells.
+
+[What the Differences Look Like](../compare/examples.md) shows what each of these three produces on the map.
 
 
 ### The forcing data
@@ -111,8 +112,8 @@ None of the three carries a groundwater store the app can use. Noah and VIC have
 column as baseflow and the model stops tracking it. The Catchment model does carry groundwater, but run open loop it has no way to know about
 pumping, so its groundwater follows rainfall and little else.
 
-The three models often disagree, deep soil moisture most of all. Rather than pick one, the app averages them and uses the spread between them as
-the uncertainty on each term. Bringing them together means working at the coarsest of the three grids, which is 1°.
+The three models often disagree, deep soil moisture most of all. The app averages them rather than picking one, which means working at the
+coarsest of the three grids, 1° ([how](deriving-groundwater.md#the-gldas-terms)).
 
 ### Why the Catchment model needs separate handling
 
@@ -171,9 +172,6 @@ still has no wells in it.
 The GRACE solution assimilated into 2.2 is the **CSR** mascon product (Save et al., 2012, 2016), while the app's own GRACE layers use the
 **JPL** mascons. The two routes to groundwater therefore do not rest on the same GRACE solution, and they will not agree exactly even where both
 are working well.
-
-NASA publishes 2.2 in two streams: a main stream with the GRACE assimilation, running 2–6 months behind, and an early stream without it, running
-about 1.5 months behind. The app reads the main stream, so every month it shows has been corrected.
 
 
 ## Output, and where the app gets it

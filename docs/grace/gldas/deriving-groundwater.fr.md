@@ -147,20 +147,15 @@ vue d’une couche mondiale de 10.5 Mo à 7.1 Mo.
 
 ### L’humidité du sol, et pourquoi ce n’est pas celle que publie la NASA { #soil-moisture-and-why-it-is-not-what-nasa-publishes }
 
-L’humidité du sol publiée du modèle Catchment contient déjà les eaux souterraines. `SoilMoist_P_tavg` est tout le profil depuis la surface vers
-le bas, et `SoilMoist_P − GWS` est positif partout : une médiane de 277 mm d’eau située au-dessus de la nappe. Le bilan propre du produit se
-ferme sur trois termes :
+L’humidité du sol publiée du modèle Catchment, `SoilMoist_P_tavg`, est tout le profil depuis la surface vers le bas : elle contient donc déjà les
+eaux souterraines du modèle lui-même
+([pourquoi](land-surface-models.md#why-the-catchment-model-needs-separate-handling)). Servie ainsi, la SMa du jeu de données 2.2 signifierait
+autre chose que la SMa du jeu de données GRACE, et les cinq couches ne s’additionneraient pas dans le graphique.
 
-$$
-\mathrm{TWS} = \mathrm{SoilMoist\_P} + \mathrm{SWE} + \mathrm{CanopInt}
-$$
-
-Servie ainsi, la SMa du jeu de données 2.2 signifierait autre chose que la SMa du jeu de données GRACE, et les cinq couches ne s’additionneraient
-pas dans le graphique. L’application stocke donc la SMa de 2.2 comme l’anomalie de `SoilMoist_P − GWS`, c’est-à-dire l’humidité du sol au-dessus
-de la nappe. D’après la définition que la NASA donne elle-même des eaux souterraines du modèle, cette différence est le réservoir de la zone
-racinaire, qui est ce que l’ensemble de modèles du jeu de données GRACE prend au même modèle — voir
-[pourquoi le modèle Catchment demande un traitement à part](land-surface-models.md#why-the-catchment-model-needs-separate-handling). Avec cette
-substitution, les cinq couches se ferment exactement :
+L’application stocke donc la SMa de 2.2 comme l’anomalie de `SoilMoist_P − GWS`, c’est-à-dire l’humidité du sol au-dessus de la nappe. D’après la
+définition que la NASA donne elle-même des eaux souterraines du modèle, cette différence est le réservoir de la zone racinaire, précisément ce que
+l’ensemble de modèles du jeu de données GRACE prend au même modèle, de sorte que les couches d’humidité du sol des deux jeux décrivent le même
+réservoir. Avec cette substitution, les cinq couches se ferment exactement :
 
 $$
 \mathrm{TWSa}_{22} = \mathrm{SWEa}_{22} + \mathrm{CANa}_{22} + \mathrm{SMa}_{22} + \mathrm{GWSa}_{22}
@@ -168,13 +163,10 @@ $$
 
 Mesuré sur le magasin publié à 0.25°, le plus grand résidu de tout l’enregistrement est de 0.02 cm, soit deux unités de son propre arrondi.
 
-### Ce que l’assimilation fait et ne fait pas { #what-the-assimilation-does-and-does-not-do }
+### Ce que cela implique pour la lecture d’une série 2.2 { #what-that-means-for-reading-a-22-series }
 
-GRACE voit toute la colonne et ne peut pas dire à quel réservoir appartient un écart : le schéma répartit donc la correction de chaque mois entre
-les états du modèle, dont les eaux souterraines. Le pompage est absent de la physique du modèle et n’atteint l’état d’eau souterraine que par
-cette correction.
-
-Cela a des conséquences pour la lecture d’une série 2.2.
+La correction qu’applique GRACE se répartit entre tous les réservoirs du modèle, et le pompage n’atteint l’état d’eau souterraine que par elle
+([comment](land-surface-models.md#gldas-22-and-the-grace-correction)). Trois conséquences en découlent pour qui lit la série.
 
 L’enregistrement commence en février 2003, dix mois après l’avril 2002 de GRACE, parce que c’est à ce moment-là que la simulation assimilatrice a
 été démarrée.
@@ -217,14 +209,10 @@ inexact s’applique encore, sans que rien ne le rapporte.
 
 ## Lequel utiliser { #which-one-to-use }
 
-Aucun des deux jeux de données ne l’emporte partout. Pour l’ampleur d’une tendance, utilisez GRACE ; pour la forme d’un cycle saisonnier dans une
-région où le cycle d’humidité du sol rivalise avec celui de l’eau totale, utilisez 2.2 ; pour la recharge, utilisez GRACE. La comparaison complète
-se trouve dans [Pourquoi les deux jeux de données diffèrent](../compare/why-they-differ.md) et les deux pages qui la suivent : d’où vient le
-désaccord, quelle série citer pour quelle question, et les endroits où l’un des deux rapporte autre chose que de l’eau souterraine.
-
-L’enregistrement de 2.2 commence dix mois plus tard que celui de GRACE, en février 2003, et la solution GRACE derrière 2.2 est celle du CSR
-tandis que les couches GRACE de l’application elle-même sont celles du JPL. Ni l’un ni l’autre n’est un défaut des données ; tous deux
-apparaîtront chaque fois que les deux seront superposés.
+Aucun des deux jeux de données ne l’emporte partout, et le choix dépend de la question. La partie 3 la traite : [Pourquoi les deux jeux de données
+diffèrent](../compare/why-they-differ.md) pour l’origine du désaccord, [À quoi ressemblent les écarts](../compare/examples.md) pour les cas,
+[Lequel utiliser](../compare/which-one-to-use.md) pour la recommandation, et [Jusqu’où cela est validé](../compare/validation.md) pour le poids
+que cela porte.
 
 ## À quoi sert la GWSa { #what-gwsa-is-good-for }
 

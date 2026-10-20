@@ -120,7 +120,8 @@
 
 ### Comparaison des deux jeux de données { #comparing-the-two-datasets }
 
-Études indépendantes, menées par d’autres groupes que le nôtre, qui sous-tendent les recommandations de [Quand se fier à chacun](compare/trusting-each-one.md).
+Études indépendantes, menées par d’autres groupes que le nôtre, qui sous-tendent les recommandations de [Lequel utiliser](compare/which-one-to-use.md)
+et que pèse [Jusqu’où cela est validé](compare/validation.md).
 
 - **Global Models Underestimate Large Decadal Declining and Rising Water Storage Trends Relative to GRACE Satellite Data**  
   *Bridget R. Scanlon, Zizhan Zhang, Himanshu Save, Alexander Y. Sun, Hannes Müller Schmied, Ludovicus P. H. van Beek et al.*  

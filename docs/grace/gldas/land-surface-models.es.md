@@ -53,13 +53,13 @@ por sí sola no puede producir el agotamiento que es el tema central de esta apl
 la ruta 2.2 tiene que asimilar una.
 
 **Sin agua superficial.** No hay ríos, lagos ni embalses. En una cuenca donde un gran embalse se llena y se vacía, ese cambio se cuenta en otra
-parte, que en la práctica es el agua subterránea (ver el caso de estudio de la [Cuenca del Volta](../case-studies/volta.md), donde el lago es
-cerca de la mitad de la señal de almacenamiento).
+parte, que en la práctica es el agua subterránea.
 
 **Sin glaciares ni casquetes de hielo.** Ninguno de los modelos de GLDAS los tiene, así que en Groenlandia, en partes del Ártico y en el suelo
 permanentemente congelado del Himalaya el equivalente de agua de la nieve se acumula sin límite. La documentación de la NASA para GLDAS versión 2
-lo dice sin rodeos y aconseja enmascarar esas celdas. Dos cuencas glaciares de los conjuntos de cuencas hidrográficas de la aplicación, Alsek y
-Santa Cruz, presentan anomalías de agua subterránea muy grandes precisamente por esto.
+lo dice sin rodeos y aconseja enmascarar esas celdas.
+
+[Cómo se ven las diferencias](../compare/examples.md) muestra lo que produce cada una de estas tres carencias sobre el mapa.
 
 ### Los datos de forzamiento { #the-forcing-data }
 
@@ -113,8 +113,8 @@ Ninguno de los tres lleva un almacenamiento de agua subterránea que la aplicaci
 por debajo de la capa inferior sale de la columna como flujo base y el modelo deja de seguirla. El modelo Catchment sí lleva agua subterránea,
 pero corriendo en bucle abierto no tiene manera de saber del bombeo, así que su agua subterránea sigue a la lluvia y a poco más.
 
-Los tres modelos a menudo discrepan, y la humedad del suelo profunda es donde más. En lugar de elegir uno, la aplicación los promedia y usa la
-dispersión entre ellos como la incertidumbre de cada término. Juntarlos obliga a trabajar en la más gruesa de las tres mallas, que es la de 1°.
+Los tres modelos a menudo discrepan, y la humedad del suelo profunda es donde más. La aplicación los promedia en lugar de elegir uno, lo que
+obliga a trabajar en la más gruesa de las tres mallas, la de 1° ([cómo](deriving-groundwater.md#the-gldas-terms)).
 
 ### Por qué el modelo Catchment necesita un tratamiento aparte { #why-the-catchment-model-needs-separate-handling }
 
@@ -179,9 +179,6 @@ solo por esta vía. La física del modelo sigue sin tener pozos.
 La solución de GRACE que se asimila en 2.2 es el producto de mascones del **CSR** (Save et al., 2012, 2016), mientras que las capas de GRACE de
 la propia aplicación usan los mascones del **JPL**. Las dos rutas hacia el agua subterránea no se apoyan por tanto en la misma solución de
 GRACE, y no coincidirán exactamente ni siquiera donde ambas funcionen bien.
-
-La NASA publica 2.2 en dos flujos: un flujo principal con la asimilación de GRACE, que va de 2 a 6 meses por detrás, y un flujo temprano sin
-ella, que va unos 1.5 meses por detrás. La aplicación lee el flujo principal, así que cada mes que muestra está corregido.
 
 ## La salida, y de dónde la toma la aplicación { #output-and-where-the-app-gets-it }
 

@@ -21,18 +21,23 @@ python wtf.py            # water table fluctuation method, conceptual
 
 Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script overwrites its SVG.
 
-`compare_examples.py` draws the six worked examples on the Comparing the Two Datasets pages (`compare-agreement.png`,
-`compare-amplitude.png`, `compare-phase.png`, `compare-trend.png`, `compare-artifact-ice.png`, `compare-artifact-amazon.png`). It needs
-pandas and matplotlib, and reads `data/compare_*.csv`, which `data/export_compare_series.py` in webapp-grace-groundwater writes from the
-published stores:
+`compare_examples.py` draws the nine figures on the Comparing the Two Datasets pages (`compare-agreement.png`, `compare-trend.png`,
+`compare-amplitude.png`, `compare-phase.png`, `compare-phase-mechanism.png`, `compare-signal-size.png`, `compare-artifact-ice.png`,
+`compare-artifact-water.png`, `compare-artifact-frozen.png`). It needs pandas and matplotlib, and reads `data/compare_*.csv` and
+`data/catalog_*.csv`, which `data/export_compare_series.py` in webapp-grace-groundwater writes from the published stores:
 
 ```
 cd ../../../webapp-grace-groundwater && data/.venv/bin/python -I data/export_compare_series.py
 cd -  &&  python compare_examples.py
 ```
 
-Each CSV is one region's monthly area-weighted mean of both datasets' GWSa, TWSa and SMa, plus GRACE SWEa, which is the series the app's
-regional view plots. Regenerate the CSVs after a data rebuild and the figures follow.
+Each `compare_*.csv` is one region's monthly area-weighted mean of both datasets' GWSa, TWSa and SMa, plus GRACE SWEa, which is the series the
+app's regional view plots. `catalog_regions.csv` scores every region in four region sets on each way the two datasets differ, and
+`catalog_cells.csv` holds per-cell signal size against correlation; the two scatter figures are drawn from those. Regenerate the CSVs after a
+data rebuild and the figures follow.
+
+The example regions are chosen from `data/compare_datasets.py catalog` in webapp-grace-groundwater, which ranks every region in all five sets
+on each behaviour, so a replacement example can be picked from the data rather than from memory.
 
 `gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/northern_midwest_filled.csv`, the
 app's seasonal fill of a Northern Midwest Aquifer System export.
