@@ -221,12 +221,28 @@ def shot_diff_swing(pw) -> None:
 
 
 def shot_diff_global(pw) -> None:
-    """The same trend difference per cell. Both datasets have to be read for
-    every month of the record, so this one is slow."""
+    """The same trend difference per cell, at the window the global view opens
+    a comparison on. Both datasets have to be read for every month of the
+    record, so this one is slow."""
     b, pg = open_app(pw)
     go_global(pg)
     color_by(pg, "trend-difference", wait=LOAD * 5)
     save(pg, "app-diff-global")
+    b.close()
+
+
+def shot_diff_global_5yr(pw) -> None:
+    """The same map stepped down to five years, which is the reason the global
+    view does not open there: per cell the difference is mostly noise."""
+    b, pg = open_app(pw)
+    go_global(pg)
+    color_by(pg, "trend-difference", wait=LOAD * 5)
+    # Down from All to 5 yr, one step per window the record is long enough for.
+    for _ in range(4):
+        pg.locator("#analysis-window-down").click()
+        pg.wait_for_timeout(LOAD * 4)
+    assert pg.locator("#analysis-window-value").inner_text() == "5 yr"
+    save(pg, "app-diff-global-5yr")
     b.close()
 
 
@@ -387,6 +403,7 @@ SHOTS = {
     "diff-agreement": shot_diff_agreement,
     "diff-swing": shot_diff_swing,
     "diff-global": shot_diff_global,
+    "diff-global-5yr": shot_diff_global_5yr,
     "diff-chart": shot_diff_chart,
     "time-control": shot_time_control,
     "gap-fill-control": shot_gap_fill_control,

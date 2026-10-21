@@ -9,12 +9,12 @@ l’application ; **Hide** la désactive et rend à la carte l’anomalie mensue
 **Color by**, à côté du bouton, choisit ce nombre. Une mesure travaille sur le jeu de données sélectionné, et trois comparent les deux jeux entre
 eux :
 
-| Color by | Ce qu’elle calcule | Les deux jeux | Fenêtre |
+| Color by | Ce qu’elle calcule | Les deux jeux | S’ouvre sur |
 |:---|:---|:---:|:---:|
-| Trend in GWSa | la pente par moindres carrés des valeurs mensuelles, en cm/an | non | oui |
-| GRACE vs GLDAS 2.2: trend difference | la pente GRACE moins la pente 2.2 | oui | oui |
-| GRACE vs GLDAS 2.2: agreement | la corrélation de Pearson des deux séries mensuelles | oui | non |
-| GRACE vs GLDAS 2.2: seasonal swing | l’amplitude saisonnière GRACE divisée par celle de 2.2 | oui | non |
+| Trend in GWSa | la pente par moindres carrés des valeurs mensuelles, en cm/an | non | les 5 dernières années |
+| GRACE vs GLDAS 2.2: trend difference | la pente GRACE moins la pente 2.2 | oui | l’enregistrement entier |
+| GRACE vs GLDAS 2.2: agreement | la corrélation de Pearson des deux séries mensuelles | oui | l’enregistrement entier |
+| GRACE vs GLDAS 2.2: seasonal swing | l’amplitude saisonnière GRACE divisée par celle de 2.2 | oui | l’enregistrement entier |
 
 L’entrée de tendance nomme ce qui est affiché : elle se lit **Trend in GWSa** sur la couche par défaut et **Trend in SMa** sur l’humidité du sol.
 Les trois comparaisons n’apparaissent que lorsque l’eau souterraine (GWSa) est affichée, car c’est la seule grandeur que les deux jeux produisent
@@ -90,6 +90,16 @@ ou **All** pour l’ensemble de la série depuis 2002. La classification et la l
 La concordance et l’amplitude saisonnière utilisent toujours l’enregistrement entier : le sélecteur s’estompe donc sous ces deux mesures. Une
 corrélation sur cinq ans pose une autre question qu’une corrélation sur vingt ans, et un cycle saisonnier estimé sur cinq ans repose sur cinq
 valeurs par mois du calendrier. Le réglage est conservé pendant que le sélecteur est estompé et revient dès que vous retournez à une tendance.
+
+L’écart de tendance, lui, utilise bien le sélecteur, mais il s’ouvre sur l’enregistrement entier et non sur les cinq ans par lesquels s’ouvre une
+tendance, parce que les limites de ses classes ont été tracées à partir de la dispersion sur l’enregistrement entier : ±0,25 et ±1 cm/an
+signalent comme extrême environ un dixième des régions sur l’enregistrement entier et environ un tiers sur cinq ans. Déplacer la fenêtre reste le
+bon geste si vous voulez savoir si les deux jeux de données ont commencé à diverger récemment, et une fois le sélecteur déplacé rien ne le
+ramène.
+
+La tendance garde la fenêtre courte par défaut, et ce sont ses propres limites qui l’expliquent. Sur l’enregistrement entier, ±0,5 et ±2 cm/an
+placent 59 des 99 contours de Global Aquifers dans **Static** et laissent **Extreme increase** vide, car une pente ajustée sur 24 ans gomme les
+retournements sur lesquels porte généralement la question d’un gestionnaire. Sur cinq ans, ces mêmes 99 se répartissent en 11/22/34/28/4.
 
 Dans la plupart des régions, le stockage oscille entre années humides et années sèches ; une fenêtre courte peut donc ne saisir qu’une
 oscillation au lieu de l’évolution de long terme. Dans la Vallée Centrale de Californie, le stockage des eaux souterraines a diminué de 2002

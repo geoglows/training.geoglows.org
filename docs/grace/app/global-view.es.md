@@ -54,10 +54,11 @@ Con el agua subterránea en pantalla, **Color by** ofrece además las tres compa
 colorea las mismas celdas según cuánto discrepan GRACE y GLDAS 2.2 ahí. Calcular una lee todo el registro de ambos conjuntos, así que tarda unos
 segundos más que una tendencia.
 
-![Cada celda terrestre coloreada por la diferencia entre las tendencias de agua subterránea de cinco años de los dos conjuntos de datos](../../static/images/grace/app-diff-global.webp)
+![Cada celda terrestre coloreada por la diferencia entre las tendencias de agua subterránea de los dos conjuntos de datos sobre todo el registro](../../static/images/grace/app-diff-global.webp)
 
-Por celda esas comparaciones son ruidosas, como muestra el mapa de arriba. Úsalas para ver dónde están los patrones grandes y la vista regional
-para decir algo sobre un acuífero concreto.
+Una comparación abre sobre todo el registro y no sobre los cinco años con los que abre una tendencia, porque por celda una diferencia de cinco
+años es casi solo ruido (ver [Una celda no es una región](../compare/exploring.md#a-cell-is-not-a-region)). Lee estos mapas para ver dónde están
+los patrones grandes, y la vista regional para cualquier cosa sobre un acuífero concreto.
 
 Ver [Análisis de Tendencias y Diferencias](trends.md) para saber cómo se calcula cada número y cómo elegir la ventana, y
 [Explorar las diferencias en la aplicación](../compare/exploring.md) para saber cómo leer los mapas de comparación.

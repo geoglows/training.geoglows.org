@@ -20,13 +20,15 @@ data cover, the median region's two trends differ by 0.27 cm/yr over the whole r
 seasonal cycle swings 0.73 times as far as 2.2's.
 
 Picking a comparison turns on **Also show GLDAS 2.2** in the control panel and holds it there, so the chart carries both series for whatever you
-click next. The regional view colors region outlines, the global view colors cells, and the measure stays selected when you move between them.
+click next, and sets the **Window** to the whole record — a comparison of two records is a question about the records, and the classes below were
+drawn for the whole of them. Stepping the window still works and your choice then stands. The regional view colors region outlines, the global
+view colors cells, and the measure stays selected when you move between them.
 [Trend and Difference Analysis](../app/trends.md) gives the mechanics: the class boundaries, the minimum record a region needs, and how a
 region's cells are averaged.
 
 ## The trend difference map
 
-![The Global Aquifers set colored by the difference between the two datasets' five-year groundwater trends](../../static/images/grace/app-diff-regions.webp)
+![The Global Aquifers set colored by the difference between the two datasets' groundwater trends over the whole record](../../static/images/grace/app-diff-regions.webp)
 
 Each region or cell is colored by the GRACE trend minus the 2.2 trend over the window in the header, in cm/yr. GRACE is always the left operand,
 whichever dataset the panel is set to, so the sign of the difference never depends on a control somewhere else.
@@ -45,21 +47,22 @@ groundwater store only through the monthly GRACE correction, spread across all o
 GRACE has storage rising faster. Across the 37 WHYMAP basins the 2.2 trend runs a median 0.26 of the GRACE one where storage is falling and
 0.33 where it is rising, so both colors are the same effect.
 
-The window matters more here than it does for a single trend. Shorter windows produce larger trends, and the gap between the two datasets grows
-with them: over the Global Aquifers outlines the typical difference more than doubles, from 0.26 cm/yr over the whole record to 0.59 over the
-last five years. The classification follows:
+Those boundaries come from the whole record. Across the 322 scored outlines the median difference is 0.27 cm/yr and the 95th percentile 1.12, so
+±0.25 and ±1 are set to call about a tenth of regions extreme. Shortening the window makes both trends larger and their difference larger with
+them — over the Global Aquifers outlines the typical difference more than doubles, from 0.26 cm/yr to 0.59 — and the same boundaries then call a
+third of them extreme:
 
 | Window | GRACE much lower | GRACE lower | Trends agree | GRACE higher | GRACE much higher |
 |:---|:---:|:---:|:---:|:---:|:---:|
-| last 5 years | 14 | 18 | 28 | 21 | 18 |
-| last 10 years | 8 | 19 | 37 | 20 | 15 |
-| last 15 years | 6 | 21 | 42 | 24 | 6 |
+| whole record (the default) | 5 | 15 | 52 | 23 | 4 |
 | last 20 years | 7 | 14 | 50 | 24 | 4 |
-| whole record | 5 | 15 | 52 | 23 | 4 |
+| last 15 years | 6 | 21 | 42 | 24 | 6 |
+| last 10 years | 8 | 19 | 37 | 20 | 15 |
+| last 5 years | 14 | 18 | 28 | 21 | 18 |
 
-52 of the 99 aquifers agree over the whole record and 28 over the last five years. Both readings are correct for their window. A region that
-changes class as you step the window is telling you that the two datasets differ about a recent swing, which is a smaller problem than
-differing about the long-term direction.
+Both readings are correct for their window, and a shorter one is the right question to ask if you want to know whether the two datasets have
+started to diverge lately. Read the extremes more skeptically there: a region that changes class as you shorten the window is telling you the two
+differ about a recent swing, which is a smaller problem than differing about the long-term direction.
 
 ## The agreement map
 
@@ -117,6 +120,7 @@ The global view answers the same three questions per 1° cell, and the answers c
 
 | Share of the set in this condition | Global Aquifers, 99 outlines | 1° land cells |
 |:---|:---:|:---:|
+| trend difference beyond ±1 cm/yr, whole record | 9% | 15% |
 | trend difference beyond ±1 cm/yr, last 5 years | 32% | 44% |
 | correlation below 0 | 5% | 18% |
 | GRACE seasonal swing more than 1.25 times 2.2's | 21% | 45% |
@@ -124,10 +128,18 @@ The global view answers the same three questions per 1° cell, and the answers c
 One land cell in six has the two records running opposite, where five of the 99 aquifers do, and nearly half of all cells have the GRACE cycle
 swinging harder than 2.2's, where the regional picture is the reverse.
 
-![Every land cell colored by the difference between the two datasets' five-year groundwater trends](../../static/images/grace/app-diff-global.webp)
+![Every land cell colored by the difference between the two datasets' groundwater trends over the whole record](../../static/images/grace/app-diff-global.webp)
 
-The map above is what that looks like: speckle over most of the land surface, red and blue cells alternating within a few hundred kilometres,
-and the one large block of **Trends agree** lying across the Sahara and the Arabian Peninsula, where neither record moves much in five years.
+At the default the map has geography in it: deep red where the GRACE route is carrying ice, in Greenland, the Canadian Arctic and Patagonia,
+red across northern India, the Middle East and central Siberia, blue across the Amazon, the Congo, the Sahel and the Zambezi. Step it down to
+five years and most of that goes:
+
+![The same map over the last five years, red and blue cells alternating across most of the land surface](../../static/images/grace/app-diff-global-5yr.webp)
+
+Speckle over most of the land surface, red and blue alternating within a few hundred kilometers, and the one large block of **Trends agree**
+lying across the Sahara and the Arabian Peninsula, where neither record moves much in five years. Two slopes each fitted to 60 months, then
+subtracted, leave a number whose error is larger than the difference it is reporting. An area average removes most of that error, so the same
+five-year window is readable over a region and not over a cell.
 
 A single cell carries the month-to-month noise that an area average removes, and on the GRACE side it also carries the gain factor applied to a
 3° mascon, so one cell's value rests on the same measurement as its neighbors (see
@@ -136,13 +148,16 @@ are, and the regional view for anything you mean to say about a particular aquif
 
 ## Reading a region against its chart
 
-![The Central Valley with the trend difference showing: both datasets on the chart, each with its fitted line over the five-year window](../../static/images/grace/app-diff-chart.webp)
+![The Central Valley with the trend difference showing: both datasets on the chart, each with its fitted line over the whole record](../../static/images/grace/app-diff-chart.webp)
 
 Clicking a region, or a cell in the global view, plots both datasets and puts the number behind that region's color under the chart title. The
-Central Valley above reads "GWSa trend difference +1.92 cm/yr (last 5 yr)", with the two fitted lines in the legend at +3.40 and +1.43 cm/yr:
-over the last five years both records have the valley recovering from the 2021–2022 drought and GRACE has it recovering more than twice as fast.
-Over the whole record the same valley has GRACE losing 1.37 cm/yr against 2.2's 0.24 (see
-[Where the trend differs](examples.md#where-the-trend-differs)), which is the window lesson in one region.
+Central Valley above reads "GWSa trend difference −1.09 cm/yr (2002–2026)", with the two fitted lines in the legend at −1.35 and −0.22 cm/yr: a
+basin in serious depletion on one record against one drifting gently down on the other, which is the case
+[Where the trend differs](examples.md#where-the-trend-differs) works through.
+
+Step that same region down to five years and all three numbers change sign. GRACE reads +3.40 cm/yr, 2.2 reads +1.43, and the difference is
++1.92 — both records have the valley recovering from the 2021–2022 drought, and GRACE has it recovering more than twice as fast. Neither reading
+is wrong. They answer different questions, and the default answers the one the comparison is for.
 
 Under either trend measure each series also gets its fitted line as a dashed line. Agreement and a swing ratio have no line to draw, so the
 chart reports the measure under its title and leaves the series plain.

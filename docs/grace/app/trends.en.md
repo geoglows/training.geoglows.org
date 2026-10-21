@@ -9,12 +9,12 @@ the map to the monthly anomaly.
 **Color by**, beside the button, chooses the number. One measure works on whichever dataset is selected, and three compare the two datasets
 against each other:
 
-| Color by | What it computes | Both datasets | Window |
+| Color by | What it computes | Both datasets | Opens on |
 |:---|:---|:---:|:---:|
-| Trend in GWSa | least-squares slope of the monthly values, in cm/yr | no | yes |
-| GRACE vs GLDAS 2.2: trend difference | the GRACE slope minus the 2.2 slope | yes | yes |
-| GRACE vs GLDAS 2.2: agreement | Pearson correlation of the two monthly series | yes | no |
-| GRACE vs GLDAS 2.2: seasonal swing | the GRACE seasonal swing divided by 2.2's | yes | no |
+| Trend in GWSa | least-squares slope of the monthly values, in cm/yr | no | last 5 years |
+| GRACE vs GLDAS 2.2: trend difference | the GRACE slope minus the 2.2 slope | yes | the whole record |
+| GRACE vs GLDAS 2.2: agreement | Pearson correlation of the two monthly series | yes | the whole record |
+| GRACE vs GLDAS 2.2: seasonal swing | the GRACE seasonal swing divided by 2.2's | yes | the whole record |
 
 The trend entry names whatever is displayed, so it reads **Trend in GWSa** on the default layer and **Trend in SMa** on soil moisture. The three
 comparisons appear only while groundwater (GWSa) is displayed, because that is the only quantity both datasets derive in their own right: the
@@ -87,6 +87,15 @@ whole record since 2002. The classification and the legend update when you chang
 Agreement and the seasonal swing always use the whole record, so the stepper dims under those two. A correlation over five years asks a
 different question from one over twenty, and a seasonal cycle estimated from five years rests on five values per calendar month. The setting is
 kept while the stepper is dimmed and comes back when you return to a trend.
+
+The trend difference does use the stepper, but it opens on the whole record rather than on the five years a trend opens on, because its class
+boundaries were drawn from the whole-record spread: ±0.25 and ±1 cm/yr call about a tenth of regions extreme over the full record and about a
+third of them over five years. Stepping the window is still the right move if you want to know whether the two datasets have begun to diverge
+lately, and once you move the stepper nothing moves it back.
+
+The trend keeps the shorter default, and its own boundaries are why. Over the whole record ±0.5 and ±2 cm/yr put 59 of the 99 Global Aquifers
+outlines in **Static** and leave **Extreme increase** empty, because a slope fitted across 24 years averages away the reversals a manager is
+usually asking about. Over five years the same 99 split 11/22/34/28/4.
 
 Storage in most regions swings between wet and dry years, so a short window can capture one swing rather than the long-term direction. In
 California's Central Valley, groundwater storage declined from 2002 through the drought of 2021–2022, then recovered partly after the very wet

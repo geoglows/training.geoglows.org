@@ -21,13 +21,15 @@ couvrent les données publiées, les deux tendances de la région médiane diff�
 séries mensuelles sont corrélées à 0,69, et son cycle saisonnier GRACE oscille 0,73 fois autant que celui de 2.2.
 
 Choisir une comparaison active **Also show GLDAS 2.2** dans le panneau de contrôle et l’y maintient, de sorte que le graphique porte les deux
-séries pour ce que vous sélectionnerez ensuite. La vue régionale colore les contours des régions, la vue globale colore les mailles, et la mesure
+séries pour ce que vous sélectionnerez ensuite, et règle la **Window** sur l’enregistrement entier : comparer deux enregistrements est une
+question sur les enregistrements, et les classes ci-dessous ont été tracées pour leur totalité. Déplacer le sélecteur fonctionne toujours, et
+votre choix l’emporte ensuite. La vue régionale colore les contours des régions, la vue globale colore les mailles, et la mesure
 reste sélectionnée quand vous passez de l’une à l’autre. [Analyse des tendances et des écarts](../app/trends.md) en donne la mécanique : les
 limites des classes, l’enregistrement minimal qu’il faut à une région, et la façon dont ses mailles sont moyennées.
 
 ## La carte des écarts de tendance { #the-trend-difference-map }
 
-![L’ensemble Global Aquifers coloré par l’écart entre les tendances d’eau souterraine sur cinq ans des deux jeux de données](../../static/images/grace/app-diff-regions.webp)
+![L’ensemble Global Aquifers coloré par l’écart entre les tendances d’eau souterraine des deux jeux de données sur l’enregistrement entier](../../static/images/grace/app-diff-regions.webp)
 
 Chaque région ou maille est colorée par la tendance GRACE moins la tendance 2.2 sur la fenêtre de l’en-tête, en cm/an. GRACE est toujours
 l’opérande de gauche, quel que soit le jeu de données sélectionné dans le panneau, si bien que le signe de l’écart ne dépend jamais d’un autre
@@ -47,21 +49,22 @@ n’atteint son réservoir d’eau souterraine que par la correction mensuelle d
 la direction inverse, où GRACE fait monter le stockage plus vite. Sur les 37 bassins WHYMAP, la tendance 2.2 vaut une médiane de 0,26 de celle de
 GRACE là où le stockage baisse et de 0,33 là où il monte : les deux couleurs sont donc le même effet.
 
-La fenêtre compte ici davantage que pour une tendance seule. Les fenêtres courtes produisent des tendances plus fortes, et l’écart entre les deux
-jeux grandit avec elles : sur les contours de Global Aquifers, l’écart typique fait plus que doubler, de 0,26 cm/an sur l’ensemble de
-l’enregistrement à 0,59 sur les cinq dernières années. La classification suit :
+Ces limites viennent de l’enregistrement entier. Sur les 322 contours notés, l’écart médian vaut 0,27 cm/an et le 95e centile 1,12 : ±0,25 et ±1
+sont donc réglés pour signaler comme extrême environ un dixième des régions. Raccourcir la fenêtre agrandit les deux tendances et leur écart avec
+elles — sur les contours de Global Aquifers l’écart typique fait plus que doubler, de 0,26 cm/an à 0,59 — et les mêmes limites en signalent alors
+un tiers :
 
 | Fenêtre | GRACE much lower | GRACE lower | Trends agree | GRACE higher | GRACE much higher |
 |:---|:---:|:---:|:---:|:---:|:---:|
-| 5 dernières années | 14 | 18 | 28 | 21 | 18 |
-| 10 dernières années | 8 | 19 | 37 | 20 | 15 |
-| 15 dernières années | 6 | 21 | 42 | 24 | 6 |
+| enregistrement entier (par défaut) | 5 | 15 | 52 | 23 | 4 |
 | 20 dernières années | 7 | 14 | 50 | 24 | 4 |
-| enregistrement entier | 5 | 15 | 52 | 23 | 4 |
+| 15 dernières années | 6 | 21 | 42 | 24 | 6 |
+| 10 dernières années | 8 | 19 | 37 | 20 | 15 |
+| 5 dernières années | 14 | 18 | 28 | 21 | 18 |
 
-52 des 99 aquifères concordent sur l’ensemble de l’enregistrement et 28 sur les cinq dernières années. Les deux lectures sont correctes pour leur
-fenêtre. Une région qui change de classe quand vous déplacez la fenêtre vous dit que les deux jeux de données divergent sur une oscillation
-récente, ce qui est un problème moindre que diverger sur la direction à long terme.
+Les deux lectures sont correctes pour leur fenêtre, et une fenêtre plus courte est la bonne question si vous voulez savoir si les deux jeux de
+données ont commencé à diverger récemment. Lisez-y les extrêmes avec plus de scepticisme : une région qui change de classe quand vous raccourcissez
+la fenêtre vous dit que les deux divergent sur une oscillation récente, ce qui est un problème moindre que diverger sur la direction à long terme.
 
 ## La carte de concordance { #the-agreement-map }
 
@@ -123,6 +126,7 @@ La vue globale répond aux trois mêmes questions par maille de 1°, et les rép
 
 | Part de l’ensemble dans cette situation | Global Aquifers, 99 contours | mailles de 1° |
 |:---|:---:|:---:|
+| écart de tendance au-delà de ±1 cm/an, enregistrement entier | 9 % | 15 % |
 | écart de tendance au-delà de ±1 cm/an, 5 dernières années | 32 % | 44 % |
 | corrélation inférieure à 0 | 5 % | 18 % |
 | amplitude saisonnière GRACE supérieure à 1,25 fois celle de 2.2 | 21 % | 45 % |
@@ -130,11 +134,18 @@ La vue globale répond aux trois mêmes questions par maille de 1°, et les rép
 Une maille terrestre sur six a les deux enregistrements en opposition, là où cinq des 99 aquifères le sont, et près de la moitié des mailles ont
 le cycle GRACE qui oscille plus que celui de 2.2, là où le tableau régional est l’inverse.
 
-![Chaque maille terrestre colorée par l’écart entre les tendances d’eau souterraine sur cinq ans des deux jeux de données](../../static/images/grace/app-diff-global.webp)
+![Chaque maille terrestre colorée par l’écart entre les tendances d’eau souterraine des deux jeux de données sur l’enregistrement entier](../../static/images/grace/app-diff-global.webp)
 
-La carte ci-dessus montre ce que cela donne : du moucheté sur la plus grande partie des terres émergées, des mailles rouges et bleues qui
-alternent sur quelques centaines de kilomètres, et le seul grand bloc de **Trends agree** étendu sur le Sahara et la péninsule Arabique, où ni
-l’un ni l’autre des enregistrements ne bouge beaucoup en cinq ans.
+Au réglage par défaut, la carte a de la géographie : rouge foncé là où la voie GRACE porte de la glace, au Groenland, dans l’Arctique canadien
+et en Patagonie ; rouge sur le nord de l’Inde, le Moyen-Orient et la Sibérie centrale ; bleu sur l’Amazone, le Congo, le Sahel et le Zambèze.
+Ramenez-la à cinq ans et l’essentiel de cela disparaît :
+
+![La même carte sur les cinq dernières années, mailles rouges et bleues alternant sur la plus grande partie des terres émergées](../../static/images/grace/app-diff-global-5yr.webp)
+
+Du moucheté sur la plus grande partie des terres émergées, du rouge et du bleu qui alternent sur quelques centaines de kilomètres, et le seul
+grand bloc de **Trends agree** étendu sur le Sahara et la péninsule Arabique, où ni l’un ni l’autre des enregistrements ne bouge beaucoup en cinq
+ans. Deux pentes ajustées chacune sur 60 mois puis soustraites laissent un nombre dont l’erreur dépasse l’écart qu’il rapporte. Une moyenne de
+surface en supprime l’essentiel : voilà pourquoi la carte régionale mérite d’être lue à cinq ans et celle-ci non.
 
 Une maille isolée porte le bruit d’un mois à l’autre qu’une moyenne de surface supprime, et du côté GRACE elle porte en plus le facteur de gain
 appliqué à un mascon de 3°, si bien que la valeur d’une maille repose sur la même mesure que celle de ses voisines (voir
@@ -143,14 +154,17 @@ sont les grands motifs, et la vue régionale pour tout ce que vous comptez dire 
 
 ## Lire une région face à son graphique { #reading-a-region-against-its-chart }
 
-![La Central Valley avec l’écart de tendance activé : les deux jeux de données sur le graphique, chacun avec sa droite ajustée sur la fenêtre de cinq ans](../../static/images/grace/app-diff-chart.webp)
+![La Central Valley avec l’écart de tendance activé : les deux jeux de données sur le graphique, chacun avec sa droite ajustée sur l’enregistrement entier](../../static/images/grace/app-diff-chart.webp)
 
 Cliquer sur une région, ou sur une maille dans la vue globale, trace les deux jeux de données et place sous le titre du graphique le nombre qui
-se trouve derrière la couleur de cette région. La Central Valley ci-dessus affiche « GWSa trend difference +1.92 cm/yr (last 5 yr) », avec les
-deux droites ajustées de la légende à +3,40 et +1,43 cm/an : sur les cinq dernières années, les deux enregistrements montrent la vallée qui se
-remet de la sécheresse de 2021–2022, et GRACE l’y montre plus de deux fois plus vite. Sur l’enregistrement entier, cette même vallée a GRACE qui
-perd 1,37 cm/an contre 0,24 pour 2.2 (voir [Là où la tendance diffère](examples.md#where-the-trend-differs)) : c’est la leçon de la fenêtre dans
-une seule région.
+se trouve derrière la couleur de cette région. La Central Valley ci-dessus affiche « GWSa trend difference −1.09 cm/yr (2002–2026) », avec les
+deux droites ajustées de la légende à −1,35 et −0,22 cm/an : un bassin en épuisement sérieux sur un enregistrement contre un autre qui descend
+doucement sur le second, le cas que traite [Là où la tendance diffère](examples.md#where-the-trend-differs).
+
+Ramenez cette même région à cinq ans et les trois nombres changent de signe. GRACE affiche +3,40 cm/an, 2.2 affiche +1,43 et l’écart vaut
++1,92 : les deux enregistrements montrent la vallée qui se remet de la sécheresse de 2021–2022, et GRACE l’y montre plus de deux fois plus vite.
+Aucune des deux lectures n’est fausse. Elles répondent à des questions différentes, et la valeur par défaut répond à celle pour laquelle la
+comparaison existe.
 
 Sous l’une ou l’autre des mesures de tendance, chaque série reçoit en plus sa droite ajustée, en pointillé. La concordance et le rapport
 d’amplitude n’ont pas de droite à tracer : le graphique rapporte la mesure sous son titre et laisse les séries nues.

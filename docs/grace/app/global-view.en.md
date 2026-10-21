@@ -51,10 +51,11 @@ different land masks and start in different years.
 With groundwater displayed, **Color by** also offers the three comparisons between the two datasets, and each of those colors the same cells by
 how far GRACE and GLDAS 2.2 disagree there. Computing one reads both datasets' whole records, so it takes a few seconds longer than a trend.
 
-![Every land cell colored by the difference between the two datasets' five-year groundwater trends](../../static/images/grace/app-diff-global.webp)
+![Every land cell colored by the difference between the two datasets' groundwater trends over the whole record](../../static/images/grace/app-diff-global.webp)
 
-Per cell those comparisons are noisy, as the map above shows. Use them to see where the large patterns are and the regional view to say anything
-about a particular aquifer.
+A comparison opens on the whole record rather than on the five years a trend opens on, because per cell a five-year difference is mostly noise
+(see [A cell is not a region](../compare/exploring.md#a-cell-is-not-a-region)). Read these maps for where the large patterns are and the regional
+view for anything about a particular aquifer.
 
 See [Trend and Difference Analysis](trends.md) for how each number is computed and how to choose the window, and
 [Exploring the Differences in the App](../compare/exploring.md) for how to read the comparison maps.

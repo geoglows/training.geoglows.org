@@ -55,10 +55,11 @@ Avec l’eau souterraine affichée, **Color by** propose aussi les trois compara
 mailles selon l’ampleur du désaccord entre GRACE et GLDAS 2.2 à cet endroit. En calculer une lit l’enregistrement entier des deux jeux : cela
 prend donc quelques secondes de plus qu’une tendance.
 
-![Chaque maille terrestre colorée par l’écart entre les tendances d’eau souterraine sur cinq ans des deux jeux de données](../../static/images/grace/app-diff-global.webp)
+![Chaque maille terrestre colorée par l’écart entre les tendances d’eau souterraine des deux jeux de données sur l’enregistrement entier](../../static/images/grace/app-diff-global.webp)
 
-Maille par maille, ces comparaisons sont bruitées, comme le montre la carte ci-dessus. Servez-vous-en pour voir où sont les grands motifs, et de
-la vue régionale pour dire quoi que ce soit d’un aquifère donné.
+Une comparaison s’ouvre sur l’enregistrement entier et non sur les cinq ans par lesquels s’ouvre une tendance, car maille par maille un écart sur
+cinq ans n’est guère que du bruit (voir [Une maille n’est pas une région](../compare/exploring.md#a-cell-is-not-a-region)). Lisez ces cartes pour
+voir où sont les grands motifs, et la vue régionale pour tout ce qui concerne un aquifère donné.
 
 Voir [Analyse des Tendances et des Écarts](trends.md) pour le calcul de chaque nombre et le choix de la fenêtre, et
 [Explorer les écarts dans l’application](../compare/exploring.md) pour la lecture des cartes de comparaison.

@@ -22,13 +22,15 @@ datos publicados, las dos tendencias de la región mediana difieren en 0.27 cm/a
 a 0.69, y su ciclo estacional de GRACE oscila 0.73 veces lo que el de 2.2.
 
 Elegir una comparación activa **Also show GLDAS 2.2** (mostrar también GLDAS 2.2) en el panel de control y lo mantiene activado, de modo que el
-gráfico lleva ambas series para lo que selecciones a continuación. La vista regional colorea los contornos de las regiones, la vista global
+gráfico lleva ambas series para lo que selecciones a continuación, y pone la **Window** en todo el registro: comparar dos registros es una
+pregunta sobre los registros, y las clases de abajo se trazaron para el registro entero. Mover el selector sigue funcionando y entonces manda tu
+elección. La vista regional colorea los contornos de las regiones, la vista global
 colorea las celdas, y la medida sigue seleccionada al pasar de una a otra. [Análisis de tendencias y diferencias](../app/trends.md) da la
 mecánica: los límites de las clases, el registro mínimo que necesita una región y cómo se promedian sus celdas.
 
 ## El mapa de diferencia de tendencia { #the-trend-difference-map }
 
-![El conjunto Global Aquifers coloreado por la diferencia entre las tendencias de agua subterránea de cinco años de los dos conjuntos de datos](../../static/images/grace/app-diff-regions.webp)
+![El conjunto Global Aquifers coloreado por la diferencia entre las tendencias de agua subterránea de los dos conjuntos de datos sobre todo el registro](../../static/images/grace/app-diff-regions.webp)
 
 Cada región o celda se colorea por la tendencia de GRACE menos la de 2.2 sobre la ventana del encabezado, en cm/año. GRACE es siempre el operando
 izquierdo, sea cual sea el conjunto seleccionado en el panel, así que el signo de la diferencia nunca depende de otro control.
@@ -47,21 +49,22 @@ almacén de agua subterránea solo a través de la corrección mensual de GRACE,
 dirección contraria, donde GRACE tiene el almacenamiento subiendo más rápido. Sobre las 37 cuencas WHYMAP la tendencia de 2.2 es una mediana de
 0.26 de la de GRACE donde el almacenamiento cae y de 0.33 donde sube, así que ambos colores son el mismo efecto.
 
-La ventana importa aquí más que para una sola tendencia. Las ventanas cortas producen tendencias mayores, y la distancia entre los dos conjuntos
-crece con ellas: sobre los contornos de Global Aquifers la diferencia típica más que se duplica, de 0.26 cm/año sobre todo el registro a 0.59
-sobre los últimos cinco años. La clasificación lo sigue:
+Esos límites vienen del registro completo. Sobre los 322 contornos puntuados la diferencia mediana es 0.27 cm/año y el percentil 95 es 1.12, así
+que ±0.25 y ±1 están puestos para marcar como extrema aproximadamente una décima parte de las regiones. Acortar la ventana agranda ambas
+tendencias y con ellas su diferencia — sobre los contornos de Global Aquifers la diferencia típica más que se duplica, de 0.26 cm/año a 0.59 — y
+los mismos límites marcan entonces como extrema a una tercera parte:
 
 | Ventana | GRACE much lower | GRACE lower | Trends agree | GRACE higher | GRACE much higher |
 |:---|:---:|:---:|:---:|:---:|:---:|
-| últimos 5 años | 14 | 18 | 28 | 21 | 18 |
-| últimos 10 años | 8 | 19 | 37 | 20 | 15 |
-| últimos 15 años | 6 | 21 | 42 | 24 | 6 |
+| todo el registro (por defecto) | 5 | 15 | 52 | 23 | 4 |
 | últimos 20 años | 7 | 14 | 50 | 24 | 4 |
-| todo el registro | 5 | 15 | 52 | 23 | 4 |
+| últimos 15 años | 6 | 21 | 42 | 24 | 6 |
+| últimos 10 años | 8 | 19 | 37 | 20 | 15 |
+| últimos 5 años | 14 | 18 | 28 | 21 | 18 |
 
-52 de los 99 acuíferos coinciden sobre todo el registro y 28 sobre los últimos cinco años. Ambas lecturas son correctas para su ventana. Una
-región que cambia de clase al mover la ventana está diciendo que los dos conjuntos difieren sobre una oscilación reciente, que es un problema
-menor que diferir sobre la dirección a largo plazo.
+Ambas lecturas son correctas para su ventana, y una más corta es la pregunta adecuada si quieres saber si los dos conjuntos han empezado a
+divergir últimamente. Lee ahí los extremos con más escepticismo: una región que cambia de clase al acortar la ventana está diciendo que los dos
+difieren sobre una oscilación reciente, que es un problema menor que diferir sobre la dirección a largo plazo.
 
 ## El mapa de concordancia { #the-agreement-map }
 
@@ -123,6 +126,7 @@ La vista global responde las mismas tres preguntas por celda de 1°, y las respu
 
 | Proporción del conjunto en esta condición | Global Aquifers, 99 contornos | celdas de 1° |
 |:---|:---:|:---:|
+| diferencia de tendencia más allá de ±1 cm/año, todo el registro | 9% | 15% |
 | diferencia de tendencia más allá de ±1 cm/año, últimos 5 años | 32% | 44% |
 | correlación por debajo de 0 | 5% | 18% |
 | amplitud estacional de GRACE más de 1.25 veces la de 2.2 | 21% | 45% |
@@ -130,11 +134,18 @@ La vista global responde las mismas tres preguntas por celda de 1°, y las respu
 Una de cada seis celdas terrestres tiene los dos registros yendo opuestos, donde lo hacen cinco de los 99 acuíferos, y casi la mitad de todas las
 celdas tienen el ciclo de GRACE oscilando más que el de 2.2, donde el panorama regional es el contrario.
 
-![Cada celda terrestre coloreada por la diferencia entre las tendencias de agua subterránea de cinco años de los dos conjuntos de datos](../../static/images/grace/app-diff-global.webp)
+![Cada celda terrestre coloreada por la diferencia entre las tendencias de agua subterránea de los dos conjuntos de datos sobre todo el registro](../../static/images/grace/app-diff-global.webp)
 
-El mapa de arriba es lo que eso produce: moteado sobre casi toda la superficie terrestre, celdas rojas y azules alternándose en unos pocos
-cientos de kilómetros, y el único bloque grande de **Trends agree** tendido sobre el Sáhara y la península arábiga, donde ninguno de los dos
-registros se mueve mucho en cinco años.
+Con el valor por defecto el mapa tiene geografía: rojo intenso donde la ruta de GRACE lleva hielo, en Groenlandia, el Ártico canadiense y la
+Patagonia; rojo en el norte de la India, Oriente Medio y Siberia central; azul en el Amazonas, el Congo, el Sahel y el Zambeze. Bájalo a cinco
+años y casi todo eso desaparece:
+
+![El mismo mapa sobre los últimos cinco años, con celdas rojas y azules alternándose en casi toda la superficie terrestre](../../static/images/grace/app-diff-global-5yr.webp)
+
+Moteado sobre casi toda la superficie terrestre, rojo y azul alternándose en unos pocos cientos de kilómetros, y el único bloque grande de
+**Trends agree** tendido sobre el Sáhara y la península arábiga, donde ninguno de los dos registros se mueve mucho en cinco años. Dos pendientes
+ajustadas cada una a 60 meses y luego restadas dejan un número cuyo error es mayor que la diferencia que informa. Un promedio de área elimina casi
+todo eso, y por eso el mapa regional sí merece leerse a cinco años y este no.
 
 Una sola celda lleva el ruido mes a mes que elimina un promedio de área, y del lado de GRACE lleva además el factor de ganancia aplicado a un
 mascon de 3°, así que el valor de una celda descansa sobre la misma medición que el de sus vecinas (ver
@@ -143,14 +154,16 @@ están los patrones grandes, y la vista regional para cualquier cosa que quieras
 
 ## Leer una región frente a su gráfico { #reading-a-region-against-its-chart }
 
-![El Valle Central con la diferencia de tendencia activa: ambos conjuntos en el gráfico, cada uno con su recta ajustada sobre la ventana de cinco años](../../static/images/grace/app-diff-chart.webp)
+![El Valle Central con la diferencia de tendencia activa: ambos conjuntos en el gráfico, cada uno con su recta ajustada sobre todo el registro](../../static/images/grace/app-diff-chart.webp)
 
 Al hacer clic en una región, o en una celda de la vista global, se dibujan ambos conjuntos y se pone bajo el título del gráfico el número que
-hay detrás del color de esa región. El Valle Central de arriba marca "GWSa trend difference +1.92 cm/yr (last 5 yr)", con las dos rectas
-ajustadas de la leyenda en +3.40 y +1.43 cm/año: en los últimos cinco años ambos registros tienen el valle recuperándose de la sequía de
-2021–2022 y GRACE lo tiene recuperándose más del doble de rápido. Sobre todo el registro ese mismo valle tiene a GRACE perdiendo 1.37 cm/año
-frente a los 0.24 de 2.2 (ver [Donde difiere la tendencia](examples.md#where-the-trend-differs)), que es la lección de la ventana en una sola
-región.
+hay detrás del color de esa región. El Valle Central de arriba marca "GWSa trend difference −1.09 cm/yr (2002–2026)", con las dos rectas
+ajustadas de la leyenda en −1.35 y −0.22 cm/año: una cuenca en agotamiento serio en un registro frente a otra que baja suavemente en el otro,
+que es el caso que trabaja [Donde difiere la tendencia](examples.md#where-the-trend-differs).
+
+Baja esa misma región a cinco años y los tres números cambian de signo. GRACE marca +3.40 cm/año, 2.2 marca +1.43 y la diferencia es +1.92:
+ambos registros tienen el valle recuperándose de la sequía de 2021–2022, y GRACE lo tiene recuperándose más del doble de rápido. Ninguna de las
+dos lecturas es errónea. Responden preguntas distintas, y el valor por defecto responde a aquella para la que está la comparación.
 
 Bajo cualquiera de las dos medidas de tendencia cada serie recibe además su recta ajustada, discontinua. La concordancia y el cociente de
 amplitudes no tienen recta que dibujar, así que el gráfico informa la medida bajo su título y deja las series lisas.

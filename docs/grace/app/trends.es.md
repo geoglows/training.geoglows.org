@@ -9,12 +9,12 @@ aplicación; **Hide** lo desactiva y devuelve el mapa a la anomalía mensual.
 **Color by** (colorear por), junto al botón, elige ese número. Una medida trabaja sobre el conjunto de datos que esté seleccionado, y tres
 comparan los dos conjuntos entre sí:
 
-| Color by | Qué calcula | Ambos conjuntos | Ventana |
+| Color by | Qué calcula | Ambos conjuntos | Abre sobre |
 |:---|:---|:---:|:---:|
-| Trend in GWSa | la pendiente por mínimos cuadrados de los valores mensuales, en cm/año | no | sí |
-| GRACE vs GLDAS 2.2: trend difference | la pendiente de GRACE menos la de 2.2 | sí | sí |
-| GRACE vs GLDAS 2.2: agreement | la correlación de Pearson de las dos series mensuales | sí | no |
-| GRACE vs GLDAS 2.2: seasonal swing | la amplitud estacional de GRACE dividida por la de 2.2 | sí | no |
+| Trend in GWSa | la pendiente por mínimos cuadrados de los valores mensuales, en cm/año | no | los últimos 5 años |
+| GRACE vs GLDAS 2.2: trend difference | la pendiente de GRACE menos la de 2.2 | sí | todo el registro |
+| GRACE vs GLDAS 2.2: agreement | la correlación de Pearson de las dos series mensuales | sí | todo el registro |
+| GRACE vs GLDAS 2.2: seasonal swing | la amplitud estacional de GRACE dividida por la de 2.2 | sí | todo el registro |
 
 La entrada de tendencia nombra lo que esté en pantalla, así que dice **Trend in GWSa** en la capa por defecto y **Trend in SMa** en humedad del
 suelo. Las tres comparaciones solo aparecen mientras se muestra agua subterránea (GWSa), porque es la única magnitud que ambos conjuntos obtienen
@@ -91,6 +91,15 @@ registro desde 2002. La clasificación y la leyenda se actualizan cuando lo camb
 La concordancia y la amplitud estacional usan siempre todo el registro, así que el selector se atenúa con esas dos. Una correlación sobre cinco
 años plantea una pregunta distinta de una sobre veinte, y un ciclo estacional estimado a partir de cinco años descansa sobre cinco valores por
 mes del calendario. El ajuste se conserva mientras el selector está atenuado y vuelve cuando regresas a una tendencia.
+
+La diferencia de tendencia sí usa el selector, pero abre sobre todo el registro y no sobre los cinco años con los que abre una tendencia, porque
+los límites de sus clases se trazaron a partir de la dispersión del registro completo: ±0.25 y ±1 cm/año marcan como extrema una décima parte de
+las regiones sobre el registro entero y una tercera parte sobre cinco años. Mover la ventana sigue siendo lo correcto si quieres saber si los dos
+conjuntos han empezado a divergir últimamente, y una vez que mueves el selector nada lo devuelve.
+
+La tendencia conserva el valor corto por defecto, y la razón son sus propios límites. Sobre todo el registro, ±0.5 y ±2 cm/año dejan 59 de los 99
+contornos de Global Aquifers en **Static** y vacían **Extreme increase**, porque una pendiente ajustada sobre 24 años promedia y borra los
+cambios de signo por los que suele preguntar un gestor. Sobre cinco años esos mismos 99 se reparten 11/22/34/28/4.
 
 En la mayoría de las regiones el almacenamiento oscila entre años húmedos y secos, así que una ventana corta puede captar una sola oscilación en
 lugar de la dirección de largo plazo. En el Valle Central de California, el almacenamiento de agua subterránea disminuyó desde 2002 hasta la
