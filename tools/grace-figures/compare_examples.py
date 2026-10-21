@@ -290,73 +290,71 @@ def phase_mechanism():
 
 
 def signal_size():
-    """What a correlation is worth, against how much water is moving.
+    """Why a low agreement score can mean nothing at all.
 
-    The first version of this scattered all 15,135 cells, which read as one
-    undifferentiated cloud and hid both halves of the point. Each band is drawn
-    here as a distribution instead: the dot is the median, the thick bar the
-    middle half of the cells, the thin bar the 10th to 90th percentile. The
-    median rising is one message and the spread collapsing is the other — where
-    little water moves a correlation can come out anywhere between −1 and +1,
-    so a low one there is not evidence of anything.
+    Two earlier versions asked the reader to work: a scatter of 15,135 cells,
+    then nine percentile bars. Both plotted a correlation coefficient against a
+    standard deviation and left the conclusion to be inferred. This one sorts
+    the cells into the app's own agreement classes, in its own colours, so the
+    figure says the sentence the section says -- where little water moves most
+    cells come out Weak or Opposite, and where a lot moves most come out Close.
     """
     cells = pd.read_csv(DATA / "catalog_cells.csv")
-    fig, ax = plt.subplots(figsize=(9, 4.8))
-    ax.axhline(0, color=C["gray"], lw=1, ls="--", zorder=0)
+    r = cells["r"]
+    sd = cells["sd_grace"]
 
-    edges = np.array([0, 2, 3, 5, 8, 12, 15, 25, 40, 1e9])
-    for lo, hi in zip(edges[:-1], edges[1:]):
-        k = (cells["sd_grace"] >= lo) & (cells["sd_grace"] < hi)
-        if k.sum() < 30:
-            continue
-        r = cells["r"][k]
-        x = float(np.median(cells["sd_grace"][k]))
-        p10, p25, p50, p75, p90 = np.percentile(r, [10, 25, 50, 75, 90])
-        # Below the 5 cm line the number is not worth reading, so the bands
-        # there are drawn in the muted colour the caption calls unreliable.
-        col = C["gray"] if x < 5 else C["blue"]
-        ax.plot([x, x], [p10, p90], color=col, lw=2, solid_capstyle="butt", zorder=2)
-        ax.plot([x, x], [p25, p75], color=col, lw=9, solid_capstyle="butt",
-                alpha=0.45, zorder=2)
-        ax.plot([x], [p50], marker="o", ms=7, color=C["red"], zorder=3,
-                markeredgecolor="white", markeredgewidth=1.2)
-        ax.text(x, p90 + 0.04, f"{int(k.sum()):,}", fontsize=8, color=C["gray"],
-                ha="center", va="bottom")
+    # The app's agreement classes and colours, from AGREEMENT_CATEGORIES in
+    # src/measures.js, so the figure and the map read as the same thing.
+    classes = [
+        ("Opposite", "#8c510a", r < 0),
+        ("Weak", "#dfc27d", (r >= 0) & (r < 0.3)),
+        ("Partial", "#c7e9e3", (r >= 0.3) & (r < 0.6)),
+        ("Close", "#5ab4ac", (r >= 0.6) & (r < 0.8)),
+        ("Very close", "#01665e", r >= 0.8),
+    ]
+    groups = [
+        ("barely moves\nunder 5 cm", sd < 5),
+        ("moves\n5 to 15 cm", (sd >= 5) & (sd <= 15)),
+        ("moves a lot\nover 15 cm", sd > 15),
+    ]
 
-    ax.axvspan(0.5, 5, color=C["lightgray"], alpha=0.45, zorder=0)
-    ax.text(2.1, -0.99, "below 5 cm, r is unreliable",
-            fontsize=9.5, color=C["darkgray"], ha="center", va="bottom")
+    fig, ax = plt.subplots(figsize=(9.6, 3.9))
+    for row, (gname, gk) in enumerate(groups):
+        y = len(groups) - 1 - row
+        left = 0.0
+        n = int(gk.sum())
+        for cname, col, ck in classes:
+            share = float((gk & ck).sum()) / n * 100
+            ax.barh(y, share, left=left, height=0.62, color=col,
+                    edgecolor="white", linewidth=1.2, zorder=2)
+            if share >= 7:
+                dark = cname in ("Opposite", "Very close")
+                ax.text(left + share / 2, y, f"{share:.0f}%", ha="center",
+                        va="center", fontsize=10,
+                        color="white" if dark else C["darkgray"], zorder=3)
+            left += share
+        ax.text(-1.5, y, gname, ha="right", va="center", fontsize=10.5,
+                color=C["darkgray"], linespacing=1.4)
+        ax.text(101.5, y, f"{n:,} cells", ha="left", va="center", fontsize=9.5,
+                color=C["gray"])
 
-    ax.set_xscale("log")
-    ax.set_xlim(0.9, 160)
-    ax.set_xticks([1, 2, 5, 10, 20, 50, 100])
-    ax.set_xticklabels(["1", "2", "5", "10", "20", "50", "100"])
-    ax.minorticks_off()
-    ax.set_ylim(-1.05, 1.15)
-    ax.set_yticks([-1, -0.5, 0, 0.5, 1])
-    ax.set_xlabel("how much groundwater storage moves in that cell "
-                  "(standard deviation of the monthly values, cm)")
-    ax.set_ylabel("agreement of the two\nmonthly records (r)")
-    ax.set_title("A low correlation where little water moves says nothing about either dataset",
-                 fontsize=11, pad=38, loc="left")
-    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_ylim(-0.6, len(groups) - 0.4)
+    ax.set_xlim(0, 100)
+    ax.set_yticks([])
+    ax.set_xticks([])
+    ax.spines[["top", "right", "left", "bottom"]].set_visible(False)
+    ax.set_title("Where little groundwater moves, the two datasets score low whatever they say",
+                 fontsize=11.5, pad=30, loc="left", x=-0.085)
+    note(ax, "Every 1\u00b0 land cell both datasets cover, sorted by how far GRACE groundwater "
+             "storage ranges\nfrom normal, then by the agreement class the app would give it",
+         size=9.5)
 
-    # A legend built from the drawing, so it explains the marks rather than the
-    # series: three plain handles beat a sentence under the axes.
-    from matplotlib.lines import Line2D
-    ax.legend(handles=[
-        Line2D([], [], marker="o", ms=7, color=C["red"], ls="none",
-               markeredgecolor="white", markeredgewidth=1.2, label="median cell"),
-        Line2D([], [], color=C["blue"], lw=9, alpha=0.45, label="middle half of cells"),
-        Line2D([], [], color=C["blue"], lw=2, label="10th to 90th percentile"),
-    ], frameon=False, fontsize=9.5, loc="lower right", ncol=1,
-        handlelength=1.6, borderaxespad=0.4, labelspacing=0.5)
+    from matplotlib.patches import Patch
+    ax.legend(handles=[Patch(facecolor=col, edgecolor="white", label=cname)
+                       for cname, col, _ in classes],
+              frameon=False, fontsize=9.5, ncol=5, loc="upper center",
+              bbox_to_anchor=(0.5, -0.04), handlelength=1.3, columnspacing=1.6)
 
-    lo = cells["r"][cells["sd_grace"] < 5]
-    hi = cells["r"][cells["sd_grace"] > 15]
-    note(ax, f"{len(cells):,} shared 1° land cells, counted above each band. Median r rises from "
-             f"{np.median(lo):.2f} below 5 cm\nto {np.median(hi):.2f} above 15 cm, and the share "
-             f"running opposite falls from {(lo < 0).mean():.0%} to {(hi < 0).mean():.0%}")
     fig.tight_layout()
     save(fig, "compare-signal-size")
 

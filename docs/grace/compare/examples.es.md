@@ -114,26 +114,30 @@ Los niveles freáticos someros son la razón probable de que la proporción suba
 del suelo es agua que un hidrólogo llamaría subterránea, así que la resta retira la señal subterránea dos veces. Getirana, Kumar y Rodell (2025)
 formulan la versión general de este argumento: que los compartimentos de un modelo no son los almacenes físicamente separados que la resta supone.
 
-## Donde una correlación baja no significa nada { #where-a-low-correlation-means-nothing }
+## Donde una concordancia baja no significa nada { #where-a-low-agreement-score-means-nothing }
 
-No todo desacuerdo es un problema del conjunto de datos. Dos señales pequeñas que no llegan a alinearse producen una correlación baja haya o no
-algo mal:
+El mapa de **agreement** (concordancia) pregunta si los dos registros suben y bajan juntos. En una celda donde el almacenamiento apenas se mueve
+—unos pocos centímetros por encima y por debajo de lo normal, año tras año— los dos registros casi no tienen con qué subir y bajar. Cada uno
+sigue sus propias pequeñas oscilaciones, esas oscilaciones no se alinean, y la puntuación sale baja haya o no algo mal en alguno de los dos
+conjuntos:
 
-![Concordancia entre los dos conjuntos en nueve bandas de tamaño de señal: por debajo de 5 cm la mitad central de las celdas cruza el cero, por encima de 15 cm se agrupa en torno a 0,8](../../static/images/grace/compare-signal-size.png)
+![Todas las celdas terrestres ordenadas en las clases de concordancia de la aplicación según cuánta agua subterránea se mueve: donde apenas se mueve, el 60% sale Weak u Opposite; donde se mueve mucho, el 75% sale Close o Very close](../../static/images/grace/compare-signal-size.png)
 
-Cada banda de la figura es la distribución de la correlación sobre las celdas que contiene: el punto es la mediana, la barra gruesa la mitad
-central y la barra fina el percentil 10 al 90. Que las medianas suban es la mitad del asunto y que las barras se estrechen es la otra. Por debajo
-de 5 cm la mitad central de las celdas cruza el cero y el 28% tiene los dos registros yendo opuestos; por encima de 15 cm la mitad central queda
-entre 0,6 y 0,85 y solo el 4% va opuesto.
+Casi el 40% de las celdas terrestres apenas se mueve, y el 60% de ellas cae en las clases **Weak** (débil) u **Opposite** (opuesta) de la
+aplicación. Por encima de 15 cm las clases se invierten: tres cuartas partes de las celdas salen **Close** (estrecha) o **Very close** (muy
+estrecha), y el 4% va opuesto.
 
-| Cuánto se mueve el agua subterránea de GRACE | Correlación mediana | Diferencia mediana entre ambos | Celdas |
-|:---|:---:|:---:|:---:|
-| menos de 5 cm | 0,19 | 4,58 cm | 5854 |
-| 5–15 cm | 0,51 | 8,32 cm | 7110 |
-| más de 15 cm | 0,77 | 27,32 cm | 2171 |
+| Cuánto se aleja de lo normal el agua subterránea de GRACE | Celdas | Opposite o Weak | Close o Very close | Puntuación mediana |
+|:---|:---:|:---:|:---:|:---:|
+| menos de 5 cm | 5854 | 60% | 11% | 0,19 |
+| 5 a 15 cm | 7110 | 32% | 40% | 0,51 |
+| más de 15 cm | 2171 | 11% | 75% | 0,77 |
 
-La subida se aplana por encima de unos 15 cm, donde los dos conjuntos se asientan alrededor de 0,77 por mucha más agua que se mueva. Los acuíferos que cualquiera analizaría están en esa parte plana. Léase una correlación junto con la
-cantidad de agua en juego, nunca sola.
+*El alejamiento de lo normal es la desviación estándar de los valores mensuales de la celda a lo largo de todo el registro.*
+
+Los acuíferos que cualquiera gestiona están en la última fila, donde una puntuación baja sí significa algo. Antes de leerla como un desacuerdo,
+abra la región y mire la gráfica. Dos líneas planas con algo de ruido encima no son dos conjuntos de datos contradiciéndose; allí no hay nada
+sobre lo que concordar.
 
 ## Diferencias que no son agua subterránea { #differences-that-are-not-groundwater }
 

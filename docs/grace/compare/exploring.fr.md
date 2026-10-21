@@ -83,10 +83,10 @@ vingt ans et que la réponse courte est la plus bruitée des deux.
 | Weak (faible) | 0 à 0,3 | 15 |
 | Opposite (opposée) | inférieure à 0 | 5 |
 
-Lisez cette carte à côté de la carte d’anomalies, et non seule. Une corrélation faible là où peu d’eau bouge ne dit rien sur l’un ou l’autre jeu
-de données : en dessous d’environ 5 cm de variation de l’eau souterraine GRACE, les deux sont corrélés à une médiane de 0,19, et au-dessus
-d’environ 15 cm ils se stabilisent autour de 0,77 quelle que soit la quantité d’eau en jeu (voir
-[Là où une corrélation faible ne signifie rien](examples.md#where-a-low-correlation-means-nothing)). La classe brune, où les deux vont en sens
+Lisez cette carte à côté de la carte d’anomalies, et non seule. Là où peu d’eau bouge, les deux enregistrements n’ont rien sur quoi concorder, et le
+score sort faible de toute façon : dans les mailles dont l’eau souterraine GRACE reste à moins de 5 cm environ de la normale, le score médian
+vaut 0,19, contre 0,77 dans celles où elle s’écarte de plus de 15 cm (voir
+[Là où une concordance faible ne signifie rien](examples.md#where-a-low-agreement-score-means-nothing)). La classe brune, où les deux vont en sens
 inverse, est celle à prendre au sérieux, et elle a un mécanisme connu : là où le cycle d’humidité du sol des modèles oscille autant que le cycle
 mesuré d’eau totale, la soustraction derrière la voie GRACE annule l’essentiel du signal d’eau souterraine et ce qui reste peut culminer à la
 mauvaise saison (voir [Là où les cycles sont en opposition](examples.md#where-the-cycles-run-opposite)).

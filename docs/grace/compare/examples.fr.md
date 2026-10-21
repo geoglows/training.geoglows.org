@@ -114,27 +114,30 @@ sol est de l’eau qu’un hydrologue appellerait souterraine, de sorte que la s
 Rodell (2025) formulent la version générale de cet argument : les compartiments d’un modèle ne sont pas les réservoirs physiquement distincts que
 la soustraction suppose.
 
-## Là où une corrélation faible ne signifie rien { #where-a-low-correlation-means-nothing }
+## Là où une concordance faible ne signifie rien { #where-a-low-agreement-score-means-nothing }
 
-Tout désaccord n’est pas un problème de jeu de données. Deux petits signaux qui ne parviennent pas à s’aligner produisent une corrélation faible,
-qu’il y ait ou non quelque chose qui cloche :
+La carte **agreement** (concordance) demande si les deux enregistrements montent et descendent ensemble. Dans une maille où le stockage bouge à
+peine — quelques centimètres de part et d’autre de la normale, année après année — les deux enregistrements n’ont presque rien avec quoi monter
+et descendre. Chacun suit ses propres petites oscillations, ces oscillations ne s’alignent pas, et le score sort faible qu’il y ait ou non
+quelque chose qui cloche dans l’un des deux jeux de données :
 
-![Concordance entre les deux jeux de données dans neuf bandes de taille de signal : en dessous de 5 cm la moitié centrale des mailles traverse zéro, au-dessus de 15 cm elle se resserre autour de 0,8](../../static/images/grace/compare-signal-size.png)
+![Toutes les mailles terrestres rangées dans les classes de concordance de l’application selon l’ampleur des mouvements de l’eau souterraine : là où elle bouge à peine, 60 % des mailles sortent Weak ou Opposite ; là où elle bouge beaucoup, 75 % sortent Close ou Very close](../../static/images/grace/compare-signal-size.png)
 
-Chaque bande de la figure est la distribution de la corrélation sur les mailles qu’elle contient : le point est la médiane, la barre épaisse la
-moitié centrale, la barre fine les 10e à 90e centiles. Que les médianes montent est la moitié du propos, que les barres se resserrent en est
-l’autre. En dessous de 5 cm, la moitié centrale des mailles traverse zéro et 28 % d’entre elles ont les deux enregistrements en opposition ;
-au-dessus de 15 cm, la moitié centrale se tient entre 0,6 et 0,85 et 4 % seulement sont en opposition.
+Près de 40 % des mailles terrestres bougent à peine, et 60 % d’entre elles tombent dans les classes **Weak** (faible) ou **Opposite** (opposée)
+de l’application. Au-dessus de 15 cm, les classes s’inversent : trois quarts des mailles sortent **Close** (étroite) ou **Very close** (très
+étroite), et 4 % sont en opposition.
 
-| Ampleur des mouvements de l’eau souterraine GRACE | Corrélation médiane | Écart médian entre les deux | Cellules |
-|:---|:---:|:---:|:---:|
-| moins de 5 cm | 0,19 | 4,58 cm | 5854 |
-| 5–15 cm | 0,51 | 8,32 cm | 7110 |
-| plus de 15 cm | 0,77 | 27,32 cm | 2171 |
+| Écart de l’eau souterraine GRACE à la normale | Mailles | Opposite ou Weak | Close ou Very close | Score médian |
+|:---|:---:|:---:|:---:|:---:|
+| moins de 5 cm | 5854 | 60 % | 11 % | 0,19 |
+| 5 à 15 cm | 7110 | 32 % | 40 % | 0,51 |
+| plus de 15 cm | 2171 | 11 % | 75 % | 0,77 |
 
-La montée s’aplatit au-delà d’environ 15 cm, où les deux jeux de données se stabilisent autour de 0,77 quelle que soit la quantité d’eau
-supplémentaire en mouvement. Les aquifères que l’on analyserait se situent dans cette partie plate. Il faut
-lire une corrélation en regard de la quantité d’eau en jeu, jamais seule.
+*L’écart à la normale est l’écart type des valeurs mensuelles de la maille sur tout l’enregistrement.*
+
+Les aquifères que l’on gère se trouvent dans la dernière ligne, où un score faible signifie quelque chose. Avant de le lire comme un désaccord,
+ouvrez la région et regardez le graphique. Deux lignes plates avec un peu de bruit dessus ne sont pas deux jeux de données qui se contredisent ;
+il n’y a rien là sur quoi concorder.
 
 ## Des écarts qui ne sont pas de l’eau souterraine { #differences-that-are-not-groundwater }
 

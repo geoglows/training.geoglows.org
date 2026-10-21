@@ -83,10 +83,10 @@ respuesta corta es la más ruidosa de las dos.
 | Weak (débil) | 0 a 0.3 | 15 |
 | Opposite (opuesta) | menos de 0 | 5 |
 
-Lee este mapa junto al mapa de anomalías, no por separado. Una correlación baja donde se mueve poca agua no dice nada sobre ninguno de los dos
-conjuntos: por debajo de unos 5 cm de variación en el agua subterránea de GRACE los dos correlacionan a una mediana de 0.19, y por encima de
-unos 15 cm se asientan en torno a 0.77 por mucha más agua que haya en juego (ver
-[Donde una correlación baja no significa nada](examples.md#where-a-low-correlation-means-nothing)). La clase marrón, donde los dos van opuestos,
+Lee este mapa junto al mapa de anomalías, no por separado. Donde se mueve poca agua los dos registros no tienen nada sobre lo que concordar, y la
+puntuación sale baja de todos modos: en las celdas cuya agua subterránea de GRACE se mantiene a menos de unos 5 cm de lo normal la puntuación
+mediana es 0.19, frente a 0.77 en las celdas donde se aleja más de 15 cm (ver
+[Donde una concordancia baja no significa nada](examples.md#where-a-low-agreement-score-means-nothing)). La clase marrón, donde los dos van opuestos,
 es la que hay que tomar en serio, y tiene un mecanismo conocido: donde el ciclo de humedad del suelo de los modelos oscila tanto como el ciclo
 medido de agua total, la resta tras la ruta de GRACE cancela la mayor parte de la señal de agua subterránea y lo que queda puede alcanzar su
 máximo en la estación equivocada (ver [Donde los ciclos van opuestos](examples.md#where-the-cycles-run-opposite)).

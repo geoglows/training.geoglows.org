@@ -112,26 +112,28 @@ Shallow water tables are the likely reason the ratio climbs that high. Part of w
 hydrologist would call groundwater, so the subtraction removes the groundwater signal twice. Getirana, Kumar and Rodell (2025) make the general
 form of this argument — that a model's compartments are not the physically separate stores the subtraction assumes.
 
-## Where a low correlation means nothing
+## Where a low agreement score means nothing
 
-Not every disagreement is a problem with a dataset. Two small signals that fail to line up produce a low correlation whether or not anything is
-wrong:
+The **agreement** map asks whether the two records rise and fall together. In a cell where storage barely moves — a few centimetres either side
+of normal, year after year — the two records have almost nothing to rise and fall with. Each one tracks its own small wobbles, the wobbles do not
+line up, and the score comes out low whether or not anything is wrong with either dataset:
 
-![Agreement between the two datasets in nine bands of signal size: below 5 cm the middle half of cells straddles zero, above 15 cm it sits tight around 0.8](../../static/images/grace/compare-signal-size.png)
+![Every land cell sorted into the app's agreement classes by how much groundwater moves: where it barely moves 60% of cells come out Weak or Opposite, where it moves a lot 75% come out Close or Very close](../../static/images/grace/compare-signal-size.png)
 
-Each band in the figure is the distribution of correlation over the cells in it: the dot is the median, the thick bar the middle half, the thin
-bar the 10th to 90th percentile. The medians climbing is one half of the point and the bars shrinking is the other. Below 5 cm the middle half
-of cells straddles zero and 28% of them have the two records running opposite; above 15 cm the middle half sits between 0.6 and 0.85 and 4% run
-opposite.
+Nearly 40% of land cells barely move, and 60% of those land in the app's **Weak** or **Opposite** classes. Above 15 cm the classes invert: three
+quarters of cells come out **Close** or **Very close**, and 4% run opposite.
 
-| How much GRACE groundwater moves | Median correlation | Median gap between the two | Cells |
-|:---|:---:|:---:|:---:|
-| under 5 cm | 0.19 | 4.58 cm | 5,854 |
-| 5–15 cm | 0.51 | 8.32 cm | 7,110 |
-| over 15 cm | 0.77 | 27.32 cm | 2,171 |
+| How far GRACE groundwater ranges from normal | Cells | Opposite or Weak | Close or Very close | Median score |
+|:---|:---:|:---:|:---:|:---:|
+| under 5 cm | 5,854 | 60% | 11% | 0.19 |
+| 5 to 15 cm | 7,110 | 32% | 40% | 0.51 |
+| over 15 cm | 2,171 | 11% | 75% | 0.77 |
 
-The climb flattens above about 15 cm, where the two datasets settle at around 0.77 however much more water moves. The aquifers anyone would
-analyse sit in that flat part. Read a correlation alongside the amount of water in play, never on its own.
+*Range from normal is the standard deviation of the cell's monthly values over the whole record.*
+
+The aquifers anyone manages sit in the bottom row, where a low score does mean something. Before reading one as a disagreement, open the region
+and look at the chart. Two flat lines with a little noise on them are not two datasets contradicting each other; there is nothing there to agree
+about.
 
 ## Differences that are not groundwater
 

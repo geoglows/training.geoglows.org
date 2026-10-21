@@ -80,9 +80,9 @@ dims, because a correlation over five years asks a different question from one o
 | Weak | 0 to 0.3 | 15 |
 | Opposite | below 0 | 5 |
 
-Read this map beside the anomaly map rather than on its own. A low correlation where little water moves says nothing about either dataset: below
-about 5 cm of variation in GRACE groundwater the two correlate at a median of 0.19, and above about 15 cm they settle around 0.77 however much
-more water is in play (see [Where a low correlation means nothing](examples.md#where-a-low-correlation-means-nothing)). The brown class, where
+Read this map beside the anomaly map rather than on its own. Where little water moves the two records have nothing to agree about, and the score
+comes out low either way: in cells whose GRACE groundwater stays within about 5 cm of normal the median score is 0.19, against 0.77 in cells
+where it ranges beyond 15 cm (see [Where a low agreement score means nothing](examples.md#where-a-low-agreement-score-means-nothing)). The brown class, where
 the two run opposite, is the case to take seriously, and it has a known mechanism: where the models' soil moisture cycle swings as hard as the
 measured total water cycle, the subtraction behind the GRACE route cancels most of the groundwater signal and what remains can peak in the wrong
 season (see [Where the cycles run opposite](examples.md#where-the-cycles-run-opposite)).
