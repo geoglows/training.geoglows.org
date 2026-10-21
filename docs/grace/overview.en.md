@@ -34,6 +34,7 @@ The app is free and runs in a web browser at
 - pick an aquifer or river basin from one of five published region sets, upload your own boundary as GeoJSON, or draw one on the map
 - plot the area-averaged time series for that region, with its uncertainty band where the dataset has one, and compare storage components
 - classify regions or grid cells by the trend in storage over the last 5, 10, 15 or 20 years, or the whole record
+- color the same map by how far the two datasets disagree — in trend, in month-to-month agreement, or in the size of the seasonal cycle
 - fill the months GRACE is missing with a seasonal model fitted to the region's own record
 - estimate annual groundwater recharge with the water table fluctuation method
 - download the monthly values for any region or cell as a CSV file for your own analysis
@@ -56,14 +57,22 @@ The app is free and runs in a web browser at
 - [Deriving Groundwater Storage](gldas/deriving-groundwater.md): both routes to groundwater, the gain factors applied to the GRACE data, and
   how the uncertainty is estimated.
 
-**Part 3, Using the App,** walks through the interface: [the layout](app/interface.md), [the regional view](app/regional-view.md),
-[the global view](app/global-view.md), [trend analysis](app/trends.md) and [downloading data](app/downloading-data.md).
+**Part 3, Comparing the Two Datasets,** is about where the two records disagree and which to use:
 
-**Part 4, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](recharge/wtf-method.md)
+- [Why the Two Datasets Differ](compare/why-they-differ.md): the two causes, and the global statistics they produce.
+- [What the Differences Look Like](compare/examples.md): the cases, in named aquifers on five continents.
+- [Exploring the Differences in the App](compare/exploring.md): the three comparison maps, what each one answers, and how to read them.
+- [Which One to Use](compare/which-one-to-use.md): the recommendation for each kind of question, and the checks to run first.
+- [How Far This Is Validated](compare/validation.md): what the recommendations rest on, and what they do not establish.
+
+**Part 4, Using the App,** walks through the interface: [the layout](app/interface.md), [the regional view](app/regional-view.md),
+[the global view](app/global-view.md), [trend and difference analysis](app/trends.md) and [downloading data](app/downloading-data.md).
+
+**Part 5, Recharge Analysis,** estimates annual groundwater recharge with the water table fluctuation method: [the method](recharge/wtf-method.md)
 as applied to GRACE data, then [opening the analysis](recharge/opening.md) and checking the series, [the water years and
 picks](recharge/picks.md), and [the results](recharge/results.md).
 
-**Part 5, Case Studies,** summarizes three published studies by the Brigham Young University team that developed the app and its
+**Part 6, Case Studies,** summarizes three published studies by the Brigham Young University team that developed the app and its
 predecessor, the GRACE Groundwater Subsetting Tool (GGST). Each combines the app's GRACE and GLDAS water balance with other data:
 [estimating recharge in Niger](case-studies/niger.md) where wells are scarce, [accounting for a large reservoir in the Volta
 Basin](case-studies/volta.md), and [correcting for leakage in California's Central Valley](case-studies/central-valley.md), a narrow,
@@ -74,7 +83,7 @@ heavily pumped valley.
 The GRACE Regional Analyst replaces the GRACE Groundwater Subsetting Tool (GGST), a Tethys Platform app developed at Brigham Young University
 under the NASA SERVIR West Africa project (2019–2023) and used in training workshops in West Africa, Jordan and Palestine. The new app keeps
 GGST's method for separating groundwater from total water storage and adds trend classification, published aquifer and basin boundaries,
-user-drawn regions, recharge analysis, and the GLDAS 2.2 dataset alongside it. It runs entirely in the browser, reading the processed data
+user-drawn regions, recharge analysis, and the GLDAS 2.2 dataset alongside it with maps of how the two disagree. It runs entirely in the browser, reading the processed data
 directly from cloud storage, so no account or login is needed.
 
 ## Further reading

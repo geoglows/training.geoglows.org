@@ -1,7 +1,8 @@
 # Lequel utiliser
 
-Aucun des deux jeux de données ne l’emporte partout. [À quoi ressemblent les écarts](examples.md) montre les cas d’où vient ce conseil, et
-[Jusqu’où cela est validé](validation.md) dit quel poids il peut porter.
+Aucun des deux jeux de données ne l’emporte partout. [À quoi ressemblent les écarts](examples.md) montre les cas d’où vient ce conseil,
+[Explorer les écarts dans l’application](exploring.md) montre comment mettre votre propre région sur le même plan, et
+[Jusqu’où cela est validé](validation.md) dit quel poids ce conseil peut porter.
 
 ## La réponse courte { #the-short-answer }
 
@@ -34,6 +35,10 @@ l’application.
 Sur 299 aquifères, ce rapport prédit la concordance entre les deux cycles saisonniers à une corrélation de −0,75. En dessous de 0,7 la
 concordance médiane vaut 0,93 ; au-dessus de 1,0 elle vaut −0,39.
 
+Pour la réponse sans le calcul, réglez **Color by** sur **GRACE vs GLDAS 2.2: agreement** et regardez la couleur de votre région : le brun
+signifie que les deux cycles sont en opposition, ce que produit une soustraction qui s’annule (voir
+[Explorer les écarts dans l’application](exploring.md#the-agreement-map)).
+
 ## Avant de traiter un grand écart comme un résultat { #before-treating-a-large-difference-as-a-result }
 
 1. Tracez la neige (**SWEa**). La glace et la neige expliquent la plupart des extrêmes, et un cycle souterrain ayant la forme du cycle de neige
@@ -44,6 +49,9 @@ concordance médiane vaut 0,93 ; au-dessus de 1,0 elle vaut −0,39.
 4. Vérifiez quelle quantité d’eau bouge réellement. En dessous d’environ 5 cm de variation, les deux jeux de données corrèlent à une médiane de
    0,19, et ce nombre ne dit rien sur l’un ni sur l’autre.
 5. Demandez-vous si un fleuve, une plaine d’inondation, un lac ou un réservoir pourrait expliquer cette eau.
+
+Les trois cartes de comparaison exécutent les étapes 3 et 4 sur toutes les régions d’un ensemble à la fois : c’est le moyen rapide de voir si
+votre région est un cas isolé ou un cas parmi beaucoup d’autres (voir [Explorer les écarts dans l’application](exploring.md)).
 
 ## À quoi sert la GWSa, dans l’un comme dans l’autre { #what-gwsa-is-good-for-in-either-dataset }
 

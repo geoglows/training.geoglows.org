@@ -43,12 +43,22 @@ modèle de surface terrestre et non de GRACE (voir
 grille est plus fine, mais la correction GRACE derrière ses eaux souterraines ne l’est pas. Pour un bassin ou un aquifère, utilisez la
 [vue régionale](regional-view.md), qui fait la moyenne de toutes les mailles de la région.
 
-## Carte des tendances { #trend-map }
+## Cartes de tendance et d’écarts { #trend-and-difference-maps }
 
-Lorsque les tendances sont activées, la vue globale colore chaque maille selon sa tendance au lieu de l’anomalie mensuelle, et l’animation est
-masquée. La légende compte les mailles de chaque classe. Les tendances fonctionnent sur l’un comme sur l’autre jeu de données ; les nombres de
-mailles diffèrent, parce que les deux ont des masques terrestres différents et commencent à des années différentes.
+Lorsque l’analyse est activée, la vue globale colore chaque maille par un seul nombre pour l’enregistrement entier au lieu de l’anomalie
+mensuelle, et l’animation est masquée. La légende compte les mailles de chaque classe. Une tendance fonctionne sur l’un comme sur l’autre jeu de
+données ; les nombres de mailles diffèrent, parce que les deux ont des masques terrestres différents et commencent à des années différentes.
 
 ![Tendance du stockage des eaux souterraines sur les cinq dernières années, par maille](../../static/images/grace/app-global-trends.webp)
 
-Voir [Analyse des Tendances](trends.md) pour le calcul de la tendance et le choix de la fenêtre.
+Avec l’eau souterraine affichée, **Color by** propose aussi les trois comparaisons entre les deux jeux de données, et chacune colore les mêmes
+mailles selon l’ampleur du désaccord entre GRACE et GLDAS 2.2 à cet endroit. En calculer une lit l’enregistrement entier des deux jeux : cela
+prend donc quelques secondes de plus qu’une tendance.
+
+![Chaque maille terrestre colorée par l’écart entre les tendances d’eau souterraine sur cinq ans des deux jeux de données](../../static/images/grace/app-diff-global.webp)
+
+Maille par maille, ces comparaisons sont bruitées, comme le montre la carte ci-dessus. Servez-vous-en pour voir où sont les grands motifs, et de
+la vue régionale pour dire quoi que ce soit d’un aquifère donné.
+
+Voir [Analyse des Tendances et des Écarts](trends.md) pour le calcul de chaque nombre et le choix de la fenêtre, et
+[Explorer les écarts dans l’application](../compare/exploring.md) pour la lecture des cartes de comparaison.

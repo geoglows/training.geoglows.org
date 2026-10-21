@@ -1,7 +1,8 @@
 # Which One to Use
 
-Neither dataset wins everywhere. [What the Differences Look Like](examples.md) shows the cases this advice is drawn from, and
-[How Far This Is Validated](validation.md) says how much weight it can carry.
+Neither dataset wins everywhere. [What the Differences Look Like](examples.md) shows the cases this advice is drawn from,
+[Exploring the Differences in the App](exploring.md) shows how to put your own region on the same footing, and
+[How Far This Is Validated](validation.md) says how much weight the advice can carry.
 
 ## The short answer
 
@@ -33,6 +34,10 @@ One comparison tells you whether the GRACE route's seasonal timing can be truste
 Across 299 aquifers that ratio predicts the agreement between the two seasonal cycles at a correlation of −0.75. Below 0.7 the median agreement
 is 0.93; above 1.0 it is −0.39.
 
+For the answer without the arithmetic, set **Color by** to **GRACE vs GLDAS 2.2: agreement** and look at the color of your region: brown means
+the two cycles run opposite, which is what a cancelling subtraction produces (see
+[Exploring the Differences in the App](exploring.md#the-agreement-map)).
+
 ## Before treating a large difference as a result
 
 1. Plot snow water (**SWEa**). Ice and snow explain most of the extremes, and a groundwater cycle shaped like the snow cycle upside down is the
@@ -43,6 +48,9 @@ is 0.93; above 1.0 it is −0.39.
 4. Check how much water is actually moving. Below about 5 cm of variation the two datasets correlate at a median of 0.19, and that number says
    nothing about either one.
 5. Ask whether a river, a floodplain, a lake or a reservoir could account for the water.
+
+The three comparison maps run steps 3 and 4 over every region in a set at once, which is the quick way to see whether your region is an outlier
+or one of many (see [Exploring the Differences in the App](exploring.md)).
 
 ## What GWSa is good for, in either dataset
 

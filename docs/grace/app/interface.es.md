@@ -35,7 +35,8 @@ De arriba hacia abajo:
 - **Time series** (series temporales). Marca otros componentes para añadirlos al gráfico y compararlos. La capa mostrada siempre se grafica (ver
   [Vista Regional](regional-view.md#the-time-series-chart)).
 - **Also show …** (mostrar también). Dibuja en el gráfico las mismas magnitudes del otro conjunto de datos, para poder leer uno frente al otro.
-  Refleja lo que esté marcado arriba en lugar de ofrecer un segundo juego de casillas, y no cambia nada en el mapa.
+  Refleja lo que esté marcado arriba en lugar de ofrecer un segundo juego de casillas, y no cambia nada en el mapa. Una de las medidas de
+  comparación de **Color by** necesita ambas series, así que elegirla marca esta casilla y la mantiene hasta que elijas otra cosa.
 - **Gap filling** (relleno de vacíos). Lo que hace el gráfico en los meses sin datos de GRACE. **None** corta la línea en cada vacío,
   **Straight line** une los meses a ambos lados, y **Seasonal model** rellena los vacíos con valores estimados a partir del resto del registro,
   dibujados como una línea discontinua con marcadores huecos (ver [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). Este ajuste solo cambia el
@@ -60,8 +61,8 @@ preguntarse cómo activarlo, así que se retira.
 
 El mapa tiene botones de zoom y un menú de mapas base (el icono de capas debajo de los botones de zoom) con los mapas base OpenStreetMap,
 topográfico, imágenes, calles, gris claro, gris oscuro y relieve. Hay una barra de escala en la esquina inferior derecha. La barra de colores en la
-esquina superior derecha da la escala de las celdas de anomalía, siempre centrada en cero; la leyenda de tendencias aparece encima de ella
-mientras se muestran las tendencias.
+esquina superior derecha da la escala de las celdas de anomalía, siempre centrada en cero; la leyenda del análisis aparece encima de ella
+mientras se muestra una clasificación.
 
 El **control de tiempo** en la parte inferior del mapa recorre los meses:
 
@@ -73,12 +74,13 @@ gráfico con una línea roja discontinua.
 
 ## Barra de encabezado { #header-bar }
 
-![La barra de encabezado: ruta de navegación a la izquierda, controles de tendencia a la derecha](../../static/images/grace/app-header.webp){ width="800" }
+![La barra de encabezado: ruta de navegación a la izquierda, controles de análisis a la derecha](../../static/images/grace/app-header.webp){ width="800" }
 
 La ruta de navegación a la izquierda muestra dónde estás: **Home** (la vista general), el nombre de una región, **Global map** o las coordenadas
-de una celda seleccionada. Haz clic en **Home** para volver a la vista general. A la derecha, **Analyze trends / Hide trends** activa y desactiva
-la clasificación de tendencias, y el selector **Window** fija el periodo sobre el que se calcula la tendencia. Ver
-[Análisis de Tendencias](trends.md).
+de una celda seleccionada. Haz clic en **Home** para volver a la vista general. A la derecha, **Analyze / Hide** activa y desactiva la
+clasificación del mapa, **Color by** elige según qué se clasifica — la tendencia de la capa mostrada, o una de tres comparaciones entre los dos
+conjuntos de datos — y el selector **Window** fija el periodo sobre el que se calcula una tendencia. Ver
+[Análisis de Tendencias y Diferencias](trends.md) y [Explorar las diferencias en la aplicación](../compare/exploring.md).
 
 ## Ajustes { #settings }
 

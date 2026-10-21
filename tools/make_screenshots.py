@@ -89,10 +89,20 @@ def go_global(page: Page) -> None:
     page.wait_for_timeout(LOAD * 2)
 
 
-def trends_off(page: Page) -> None:
-    if "Hide" in page.locator("#trends-button").inner_text():
-        page.locator("#trends-button").click()
+def analysis_off(page: Page) -> None:
+    """Back to the plain anomaly map. The button says what it will do next, so
+    "Hide" is the state where an analysis is drawn."""
+    if "Hide" in page.locator("#analysis-button").inner_text():
+        page.locator("#analysis-button").click()
         page.wait_for_timeout(LOAD)
+
+
+def color_by(page: Page, measure: str, wait: int = LOAD) -> None:
+    """Pick a measure in the header and wait for the map to be recolored. The
+    three difference measures read both datasets, so each is a second pass over
+    the same frames and the global view needs the longer wait."""
+    page.locator("#analysis-measure").select_option(measure)
+    page.wait_for_timeout(wait)
 
 
 # ------------------------------------------------------------------- shots
@@ -164,7 +174,7 @@ def shot_chart_compare(pw) -> None:
 def shot_global(pw) -> None:
     b, pg = open_app(pw)
     go_global(pg)
-    trends_off(pg)
+    analysis_off(pg)
     save(pg, "app-global")
     b.close()
 
@@ -179,12 +189,55 @@ def shot_global_trends(pw) -> None:
 def shot_global_cell(pw) -> None:
     b, pg = open_app(pw)
     go_global(pg)
-    trends_off(pg)
+    analysis_off(pg)
     # Northwest Iran, at 37.50N 48.50E -- a cell with a strong depletion trend.
     pg.mouse.click(1255, 330)
     pg.wait_for_selector("#timeseries-plot canvas", timeout=60_000)
     pg.wait_for_timeout(LOAD)
     save(pg, "app-global-cell")
+    b.close()
+
+
+def shot_diff_regions(pw) -> None:
+    """Every aquifer colored by how far the two datasets' trends differ."""
+    b, pg = open_app(pw)
+    color_by(pg, "trend-difference")
+    save(pg, "app-diff-regions")
+    b.close()
+
+
+def shot_diff_agreement(pw) -> None:
+    b, pg = open_app(pw)
+    color_by(pg, "agreement")
+    save(pg, "app-diff-agreement")
+    b.close()
+
+
+def shot_diff_swing(pw) -> None:
+    b, pg = open_app(pw)
+    color_by(pg, "swing-ratio")
+    save(pg, "app-diff-swing")
+    b.close()
+
+
+def shot_diff_global(pw) -> None:
+    """The same trend difference per cell. Both datasets have to be read for
+    every month of the record, so this one is slow."""
+    b, pg = open_app(pw)
+    go_global(pg)
+    color_by(pg, "trend-difference", wait=LOAD * 5)
+    save(pg, "app-diff-global")
+    b.close()
+
+
+def shot_diff_chart(pw) -> None:
+    """The chart under a difference measure: both datasets, both fitted lines,
+    and the region's own number under the title. The Central Valley is the case
+    the comparison pages work through."""
+    b, pg = open_app(pw)
+    color_by(pg, "trend-difference")
+    pick_region(pg, CENTRAL_VALLEY)
+    save(pg, "app-diff-chart", clip={"x": 320, "y": 780, "width": 1480, "height": 345})
     b.close()
 
 
@@ -330,6 +383,11 @@ SHOTS = {
     "global": shot_global,
     "global-trends": shot_global_trends,
     "global-cell": shot_global_cell,
+    "diff-regions": shot_diff_regions,
+    "diff-agreement": shot_diff_agreement,
+    "diff-swing": shot_diff_swing,
+    "diff-global": shot_diff_global,
+    "diff-chart": shot_diff_chart,
     "time-control": shot_time_control,
     "gap-fill-control": shot_gap_fill_control,
     "gap-fills": shot_gap_fills,

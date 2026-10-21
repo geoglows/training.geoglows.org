@@ -38,6 +38,8 @@ L’application est gratuite et s’exécute dans un navigateur web à l’adres
 - tracer la série temporelle moyennée sur la surface de cette région, avec sa bande d’incertitude lorsque le jeu de données en possède une, et
   comparer les composantes du stockage
 - classer les régions ou les mailles selon la tendance du stockage sur les 5, 10, 15 ou 20 dernières années, ou sur l’ensemble de la série
+- colorer cette même carte selon l’ampleur du désaccord entre les deux jeux de données — en tendance, en concordance d’un mois à l’autre, ou en
+  taille du cycle saisonnier
 - combler les mois qui manquent à GRACE avec un modèle saisonnier ajusté à l’enregistrement propre de la région
 - estimer la recharge annuelle des eaux souterraines par la méthode de fluctuation de la nappe
 - télécharger les valeurs mensuelles de n’importe quelle région ou maille dans un fichier CSV pour vos propres analyses
@@ -61,15 +63,24 @@ L’application est gratuite et s’exécute dans un navigateur web à l’adres
 - [Calcul du Stockage des Eaux Souterraines](gldas/deriving-groundwater.md) : les deux voies vers les eaux souterraines, les facteurs de gain
   appliqués aux données GRACE, et la façon dont l’incertitude est estimée.
 
-**Partie 3, Utilisation de l’Application,** présente l’interface : [la disposition](app/interface.md), [la vue régionale](app/regional-view.md),
-[la vue globale](app/global-view.md), [l’analyse des tendances](app/trends.md) et
+**Partie 3, Comparaison des Deux Jeux de Données,** porte sur les endroits où les deux enregistrements divergent et sur celui qu’il faut
+utiliser :
+
+- [Pourquoi les deux jeux de données diffèrent](compare/why-they-differ.md) : les deux causes et les statistiques globales qu’elles produisent.
+- [À quoi ressemblent les écarts](compare/examples.md) : les cas, dans des aquifères nommés sur cinq continents.
+- [Explorer les écarts dans l’application](compare/exploring.md) : les trois cartes de comparaison, ce que chacune répond, et comment les lire.
+- [Lequel utiliser](compare/which-one-to-use.md) : la recommandation pour chaque type de question, et les vérifications préalables.
+- [Jusqu’où cela est validé](compare/validation.md) : ce sur quoi reposent les recommandations, et ce qu’elles n’établissent pas.
+
+**Partie 4, Utilisation de l’Application,** présente l’interface : [la disposition](app/interface.md), [la vue régionale](app/regional-view.md),
+[la vue globale](app/global-view.md), [l’analyse des tendances et des écarts](app/trends.md) et
 [le téléchargement des données](app/downloading-data.md).
 
-**Partie 4, Analyse de la Recharge,** estime la recharge annuelle des eaux souterraines par la méthode de fluctuation de la nappe (WTF) :
+**Partie 5, Analyse de la Recharge,** estime la recharge annuelle des eaux souterraines par la méthode de fluctuation de la nappe (WTF) :
 [la méthode](recharge/wtf-method.md) appliquée aux données GRACE, puis [l’ouverture de l’analyse](recharge/opening.md) et la vérification de
 la série, [les années hydrologiques et le choix des points](recharge/picks.md), et [les résultats](recharge/results.md).
 
-**Partie 5, Études de Cas,** résume trois études publiées par l’équipe de l’Université Brigham Young qui a développé l’application et son
+**Partie 6, Études de Cas,** résume trois études publiées par l’équipe de l’Université Brigham Young qui a développé l’application et son
 prédécesseur, le GRACE Groundwater Subsetting Tool (GGST). Chacune combine le bilan hydrique GRACE et GLDAS de l’application avec d’autres
 données : [l’estimation de la recharge au Niger](case-studies/niger.md), où les puits sont rares, [la prise en compte d’un grand réservoir dans
 le bassin de la Volta](case-studies/volta.md), et [la correction de la fuite du signal dans la Vallée Centrale de Californie](case-studies/central-valley.md),
@@ -81,7 +92,8 @@ GRACE Regional Analyst remplace le GRACE Groundwater Subsetting Tool (GGST), une
 Young dans le cadre du projet NASA SERVIR Afrique de l’Ouest (2019–2023) et utilisée lors d’ateliers de formation en Afrique de l’Ouest, en
 Jordanie et en Palestine. La nouvelle application conserve la méthode de GGST pour séparer les eaux souterraines du stockage total en eau, et
 ajoute la classification des tendances, les limites d’aquifères et de bassins publiées, les régions dessinées par l’utilisateur, l’analyse de la
-recharge et le jeu de données GLDAS 2.2 à côté du précédent. Elle s’exécute entièrement dans le navigateur et lit les données traitées
+recharge et le jeu de données GLDAS 2.2 à côté du précédent, avec des cartes de l’ampleur de leur désaccord. Elle s’exécute entièrement dans
+le navigateur et lit les données traitées
 directement depuis le stockage cloud ; aucun compte ni identifiant n’est donc nécessaire.
 
 ## Pour aller plus loin { #further-reading }

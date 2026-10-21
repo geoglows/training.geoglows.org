@@ -4,8 +4,8 @@
 
 L’application s’ouvre sur la vue régionale, qui affiche les contours de toutes les régions du jeu de régions actif. Le jeu par défaut est Global
 Aquifers. Chaque contour est coloré selon la tendance du stockage des eaux souterraines sur les cinq dernières années, et la légende en haut à
-droite compte les régions de chaque classe de tendance (voir [Analyse des Tendances](trends.md)). Cliquez sur **Hide trends** pour afficher
-de simples contours.
+droite compte les régions de chaque classe de tendance (voir [Analyse des Tendances et des Écarts](trends.md)). **Color by** dans l’en-tête
+change ce selon quoi les contours sont colorés, et **Hide** affiche de simples contours.
 
 ![La vue régionale à l’ouverture, avec le jeu Global Aquifers classé selon la tendance du stockage des eaux souterraines](../../static/images/grace/app-home.webp)
 
@@ -13,8 +13,11 @@ de simples contours.
 
 - déplacer la carte et zoomer ; les noms des régions apparaissent une fois le zoom suffisant (désactivez-les avec **Region names**)
 - passer à un autre jeu de régions, ou filtrer la liste des noms, dans la section **Regions** du panneau de contrôle
-- modifier la couche affichée (**Displayed layer**) ou la fenêtre de tendance (**Window**) pour reclasser toutes les régions d’un coup, par
-  exemple pour voir quels aquifères ont perdu du stockage total en eau au cours des 20 dernières années
+- modifier la couche affichée (**Displayed layer**) ou la fenêtre (**Window**) pour reclasser toutes les régions d’un coup, par exemple pour
+  voir quels aquifères ont perdu du stockage total en eau au cours des 20 dernières années
+- modifier **Color by** pour classer chaque région selon l’ampleur du désaccord entre les deux jeux de données à cet endroit, en tendance, en
+  concordance d’un mois à l’autre ou en taille du cycle saisonnier (voir
+  [Explorer les écarts dans l’application](../compare/exploring.md))
 - ouvrir une région pour l’analyser, comme décrit ci-dessous
 
 Sur cette page, le fil d’Ariane de l’en-tête indique **Home**. Après avoir ouvert une région, cliquez sur **Home** ou sur le bouton **Regions**
@@ -86,7 +89,7 @@ L’Ogallala, ci-dessus, montre à quoi ressemble un résultat régional. Les ma
 de l’aquifère et près d’elle au sud : les couleurs ne sont donc pas uniformes, même à l’intérieur d’une seule région. La série moyenne reste à
 peu près stable pendant les années 2010 puis baisse à partir de 2020 environ, ce qui produit le −1.70 cm/an de la légende des tendances : ce
 chiffre est la pente des cinq dernières années, et non celle de toute la série. Modifier le sélecteur **Window** le change (voir
-[Analyse des Tendances](trends.md#the-trend-window)).
+[Analyse des Tendances et des Écarts](trends.md#the-analysis-window)).
 
 ### Mailles prises en compte dans la moyenne { #which-cells-are-averaged }
 
@@ -184,9 +187,10 @@ la méthode complète.
 
 ### Droites de tendance { #trend-lines }
 
-Lorsque les tendances sont activées (**Analyze trends** dans l’en-tête), chaque composante tracée reçoit sa droite de tendance ajustée, en tirets,
-sur la fenêtre de tendance, et la légende indique sa pente, par exemple « GWSa trend −0.29 cm/yr (last 5 yr) ». Voir
-[Analyse des Tendances](trends.md).
+Lorsqu’une tendance est affichée (**Analyze** dans l’en-tête), chaque composante tracée reçoit sa droite de tendance ajustée, en tirets, sur la
+fenêtre, et la légende indique sa pente, par exemple « GWSa trend −0.29 cm/yr (last 5 yr) ». Sous l’une des mesures de comparaison, le graphique
+rapporte à la place le nombre de cette région sous son titre, les deux jeux de données étant tracés. Voir
+[Analyse des Tendances et des Écarts](trends.md).
 
 ### Analyse de la recharge { #recharge-analysis }
 

@@ -42,12 +42,22 @@ superficie terrestre y no de GRACE (ver [Resolución, Fuga de Señal y Regiones 
 advertencia vale para una celda de 2.2: su malla es más fina, pero la corrección de GRACE que hay detrás de su agua subterránea no lo es. Para
 una cuenca o un acuífero, usa la [vista regional](regional-view.md), que promedia todas las celdas de la región.
 
-## Mapa de tendencias { #trend-map }
+## Mapas de tendencia y de diferencias { #trend-and-difference-maps }
 
-Con las tendencias activadas, la vista global colorea cada celda según su tendencia en lugar de la anomalía mensual, y la animación se oculta. La
-leyenda cuenta las celdas de cada clase. Las tendencias funcionan en cualquiera de los dos conjuntos de datos; los recuentos de celdas
-difieren, porque los dos tienen máscaras de tierra distintas y empiezan en años distintos.
+Con el análisis activado, la vista global colorea cada celda con un único número para todo el registro en lugar de la anomalía mensual, y la
+animación se oculta. La leyenda cuenta las celdas de cada clase. Una tendencia funciona en cualquiera de los dos conjuntos de datos; los
+recuentos de celdas difieren, porque los dos tienen máscaras de tierra distintas y empiezan en años distintos.
 
 ![Tendencia del almacenamiento de agua subterránea en los últimos cinco años, por celda](../../static/images/grace/app-global-trends.webp)
 
-Ver [Análisis de Tendencias](trends.md) para saber cómo se calcula la tendencia y cómo elegir la ventana.
+Con el agua subterránea en pantalla, **Color by** ofrece además las tres comparaciones entre los dos conjuntos de datos, y cada una de ellas
+colorea las mismas celdas según cuánto discrepan GRACE y GLDAS 2.2 ahí. Calcular una lee todo el registro de ambos conjuntos, así que tarda unos
+segundos más que una tendencia.
+
+![Cada celda terrestre coloreada por la diferencia entre las tendencias de agua subterránea de cinco años de los dos conjuntos de datos](../../static/images/grace/app-diff-global.webp)
+
+Por celda esas comparaciones son ruidosas, como muestra el mapa de arriba. Úsalas para ver dónde están los patrones grandes y la vista regional
+para decir algo sobre un acuífero concreto.
+
+Ver [Análisis de Tendencias y Diferencias](trends.md) para saber cómo se calcula cada número y cómo elegir la ventana, y
+[Explorar las diferencias en la aplicación](../compare/exploring.md) para saber cómo leer los mapas de comparación.

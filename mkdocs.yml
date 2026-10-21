@@ -59,13 +59,14 @@ plugins:
             Part 3 Comparing the Two Datasets: "Parte 3: Comparación de los Dos Conjuntos"
             Why the Two Datasets Differ: "Por qué Difieren los Dos Conjuntos"
             What the Differences Look Like: "Cómo Se Ven las Diferencias"
+            Exploring the Differences in the App: "Explorar las Diferencias en la Aplicación"
             Which One to Use: "Cuál Usar"
             How Far This Is Validated: "Hasta Dónde Está Validado"
             Part 4 Using the App: "Parte 4: Uso de la Aplicación"
             Interface: "Interfaz"
             Global View: "Vista Global"
             Regional View: "Vista Regional"
-            Trend Analysis: "Análisis de Tendencias"
+            Trend and Difference Analysis: "Análisis de Tendencias y Diferencias"
             Downloading Data: "Descarga de Datos"
             Part 5 Recharge Analysis: "Parte 5: Análisis de Recarga"
             The WTF Method: "El Método WTF"
@@ -120,13 +121,14 @@ plugins:
             Part 3 Comparing the Two Datasets: "Partie 3 : Comparaison des Deux Jeux de Données"
             Why the Two Datasets Differ: "Pourquoi les Deux Jeux de Données Diffèrent"
             What the Differences Look Like: "À Quoi Ressemblent les Écarts"
+            Exploring the Differences in the App: "Explorer les Écarts dans l'Application"
             Which One to Use: "Lequel Utiliser"
             How Far This Is Validated: "Jusqu'où Cela Est Validé"
             Part 4 Using the App: "Partie 4 : Utilisation de l'Application"
             Interface: "Interface"
             Global View: "Vue Globale"
             Regional View: "Vue Régionale"
-            Trend Analysis: "Analyse des Tendances"
+            Trend and Difference Analysis: "Analyse des Tendances et des Écarts"
             Downloading Data: "Téléchargement des Données"
             Part 5 Recharge Analysis: "Partie 5 : Analyse de la Recharge"
             The WTF Method: "La Méthode WTF"
@@ -192,13 +194,14 @@ nav:
       - Part 3 Comparing the Two Datasets:
           - Why the Two Datasets Differ: grace/compare/why-they-differ.md
           - What the Differences Look Like: grace/compare/examples.md
+          - Exploring the Differences in the App: grace/compare/exploring.md
           - Which One to Use: grace/compare/which-one-to-use.md
           - How Far This Is Validated: grace/compare/validation.md
       - Part 4 Using the App:
           - Interface: grace/app/interface.md
           - Regional View: grace/app/regional-view.md
           - Global View: grace/app/global-view.md
-          - Trend Analysis: grace/app/trends.md
+          - Trend and Difference Analysis: grace/app/trends.md
           - Downloading Data: grace/app/downloading-data.md
       - Part 5 Recharge Analysis:
           - The WTF Method: grace/recharge/wtf-method.md

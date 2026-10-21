@@ -4,7 +4,8 @@
 
 The app opens in the regional view, showing the outlines of every region in the active region set. The default set is Global Aquifers. Each
 outline is colored by the trend in groundwater storage over the last five years, and the legend in the upper right counts the regions in each
-trend class (see [Trend Analysis](trends.md)). Click **Hide trends** to show plain outlines instead.
+trend class (see [Trend and Difference Analysis](trends.md)). **Color by** in the header changes what the outlines are colored by, and
+**Hide** shows plain outlines instead.
 
 ![The regional view on opening, with the Global Aquifers set classified by groundwater storage trend](../../static/images/grace/app-home.webp)
 
@@ -12,8 +13,10 @@ From here you can:
 
 - pan and zoom the map; region names appear once you zoom in far enough (turn them off with **Region names**)
 - switch to another region set, or filter the list of names, in the **Regions** section of the control panel
-- change the **Displayed layer** or the trend **Window** to reclassify every region at once, for example to see which aquifers have lost
+- change the **Displayed layer** or the **Window** to reclassify every region at once, for example to see which aquifers have lost
   total water storage over the last 20 years
+- change **Color by** to classify every region by how far the two datasets disagree there, in trend, in month-to-month agreement or in the
+  size of the seasonal cycle (see [Exploring the Differences in the App](../compare/exploring.md))
 - open a region for analysis, as described below
 
 The breadcrumb in the header reads **Home** on this page. After you open a region, click **Home** or the **Regions** button to come back.
@@ -79,7 +82,7 @@ region's average time series (see [The time series chart](#the-time-series-chart
 The Ogallala, above, shows what a regional result looks like. The cells sit above the 2004–2009 average across the northern half of the aquifer
 and close to it in the south, so the colours are not uniform even within one region. The average series runs roughly level through the 2010s and
 then falls from about 2020, which is what produces the −1.70 cm/yr in the trend legend: that figure is the slope over the last five years, not
-over the record. Changing the **Window** stepper changes it (see [Trend Analysis](trends.md#the-trend-window)).
+over the record. Changing the **Window** stepper changes it (see [Trend and Difference Analysis](trends.md#the-analysis-window)).
 
 ### Which cells are averaged
 
@@ -170,8 +173,9 @@ The setting changes the chart only. [Gaps and Gap Filling](../mission/gap-fillin
 
 ### Trend lines
 
-While trends are on (**Analyze trends** in the header), each plotted component gets its fitted trend as a dashed line over the trend window,
-and the legend gives its slope, for example "GWSa trend −0.29 cm/yr (last 5 yr)". See [Trend Analysis](trends.md).
+While a trend is showing (**Analyze** in the header), each plotted component gets its fitted trend as a dashed line over the window, and the
+legend gives its slope, for example "GWSa trend −0.29 cm/yr (last 5 yr)". Under one of the comparison measures the chart instead reports that
+region's number under the title, with both datasets drawn. See [Trend and Difference Analysis](trends.md).
 
 ### Recharge Analysis
 

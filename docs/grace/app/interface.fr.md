@@ -36,7 +36,8 @@ De haut en bas :
 - **Time series.** Cochez d’autres composantes pour les ajouter au graphique à des fins de comparaison. La couche affichée est toujours tracée
   (voir [Vue Régionale](regional-view.md#the-time-series-chart)).
 - **Also show …** Trace aussi sur le graphique les mêmes grandeurs de l’autre jeu de données, pour pouvoir lire l’un en regard de l’autre. Il
-  reprend ce qui est coché au-dessus au lieu de proposer une seconde série de cases, et ne change rien sur la carte.
+  reprend ce qui est coché au-dessus au lieu de proposer une seconde série de cases, et ne change rien sur la carte. L’une des mesures de
+  comparaison de **Color by** a besoin des deux séries : la choisir coche cette case et l’y maintient jusqu’à ce que vous choisissiez autre chose.
 - **Gap filling.** Ce que fait le graphique aux mois sans données GRACE. **None** interrompt la courbe à chaque lacune, **Straight line** relie
   les mois situés de part et d’autre, et **Seasonal model** comble les lacunes avec des valeurs estimées à partir du reste de la série, tracées en
   tirets avec des marqueurs creux (voir [Lacunes et Comblement des Lacunes](../mission/gap-filling.md)). Ce réglage ne modifie que le graphique, jamais le
@@ -61,8 +62,8 @@ invite à se demander comment l’activer : il est donc retiré.
 
 La carte comporte des boutons de zoom et un menu de fonds de carte (l’icône des couches sous les boutons de zoom) proposant les fonds
 OpenStreetMap, topographique, imagerie, rues, gris clair, gris foncé et relief. Une barre d’échelle se trouve en bas à droite. La barre de
-couleurs en haut à droite donne l’échelle des mailles d’anomalie, toujours centrée sur zéro ; la légende des tendances apparaît au-dessus
-lorsque les tendances sont affichées.
+couleurs en haut à droite donne l’échelle des mailles d’anomalie, toujours centrée sur zéro ; la légende de l’analyse apparaît au-dessus
+lorsqu’une classification est affichée.
 
 Le **contrôle temporel** en bas de la carte permet de parcourir les mois :
 
@@ -74,12 +75,13 @@ est aussi repéré sur le graphique par une ligne rouge en tirets.
 
 ## Barre d’en-tête { #header-bar }
 
-![La barre d’en-tête : fil d’Ariane à gauche, contrôles des tendances à droite](../../static/images/grace/app-header.webp){ width="800" }
+![La barre d’en-tête : fil d’Ariane à gauche, contrôles d’analyse à droite](../../static/images/grace/app-header.webp){ width="800" }
 
 Le fil d’Ariane à gauche indique où vous vous trouvez : **Home** (la vue d’ensemble), un nom de région, **Global map** ou les coordonnées d’une
-maille sélectionnée. Cliquez sur **Home** pour revenir à la vue d’ensemble. À droite, **Analyze trends / Hide trends** active ou désactive la
-classification des tendances, et le sélecteur **Window** fixe la période sur laquelle la tendance est calculée. Voir
-[Analyse des Tendances](trends.md).
+maille sélectionnée. Cliquez sur **Home** pour revenir à la vue d’ensemble. À droite, **Analyze / Hide** active ou désactive la classification de
+la carte, **Color by** choisit ce qui est classé — la tendance de la couche affichée, ou l’une de trois comparaisons entre les deux jeux de
+données — et le sélecteur **Window** fixe la période sur laquelle une tendance est calculée. Voir
+[Analyse des Tendances et des Écarts](trends.md) et [Explorer les écarts dans l’application](../compare/exploring.md).
 
 ## Paramètres { #settings }
 

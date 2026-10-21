@@ -4,8 +4,9 @@
 
 La aplicación abre en la vista regional, que muestra los contornos de todas las regiones del conjunto de regiones activo. El conjunto
 predeterminado es Global Aquifers. Cada contorno se colorea según la tendencia del almacenamiento de agua subterránea en los últimos cinco años, y
-la leyenda en la esquina superior derecha cuenta las regiones de cada clase de tendencia (ver [Análisis de Tendencias](trends.md)). Haz clic en
-**Hide trends** para mostrar solo los contornos.
+la leyenda en la esquina superior derecha cuenta las regiones de cada clase de tendencia (ver
+[Análisis de Tendencias y Diferencias](trends.md)). **Color by** en el encabezado cambia según qué se colorean los contornos, y **Hide** muestra
+solo los contornos.
 
 ![La vista regional al abrirse, con el conjunto Global Aquifers clasificado por la tendencia del almacenamiento de agua subterránea](../../static/images/grace/app-home.webp)
 
@@ -13,8 +14,10 @@ Desde aquí puedes:
 
 - desplazar y acercar el mapa; los nombres de las regiones aparecen al acercarte lo suficiente (desactívalos con **Region names**)
 - cambiar a otro conjunto de regiones, o filtrar la lista de nombres, en la sección **Regions** del panel de control
-- cambiar la **Displayed layer** o la **Window** de tendencia para reclasificar todas las regiones a la vez, por ejemplo para ver qué acuíferos
-  han perdido almacenamiento total de agua en los últimos 20 años
+- cambiar la **Displayed layer** o la **Window** para reclasificar todas las regiones a la vez, por ejemplo para ver qué acuíferos han perdido
+  almacenamiento total de agua en los últimos 20 años
+- cambiar **Color by** para clasificar cada región según cuánto discrepan ahí los dos conjuntos de datos, en tendencia, en concordancia mes a
+  mes o en el tamaño del ciclo estacional (ver [Explorar las diferencias en la aplicación](../compare/exploring.md))
 - abrir una región para analizarla, como se describe a continuación
 
 En esta página, la ruta de navegación del encabezado dice **Home**. Después de abrir una región, haz clic en **Home** o en el botón **Regions**
@@ -85,7 +88,7 @@ El Ogallala, arriba, muestra cómo se ve un resultado regional. Las celdas queda
 acuífero y cerca de ella en el sur, así que los colores no son uniformes ni dentro de una misma región. La serie promedio va más o menos plana
 durante la década de 2010 y luego cae desde alrededor de 2020, que es lo que produce los −1.70 cm/año de la leyenda de tendencias: esa cifra es
 la pendiente de los últimos cinco años, no de todo el registro. Cambiar el selector **Window** la cambia (ver
-[Análisis de Tendencias](trends.md#the-trend-window)).
+[Análisis de Tendencias y Diferencias](trends.md#the-analysis-window)).
 
 ### Qué celdas se promedian { #which-cells-are-averaged }
 
@@ -181,9 +184,10 @@ completo.
 
 ### Líneas de tendencia { #trend-lines }
 
-Mientras las tendencias están activas (**Analyze trends** en el encabezado), cada componente graficado recibe su tendencia ajustada como una línea
-discontinua sobre la ventana de tendencia, y la leyenda da su pendiente, por ejemplo "GWSa trend −0.29 cm/yr (last 5 yr)". Ver
-[Análisis de Tendencias](trends.md).
+Mientras se muestra una tendencia (**Analyze** en el encabezado), cada componente graficado recibe su tendencia ajustada como una línea
+discontinua sobre la ventana, y la leyenda da su pendiente, por ejemplo "GWSa trend −0.29 cm/yr (last 5 yr)". Bajo una de las medidas de
+comparación el gráfico informa en su lugar el número de esa región bajo el título, con ambos conjuntos dibujados. Ver
+[Análisis de Tendencias y Diferencias](trends.md).
 
 ### Análisis de recarga { #recharge-analysis }
 

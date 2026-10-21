@@ -36,6 +36,7 @@ La aplicación es gratuita y funciona en un navegador web en
 - elegir un acuífero o una cuenca hidrográfica de uno de cinco conjuntos de regiones publicados, subir tu propio límite en GeoJSON o dibujarlo en el mapa
 - graficar la serie temporal promediada sobre el área de esa región, con su banda de incertidumbre cuando el conjunto de datos tiene una, y comparar los componentes del almacenamiento
 - clasificar regiones o celdas de la malla según la tendencia del almacenamiento en los últimos 5, 10, 15 o 20 años, o en todo el registro
+- colorear ese mismo mapa según cuánto discrepan los dos conjuntos de datos — en tendencia, en concordancia mes a mes o en el tamaño del ciclo estacional
 - rellenar los meses que le faltan a GRACE con un modelo estacional ajustado al registro propio de la región
 - estimar la recarga anual de agua subterránea con el método de fluctuación del nivel freático
 - descargar los valores mensuales de cualquier región o celda como archivo CSV para tu propio análisis
@@ -58,14 +59,23 @@ La aplicación es gratuita y funciona en un navegador web en
 - [Cálculo del Almacenamiento de Agua Subterránea](gldas/deriving-groundwater.md): las dos rutas hacia el agua subterránea, los factores de
   ganancia aplicados a los datos de GRACE y cómo se estima la incertidumbre.
 
-**La Parte 3, Uso de la Aplicación,** recorre la interfaz: [la disposición](app/interface.md), [la vista regional](app/regional-view.md),
-[la vista global](app/global-view.md), [el análisis de tendencias](app/trends.md) y [la descarga de datos](app/downloading-data.md).
+**La Parte 3, Comparación de los Dos Conjuntos,** trata de dónde discrepan los dos registros y cuál usar:
 
-**La Parte 4, Análisis de Recarga,** estima la recarga anual de agua subterránea con el método de fluctuación del nivel freático:
+- [Por qué difieren los dos conjuntos](compare/why-they-differ.md): las dos causas y las estadísticas globales que producen.
+- [Cómo se ven las diferencias](compare/examples.md): los casos, en acuíferos concretos de cinco continentes.
+- [Explorar las diferencias en la aplicación](compare/exploring.md): los tres mapas de comparación, qué responde cada uno y cómo leerlos.
+- [Cuál usar](compare/which-one-to-use.md): la recomendación para cada tipo de pregunta y las comprobaciones previas.
+- [Hasta dónde está validado](compare/validation.md): en qué se apoyan las recomendaciones y qué no establecen.
+
+**La Parte 4, Uso de la Aplicación,** recorre la interfaz: [la disposición](app/interface.md), [la vista regional](app/regional-view.md),
+[la vista global](app/global-view.md), [el análisis de tendencias y diferencias](app/trends.md) y
+[la descarga de datos](app/downloading-data.md).
+
+**La Parte 5, Análisis de Recarga,** estima la recarga anual de agua subterránea con el método de fluctuación del nivel freático:
 [el método](recharge/wtf-method.md) aplicado a datos de GRACE, luego [la apertura del análisis](recharge/opening.md) y la revisión de la
 serie, [los años hidrológicos y la selección de puntos](recharge/picks.md), y [los resultados](recharge/results.md).
 
-**La Parte 5, Casos de Estudio,** resume tres estudios publicados por el equipo de Brigham Young University que desarrolló la aplicación y su
+**La Parte 6, Casos de Estudio,** resume tres estudios publicados por el equipo de Brigham Young University que desarrolló la aplicación y su
 predecesora, la GRACE Groundwater Subsetting Tool (GGST). Cada uno combina el balance hídrico de GRACE y GLDAS de la aplicación con otros datos:
 [la estimación de la recarga en Níger](case-studies/niger.md), donde los pozos son escasos, [la consideración de un gran embalse en la Cuenca
 del Volta](case-studies/volta.md), y [la corrección de la fuga de señal en el Valle Central de California](case-studies/central-valley.md),
@@ -77,7 +87,7 @@ GRACE Regional Analyst reemplaza a la GRACE Groundwater Subsetting Tool (GGST), 
 University dentro del proyecto NASA SERVIR West Africa (2019–2023) y usada en talleres de capacitación en África Occidental, Jordania y Palestina.
 La nueva aplicación conserva el método de GGST para separar el agua subterránea del almacenamiento total de agua y añade la clasificación de
 tendencias, límites publicados de acuíferos y cuencas, regiones dibujadas por el usuario, el análisis de recarga y el conjunto de datos GLDAS 2.2
-junto al anterior. Funciona completamente en el navegador, leyendo los datos procesados directamente desde el almacenamiento en la nube, así que
+junto al anterior, con mapas de cuánto discrepan los dos. Funciona completamente en el navegador, leyendo los datos procesados directamente desde el almacenamiento en la nube, así que
 no necesitas cuenta ni inicio de sesión.
 
 ## Lecturas adicionales { #further-reading }

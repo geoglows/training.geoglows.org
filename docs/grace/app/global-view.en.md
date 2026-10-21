@@ -40,12 +40,21 @@ rather than from GRACE (see [Resolution, Leakage and Small Regions](../mission/r
 cell: its grid is finer, but the GRACE correction behind its groundwater is not. For a basin or aquifer, use the
 [regional view](regional-view.md), which averages over all the cells in the region.
 
-## Trend map
+## Trend and difference maps
 
-With trends turned on, the global view colors each cell by its trend in place of the monthly anomaly, and the animation is hidden. The legend
-counts the cells in each class. Trends work on either dataset; the cell counts differ, because the two have different land masks and start in
-different years.
+With the analysis turned on, the global view colors each cell by one number for the whole record in place of the monthly anomaly, and the
+animation is hidden. The legend counts the cells in each class. A trend works on either dataset; the cell counts differ, because the two have
+different land masks and start in different years.
 
 ![Groundwater storage trend over the last five years, by cell](../../static/images/grace/app-global-trends.webp)
 
-See [Trend Analysis](trends.md) for how the trend is computed and how to choose the window.
+With groundwater displayed, **Color by** also offers the three comparisons between the two datasets, and each of those colors the same cells by
+how far GRACE and GLDAS 2.2 disagree there. Computing one reads both datasets' whole records, so it takes a few seconds longer than a trend.
+
+![Every land cell colored by the difference between the two datasets' five-year groundwater trends](../../static/images/grace/app-diff-global.webp)
+
+Per cell those comparisons are noisy, as the map above shows. Use them to see where the large patterns are and the regional view to say anything
+about a particular aquifer.
+
+See [Trend and Difference Analysis](trends.md) for how each number is computed and how to choose the window, and
+[Exploring the Differences in the App](../compare/exploring.md) for how to read the comparison maps.

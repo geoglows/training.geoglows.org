@@ -1,7 +1,8 @@
 # Cuál usar
 
-Ninguno de los dos conjuntos gana en todas partes. [Cómo se ven las diferencias](examples.md) muestra los casos de los que sale este consejo, y
-[Hasta dónde está validado](validation.md) dice cuánto peso puede soportar.
+Ninguno de los dos conjuntos gana en todas partes. [Cómo se ven las diferencias](examples.md) muestra los casos de los que sale este consejo,
+[Explorar las diferencias en la aplicación](exploring.md) muestra cómo poner su propia región en el mismo plano, y
+[Hasta dónde está validado](validation.md) dice cuánto peso puede soportar el consejo.
 
 ## La respuesta corta { #the-short-answer }
 
@@ -33,6 +34,10 @@ Una sola comparación dice si puede fiarse del calendario estacional de la ruta 
 En 299 acuíferos esa proporción predice la concordancia entre los dos ciclos estacionales con una correlación de −0,75. Por debajo de 0,7 la
 concordancia mediana es 0,93; por encima de 1,0 es −0,39.
 
+Para la respuesta sin la aritmética, ponga **Color by** en **GRACE vs GLDAS 2.2: agreement** y mire el color de su región: el marrón significa
+que los dos ciclos van opuestos, que es lo que produce una resta que se cancela (ver
+[Explorar las diferencias en la aplicación](exploring.md#the-agreement-map)).
+
 ## Antes de tratar una gran diferencia como un resultado { #before-treating-a-large-difference-as-a-result }
 
 1. Dibuje la nieve (**SWEa**). El hielo y la nieve explican la mayoría de los extremos, y un ciclo subterráneo con la forma del ciclo de nieve
@@ -43,6 +48,9 @@ concordancia mediana es 0,93; por encima de 1,0 es −0,39.
 4. Compruebe cuánta agua se mueve en realidad. Por debajo de unos 5 cm de variación los dos conjuntos correlacionan a una mediana de 0,19, y ese
    número no dice nada sobre ninguno de ellos.
 5. Pregúntese si un río, una llanura de inundación, un lago o un embalse podrían explicar el agua.
+
+Los tres mapas de comparación ejecutan los pasos 3 y 4 sobre todas las regiones de un conjunto a la vez, que es la forma rápida de ver si su
+región es un caso aislado o uno entre muchos (ver [Explorar las diferencias en la aplicación](exploring.md)).
 
 ## Para qué sirve la GWSa, en cualquiera de los dos conjuntos { #what-gwsa-is-good-for-in-either-dataset }
 

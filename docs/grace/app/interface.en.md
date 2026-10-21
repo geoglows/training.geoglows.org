@@ -32,7 +32,8 @@ From top to bottom:
 - **Time series.** Check other components to add them to the chart for comparison. The displayed layer is always plotted (see
   [Regional View](regional-view.md#the-time-series-chart)).
 - **Also show …** Draw the same quantities from the other dataset on the chart as well, so the two can be read against each other. It mirrors
-  whatever is ticked above rather than offering a second set of boxes, and it changes nothing on the map.
+  whatever is ticked above rather than offering a second set of boxes, and it changes nothing on the map. One of the comparison measures in
+  **Color by** needs both series, so choosing one ticks this and holds it on until you choose something else.
 - **Gap filling.** What the chart does at months with no GRACE data. **None** breaks the line at each gap, **Straight line** joins the
   months on either side, and **Seasonal model** fills the gaps with values estimated from the rest of the record, drawn as a dashed line with
   open markers (see [Gaps and Gap Filling](../mission/gap-filling.md)). The setting changes only the chart, never the downloaded CSV.
@@ -56,7 +57,7 @@ they are taken away instead.
 
 The map has zoom buttons and a basemap menu (the layers icon below the zoom buttons) offering OpenStreetMap, topographic, imagery, streets,
 light gray, dark gray and terrain basemaps. A scale bar sits in the lower right. The color bar in the upper right gives the scale for the
-anomaly cells, always centered on zero; the trend legend appears above it while trends are shown.
+anomaly cells, always centered on zero; the analysis legend appears above it while a classification is shown.
 
 The **time control** at the bottom of the map steps through the months:
 
@@ -67,11 +68,13 @@ every month from February 2003 on, so it steps through all of them. The current 
 
 ## Header bar
 
-![The header bar: breadcrumb on the left, trend controls on the right](../../static/images/grace/app-header.webp){ width="800" }
+![The header bar: breadcrumb on the left, analysis controls on the right](../../static/images/grace/app-header.webp){ width="800" }
 
 The breadcrumb on the left shows where you are: **Home** (the overview), a region name, **Global map**, or the coordinates of a selected cell.
-Click **Home** to return to the overview. On the right, **Analyze trends / Hide trends** turns trend classification on and off, and the
-**Window** stepper sets the period the trend is computed over. See [Trend Analysis](trends.md).
+Click **Home** to return to the overview. On the right, **Analyze / Hide** turns the map classification on and off, **Color by** chooses what it
+is classified by — the trend in the displayed layer, or one of three comparisons between the two datasets — and the **Window** stepper sets the
+period a trend is computed over. See [Trend and Difference Analysis](trends.md) and
+[Exploring the Differences in the App](../compare/exploring.md).
 
 ## Settings
 
