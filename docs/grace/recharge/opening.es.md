@@ -2,9 +2,16 @@
 
 ## El botón Recharge Analysis { #the-recharge-analysis-button }
 
-El Análisis de Recarga se ejecuta sobre la serie GWSa rellenada, así que solo está disponible cuando **Gap filling** en el panel está en **Seasonal model**
-(consulta [Vacíos en el Registro](../gap-filling/gaps.md)). Con esa opción seleccionada, aparece un botón **Recharge Analysis** junto a **Download CSV** encima del
-gráfico de series de tiempo, tanto para una región como para una celda individual de la cuadrícula en la [vista global](../app/global-view.md).
+El Análisis de Recarga necesita un valor de GWSa en todos los meses, así que un botón **Recharge Analysis** aparece junto a **Download CSV**
+encima del gráfico de series de tiempo en cuanto la serie lo tiene: en el conjunto de datos de GRACE, con **Gap filling** en **Seasonal model**
+(consulta [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)); en GLDAS 2.2, siempre, ya que su registro no tiene vacíos. Funciona tanto
+para una región como para una celda individual de la cuadrícula en la [vista global](../app/global-view.md).
+
+Ejecútalo en los dos conjuntos de datos antes de confiar en cualquiera de los números. Barbosa et al. (2025) hicieron exactamente eso en la
+Cuenca del Volta y encontraron que GLDAS 2.2 daba 17.4 y 36.1 cm/año frente a 5.8 y 10.7 cm/año de GRACE, mientras que los pozos daban una
+mediana de 10.4 cm/año; recomiendan 2.2 para tendencias y no para recarga (ver [Cuenca del Volta](../case-studies/volta.md)). El método lee el
+ascenso de cada año como recarga, y la asimilación de GRACE mete en el estado de agua subterránea de 2.2 una corrección mensual que puede
+agrandar ese ascenso.
 
 ![El botón Recharge Analysis encima del gráfico de series de tiempo del Northern Midwest Aquifer System](../../static/images/grace/app-recharge-button.webp)
 
@@ -56,9 +63,9 @@ El veredicto combina el segundo y el tercer valor:
 
 El gráfico junto a los valores muestra el ciclo anual promedio de GWSa, una barra por mes calendario, con el mes más bajo resaltado.
 
-Para el Northern Midwest Aquifer System, la oscilación estacional es de 8.1 cm frente a una incertidumbre típica de ±4.4 cm, el ciclo anual explica el 64% de
-la variación, y los 23 años hidrológicos tienen su pico a menos de dos meses de agosto. El almacenamiento es más bajo en marzo, así que cada año hidrológico va de marzo a
-febrero del año siguiente.
+Para el Northern Midwest Aquifer System, la oscilación estacional es de 6.6 cm frente a una incertidumbre típica de ±3.5 cm, el ciclo anual explica el 43% de
+la variación, y los 23 años hidrológicos tienen su pico a menos de dos meses de junio. El almacenamiento es más bajo en febrero, así que cada año hidrológico va de febrero a
+enero del año siguiente.
 
 El Valle Central de California recibe un veredicto distinto. Su almacenamiento sí tiene un ciclo anual, pero las sequías y los periodos húmedos plurianuales, y el
 bombeo intenso durante las sequías, son tan grandes como la oscilación estacional:

@@ -9,7 +9,7 @@ Two cards give the mean of R1 and R2 over all water years, in cm/yr and, for a r
 
 ![Mean R1 and R2 for the Northern Midwest Aquifer System](../../static/images/grace/app-recharge-summary.webp)
 
-For the Northern Midwest Aquifer System, mean recharge is 9.81 cm/yr (R1) to 17.88 cm/yr (R2), or 31.4 to 57.3 km³/yr over 320,368 km².
+For the Northern Midwest Aquifer System, mean recharge is 8.08 cm/yr (R1) to 13.67 cm/yr (R2), or 25.9 to 43.8 km³/yr over 320,368 km².
 
 ## Recharge by water year
 
@@ -17,9 +17,9 @@ The chart shows R1 and R2 for each water year as pairs of bars, with each one's 
 
 ![R1 and R2 by water year for the Northern Midwest Aquifer System](../../static/images/grace/app-recharge-chart.webp)
 
-The chart shows how much recharge varies from year to year. For the Northern Midwest Aquifer System, R1 ranges from 4.1 cm in 2024 to 18.1 cm
-in 2023. The gap between each pair of bars is R<sub>D</sub>, the drainage the recession line adds back, and it is widest in years with a steep
-recession, such as 2013.
+The chart shows how much recharge varies from year to year. For the Northern Midwest Aquifer System, R1 ranges from 3.4 cm in 2020 to 12.8 cm
+in 2004. The gap between each pair of bars is R<sub>D</sub>, the drainage the recession line adds back, and it is widest in years with a steep
+recession, such as 2020.
 
 ## The table
 
@@ -71,8 +71,8 @@ left out of the means.
 
 - **Report R1 and R2 together.** They bracket the recharge: R1 leaves out the drainage during the rise, and R2 carries the recession line well
   past the months it was fitted to. The true value most likely falls between them.
-- **Use multi-year means.** The ±1σ uncertainty of a monthly GWSa value is often as large as a single year's rise: ±4.4 cm against a mean
-  R1 of 9.8 cm for the Northern Midwest Aquifer System. A single year's estimate is uncertain, and a mean over ten or more years is much more
+- **Use multi-year means.** The ±1σ uncertainty of a monthly GWSa value is often as large as a single year's rise: ±3.5 cm against a mean
+  R1 of 8.1 cm for the Northern Midwest Aquifer System. A single year's estimate is uncertain, and a mean over ten or more years is much more
   robust.
 - **Check years that use filled months.** Results for these years depend on the gap-filling model, especially around the 2017–2018 gap between
   the missions.
@@ -80,6 +80,6 @@ left out of the means.
   line carries that decline forward, so R<sub>D</sub>, and with it R2, counts the pumping as recharge. R1 is the safer estimate there.
 - **Small regions understate the rise.** GRACE smooths storage changes over a few hundred kilometers, so in a small or narrow region the
   seasonal rise, and with it the recharge, can be understated (see
-  [Resolution, Leakage and Small Regions](../background/resolution-and-leakage.md)).
+  [Resolution, Leakage and Small Regions](../mission/resolution-and-leakage.md)).
 - **Compare with independent estimates.** Well hydrographs, chloride mass balance or published studies for the same aquifer give a check on the
   GRACE numbers. The [Niger](../case-studies/niger.md) and [Volta](../case-studies/volta.md) case studies compare GRACE recharge with well-based estimates.

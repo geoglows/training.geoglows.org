@@ -3,29 +3,36 @@
 ## Downloading a CSV
 
 With a region or a cell selected, click **Download CSV** in the upper right of the chart panel. The file contains the monthly values of all
-five layers for that region or cell, whichever ones are plotted. It is named `grace_gwsa_data.csv` for a region (the middle part follows the
-displayed layer) or `grace_cell_<lat>_<lon>_data.csv` for a single cell.
+five layers of the selected dataset for that region or cell, whether or not they are plotted, and of the other dataset's five as well if the
+comparison is ticked. It is named `grace_gwsa_data.csv` for a region (the middle part follows the displayed layer) or
+`grace_cell_<lat>_<lon>_data.csv` for a single cell.
 
 | Column | Contents |
 |---|---|
 | `Date` | First day of the month, `YYYY-MM-DD` |
 | `GWSa`, `TWSa`, `SMa`, `SWEa`, `CANa` | Area-weighted mean anomaly for the month, cm of liquid water equivalent |
-| `<layer>_upper`, `<layer>_lower` | The mean plus and minus 1σ |
+| `GWSa_22`, `TWSa_22`, `SMa_22`, `SWEa_22`, `CANa_22` | The same five from GLDAS 2.2 |
+| `<layer>_upper`, `<layer>_lower` | The mean plus and minus 1σ; GRACE layers only, since GLDAS 2.2 has no uncertainty |
 | `GWSa_filled`, `TWSa_filled` | The same series with its gaps filled by the seasonal model; equal to the observed value in every other month |
 | `GWSa_is_filled`, `TWSa_is_filled` | 1 in months the seasonal model filled, 0 otherwise |
+
+Only the layers present in the file get columns, so a download taken with GLDAS 2.2 selected and the comparison off has the five `_22` columns
+and nothing else. The `_filled` and `_is_filled` pairs belong to the two GRACE-derived layers, which are the only ones with gaps.
 
 For example, the start of the gap between missions for the Northern Midwest Aquifer System:
 
 ```text
 Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
-2017-06-01,9.529,14.913,4.146,9.529,0,12.536,...
-2017-07-01,,,,11.146,1,,...
-2017-08-01,,,,12.694,1,,...
+2017-06-01,14.408,18.786,10.030,14.408,0,14.699,...
+2017-07-01,,,,13.941,1,,...
+2017-08-01,,,,13.354,1,,...
 ```
 
-The file has one row for every month from April 2002 to the latest release. In months with no GRACE data, the `GWSa` and `TWSa` cells are blank,
-while the GLDAS layers (`SMa`, `SWEa`, `CANa`) still have values, because the land surface models run every month. The `_filled` columns
-supply a value for those months (see [Gaps in the Record](../gap-filling/gaps.md)). They are written whatever the **Gap filling** setting, so
+The file has one row for every month that any of its columns has a value for: April 2002 onward for the GRACE layers, February 2003 onward for
+the GLDAS 2.2 ones, so a file with both has blank `_22` cells in its first ten rows. In months with no GRACE data, the `GWSa` and `TWSa` cells
+are blank, while the GLDAS layers (`SMa`, `SWEa`, `CANa`, and all five `_22` columns) still have values, because the land surface models run
+every month. The `_filled` columns
+supply a value for those months (see [Gaps and Gap Filling](../mission/gap-filling.md)). They are written whatever the **Gap filling** setting, so
 the file is the same however the chart is drawn.
 
 Excel, Google Sheets, Python and R all read the file directly, and the ISO dates need no conversion (in pandas, use
@@ -40,7 +47,7 @@ The anomalies are depths of water averaged over the region. Multiply by the regi
 ΔV (km³) = GWSa (cm) × Area (km²) / 100,000
 ```
 
-For example, a GWSa of −12 cm over a 400,000 km² aquifer is 12 × 400,000 / 100,000 = 4.8 km³ (4,800 million m³) less water than the 2004–2009
+For example, a GWSa of −12 cm over a 400,000 km² aquifer is 12 × 400,000 / 100,000 = 48 km³ (48,000 million m³) less water than the 2004–2009
 average. The change between two dates is the difference of their anomalies times the area, and a trend in cm/yr times the area gives a rate of
 loss or gain in km³/yr.
 
@@ -50,4 +57,4 @@ projection, not in degrees.
 ## What to do next
 
 The CSV is the starting point for analyses outside the app. To estimate recharge, use the app's [Recharge Analysis](../recharge/opening.md),
-which runs the water table fluctuation method on the filled series and has its own CSV download. [The Seasonal Model](../gap-filling/seasonal-model.md#filling-the-gaps) describes how the `GWSa_filled` and `TWSa_filled` columns are estimated.
+which runs the water table fluctuation method on the filled series and has its own CSV download. [Gaps and Gap Filling](../mission/gap-filling.md#filling-the-gaps) describes how the `GWSa_filled` and `TWSa_filled` columns are estimated.

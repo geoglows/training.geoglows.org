@@ -1,0 +1,114 @@
+# Resolution, Leakage and Small Regions
+
+Everything on this page is about the GRACE measurement, and it applies to both of the app's datasets. GLDAS 2.2 draws on a 0.25° model grid, but
+the groundwater in it comes from assimilating GRACE, so it inherits GRACE's resolution and GRACE's leakage. A finer picture is not a finer
+measurement, and
+[Where GLDAS 2.2 does and does not help](#where-gldas-22-does-and-does-not-help) at the foot of the page says which of these cautions it
+relieves.
+
+## What GRACE can resolve
+
+GRACE senses mass through gravity, and gravity spreads out with distance. From an orbit hundreds of kilometers up, two masses closer together
+than a few hundred kilometers blur into one. JPL's mascon solution reflects that limit: it solves for one value per 3° cap, about 330 km across,
+and the 0.5° and 1° grids are that solution sampled onto a finer mesh. The app does apply JPL's gain factors, which give the 0.5° grid some
+structure within each mascon (see [Deriving Groundwater Storage](../gldas/deriving-groundwater.md#gain-factors)), but the measurement underneath is still
+one value per 3° cap.
+
+![Grid sizes compared with region size, and signal leakage](../../static/images/grace/grace-resolution-leakage.png)
+
+Panel A compares the grids with two regions. The river basin spans several mascons, so its average draws on several independent measurements.
+The aquifer is smaller than one mascon. Its value is mostly whatever the mascon it sits in did, including storage changes outside the aquifer.
+
+As a rule of thumb, GRACE results are reliable for regions of about 200,000 km² or more (roughly 4° × 4° near the equator), usable with care
+down to the size of one mascon (about 100,000 km²), and increasingly uncertain below that. Two sources of variation separate neighboring cells
+inside one mascon: the GLDAS terms, which are measured on their own 0.25° and 1° grids, and the gain factors, which redistribute the mascon's
+amplitude across its cells. Neither adds a second GRACE measurement. The number of independent observations under a region is the number of
+mascons it covers, whatever the grid the app draws.
+
+## Leakage
+
+Because GRACE blurs mass over a few hundred kilometers, a storage change concentrated in a small area appears in the data as a smaller change
+spread over a larger area (panel B). Signal **leaks out** of the region where it happened and into its neighbors. The reverse also happens:
+storage changes just outside a region leak in.
+
+Leakage matters most when storage change inside the region differs from storage change around it. Heavy groundwater pumping in an irrigated
+valley surrounded by mountains is the worst case: the decline is concentrated in the valley, and GRACE spreads it over the mountains too. An
+average over the valley alone then underestimates the true loss, sometimes by a factor of several. Where storage changes similarly inside and
+outside the region, as in a large sedimentary basin under a uniform climate, leakage in and out roughly balance and the regional average is
+close to the truth.
+
+JPL's coastline filter limits leakage between land and ocean, and the gain factors restore some of the amplitude the GRACE processing removes
+within a mascon. Neither corrects leakage between neighboring land areas, which is what matters most for a pumped aquifer beside a region that
+behaves differently. The gain factors are least reliable in exactly that case: they come from a model that does not simulate pumping.
+
+## Working with small regions
+
+If your region of interest is smaller than a mascon, or is a pumping center surrounded by areas with different behavior, these approaches help:
+
+**Analyze the larger hydrologic unit.** Run the analysis on the river basin or aquifer system that contains your area, using one of the
+preset region sets or an uploaded boundary. If nearly all the storage change happens inside the smaller area (for example, if pumping is
+concentrated in the aquifer), the volume of change for the larger unit approximates the volume for the smaller area:
+
+```text
+ΔV ≈ GWSa_basin × Area_basin
+```
+
+This works because a volume summed over a large enough area recovers most of the leaked signal, while an average over a small area doesn't.
+
+**Calibrate against wells.** Where monitoring wells give an independent estimate of storage change over part of the GRACE record, the ratio
+between the well-based and GRACE-based estimates gives an empirical scale factor that corrects for leakage in that region. The factor is
+specific to the region and the period used to derive it. Stevens et al. (2025) did this for California's Central Valley
+([case study](../case-studies/central-valley.md)).
+
+**Interpret a single cell cautiously.** In the global view you can click a single cell to see its time series. That is quick and useful for
+exploration, but two neighboring aquifers in the same mascon rest on the same 3° measurement. The gain factors will give them different numbers;
+that difference comes from a land surface model, not from GRACE.
+
+![California Central Valley: a narrow, heavily pumped aquifer surrounded by mountains, close to the worst case for leakage](../../static/images/grace/app-central-valley.webp)
+
+### Where GLDAS 2.2 does and does not help
+
+Switching to GLDAS 2.2 changes the grid from 1° to 0.25° inside a region, which helps with one of the problems above and none of the others.
+
+It helps with **sampling**. A basin a few degrees across is described by sixteen times as many cells, so the 35% area rule throws away far less
+of it, the area-weighted average is better behaved, and a region too small to have any qualifying 1° cell may well have several at 0.25°. If the
+difficulty is that your region barely registers on the grid, 2.2 is the answer.
+
+It does not help with **leakage or resolution**. The groundwater in 2.2 is a model state corrected by assimilating GRACE, and that correction
+arrives at GRACE's resolution however fine the model grid is. Two 0.25° cells inside one mascon differ by what the Catchment model says about
+them, which is the same situation as two 1° cells differing by their gain factors. Neither is a second measurement.
+
+Nor does it remove the rule of thumb. A basin of 20,000 km² read from 2.2 is still a basin GRACE cannot resolve, drawn more finely. The
+approaches above — analyze the larger hydrologic unit, calibrate against wells, read a single cell with suspicion — apply to a 2.2 map exactly
+as they do to a GRACE one.
+
+## Other limitations
+
+- **Storage, not levels.** GWSa is a change in the mass of water. Converting it to a change in water table elevation requires a specific yield
+  for the aquifer, which varies widely and is often poorly known.
+- **No vertical detail.** GRACE can't distinguish shallow from deep aquifers, or confined from unconfined.
+- **Model error.** Errors in the GLDAS soil moisture, snow and canopy terms pass directly into GWSa. This is most serious in snowy and wet
+  regions, where those terms are large.
+- **Surface water.** Changes in reservoirs, lakes and floodplains are counted as groundwater (see
+  [Deriving Groundwater Storage](../gldas/deriving-groundwater.md)). This is true of both datasets: no GLDAS model carries rivers, lakes or
+  reservoirs either.
+
+Even with these limits, GRACE gives a consistent, independent view of storage change across whole aquifer systems, which is often the only such
+view available. Use it for regional trends and compare it with local data wherever you can.
+
+## References
+
+- Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
+  to GRACE-derived data. *Environmental Modelling & Software*, 186, 106368.
+  [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
+
+- Landerer, F. W., and Swenson, S. C. (2012). Accuracy of scaled GRACE terrestrial water storage estimates. *Water Resources Research*, 48,
+  W04531. [doi:10.1029/2011WR011453](https://doi.org/10.1029/2011WR011453){:target="_blank"}
+  The derivation of the gain factors the app applies, and the authority the GRACE-FO Level-3 Handbook defers to on their use and limits.
+
+- Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
+  dependent gravity field. *Water Resources Research*, 35, 2705–2723.
+  [doi:10.1029/1999WR900141](https://doi.org/10.1029/1999WR900141){:target="_blank"}
+- Longuevergne, L., Scanlon, B. R., and Wilson, C. R. (2010). GRACE hydrological estimates for small basins: Evaluating processing approaches on
+  the High Plains Aquifer, USA. *Water Resources Research*, 46, W11517.
+  [doi:10.1029/2009WR008564](https://doi.org/10.1029/2009WR008564){:target="_blank"}

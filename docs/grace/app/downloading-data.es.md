@@ -3,30 +3,38 @@
 ## Descargar un CSV { #downloading-a-csv }
 
 Con una región o una celda seleccionada, haz clic en **Download CSV** en la esquina superior derecha del panel del gráfico. El archivo contiene los
-valores mensuales de las cinco capas para esa región o celda, independientemente de cuáles estén graficadas. Se llama `grace_gwsa_data.csv` para
-una región (la parte central corresponde a la capa mostrada) o `grace_cell_<lat>_<lon>_data.csv` para una sola celda.
+valores mensuales de las cinco capas del conjunto de datos seleccionado para esa región o celda, estén graficadas o no, y también de las cinco
+del otro conjunto si la comparación está marcada. Se llama `grace_gwsa_data.csv` para una región (la parte central corresponde a la capa
+mostrada) o `grace_cell_<lat>_<lon>_data.csv` para una sola celda.
 
 | Columna | Contenido |
 |---|---|
 | `Date` | Primer día del mes, `YYYY-MM-DD` |
 | `GWSa`, `TWSa`, `SMa`, `SWEa`, `CANa` | Anomalía media del mes ponderada por área, en cm de equivalente de agua líquida |
-| `<layer>_upper`, `<layer>_lower` | La media más y menos 1σ |
+| `GWSa_22`, `TWSa_22`, `SMa_22`, `SWEa_22`, `CANa_22` | Las mismas cinco de GLDAS 2.2 |
+| `<layer>_upper`, `<layer>_lower` | La media más y menos 1σ; solo capas de GRACE, ya que GLDAS 2.2 no tiene incertidumbre |
 | `GWSa_filled`, `TWSa_filled` | La misma serie con sus vacíos rellenados por el modelo estacional; igual al valor observado en todos los demás meses |
 | `GWSa_is_filled`, `TWSa_is_filled` | 1 en los meses que rellenó el modelo estacional, 0 en los demás |
+
+Solo las capas presentes en el archivo reciben columnas, así que una descarga hecha con GLDAS 2.2 seleccionado y la comparación desactivada
+tiene las cinco columnas `_22` y nada más. Los pares `_filled` e `_is_filled` pertenecen a las dos capas derivadas de GRACE, que son las únicas
+con vacíos.
 
 Por ejemplo, el inicio del vacío entre misiones para el Sistema Acuífero Northern Midwest:
 
 ```text
 Date,GWSa,GWSa_upper,GWSa_lower,GWSa_filled,GWSa_is_filled,TWSa,...
-2017-06-01,9.529,14.913,4.146,9.529,0,12.536,...
-2017-07-01,,,,11.146,1,,...
-2017-08-01,,,,12.694,1,,...
+2017-06-01,14.408,18.786,10.030,14.408,0,14.699,...
+2017-07-01,,,,13.941,1,,...
+2017-08-01,,,,13.354,1,,...
 ```
 
-El archivo tiene una fila por cada mes desde abril de 2002 hasta la publicación más reciente. En los meses sin datos de GRACE, las celdas de
-`GWSa` y `TWSa` están vacías, mientras que las capas de GLDAS (`SMa`, `SWEa`, `CANa`) sí tienen valores, porque los modelos de superficie terrestre
-se ejecutan todos los meses. Las columnas `_filled` aportan un valor para esos meses (ver [Vacíos en el Registro](../gap-filling/gaps.md)). Se
-escriben con cualquier ajuste de **Gap filling**, así que el archivo es el mismo sin importar cómo se dibuje el gráfico.
+El archivo tiene una fila por cada mes en el que alguna de sus columnas tiene un valor: de abril de 2002 en adelante para las capas de GRACE, de
+febrero de 2003 en adelante para las de GLDAS 2.2, así que un archivo con los dos tiene las celdas `_22` vacías en sus primeras diez filas. En
+los meses sin datos de GRACE, las celdas de `GWSa` y `TWSa` están vacías, mientras que las capas de GLDAS (`SMa`, `SWEa`, `CANa` y las cinco
+columnas `_22`) sí tienen valores, porque los modelos de superficie terrestre se ejecutan todos los meses. Las columnas `_filled` aportan un
+valor para esos meses (ver [Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). Se escriben con cualquier ajuste de **Gap filling**, así
+que el archivo es el mismo sin importar cómo se dibuje el gráfico.
 
 Excel, Google Sheets, Python y R leen el archivo directamente, y las fechas ISO no necesitan conversión (en pandas, usa
 `pd.read_csv(path, parse_dates=["Date"])`). Para obtener la incertidumbre σ a partir de los límites, calcula `(upper − lower) / 2`.
@@ -39,7 +47,7 @@ Las anomalías son láminas de agua promediadas sobre la región. Multiplica por
 ΔV (km³) = GWSa (cm) × Area (km²) / 100,000
 ```
 
-Por ejemplo, una GWSa de −12 cm sobre un acuífero de 400,000 km² equivale a 12 × 400,000 / 100,000 = 4.8 km³ (4,800 millones de m³) de agua menos
+Por ejemplo, una GWSa de −12 cm sobre un acuífero de 400,000 km² equivale a 12 × 400,000 / 100,000 = 48 km³ (48,000 millones de m³) de agua menos
 que el promedio de 2004–2009. El cambio entre dos fechas es la diferencia de sus anomalías multiplicada por el área, y una tendencia en cm/año
 multiplicada por el área da una tasa de pérdida o ganancia en km³/año.
 
@@ -50,4 +58,4 @@ igual área, no en grados.
 
 El CSV es el punto de partida para análisis fuera de la aplicación. Para estimar la recarga, usa el [análisis de recarga](../recharge/opening.md) de
 la aplicación, que aplica el método de fluctuación del nivel freático a la serie rellenada y tiene su propia descarga en CSV.
-[El Modelo Estacional](../gap-filling/seasonal-model.md#filling-the-gaps) describe cómo se estiman las columnas `GWSa_filled` y `TWSa_filled`.
+[Vacíos y Relleno de Vacíos](../mission/gap-filling.md#filling-the-gaps) describe cómo se estiman las columnas `GWSa_filled` y `TWSa_filled`.

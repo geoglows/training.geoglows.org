@@ -82,7 +82,7 @@ equals R1.
 GRACE data differ from a well record in several ways, and the app handles each one.
 
 **Gaps.** The method needs a value for every month: a missing month at a peak or trough changes that year's result. The Recharge Analysis is
-only available with the **Seasonal model** gap fill, and it runs on the filled series (see [Gaps in the Record](../gap-filling/gaps.md)). Years whose
+only available with the **Seasonal model** gap fill, and it runs on the filled series (see [Gaps and Gap Filling](../mission/gap-filling.md)). Years whose
 picks or recession line fall on filled months are marked in the results.
 
 **Long-term trends.** Many regions have a steady decline or rise in storage over the record. Picked on the raw series, a steep decline would
@@ -97,9 +97,18 @@ choose a different starting month (see [Water Years and Picks](picks.md)).
 between the previous year's peak and this year's peak. S<sub>A</sub> is the previous year's peak. The first water year in the record has no
 previous peak, so its S<sub>A</sub> is the highest detrended month before its trough.
 
-**The recession line.** The line is a least-squares fit to the filled GWSa from S<sub>A</sub> to S<sub>B</sub>. When the trough comes less
-than four months after S<sub>A</sub>, the fit uses the four months ending at the trough instead, so a slope is never fitted to two or three
-points.
+**The recession line.** The line runs over the filled GWSa from S<sub>A</sub> down to S<sub>B</sub>, and the **Recession slope** control on the
+recharge page offers two ways to measure it:
+
+- **Endpoints** (the default) draws the straight line through S<sub>A</sub> and S<sub>B</sub>. Two months define it, so it always starts on
+  S<sub>A</sub> and meets the projection exactly at the trough.
+- **Fitted** is a least-squares fit over every month of the decline, which is what Barbosa et al. (2022) describe. Its ends land where the fit
+  puts them rather than on the picks. When the trough comes less than four months after S<sub>A</sub>, the fit uses the four months ending at
+  the trough instead, so a slope is never fitted to two or three points.
+
+The two agree whenever the fitted line sits the same distance from both ends of the decline, which is most years. The regional averages barely
+move between them — 3.2% on Iullemeden, 1.8% on the Central Valley — but a single water year can shift by 15%, and a fitted slope that comes out
+flat drops that year's drainage correction altogether.
 
 **Units.** GWSa is in centimeters of water, so R1 and R2 are in cm per year, averaged over the region. Multiplied by the area of the region
 they give a volume:
@@ -121,6 +130,17 @@ It does not apply where recharge happens all year with no clear rise, in arid re
 and dry periods dominate the record. The app tests each series for these conditions before it runs the method (see
 [Opening the Analysis](opening.md)).
 
+### Which dataset to run it on
+
+Either will run, and they do not give the same answer. In the Volta Basin, Barbosa et al. (2025) got 5.8 and 10.7 cm/yr from the GRACE dataset
+by the two methods below, 17.4 and 36.1 cm/yr from GLDAS 2.2, and a median of 10.4 cm/yr from wells in the Nasia sub-basin. Their recommendation
+is to use 2.2 for trends and the GRACE series for recharge.
+
+The two series get their annual rise differently. On the GRACE route the rise is a measured change in mass. On the 2.2 route it is a model state
+that GRACE corrects once a month, and the correction is itself part of the seasonal movement, so the rise the method reads is not purely the
+storage change the method assumes. Run both, and treat a large gap between them as a reason to look at the wells rather than to pick the
+larger number.
+
 ## References
 
 - Healy, R. W., and Cook, P. G. (2002). Using groundwater levels to estimate recharge. *Hydrogeology Journal*, 10, 91–109.
@@ -128,3 +148,7 @@ and dry periods dominate the record. The app tests each series for these conditi
 - Barbosa, S. A., Pulla, S. T., Williams, G. P., Jones, N. L., Mamane, B., and Sanchez, J. L. (2022). Evaluating groundwater storage change and
   recharge using GRACE data: A case study of aquifers in Niger, West Africa. *Remote Sensing*, 14(7), 1532.
   [doi:10.3390/rs14071532](https://doi.org/10.3390/rs14071532){:target="_blank"}
+- Barbosa, S. A., Jones, N. L., Williams, G. P., Teklu, H., Yidana, S. M., Pulla, S. T., et al. (2025). A Multi-Source Approach to Groundwater
+  Storage and Recharge Assessment in the Volta Basin. *Science of the Total Environment*.
+  [doi:10.1016/j.scitotenv.2025.180421](https://doi.org/10.1016/j.scitotenv.2025.180421){:target="_blank"}
+  The comparison of the two datasets' recharge estimates; see [Volta Basin](../case-studies/volta.md).

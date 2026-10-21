@@ -21,13 +21,43 @@ python wtf.py            # water table fluctuation method, conceptual
 
 Edit the SVGs directly in Inkscape for one-off changes, but rerunning a script overwrites its SVG.
 
+`compare_examples.py` draws the nine figures on the Comparing the Two Datasets pages (`compare-agreement.png`, `compare-trend.png`,
+`compare-amplitude.png`, `compare-phase.png`, `compare-phase-mechanism.png`, `compare-signal-size.png`, `compare-artifact-ice.png`,
+`compare-artifact-water.png`, `compare-artifact-frozen.png`). It needs pandas and matplotlib, and reads `data/compare_*.csv` and
+`data/catalog_*.csv`, which `data/export_compare_series.py` in webapp-grace-groundwater writes from the published stores:
+
+```
+cd ../../../webapp-grace-groundwater && data/.venv/bin/python -I data/export_compare_series.py
+cd -  &&  python compare_examples.py
+```
+
+Each `compare_*.csv` is one region's monthly area-weighted mean of both datasets' GWSa, TWSa and SMa, plus GRACE SWEa, which is the series the
+app's regional view plots. `catalog_regions.csv` scores every region in four region sets on each way the two datasets differ, and
+`catalog_cells.csv` holds per-cell signal size against correlation; the two scatter figures are drawn from those. Regenerate the CSVs after a
+data rebuild and the figures follow.
+
+The example regions are chosen from `data/compare_datasets.py catalog` in webapp-grace-groundwater, which ranks every region in all five sets
+on each behaviour, so a replacement example can be picked from the data rather than from memory.
+
 `gapfill_example.py` draws `gap-filling-example.png` (Python with pandas and matplotlib) from `data/northern_midwest_filled.csv`, the
 app's seasonal fill of a Northern Midwest Aquifer System export.
 
 `seasonal_model.py` refits the app's seasonal model (`src/gapFill.js` in webapp-grace-groundwater) to the same file, checks that it matches
 the app's fill, and draws the four figures on the Seasonal Model page: `seasonal-decomposition.png`, `seasonal-levels.png`,
 `seasonal-breakpoints.png` and `seasonal-gap-correction.png`. It also refits `data/central_valley_gwsa.csv`, an app export, for
-`seasonal-gap-correction-cv.png`, the Central Valley's gap between the missions.
+`seasonal-gap-correction-cv.png`, the Central Valley's gap between the missions. It prints the breakpoints, the BIC of each fit, the
+seasonal levels and the residuals either side of the mission gap, which are the numbers the Gaps and Gap Filling page quotes.
+
+`holdout.mjs` produces the two RMSE tables on that page. It hides observed months, refits, and compares the app's seasonal model against the
+trend and seasonal cycle alone and against linear interpolation. It imports `src/gapFill.js` directly rather than reimplementing it, so the
+tables cannot drift from what the app does, and its PRNG is seeded so a rerun reproduces them.
+
+```
+node holdout.mjs <dir>     # <dir> holds one Download CSV export per region
+```
+
+Both read data regenerated from the app after a rebuild. `data/northern_midwest_filled.csv` is an export plus the app's own
+trend/seasonal/filled columns; `data/central_valley_gwsa.csv` is the GWSa columns of an export.
 
 ## App screenshots
 
