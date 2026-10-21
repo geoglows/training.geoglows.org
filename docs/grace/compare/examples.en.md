@@ -117,7 +117,12 @@ form of this argument — that a model's compartments are not the physically sep
 Not every disagreement is a problem with a dataset. Two small signals that fail to line up produce a low correlation whether or not anything is
 wrong:
 
-![Correlation against how much the GRACE groundwater moves, over 15,135 shared land cells, with the median rising from 0.14 to 0.79](../../static/images/grace/compare-signal-size.png)
+![Agreement between the two datasets in nine bands of signal size: below 5 cm the middle half of cells straddles zero, above 15 cm it sits tight around 0.8](../../static/images/grace/compare-signal-size.png)
+
+Each band in the figure is the distribution of correlation over the cells in it: the dot is the median, the thick bar the middle half, the thin
+bar the 10th to 90th percentile. The medians climbing is one half of the point and the bars shrinking is the other. Below 5 cm the middle half
+of cells straddles zero and 28% of them have the two records running opposite; above 15 cm the middle half sits between 0.6 and 0.85 and 4% run
+opposite.
 
 | How much GRACE groundwater moves | Median correlation | Median gap between the two | Cells |
 |:---|:---:|:---:|:---:|
@@ -125,9 +130,8 @@ wrong:
 | 5–15 cm | 0.51 | 8.32 cm | 7,110 |
 | over 15 cm | 0.77 | 27.32 cm | 2,171 |
 
-The median correlation climbs with the size of the signal and then flattens above about 15 cm, where the two datasets settle at around 0.77
-however much more water moves. The aquifers anyone would analyse sit in that flat part. Read a correlation alongside the amount of water in play,
-never on its own.
+The climb flattens above about 15 cm, where the two datasets settle at around 0.77 however much more water moves. The aquifers anyone would
+analyse sit in that flat part. Read a correlation alongside the amount of water in play, never on its own.
 
 ## Differences that are not groundwater
 

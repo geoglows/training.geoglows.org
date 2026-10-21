@@ -119,7 +119,12 @@ la soustraction suppose.
 Tout désaccord n’est pas un problème de jeu de données. Deux petits signaux qui ne parviennent pas à s’aligner produisent une corrélation faible,
 qu’il y ait ou non quelque chose qui cloche :
 
-![Corrélation contre l’ampleur des mouvements de l’eau souterraine GRACE, sur 15 135 cellules terrestres communes, la médiane passant de 0,14 à 0,79](../../static/images/grace/compare-signal-size.png)
+![Concordance entre les deux jeux de données dans neuf bandes de taille de signal : en dessous de 5 cm la moitié centrale des mailles traverse zéro, au-dessus de 15 cm elle se resserre autour de 0,8](../../static/images/grace/compare-signal-size.png)
+
+Chaque bande de la figure est la distribution de la corrélation sur les mailles qu’elle contient : le point est la médiane, la barre épaisse la
+moitié centrale, la barre fine les 10e à 90e centiles. Que les médianes montent est la moitié du propos, que les barres se resserrent en est
+l’autre. En dessous de 5 cm, la moitié centrale des mailles traverse zéro et 28 % d’entre elles ont les deux enregistrements en opposition ;
+au-dessus de 15 cm, la moitié centrale se tient entre 0,6 et 0,85 et 4 % seulement sont en opposition.
 
 | Ampleur des mouvements de l’eau souterraine GRACE | Corrélation médiane | Écart médian entre les deux | Cellules |
 |:---|:---:|:---:|:---:|
@@ -127,8 +132,8 @@ qu’il y ait ou non quelque chose qui cloche :
 | 5–15 cm | 0,51 | 8,32 cm | 7110 |
 | plus de 15 cm | 0,77 | 27,32 cm | 2171 |
 
-La corrélation médiane monte avec la taille du signal puis s’aplatit au-delà d’environ 15 cm, où les deux jeux de données se stabilisent autour de
-0,77 quelle que soit la quantité d’eau supplémentaire en mouvement. Les aquifères que l’on analyserait se situent dans cette partie plate. Il faut
+La montée s’aplatit au-delà d’environ 15 cm, où les deux jeux de données se stabilisent autour de 0,77 quelle que soit la quantité d’eau
+supplémentaire en mouvement. Les aquifères que l’on analyserait se situent dans cette partie plate. Il faut
 lire une corrélation en regard de la quantité d’eau en jeu, jamais seule.
 
 ## Des écarts qui ne sont pas de l’eau souterraine { #differences-that-are-not-groundwater }

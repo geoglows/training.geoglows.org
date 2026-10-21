@@ -119,7 +119,12 @@ formulan la versión general de este argumento: que los compartimentos de un mod
 No todo desacuerdo es un problema del conjunto de datos. Dos señales pequeñas que no llegan a alinearse producen una correlación baja haya o no
 algo mal:
 
-![Correlación frente a cuánto se mueve el agua subterránea de GRACE, en 15 135 celdas de tierra compartidas, con la mediana subiendo de 0,14 a 0,79](../../static/images/grace/compare-signal-size.png)
+![Concordancia entre los dos conjuntos en nueve bandas de tamaño de señal: por debajo de 5 cm la mitad central de las celdas cruza el cero, por encima de 15 cm se agrupa en torno a 0,8](../../static/images/grace/compare-signal-size.png)
+
+Cada banda de la figura es la distribución de la correlación sobre las celdas que contiene: el punto es la mediana, la barra gruesa la mitad
+central y la barra fina el percentil 10 al 90. Que las medianas suban es la mitad del asunto y que las barras se estrechen es la otra. Por debajo
+de 5 cm la mitad central de las celdas cruza el cero y el 28% tiene los dos registros yendo opuestos; por encima de 15 cm la mitad central queda
+entre 0,6 y 0,85 y solo el 4% va opuesto.
 
 | Cuánto se mueve el agua subterránea de GRACE | Correlación mediana | Diferencia mediana entre ambos | Celdas |
 |:---|:---:|:---:|:---:|
@@ -127,8 +132,7 @@ algo mal:
 | 5–15 cm | 0,51 | 8,32 cm | 7110 |
 | más de 15 cm | 0,77 | 27,32 cm | 2171 |
 
-La correlación mediana sube con el tamaño de la señal y luego se aplana por encima de unos 15 cm, donde los dos conjuntos se asientan alrededor
-de 0,77 por mucha más agua que se mueva. Los acuíferos que cualquiera analizaría están en esa parte plana. Léase una correlación junto con la
+La subida se aplana por encima de unos 15 cm, donde los dos conjuntos se asientan alrededor de 0,77 por mucha más agua que se mueva. Los acuíferos que cualquiera analizaría están en esa parte plana. Léase una correlación junto con la
 cantidad de agua en juego, nunca sola.
 
 ## Diferencias que no son agua subterránea { #differences-that-are-not-groundwater }
