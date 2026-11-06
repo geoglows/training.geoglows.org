@@ -5,17 +5,13 @@ and **My Data** holds the regions you add.
 
 ## Sample Data
 
-Three regions come with the app. Each one is downloaded the first time you open it.
+Three regions come with the app, each downloaded the first time you open it:
 
-| Region | Aquifers | Wells | Measurements | Record |
-|---|---|---|---|---|
-| Utah | 18 | 7,664 | 179,665 water levels | 1940–2020 |
-| Arizona | 9 | 19,032 | 110,308 water levels | 1891–2026 |
-| Oregon | 2 | 139 | 4,047 water levels and water quality samples | 1924–2026 |
+- **Utah** and **Arizona** hold water levels for many aquifers, some with records going back to the 1940s or earlier.
+- **Oregon** is small, with two aquifers, and holds water quality samples as well as water levels, so it is the one to open to see how
+  the app handles water quality.
 
-The Oregon region also holds total dissolved solids, temperature, dissolved oxygen, alkalinity, hardness and pH, so it is the one to
-open to see how the app handles water quality. Several aquifers in all three regions already have saved water table maps, and some
-have gap-filling models, which appear under the aquifer in the tree.
+Some aquifers already have saved water table maps and gap-filling models, which appear under the aquifer in the tree.
 
 Sample Data cannot be changed. Anything that would change a region, such as editing measurements, filling gaps or saving a water table
 map, offers to copy the region to My Data first. The copy is yours to change, and the sample stays as it was.
