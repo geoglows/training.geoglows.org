@@ -41,7 +41,10 @@ const tiles = async () => {
   const gaps = await page.evaluate(() => {
     const m = document.getElementById('map-container')?.getBoundingClientRect();
     if (!m) return 0;
-    const rects = [...document.querySelectorAll('.leaflet-tile-loaded')].map(t => t.getBoundingClientRect());
+    // Only the current zoom level's tiles count: Leaflet keeps the previous level's underneath, which can hide a gap
+    const level = [...document.querySelectorAll('.leaflet-tile-container')]
+      .sort((a, b) => (+b.style.zIndex || 0) - (+a.style.zIndex || 0))[0];
+    const rects = [...(level?.querySelectorAll('.leaflet-tile-loaded') ?? [])].map(t => t.getBoundingClientRect());
     let missing = 0;
     for (let i = 1; i < 12; i++) for (let j = 1; j < 12; j++) {
       const x = m.x + m.width * i / 12, y = m.y + m.height * j / 12;
@@ -101,6 +104,30 @@ const zoomOut = async clicks => {      // each click is half a zoom level
   for (let i = 0; i < clicks; i++) { await page.click('.leaflet-control-zoom-out'); await sleep(450); }
   await sleep(1000);
 };
+// Zoom out and pan until the open aquifer's outline (stroke #6366f1) sits whole in the map, clear of
+// the cards over it: the time slider at the bottom, the legends at the sides
+const fitAquifer = async () => {
+  for (let i = 0; i < 6; i++) {
+    await tiles();
+    const g = await page.evaluate(() => {
+      const r = el => el.getBoundingClientRect();
+      const a = [...document.querySelectorAll('path[stroke="#6366f1"]')].map(r);
+      const m = r(document.getElementById('map-container'));
+      const slider = document.querySelector('input[type=range]')?.closest('.rfs-card');
+      const box = { left: m.left + 270, right: m.right - 260, top: m.top + 20, bottom: (slider ? r(slider).top : m.bottom) - 20 };
+      const aq = { left: Math.min(...a.map(x => x.left)), right: Math.max(...a.map(x => x.right)),
+                   top: Math.min(...a.map(x => x.top)), bottom: Math.max(...a.map(x => x.bottom)) };
+      return { box, aq, grab: { x: m.left + 200, y: m.top + m.height * 0.6 } };
+    });
+    const { box, aq, grab } = g;
+    if (aq.bottom - aq.top > box.bottom - box.top || aq.right - aq.left > box.right - box.left) { await zoomOut(1); continue; }
+    const dx = (box.left + box.right) / 2 - (aq.left + aq.right) / 2, dy = (box.top + box.bottom) / 2 - (aq.top + aq.bottom) / 2;
+    if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+    await page.mouse.move(grab.x, grab.y); await page.mouse.down();
+    for (let k = 1; k <= 10; k++) { await page.mouse.move(grab.x + dx * k / 10, grab.y + dy * k / 10); await sleep(30); }
+    await page.mouse.up(); await sleep(2500);   // the drag coasts before the map requests new tiles
+  }
+};
 const setMinMeasurements = async n => {
   const box = await page.evaluateHandle(() => {
     const el = document.querySelector('[title="Hide wells with fewer measurements than this"]');
@@ -149,12 +176,24 @@ if (want('home')) {
   await shot('app-home');
 }
 if (want('overview')) {
+  // A taller window keeps the map one zoom level closer, where the basemap shows terrain
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 });
   await load();
-  await treeItem(REGION); await treeItem(AQUIFER); await setMinMeasurements(20);
+  await treeItem(REGION); await treeItem(AQUIFER); await setMinMeasurements(1);
   await treeItem('wte_kriging'); await sleep(4000);
-  await page.focus('input[type=range]'); await page.keyboard.press('End');   // the last year of the map
-  await sleep(3000); await page.mouse.move(5, 5);
+  await fitAquifer();   // the chart panel shortens the map, which then clips the aquifer's southern tail
+  await page.mouse.move(5, 5);
   await shot('app-overview');
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+}
+if (want('panel')) {
+  // Oregon has two aquifers and several data types, so the panel is short and shows the Data type list
+  await page.setViewport({ width: 1440, height: 800, deviceScaleFactor: 2 });
+  await load();
+  await treeItem('Oregon'); await treeItem('Williamson'); await clearFilters();
+  await page.mouse.move(5, 5);
+  await shot('app-panel', { x: 0, y: 0, width: 320, height: 800 });
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
 }
 if (want('region')) {
   await load();
@@ -162,7 +201,6 @@ if (want('region')) {
   await treeItem(AQUIFER);
   await clearFilters();
   await shot('app-aquifer');
-  await shot('app-panel', { x: 0, y: 0, width: 320, height: 900 });
   await searchWell(WELL); await zoomOut(4);
   await page.mouse.move(5, 5); await sleep(2000);   // the chart animates its curves in
   await shot('app-chart', await rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height })));

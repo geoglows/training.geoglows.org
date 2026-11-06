@@ -13,7 +13,7 @@ the bar between the map and the chart to give either one more room.
 
 ## Control panel
 
-![The control panel with a region and an aquifer open](../../static/images/aquiferx/app-panel.webp){ align=right width="260" }
+![The control panel with the Oregon region and its Williamson aquifer open](../../static/images/aquiferx/app-panel.webp){ align=right width="230" }
 
 From top to bottom:
 
@@ -32,6 +32,8 @@ From top to bottom:
 - **Show on map.** Turns the wells on and off, and labels each aquifer or well with its name or ID. The label size is in Settings.
 - **Filter wells.** Hides wells with fewer than a given number of measurements, or wells never measured between two years. See
   [Exploring a Region](exploring.md#filtering-wells).
+
+<div style="clear: both"></div>
 
 ## Map
 
