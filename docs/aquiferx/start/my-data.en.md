@@ -30,7 +30,8 @@ Back up whenever you have added or changed something you would not want to lose 
 
 ![My Data holding a copy of the Oregon sample region](../../static/images/aquiferx/app-mydata.webp)
 
-When My Data is empty, the panel offers three ways to start: **Add a region** opens the Add Data window (see Part 2), **Copy a sample
+When My Data is empty, the panel offers three ways to start: **Add a region** opens the Add Data window (see
+[Regions and Aquifers](../data/regions-aquifers.md#the-add-data-window)), **Copy a sample
 region** switches to Sample Data so you can copy one, and **Restore** loads a backup.
 
 ## Copying a sample region
@@ -43,7 +44,8 @@ Point at a region in the tree and click the three dots beside it to open its men
 - **Hide Region.** Takes the region's outline off the map, which helps when regions overlap. **Show Region** puts it back.
 - **Download.** Saves the region as a zip file in the same layout as a backup.
 
-A My Data region's menu also has **Edit**, for its name, unit and whether it is a single unit (see Part 2), and **Delete**.
+A My Data region's menu also has **Edit**, for its name, unit and whether it is a single unit (see
+[Regions and Aquifers](../data/regions-aquifers.md#changing-a-region)), and **Delete**.
 
 ## Backing up and restoring
 

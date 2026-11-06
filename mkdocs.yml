@@ -201,6 +201,13 @@ nav:
           - The App Interface: aquiferx/start/interface.md
           - Sample Data and My Data: aquiferx/start/my-data.md
           - Exploring a Region: aquiferx/start/exploring.md
+      - Part 2 Adding Your Data:
+          - Preparing Your Files: aquiferx/data/preparing-files.md
+          - Regions and Aquifers: aquiferx/data/regions-aquifers.md
+          - Wells: aquiferx/data/wells.md
+          - Measurements: aquiferx/data/measurements.md
+          - Water Quality: aquiferx/data/water-quality.md
+          - Editing and Exporting: aquiferx/data/editing.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md

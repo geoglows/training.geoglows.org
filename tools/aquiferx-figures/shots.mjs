@@ -16,7 +16,7 @@ const WELL2 = { name: '(C-35-16)33bcc- 1', lat: 37.71441685, lng: -113.655799 };
 
 const browser = await puppeteer.launch({
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new',
-  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile',
+  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile', protocolTimeout: 600000,
 });
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
@@ -131,7 +131,7 @@ const fitAquifer = async () => {
 };
 // My Data holding one region, a fresh copy of the Oregon sample. Whatever an earlier run left in
 // My Data is deleted first, so copies do not pile up.
-const myDataWithOregon = async () => {
+const clearMyData = async () => {
   await load();
   await page.click('button[aria-label="Settings"]'); await sleep(1000);
   const canDelete = await page.evaluate(() => {
@@ -140,6 +140,9 @@ const myDataWithOregon = async () => {
   });
   if (canDelete) { await clickButton('Delete all My Data'); await clickButton('Delete everything'); await sleep(2000); }
   await clickButton('Close');
+};
+const myDataWithOregon = async () => {
+  await clearMyData();
   await page.evaluate(() => {
     const row = [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'Oregon');
     row.nextElementSibling.click();
@@ -316,6 +319,180 @@ if (want('mydata') || want('settings')) {
   // Only the dialog, with a little of the dimmed app around it: the whole window shrunk to fit the page leaves it unreadable
   if (want('settings')) await shot('app-settings', await rect('div.fixed.inset-0 > div', 16));
   await clickButton('Close');
+}
+
+// Part 2: the Add Data window and its importers, fed the files make-practice.py writes
+const PRACTICE = new URL('./practice/', import.meta.url).pathname;
+// The topmost dialog, with a little of the dimmed window around it
+const topCard = (pad = 16) => page.evaluate(p => {
+  const cards = [...document.querySelectorAll('div.fixed.inset-0 > div.bg-white')];
+  const r = cards[cards.length - 1].getBoundingClientRect();
+  return { x: Math.max(0, r.x - p), y: Math.max(0, r.y - p), width: r.width + 2 * p, height: r.height + 2 * p };
+}, pad);
+const upload = async file => {
+  const inputs = await page.$$('input[type=file]');
+  await inputs[inputs.length - 1].uploadFile(PRACTICE + file);
+  await sleep(2500);
+};
+const clickLabel = async text => {
+  await page.evaluate(t => {
+    const l = [...document.querySelectorAll('label')].reverse().find(x => x.textContent.trim().startsWith(t));
+    if (!l) throw new Error(`no label ${t}`);
+    (l.querySelector('input') || l).click();
+  }, text);
+  await sleep(600);
+};
+const cardButton = async (title, button) => {     // a button on one of the Add Data window's cards
+  await page.evaluate((t, b) => {
+    const card = [...document.querySelectorAll('h4')].find(h => h.textContent.trim() === t).closest('.border');
+    [...card.querySelectorAll('button')].find(x => x.textContent.trim() === b).click();
+  }, title, button);
+  await sleep(1200);
+};
+const newRegion = async (name, file, singleUnit) => {
+  await clickButton('Add Region');
+  await page.type('input[placeholder="e.g., California Central Valley"]', name);
+  if (!singleUnit) await clickLabel('Single-unit region');
+  await sleep(400);
+  return async () => {             // the rest, after any screenshot of the first step
+    await clickButton('Next'); await upload(file);
+    await clickButton('Create Region'); await sleep(3000);
+  };
+};
+const waitText2 = (text, ms) => page.waitForFunction(t => document.body.innerText.includes(t), { timeout: ms }, text);
+// One panel of the topmost dialog: the bordered box around a heading, or (up = n) the heading's nth parent
+const panelOf = (text, up = 0, pad = 10) => page.evaluate((t, u, p) => {
+  const el = [...document.querySelectorAll('p, span, label, h4, option')].reverse().find(x => x.textContent.trim() === t);
+  if (!el) throw new Error(`no ${t}`);
+  let box = el.closest(u ? 'body' : '.rounded-lg');
+  if (u) { box = el; for (let i = 0; i < u; i++) box = box.parentElement; }
+  const r = box.getBoundingClientRect();
+  return { x: r.x - p, y: r.y - p, width: r.width + 2 * p, height: r.height + 2 * p };
+}, text, up, pad);
+// The top of the topmost dialog, down to the file chooser
+const dialogTop = (pad = 16) => page.evaluate(p => {
+  const cards = [...document.querySelectorAll('div.fixed.inset-0 > div.bg-white')];
+  const c = cards[cards.length - 1].getBoundingClientRect();
+  const inputs = [...document.querySelectorAll('input[type=file]')];
+  const f = inputs[inputs.length - 1].getBoundingClientRect();
+  return { x: c.x - p, y: c.y - p, width: c.width + 2 * p, height: f.bottom + 20 - c.y + p };
+}, pad);
+
+if (want('adddata') || want('wq')) {
+  // Tall enough that the longer importers fit without scrolling inside the dialog
+  await page.setViewport({ width: 1440, height: 2000, deviceScaleFactor: 2 });
+}
+if (want('adddata')) {
+  await clearMyData();
+  await clickButton('My Data'); await sleep(800);
+  await clickButton('Add Data');
+  const finish = await newRegion('Southwest Utah', 'sw-utah-region.geojson', false);
+  await shot('data-new-region', await topCard());
+  await finish();
+  await shot('data-hub-new', await topCard());
+
+  await cardButton('Aquifers', 'Add Aquifers');
+  await upload('sw-utah-aquifers.geojson');          // opens the column mapper
+  await shot('data-aquifer-columns', await topCard());
+  await clickButton('Done'); await clickButton('Save Aquifers'); await sleep(2500);
+
+  await cardButton('Wells', 'Add Wells');
+  await clickButton('USGS Download');
+  await shot('data-wells-usgs', await topCard());
+  await clickButton('Upload CSV');
+  await clickLabel('Assign by location');
+  await upload('sw-utah-wells.csv');
+  await clickButton('Done');
+  // The elevation lookup, part way: it runs while you finish, and Save does not wait for it
+  await waitText2('Looking up from', 60000);
+  await sleep(4000);
+  await shot('data-wells', await topCard());
+  await clickButton('Save Wells'); await sleep(3000);
+
+  await cardButton('Measurements', 'Add Measurements');
+  await upload('sw-utah-water-levels.csv');
+  // The whole dialog is too tall to read on a page, so its parts
+  await shot('meas-top', await dialogTop());
+  await shot('meas-columns-ids', await panelOf('Columns'));
+  await shot('meas-duplicates', await panelOf('Average duplicates'));
+  await clickButton('Save Measurements');
+  await waitText2('Import complete', 120000);
+  await sleep(800);
+  await shot('data-levels-done', await topCard());
+  await clickButton('Done'); await sleep(2500);
+  await clickButton('Done'); await sleep(1500);
+}
+if (want('wq')) {
+  // A single-unit region whose wells come with its water quality file
+  await load();
+  await clickButton('My Data'); await sleep(800);
+  await clickButton('Add Data');
+  await (await newRegion('Upper Klamath', 'klamath-region.geojson', true))();
+  await cardButton('Measurements', 'Add Measurements');
+  await upload('klamath-water-quality.csv');
+  await waitText2('by proximity', 60000);
+  await sleep(800);
+  await shot('meas-columns-wells', await panelOf('Columns'));
+  await shot('meas-matching', await panelOf('Well matching'));
+  await shot('meas-datacolumns', await panelOf('Map data columns'));
+  await clickButton('Save Measurements');
+  await waitText2('Import complete', 120000);
+  await sleep(800);
+  await clickButton('Done'); await sleep(2500);
+
+  // A laptop-sized window, where the parameter list scrolls instead of filling a tall picture
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 }); await sleep(800);
+  await cardButton('Measurements', 'Add Measurements');
+  await clickButton('Water Quality (WQP)');
+  await clickButton('Pick parameters');
+  for (const name of ['Nitrate', 'Arsenic']) {
+    await page.evaluate(n => {
+      const row = [...document.querySelectorAll('tr')].find(r => r.textContent.includes(n) && r.querySelector('input[type=checkbox]'));
+      row.querySelector('input[type=checkbox]').click();
+    }, name);
+    await sleep(300);
+  }
+  await shot('data-wqp-picker', await topCard());
+  await clickButton('Apply');
+  await clickButton('Estimate');
+  await waitText2('Estimated:', 60000).catch(() => {});
+  await sleep(800);
+  await shot('data-wqp', await topCard());
+}
+if (want('edit')) {
+  // Southwest Utah, as the adddata step leaves it in My Data
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+  await load();
+  await clickButton('My Data'); await sleep(1500);
+  await page.evaluate(() => {
+    const row = [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'Southwest Utah');
+    row.nextElementSibling.click();
+  });
+  await sleep(600);
+  await clickButton('Edit'); await sleep(800);
+  await shot('data-edit-region', await topCard());
+  await clickButton('Cancel');
+
+  await treeItem('Southwest Utah'); await treeItem(AQUIFER); await clearFilters();
+  await searchWell(WELL); await sleep(3000);
+  await clickButton('View/Edit'); await sleep(1500);
+  await shot('edit-table', await topCard());
+  await clickButton('Cancel'); await sleep(800);
+
+  // Right-click a measurement on the chart for its menu
+  const dot = await page.evaluate(() => {
+    const cs = [...document.querySelectorAll('.recharts-wrapper circle')].map(c => c.getBoundingClientRect()).filter(r => r.width > 0);
+    const r = cs[Math.floor(cs.length * 0.6)];
+    return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+  });
+  await page.mouse.click(dot.x, dot.y, { button: 'right' }); await sleep(800);
+  const box = await page.evaluate(d => {
+    const m = document.querySelector('.rfs-menu').getBoundingClientRect();
+    const x = Math.min(d.x, m.left) - 70, y = Math.min(d.y, m.top) - 50;
+    return { x, y, width: Math.max(d.x, m.right) + 70 - x, height: Math.max(d.y, m.bottom) + 50 - y };
+  }, dot);
+  await shot('edit-point-menu', box);
+  await page.keyboard.press('Escape');
 }
 
 await browser.close();

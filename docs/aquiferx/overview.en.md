@@ -48,8 +48,14 @@ regions you add are stored by your browser on your computer, and you keep a copy
 - [Sample Data and My Data](start/my-data.md): the ready-made regions, where your own data is kept, and backing it up.
 - [Exploring a Region](start/exploring.md): opening regions and aquifers, selecting wells, and filtering what the map shows.
 
-**Part 2, Adding Your Data,** covers getting your own records into the app: preparing the files, creating regions and aquifers, adding
-wells and measurements, downloading from the USGS and the Water Quality Portal, and editing what you have loaded.
+**Part 2, Adding Your Data,** covers getting your own records into the app:
+
+- [Preparing Your Files](data/preparing-files.md): what each file needs to hold, and the formats, dates and units the app reads.
+- [Regions and Aquifers](data/regions-aquifers.md): the Add Data window, creating a region, and adding its aquifers.
+- [Wells](data/wells.md): uploading a wells file, coordinate systems, ground elevations, and downloading wells from the USGS.
+- [Measurements](data/measurements.md): uploading measurements, how rows find their wells, and downloading USGS water levels.
+- [Water Quality](data/water-quality.md): the parameter catalog, custom data types, and downloading from the Water Quality Portal.
+- [Editing and Exporting](data/editing.md): correcting and deleting measurements, and exporting what the chart shows.
 
 **Part 3, Time Series and Trends,** explains the chart, the curve it draws between measurements, and how the app classifies water level
 trends.
