@@ -296,12 +296,25 @@ if (want('filter')) {
   await setMinMeasurements(20);
   await shot('app-filter');
 }
+if (want('datatype')) {
+  // Oregon has water levels and water quality, so the panel shows the Data type list
+  await load();
+  await treeItem('Oregon'); await sleep(1500);
+  const box = await page.evaluate(() => {
+    const a = document.querySelector('label[for="data-type-select"]').getBoundingClientRect();
+    const b = document.querySelector('#data-type-select').getBoundingClientRect();
+    const p = 12, x = Math.min(a.left, b.left) - p, y = a.top - p;
+    return { x, y, width: Math.max(a.right, b.right) + p - x, height: b.bottom + p - y };
+  });
+  await shot('panel-datatype', box);
+}
 if (want('mydata') || want('settings')) {
   await myDataWithOregon();
   await page.mouse.move(5, 5);
   if (want('mydata')) await shot('app-mydata');
   await page.click('button[aria-label="Settings"]'); await sleep(1500);
-  if (want('settings')) await shot('app-settings');
+  // Only the dialog, with a little of the dimmed app around it: the whole window shrunk to fit the page leaves it unreadable
+  if (want('settings')) await shot('app-settings', await rect('div.fixed.inset-0 > div', 16));
   await clickButton('Close');
 }
 

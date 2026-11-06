@@ -56,6 +56,11 @@ useful zoomed in or with a filter on. The label size is in [Settings](my-data.md
 
 ## Data types
 
-When a region holds more than one kind of measurement, a **Data type** list appears above **Show on map**, naming each type with its
-unit. Picking one changes everything at once: the marker colors count that type, the chart plots it, and the analyses use it. Filling
-gaps works on water table elevation only. The Oregon sample region has water levels and six water quality parameters to try this on.
+![The Data type list with the Oregon region open](../../static/images/aquiferx/panel-datatype.webp){ align=left width="300" style="margin: 0 18px 12px 0" }
+When a region holds more than one kind of measurement, a **Data type** list appears in the lower part of the control panel, under the
+region tree and above **Show on map**. It names each type with its unit, and stays hidden for a region that holds water levels only.
+
+<div style="clear: both"></div>
+
+Picking a type changes everything at once: the marker colors count that type, the chart plots it, and the analyses use it. Filling gaps
+works on water table elevation only. The Oregon sample region has water levels and six water quality parameters to try this on.

@@ -22,7 +22,7 @@ node shots.mjs raw region,multiwell     # just these steps
 ```
 
 `AQX_URL` points the script at another address, such as the deployed preview. The steps are `home`, `region`, `menu`, `multiwell`,
-`filter`, `mydata` and `settings`; each names the shots it saves in the script. The browser profile in `.chrome-profile/` keeps the
+`filter`, `datatype`, `mydata` and `settings`; each names the shots it saves in the script. The browser profile in `.chrome-profile/` keeps the
 app's remembered settings between runs, so every step that opens an aquifer resets the data set and the well filters first.
 
 `webp.sh` writes WebP copies at quality 86, reduced to 1800 px wide when the PNG is wider, which is what the pages use.

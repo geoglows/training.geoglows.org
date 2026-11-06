@@ -71,7 +71,7 @@ A backup is an ordinary zip file with one folder per region. Each folder holds p
 
 ## Settings
 
-![The Settings window](../../static/images/aquiferx/app-settings.webp){ align=right width="420" }
+![The Settings window](../../static/images/aquiferx/app-settings.webp){ align=right width="340" }
 
 The gear at the top of the panel opens **Settings**:
 
@@ -80,3 +80,5 @@ The gear at the top of the panel opens **Settings**:
 - **My Data in this browser.** How much space the app is using in the browser.
 - **Delete all My Data.** Removes every region in My Data from this browser after you confirm. Sample Data is not affected, and the
   deletion cannot be undone, so back up first if you might want any of it again.
+
+<div style="clear: both"></div>
