@@ -40,8 +40,8 @@ The bar along the top of the map shows where you are: **Home**, then the open re
 On the map itself:
 
 - **Zoom** with the **+** and **−** buttons, the mouse wheel, or a pinch on a trackpad. Drag to pan.
-- **Basemap**, the button at the top right, switches the background between OpenStreetMap and six Esri maps: topographic, imagery,
-  streets, light gray, dark gray and terrain.
+- **Basemap**, the button at the top right, switches the background map: Esri's topographic map, which is the default, Esri imagery,
+  streets, light gray, dark gray and terrain, and OpenStreetMap.
 - **Click** a region's outline to open it, an aquifer to show its wells, and a well to plot it. Clicking an empty spot inside the open
   aquifer clears the selected wells, and clicking a part of the region outside every aquifer goes back to the region.
 - **Search wells**, the box at the top left once an aquifer is open, finds a well by name or ID. Use the arrow keys and **Enter**, or

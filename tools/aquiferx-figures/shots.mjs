@@ -30,13 +30,26 @@ const tiles = async () => {
   for (let i = 0; i < 150; i++) {
     const state = await page.evaluate(() => {
       const t = [...document.querySelectorAll('.leaflet-tile')];
-      return t.map(x => x.src).sort().join('|') + (t.every(x => x.classList.contains('leaflet-tile-loaded')) ? '#ok' : '#wait');
+      const pane = document.querySelector('.leaflet-map-pane')?.style.transform;   // changes while the map moves
+      return pane + t.map(x => x.src).sort().join('|') + (t.every(x => x.classList.contains('leaflet-tile-loaded')) ? '#ok' : '#wait');
     });
     if (state !== last) { last = state; since = Date.now(); }
-    else if (state.endsWith('#ok') && Date.now() - since > 1200) return;
+    else if (state.endsWith('#ok') && Date.now() - since > 1200) break;
     await sleep(300);
   }
-  console.log('tiles did not settle');
+  // Every point of the map should sit on a loaded tile; a gap means tiles were never requested
+  const gaps = await page.evaluate(() => {
+    const m = document.getElementById('map-container')?.getBoundingClientRect();
+    if (!m) return 0;
+    const rects = [...document.querySelectorAll('.leaflet-tile-loaded')].map(t => t.getBoundingClientRect());
+    let missing = 0;
+    for (let i = 1; i < 12; i++) for (let j = 1; j < 12; j++) {
+      const x = m.x + m.width * i / 12, y = m.y + m.height * j / 12;
+      if (!rects.some(r => x >= r.left && x <= r.right && y >= r.top && y <= r.bottom)) missing++;
+    }
+    return missing;
+  });
+  if (gaps) console.log(`MAP GAPS: ${gaps} of 121 sample points have no tile`);
 };
 const shot = async (name, clip) => {
   await tiles(); await sleep(300);
@@ -62,10 +75,17 @@ const treeItem = async name => {
   await page.evaluate(n => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === n).click(), name);
   await sleep(2500);
 };
-// Screen position of a point, from the position of a basemap tile (z/x/y in its URL)
+// Screen position of a point, from the position of a basemap tile. Esri tile URLs end /tile/z/y/x,
+// OpenStreetMap's /z/x/y.png.
 const toScreen = ({ lat, lng }) => page.evaluate((lat, lng) => {
-  const tile = [...document.querySelectorAll('.leaflet-tile-loaded')].find(t => /\/\d+\/\d+\/\d+\.png/.test(t.src));
-  const [z, x, y] = tile.src.match(/\/(\d+)\/(\d+)\/(\d+)\.png/).slice(1).map(Number);
+  const parse = src => {
+    let m = src.match(/\/tile\/(\d+)\/(\d+)\/(\d+)/);
+    if (m) return [+m[1], +m[3], +m[2]];
+    m = src.match(/\/(\d+)\/(\d+)\/(\d+)\.png/);
+    return m && [+m[1], +m[2], +m[3]];
+  };
+  const tile = [...document.querySelectorAll('.leaflet-tile-loaded')].find(t => parse(t.src));
+  const [z, x, y] = parse(tile.src);
   const r = tile.getBoundingClientRect(), n = 2 ** z, rad = lat * Math.PI / 180;
   const tx = (lng + 180) / 360 * n, ty = (1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2 * n;
   return { x: r.left + (tx - x) * r.width, y: r.top + (ty - y) * r.height };
