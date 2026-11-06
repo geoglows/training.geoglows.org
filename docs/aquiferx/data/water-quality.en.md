@@ -10,12 +10,14 @@ type belongs to a region once the region has measurements of it, and from then o
 
 ## The catalog
 
-The catalog holds 38 standard parameters, each with a fixed code and unit. Values imported for a catalog parameter must be in its unit;
-the app does not convert units. **View Catalog** in Add Measurements, and **Browse Catalog** in the Custom Data Types window, list
-them with the search box below.
+The catalog holds 38 standard parameters, each with a fixed code and unit. Values in a file you import must already be in that unit,
+since the app converts the units of [Water Quality Portal](#downloading-from-the-water-quality-portal) downloads but not of your own
+files. **View Catalog** in Add Measurements and **Browse Catalog** in the Custom Data Types window list the parameters, with a search
+box.
 
 For reference, the catalog also gives the US EPA drinking water standard and the WHO guideline value where one exists, in the
-parameter's unit.
+parameter's unit. The EPA value is the enforceable maximum contaminant level unless it is marked **S**, a secondary standard set for
+taste, odor or staining, or **AL**, the action level that calls for treatment of lead and copper.
 
 | Group | Parameter | Code | Unit | EPA | WHO |
 |-------|-----------|------|------|-----|-----|
@@ -23,28 +25,28 @@ parameter's unit.
 |  | Temperature | `temperature` | deg C |  |  |
 |  | Specific Conductance | `conductivity` | µS/cm |  |  |
 |  | Turbidity | `turbidity` | NTU |  | 5 |
-|  | Total Dissolved Solids | `tds` | mg/L | 500 | 1000 |
+|  | Total Dissolved Solids | `tds` | mg/L | 500 S | 1000 |
 |  | Hardness | `hardness` | mg/L |  |  |
-| Nutrient | Nitrate | `nitrate` | mg/L | 10 | 50 |
-|  | Nitrite | `nitrite` | mg/L | 1 | 3 |
-|  | Ammonia | `ammonia` | mg/L |  |  |
-|  | Phosphorus | `phosphorus` | mg/L |  |  |
-|  | Total Nitrogen | `total_nitrogen` | mg/L |  |  |
-|  | Total Phosphorus | `total_phosphorus` | mg/L |  |  |
+| Nutrient | Nitrate | `nitrate` | mg/L as N | 10 | 11.3 |
+|  | Nitrite | `nitrite` | mg/L as N | 1 | 0.91 |
+|  | Ammonia | `ammonia` | mg/L as N |  |  |
+|  | Phosphorus | `phosphorus` | mg/L as P |  |  |
+|  | Total Nitrogen | `total_nitrogen` | mg/L as N |  |  |
+|  | Total Phosphorus | `total_phosphorus` | mg/L as P |  |  |
 | Major Ions | Calcium | `calcium` | mg/L |  |  |
 |  | Magnesium | `magnesium` | mg/L |  |  |
 |  | Sodium | `sodium` | mg/L |  | 200 |
 |  | Potassium | `potassium` | mg/L |  |  |
-|  | Chloride | `chloride` | mg/L | 250 |  |
-|  | Sulfate | `sulfate` | mg/L | 250 |  |
+|  | Chloride | `chloride` | mg/L | 250 S |  |
+|  | Sulfate | `sulfate` | mg/L | 250 S |  |
 |  | Bicarbonate | `bicarbonate` | mg/L |  |  |
 |  | Carbonate | `carbonate` | mg/L |  |  |
 | Minor Metals | Arsenic | `arsenic` | µg/L | 10 | 10 |
-|  | Iron | `iron` | µg/L | 300 |  |
-|  | Manganese | `manganese` | µg/L | 50 | 400 |
-|  | Lead | `lead` | µg/L | 15 | 10 |
-|  | Copper | `copper` | µg/L | 1300 | 2000 |
-|  | Zinc | `zinc` | µg/L | 5000 |  |
+|  | Iron | `iron` | µg/L | 300 S |  |
+|  | Manganese | `manganese` | µg/L | 50 S | 400 |
+|  | Lead | `lead` | µg/L | 15 AL | 10 |
+|  | Copper | `copper` | µg/L | 1300 AL | 2000 |
+|  | Zinc | `zinc` | µg/L | 5000 S |  |
 |  | Chromium | `chromium` | µg/L | 100 | 50 |
 |  | Selenium | `selenium` | µg/L | 50 | 40 |
 | Minor Non-metals | Fluoride | `fluoride` | mg/L | 4 | 1.5 |
@@ -58,10 +60,9 @@ parameter's unit.
 |  | Biochemical Oxygen Demand | `bod` | mg/L |  |  |
 |  | Chemical Oxygen Demand | `cod` | mg/L |  |  |
 
-The EPA column mixes kinds of standard. For most parameters it is the enforceable maximum contaminant level. For total dissolved solids,
-chloride, sulfate, iron, manganese and zinc it is a secondary standard, set for taste, odor or staining, and for lead and copper it is the
-action level for treatment. The nitrate and nitrite limits are on different bases: the EPA's are for nitrogen (10 mg/L nitrate as N), and
-the WHO's for the whole ion (50 mg/L nitrate, about 11.3 mg/L as N).
+Nitrogen and phosphorus compounds are measured as the nitrogen or phosphorus they contain, the usual convention in the United States:
+10 mg/L of nitrate as N is about 44 mg/L of the nitrate ion. The WHO sets its nitrate and nitrite values for the whole ion, 50 mg/L and
+3 mg/L, which the table gives as N.
 
 ## Custom data types
 
@@ -101,18 +102,23 @@ results for wells inside the region.
 
 ![Choosing parameters to download](../../static/images/aquiferx/data-wqp-picker.webp){ align=right width="420" }
 
-The portal often returns several results for one sample, and the download keeps one per well, date and parameter:
+The portal's results come from many laboratories, reported in different units and often several to a sample. The download cleans them
+in four steps:
 
 - **Non-numeric results** are dropped. A result below the detection limit, which the portal reports as text, is lost this way.
 - **Sample fraction.** Where the catalog prefers one fraction, results for the other are dropped. It keeps filtered (dissolved) results
   for nitrate, nitrite, ammonia, phosphorus, the major ions, the metals, fluoride, boron and silica, and unfiltered results for total
   nitrogen and total phosphorus.
+- **Units.** Each result is converted to the catalog's unit: mg/L to µg/L, degrees Fahrenheit to Celsius, mS/cm to µS/cm, and nitrogen
+  and phosphorus compounds reported as the ion (`mg/l asNO3`) to N or P. A result whose conversion is uncertain is dropped, such as
+  nitrate in plain `mg/l`, which some laboratories report as N and others as the ion, or dissolved oxygen in percent saturation.
 - **Duplicates.** Of the results left for a well, date and parameter, the first is kept.
 
-A **WQP cleanup** note counts what was dropped at each step.
+A **WQP cleanup** note counts what was dropped at each step, and under **Details** lists the units converted and dropped.
 
 The results then go through the same [well matching](measurements.md#how-rows-find-their-wells) as an uploaded file. A portal site that is
 also a USGS well, such as one from a [USGS well download](wells.md#downloading-wells-from-the-usgs), matches it by ID. Other sites match by
-name or proximity or become new wells. **Save Measurements** saves them, as for an upload.
+name or proximity, or become new wells with the portal's site ID, which starts with the code of the agency that runs the site.
+**Save Measurements** saves them, as for an upload.
 
 <div style="clear: both"></div>

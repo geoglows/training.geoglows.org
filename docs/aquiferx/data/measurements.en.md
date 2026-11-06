@@ -68,9 +68,10 @@ bottom show how each well was matched. **Re-match** runs the matching again afte
 Proximity matches deserve a look, since two wells can stand close together. **Review proximity matches** lists each one with the
 distance, and **Reject** turns a match into a new well.
 
-A new well gets an ID that starts with `aqx-`, made from its name and location, such as
-`aqx-34-00s-08-00e-21dda01-42.60N121.76W`. Its ground surface elevation is looked up as for [uploaded wells](wells.md#ground-surface-elevation),
-and in a region with aquifers it goes to the aquifer it falls inside.
+A new well keeps the well ID from the file. When the file has none, the well gets an ID that starts with `aqx-`, made from its name and
+location, such as `aqx-34-00s-08-00e-21dda01-42.60N121.76W`. Its ground surface elevation is looked up as for
+[uploaded wells](wells.md#ground-surface-elevation), and in a region with aquifers it goes to the aquifer it falls inside. A new well that
+falls inside no aquifer is not made, and its rows are skipped.
 
 ### Data columns
 
@@ -94,8 +95,8 @@ The app does not convert units, so convert the values before importing if they d
 <div style="clear: both"></div>
 
 **Depth to water.** When a column is going in as water table elevation, a box under the list converts depth to water below the ground
-into elevation: each value is subtracted from the well's ground surface elevation. Check that every well has an elevation before using
-it.
+into elevation: each value is subtracted from the well's ground surface elevation. Depths at wells without an elevation are skipped and
+counted in the summary.
 
 ### Duplicates
 
@@ -120,7 +121,8 @@ it is for the same well on the same date.
 ![The summary after saving](../../static/images/aquiferx/data-levels-done.webp){ align=right width="340" }
 
 **Save Measurements** writes the measurements, any new wells and any new custom types, then shows a summary: wells created and matched,
-measurements saved for each type, duplicates collapsed, and rows skipped because their well could not be found.
+measurements saved for each type, and duplicates collapsed. Below that it counts what was left out, with the reason: new wells outside
+every aquifer, rows whose well could not be found, values that are not numbers, and depths at wells without an elevation.
 
 <div style="clear: both"></div>
 

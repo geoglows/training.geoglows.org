@@ -29,7 +29,9 @@ your own well IDs and any surveyed ground elevations.
 4. **Ground surface elevation.** When the file has no elevation column, the app looks one up for each well (see
    [below](#ground-surface-elevation)).
 
-5. **Save Wells.** Rows without a well ID or usable coordinates are skipped.
+5. **Save Wells.** Rows without a well ID or usable coordinates are skipped. In a region with aquifers, so are wells that end up in
+   none of them, such as wells outside every aquifer outline when assigning by location; a notice above the elevation panel counts them
+   before you save.
 
 <div style="clear: both"></div>
 
@@ -41,8 +43,9 @@ When the region already has wells, an **Import Mode** choice appears above the f
 
 ### Coordinate systems
 
-The menu starts at **WGS84 — latitude / longitude**, the usual choice, and also lists Web Mercator. **Enter an EPSG code** takes the
-number of any other system, such as `32612` for UTM zone 12N, and **Look up** fetches its definition from [epsg.io](https://epsg.io){:target="_blank"}.
+The menu starts at **WGS84 — latitude / longitude**, the usual choice, and also lists Web Mercator and the UTM zone the region lies in.
+**Enter an EPSG code** takes the number of any other system, such as `26912` for NAD83 / UTM zone 12N, and **Look up** fetches its
+definition from [epsg.io](https://epsg.io){:target="_blank"}.
 
 When the first wells land outside the region, the app runs **Auto-detect** on its own. It tries, in order, latitude and longitude, the
 systems in the menu, the UTM zone of the region's center, and the systems epsg.io lists for that spot, and keeps the first that puts most

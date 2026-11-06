@@ -73,3 +73,31 @@ with open(out / 'klamath-water-quality.csv', 'w', newline='') as f:
 
 for p in sorted(out.iterdir()):
     print(p.name, p.stat().st_size)
+
+# The same files as a download for readers, linked from Preparing Your Files
+README = """Practice files for Aquifer Analyst, Part 2 of the training at training.geoglows.org
+
+Southwest Utah, a region with three aquifers (Cedar Valley, Parowan Valley and
+Escalante Valley-Beryl-Enterprise), in feet:
+  sw-utah-region.geojson       the region outline
+  sw-utah-aquifers.geojson     the aquifer outlines, named in a NAME attribute
+  sw-utah-wells.csv            wells with long water level records, without ground elevations
+  sw-utah-water-levels.csv     their water table elevations, one row per measurement
+
+Upper Klamath, a single-unit region in Oregon, in feet:
+  klamath-region.geojson       the region outline
+  klamath-water-quality.csv    water quality samples, one row per sample, with each
+                               well's name and location (the import creates the wells)
+
+The data come from the USGS and the Oregon sample region that ship with the app.
+"""
+import zipfile
+dest = Path(__file__).parents[2] / 'docs/static/files/aquiferx/aquifer-analyst-practice.zip'
+dest.parent.mkdir(parents=True, exist_ok=True)
+def entry(name):   # a fixed date, so a rebuild with the same data makes the same zip
+    return zipfile.ZipInfo(f'aquifer-analyst-practice/{name}', date_time=(2026, 1, 1, 0, 0, 0))
+with zipfile.ZipFile(dest, 'w', zipfile.ZIP_DEFLATED) as z:
+    z.writestr(entry('README.txt'), README, zipfile.ZIP_DEFLATED)
+    for p in sorted(out.iterdir()):
+        z.writestr(entry(p.name), p.read_bytes(), zipfile.ZIP_DEFLATED)
+print(dest.relative_to(Path(__file__).parents[2]), dest.stat().st_size)

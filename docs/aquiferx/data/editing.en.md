@@ -15,13 +15,14 @@ date.
 - To delete a measurement, click the bin at the end of its row. The row is struck through, and clicking the bin again restores it.
 - **Save Changes** saves the edits and deletions together, and **Cancel** leaves the record as it was.
 
-**Outlier threshold** highlights values far from the rest of the record. With quartiles Q1 and Q3 and the interquartile range
-IQR = Q3 − Q1, a value is flagged when it is below Q1 − k·IQR or above Q3 + k·IQR. The slider sets k from 1 to 5, 3 to start with, and the
-count of flagged values is at the right.
+**Outlier threshold** highlights values far from the measurements around them in time. For each value, the app takes the measurements
+within two years either side, or the six nearest when there are fewer, without the value itself. With their quartiles Q1 and Q3 and
+interquartile range IQR = Q3 − Q1, the value is flagged when it is below Q1 − k·IQR or above Q3 + k·IQR. The slider sets k from 1 to 5,
+3 to start with, and the count of flagged values is at the right.
 
-The check looks at the record as a whole, so it suits a record that varies around a steady level. A well whose water level has risen or
-fallen for decades has its earliest or latest values flagged even when they are right, as in the well above, which has declined about
-150 ft since the 1940s. Look at the chart before deleting anything it flags.
+Comparing each value with its neighbors in time keeps a long rise or decline from being flagged: the well above has fallen about 150 ft
+since the 1940s, and the check flags 6 of its 1,230 values, readings tens of feet below those around them. A flagged value is a reading to
+look at on the chart, which may be a real event such as a pumping test, so check before deleting it.
 
 <div style="clear: both"></div>
 
@@ -53,9 +54,9 @@ Larger removals are made where the data came in or in the region tree:
 
 ## Exporting
 
-**Export CSV** in the chart panel downloads what the chart shows for the selected wells: one row per measurement, with its date, value,
-well name and aquifer ID. The file is named after the first well and the data type. With a gap-filling model open for one well, it
-downloads the model's monthly series instead (see Part 4).
+**Export CSV** in the chart panel downloads what the chart shows for the selected wells: one row per measurement, with its date as
+YYYY-MM-DD, value, well ID, well name and aquifer ID, so the file can be imported again. The file is named after the first well and the
+data type. With a gap-filling model open for one well, it downloads the model's monthly series instead (see Part 4).
 
 To take a whole region elsewhere, use **Download** in the region's menu, or **Back up** for all of My Data. Both make a zip file of the
 region's own files, which other software can read and Aquifer Analyst can restore (see

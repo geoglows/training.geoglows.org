@@ -7,6 +7,18 @@ the Water Quality Portal instead (see [Wells](wells.md), [Measurements](measurem
 Column names in your files do not have to follow any convention. Each importer shows which column it will use for each field, guessed
 from common names, and you can change any of them.
 
+## Practice files
+
+[aquifer-analyst-practice.zip](../../static/files/aquiferx/aquifer-analyst-practice.zip) holds the files the pictures in Part 2 come
+from, so you can follow along in My Data:
+
+- **Southwest Utah**, a region with three aquifers: its outline, the aquifer outlines, 152 wells with long water level records and no
+  ground elevations, and about 23,000 water levels.
+- **Upper Klamath**, a single-unit region in Oregon: its outline and a file of water quality samples that gives each well's name and
+  location but no well ID.
+
+Both come from the Sample Data, so the results match the Utah and Oregon sample regions.
+
 ## Outlines
 
 The region outline and the aquifer outlines are polygons, in either of two formats:
@@ -19,9 +31,10 @@ A region outline can have more than one feature; together they make up the regio
 attribute holding the aquifer's name and, if you have them, an attribute holding its ID.
 
 The app keeps every outline in longitude and latitude (WGS 84). A zipped shapefile is converted from whatever system its `.prj` file
-describes; without a `.prj`, its coordinates are read as longitude and latitude. GeoJSON should be in longitude and latitude already,
-as the GeoJSON standard requires. If your outlines are in a projected system, such as UTM or a state plane, zip them as a shapefile with
-their `.prj`, or reproject them in QGIS before importing.
+describes. GeoJSON is longitude and latitude by definition, but files saved by some older software name another system in a `crs`
+member; the app converts those, looking the system up on [epsg.io](https://epsg.io){:target="_blank"} if it doesn't know it. A file
+whose coordinates are plainly not longitude and latitude, and that does not say what they are, is refused with a message. Zip it as a
+shapefile with its `.prj`, or reproject it in QGIS, and import it again.
 
 ## Tables
 
@@ -82,11 +95,11 @@ unit in parentheses after the name, as in `TDS (mg/L)`, helps it check that the 
 file holds depth to water below the ground instead, the importer can convert it, using each well's ground surface elevation.
 
 **Water quality values** must be in the unit the app uses for that parameter, listed in the [catalog](water-quality.md#the-catalog).
-Convert them before importing if they are not, for example arsenic in mg/L to µg/L.
+Convert them before importing if they are not, for example arsenic in mg/L to µg/L, or nitrate as the ion to nitrate as N.
 
-**A value that is not a number**, such as `<0.05`, `ND` or `dry`, is skipped when the app reads the region, so it never appears on a
-chart or in an analysis. If results below a detection limit matter to your work, decide how to record them and enter numbers before
-importing.
+**A value that is not a number**, such as `<0.05`, `ND`, `dry` or `12,5`, is skipped, and the summary after the import says how many
+were and shows a few. If results below a detection limit matter to your work, decide how to record them and enter numbers before
+importing. Write decimals with a point.
 
 ### Dates
 
