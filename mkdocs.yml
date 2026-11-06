@@ -195,6 +195,12 @@ nav:
           - Volta Basin: grace/case-studies/volta.md
           - California's Central Valley: grace/case-studies/central-valley.md
       - Publications: grace/publications.md
+  - Aquifer Analyst:
+      - Overview: aquiferx/overview.md
+      - Part 1 Getting Started:
+          - The App Interface: aquiferx/start/interface.md
+          - Sample Data and My Data: aquiferx/start/my-data.md
+          - Exploring a Region: aquiferx/start/exploring.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md

@@ -6,3 +6,7 @@ tools/grace-figures/.chrome-profile/
 tools/grace-figures/raw/
 tools/grace-figures/package*.json
 __pycache__/
+tools/aquiferx-figures/node_modules/
+tools/aquiferx-figures/.chrome-profile/
+tools/aquiferx-figures/raw/
+tools/aquiferx-figures/package*.json
