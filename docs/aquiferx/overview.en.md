@@ -16,7 +16,8 @@ Everything in the app hangs on four levels:
 - **Measurements** are dated values at a well. Water table elevation is the main one, and any number of water quality parameters, such as
   nitrate or total dissolved solids, can sit alongside it.
 
-![Aquifer Analyst with a well in Utah's Cache Valley selected](../static/images/aquiferx/app-well.webp)
+![The water table of the Escalante Valley-Beryl-Enterprise aquifer in Utah in 2019, interpolated from well records, and the
+change in groundwater storage since 1940](../static/images/aquiferx/app-overview.webp)
 
 The app is free and runs in a web browser at
 [apps.geoglows.org/previews/aquiferx](https://apps.geoglows.org/previews/aquiferx){:target="_blank"}. It has no server of its own: the

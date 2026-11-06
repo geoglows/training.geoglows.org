@@ -5,7 +5,7 @@
 Click a region in the tree, or its outline on the map, to open it. The map zooms to the region and draws its aquifers, and the tree
 lists them under it. Click an aquifer to show its wells.
 
-![Cache Valley in the Utah sample region](../../static/images/aquiferx/app-aquifer.webp)
+![The Escalante Valley-Beryl-Enterprise aquifer in the Utah sample region](../../static/images/aquiferx/app-aquifer.webp)
 
 In a region treated as a single unit, the region is its own aquifer, so its wells appear as soon as it opens and the tree lists its
 saved maps and models directly under it.
@@ -30,7 +30,7 @@ To compare wells, select more than one:
 - **Shift-click** a well to add it to the selection, or to remove it.
 - Hold **Shift** and **drag a box** to select every well inside it.
 
-![Two wells selected and plotted together](../../static/images/aquiferx/app-two-wells.webp)
+![Two wells selected and plotted together. Both show the aquifer's decline of about 2 ft a year, with a yearly swing on top](../../static/images/aquiferx/app-two-wells.webp)
 
 The selected wells get a gold ring on the map, and the chart draws each one in its own color, with a legend underneath. The bar above
 the map names the first well and counts the others. Click an empty spot in the aquifer to clear the selection.
@@ -44,7 +44,7 @@ The **Filter wells** settings at the bottom of the panel hide wells you are not 
 - **Measured *from* to *to*** shows only wells with at least one measurement between those two years, which separates wells that are
   still measured from wells abandoned long ago.
 
-![Cache Valley with only the wells that have 20 or more measurements](../../static/images/aquiferx/app-filter.webp)
+![Escalante Valley-Beryl-Enterprise with only the wells that have 20 or more measurements](../../static/images/aquiferx/app-filter.webp)
 
 The filters change which wells are drawn, found by the search and caught by a box selection. The app remembers them between visits, so
 set **At least** back to 0 to see every well again.
