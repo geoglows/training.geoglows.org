@@ -26,6 +26,11 @@ almacenamiento está subiendo o bajando en todo el sistema. GRACE observa todos 
 resolución es gruesa, de unos 300 km, por lo que es adecuado para acuíferos, cuencas y países y no para campos de pozos individuales, pero a esa
 escala ofrece un registro consistente del cambio de almacenamiento donde hay poca información más.
 
+Para un acuífero más pequeño, o con una red de monitoreo lo bastante densa como para cartografiarla, Aquifer Analyst, otra aplicación de
+GEOGLOWS, trabaja a partir de los propios pozos. Interpola los niveles de agua medidos para trazar mapas del nivel freático y calcula cómo ha
+cambiado el almacenamiento con el tiempo a la escala de una sola cuenca, de modo que puede mostrar si el acuífero se está usando de forma
+sostenible. En un acuífero grande con buen monitoreo las dos aplicaciones se superponen, y compararlas sirve para verificar una con la otra.
+
 ![GRACE Regional Analyst, vista regional del Sistema Acuífero Iullemeden-Irhazer](../static/images/grace/app-region.webp)
 
 La aplicación es gratuita y funciona en un navegador web en

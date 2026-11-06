@@ -24,6 +24,11 @@ whole system. GRACE sees every aquifer on Earth, every month, with the same inst
 to aquifers, basins and countries rather than individual well fields, but at that scale it gives a consistent record of storage change where
 little else exists.
 
+For an aquifer smaller than that, or one with a monitoring network dense enough to map, Aquifer Analyst, another GEOGLOWS app, works from
+the wells themselves. It interpolates measured water levels into maps of the water table and computes how storage has changed over time at
+the scale of a single basin, so it can show whether the aquifer is being used sustainably. In a large aquifer with good monitoring the two
+apps overlap, and comparing them is a useful check on both.
+
 ![GRACE Regional Analyst, regional view of the Iullemeden-Irhazer Aquifer System](../static/images/grace/app-region.webp)
 
 The app is free and runs in a web browser at

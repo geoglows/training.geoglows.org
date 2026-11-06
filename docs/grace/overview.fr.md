@@ -25,6 +25,11 @@ augmente ou diminue à l’échelle de l’ensemble du système. GRACE observe c
 résolution est grossière, environ 300 km : elle convient donc aux aquifères, aux bassins et aux pays plutôt qu’aux champs captants individuels,
 mais à cette échelle elle fournit un enregistrement cohérent de la variation du stockage là où il n’existe guère d’autres données.
 
+Pour un aquifère plus petit, ou doté d’un réseau de suivi assez dense pour être cartographié, Aquifer Analyst, une autre application GEOGLOWS,
+part des piézomètres eux-mêmes. Elle interpole les niveaux d’eau mesurés pour cartographier la surface piézométrique et calcule l’évolution du
+stockage dans le temps à l’échelle d’un seul bassin, ce qui permet de juger si l’aquifère est exploité de façon durable. Dans un grand aquifère
+bien suivi, les deux applications se recoupent, et les comparer permet de vérifier l’une par l’autre.
+
 ![GRACE Regional Analyst, vue régionale du Système Aquifère d’Iullemeden-Irhazer](../static/images/grace/app-region.webp)
 
 L’application est gratuite et s’exécute dans un navigateur web à l’adresse
