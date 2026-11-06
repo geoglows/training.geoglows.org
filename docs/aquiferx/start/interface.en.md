@@ -43,8 +43,10 @@ The bar along the top of the map shows where you are: **Home**, then the open re
 
 The controls on the map:
 
-![Zoom buttons](../../static/images/aquiferx/map-zoom.webp){ align=left width="46" style="margin: 0 18px 12px 0" }
-**Zoom** with the **+** and **−** buttons, the mouse wheel, or a pinch on a trackpad. Drag the map to pan.
+![Zoom buttons and the frame button](../../static/images/aquiferx/map-zoom.webp){ align=left width="46" style="margin: 0 18px 12px 0" }
+**Zoom** with the **+** and **−** buttons, the mouse wheel, or a pinch on a trackpad. Drag the map to pan. The button under them
+zooms back to fit whatever is open: the aquifer, the region, or all regions at Home. When the chart panel opens, the map refits on its
+own to keep the aquifer in view, unless you have zoomed or panned since it was framed.
 
 <div style="clear: both"></div>
 

@@ -28,9 +28,9 @@ My Data holds the regions you create, copy or restore. It is stored by your brow
 
 Back up whenever you have added or changed something you would not want to lose (see [below](#backing-up-and-restoring)).
 
-![My Data before any regions are added](../../static/images/aquiferx/app-mydata.webp)
+![My Data holding a copy of the Oregon sample region](../../static/images/aquiferx/app-mydata.webp)
 
-With My Data empty, the panel offers three ways to start: **Add a region** opens the Add Data window (see Part 2), **Copy a sample
+When My Data is empty, the panel offers three ways to start: **Add a region** opens the Add Data window (see Part 2), **Copy a sample
 region** switches to Sample Data so you can copy one, and **Restore** loads a backup.
 
 ## Copying a sample region

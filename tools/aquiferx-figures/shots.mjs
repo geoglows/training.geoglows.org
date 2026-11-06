@@ -55,7 +55,8 @@ const tiles = async () => {
   if (gaps) console.log(`MAP GAPS: ${gaps} of 121 sample points have no tile`);
 };
 const shot = async (name, clip) => {
-  await tiles(); await sleep(300);
+  // Twice, a second apart: once it caught an in-between state where the tiles had not been placed yet
+  await tiles(); await sleep(1000); await tiles(); await sleep(300);
   await page.screenshot({ path: `${OUT}/${name}.png`, clip, captureBeyondViewport: false }); console.log('saved', name);
 };
 const rect = (sel, pad = 0) => page.evaluate((s, p) => {
@@ -127,6 +128,25 @@ const fitAquifer = async () => {
     for (let k = 1; k <= 10; k++) { await page.mouse.move(grab.x + dx * k / 10, grab.y + dy * k / 10); await sleep(30); }
     await page.mouse.up(); await sleep(2500);   // the drag coasts before the map requests new tiles
   }
+};
+// My Data holding one region, a fresh copy of the Oregon sample. Whatever an earlier run left in
+// My Data is deleted first, so copies do not pile up.
+const myDataWithOregon = async () => {
+  await load();
+  await page.click('button[aria-label="Settings"]'); await sleep(1000);
+  const canDelete = await page.evaluate(() => {
+    const b = [...document.querySelectorAll('button')].find(x => x.textContent.trim() === 'Delete all My Data');
+    return !!b && !b.disabled;
+  });
+  if (canDelete) { await clickButton('Delete all My Data'); await clickButton('Delete everything'); await sleep(2000); }
+  await clickButton('Close');
+  await page.evaluate(() => {
+    const row = [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'Oregon');
+    row.nextElementSibling.click();
+  });
+  await sleep(600);
+  await clickButton('Copy to My Data'); await sleep(5000);   // the app switches to My Data and opens the copy
+  await treeItem('Williamson');
 };
 const setMinMeasurements = async n => {
   const box = await page.evaluateHandle(() => {
@@ -224,7 +244,7 @@ if (want('mapparts')) {
     return { x: l, y: t, width: Math.max(...els.map(r => r.right)) - l, height: Math.max(...els.map(r => r.bottom)) - t };
   });
   await shot('map-breadcrumb', box(crumbs, 8));
-  await shot('map-zoom', box(await union('.leaflet-control-zoom')));
+  await shot('map-zoom', box(await union('.leaflet-top.leaflet-left')));   // + and -, and the frame button under them
   for (const [label, name] of [['Analyze Trends', 'button-trends'], ['Spatial Analysis', 'button-spatial'], ['Impute Gaps', 'button-impute']]) {
     await shot(name, box(await union(`button[aria-label="${label}"]`), 4));
   }
@@ -276,15 +296,13 @@ if (want('filter')) {
   await setMinMeasurements(20);
   await shot('app-filter');
 }
-if (want('mydata')) {
-  await load();
-  await clickButton('My Data'); await sleep(4000);
-  await shot('app-mydata');
-}
-if (want('settings')) {
-  await load();
-  await page.click('button[aria-label="Settings"]'); await sleep(1200);
-  await shot('app-settings');
+if (want('mydata') || want('settings')) {
+  await myDataWithOregon();
+  await page.mouse.move(5, 5);
+  if (want('mydata')) await shot('app-mydata');
+  await page.click('button[aria-label="Settings"]'); await sleep(1500);
+  if (want('settings')) await shot('app-settings');
+  await clickButton('Close');
 }
 
 await browser.close();
