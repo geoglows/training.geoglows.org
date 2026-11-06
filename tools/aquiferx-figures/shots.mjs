@@ -205,6 +205,54 @@ if (want('region')) {
   await page.mouse.move(5, 5); await sleep(2000);   // the chart animates its curves in
   await shot('app-chart', await rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height })));
 }
+if (want('mapparts')) {
+  // Small crops of the map's controls for the Map section of The App Interface
+  await load();
+  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
+  await searchWell(WELL); await zoomOut(4); await page.mouse.move(5, 5); await sleep(1500);
+  const box = (r, pad = 6) => ({ x: r.x - pad, y: r.y - pad, width: r.width + 2 * pad, height: r.height + 2 * pad });
+  const union = sel => page.evaluate(sel => {
+    const els = [...document.querySelectorAll(sel)].flatMap(e => [e, ...e.querySelectorAll('*')]).map(e => e.getBoundingClientRect()).filter(r => r.width && r.height);
+    const l = Math.min(...els.map(r => r.left)), t = Math.min(...els.map(r => r.top));
+    return { x: l, y: t, width: Math.max(...els.map(r => r.right)) - l, height: Math.max(...els.map(r => r.bottom)) - t };
+  }, sel);
+  // The location bar: Home, the region, the aquifer and the selected well
+  const crumbs = await page.evaluate(() => {
+    const home = [...document.querySelectorAll('button')].find(b => b.textContent.trim() === 'Home');
+    const els = [...home.parentElement.querySelectorAll('*')].map(e => e.getBoundingClientRect()).filter(r => r.width && r.height);
+    const l = Math.min(...els.map(r => r.left)), t = Math.min(...els.map(r => r.top));
+    return { x: l, y: t, width: Math.max(...els.map(r => r.right)) - l, height: Math.max(...els.map(r => r.bottom)) - t };
+  });
+  await shot('map-breadcrumb', box(crumbs, 8));
+  await shot('map-zoom', box(await union('.leaflet-control-zoom')));
+  for (const [label, name] of [['Analyze Trends', 'button-trends'], ['Spatial Analysis', 'button-spatial'], ['Impute Gaps', 'button-impute']]) {
+    await shot(name, box(await union(`button[aria-label="${label}"]`), 4));
+  }
+  const legend = await page.evaluate(() => {
+    const h = [...document.querySelectorAll('.rfs-card')].find(c => c.textContent.trim().startsWith('Wells'));
+    const r = h.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height };
+  });
+  await shot('map-legend', box(legend));
+  await page.click('button[aria-label="Basemap"]'); await page.mouse.move(700, 600); await sleep(1200);   // off the button, so no tooltip
+  const basemap = await page.evaluate(() => {
+    const wrap = document.querySelector('button[aria-label="Basemap"]').closest('div.absolute');
+    const els = [wrap, ...wrap.querySelectorAll('*')].map(e => e.getBoundingClientRect()).filter(r => r.width && r.height);
+    const l = Math.min(...els.map(r => r.left)), t = Math.min(...els.map(r => r.top));
+    return { x: l, y: t, width: Math.max(...els.map(r => r.right)) - l, height: Math.max(...els.map(r => r.bottom)) - t };
+  });
+  await shot('map-basemap', box(basemap));
+  await page.click('button[aria-label="Basemap"]'); await sleep(600);
+  // Hide the wells legend, which sits under the matches and would peek out at the crop's edge
+  await page.evaluate(() => { [...document.querySelectorAll('.rfs-card')].find(c => c.textContent.trim().startsWith('Wells')).style.visibility = 'hidden'; });
+  await page.click('input[placeholder="Search wells..."]'); await page.type('input[placeholder="Search wells..."]', '(C-36-16)2'); await sleep(1000);
+  const search = await page.evaluate(() => {
+    // The box and its list of matches; the list scrolls, so its contents run past what shows
+    const r = document.querySelector('input[placeholder="Search wells..."]').closest('div.absolute').getBoundingClientRect();
+    return { x: r.x, y: r.y, width: r.width, height: r.height };
+  });
+  await shot('map-search', box(search));
+  console.log('sizes (CSS px):', JSON.stringify({ crumbs, legend, basemap, search }));
+}
 if (want('menu')) {
   await load();
   await page.evaluate(r => {

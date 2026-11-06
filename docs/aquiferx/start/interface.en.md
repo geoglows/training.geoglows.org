@@ -39,26 +39,54 @@ From top to bottom:
 
 The bar along the top of the map shows where you are: **Home**, then the open region, aquifer and well. Click any step to go back to it.
 
-On the map itself:
+![The location bar with a well selected](../../static/images/aquiferx/map-breadcrumb.webp){ width="542" }
 
-- **Zoom** with the **+** and **−** buttons, the mouse wheel, or a pinch on a trackpad. Drag to pan.
-- **Basemap**, the button at the top right, switches the background map: Esri's topographic map, which is the default, Esri imagery,
-  streets, light gray, dark gray and terrain, and OpenStreetMap.
-- **Click** a region's outline to open it, an aquifer to show its wells, and a well to plot it. Clicking an empty spot inside the open
-  aquifer clears the selected wells, and clicking a part of the region outside every aquifer goes back to the region.
-- **Search wells**, the box at the top left once an aquifer is open, finds a well by name or ID. Use the arrow keys and **Enter**, or
-  click a match, to select it and zoom to it.
-- **The legend** explains the colors of the well markers, which change when trends are shown.
+The controls on the map:
+
+![Zoom buttons](../../static/images/aquiferx/map-zoom.webp){ align=left width="46" style="margin: 0 18px 12px 0" }
+**Zoom** with the **+** and **−** buttons, the mouse wheel, or a pinch on a trackpad. Drag the map to pan.
+
+<div style="clear: both"></div>
+
+![The basemap menu](../../static/images/aquiferx/map-basemap.webp){ align=left width="259" style="margin: 0 18px 12px 0" }
+**Basemap**, the button at the top right, opens the list of background maps: Esri's topographic map, which is the default,
+Esri imagery, streets, light gray, dark gray and terrain, and OpenStreetMap.
+
+<div style="clear: both"></div>
+
+![Well search with its matches](../../static/images/aquiferx/map-search.webp){ align=left width="272" style="margin: 0 18px 12px 0" }
+**Search wells**, the box at the top left once an aquifer is open, lists the wells whose name or ID matches what you type. Use
+the arrow keys and **Enter**, or click a match, to select the well and zoom to it.
+
+<div style="clear: both"></div>
+
+![The wells legend](../../static/images/aquiferx/map-legend.webp){ align=left width="192" style="margin: 0 18px 12px 0" }
+**The legend** explains the colors of the well markers. The colors change when trends are shown (see Part 3).
+
+<div style="clear: both"></div>
+
+**Clicking** on the map opens what you click: a region's outline opens the region, an aquifer shows its wells, and a well is plotted in
+the chart panel. Clicking an empty spot inside the open aquifer clears the selected wells, and clicking a part of the region outside every
+aquifer goes back to the region.
 
 ## Analysis buttons
 
-Three buttons at the top right start the analyses. Each appears once there is something for it to work on:
+Three buttons at the top right start the analyses. Each appears once there is something for it to work on.
 
-- **Analyze Trends** (the line icon), once a region is open, colors wells and aquifers by how fast their water levels are changing. See
-  Part 3.
-- **Spatial Analysis** (the grid icon), once an aquifer is open, interpolates maps of the water table. See Part 5.
-- **Impute Gaps** (the wand icon), once an aquifer is open and water table elevation is the data type, fills the gaps in well records.
-  See Part 4.
+![Analyze Trends](../../static/images/aquiferx/button-trends.webp){ align=left width="44" style="margin: 0 18px 12px 0" }
+**Analyze Trends**, once a region is open, colors wells and aquifers by how fast their water levels are changing. See Part 3.
+
+<div style="clear: both"></div>
+
+![Spatial Analysis](../../static/images/aquiferx/button-spatial.webp){ align=left width="44" style="margin: 0 18px 12px 0" }
+**Spatial Analysis**, once an aquifer is open, interpolates maps of the water table. See Part 5.
+
+<div style="clear: both"></div>
+
+![Impute Gaps](../../static/images/aquiferx/button-impute.webp){ align=left width="44" style="margin: 0 18px 12px 0" }
+**Impute Gaps**, once an aquifer is open and water table elevation is the data type, fills the gaps in well records. See Part 4.
+
+<div style="clear: both"></div>
 
 ## Chart panel
 
@@ -68,9 +96,19 @@ The chart panel plots the measurements of the selected wells. Along its top:
 
 - **GSE** adds a line for each well's ground surface elevation.
 - **PCHIP** draws a smooth curve through the measurements. Part 3 explains the method.
-- **Trend Line** and **MAvg** add a straight-line trend and a moving average.
+- **Trend Line** adds a straight-line trend through each well's record.
+- **MAvg** adds a moving average, and a **months** box appears beside it for the averaging window, in steps of 3 months.
 - **View/Edit** opens a table of the selected well's measurements, where you can correct or delete them.
 - **Export CSV** downloads what the chart shows.
 - The arrows open the chart in a larger window.
 
 The right end says which data type is plotted and in what unit.
+
+The panel can hold more than one chart. When it does, tabs above the chart switch between them:
+
+- **Water Level**, or the name of the data type, plots the selected wells, as above.
+- **Storage Change** plots the change in groundwater storage when a water table map is open.
+- **Raster Statistics** plots, for each date of an open map, the spread of the well values it was built from: median, quartiles and range.
+- **Cross Section** plots a profile through the map once you draw one.
+
+Part 3 covers the well chart in detail, and Part 5 the charts that come with a map.
