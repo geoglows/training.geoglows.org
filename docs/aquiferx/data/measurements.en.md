@@ -102,10 +102,14 @@ counted in the summary.
 
 ### Duplicates
 
-![Two samples on the same date at some wells](../../static/images/aquiferx/meas-duplicates.webp){ align=right width="420" }
+![More than one water level on the same date at some wells](../../static/images/aquiferx/meas-duplicates.webp){ align=right width="420" }
 
 When the file has more than one row for a well on the same date, a notice says how many, with a choice of what to keep: **Average
-duplicates**, the default, **Keep maximum**, or **Keep all**.
+duplicates**, the default, **Keep maximum**, or **Keep all**. The report after saving lists each of them with the value it became (see
+[Saving](#saving)).
+
+In the Monterey County water levels, 2,564 well-dates have two to four readings. At 2,549 of them the readings are equal, and at 14 of
+the other 15 they differ by 0.05 ft or less. The last pair, 2.29 ft apart, is worth a look, and the report gives its row in the file.
 
 <div style="clear: both"></div>
 
@@ -124,7 +128,12 @@ it is for the same well on the same date.
 
 **Save Measurements** writes the measurements, any new wells and any new custom types, then shows a summary: wells created and matched,
 measurements saved for each type, and duplicates collapsed. Below that it counts what was left out, with the reason: new wells outside
-every aquifer, rows whose well could not be found, values that are not numbers, and depths at wells without an elevation.
+every aquifer, rows whose well could not be found, values that are not numbers, depths at wells without an elevation, and measurements
+the region already had, which **Add new only** skips and **Add and update** overwrites.
+
+**Download the details** saves those rows as a CSV file, one line each, with the row's number as a spreadsheet shows it, the well, date,
+data type and value, and what happened to it: `averaged to 24.5`, `skipped`, `replaced 23.9`. In a file with blank lines, the numbers
+fall behind the spreadsheet's by one for each blank line above the row, since the importer skips blank lines.
 
 <div style="clear: both"></div>
 
