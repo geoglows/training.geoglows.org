@@ -29,7 +29,7 @@ from, so you can follow along in My Data. They make two regions in California fr
 
 - **Monterey County**, a region with nine aquifers: the county's outline from the US Census Bureau, the outlines of the nine
   groundwater basins and subbasins in California DWR's Bulletin 118 that lie wholly inside it, 363 of DWR's monitoring wells with their
-  ground surface elevations and, for 325 of them, their depths, and 72,805 water levels from 1916 to 2026.
+  ground surface elevations and, for 325 of them, their depths, and 70,268 water levels from 1916 to 2026.
 - **Pajaro Valley**, a single-unit region: the outline of the Pajaro Valley subbasin, and 1,564 water quality samples from 161 wells,
   1971 to 2023, from the Water Quality Portal. Each row gives its well's ID, name, location and, for 103 of the wells, depth, and the
   import makes the wells from them.
@@ -74,8 +74,8 @@ From Excel, use **Save As** and pick **CSV UTF-8**.
 
 ```
 Well ID,Well Name,Latitude,Longitude,GSE,Well Depth,Aquifer ID
+367886N1216748W001,13783,36.7886,-121.67483,137,192,3-004.09
 367386N1216740W001,901,36.73863,-121.67404,94,385,3-004.02
-366709N1216818W001,14S03E31F001M,36.67094,-121.68183,39.9,201,3-004.01
 360137N1208920W001,189,36.0137,-120.89202,478.8,,3-004.05
 ```
 
@@ -91,9 +91,9 @@ The values can be laid out in either of two ways. In **long form**, each row hol
 
 ```
 Well ID,Date,WTE (ft)
-367386N1216740W001,1944-11-29,24
-367386N1216740W001,1945-11-15,20.3
-367386N1216740W001,1946-11-12,16.7
+367886N1216748W001,1960-12-08,23.3
+367886N1216748W001,1961-12-11,22.7
+367886N1216748W001,1962-12-14,22.1
 ```
 
 In **wide form**, each row is one sample, with a column for each thing measured. Water quality data often comes this way:

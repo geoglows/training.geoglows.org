@@ -108,8 +108,8 @@ When the file has more than one row for a well on the same date, a notice says h
 duplicates**, the default, **Keep maximum**, or **Keep all**. The report after saving lists each of them with the value it became (see
 [Saving](#saving)).
 
-In the Monterey County water levels, 2,564 well-dates have two to four readings. At 2,549 of them the readings are equal, and at 14 of
-the other 15 they differ by 0.05 ft or less. The last pair, 2.29 ft apart, is worth a look, and the report gives its row in the file.
+In the Monterey County water levels, 69 well-dates have two or three readings, taken at different times of the day. At 54 of them
+the readings are equal, and at 14 of the other 15 they differ by 0.05 ft or less. The last pair, 2.29 ft apart, is worth a look, and the report gives its row in the file.
 
 <div style="clear: both"></div>
 

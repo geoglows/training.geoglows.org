@@ -27,12 +27,13 @@ FONT = 'Helvetica, Arial, sans-serif'
 MONO = 'Menlo, Consolas, monospace'
 C = dict(
     navy='#1f3a5f', blue='#2b6cb0', teal='#2c7a7b', orange='#dd6b20', gray='#718096', darkgray='#4a5568',
-    lightgray='#e2e8f0', gold='#b7791f', sky='#f7fafc', faint='#edf2f7',
+    lightgray='#e2e8f0', gold='#b7791f', sky='#f7fafc', faint='#edf2f7', green='#2f855a', purple='#6b46c1',
 )
 # Neighboring aquifers in different colors
-AQ_COLOR = {'3-004.01': 'teal', '3-004.02': 'blue', '3-004.09': 'gold', '3-004.04': 'gold', '3-004.10': 'blue',
-            '3-004.08': 'gold', '3-004.05': 'teal', '3-006': 'blue', '3-007': 'teal'}
-WELL_ID = '367386N1216740W001'       # 901, in the East Side Aquifer: the well on the Editing page
+AQ_COLOR = {'3-004.01': 'green', '3-004.02': 'purple', '3-004.09': 'gold', '3-004.04': 'gold', '3-004.10': 'blue',
+            '3-004.08': 'gold', '3-004.05': 'green', '3-006': 'blue', '3-007': 'green'}
+WELL_ID = '367886N1216748W001'       # 13783, in the Langley Area: the well on the Editing page, measured
+                                     # each winter, with a steady record and one bad value
 
 
 def esc(s):
@@ -140,7 +141,7 @@ def files_map():
     body.append(path(proj.d(region), stroke='darkgray', w=2, fill='sky'))
     for aid, (name, g) in aquifers.items():
         col = AQ_COLOR[aid]
-        body.append(path(proj.d(g), stroke=col, w=1.1, fill=col, fill_opacity=0.18))
+        body.append(path(proj.d(g), stroke=col, w=1.4, fill=col, fill_opacity=0.25))
 
     hi = None
     for wl in wells:
@@ -148,7 +149,7 @@ def files_map():
         if wl['Well ID'] == WELL_ID:
             hi = (x, y)
             continue
-        body.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="{C["navy"]}" stroke="white" stroke-width="0.6"/>')
+        body.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.2" fill="{C["navy"]}" stroke="white" stroke-width="0.5"/>')
     hx, hy = hi
     body.append(f'<circle cx="{hx:.1f}" cy="{hy:.1f}" r="6.5" fill="{C["orange"]}" stroke="white" stroke-width="1.5"/>')
 
@@ -158,7 +159,8 @@ def files_map():
         col = AQ_COLOR[aid]
         tx, ty = proj(lon, lat)
         ex = lx + (4 if anchor == 'start' else -4)
-        body.append(line(ex, ly - 4, tx, ty, col, 1))
+        body.append(line(ex, ly - 4, tx, ty, col, 1.2))
+        body.append(f'<circle cx="{tx:.1f}" cy="{ty:.1f}" r="3" fill="{C[col]}" stroke="white" stroke-width="1"/>')
         body.append(text(lx + (8 if anchor == 'start' else -8), ly, esc(name), 12.5, weight='bold', fill=col, anchor=anchor))
 
     # The region outline, from its eastern edge
@@ -173,17 +175,17 @@ def files_map():
     body.append(text(650, 98, 'Measurements at the orange well', 14, weight='bold', fill='orange'))
     body.append(text(650, 117, 'Water table elevation, ft', 13))
     pts = [(date.fromisoformat(r['Date']), float(r['WTE (ft)'])) for r in levels]
-    t0, t1 = date(1940, 1, 1), date(2030, 1, 1)
-    v0, v1 = -120, 40
+    t0, t1 = date(1955, 1, 1), date(2030, 1, 1)
+    v0, v1, dv = -10, 30, 10
     def px(d):
         return cx0 + (d - t0).days / (t1 - t0).days * cw
     def py(v):
         return cy0 + ch - (v - v0) / (v1 - v0) * ch
-    for v in range(v0, v1 + 1, 40):
+    for v in range(v0, v1 + 1, dv):
         y = py(v)
         body.append(line(cx0, y, cx0 + cw, y, 'lightgray', 1))
         body.append(text(cx0 - 6, y + 4, f'{v:,}'.replace('-', '−'), 12, anchor='end', fill='gray'))
-    for yr in range(1940, 2031, 20):
+    for yr in range(1960, 2031, 20):
         x = px(date(yr, 1, 1))
         body.append(line(x, cy0 + ch, x, cy0 + ch + 4, 'gray', 1))
         body.append(text(x, cy0 + ch + 18, yr, 12, anchor='middle', fill='gray'))
@@ -202,8 +204,8 @@ def files_map():
         if kind == 'region':
             body.append(f'<rect x="{x}" y="{y - 10}" width="22" height="13" fill="{C["sky"]}" stroke="{C["darkgray"]}" stroke-width="2"/>')
         elif kind == 'aquifer':
-            for k, col in enumerate(['teal', 'blue', 'gold']):
-                body.append(f'<rect x="{x + k * 7.33:.1f}" y="{y - 10}" width="7.33" height="13" fill="{C[col]}" fill-opacity="0.3" stroke="{C[col]}" stroke-width="1"/>')
+            for k, col in enumerate(['green', 'purple', 'blue', 'gold']):
+                body.append(f'<rect x="{x + k * 5.5:.1f}" y="{y - 10}" width="5.5" height="13" fill="{C[col]}" fill-opacity="0.3" stroke="{C[col]}" stroke-width="1"/>')
         elif kind == 'well':
             body.append(f'<circle cx="{x + 11}" cy="{y - 3.5}" r="3.5" fill="{C["navy"]}"/>')
         else:
@@ -217,14 +219,14 @@ def files_map():
 # Where each aquifer's name goes on the map, placed for this map: (id, label x, label y, anchor, lon, lat of
 # the leader's end, inside the outline)
 LABELS = [
-    ('3-004.09', 330, 84, 'start', -121.64, 36.80),
-    ('3-004.01', 330, 108, 'start', -121.56, 36.70),
-    ('3-004.02', 330, 132, 'start', -121.50, 36.62),
+    ('3-004.09', 330, 84, 'start', -121.635, 36.786),
+    ('3-004.01', 330, 108, 'start', -121.746, 36.741),
+    ('3-004.02', 330, 132, 'start', -121.629, 36.723),
     ('3-004.04', 390, 252, 'start', -121.32, 36.40),
     ('3-004.05', 500, 304, 'start', -120.95, 36.05),
     ('3-006', 262, 452, 'end', -121.05, 35.90),
-    ('3-004.10', 96, 150, 'end', -121.76, 36.62),
-    ('3-004.08', 96, 182, 'end', -121.82, 36.60),
+    ('3-004.10', 96, 150, 'end', -121.79, 36.667),
+    ('3-004.08', 96, 182, 'end', -121.805, 36.603),
     ('3-007', 96, 216, 'end', -121.80, 36.50),
 ]
 
@@ -298,7 +300,7 @@ def files_links():
     link(2, [('Each well is in one aquifer: the one its ', None, None), ('Aquifer ID', 'teal', 'bold'),
              (' names, or the outline it falls inside.', None, None)])
     x, y = card(2, 'navy', 'Wells', 'CSV, one row per well')
-    ex = [WELL_ID, '366709N1216818W001', '360137N1208920W001']
+    ex = [WELL_ID, '367386N1216740W001', '360137N1208920W001']
     rows = [[w['Well ID'], w['Well Name'], w['Latitude'], w['Longitude'], w['GSE'], w['Well Depth'], w['Aquifer ID']]
             for w in (wells_by_id[e] for e in ex)]
     table(x + 20, y + 52, ['Well ID', 'Well Name', 'Latitude', 'Longitude', 'GSE', 'Well Depth', 'Aquifer ID'], rows,

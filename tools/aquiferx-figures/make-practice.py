@@ -138,11 +138,19 @@ levels = ckan_sql('dwr-measurements.json',
                   f'JOIN "{STATIONS}" s ON s.site_code = m.site_code WHERE s.county_name = \'Monterey\' ORDER BY m._id')
 
 # Measurements DWR rates Good, with a groundwater elevation; it also lists visits with no measurement
-# and measurements it rates Questionable
+# and measurements it rates Questionable. Some measurements are in DWR's datastore twice, as two
+# records next to each other that agree in every field; the second is a copy and is left out.
 good = defaultdict(list)
 dropped = {'No measurement': 0, 'Questionable': 0}
+copies = defaultdict(int)
+seen = set()
 for r in levels:
     if r['wlm_qa_desc'] == 'Good' and r['gwe'] is not None:
+        key = (r['site_code'], r['msmt_date'], r['gwe'])
+        if key in seen:
+            copies[r['site_code']] += 1
+            continue
+        seen.add(key)
         good[r['site_code']].append((r['msmt_date'][:10], r['gwe']))
     else:
         dropped[r['wlm_qa_desc']] = dropped.get(r['wlm_qa_desc'], 0) + 1
@@ -168,6 +176,7 @@ with open(out / 'monterey-water-levels.csv', 'w', newline='') as f:
 first = min(d for s in wells for d, _ in good[s['site_code']])
 last = max(d for s in wells for d, _ in good[s['site_code']])
 per_aquifer = {n: sum(1 for s in wells if s['basin_code'] == n) for n in AQUIFERS}
+n_copies = sum(copies[s['site_code']] for s in wells)
 
 # ---------------------------------------------------------------------------------------------
 # Pajaro Valley: water quality from the Water Quality Portal
@@ -226,7 +235,7 @@ wq_dates = sorted(d for _, d in samples)
 
 for p in sorted(out.iterdir()):
     print(p.name, p.stat().st_size)
-print(f'{len(wells)} wells, {n_levels} water levels ({same_day} on a day the well already has one), {first} to {last}')
+print(f'{len(wells)} wells, {n_levels} water levels ({same_day} on a day the well already has one, {n_copies} copies left out), {first} to {last}')
 print('dropped', dropped, 'wells per aquifer', per_aquifer)
 print(f'{len(wq_sites)} water quality wells, {len(samples)} samples, {wq_dates[0]} to {wq_dates[-1]}')
 
@@ -249,8 +258,10 @@ Monterey County, a region with nine aquifers
                               gives, the well depth DWR gives for {depth_wells} of them, and the
                               Bulletin 118 number of the subbasin DWR lists
   monterey-water-levels.csv   their {n_levels:,} groundwater elevations, {first[:4]} to {last[:4]}, one row
-                              per measurement: the measurements DWR rates Good. {same_day:,} are a
-                              second measurement of a well on the same day.
+                              per measurement: the measurements DWR rates Good. {same_day:,} are on a
+                              day the well already has a measurement. DWR's datastore has
+                              {n_copies:,} more records that repeat one of these in every field,
+                              which are left out.
 
 Pajaro Valley, a single-unit region
   pajaro-region.geojson       the outline of the Pajaro Valley subbasin (Bulletin 118 {PAJARO})

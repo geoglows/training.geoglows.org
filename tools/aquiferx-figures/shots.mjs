@@ -13,14 +13,14 @@ const REGION = 'Utah';
 const AQUIFER = 'Escalante Valley-Beryl-Enterprise';
 const WELL = { name: '(C-36-16)29daa- 1', lat: 37.6263635, lng: -113.6613536 };
 const WELL2 = { name: '(C-35-16)33bcc- 1', lat: 37.71441685, lng: -113.655799 };
-// Part 2's, in the Monterey County practice region: a well in the East Side Aquifer with a record from
-// 1944, found by its ID, since other wells' names contain its name, 901
-const PRACTICE_AQUIFER = 'East Side Aquifer';
-const PRACTICE_WELL = { name: '367386N1216740W001', lat: 36.73863, lng: -121.67404 };
+// Part 2's, in the Monterey County practice region: a well in the Langley Area measured each winter
+// since 1960, 13783, found by its ID
+const PRACTICE_AQUIFER = 'Langley Area';
+const PRACTICE_WELL = { name: '367886N1216748W001', lat: 36.7886, lng: -121.67483 };
 
 const browser = await puppeteer.launch({
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new',
-  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile', protocolTimeout: 600000,
+  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile', protocolTimeout: 2400000,
 });
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
@@ -438,7 +438,8 @@ if (want('wq')) {
   await shot('meas-matching', await panelOf('Well matching'));
   await shot('meas-datacolumns', await panelOf('Map data columns'));
   await clickButton('Save Measurements');
-  await waitText2('Import complete', 600000);
+  // 3DEP can take 30 s a well when it is busy
+  await waitText2('Import complete', 1800000);
   await sleep(800);
   await clickButton('Done'); await sleep(2500);
 

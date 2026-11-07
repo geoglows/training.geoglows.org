@@ -21,9 +21,12 @@ interquartile range IQR = Q3 − Q1, the value is flagged when it is below Q1 �
 3 to start with, and the count of flagged values is at the right.
 
 Comparing each value with its neighbors in time keeps a long rise or decline from being flagged. The water table at the well above fell
-from an elevation of 24 ft in 1944 to −111 ft in 1992, and the check flags 3 of its 196 values: one 26 ft below the median of the
-values around it, and two 36 and 47 ft above. A flagged value is a reading to look at on the chart, which may be a real event such as a
-pumping test, so check before deleting it.
+from an elevation of 23 ft in 1960 to about 0 by 2000 and has stayed there, and the check flags 2 of its 61 values. The value of 0 in
+January 1986, more than 9 ft below the values around it, is most likely a missing reading stored as zero: DWR's record gives the depth
+to water that day as 140.1 ft, the same as the ground surface elevation. The other, 2.0 ft in November 2021, is only 2.2 ft above the
+median of its neighbors, but five of the six lie within 0.7 ft of each other, so a small step stands out. With the slider at 4, only the
+1986 value is flagged. A flagged value is a reading to look at on the chart, which may be a real event such as a pumping test, so check
+before deleting it.
 
 <div style="clear: both"></div>
 
