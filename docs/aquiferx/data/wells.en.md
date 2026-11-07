@@ -58,8 +58,9 @@ The ground surface elevation (GSE) of each well matters in three places: convert
 USGS water level download, which needs it for the same conversion, and the **GSE** line on the chart.
 
 When the file has no elevation column, the lookup starts once the well ID and coordinates are mapped and the coordinates land inside
-the region. It uses USGS 3DEP, about 10 m resolution, when every well is in the United States, and the Copernicus DEM through Open-Meteo,
-about 90 m, otherwise. Values are converted to the region's unit.
+the region. When every well is in the United States, it asks USGS 3DEP, about 10 m resolution, one well at a time. 3DEP can be slow, so a
+well it has not answered within 30 seconds gets the Copernicus DEM value through Open-Meteo, about 90 m, and the panel says how many did.
+Outside the United States, every well gets the Open-Meteo value. Values are converted to the region's unit.
 
 **Save Wells** does not wait for the lookup: wells it has not reached yet are saved without an elevation. If the lookup fails, **Try
 again** repeats it. An elevation from a model can be off by meters, more in steep terrain, so use surveyed elevations where you have
