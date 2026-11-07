@@ -9,7 +9,7 @@ from common names, and you can change any of them.
 
 ## How the files fit together
 
-![The Southwest Utah practice region: its outline, three aquifers, their wells, and the water levels of one well](../../static/images/aquiferx/files-map.png)
+![The Monterey County practice region: its outline, nine aquifers, their wells, and the water levels of one well](../../static/images/aquiferx/files-map.png)
 
 The region outline marks out the study area, and the aquifer outlines divide it into the aquifers you want to map and analyze
 separately. Each well belongs to one aquifer, and each measurement is a dated value at one well, of one data type: a water table
@@ -25,14 +25,16 @@ measurement's well by name or coordinates, making a new well where none matches.
 ## Practice files
 
 [aquifer-analyst-practice.zip](../../static/files/aquiferx/aquifer-analyst-practice.zip) holds the files the pictures in Part 2 come
-from, so you can follow along in My Data:
+from, so you can follow along in My Data. They make two regions in California from public data, neither of them in the Sample Data:
 
-- **Southwest Utah**, a region with three aquifers: its outline, the aquifer outlines, 152 wells with long water level records and no
-  ground elevations, and about 23,000 water levels.
-- **Upper Klamath**, a single-unit region in Oregon: its outline and a file of water quality samples that gives each well's name and
-  location but no well ID.
+- **Monterey County**, a region with nine aquifers: the county's outline from the US Census Bureau, the outlines of the nine
+  groundwater basins and subbasins in California DWR's Bulletin 118 that lie wholly inside it, 363 of DWR's monitoring wells with their
+  ground surface elevations and, for 325 of them, their depths, and 72,805 water levels from 1916 to 2026.
+- **Pajaro Valley**, a single-unit region: the outline of the Pajaro Valley subbasin, and 1,564 water quality samples from 161 wells,
+  1971 to 2023, from the Water Quality Portal. Each row gives its well's ID, name, location and, for 103 of the wells, depth, and the
+  import makes the wells from them.
 
-Both come from the Sample Data, so the results match the Utah and Oregon sample regions.
+The README.txt in the zip says where each file comes from.
 
 ## Outlines
 
@@ -67,13 +69,14 @@ From Excel, use **Save As** and pick **CSV UTF-8**.
 | Latitude | yes | Latitude, or the northing (Y) in a projected system |
 | Longitude | yes | Longitude, or the easting (X) in a projected system |
 | Ground surface elevation | no | In the region's unit; looked up from an elevation model when the file has none |
+| Well depth | no | How far the finished well goes below the ground, in the region's unit; lets a map use the wells in a range of depths |
 | Aquifer ID | no | Which aquifer each well is in; the app can work this out from the locations instead |
 
 ```
-Well ID,Well Name,Latitude,Longitude
-373236113111401,(C-37-12)34abb- 1,37.543312,-113.189117
-373338113431502,(C-37-17)14dcd- 2,37.560531,-113.721633
-373347113102801,(C-37-12)23cbd- 1,37.563034,-113.175228
+Well ID,Well Name,Latitude,Longitude,GSE,Well Depth,Aquifer ID
+367386N1216740W001,901,36.73863,-121.67404,94,385,3-004.02
+366709N1216818W001,14S03E31F001M,36.67094,-121.68183,39.9,201,3-004.01
+360137N1208920W001,189,36.0137,-120.89202,478.8,,3-004.05
 ```
 
 Coordinates in a projected system are converted when you import the file; [Wells](wells.md#uploading-a-wells-file) explains how to
@@ -88,18 +91,18 @@ The values can be laid out in either of two ways. In **long form**, each row hol
 
 ```
 Well ID,Date,WTE (ft)
-373236113111401,03/22/1940,5464.98
-373236113111401,04/13/1940,5466.3
-373236113111401,12/02/1940,5460.35
+367386N1216740W001,1944-11-29,24
+367386N1216740W001,1945-11-15,20.3
+367386N1216740W001,1946-11-12,16.7
 ```
 
 In **wide form**, each row is one sample, with a column for each thing measured. Water quality data often comes this way:
 
 ```
-Station,Latitude,Longitude,Date,pH,Temperature (deg C),TDS (mg/L),Hardness (mg/L)
-34.00S/08.00E-21DDA01,42.604958,-121.760719,2019-10-24,8.3,12,110,27.8
-34.00S/08.00E-21DDA01,42.604958,-121.760719,2022-03-09,8.3,12.3,107,27.9
-34.00S/08.00E-23AAA01,42.616364,-121.720992,2019-11-20,7.8,12.1,131,47.5
+Well ID,Station,Latitude,Longitude,Well Depth,Date,pH,Temperature (deg C),Specific Conductance (uS/cm),TDS (mg/L),Chloride (mg/L),Nitrate (mg/L as N)
+USGS-365709121500401,011S001E23N001M,36.9525833,-121.8345,200,2013-02-05,7.2,17,210,147,10.7,0.458
+USGS-365709121500401,011S001E23N001M,36.9525833,-121.8345,200,2018-04-04,7,17.5,233,177,12.1,0.497
+USGS-365722121441601,011S002E22P001M,36.9562222,-121.7378056,300,2013-02-06,7.7,17,538,313,28.1,0.077
 ```
 
 The importer offers every column it has not used for the well or the date as a column of data, and suggests what each one holds: water

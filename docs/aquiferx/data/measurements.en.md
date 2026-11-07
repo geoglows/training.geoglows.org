@@ -33,8 +33,8 @@ The box at the top, **The file has well names or coordinates**, decides how rows
 
 - **Off:** the file has only well IDs, and each must match a well already in the region. Rows whose well is not found are listed in a
   warning and skipped.
-- **On:** the panel adds the well name, latitude and longitude, and rows are matched to the region's wells by ID, name or location, as
-  described next. Wells that match nothing are created.
+- **On:** the panel adds the well name, latitude, longitude and well depth, and rows are matched to the region's wells by ID, name or
+  location, as described next. Wells that match nothing are created.
 
 The importer sets the box from the file: on when the region has no wells yet, or when the file has a name or coordinate column.
 
@@ -43,7 +43,8 @@ The importer sets the box from the file: on when the region has no wells yet, or
 ![The Columns panel for a file with station names and coordinates](../../static/images/aquiferx/meas-columns-wells.webp){ align=right width="380" }
 
 With the box on, the well ID is optional, since a name or a pair of coordinates can identify a well. This file of water quality samples
-names its wells in a **Station** column and gives their latitude and longitude.
+gives each well's ID in the Water Quality Portal, its name in a **Station** column, its latitude and longitude, and its depth where the
+portal has one.
 
 <div style="clear: both"></div>
 
@@ -69,7 +70,8 @@ Proximity matches deserve a look, since two wells can stand close together. **Re
 distance, and **Reject** turns a match into a new well.
 
 A new well keeps the well ID from the file. When the file has none, the well gets an ID that starts with `aqx-`, made from its name and
-location, such as `aqx-34-00s-08-00e-21dda01-42.60N121.76W`. Its ground surface elevation is looked up as for
+location: a well named 011S001E23N001M at 36.9526° N, 121.8345° W becomes `aqx-011s001e23n001m-36.95N121.83W`. Its depth comes from the
+**Well depth** column when the file has one (see [Wells](wells.md#well-depth)), its ground surface elevation is looked up as for
 [uploaded wells](wells.md#ground-surface-elevation), and in a region with aquifers it goes to the aquifer it falls inside. A new well that
 falls inside no aquifer is not made, and its rows are skipped.
 

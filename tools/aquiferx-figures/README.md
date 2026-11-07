@@ -26,10 +26,12 @@ node shots.mjs raw region,multiwell     # just these steps
 the script. The browser profile in `.chrome-profile/` keeps the app's remembered settings between runs, so every step that opens an
 aquifer resets the data set and the well filters first.
 
-The Part 2 steps import the files in `practice/`, which `make-practice.py` builds from the app's Sample Data
-(`python3 make-practice.py ../../../aquiferx/public/data`; it needs shapely). `adddata` deletes everything in the browser profile's
-My Data and builds a Southwest Utah region from them; `wq` adds an Upper Klamath region; `edit` works in the Southwest Utah region, so
-run the three in that order. The wells upload looks up ground elevations from USGS 3DEP, so it needs a network connection.
+The Part 2 steps import the files in `practice/`, which `make-practice.py` downloads and builds from public data: the Census
+Bureau's county outlines, California DWR's Bulletin 118 basins and its periodic groundwater levels, and the Water Quality Portal
+(`python3 make-practice.py`; it needs shapely and geopandas, and keeps the downloads in `.cache/`). It also writes the zip the pages
+link to. `adddata` deletes everything in the browser profile's My Data and builds a Monterey County region from them; `wq` adds a
+Pajaro Valley region; `edit` works in the Monterey County region, so run the three in that order. The water quality import looks up
+ground elevations for the wells it makes, so it needs a network connection.
 
 `webp.sh` writes WebP copies at quality 86, reduced to 1800 px wide when the PNG is wider, which is what the pages use.
 

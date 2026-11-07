@@ -5,7 +5,7 @@
 Run make-practice.py first. Writes editable SVGs to docs/static/images/aquiferx/diagrams/ and renders 2x PNGs next to the
 pages' other images with Inkscape. Needs shapely, and Inkscape at /Applications/Inkscape.app (change INKSCAPE elsewhere).
 
-  files-map.png     the Southwest Utah practice region: outline, aquifers, wells, and one well's water levels
+  files-map.png     the Monterey County practice region: outline, aquifers, wells, and one well's water levels
   files-links.png   the four files, a few rows of each, and the columns that tie them together
 """
 import csv
@@ -29,8 +29,10 @@ C = dict(
     navy='#1f3a5f', blue='#2b6cb0', teal='#2c7a7b', orange='#dd6b20', gray='#718096', darkgray='#4a5568',
     lightgray='#e2e8f0', gold='#b7791f', sky='#f7fafc', faint='#edf2f7',
 )
-AQ_COLORS = ['teal', 'blue', 'gold']  # Cedar Valley, Parowan Valley, Escalante Valley-Beryl-Enterprise
-WELL_ID = '373735113393801'          # (C-36-16)29daa- 1, the well on the Editing page
+# Neighboring aquifers in different colors
+AQ_COLOR = {'3-004.01': 'teal', '3-004.02': 'blue', '3-004.09': 'gold', '3-004.04': 'gold', '3-004.10': 'blue',
+            '3-004.08': 'gold', '3-004.05': 'teal', '3-006': 'blue', '3-007': 'teal'}
+WELL_ID = '367386N1216740W001'       # 901, in the East Side Aquifer: the well on the Editing page
 
 
 def esc(s):
@@ -84,24 +86,12 @@ def save(name, svg):
 
 # ---------------------------------------------------------------- data
 
-region = shape(json.loads((PRACTICE / 'sw-utah-region.geojson').read_text())['features'][0]['geometry'])
-aq_feats = json.loads((PRACTICE / 'sw-utah-aquifers.geojson').read_text())['features']
-aquifers = [(f['properties']['NAME'], shape(f['geometry'])) for f in aq_feats]
-wells = list(csv.DictReader(open(PRACTICE / 'sw-utah-wells.csv')))
-levels = [r for r in csv.DictReader(open(PRACTICE / 'sw-utah-water-levels.csv')) if r['Well ID'] == WELL_ID]
-
-
-def aquifer_of(lat, lng):
-    p = Point(lng, lat)
-    for i, (_, g) in enumerate(aquifers):
-        if g.contains(p):
-            return i
-    return None
-
-
-def parse_us(d):
-    m, dd, y = d.split('/')
-    return date(int(y), int(m), int(dd))
+region = shape(json.loads((PRACTICE / 'monterey-region.geojson').read_text())['features'][0]['geometry'])
+aq_feats = json.loads((PRACTICE / 'monterey-aquifers.geojson').read_text())['features']
+aquifers = {f['properties']['aquifer_id']: (f['properties']['aquifer_name'], shape(f['geometry'])) for f in aq_feats}
+wells = list(csv.DictReader(open(PRACTICE / 'monterey-wells.csv')))
+wells_by_id = {w['Well ID']: w for w in wells}
+levels = [r for r in csv.DictReader(open(PRACTICE / 'monterey-water-levels.csv')) if r['Well ID'] == WELL_ID]
 
 
 def rings(geom):
@@ -142,15 +132,15 @@ class Projection:
 # ---------------------------------------------------------------- figure 1: the map
 
 def files_map():
-    W, H = 960, 456
+    W, H = 960, 470
     body = []
-    body.append(text(30, 36, 'Southwest Utah: one region, three aquifers, 152 wells', 17, weight='bold', fill='navy'))
+    body.append(text(30, 36, f'Monterey County: one region, nine aquifers, {len(wells)} wells', 17, weight='bold', fill='navy'))
 
-    proj = Projection(region.bounds, (20, 64, 580, 360))
+    proj = Projection(region.bounds, (110, 60, 500, 395))
     body.append(path(proj.d(region), stroke='darkgray', w=2, fill='sky'))
-    for i, (name, g) in enumerate(aquifers):
-        col = AQ_COLORS[i]
-        body.append(path(proj.d(g), stroke=col, w=1.2, fill=col, fill_opacity=0.16))
+    for aid, (name, g) in aquifers.items():
+        col = AQ_COLOR[aid]
+        body.append(path(proj.d(g), stroke=col, w=1.1, fill=col, fill_opacity=0.18))
 
     hi = None
     for wl in wells:
@@ -158,42 +148,47 @@ def files_map():
         if wl['Well ID'] == WELL_ID:
             hi = (x, y)
             continue
-        body.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="{C["navy"]}" stroke="white" stroke-width="0.7"/>')
+        body.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="{C["navy"]}" stroke="white" stroke-width="0.6"/>')
     hx, hy = hi
     body.append(f'<circle cx="{hx:.1f}" cy="{hy:.1f}" r="6.5" fill="{C["orange"]}" stroke="white" stroke-width="1.5"/>')
 
-    # Aquifer names beside their outlines, placed for this map
-    body.append(text(40, 112, 'Escalante Valley-Beryl-Enterprise', 13, weight='bold', fill='gold'))
-    body.append(text(412, 386, 'Cedar Valley', 13, weight='bold', fill='teal'))
-    body.append(text(452, 112, 'Parowan Valley', 13, weight='bold', fill='blue', anchor='end'))
+    # Aquifer names, with a leader to a point inside each outline: (id, label x, label y, anchor, lon, lat)
+    for aid, lx, ly, anchor, lon, lat in LABELS:
+        name, g = aquifers[aid]
+        col = AQ_COLOR[aid]
+        tx, ty = proj(lon, lat)
+        ex = lx + (4 if anchor == 'start' else -4)
+        body.append(line(ex, ly - 4, tx, ty, col, 1))
+        body.append(text(lx + (8 if anchor == 'start' else -8), ly, esc(name), 12.5, weight='bold', fill=col, anchor=anchor))
 
-    # The region outline, from its lowest point
+    # The region outline, from its eastern edge
     ring_pts = [proj(x, y) for r in rings(region) for x, y in r]
-    bx, by = max(ring_pts, key=lambda p: p[1])
-    body.append(line(bx - 4, by + 3, bx - 40, by + 26, 'darkgray', 1))
-    body.append(text(bx - 44, by + 31, 'Region outline', 13, weight='bold', anchor='end'))
+    lx, ly = 340, 206
+    bx, by = min(ring_pts, key=lambda p: (p[0] - lx) ** 2 + (p[1] - ly) ** 2)
+    body.append(line(bx + 2, by, lx - 4, ly - 4, 'darkgray', 1))
+    body.append(text(lx, ly, 'Region outline', 13, weight='bold'))
 
     # The orange well's record
-    cx0, cy0, cw, ch = 690, 132, 240, 160
+    cx0, cy0, cw, ch = 700, 132, 230, 160
     body.append(text(650, 98, 'Measurements at the orange well', 14, weight='bold', fill='orange'))
     body.append(text(650, 117, 'Water table elevation, ft', 13))
-    pts = [(parse_us(r['Date']), float(r['WTE (ft)'])) for r in levels]
+    pts = [(date.fromisoformat(r['Date']), float(r['WTE (ft)'])) for r in levels]
     t0, t1 = date(1940, 1, 1), date(2030, 1, 1)
-    v0, v1 = 4950, 5150
+    v0, v1 = -120, 40
     def px(d):
         return cx0 + (d - t0).days / (t1 - t0).days * cw
     def py(v):
         return cy0 + ch - (v - v0) / (v1 - v0) * ch
-    for v in range(v0, v1 + 1, 50):
+    for v in range(v0, v1 + 1, 40):
         y = py(v)
         body.append(line(cx0, y, cx0 + cw, y, 'lightgray', 1))
-        body.append(text(cx0 - 6, y + 4, f'{v:,}', 12, anchor='end', fill='gray'))
+        body.append(text(cx0 - 6, y + 4, f'{v:,}'.replace('-', '−'), 12, anchor='end', fill='gray'))
     for yr in range(1940, 2031, 20):
         x = px(date(yr, 1, 1))
         body.append(line(x, cy0 + ch, x, cy0 + ch + 4, 'gray', 1))
         body.append(text(x, cy0 + ch + 18, yr, 12, anchor='middle', fill='gray'))
     for d, v in pts:
-        body.append(f'<circle cx="{px(d):.1f}" cy="{py(v):.1f}" r="1.6" fill="{C["orange"]}" fill-opacity="0.75"/>')
+        body.append(f'<circle cx="{px(d):.1f}" cy="{py(v):.1f}" r="1.8" fill="{C["orange"]}" fill-opacity="0.8"/>')
 
     # Key
     rows = [
@@ -203,11 +198,11 @@ def files_map():
         ('meas', 'Measurements: dated values at a well'),
     ]
     for j, (kind, label) in enumerate(rows):
-        x, y = 650, 352 + j * 24
+        x, y = 650, 362 + j * 24
         if kind == 'region':
             body.append(f'<rect x="{x}" y="{y - 10}" width="22" height="13" fill="{C["sky"]}" stroke="{C["darkgray"]}" stroke-width="2"/>')
         elif kind == 'aquifer':
-            for k, col in enumerate(AQ_COLORS):
+            for k, col in enumerate(['teal', 'blue', 'gold']):
                 body.append(f'<rect x="{x + k * 7.33:.1f}" y="{y - 10}" width="7.33" height="13" fill="{C[col]}" fill-opacity="0.3" stroke="{C[col]}" stroke-width="1"/>')
         elif kind == 'well':
             body.append(f'<circle cx="{x + 11}" cy="{y - 3.5}" r="3.5" fill="{C["navy"]}"/>')
@@ -219,11 +214,26 @@ def files_map():
     save('files-map', svg_doc(W, H, '\n'.join(body), 'How a region, its aquifers, wells and measurements fit together'))
 
 
+# Where each aquifer's name goes on the map, placed for this map: (id, label x, label y, anchor, lon, lat of
+# the leader's end, inside the outline)
+LABELS = [
+    ('3-004.09', 330, 84, 'start', -121.64, 36.80),
+    ('3-004.01', 330, 108, 'start', -121.56, 36.70),
+    ('3-004.02', 330, 132, 'start', -121.50, 36.62),
+    ('3-004.04', 390, 252, 'start', -121.32, 36.40),
+    ('3-004.05', 500, 304, 'start', -120.95, 36.05),
+    ('3-006', 262, 452, 'end', -121.05, 35.90),
+    ('3-004.10', 96, 150, 'end', -121.76, 36.62),
+    ('3-004.08', 96, 182, 'end', -121.82, 36.60),
+    ('3-007', 96, 216, 'end', -121.80, 36.50),
+]
+
+
 # ---------------------------------------------------------------- figure 2: the files and their links
 
 def files_links():
     W = 960
-    CARD_W, CARD_H, STEP_X, STEP_Y = 660, 112, 60, 150
+    CARD_W, CARD_H, STEP_X, STEP_Y = 740, 112, 60, 150
     X0, Y0 = 30, 62
     body = []
     body.append(text(30, 36, 'The four files and the columns that tie them together', 17, weight='bold', fill='navy'))
@@ -247,7 +257,7 @@ def files_links():
                     .replace('<text ', '<text xml:space="preserve" ', 1))
 
     def table(x, y, cols, rows, widths, key=None):
-        """A few rows of a CSV. key maps a column index to the color its values are drawn in."""
+        """A few rows of a file. key maps a column index to the color its values are drawn in."""
         key = key or {}
         xs = [x]
         for w in widths[:-1]:
@@ -277,9 +287,9 @@ def files_links():
     link(1, [('Each aquifer lies inside the region. A ', None, None), ('single-unit', None, 'bold'),
              (' region has none: its outline is its one aquifer.', None, None)])
     x, y = card(1, 'teal', 'Aquifer outlines', 'GeoJSON, or a zipped shapefile')
-    table(x + 20, y + 52, ['ID', 'NAME'], [['1', 'Cedar Valley'], ['2', 'Parowan Valley'],
-                                          ['3', 'Escalante Valley-Beryl-Enterprise']], [40, 300], key={0: 'teal'})
-    thumb([(region, 'lightgray', 'sky', 1)] + [(g, C[AQ_COLORS[k]], C[AQ_COLORS[k]], 0.25) for k, (_, g) in enumerate(aquifers)],
+    table(x + 20, y + 52, ['aquifer_id', 'aquifer_name'],
+          [[aid, aquifers[aid][0]] for aid in ('3-004.01', '3-004.02', '3-007')], [100, 200], key={0: 'teal'})
+    thumb([(region, 'lightgray', 'sky', 1)] + [(g, C[AQ_COLOR[aid]], C[AQ_COLOR[aid]], 0.3) for aid, (_, g) in aquifers.items()],
           x + CARD_W - 110, y + 12, 92, 88)
     body.append(text(x + 330, y + 70, 'One polygon per aquifer. Without', 13))
     body.append(text(x + 330, y + 88, 'IDs, they are numbered 1, 2, 3.', 13))
@@ -288,20 +298,20 @@ def files_links():
     link(2, [('Each well is in one aquifer: the one its ', None, None), ('Aquifer ID', 'teal', 'bold'),
              (' names, or the outline it falls inside.', None, None)])
     x, y = card(2, 'navy', 'Wells', 'CSV, one row per well')
-    table(x + 20, y + 52, ['Well ID', 'Well Name', 'Latitude', 'Longitude', 'Aquifer ID'],
-          [[WELL_ID, '(C-36-16)29daa- 1', '37.626364', '-113.661354', '3'],
-           ['374252113391801', '(C-35-16)33bcc- 1', '37.714417', '-113.655799', '3'],
-           ['373236113111401', '(C-37-12)34abb- 1', '37.543312', '-113.189117', '1']],
-          [130, 158, 92, 104, 90], key={0: 'orange', 4: 'teal'})
+    ex = [WELL_ID, '366709N1216818W001', '360137N1208920W001']
+    rows = [[w['Well ID'], w['Well Name'], w['Latitude'], w['Longitude'], w['GSE'], w['Well Depth'], w['Aquifer ID']]
+            for w in (wells_by_id[e] for e in ex)]
+    table(x + 20, y + 52, ['Well ID', 'Well Name', 'Latitude', 'Longitude', 'GSE', 'Well Depth', 'Aquifer ID'], rows,
+          [148, 112, 76, 92, 48, 88, 90], key={0: 'orange', 6: 'teal'})
 
     # 4. Measurements
     link(3, [('Each measurement is at one well: the one its ', None, None), ('Well ID', 'orange', 'bold'),
              (' names, or found by name or coordinates.', None, None)])
     x, y = card(3, 'orange', 'Measurements', 'CSV, one row per measurement')
     rows = [[r['Well ID'], r['Date'], r['WTE (ft)']] for r in levels[:3]]
-    table(x + 20, y + 52, ['Well ID', 'Date', 'WTE (ft)'], rows, [130, 104, 80], key={0: 'orange'})
-    body.append(text(x + 360, y + 70, 'Or one row per sample, with a column', 13))
-    body.append(text(x + 360, y + 88, 'for each data type: nitrate, pH, ...', 13))
+    table(x + 20, y + 52, ['Well ID', 'Date', 'WTE (ft)'], rows, [148, 100, 80], key={0: 'orange'})
+    body.append(text(x + 380, y + 70, 'Or one row per sample, with a', 13))
+    body.append(text(x + 380, y + 88, 'column for each data type.', 13))
 
     H = Y0 + 3 * STEP_Y + CARD_H + 24
     save('files-links', svg_doc(W, H, '\n'.join(body), 'The four files of a region and the columns that link them'))

@@ -10,4 +10,5 @@ tools/aquiferx-figures/node_modules/
 tools/aquiferx-figures/.chrome-profile/
 tools/aquiferx-figures/raw/
 tools/aquiferx-figures/practice/
+tools/aquiferx-figures/.cache/
 tools/aquiferx-figures/package*.json

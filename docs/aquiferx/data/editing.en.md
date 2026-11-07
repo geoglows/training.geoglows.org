@@ -20,9 +20,10 @@ within two years either side, or the six nearest when there are fewer, without t
 interquartile range IQR = Q3 − Q1, the value is flagged when it is below Q1 − k·IQR or above Q3 + k·IQR. The slider sets k from 1 to 5,
 3 to start with, and the count of flagged values is at the right.
 
-Comparing each value with its neighbors in time keeps a long rise or decline from being flagged: the well above has fallen about 150 ft
-since the 1940s, and the check flags 6 of its 1,230 values, readings tens of feet below those around them. A flagged value is a reading to
-look at on the chart, which may be a real event such as a pumping test, so check before deleting it.
+Comparing each value with its neighbors in time keeps a long rise or decline from being flagged. The water table at the well above fell
+from an elevation of 24 ft in 1944 to −111 ft in 1992, and the check flags 3 of its 196 values: one 26 ft below the median of the
+values around it, and two 36 and 47 ft above. A flagged value is a reading to look at on the chart, which may be a real event such as a
+pumping test, so check before deleting it.
 
 <div style="clear: both"></div>
 

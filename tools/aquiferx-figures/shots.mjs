@@ -13,6 +13,10 @@ const REGION = 'Utah';
 const AQUIFER = 'Escalante Valley-Beryl-Enterprise';
 const WELL = { name: '(C-36-16)29daa- 1', lat: 37.6263635, lng: -113.6613536 };
 const WELL2 = { name: '(C-35-16)33bcc- 1', lat: 37.71441685, lng: -113.655799 };
+// Part 2's, in the Monterey County practice region: a well in the East Side Aquifer with a record from
+// 1944, found by its ID, since other wells' names contain its name, 901
+const PRACTICE_AQUIFER = 'East Side Aquifer';
+const PRACTICE_WELL = { name: '367386N1216740W001', lat: 36.73863, lng: -121.67404 };
 
 const browser = await puppeteer.launch({
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new',
@@ -386,13 +390,13 @@ if (want('adddata')) {
   await clearMyData();
   await clickButton('My Data'); await sleep(800);
   await clickButton('Add Data');
-  const finish = await newRegion('Southwest Utah', 'sw-utah-region.geojson', false);
+  const finish = await newRegion('Monterey County', 'monterey-region.geojson', false);
   await shot('data-new-region', await topCard());
   await finish();
   await shot('data-hub-new', await topCard());
 
   await cardButton('Aquifers', 'Add Aquifers');
-  await upload('sw-utah-aquifers.geojson');          // opens the column mapper
+  await upload('monterey-aquifers.geojson');         // opens the column mapper
   await shot('data-aquifer-columns', await topCard());
   await clickButton('Done'); await clickButton('Save Aquifers'); await sleep(2500);
 
@@ -400,43 +404,41 @@ if (want('adddata')) {
   await clickButton('USGS Download');
   await shot('data-wells-usgs', await topCard());
   await clickButton('Upload CSV');
-  await clickLabel('Assign by location');
-  await upload('sw-utah-wells.csv');
-  await clickButton('Done');
-  // The elevation lookup, part way: it runs while you finish, and Save does not wait for it
-  await waitText2('Looking up from', 60000);
-  await sleep(4000);
+  await clickLabel('Use aquifer_id column');
+  await upload('monterey-wells.csv');
+  await clickButton('Done'); await sleep(1500);
   await shot('data-wells', await topCard());
   await clickButton('Save Wells'); await sleep(3000);
 
   await cardButton('Measurements', 'Add Measurements');
-  await upload('sw-utah-water-levels.csv');
+  await upload('monterey-water-levels.csv');
   // The whole dialog is too tall to read on a page, so its parts
   await shot('meas-top', await dialogTop());
   await shot('meas-columns-ids', await panelOf('Columns'));
   await shot('meas-duplicates', await panelOf('Average duplicates'));
   await clickButton('Save Measurements');
-  await waitText2('Import complete', 120000);
+  await waitText2('Import complete', 600000);
   await sleep(800);
   await shot('data-levels-done', await topCard());
   await clickButton('Done'); await sleep(2500);
   await clickButton('Done'); await sleep(1500);
 }
 if (want('wq')) {
-  // A single-unit region whose wells come with its water quality file
+  // The Pajaro Valley, a single-unit region with no wells, then its water quality file, whose rows
+  // make the wells from their names and coordinates
   await load();
   await clickButton('My Data'); await sleep(800);
   await clickButton('Add Data');
-  await (await newRegion('Upper Klamath', 'klamath-region.geojson', true))();
+  await (await newRegion('Pajaro Valley', 'pajaro-region.geojson', true))();
   await cardButton('Measurements', 'Add Measurements');
-  await upload('klamath-water-quality.csv');
+  await upload('pajaro-water-quality.csv');
   await waitText2('by proximity', 60000);
   await sleep(800);
   await shot('meas-columns-wells', await panelOf('Columns'));
   await shot('meas-matching', await panelOf('Well matching'));
   await shot('meas-datacolumns', await panelOf('Map data columns'));
   await clickButton('Save Measurements');
-  await waitText2('Import complete', 120000);
+  await waitText2('Import complete', 600000);
   await sleep(800);
   await clickButton('Done'); await sleep(2500);
 
@@ -460,12 +462,12 @@ if (want('wq')) {
   await shot('data-wqp', await topCard());
 }
 if (want('edit')) {
-  // Southwest Utah, as the adddata step leaves it in My Data
+  // Monterey County, as the adddata step leaves it in My Data
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
   await load();
   await clickButton('My Data'); await sleep(1500);
   await page.evaluate(() => {
-    const row = [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'Southwest Utah');
+    const row = [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'Monterey County');
     row.nextElementSibling.click();
   });
   await sleep(600);
@@ -473,9 +475,15 @@ if (want('edit')) {
   await shot('data-edit-region', await topCard());
   await clickButton('Cancel');
 
-  await treeItem('Southwest Utah'); await treeItem(AQUIFER); await clearFilters();
-  await searchWell(WELL); await sleep(3000);
+  await treeItem('Monterey County'); await treeItem(PRACTICE_AQUIFER); await clearFilters();
+  await searchWell(PRACTICE_WELL); await sleep(3000);
   await clickButton('View/Edit'); await sleep(1500);
+  // The table opens at the earliest values; bring the first flagged one into view
+  await page.evaluate(() => {
+    const row = [...document.querySelectorAll('tbody tr')].find(r => r.classList.contains('bg-red-50') && !r.classList.contains('line-through'));
+    row?.scrollIntoView({ block: 'center' });
+  });
+  await sleep(600);
   await shot('edit-table', await topCard());
   await clickButton('Cancel'); await sleep(800);
 

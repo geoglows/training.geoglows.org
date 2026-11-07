@@ -9,7 +9,7 @@ your own well IDs and any surveyed ground elevations.
 
 ## Uploading a wells file
 
-![Adding wells from a file, with the elevation lookup under way](../../static/images/aquiferx/data-wells.webp){ align=right width="380" }
+![Adding wells from a file](../../static/images/aquiferx/data-wells.webp){ align=right width="380" }
 
 1. **Aquifer Assignment.** In a region with more than one aquifer, choose how each well finds its aquifer:
     - **Use aquifer_id column from CSV**, when the file has a column of aquifer IDs matching the region's
@@ -19,8 +19,8 @@ your own well IDs and any surveyed ground elevations.
     A region with one aquifer puts every well in it, and a single-unit region needs no choice.
 
 2. **Choose File.** Pick the CSV file. The **Map Well Columns** window asks which column holds the well ID, name, latitude, longitude,
-   ground surface elevation and, with the first assignment choice, the aquifer ID. The ID, latitude and longitude are required.
-   **Edit Column Mapping** opens it again.
+   ground surface elevation, well depth and, with the first assignment choice, the aquifer ID. The ID, latitude and longitude are
+   required. **Edit Column Mapping** opens it again.
 
 3. **Coordinate system.** The panel converts the coordinates to latitude and longitude. Under the system in use, a preview shows where
    the first well lands, with a check mark when it is inside the region and a warning when it is not. See the
@@ -37,9 +37,19 @@ your own well IDs and any surveyed ground elevations.
 
 When the region already has wells, an **Import Mode** choice appears above the file:
 
-- **Append** adds the wells in the file and skips any whose ID the region already has.
+- **Append** adds the wells in the file and skips any whose ID the region already has. When the file has a well depth column, the wells
+  it skips take their depth from it, which is how to add depths to wells already in the region.
 - **Replace All** deletes every well in the region, and all of the region's measurements, before saving the new wells. The app asks you
   to confirm.
+
+### Well depth
+
+A well's depth is measured from the ground down to the bottom of the finished well, in the region's unit. It is optional, and a cell
+can be left empty where the depth is not known. With depths, a map can be made from the wells in a range of depths only, such as those drawing from a
+shallow aquifer, so that wells at different depths in the same place are not averaged together (see Part 3).
+
+Give the depth of the finished well, not the depth to which its hole was drilled. Several wells at different depths are often built in
+one borehole, and they share its depth.
 
 ### Coordinate systems
 
@@ -77,6 +87,7 @@ them.
 - the USGS site name
 - its location
 - the land surface altitude the USGS gives for the site, converted to the region's unit, as its ground surface elevation
+- the depth of the finished well, where the USGS gives one, converted to the region's unit
 
 The USGS service limits how often it can be called. Without a key it allows 30 requests an hour, enough for a small area; with a free
 key from api.data.gov, which **Get a free key** links to, it allows 1,000. Paste the key in **API Key**; the browser remembers it.
