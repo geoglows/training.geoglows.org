@@ -7,6 +7,21 @@ the Water Quality Portal instead (see [Wells](wells.md), [Measurements](measurem
 Column names in your files do not have to follow any convention. Each importer shows which column it will use for each field, guessed
 from common names, and you can change any of them.
 
+## How the files fit together
+
+![The Southwest Utah practice region: its outline, three aquifers, their wells, and the water levels of one well](../../static/images/aquiferx/files-map.png)
+
+The region outline marks out the study area, and the aquifer outlines divide it into the aquifers you want to map and analyze
+separately. Each well belongs to one aquifer, and each measurement is a dated value at one well, of one data type: a water table
+elevation, a nitrate concentration, and so on. A single-unit region has no aquifer outlines, and its wells go straight into the region
+(see [Regions and Aquifers](regions-aquifers.md#single-unit-or-with-aquifers)).
+
+![The four files of a region, a few rows of each, and the columns that link them](../../static/images/aquiferx/files-links.png)
+
+Two columns tie the tables to the outlines and to each other. A well's **Aquifer ID** names its aquifer, and a measurement's **Well ID**
+names its well. The app can do without either: it can place each well in the aquifer whose outline it falls inside, and find each
+measurement's well by name or coordinates, making a new well where none matches.
+
 ## Practice files
 
 [aquifer-analyst-practice.zip](../../static/files/aquiferx/aquifer-analyst-practice.zip) holds the files the pictures in Part 2 come

@@ -32,3 +32,15 @@ My Data and builds a Southwest Utah region from them; `wq` adds an Upper Klamath
 run the three in that order. The wells upload looks up ground elevations from USGS 3DEP, so it needs a network connection.
 
 `webp.sh` writes WebP copies at quality 86, reduced to 1800 px wide when the PNG is wider, which is what the pages use.
+
+## Diagrams
+
+`diagrams.py` draws the two figures on Preparing Your Files from the files in `practice/`, so run `make-practice.py` first. It writes
+editable SVGs to `docs/static/images/aquiferx/diagrams/` and renders 2x PNGs next to the pages' other images with Inkscape, the same way
+as the GRACE diagrams. It needs shapely, and Inkscape at `/Applications/Inkscape.app`.
+
+```
+python3 diagrams.py     # files-map.png and files-links.png
+```
+
+The aquifer names on the map are placed by hand for the practice region, so check them if the practice files change.
