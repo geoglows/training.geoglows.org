@@ -6,7 +6,7 @@ Everything you add goes into My Data. Switch the panel to **My Data** and click 
 to open the **Add Data** window. To add to a Sample Data region, copy it to My Data first (see
 [Sample Data and My Data](../start/my-data.md#copying-a-sample-region)).
 
-![The Add Data window for a new region with aquifers, before any are added](../../static/images/aquiferx/data-hub-new.webp){ width="600" }
+![The Add Data window for a new region with aquifers, before any are added](../../static/images/aquiferx/data-hub-new.webp){ width="800" }
 
 The buttons along the top are your My Data regions. Click one to choose it, or **Add Region** to make a new one. The three cards below
 add to the chosen region and show how many aquifers, wells and measurements it has, with the measurements broken down by data type.
@@ -21,7 +21,7 @@ The window only adds. Renaming and deleting are in the menus of the region tree,
 
 ## Creating a region
 
-![Creating a region](../../static/images/aquiferx/data-new-region.webp){ align=right width="340" }
+![Creating a region](../../static/images/aquiferx/data-new-region.webp){ align=right width="480" }
 
 **Add Region** opens **Create New Region**:
 
@@ -50,16 +50,14 @@ and measurements already saved depend on them.
 
 ## Adding aquifers
 
-![Choosing the attribute that names each aquifer](../../static/images/aquiferx/data-aquifer-columns.webp){ align=right width="380" }
-
 On the **Aquifers** card, **Add Aquifers** asks for a GeoJSON file or a zipped shapefile with one feature per aquifer. The **Map Aquifer
 Columns** window then asks which attribute holds each aquifer's name, which is required, and which holds its ID, which is optional.
 **Edit Column Mapping** opens it again. **Save Aquifers** adds them.
 
+![Choosing the attribute that names each aquifer](../../static/images/aquiferx/data-aquifer-columns.webp){ width="544" }
+
 Aquifers without an ID are numbered 1, 2, 3 and so on, after the highest number already in use. Give your own IDs when your wells or
 measurements files say which aquifer each row belongs to, so the two match.
-
-<div style="clear: both"></div>
 
 When the region already has aquifers, the window asks what to do with them:
 
@@ -69,7 +67,7 @@ When the region already has aquifers, the window asks what to do with them:
 
 ## Changing a region
 
-![The Edit Region window of a region that has wells](../../static/images/aquiferx/data-edit-region.webp){ align=right width="300" }
+![The Edit Region window of a region that has wells](../../static/images/aquiferx/data-edit-region.webp){ align=right width="416" }
 
 The menu of a My Data region in the tree, the three dots that appear when you point at it, has:
 

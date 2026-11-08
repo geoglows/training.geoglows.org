@@ -83,11 +83,11 @@ the values.
 
 ## Downloading from the Water Quality Portal
 
-![Water Quality Portal download, with two parameters picked and an estimate](../../static/images/aquiferx/data-wqp.webp){ align=right width="420" }
-
 The [Water Quality Portal](https://www.waterqualitydata.us){:target="_blank"} (WQP) gathers results from the USGS, the EPA and more than
 400 state, tribal and local agencies. For a region in the United States, the **Water Quality (WQP)** source in Add Measurements downloads
 results for wells inside the region.
+
+![Water Quality Portal download, with two parameters picked and an estimate](../../static/images/aquiferx/data-wqp.webp){ width="704" }
 
 1. **Pick parameters** opens the list of catalog parameters the portal carries. Tick the ones you want and click **Apply**.
 2. **Scope**, in a region with aquifers: all of them, or one.
@@ -98,9 +98,7 @@ results for wells inside the region.
    parameters or the scope.
 6. **Download** fetches the results.
 
-<div style="clear: both"></div>
-
-![Choosing parameters to download](../../static/images/aquiferx/data-wqp-picker.webp){ align=right width="420" }
+![Choosing parameters to download](../../static/images/aquiferx/data-wqp-picker.webp){ width="704" }
 
 The portal's results come from many laboratories, reported in different units and often several to a sample. The download cleans them
 in four steps:
@@ -120,5 +118,3 @@ The results then go through the same [well matching](measurements.md#how-rows-fi
 also a USGS well, such as one from a [USGS well download](wells.md#downloading-wells-from-the-usgs), matches it by ID. Other sites match by
 name or proximity, or become new wells with the portal's site ID, which starts with the code of the agency that runs the site.
 **Save Measurements** saves them, as for an upload.
-
-<div style="clear: both"></div>

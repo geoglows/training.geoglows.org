@@ -9,7 +9,7 @@ your own well IDs and any surveyed ground elevations.
 
 ## Uploading a wells file
 
-![Adding wells from a file](../../static/images/aquiferx/data-wells.webp){ align=right width="380" }
+![Adding wells from a file](../../static/images/aquiferx/data-wells.webp){ width="544" }
 
 1. **Aquifer Assignment.** In a region with more than one aquifer, choose how each well finds its aquifer:
     - **Use aquifer_id column from CSV**, when the file has a column of aquifer IDs matching the region's
@@ -32,8 +32,6 @@ your own well IDs and any surveyed ground elevations.
 5. **Save Wells.** Rows without a well ID or usable coordinates are skipped. In a region with aquifers, so are wells that end up in
    none of them, such as wells outside every aquifer outline when assigning by location; a notice above the elevation panel counts them
    before you save.
-
-<div style="clear: both"></div>
 
 When the region already has wells, an **Import Mode** choice appears above the file:
 
@@ -68,17 +66,18 @@ The ground surface elevation (GSE) of each well matters in three places: convert
 USGS water level download, which needs it for the same conversion, and the **GSE** line on the chart.
 
 When the file has no elevation column, the lookup starts once the well ID and coordinates are mapped and the coordinates land inside
-the region. When every well is in the United States, it asks USGS 3DEP, about 10 m resolution, one well at a time. 3DEP can be slow, so a
-well it has not answered within 30 seconds gets the Copernicus DEM value through Open-Meteo, about 90 m, and the panel says how many did.
-Outside the United States, every well gets the Open-Meteo value. Values are converted to the region's unit.
+the region. When every well is in the United States, it reads USGS 3DEP elevations from the
+[Terrain Tiles on AWS](https://registry.opendata.aws/terrain-tiles/){:target="_blank"}, map tiles at about 15 m resolution, each of which
+covers many wells, so a few hundred wells take seconds. For wells spread over a large area it reads coarser tiles, as coarse as about
+70 m, and the panel gives the resolution it used. A well the tiles do not answer gets the Copernicus DEM value through Open-Meteo, about
+90 m, and the panel says how many did. Outside the United States, every well gets the Open-Meteo value. Values are converted to the
+region's unit.
 
 **Save Wells** does not wait for the lookup: wells it has not reached yet are saved without an elevation. If the lookup fails, **Try
-again** repeats it. An elevation from a model can be off by meters, more in steep terrain, so use surveyed elevations where you have
-them.
+again** repeats it. An elevation from a model can be off by meters, more in steep terrain: at the 363 Monterey County practice wells,
+the tile elevations are within 5.8 ft of DWR's surveyed ones for 90% of the wells. Use surveyed elevations where you have them.
 
 ## Downloading wells from the USGS
-
-![Downloading wells from the USGS](../../static/images/aquiferx/data-wells-usgs.webp){ align=right width="380" }
 
 **USGS Download** gets the groundwater sites the USGS Water Data service lists inside the region's aquifers, or inside one aquifer when
 **Download Scope** is set to **Selected Aquifer**. Each well gets:
@@ -95,7 +94,7 @@ key from api.data.gov, which **Get a free key** links to, it allows 1,000. Paste
 **Download All** fetches the wells and shows how many it found; **Save Wells** adds them. Once the region has USGS wells, **Refresh**
 fetches the list again and keeps only wells the region does not have yet.
 
+![Downloading wells from the USGS](../../static/images/aquiferx/data-wells-usgs.webp){ width="544" }
+
 The download brings the wells without their measurements. Add those with **USGS Levels** in Add Measurements (see
 [Measurements](measurements.md#downloading-water-levels-from-the-usgs)).
-
-<div style="clear: both"></div>

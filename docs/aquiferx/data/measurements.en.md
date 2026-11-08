@@ -1,7 +1,5 @@
 # Measurements
 
-![The top of the Add Measurements window, with a file of water levels chosen](../../static/images/aquiferx/meas-top.webp){ align=right width="400" }
-
 On the **Measurements** card of the Add Data window, **Add Measurements** opens a window with up to three sources:
 
 - **Upload CSV**, for your own files
@@ -11,7 +9,7 @@ On the **Measurements** card of the Add Data window, **Add Measurements** opens 
 
 A region with no wells can still take a measurements file, if the file has well names or coordinates: the import makes the wells.
 
-<div style="clear: both"></div>
+![The top of the Add Measurements window, with a file of water levels chosen](../../static/images/aquiferx/meas-top.webp){ width="704" }
 
 ## Uploading a measurements file
 
@@ -24,10 +22,10 @@ change any of it before **Save Measurements**.
 
 ### Columns
 
-![The Columns panel for a file with well IDs only](../../static/images/aquiferx/meas-columns-ids.webp){ align=right width="380" }
-
 The **Columns** panel says which column holds the well, the date and, when there is one, the aquifer ID, with the **Date Format** read
 from the first dates (see [Preparing Your Files](preparing-files.md#dates)).
+
+![The Columns panel for a file with well IDs only](../../static/images/aquiferx/meas-columns-ids.webp){ width="644" }
 
 The box at the top, **The file has well names or coordinates**, decides how rows find their wells:
 
@@ -38,19 +36,13 @@ The box at the top, **The file has well names or coordinates**, decides how rows
 
 The importer sets the box from the file: on when the region has no wells yet, or when the file has a name or coordinate column.
 
-<div style="clear: both"></div>
-
-![The Columns panel for a file with station names and coordinates](../../static/images/aquiferx/meas-columns-wells.webp){ align=right width="380" }
-
 With the box on, the well ID is optional, since a name or a pair of coordinates can identify a well. This file of water quality samples
 gives each well's ID in the Water Quality Portal, its name in a **Station** column, its latitude and longitude, and its depth where the
 portal has one.
 
-<div style="clear: both"></div>
+![The Columns panel for a file with station names and coordinates](../../static/images/aquiferx/meas-columns-wells.webp){ width="644" }
 
 ### How rows find their wells
-
-![Matching the wells in a file to the region's wells](../../static/images/aquiferx/meas-matching.webp){ align=right width="380" }
 
 With the box on, the **Well matching** panel works out which well each row belongs to. It decides once for each well in the file, and
 tries in order:
@@ -64,7 +56,7 @@ tries in order:
 The coordinates go through the same **Coordinate system** picker as in [Add Wells](wells.md#coordinate-systems). The counts along the
 bottom show how each well was matched. **Re-match** runs the matching again after you change the threshold or the coordinate system.
 
-<div style="clear: both"></div>
+![Matching the wells in a file to the region's wells](../../static/images/aquiferx/meas-matching.webp){ width="644" }
 
 Proximity matches deserve a look, since two wells can stand close together. **Review proximity matches** lists each one with the
 distance, and **Reject** turns a match into a new well.
@@ -76,8 +68,6 @@ location: a well named 011S001E23N001M at 36.9526° N, 121.8345° W becomes `aqx
 falls inside no aquifer is not made, and its rows are skipped.
 
 ### Data columns
-
-![The data columns of a water quality file, each matched to a catalog parameter](../../static/images/aquiferx/meas-datacolumns.webp){ align=right width="420" }
 
 Every column not used for the well, the date or the aquifer is listed in **Map data columns**. Each row has a box to include the column,
 the type of data it will be saved as, and the unit of that type. The importer suggests the type from the column name:
@@ -94,7 +84,7 @@ and **View Catalog** lists the parameters with their units.
 When a column name ends in a unit, such as `Nitrate (mg/L)`, and the unit differs from the catalog's, a warning appears under the row.
 The app does not convert units, so convert the values before importing if they differ.
 
-<div style="clear: both"></div>
+![The data columns of a water quality file, each matched to a catalog parameter](../../static/images/aquiferx/meas-datacolumns.webp){ width="644" }
 
 **Depth to water.** When a column is going in as water table elevation, a box under the list converts depth to water below the ground
 into elevation: each value is subtracted from the well's ground surface elevation. Depths at wells without an elevation are skipped and
@@ -102,16 +92,14 @@ counted in the summary.
 
 ### Duplicates
 
-![More than one water level on the same date at some wells](../../static/images/aquiferx/meas-duplicates.webp){ align=right width="420" }
-
 When the file has more than one row for a well on the same date, a notice says how many, with a choice of what to keep: **Average
 duplicates**, the default, **Keep maximum**, or **Keep all**. The report after saving lists each of them with the value it became (see
 [Saving](#saving)).
 
+![More than one water level on the same date at some wells](../../static/images/aquiferx/meas-duplicates.webp){ width="644" }
+
 In the Monterey County water levels, 69 well-dates have two or three readings, taken at different times of the day. At 54 of them
 the readings are equal, and at 14 of the other 15 they differ by 0.05 ft or less. The last pair, 2.29 ft apart, is worth a look, and the report gives its row in the file.
-
-<div style="clear: both"></div>
 
 ### Measurements already in the region
 
@@ -124,7 +112,7 @@ it is for the same well on the same date.
 
 ### Saving
 
-![The summary after saving](../../static/images/aquiferx/data-levels-done.webp){ align=right width="340" }
+![The summary after saving](../../static/images/aquiferx/data-levels-done.webp){ align=right width="480" }
 
 **Save Measurements** writes the measurements, any new wells and any new custom types, then shows a summary: wells created and matched,
 measurements saved for each type, and duplicates collapsed. Below that it counts what was left out, with the reason: new wells outside

@@ -6,8 +6,6 @@ you can make the change.
 
 ## The measurement table
 
-![The measurement table of a well, with the outlier check](../../static/images/aquiferx/edit-table.webp){ align=right width="400" }
-
 With one well selected, **View/Edit** in the chart panel opens **Edit Measurements**: every measurement of the current data type, by
 date.
 
@@ -19,6 +17,8 @@ date.
 within two years either side, or the six nearest when there are fewer, without the value itself. With their quartiles Q1 and Q3 and
 interquartile range IQR = Q3 − Q1, the value is flagged when it is below Q1 − k·IQR or above Q3 + k·IQR. The slider sets k from 1 to 5,
 3 to start with, and the count of flagged values is at the right.
+
+![The measurement table of a well, with the outlier check](../../static/images/aquiferx/edit-table.webp){ width="704" }
 
 Comparing each value with its neighbors in time keeps a long rise or decline from being flagged. The water table at the well above fell
 from an elevation of 23 ft in 1960 to about 0 by 2000 and has stayed there, and the check flags 2 of its 61 values. The value of 0 in
@@ -32,8 +32,6 @@ In a well read in two seasons, the check can flag ordinary readings. Well 901, i
 twice, and again in November or December, when the water level is about 38 ft higher. Most of the neighbors of a December reading are
 then August readings, and the check flags some December readings, such as −19.9 ft on December 2, 1998, although the December readings
 a year before and a year after are −28.5 and −28.3 ft.
-
-<div style="clear: both"></div>
 
 ## On the chart
 

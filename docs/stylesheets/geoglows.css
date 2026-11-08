@@ -819,6 +819,11 @@ td, th {
   height: auto;
 }
 
+/* A picture floated beside the text keeps a gap from it. */
+.rst-content img[align="right"] {
+  margin: 0 0 16px 24px;
+}
+
 /* Images too small to stretch without blurring, and the home page logo, keep their natural size. */
 .rst-content img[src$="river-legend.png"],
 .rst-content img[src$="kge2.png"],

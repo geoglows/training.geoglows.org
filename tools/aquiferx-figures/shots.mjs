@@ -20,7 +20,7 @@ const PRACTICE_WELL = { name: '367886N1216748W001', lat: 36.7886, lng: -121.6748
 
 const browser = await puppeteer.launch({
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new',
-  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile', protocolTimeout: 2400000,
+  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile', protocolTimeout: 600000,
 });
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
@@ -438,12 +438,11 @@ if (want('wq')) {
   await shot('meas-matching', await panelOf('Well matching'));
   await shot('meas-datacolumns', await panelOf('Map data columns'));
   await clickButton('Save Measurements');
-  // 3DEP can take 30 s a well when it is busy
-  await waitText2('Import complete', 1800000);
+  // The import looks up the elevations of the 161 new wells first
+  await waitText2('Import complete', 600000);
   await sleep(800);
   await clickButton('Done'); await sleep(2500);
 
-  // A laptop-sized window, where the parameter list scrolls instead of filling a tall picture
   await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 }); await sleep(800);
   await cardButton('Measurements', 'Add Measurements');
   await clickButton('Water Quality (WQP)');
@@ -455,7 +454,11 @@ if (want('wq')) {
     }, name);
     await sleep(300);
   }
+  // A short window, where the parameter list shows its first rows and scrolls, so the picture is short
+  // enough for the page to show it at full size
+  await page.setViewport({ width: 1440, height: 760, deviceScaleFactor: 2 }); await sleep(800);
   await shot('data-wqp-picker', await topCard());
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 }); await sleep(800);
   await clickButton('Apply');
   await clickButton('Estimate');
   await waitText2('Estimated:', 60000).catch(() => {});
@@ -479,7 +482,9 @@ if (want('edit')) {
   await treeItem('Monterey County'); await treeItem(PRACTICE_AQUIFER); await clearFilters();
   await searchWell(PRACTICE_WELL); await sleep(3000);
   await clickButton('View/Edit'); await sleep(1500);
-  // The table opens at the earliest values; bring the first flagged one into view
+  // A short window, so the table shows six or so rows and the picture is short enough for the page to
+  // show it at full size. The table opens at the earliest values; bring the first flagged one into view
+  await page.setViewport({ width: 1440, height: 650, deviceScaleFactor: 2 }); await sleep(800);
   await page.evaluate(() => {
     const row = [...document.querySelectorAll('tbody tr')].find(r => r.classList.contains('bg-red-50') && !r.classList.contains('line-through'));
     row?.scrollIntoView({ block: 'center' });
@@ -487,6 +492,7 @@ if (want('edit')) {
   await sleep(600);
   await shot('edit-table', await topCard());
   await clickButton('Cancel'); await sleep(800);
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 }); await sleep(1500);
 
   // Right-click a measurement on the chart for its menu
   const dot = await page.evaluate(() => {
