@@ -29,7 +29,8 @@ from, so you can follow along in My Data. They make two regions in California fr
 
 - **Monterey County**, a region with nine aquifers: the county's outline from the US Census Bureau, the outlines of the nine
   groundwater basins and subbasins in California DWR's Bulletin 118 that lie wholly inside it, 363 of DWR's monitoring wells with their
-  ground surface elevations and, for 325 of them, their depths, and 70,268 water levels from 1916 to 2026.
+  ground surface elevations and, for 325 of them, their depths, and 70,268 water levels from 1916 to 2026. DWR has no monitoring
+  wells in one of the nine, Lockwood Valley, so that aquifer has no wells in the practice region.
 - **Pajaro Valley**, a single-unit region: the outline of the Pajaro Valley subbasin, and 1,564 water quality samples from 161 wells,
   1971 to 2023, from the Water Quality Portal. Each row gives its well's ID, name, location and, for 103 of the wells, depth, and the
   import makes the wells from them.
