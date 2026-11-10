@@ -65,6 +65,20 @@ When the region already has aquifers, the window asks what to do with them:
 - **Replace All** deletes every aquifer in the region, with all its wells and measurements, and saves the new ones in their place. The
   app asks you to confirm, and it cannot be undone.
 
+### Aquifers at different depths
+
+Where wells at one place draw from different depths, such as the shallow and deep zones of a layered aquifer, make each depth an aquifer
+of its own. An aquifer can have only one well at a place (see [Preparing Your Files](preparing-files.md#one-well-at-each-place)), but
+wells of different aquifers can share one, and each aquifer gets its own water table maps.
+
+Put the outline in the aquifer file once for each depth, as separate features with their own names and IDs, such as `Salinas 180 ft`
+and `Salinas 400 ft`. Then add the wells from a file with an Aquifer ID column that gives each well the ID of its depth, and choose
+**Use aquifer_id column from CSV** (see [Wells](wells.md#uploading-a-wells-file)). A well inside both outlines cannot be placed by its
+location, so **Assign by location** refuses it. A USGS or Water Quality Portal download puts such a well in whichever of those aquifers
+comes first in the region.
+
+A single-unit region has only one aquifer, so make a region that will be split by depth with single-unit off.
+
 ## Changing a region
 
 ![The Edit Region window of a region that has wells](../../static/images/aquiferx/data-edit-region.webp){ align=right width="416" }

@@ -438,7 +438,7 @@ if (want('wq')) {
   await shot('meas-matching', await panelOf('Well matching'));
   await shot('meas-datacolumns', await panelOf('Map data columns'));
   await clickButton('Save Measurements');
-  // The import looks up the elevations of the 161 new wells first
+  // The import looks up the elevations of the 149 new wells first
   await waitText2('Import complete', 600000);
   await sleep(800);
   await clickButton('Done'); await sleep(2500);

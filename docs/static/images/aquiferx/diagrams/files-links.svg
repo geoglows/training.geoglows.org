@@ -50,29 +50,25 @@
 <text x="430.0" y="414.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#4a5568">Latitude</text>
 <text x="506.0" y="414.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#4a5568">Longitude</text>
 <text x="598.0" y="414.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#4a5568">GSE</text>
-<text x="646.0" y="414.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#4a5568">Well Depth</text>
-<text x="734.0" y="414.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">Aquifer ID</text>
+<text x="646.0" y="414.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">Aquifer ID</text>
 <text x="170.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#dd6b20">367886N1216748W001</text>
 <text x="318.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">13783</text>
 <text x="430.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">36.7886</text>
 <text x="506.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">-121.67483</text>
 <text x="598.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">137</text>
-<text x="646.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">192</text>
-<text x="734.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">3-004.09</text>
+<text x="646.0" y="432.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">3-004.09</text>
 <text x="170.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#dd6b20">367386N1216740W001</text>
 <text x="318.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">901</text>
 <text x="430.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">36.73863</text>
 <text x="506.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">-121.67404</text>
 <text x="598.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">94</text>
-<text x="646.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">385</text>
-<text x="734.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">3-004.02</text>
+<text x="646.0" y="449.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">3-004.02</text>
 <text x="170.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#dd6b20">360137N1208920W001</text>
 <text x="318.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">189</text>
 <text x="430.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">36.0137</text>
 <text x="506.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">-120.89202</text>
 <text x="598.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568">478.8</text>
-<text x="646.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#4a5568"></text>
-<text x="734.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">3-004.05</text>
+<text x="646.0" y="466.0" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" text-anchor="start" fill="#2c7a7b">3-004.05</text>
 <path d="M180,474 L180,568.0 L210,568.0" fill="none" fill-opacity="1" stroke="#718096" stroke-width="1.5" stroke-linejoin="round"/>
 <path d="M203,564.0 L210,568.0 L203,572.0 z" fill="#718096"/>
 <text xml:space="preserve" x="214.0" y="500.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#4a5568"><tspan>Each measurement is at one well: the one its </tspan><tspan fill="#dd6b20" font-weight="bold">Well ID</tspan><tspan> names, or found by name or coordinates.</tspan></text>

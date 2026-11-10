@@ -19,7 +19,7 @@ your own well IDs and any surveyed ground elevations.
     A region with one aquifer puts every well in it, and a single-unit region needs no choice.
 
 2. **Choose File.** Pick the CSV file. The **Map Well Columns** window asks which column holds the well ID, name, latitude, longitude,
-   ground surface elevation, well depth and, with the first assignment choice, the aquifer ID. The ID, latitude and longitude are
+   ground surface elevation and, with the first assignment choice, the aquifer ID. The ID, latitude and longitude are
    required. **Edit Column Mapping** opens it again.
 
 3. **Coordinate system.** The panel converts the coordinates to latitude and longitude. Under the system in use, a preview shows where
@@ -35,19 +35,21 @@ your own well IDs and any surveyed ground elevations.
 
 When the region already has wells, an **Import Mode** choice appears above the file:
 
-- **Append** adds the wells in the file and skips any whose ID the region already has. When the file has a well depth column, the wells
-  it skips take their depth from it, which is how to add depths to wells already in the region.
+- **Append** adds the wells in the file and skips any whose ID the region already has.
 - **Replace All** deletes every well in the region, and all of the region's measurements, before saving the new wells. The app asks you
   to confirm.
 
-### Well depth
+### Wells at one place
 
-A well's depth is measured from the ground down to the bottom of the finished well, in the region's unit. It is optional, and a cell
-can be left empty where the depth is not known. With depths, a map can be made from the wells in a range of depths only, such as those drawing from a
-shallow aquifer, so that wells at different depths in the same place are not averaged together (see Part 3).
+Each place in an aquifer can have only one well (see [Preparing Your Files](preparing-files.md#one-well-at-each-place)). When the file
+has two or more wells of one aquifer less than 10 m apart, counting the wells already in the region, a red notice says how many places
+and wells there are, and **Save Wells** stays off. **Download the list of wells (CSV)** saves them, one line per well, with the number
+of its place, its aquifer, ID, name and coordinates, its distance from the first well at the place, its row in the file, and whether it
+is already in the region. Fix the file and choose it again.
 
-Give the depth of the finished well, not the depth to which its hole was drilled. Several wells at different depths are often built in
-one borehole, and they share its depth.
+With **Assign by location**, a well inside more than one aquifer outline is refused too, since its location cannot say which aquifer it
+is in. Outlines overlap when an aquifer is split by depth (see
+[Regions and Aquifers](regions-aquifers.md#aquifers-at-different-depths)); give the file an Aquifer ID column and use it.
 
 ### Coordinate systems
 
@@ -74,8 +76,8 @@ covers many wells, so a few hundred wells take seconds. For wells spread over a 
 region's unit.
 
 **Save Wells** does not wait for the lookup: wells it has not reached yet are saved without an elevation. If the lookup fails, **Try
-again** repeats it. An elevation from a model can be off by meters, more in steep terrain: at the 363 Monterey County practice wells,
-the tile elevations are within 5.8 ft of DWR's surveyed ones for 90% of the wells. Use surveyed elevations where you have them.
+again** repeats it. An elevation from a model can be off by meters, more in steep terrain: at the 334 Monterey County practice wells,
+the tile elevations are within 5.7 ft of DWR's surveyed ones for 90% of the wells. Use surveyed elevations where you have them.
 
 ## Downloading wells from the USGS
 
@@ -86,7 +88,6 @@ the tile elevations are within 5.8 ft of DWR's surveyed ones for 90% of the well
 - the USGS site name
 - its location
 - the land surface altitude the USGS gives for the site, converted to the region's unit, as its ground surface elevation
-- the depth of the finished well, where the USGS gives one, converted to the region's unit
 
 The USGS service limits how often it can be called. Without a key it allows 30 requests an hour, enough for a small area; with a free
 key from api.data.gov, which **Get a free key** links to, it allows 1,000. Paste the key in **API Key**; the browser remembers it.
@@ -95,6 +96,23 @@ key from api.data.gov, which **Get a free key** links to, it allows 1,000. Paste
 fetches the list again and keeps only wells the region does not have yet.
 
 ![Downloading wells from the USGS](../../static/images/aquiferx/data-wells-usgs.webp){ width="544" }
+
+### Wells at one place in a download
+
+The USGS often lists nested wells, several wells at one place finished at different depths. When the download has two or more wells of
+one aquifer less than 10 m apart, an amber notice says how many places and wells there are, and keeps one well at each by the rule you
+pick:
+
+- **Shallowest well**, the default, or **Deepest well**, by the depth of the finished well that the USGS gives. If a well at the place
+  has no depth, the longest record decides among all of them; if two share the shallowest (or deepest) depth, it decides between those
+  two.
+- **Longest record**, from the well's first water level reading to its last. Of two equal records, the one with the later last reading is
+  kept.
+
+When nothing else decides, the well listed first in the download is kept. The app reads the record dates from the USGS when the notice
+appears. A well already in the region always stays, and downloaded wells at its place are left out. The notice counts the wells left
+out, and **Download the list (CSV)** saves every well at those places, one line each, with its depth, first and last reading, whether it
+is kept, and why not.
 
 The download brings the wells without their measurements. Add those with **USGS Levels** in Add Measurements (see
 [Measurements](measurements.md#downloading-water-levels-from-the-usgs)).

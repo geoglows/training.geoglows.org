@@ -114,7 +114,26 @@ in four steps:
 
 A **WQP cleanup** note counts what was dropped at each step, and under **Details** lists the units converted and dropped.
 
-The results then go through the same [well matching](measurements.md#how-rows-find-their-wells) as an uploaded file. A portal site that is
-also a USGS well, such as one from a [USGS well download](wells.md#downloading-wells-from-the-usgs), matches it by ID. Other sites match by
-name or proximity, or become new wells with the portal's site ID, which starts with the code of the agency that runs the site.
-**Save Measurements** saves them, as for an upload.
+The results then go through the [well matching](measurements.md#how-rows-find-their-wells) of an uploaded file, by ID only. A portal
+site that is also a well in the region, such as one from a [USGS well download](wells.md#downloading-wells-from-the-usgs), matches it by
+ID, and a USGS site number matches with or without its `USGS-` prefix. Every other site becomes a new well, with the portal's site ID,
+which starts with the code of the agency that runs the site. Matching by name or proximity could join a nested well, at the place of a
+well in the region but at another depth, to that well's record.
+
+### Wells at one place
+
+The portal often has nested wells, several wells at one place finished at different depths. When the download has two or more wells of
+one aquifer less than 10 m apart, counting the wells already in the region, an amber notice in the matching panel says how many places
+and wells there are, and keeps one well at each by the rule you pick:
+
+- **Shallowest well**, the default, or **Deepest well**, by the well depth the portal gives. If a well at the place has no depth, the
+  most samples decide among all of them; if two share the shallowest (or deepest) depth, they decide between those two.
+- **Most samples**, counting the dates the well was sampled in this download. Of two with the same number, the one whose samples span
+  more time is kept.
+
+When nothing else decides, the site listed first is kept. A well already in the region always stays, and the portal's sites at its
+place are left out with their samples, so later downloads add to the well the first one kept. The notice counts the wells
+left out, and **Download the list (CSV)** saves every well at those places, one line each, with its depth, its number of samples,
+whether it is kept, and why not.
+
+**Save Measurements** saves the rest, as for an upload, and the summary counts the new wells left out.

@@ -301,10 +301,10 @@ def files_links():
              (' names, or the outline it falls inside.', None, None)])
     x, y = card(2, 'navy', 'Wells', 'CSV, one row per well')
     ex = [WELL_ID, '367386N1216740W001', '360137N1208920W001']
-    rows = [[w['Well ID'], w['Well Name'], w['Latitude'], w['Longitude'], w['GSE'], w['Well Depth'], w['Aquifer ID']]
+    rows = [[w['Well ID'], w['Well Name'], w['Latitude'], w['Longitude'], w['GSE'], w['Aquifer ID']]
             for w in (wells_by_id[e] for e in ex)]
-    table(x + 20, y + 52, ['Well ID', 'Well Name', 'Latitude', 'Longitude', 'GSE', 'Well Depth', 'Aquifer ID'], rows,
-          [148, 112, 76, 92, 48, 88, 90], key={0: 'orange', 6: 'teal'})
+    table(x + 20, y + 52, ['Well ID', 'Well Name', 'Latitude', 'Longitude', 'GSE', 'Aquifer ID'], rows,
+          [148, 112, 76, 92, 48, 90], key={0: 'orange', 5: 'teal'})
 
     # 4. Measurements
     link(3, [('Each measurement is at one well: the one its ', None, None), ('Well ID', 'orange', 'bold'),

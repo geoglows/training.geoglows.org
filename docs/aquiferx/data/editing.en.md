@@ -28,7 +28,7 @@ median of its neighbors, but five of the six lie within 0.7 ft of each other, so
 1986 value is flagged. A flagged value is a reading to look at on the chart, which may be a real event such as a pumping test, so check
 before deleting it.
 
-In a well read in two seasons, the check can flag ordinary readings. Well 901, in the 180/400 Foot Aquifer, is read each August, often
+In a well read in two seasons, the check can flag ordinary readings. Well 901, in the East Side Aquifer, is read each August, often
 twice, and again in November or December, when the water level is about 38 ft higher. Most of the neighbors of a December reading are
 then August readings, and the check flags some December readings, such as −19.9 ft on December 2, 1998, although the December readings
 a year before and a year after are −28.5 and −28.3 ft.
