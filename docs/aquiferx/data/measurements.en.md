@@ -31,13 +31,14 @@ The box at the top, **The file has well names or coordinates**, decides how rows
 
 - **Off:** the file has only well IDs, and each must match a well already in the region. Rows whose well is not found are listed in a
   warning and skipped.
-- **On:** the panel adds the well name, latitude and longitude, and rows are matched to the region's wells by ID, name or location, as
-  described next. Wells that match nothing are created.
+- **On:** the panel adds the well name, latitude, longitude and well depth, and rows are matched to the region's wells by ID, name or
+  location, as described next. Wells that match nothing are created.
 
 The importer sets the box from the file: on when the region has no wells yet, or when the file has a name or coordinate column.
 
 With the box on, the well ID is optional, since a name or a pair of coordinates can identify a well. This file of water quality samples
-gives each well's ID in the Water Quality Portal, its name in a **Station** column, and its latitude and longitude.
+gives each well's ID in the Water Quality Portal, its name in a **Station** column, its latitude and longitude, and its depth where the
+portal has one.
 
 ![The Columns panel for a file with station names and coordinates](../../static/images/aquiferx/meas-columns-wells.webp){ width="644" }
 
@@ -61,16 +62,14 @@ Proximity matches deserve a look, since two wells can stand close together. **Re
 distance, and **Reject** turns a match into a new well.
 
 A new well keeps the well ID from the file. When the file has none, the well gets an ID that starts with `aqx-`, made from its name and
-location: a well named 011S001E23N001M at 36.9526° N, 121.8345° W becomes `aqx-011s001e23n001m-36.95N121.83W`. Its ground surface
-elevation is looked up as for [uploaded wells](wells.md#ground-surface-elevation), and in a region with aquifers it goes to the aquifer
-it falls inside. A new well that falls inside no aquifer is not made, and its rows are skipped.
+location: a well named 011S001E23N001M at 36.9526° N, 121.8345° W becomes `aqx-011s001e23n001m-36.95N121.83W`. Its depth comes from the
+**Well depth** column when the file has one (see [Wells](wells.md#well-depth)), its ground surface elevation is looked up as for
+[uploaded wells](wells.md#ground-surface-elevation), and in a region with aquifers it goes to the aquifer it falls inside. A new well that
+falls inside no aquifer is not made, and its rows are skipped.
 
-New wells must keep to one well at each place in an aquifer (see
-[Preparing Your Files](preparing-files.md#one-well-at-each-place)). When they would put two wells of one aquifer less than 10 m apart,
-counting the region's wells, a red notice in the matching panel says how many places and wells there are, **Save Measurements** stays
-off, and **Download the list of wells (CSV)** saves them. A new well inside more than one aquifer outline is refused the same way, since
-its location cannot say which aquifer it is in; add such wells first with [Add Wells](wells.md#wells-at-one-place) and an Aquifer ID
-column. Fix the file and choose it again.
+A new well inside more than one aquifer outline can't be placed, since its location can't say which aquifer it is in. A red notice in
+the matching panel counts such wells, **Save Measurements** stays off, and **Download the list of wells (CSV)** saves them. Add them
+first with [Add Wells](wells.md#wells-inside-two-aquifer-outlines) and an Aquifer ID column, then choose the file again.
 
 ### Data columns
 
@@ -103,8 +102,9 @@ duplicates**, the default, **Keep maximum**, or **Keep all**. The report after s
 
 ![More than one water level on the same date at some wells](../../static/images/aquiferx/meas-duplicates.webp){ width="644" }
 
-In the Monterey County water levels, 40 well-dates have two or three readings, taken at different times of the day. At 34 of them
-the readings are equal, and at the other 6 they differ by 0.05 ft or less.
+In the Monterey County water levels, 69 well-dates have two or three readings, taken at different times of the day. At 54 of them
+the readings are equal, and at 14 of the other 15 they differ by 0.05 ft or less. The last pair, 2.29 ft apart, is worth a look, and
+the report gives its row in the file.
 
 ### Measurements already in the region
 
@@ -121,8 +121,7 @@ it is for the same well on the same date.
 
 **Save Measurements** writes the measurements, any new wells and any new custom types, then shows a summary: wells created and matched,
 measurements saved for each type, and duplicates collapsed. Below that it counts what was left out, with the reason: new wells outside
-every aquifer, new wells a [Water Quality Portal download](water-quality.md#wells-at-one-place) left out at a place that has another
-well, rows whose well could not be found, values that are not numbers, depths at wells without an elevation, and measurements
+every aquifer, rows whose well could not be found, values that are not numbers, depths at wells without an elevation, and measurements
 the region already had, which **Add new only** skips and **Add and update** overwrites.
 
 **Download the details** saves those rows as a CSV file, one line each, with the row's number as a spreadsheet shows it, the well, date,

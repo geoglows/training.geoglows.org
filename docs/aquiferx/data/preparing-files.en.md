@@ -28,16 +28,15 @@ measurement's well by name or coordinates, making a new well where none matches.
 from, so you can follow along in My Data. They make two regions in California from public data, neither of them in the Sample Data:
 
 - **Monterey County**, a region with nine aquifers: the county's outline from the US Census Bureau, the outlines of the nine
-  groundwater basins and subbasins in California DWR's Bulletin 118 that lie wholly inside it, 334 of DWR's monitoring wells with their
-  ground surface elevations, and 37,778 water levels from 1916 to 2026. DWR has no monitoring wells in one of the nine, Lockwood
-  Valley, so that aquifer has no wells in the practice region.
-- **Pajaro Valley**, a single-unit region: the outline of the Pajaro Valley subbasin, and 1,548 water quality samples from 149 wells,
-  1971 to 2023, from the Water Quality Portal. Each row gives its well's ID, name and location, and the import makes the wells from
-  them.
+  groundwater basins and subbasins in California DWR's Bulletin 118 that lie wholly inside it, 363 of DWR's monitoring wells with their
+  ground surface elevations and, for 325 of them, their depths, and 70,268 water levels from 1916 to 2026. DWR has no monitoring
+  wells in one of the nine, Lockwood Valley, so that aquifer has no wells in the practice region.
+- **Pajaro Valley**, a single-unit region: the outline of the Pajaro Valley subbasin, and 1,564 water quality samples from 161 wells,
+  1971 to 2023, from the Water Quality Portal. Each row gives its well's ID, name, location and, for 103 of the wells, depth, and the
+  import makes the wells from them.
 
-Where the sources have more than one well at a place (see [One well at each place](#one-well-at-each-place)), the files keep one: in
-Monterey County the well whose water levels agree best with those of nearby wells, and in the Pajaro Valley the shallowest. That leaves
-out 29 Monterey County wells and 12 Pajaro Valley wells. The README.txt in the zip lists them and says where each file comes from.
+Both have nested wells, several wells at one place finished at different depths (see [Wells at one place](#wells-at-one-place)). The
+README.txt in the zip says where each file comes from.
 
 ## Outlines
 
@@ -72,34 +71,49 @@ From Excel, use **Save As** and pick **CSV UTF-8**.
 | Latitude | yes | Latitude, or the northing (Y) in a projected system |
 | Longitude | yes | Longitude, or the easting (X) in a projected system |
 | Ground surface elevation | no | In the region's unit; looked up from an elevation model when the file has none |
+| Well depth | no | How far the finished well goes below the ground, in the region's unit; a water table map can use it to choose among wells at one place |
 | Aquifer ID | no | Which aquifer each well is in; the app can work this out from the locations instead |
 
 ```
-Well ID,Well Name,Latitude,Longitude,GSE,Aquifer ID
-367886N1216748W001,13783,36.7886,-121.67483,137,3-004.09
-367386N1216740W001,901,36.73863,-121.67404,94,3-004.02
-360137N1208920W001,189,36.0137,-120.89202,478.8,3-004.05
+Well ID,Well Name,Latitude,Longitude,GSE,Well Depth,Aquifer ID
+367886N1216748W001,13783,36.7886,-121.67483,137,192,3-004.09
+367386N1216740W001,901,36.73863,-121.67404,94,385,3-004.02
+360137N1208920W001,189,36.0137,-120.89202,478.8,,3-004.05
 ```
 
 Coordinates in a projected system are converted when you import the file; [Wells](wells.md#uploading-a-wells-file) explains how to
 pick the system.
 
-### One well at each place
+### Wells at one place
 
-An aquifer can have only one well at a place: wells of the same aquifer less than 10 m apart are refused. They are most often nested
-wells, finished at different depths in one borehole or a few feet apart, and each measures the water at its own depth. A water table
-map averages wells that close into one point, which would mix a shallow and a deep water level into a value that belongs to neither.
+Nested wells are wells finished at different depths in one borehole or a few feet apart, and each measures the water at its own depth.
+The app keeps every well, so nested wells can be plotted side by side (see
+[Exploring a Region](../start/exploring.md#selecting-wells)). A water table map can use only one of them: two water levels from
+different depths averaged into one point give a value that belongs to neither.
 
-A wells file with more than one well at a place is refused, and so is a measurements file whose new wells would put two at one place.
-The importer lists the wells (see [Wells](wells.md#wells-at-one-place)). Fix the file in one of two ways and import it again:
+**Spatial Analysis** sorts this out when it makes a map (Part 5). After the dates and well filters, a **Wells at One Place** step lists
+the places where wells of the aquifer are less than 20 m apart and keeps one well at each, by the rule you pick:
 
-- **Keep one well at each place**, and delete the rows of the others along with their measurements.
-- **Put each depth in its own aquifer.** Add the aquifer's outline once for each depth, with its own name and ID, and give each well the
-  ID of its depth in the Aquifer ID column (see [Regions and Aquifers](regions-aquifers.md#aquifers-at-different-depths)). Wells of
-  different aquifers can share a place, and each aquifer is mapped on its own.
+- **Agrees best with nearby wells**, the default. Each of a well's readings in the map's period is compared with an estimate from up to
+  six wells within 8 km, not at a place themselves, that were read within 45 days of it, the nearer ones weighted more. The well whose
+  readings differ least, by the median, is kept. Only wells whose record covers at least half as much of the period as the best-covered
+  well at the place take part, so a close match over a few years can't leave the place empty for the rest of the map. A reading is
+  compared when at least three nearby wells were read near its date, and a well needs five compared readings; where a well at the place
+  has fewer, the one with the most readings is kept.
+- **Longest record**, the well whose record, from its first reading to its last, covers more of the period.
+- **Most readings** in the period.
+- **Shallowest well** or **Deepest well**, by the [well depth](wells.md#well-depth). Where a well at the place has no depth, the one
+  with the most readings is kept.
 
-Downloads from the USGS and the Water Quality Portal keep one well at each place by a rule you choose (see
-[Wells](wells.md#wells-at-one-place-in-a-download) and [Water Quality](water-quality.md#wells-at-one-place)).
+Where the rule can't decide between wells, the one with the most readings in the period is kept. The list shows each well's depth,
+readings in the period, record and median difference from nearby wells, and a click on another well keeps it instead. The other wells
+are left out of that map and stay in the region. The distance of 20 m can be changed. **Download the list (CSV)** saves every well at
+those places with the reason it was kept or left out, and the map's **Raster Info** records the rule and the wells left out.
+
+![The Wells at One Place step for the 180/400 Foot Aquifer of the Monterey County practice region](../../static/images/aquiferx/map-places.webp){ width="900" }
+
+To map wells at different depths separately, make each depth an aquifer of its own (see
+[Regions and Aquifers](regions-aquifers.md#aquifers-at-different-depths)). The step only groups wells of the same aquifer.
 
 ### Measurements
 
@@ -118,10 +132,10 @@ Well ID,Date,WTE (ft)
 In **wide form**, each row is one sample, with a column for each thing measured. Water quality data often comes this way:
 
 ```
-Well ID,Station,Latitude,Longitude,Date,pH,Temperature (deg C),Specific Conductance (uS/cm),TDS (mg/L),Chloride (mg/L),Nitrate (mg/L as N)
-USGS-365709121500401,011S001E23N001M,36.9525833,-121.8345,2013-02-05,7.2,17,210,147,10.7,0.458
-USGS-365709121500401,011S001E23N001M,36.9525833,-121.8345,2018-04-04,7,17.5,233,177,12.1,0.497
-USGS-365722121441601,011S002E22P001M,36.9562222,-121.7378056,2013-02-06,7.7,17,538,313,28.1,0.077
+Well ID,Station,Latitude,Longitude,Well Depth,Date,pH,Temperature (deg C),Specific Conductance (uS/cm),TDS (mg/L),Chloride (mg/L),Nitrate (mg/L as N)
+USGS-365709121500401,011S001E23N001M,36.9525833,-121.8345,200,2013-02-05,7.2,17,210,147,10.7,0.458
+USGS-365709121500401,011S001E23N001M,36.9525833,-121.8345,200,2018-04-04,7,17.5,233,177,12.1,0.497
+USGS-365722121441601,011S002E22P001M,36.9562222,-121.7378056,300,2013-02-06,7.7,17,538,313,28.1,0.077
 ```
 
 The importer offers every column it has not used for the well or the date as a column of data, and suggests what each one holds: water

@@ -438,7 +438,7 @@ if (want('wq')) {
   await shot('meas-matching', await panelOf('Well matching'));
   await shot('meas-datacolumns', await panelOf('Map data columns'));
   await clickButton('Save Measurements');
-  // The import looks up the elevations of the 149 new wells first
+  // The import looks up the elevations of the 161 new wells first
   await waitText2('Import complete', 600000);
   await sleep(800);
   await clickButton('Done'); await sleep(2500);
@@ -508,6 +508,20 @@ if (want('edit')) {
   }, dot);
   await shot('edit-point-menu', box);
   await page.keyboard.press('Escape');
+}
+
+if (want('places')) {
+  // Spatial Analysis' Wells at One Place step, for the 180/400 Foot Aquifer of the Monterey County region the adddata step leaves in
+  // My Data. A tall window, so the list shows every place without scrolling
+  await page.setViewport({ width: 1440, height: 1500, deviceScaleFactor: 2 });
+  await load();
+  await clickButton('My Data'); await sleep(1500);
+  await treeItem('Monterey County'); await treeItem('180/400 Foot Aquifer'); await clearFilters(); await sleep(2000);
+  await page.click('button[aria-label="Spatial Analysis"]'); await sleep(2000);
+  await clickButton('Next'); await sleep(3000);
+  await shot('map-places', await topCard());
+  await clickButton('Cancel'); await sleep(800);
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
 }
 
 await browser.close();

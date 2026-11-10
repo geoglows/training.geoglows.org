@@ -67,9 +67,9 @@ When the region already has aquifers, the window asks what to do with them:
 
 ### Aquifers at different depths
 
-Where wells at one place draw from different depths, such as the shallow and deep zones of a layered aquifer, make each depth an aquifer
-of its own. An aquifer can have only one well at a place (see [Preparing Your Files](preparing-files.md#one-well-at-each-place)), but
-wells of different aquifers can share one, and each aquifer gets its own water table maps.
+Wells at one place that draw from different depths, such as the shallow and deep zones of a layered aquifer, can stay in one aquifer,
+and a water table map then uses one of them at each place (see [Preparing Your Files](preparing-files.md#wells-at-one-place)). To map
+each depth, make each depth an aquifer of its own, with its own wells and water table maps.
 
 Put the outline in the aquifer file once for each depth, as separate features with their own names and IDs, such as `Salinas 180 ft`
 and `Salinas 400 ft`. Then add the wells from a file with an Aquifer ID column that gives each well the ID of its depth, and choose

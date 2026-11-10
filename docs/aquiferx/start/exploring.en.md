@@ -20,10 +20,16 @@ Each well is a dot colored by how many measurements of the current data type it 
 
 After **Analyze Trends**, the colors show water level trends instead, and the legend changes to match (see Part 3).
 
+Point at a well to see its name, ID, ground surface elevation, depth where it is known, and number of measurements.
+
 ## Selecting wells
 
 Click a well to plot its measurements in the chart panel. To find a well by name or ID, type in **Search wells** at the top left of the
 map.
+
+Nested wells, finished at different depths in one borehole or a few feet apart, share a spot on the map, and their markers lie on top
+of each other. The popup of such a well says how many more wells are there. A click on the spot opens a list of them, shallowest first,
+with each well's depth and number of measurements: pick one, or **Select all** to plot them together.
 
 To compare wells, select more than one:
 
