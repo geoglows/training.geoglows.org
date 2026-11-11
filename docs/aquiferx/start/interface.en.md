@@ -69,7 +69,7 @@ the arrow keys and **Enter**, or click a match, to select the well and zoom to i
 
 **Clicking** on the map opens what you click: a region's outline opens the region, an aquifer shows its wells, and a well is plotted in
 the chart panel. Clicking an empty spot inside the open aquifer clears the selected wells, and clicking a part of the region outside every
-aquifer goes back to the region.
+aquifer goes back to the region. A click inside the open region keeps you in it, even where another region's outline overlaps it.
 
 ## Analysis buttons
 
