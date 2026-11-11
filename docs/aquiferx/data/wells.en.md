@@ -106,5 +106,14 @@ fetches the list again and keeps only wells the region does not have yet.
 The USGS often lists nested wells, several wells at one place finished at different depths. The download keeps them all, and a water
 table map chooses one at each place (see [Preparing Your Files](preparing-files.md#wells-at-one-place)).
 
+### Wells in two aquifers in a download
+
+The download places each well in the aquifer whose outline it falls inside. A well inside more than one outline, as where an aquifer is
+split by depth (see [Regions and Aquifers](regions-aquifers.md#aquifers-at-different-depths)), can't be placed that way, so the download
+leaves it out, unless the region already has it. An amber notice counts such wells, and **Download the list of wells (CSV)** saves them
+in the columns of a wells file: ID, name, latitude, longitude, ground surface elevation, depth, an empty `aquifer_id` column, and the
+aquifers whose outlines hold the well. Fill in each well's aquifer, by its depth for an aquifer split by depth, and add the file with
+**Upload CSV** and **Use aquifer_id column from CSV**.
+
 The download brings the wells without their measurements. Add those with **USGS Levels** in Add Measurements (see
 [Measurements](measurements.md#downloading-water-levels-from-the-usgs)).

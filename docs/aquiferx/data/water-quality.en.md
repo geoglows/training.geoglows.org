@@ -120,4 +120,9 @@ ID, and a USGS site number matches with or without its `USGS-` prefix. Every oth
 which starts with the code of the agency that runs the site, and the well depth the portal gives, where it gives one. Matching by name
 or proximity could join a nested well, at the place of a well in the region but at another depth, to that well's record.
 
+A site inside more than one aquifer outline, as where an aquifer is split by depth, can't be placed by its location. Unless it is a well
+the region already has, the download leaves it out with its results, as a [USGS well download](wells.md#wells-in-two-aquifers-in-a-download)
+does, and **Download the list of wells (CSV)** saves those sites with their depths and an empty `aquifer_id` column. Add them with
+**Add Wells** and their aquifer IDs, then download again: their results then match the wells by ID.
+
 **Save Measurements** saves them, as for an upload.

@@ -74,8 +74,8 @@ each depth, make each depth an aquifer of its own, with its own wells and water 
 Put the outline in the aquifer file once for each depth, as separate features with their own names and IDs, such as `Salinas 180 ft`
 and `Salinas 400 ft`. Then add the wells from a file with an Aquifer ID column that gives each well the ID of its depth, and choose
 **Use aquifer_id column from CSV** (see [Wells](wells.md#uploading-a-wells-file)). A well inside both outlines cannot be placed by its
-location, so **Assign by location** refuses it. A USGS or Water Quality Portal download puts such a well in whichever of those aquifers
-comes first in the region.
+location, so **Assign by location** refuses it, and a USGS or Water Quality Portal download leaves it out and lists it with its depth
+(see [Wells](wells.md#wells-in-two-aquifers-in-a-download)). Give such wells an Aquifer ID and add them from a file.
 
 A single-unit region has only one aquifer, so make a region that will be split by depth with single-unit off.
 
