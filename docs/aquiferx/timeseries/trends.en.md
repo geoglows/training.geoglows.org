@@ -1,8 +1,9 @@
 # Trends
 
 **Analyze Trends**, at the top right once a region is open, colors each well by how fast its water level has been changing, and each
-aquifer by the median of its wells' rates. Clicking it again turns the colors off. It works on water table elevation: the classes below
-are rates of a water level, and with another data type chosen the button is off.
+aquifer by the median of its wells' rates. Clicking it again turns the colors off. They stay on when you open another region, which gets
+colors of its own, and going Home turns them off. It works on water table elevation: the classes below are rates of a water level, and
+with another data type chosen the button is off.
 
 ## The trend of a well
 
@@ -23,8 +24,8 @@ partly the season. Look at the chart before reading much into one well's rate.
 ## The trend window
 
 While trends are on, **Window** beside the button sets how many years back from today the fit reaches, 30 to start with. **−** and **+**
-change it by 5 years, from 5 years up to the age of the oldest measurement, rounded up to a multiple of 5. Measurements before the window
-take no part.
+change it by 5 years, from 5 years up to the age of the region's oldest measurement, rounded up to a multiple of 5, and a region with a
+shorter record cuts the window back to that age. Measurements before the window take no part.
 
 A long window gives the rate over decades and evens out wet and dry spells. A short one shows what the wells are doing now, but a
 well's rate over a few years can be a drought or a wet spell. Comparing two windows tells you whether a decline is steady or recent.
