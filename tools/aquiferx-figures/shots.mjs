@@ -178,6 +178,25 @@ const clickWell = async (well, shift = false) => {
   await sleep(2500); await page.mouse.move(5, 5);
   await sleep(2500);   // the chart animates its curves in
 };
+// Drag across the chart from one year to another to zoom in. The x axis's tick labels (month/year) give the screen position
+// of a date.
+const zoomChart = async (fromYear, toYear) => {
+  const g = await page.evaluate((y0, y1) => {
+    const labels = [...document.querySelectorAll('g.recharts-xAxis-tick-labels')].sort((a, b) => b.getBoundingClientRect().width - a.getBoundingClientRect().width)[0];
+    const r = labels.closest('svg').getBoundingClientRect();
+    const ticks = [...labels.querySelectorAll('.recharts-cartesian-axis-tick-value')].map(t => {
+      const [m, y] = t.textContent.trim().split('/').map(Number), b = t.getBoundingClientRect();
+      return { year: y + (m - 1) / 12, x: b.x + b.width / 2 };
+    });
+    const a = ticks[0], z = ticks[ticks.length - 1], px = yr => a.x + (yr - a.year) / (z.year - a.year) * (z.x - a.x);
+    return { from: px(y0), to: px(y1), y: r.y + r.height / 2 };
+  }, fromYear, toYear);
+  await page.mouse.move(g.from, g.y);
+  await page.mouse.down();
+  for (let i = 1; i <= 10; i++) { await page.mouse.move(g.from + (g.to - g.from) * i / 10, g.y); await sleep(40); }
+  await page.mouse.up(); await sleep(1500);
+  await page.evaluate(() => document.activeElement?.blur());    // no focus outline around the chart
+};
 const load = async () => {
   await page.goto(APP, { waitUntil: 'networkidle2', timeout: 120000 });
   await waitText('Regions'.toUpperCase()).catch(() => {});
@@ -334,19 +353,28 @@ if (want('chart')) {
     set.call(el, '12'); el.dispatchEvent(new Event('input', { bubbles: true }));
   });
   await page.mouse.move(5, 5); await sleep(2500);
-  // Drag across the chart from about 1985 to 2005 (the record runs 1944 to 2021) to zoom in, where the readings are dense
-  const g = await page.evaluate(() => {
-    const r = [...document.querySelectorAll('.recharts-cartesian-grid')].map(x => x.getBoundingClientRect()).sort((a, b) => b.width - a.width)[0];
-    return { x: r.x, y: r.y, w: r.width, h: r.height };
-  });
-  await page.mouse.move(g.x + 0.53 * g.w, g.y + g.h / 2);
-  await page.mouse.down();
-  for (let i = 1; i <= 10; i++) { await page.mouse.move(g.x + (0.53 + 0.026 * i) * g.w, g.y + g.h / 2); await sleep(40); }
-  await page.mouse.up(); await sleep(1500);
+  // Zoom to 1985 to 2005, where the readings are dense
+  await zoomChart(1985, 2005);
   await page.mouse.move(5, 5); await page.evaluate(() => document.activeElement?.blur()); await sleep(1500);
   await shot('chart-mavg', await chartBox());
   await clickButton('Reset Zoom');
   await check('MAvg');
+}
+if (want('trends')) {
+  // Part 3: Analyze Trends with its 30-year window, first over the region's aquifers, then over the example aquifer's
+  // wells with the two example wells selected, so the chart shows their trend lines
+  await load();
+  await treeItem(REGION);
+  await page.click('button[aria-label="Analyze Trends"]'); await sleep(3000);
+  await page.mouse.move(5, 5); await sleep(1000);
+  await shot('trends-aquifers');
+  await treeItem(AQUIFER); await clearFilters();
+  await searchWell(WELL); await zoomOut(4);
+  await clickWell(WELL2, true);
+  // Zoom the chart to the window, where the trend lines are fitted
+  await zoomChart(new Date().getFullYear() - 30, new Date().getFullYear() + 1);
+  await page.mouse.move(5, 5); await sleep(1500);
+  await shot('trends-wells');
 }
 if (want('filter')) {
   await load();
