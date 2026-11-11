@@ -31,6 +31,8 @@ Nested wells, finished at different depths in one borehole or a few feet apart, 
 of each other. The popup of such a well says how many more wells are there. A click on the spot opens a list of them, shallowest first,
 with each well's depth and number of measurements: pick one, or **Select all** to plot them together.
 
+![Three wells of one nest, finished at 180, 264 and 302 ft, at one spot in Escalante Valley-Beryl-Enterprise](../../static/images/aquiferx/app-nested.webp){ width="452" }
+
 To compare wells, select more than one:
 
 - **Shift-click** a well to add it to the selection, or to remove it.

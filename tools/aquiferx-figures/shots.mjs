@@ -297,6 +297,57 @@ if (want('multiwell')) {
   await clickWell(WELL2, true);
   await shot('app-two-wells');
 }
+if (want('nested')) {
+  // Three wells of one nest, finished at 180, 264 and 302 ft, share a spot in the example aquifer: a click there opens the list
+  const NEST = { name: '(C-35-15)28bdc- 3', lat: 37.72886216, lng: -113.5407957 };
+  await load();
+  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
+  await searchWell(NEST); await tiles();
+  const p = await toScreen(NEST);
+  await page.mouse.click(p.x, p.y); await sleep(1200);
+  await page.mouse.move(p.x - 200, p.y + 150); await sleep(600);   // off the marker, so its popup closes
+  await page.evaluate(() => document.activeElement?.blur());           // and no focus outline on it
+  const box = await page.evaluate(pt => {
+    const d = [...document.querySelectorAll('div.absolute')].find(x => /wells here/.test(x.innerText) && x.querySelector('ul'));
+    const r = d.getBoundingClientRect();
+    const x = Math.min(pt.x, r.left) - 80, y = Math.min(pt.y, r.top) - 70;
+    return { x, y, width: Math.max(pt.x, r.right) + 80 - x, height: Math.max(pt.y, r.bottom) + 70 - y };
+  }, p);
+  await shot('app-nested', box);
+}
+if (want('chart')) {
+  // Part 3: the example well's chart with its ground surface elevation, then with a 12-month moving average
+  await load();
+  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
+  await searchWell(WELL); await zoomOut(4);
+  const chartBox = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height }));
+  const check = async label => {
+    await page.evaluate(l => [...document.querySelectorAll('label')].find(x => x.textContent.trim() === l).querySelector('input').click(), label);
+    await sleep(1500);
+  };
+  await check('GSE'); await page.mouse.move(5, 5); await sleep(2000);
+  await shot('chart-gse', await chartBox());
+  await check('GSE'); await check('MAvg');
+  await page.evaluate(() => {
+    const el = [...document.querySelectorAll('label')].find(x => x.textContent.trim().startsWith('months:')).querySelector('input');
+    const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+    set.call(el, '12'); el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await page.mouse.move(5, 5); await sleep(2500);
+  // Drag across the chart from about 1985 to 2005 (the record runs 1944 to 2021) to zoom in, where the readings are dense
+  const g = await page.evaluate(() => {
+    const r = [...document.querySelectorAll('.recharts-cartesian-grid')].map(x => x.getBoundingClientRect()).sort((a, b) => b.width - a.width)[0];
+    return { x: r.x, y: r.y, w: r.width, h: r.height };
+  });
+  await page.mouse.move(g.x + 0.53 * g.w, g.y + g.h / 2);
+  await page.mouse.down();
+  for (let i = 1; i <= 10; i++) { await page.mouse.move(g.x + (0.53 + 0.026 * i) * g.w, g.y + g.h / 2); await sleep(40); }
+  await page.mouse.up(); await sleep(1500);
+  await page.mouse.move(5, 5); await page.evaluate(() => document.activeElement?.blur()); await sleep(1500);
+  await shot('chart-mavg', await chartBox());
+  await clickButton('Reset Zoom');
+  await check('MAvg');
+}
 if (want('filter')) {
   await load();
   await treeItem(REGION); await treeItem(AQUIFER);
