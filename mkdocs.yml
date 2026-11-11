@@ -208,6 +208,9 @@ nav:
           - Measurements: aquiferx/data/measurements.md
           - Water Quality: aquiferx/data/water-quality.md
           - Editing and Exporting: aquiferx/data/editing.md
+      - Part 3 Time Series and Trends:
+          - The Time Series Chart: aquiferx/timeseries/chart.md
+          - Trends: aquiferx/timeseries/trends.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md

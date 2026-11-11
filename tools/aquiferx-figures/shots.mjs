@@ -26,6 +26,9 @@ const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
 page.on('console', m => { if (m.type() === 'error') console.log('CONSOLE', m.text().slice(0, 160)); });
 page.on('pageerror', e => console.log('PAGEERROR', e.message.slice(0, 160)));
+// A basemap tile that fails still counts as loaded to Leaflet, so tiles() can't see it: report it
+page.on('requestfailed', r => { if (r.resourceType() === 'image') console.log('TILE FAILED', r.failure()?.errorText, r.url().slice(-60)); });
+page.on('response', r => { if (r.request().resourceType() === 'image' && r.status() >= 400) console.log('TILE', r.status(), r.url().slice(-60)); });
 
 // Wait until the map has stopped moving and every basemap tile it asked for has loaded. Checking
 // only for loaded tiles is not enough: mid-flight, the tiles for the new view are not requested yet.

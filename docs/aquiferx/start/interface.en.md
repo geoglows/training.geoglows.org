@@ -63,7 +63,7 @@ the arrow keys and **Enter**, or click a match, to select the well and zoom to i
 <div style="clear: both"></div>
 
 ![The wells legend](../../static/images/aquiferx/map-legend.webp){ align=left width="192" style="margin: 0 18px 12px 0" }
-**The legend** explains the colors of the well markers. The colors change when trends are shown (see Part 3).
+**The legend** explains the colors of the well markers. The colors change when trends are shown (see [Trends](../timeseries/trends.md)).
 
 <div style="clear: both"></div>
 
@@ -76,7 +76,7 @@ aquifer goes back to the region.
 Three buttons at the top right start the analyses. Each appears once there is something for it to work on.
 
 ![Analyze Trends](../../static/images/aquiferx/button-trends.webp){ align=left width="44" style="margin: 0 18px 12px 0" }
-**Analyze Trends**, once a region is open, colors wells and aquifers by how fast their water levels are changing. See Part 3.
+**Analyze Trends**, once a region is open, colors wells and aquifers by how fast their water levels are changing. See [Trends](../timeseries/trends.md).
 
 <div style="clear: both"></div>
 
@@ -97,7 +97,7 @@ Three buttons at the top right start the analyses. Each appears once there is so
 The chart panel plots the measurements of the selected wells. Along its top:
 
 - **GSE** adds a line for each well's ground surface elevation.
-- **PCHIP** draws a smooth curve through the measurements. Part 3 explains the method.
+- **PCHIP** draws a smooth curve through the measurements. [The Time Series Chart](../timeseries/chart.md#the-curve-between-measurements) explains the method.
 - **Trend Line** adds a straight-line trend through each well's record.
 - **MAvg** adds a moving average, and a **months** box appears beside it for the averaging window, in steps of 3 months.
 - **View/Edit** opens a table of the selected well's measurements, where you can correct or delete them.
@@ -113,4 +113,4 @@ The panel can hold more than one chart. When it does, tabs above the chart switc
 - **Raster Statistics** plots, for each date of an open map, the spread of the well values it was built from: median, quartiles and range.
 - **Cross Section** plots a profile through the map once you draw one.
 
-Part 3 covers the well chart in detail, and Part 5 the charts that come with a map.
+[The Time Series Chart](../timeseries/chart.md) covers the well chart in detail, and Part 5 the charts that come with a map.

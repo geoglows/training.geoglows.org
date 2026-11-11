@@ -57,8 +57,11 @@ regions you add are stored by your browser on your computer, and you keep a copy
 - [Water Quality](data/water-quality.md): the parameter catalog, custom data types, and downloading from the Water Quality Portal.
 - [Editing and Exporting](data/editing.md): correcting and deleting measurements, and exporting what the chart shows.
 
-**Part 3, Time Series and Trends,** explains the chart, the curve it draws between measurements, and how the app classifies water level
-trends.
+**Part 3, Time Series and Trends,** covers the well chart and the trends of water levels:
+
+- [The Time Series Chart](timeseries/chart.md): the curve between measurements, ground surface elevation, the moving average, trend
+  lines and zooming.
+- [Trends](timeseries/trends.md): how Analyze Trends rates each well and aquifer, the trend window, and the classes.
 
 **Part 4, Filling Gaps,** explains when filling gaps in well records is worthwhile, how to run it, and the model behind it in full.
 

@@ -18,7 +18,7 @@ Each well is a dot colored by how many measurements of the current data type it 
 - **gray**, one
 - **red**, none of this data type, though the well may have others
 
-After **Analyze Trends**, the colors show water level trends instead, and the legend changes to match (see Part 3).
+After **Analyze Trends**, the colors show water level trends instead, and the legend changes to match (see [Trends](../timeseries/trends.md)).
 
 Point at a well to see its name, ID, ground surface elevation, depth where it is known, and number of measurements.
 
