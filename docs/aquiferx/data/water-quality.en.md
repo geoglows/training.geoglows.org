@@ -104,9 +104,9 @@ The portal's results come from many laboratories, reported in different units an
 in four steps:
 
 - **Non-numeric results** are dropped. A result below the detection limit, which the portal reports as text, is lost this way.
-- **Sample fraction.** Where the catalog prefers one fraction, results for the other are dropped. It keeps filtered (dissolved) results
-  for nitrate, nitrite, ammonia, phosphorus, the major ions, the metals, fluoride, boron and silica, and unfiltered results for total
-  nitrogen and total phosphorus.
+- **Sample fraction.** Where the catalog prefers one fraction, results for the other, or with none given, are dropped. It keeps filtered
+  results, which the portal labels **Dissolved**, for nitrate, nitrite, ammonia, phosphorus, the major ions, the metals, fluoride, boron
+  and silica, and unfiltered results, labeled **Total**, for total nitrogen and total phosphorus.
 - **Units.** Each result is converted to the catalog's unit: mg/L to µg/L, degrees Fahrenheit to Celsius, mS/cm to µS/cm, and nitrogen
   and phosphorus compounds reported as the ion (`mg/l asNO3`) to N or P. A result whose conversion is uncertain is dropped, such as
   nitrate in plain `mg/l`, which some laboratories report as N and others as the ion, or dissolved oxygen in percent saturation.
