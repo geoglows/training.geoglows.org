@@ -379,6 +379,34 @@ if (want('trends')) {
   await page.mouse.move(5, 5); await sleep(1500);
   await shot('trends-wells');
 }
+if (want('impute')) {
+  // Part 4: the Escalante model saved in Sample Data, on a well with a ten-year gap, first with ELM and PCHIP apart (the
+  // chart's default), then combined; then the Impute Gaps wizard on a My Data copy of Utah, in a taller window so the
+  // whole first step shows
+  const GAP_WELL = { name: '(C-36-16) 3ddc- 1', lat: 37.67802916, lng: -113.6271865 };
+  await load();
+  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
+  await treeItem('elm');
+  await searchWell(GAP_WELL); await zoomOut(4);
+  const chartBox = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height }));
+  await page.mouse.move(5, 5); await sleep(2500);
+  await shot('impute-separate', await chartBox());
+  await page.evaluate(() => [...document.querySelectorAll('label')].find(x => x.textContent.trim() === 'Combined').querySelector('input').click());
+  await page.mouse.move(5, 5); await sleep(2500);
+  await shot('impute-combined', await chartBox());
+
+  await clearMyData();
+  await page.evaluate(n => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === n).nextElementSibling.click(), REGION);
+  await sleep(600);
+  await clickButton('Copy to My Data'); await sleep(15000);   // the app switches to My Data and opens the copy
+  await treeItem(AQUIFER);
+  await page.setViewport({ width: 1440, height: 1250, deviceScaleFactor: 2 }); await sleep(1500);
+  await page.click('button[aria-label="Impute Gaps"]');
+  await waitText('wells qualify'); await sleep(2500);
+  await shot('impute-wizard', await rect('div.fixed.inset-0 > div', 16));
+  await clickButton('Cancel');
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 }); await sleep(1500);
+}
 if (want('filter')) {
   await load();
   await treeItem(REGION); await treeItem(AQUIFER);

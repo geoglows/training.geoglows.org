@@ -86,7 +86,7 @@ Three buttons at the top right start the analyses. Each appears once there is so
 <div style="clear: both"></div>
 
 ![Impute Gaps](../../static/images/aquiferx/button-impute.webp){ align=left width="44" style="margin: 0 18px 12px 0" }
-**Impute Gaps**, once an aquifer is open and water table elevation is the data type, fills the gaps in well records. See Part 4.
+**Impute Gaps**, once an aquifer is open and water table elevation is the data type, fills the gaps in well records. See [Gaps in Well Records](../imputation/gaps.md).
 
 <div style="clear: both"></div>
 

@@ -63,7 +63,12 @@ regions you add are stored by your browser on your computer, and you keep a copy
   lines and zooming.
 - [Trends](timeseries/trends.md): how Analyze Trends rates each well and aquifer, the trend window, and the classes.
 
-**Part 4, Filling Gaps,** explains when filling gaps in well records is worthwhile, how to run it, and the model behind it in full.
+**Part 4, Filling Gaps,** fills the gaps in well records with a model of each well:
+
+- [Gaps in Well Records](imputation/gaps.md): why records have gaps, what Impute Gaps produces, and what its model can and cannot know.
+- [Running an Imputation](imputation/running.md): the wizard, its options and the run.
+- [How the Model Works](imputation/method.md): the PCHIP months, the soil moisture features and the extreme learning machine, in full.
+- [Reading the Results](imputation/results.md): the model on the chart, managing saved models, and using them for water table maps.
 
 **Part 5, Water Table Maps,** covers interpolating the water table between wells, the two interpolation methods, and the storage change
 and cross sections built from the maps.

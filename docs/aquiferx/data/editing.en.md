@@ -63,7 +63,8 @@ Larger removals are made where the data came in or in the region tree:
 
 **Export CSV** in the chart panel downloads what the chart shows for the selected wells: one row per measurement, with its date as
 YYYY-MM-DD, value, well ID, well name and aquifer ID, so the file can be imported again. The file is named after the first well and the
-data type. With a gap-filling model open for one well, it downloads the model's monthly series instead (see Part 4).
+data type. With a gap-filling model open for one well, it downloads the model's monthly series instead (see
+[Reading the Results](../imputation/results.md#the-saved-series)).
 
 To take a whole region elsewhere, use **Download** in the region's menu, or **Back up** for all of My Data. Both make a zip file of the
 region's own files, which other software can read and Aquifer Analyst can restore (see
