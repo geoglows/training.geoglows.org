@@ -24,6 +24,11 @@ than a limit you set, two years to start with, and before a well's first reading
 the well: an extreme learning machine (ELM), a kind of neural network that trains in a single step. Each well gets its own, trained on
 the well's record to relate its water level to soil moisture in the aquifer's area, the year and the month.
 
+An ELM trains in one step because the weights of its hidden layer are drawn at random and only its output is fitted. Each run draws
+new weights and so builds a new model of each well. Two runs give the same values in the months that follow PCHIP and different values
+in the gaps: between two runs on Escalante, half the wells changed by more than 2.5 ft somewhere in their gaps, and one in ten by more
+than 12 ft.
+
 The series are saved together as a model of the aquifer, which you can open on the chart (see [Reading the Results](results.md)) and
 use in place of the readings for water table maps (Part 5). In Escalante the model covers 159 wells, and almost three quarters of
 their months come from the ELM. The approach is that of Evans et al. (2020), who filled well records with an
@@ -46,8 +51,6 @@ after its last, the model stretches a relationship learned from other years, som
   [How the Model Works](method.md#the-fit-statistics)), and with 500 hidden units it can follow even a short record closely: in
   Escalante the median R² is 0.955. They tell you how closely the model follows the record, and
   nothing about its values in the gaps.
-- **Runs differ.** The model starts from random weights, so a second run gives different values in the gaps. Between two runs on
-  Escalante, half the wells changed by more than 2.5 ft somewhere in their gaps, and one in ten by more than 12 ft.
 - **The series can step.** Where it passes from PCHIP to the model, or back, the two rarely meet exactly. In Escalante half of these
   steps are under 1.3 ft, one in ten is over 7.5 ft, and the largest is 31 ft.
 - **The model is jumpy.** Each month's value comes from that month's inputs alone, so it moves about twice as much from one month to

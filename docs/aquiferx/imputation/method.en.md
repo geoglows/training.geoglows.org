@@ -128,11 +128,12 @@ They measure how closely the model reproduces the months it learned from. With 5
 closely: in Escalante, the 44 wells with fewer than two years of training months have a median R² of 0.93, and a well trained on
 6 months reaches 0.93 with an RMSE of 0.03 ft. A high R² says little about the values in the gaps.
 
-## Runs differ
+## Each run draws new weights
 
-**W** and **b** are drawn afresh in every run, so the same aquifer and settings give somewhat different values in the gaps, and
-slightly different R² and RMSE. Between two runs on Escalante, the median change in a gap month was 0.2 ft; the largest change at each
-well was over 2.5 ft at half the wells and over 12 ft at one in ten.
+An ELM draws **W** and **b** at random and never adjusts them; only **β** is fitted, in one step. Every run draws them afresh, so the
+same aquifer and settings give a different model of each well, with somewhat different values in the gaps and slightly different R²
+and RMSE. Between two runs on Escalante, the median change in a gap month was 0.2 ft; the largest change at each well was over
+2.5 ft at half the wells and over 12 ft at one in ten.
 
 ## References
 

@@ -74,5 +74,6 @@ in the Utah sample was made this way with a 12-month moving average. Part 5 cove
 - A high R² is easy to reach and says little about the gaps. A well trained on a few months can score above 0.9.
 - Values before a well's first reading and after its last are the model extended beyond the record, sometimes by decades. They carry
   the soil moisture and seasonal pattern of the well's measured years, and miss anything else that changed.
-- A second run gives somewhat different values in the gaps. For a result you will report, compare two runs, or keep the model you used
-  with the results.
+- Each run draws new random weights (see [How the Model Works](method.md#each-run-draws-new-weights)), so a second run gives somewhat
+  different values in the gaps. Comparing two runs shows how much a gap's values depend on the draw. For a result you will report,
+  keep the model you used with it.
