@@ -7,7 +7,8 @@ Writes editable SVGs to docs/static/images/aquiferx/diagrams/ and 2x PNGs next t
 helpers of diagrams.py.
 
   impute-network.png   the extreme learning machine: 19 inputs for a month, 500 hidden units, one output
-  impute-gap.png       (C-36-16) 3ddc- 1 around its 1961-1971 gap: readings, PCHIP, the gap and its pads, the model
+  impute-gap.png       (C-36-16) 3ddc- 1 around its 1961-1971 gap: readings, PCHIP, the gap and its pads, the model,
+                       and the model shifted to meet PCHIP at both ends, as saved
 """
 import csv
 import json
@@ -121,17 +122,17 @@ def year(d):
 
 def gap_figure():
     model = json.loads(MODEL.read_text())
-    rows = sorted((parse(r['date']), r['pchip'], r['model']) for r in model['data'] if r['well_id'] == WELL)
+    rows = sorted((parse(r['date']), r['pchip'], r['model'], r['combined']) for r in model['data'] if r['well_id'] == WELL)
     reads = sorted((parse(r['date']), float(r['value'])) for r in csv.DictReader(open(UTAH / 'data_wte.csv'))
                    if r['well_id'] == WELL)
     x0, x1 = 1958, 1975
     rd = [(year(d), v) for d, v in reads if x0 <= year(d) <= x1]
-    mo = [(year(d), p, m) for d, p, m in rows if x0 <= year(d) <= x1]
+    mo = [(year(d), p, m, c) for d, p, m, c in rows if x0 <= year(d) <= x1]
     # The gap: the two readings either side of the longest interval in the window
     pairs = [(a, b) for a, b in zip(reads, reads[1:]) if (b[0] - a[0]).days > GAP_SIZE and x0 <= year(a[0]) <= x1]
     (ga, _), (gb, _) = pairs[0]
 
-    vals = [v for _, v in rd] + [p for _, p, _ in mo if p is not None] + [m for _, _, m in mo]
+    vals = [v for _, v in rd] + [p for _, p, _, _ in mo if p is not None] + [m for _, _, m, _ in mo] + [c for *_, c in mo]
     y0, y1 = 5 * np.floor(min(vals) / 5) - 5, 5 * np.ceil(max(vals) / 5) + 5
     W, H = 900, 440
     L, R, T, B = 78, 24, 70, 54
@@ -157,10 +158,13 @@ def gap_figure():
     body.append(f'<text transform="translate(20 {(T + H - B) / 2:.0f}) rotate(-90)" font-family="{FONT}" font-size="12" '
                 f'text-anchor="middle" fill="{C["gray"]}">Water table elevation (ft)</text>')
 
-    # The model over every month, then PCHIP where it is kept
-    body.append(path('M' + ' L'.join(f'{X(t):.1f},{Y(m):.1f}' for t, _, m in mo), stroke='blue', w=1.6))
+    # The model over every month, faint; the saved series in the gap, the model shifted; PCHIP where it is kept
+    light = '#9cb9dc'
+    body.append(path('M' + ' L'.join(f'{X(t):.1f},{Y(m):.1f}' for t, _, m, _ in mo), stroke=light, w=1.2))
+    gap_idx = [i for i, (t, p, _, _) in enumerate(mo) if p is None and year(ga) < t < year(gb)]
+    body.append(path('M' + ' L'.join(f'{X(mo[i][0]):.1f},{Y(mo[i][3]):.1f}' for i in gap_idx), stroke='blue', w=2))
     seg = []
-    for t, p, _ in mo + [(None, None, None)]:
+    for t, p, _, _ in mo + [(None, None, None, None)]:
         if p is not None:
             seg.append(f'{X(t):.1f},{Y(p):.1f}')
         elif seg:
@@ -168,6 +172,18 @@ def gap_figure():
             seg = []
     for t, v in rd:
         body.append(f'<circle cx="{X(t):.1f}" cy="{Y(v):.1f}" r="4" fill="{C["navy"]}" stroke="white" stroke-width="1.2"/>')
+    # The shift at each end: from the model to PCHIP at the training month beside the gap
+    for i, side in ((gap_idx[0] - 1, 'start'), (gap_idx[-1] + 1, 'end')):
+        t, p, m, _ = mo[i]
+        x, ya, yb = X(t), Y(m), Y(p)
+        tip = 6 if yb > ya else -6
+        body.append(line(x, ya, x, yb - tip, col='purple', w=1.6))
+        body.append(path(f'M{x - 4.5:.1f},{yb - tip:.1f} L{x + 4.5:.1f},{yb - tip:.1f} L{x:.1f},{yb:.1f} Z', stroke='purple', w=1,
+                         fill='purple'))
+        # A white outline keeps the label readable over the lines
+        label = text(x + (8 if side == 'start' else -8), (ya + yb) / 2 + 4, f'shift {p - m:+.1f} ft', size=12,
+                     anchor='start' if side == 'start' else 'end', fill='purple', weight='bold')
+        body.append(label.replace('<text ', '<text stroke="white" stroke-width="4" paint-order="stroke" ', 1))
 
     # Labels
     mid = (X(year(ga)) + X(year(gb))) / 2
@@ -176,7 +192,7 @@ def gap_figure():
     body.append(text(X(year(ga)) + 4, T + 36, f'pad, {PAD} days', size=11, fill='darkgray'))
     body.append(text(X(year(gb)) - 4, T + 36, f'pad, {PAD} days', size=11, anchor='end', fill='darkgray'))
     lx = L
-    for name, col, w in (('PCHIP, kept', 'orange', 2.6), ('Model', 'blue', 1.6)):
+    for name, col, w in (('PCHIP, kept', 'orange', 2.6), ('Model', light, 1.2), ('Model, shifted (saved)', 'blue', 2)):
         body.append(line(lx, 30, lx + 30, 30, col=col, w=w + 0.5))
         body.append(text(lx + 38, 34, name, size=13, fill='darkgray'))
         lx += 38 + 9 * len(name) + 34
@@ -184,7 +200,7 @@ def gap_figure():
     body.append(text(lx + 18, 34, 'Readings', size=13, fill='darkgray'))
 
     save('impute-gap', svg_doc(W, H, '\n'.join(body), f'The model filling a {(gb - ga).days / 365.25:.0f}-year gap in a '
-                                                      'well record, between the pads of PCHIP at its ends'))
+                                                      'well record, shifted to meet the PCHIP kept at both ends'))
     print('gap', ga, gb, 'readings in window', len(rd))
 
 

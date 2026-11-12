@@ -49,9 +49,10 @@ in, such as `escalante_valley_beryl_enterprise/model_wte_elm.json`, with a warni
 **Options Summary** repeats the settings and the model, an ELM with 500 hidden units and λ = 100, which are fixed.
 
 **Run Imputation** starts the run, and a progress bar and a log follow it: the soil moisture months, how many wells qualified, each
-well dropped and why, and a line for each well modeled with its R², RMSE and number of training months. The work runs in the
+well dropped and why, and a line for each well modeled with its R², RMSE, number of training months and hidden-readings check (see
+[Reading the Results](results.md#the-hidden-readings-check)). The work runs in the
 background, so the page stays responsive, and Escalante's 159 wells took about a minute. **Cancel** stops the run and goes back to the
 first step without saving anything.
 
-When the run ends, the wizard reports how many wells were modeled, the number of monthly values saved, the dates and the aquifer, with
-the log under **Processing Log**. **View Results** opens the model on the chart (see [Reading the Results](results.md)).
+When the run ends, the wizard reports how many wells were modeled, the number of monthly values saved, the hidden-readings check for
+the aquifer, the dates and the aquifer, with the log under **Processing Log**. **View Results** opens the model on the chart (see [Reading the Results](results.md)).

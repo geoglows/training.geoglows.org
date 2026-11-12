@@ -1,8 +1,9 @@
 # How the Model Works
 
 For each well, Impute Gaps reads the PCHIP curve through the readings at the first of each month where readings are close enough to
-support it, trains an extreme learning machine (ELM) on those months, and fills the remaining months with the ELM. Every well is
-trained on its own, against the same soil moisture series for the whole aquifer.
+support it, trains an extreme learning machine (ELM) on those months, and fills the remaining months with the ELM, shifted to meet the
+curve at both ends of each stretch it fills. Every well is trained on its own, against the same soil moisture series for the whole
+aquifer. A second fit, with a stretch of the well's readings hidden, checks the model against those readings.
 
 ## The months
 
@@ -20,12 +21,13 @@ same curve the chart draws (see [The Time Series Chart](../timeseries/chart.md#h
   of the gap.
 
 These are the well's training months, and the months where its saved series follows PCHIP. Every other month, inside long gaps and
-before the first reading or after the last, gets the ELM's value.
+before the first reading or after the last, gets the ELM's value, shifted as described under [The saved series](#the-saved-series).
 
-![The model filling the 1961 to 1971 gap of (C-36-16) 3ddc- 1, between the pads of PCHIP at its ends](../../static/images/aquiferx/impute-gap.png)
+![The model filling the 1961 to 1971 gap of (C-36-16) 3ddc- 1, shifted to meet the PCHIP kept at both ends](../../static/images/aquiferx/impute-gap.png)
 
 (C-36-16) 3ddc- 1 in Escalante Valley-Beryl-Enterprise was read in March 1961 and not again until March 1971. With the defaults, PCHIP
-carries the record 180 days into the gap from each end, and the model fills the nine years between.
+carries the record 180 days into the gap from each end, and the model fills the nine years between. The faint line is the model over
+every month, and the dark one the stretch it fills, shifted to meet the curve.
 
 ## Soil moisture
 
@@ -99,21 +101,37 @@ as far as 2,491 ft beyond its readings, and with every unit penalized it never w
 
 ## The saved series
 
-Each month of the saved series is the PCHIP value where the month is a training month, and the ELM's value otherwise:
+Each month of the saved series is the PCHIP value in a training month. In the other months it is the ELM's value plus a shift that
+makes it meet PCHIP. For a run of months without PCHIP between training months *a* and *b*, the shift starts from the model's error
+at *a* and changes in a straight line to its error at *b*:
 
 $$
-v(m) = \begin{cases} p(m) & \text{in a training month} \\ e(m) & \text{otherwise} \end{cases}
+v(m) = \begin{cases} p(m) & \text{in a training month} \\ e(m) + d_a + \dfrac{m - a}{b - a}\,(d_b - d_a) & \text{otherwise} \end{cases}
+\qquad d_a = p(a) - e(a), \quad d_b = p(b) - e(b)
 $$
 
-The two are not blended, so where the series passes from one to the other it steps by the difference between them. In the
-Escalante model in the Utah sample, half of the 396 steps are under 1.3 ft, one in ten is over 7.5 ft, and the largest is 31 ft.
+with *m* − *a* and *b* − *a* counted in months. Before a well's first training month and after its last there is a training month on
+one side only, and the shift is that side's *d* throughout. Within the run the model keeps its rises and falls; the shift moves it as
+a whole, so that it starts where the curve leaves off and ends where the curve picks up. At (C-36-16) 3ddc- 1 the model ran 3.2 ft
+below the curve in September 1961 and again in October 1970, so the nine years between are raised by 3.2 ft. In the well's 1990s gap
+it ran 4.7 ft above the curve at the start and 0.5 ft above at the end, so that stretch is lowered by 4.7 ft, easing to 0.5 ft.
 
-Each month's ELM value depends on that month's inputs alone, with nothing to tie it to the month before, so the model's series is
-rougher than the PCHIP curve. Across Escalante the median change from one month to the next is 0.3 ft for the model and 0.2 ft for
-PCHIP; at (C-36-16) 3ddc- 1 it is 1.4 ft for the model, as the figure above shows.
+Without the shift the series would step by the model's error wherever it passes between PCHIP and the ELM: at the 396 such places in
+the Escalante model, by 1.3 ft at the median and up to 38 ft. With it, the change at those places is the model's own change over
+that month, a median of 0.7 ft and at most 17 ft. In the hold-out test (see
+[Gaps in Well Records](gaps.md#how-close-the-filled-values-come)) the shift also brought the filled values a little closer to the
+hidden readings, for every length of hidden stretch.
 
-The model file keeps the PCHIP and ELM values of every month as well as the saved series, so the chart can show them apart (see
-[Reading the Results](results.md)).
+Across Escalante the model's line is rougher than the PCHIP curve: the median change from one month to the next is 0.3 ft for the
+model and 0.2 ft for PCHIP, and at 3ddc- 1 it is 1.6 ft for the model, the zigzag in the figure above. Most of it comes from the
+twelve month indicators, which let the model draw a pattern over the calendar year and repeat it every year, and from the month's own
+soil moisture. Refitting the Escalante wells without the month indicators halves the model's typical change from one month to the
+next, and without the month's soil moisture as well it is smoother than the PCHIP curve. In the hold-out test, leaving out the month
+indicators brought the filled values closer to the hidden readings only over 10-year stretches inside a record, and left them further
+off in the other tests.
+
+The model file keeps the PCHIP value and the unshifted ELM value of every month as well as the saved series, so the chart can show
+them apart (see [Reading the Results](results.md)).
 
 ## The fit statistics
 
@@ -125,15 +143,51 @@ R^2 = 1 - \frac{\sum_m \left(p(m) - e(m)\right)^2}{\sum_m \left(p(m) - \bar{p}\r
 $$
 
 They measure how closely the model reproduces the months it learned from. With 500 hidden units it follows even a short record
-closely: in Escalante, the 44 wells with fewer than two years of training months have a median R² of 0.93, and a well trained on
-6 months reaches 0.93 with an RMSE of 0.03 ft. A high R² says little about the values in the gaps.
+closely: in Escalante, the 44 wells with fewer than two years of training months have a median R² of 0.93, and the four trained on 6 months
+reach 0.91 to 0.95, with RMSEs of 0.04 to 0.12 ft. A high R² says little about the values in the gaps: on readings hidden from the
+fit, the same models missed by two to three times their RMSE.
+
+## The hidden-readings check
+
+Each run tests every well it can on readings left out of the fit:
+
+1. The hidden stretch is five years centered on the well's middle reading (the median of its reading dates), or *G* + 2*P* + 1 year
+   if that is longer, so that the model still fills at least a year of it.
+2. The well is checked when it has at least 5 readings before the stretch and 2 after it, and at least 3 of the hidden readings fall
+   in months the model fills.
+3. The training months are found from the other readings, as above, and a new ELM is fitted to them, with its own random weights,
+   and shifted as in the saved series.
+4. Each hidden reading in the months the model fills is compared with the shifted model, read on a straight line between the two
+   months around it, and with the PCHIP curve through the other readings, which crosses the hidden stretch.
+
+For the *k* hidden readings *w*<sub>i</sub>, at times *t*<sub>i</sub>,
+
+$$
+\text{RMSE}_\text{model} = \sqrt{\frac{1}{k}\sum_{i=1}^{k}\left(\hat v(t_i) - w_i\right)^2}, \qquad
+\text{RMSE}_\text{PCHIP} = \sqrt{\frac{1}{k}\sum_{i=1}^{k}\left(\hat p(t_i) - w_i\right)^2}
+$$
+
+where *v̂* is the shifted model and *p̂* the PCHIP curve, both made without the hidden readings. The two are saved with the well, and
+Get Info gives for the aquifer how many wells were checked, at how many the model came closer, and the median of each RMSE. In the
+Sample Data models:
+
+| Aquifer | Wells modeled | Wells checked | Model closer | Median RMSE, model | Median RMSE, PCHIP |
+|---|--:|--:|--:|--:|--:|
+| Escalante Valley-Beryl-Enterprise | 159 | 72 | 25 | 3.75 ft | 2.64 ft |
+| East Shore Area | 163 | 89 | 30 | 4.17 ft | 3.78 ft |
+| Central Sevier Valley | 80 | 20 | 10 | 2.00 ft | 1.87 ft |
+| Williamson | 21 | 15 | 5 | 2.70 ft | 2.37 ft |
+
+The check covers the middle of a record, where PCHIP is the alternative. How the model does past the end of a record, where it has
+to extend the readings, is in the test in [Gaps in Well Records](gaps.md#how-close-the-filled-values-come). The check's fit draws its
+own weights, so the result is a sample of how the saved model behaves, and a second run gives a somewhat different one.
 
 ## Each run draws new weights
 
 An ELM draws **W** and **b** at random and never adjusts them; only **β** is fitted, in one step. Every run draws them afresh, so the
 same aquifer and settings give a different model of each well, with somewhat different values in the gaps and slightly different R²
 and RMSE. Between two runs on Escalante, the median change in a gap month was 0.2 ft; the largest change at each well was over
-2.5 ft at half the wells and over 12 ft at one in ten.
+3.1 ft at half the wells and over 12 ft at one in ten.
 
 ## References
 
