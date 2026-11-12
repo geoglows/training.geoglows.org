@@ -46,12 +46,13 @@ all of them are the model's.
 
 The second step asks for a **Title**: letters, numbers, spaces, hyphens and underscores. Under it is the file the model will be saved
 in, such as `escalante_valley_beryl_enterprise/model_wte_elm.json`, with a warning if the aquifer already has a model by that name.
-**Options Summary** repeats the settings and the model, an ELM with 500 hidden units and λ = 100, which are fixed.
+**Options Summary** repeats the settings and the model, the average of five ELMs with 500 hidden units and λ = 100, which are
+fixed.
 
 **Run Imputation** starts the run, and a progress bar and a log follow it: the soil moisture months, how many wells qualified, each
 well dropped and why, and a line for each well modeled with its R², RMSE, number of training months and hidden-readings check (see
 [Reading the Results](results.md#the-hidden-readings-check)). The work runs in the
-background, so the page stays responsive, and Escalante's 159 wells took about a minute. **Cancel** stops the run and goes back to the
+background, so the page stays responsive, and Escalante's 159 wells took a little over two minutes. **Cancel** stops the run and goes back to the
 first step without saving anything.
 
 When the run ends, the wizard reports how many wells were modeled, the number of monthly values saved, the hidden-readings check for

@@ -89,11 +89,15 @@ $$
 solved in one step by Cholesky factorization. The penalty *λ* keeps the weights small. Without it, a unit that is active in only one or
 two training months but in many months of a gap could take a large weight to fit those months and send the gap's values far off.
 
-The fitted model gives a value for every month of the span, which is put back in the well's units:
+The fitted ELM gives a value for every month of the span, which is put back in the well's units. The app fits five ELMs to each
+well, each with its own random **W**<sub>j</sub> and **b**<sub>j</sub> and so its own **β**<sub>j</sub>, and the well's model is their
+average:
 
 $$
-e(m) = \mu + \sigma\, \mathbf{h}(m)^\mathsf{T} \boldsymbol{\beta}
+e(m) = \mu + \frac{\sigma}{5} \sum_{j=1}^{5} \mathbf{h}_j(m)^\mathsf{T} \boldsymbol{\beta}_j
 $$
+
+Averaging narrows how much the model changes from one run to the next (see [Each run draws new weights](#each-run-draws-new-weights)).
 
 The Python notebook the app's method comes from left the last two hidden units out of the penalty. Since November 2026 the app
 penalizes every unit, because that pair now and then sent a well far off: refitting one Escalante well 500 times, the pair sent it
@@ -111,22 +115,23 @@ v(m) = \begin{cases} p(m) & \text{in a training month} \\ e(m) + d_a + \dfrac{m 
 $$
 
 with *m* − *a* and *b* − *a* counted in months. Before a well's first training month and after its last there is a training month on
-one side only, and the shift is that side's *d* throughout. Within the run the model keeps its rises and falls; the shift moves it as
-a whole, so that it starts where the curve leaves off and ends where the curve picks up. At (C-36-16) 3ddc- 1 the model ran 3.2 ft
-below the curve in September 1961 and again in October 1970, so the nine years between are raised by 3.2 ft. In the well's 1990s gap
-it ran 4.7 ft above the curve at the start and 0.5 ft above at the end, so that stretch is lowered by 4.7 ft, easing to 0.5 ft.
+one side only, and the shift is that side's *d* throughout. Within the run the model keeps its rises and falls; the shift moves it as a
+whole, so that it starts where the curve leaves off and ends where the curve picks up. At (C-36-16) 3ddc- 1 the model ran 2.5 ft below
+the curve in September 1961 and 4.9 ft below it in October 1970, so the nine years between are raised by 2.5 ft at the start, growing
+to 4.9 ft at the end. In the well's 1990s gap it ran 2.8 ft above the curve at the start and 0.5 ft above at the end, so that stretch
+is lowered by 2.8 ft, easing to 0.5 ft.
 
 Without the shift the series would step by the model's error wherever it passes between PCHIP and the ELM: at the 396 such places in
-the Escalante model, by 1.3 ft at the median and up to 38 ft. With it, the change at those places is the model's own change over
-that month, a median of 0.7 ft and at most 17 ft. In the hold-out test (see
+the Escalante model, by 1.2 ft at the median and up to 36 ft. With it, the change at those places is the model's own change over
+that month, a median of 0.5 ft and at most 15 ft. In the hold-out test (see
 [Gaps in Well Records](gaps.md#how-close-the-filled-values-come)) the shift also brought the filled values a little closer to the
 hidden readings, for every length of hidden stretch.
 
-Across Escalante the model's line is rougher than the PCHIP curve: the median change from one month to the next is 0.3 ft for the
-model and 0.2 ft for PCHIP, and at 3ddc- 1 it is 1.6 ft for the model, the zigzag in the figure above. Most of it comes from the
+Across Escalante the model's line is rougher than the PCHIP curve: the median change from one month to the next is 0.24 ft for the
+model and 0.17 ft for PCHIP, and at 3ddc- 1 it is 0.8 ft for the model, the zigzag in the figure above. Most of it comes from the
 twelve month indicators, which let the model draw a pattern over the calendar year and repeat it every year, and from the month's own
-soil moisture. Refitting the Escalante wells without the month indicators halves the model's typical change from one month to the
-next, and without the month's soil moisture as well it is smoother than the PCHIP curve. In the hold-out test, leaving out the month
+soil moisture. Refitting the Escalante wells with a single ELM each and without the month indicators halves the model's typical
+change from one month to the next, and without the month's soil moisture as well it is smoother than the PCHIP curve. In the hold-out test, leaving out the month
 indicators brought the filled values closer to the hidden readings only over 10-year stretches inside a record, and left them further
 off in the other tests.
 
@@ -144,8 +149,8 @@ $$
 
 They measure how closely the model reproduces the months it learned from. With 500 hidden units it follows even a short record
 closely: in Escalante, the 44 wells with fewer than two years of training months have a median R² of 0.93, and the four trained on 6 months
-reach 0.91 to 0.95, with RMSEs of 0.04 to 0.12 ft. A high R² says little about the values in the gaps: on readings hidden from the
-fit, the same models missed by two to three times their RMSE.
+reach 0.93, with RMSEs of 0.03 to 0.15 ft. A high R² says little about the values in the gaps: on readings hidden from the
+fit, the same models missed by about twice their RMSE or more.
 
 ## The hidden-readings check
 
@@ -155,8 +160,8 @@ Each run tests every well it can on readings left out of the fit:
    if that is longer, so that the model still fills at least a year of it.
 2. The well is checked when it has at least 5 readings before the stretch and 2 after it, and at least 3 of the hidden readings fall
    in months the model fills.
-3. The training months are found from the other readings, as above, and a new ELM is fitted to them, with its own random weights,
-   and shifted as in the saved series.
+3. The training months are found from the other readings, as above, and a new model is fitted to them, again the average of five
+   ELMs with their own random weights, and shifted as in the saved series.
 4. Each hidden reading in the months the model fills is compared with the shifted model, read on a straight line between the two
    months around it, and with the PCHIP curve through the other readings, which crosses the hidden stretch.
 
@@ -173,10 +178,10 @@ Sample Data models:
 
 | Aquifer | Wells modeled | Wells checked | Model closer | Median RMSE, model | Median RMSE, PCHIP |
 |---|--:|--:|--:|--:|--:|
-| Escalante Valley-Beryl-Enterprise | 159 | 72 | 25 | 3.75 ft | 2.64 ft |
-| East Shore Area | 163 | 89 | 30 | 4.17 ft | 3.78 ft |
-| Central Sevier Valley | 80 | 20 | 10 | 2.00 ft | 1.87 ft |
-| Williamson | 21 | 15 | 5 | 2.70 ft | 2.37 ft |
+| Escalante Valley-Beryl-Enterprise | 159 | 72 | 28 | 3.51 ft | 2.64 ft |
+| East Shore Area | 163 | 89 | 33 | 4.10 ft | 3.78 ft |
+| Central Sevier Valley | 80 | 20 | 11 | 1.64 ft | 1.87 ft |
+| Williamson | 21 | 15 | 5 | 2.81 ft | 2.37 ft |
 
 The check covers the middle of a record, where PCHIP is the alternative. How the model does past the end of a record, where it has
 to extend the readings, is in the test in [Gaps in Well Records](gaps.md#how-close-the-filled-values-come). The check's fit draws its
@@ -186,8 +191,10 @@ own weights, so the result is a sample of how the saved model behaves, and a sec
 
 An ELM draws **W** and **b** at random and never adjusts them; only **β** is fitted, in one step. Every run draws them afresh, so the
 same aquifer and settings give a different model of each well, with somewhat different values in the gaps and slightly different R²
-and RMSE. Between two runs on Escalante, the median change in a gap month was 0.2 ft; the largest change at each well was over
-3.1 ft at half the wells and over 12 ft at one in ten.
+and RMSE. The average of five ELMs varies less than one ELM does. Between two runs on Escalante with one ELM per well, the median
+change in a gap month was 0.2 ft, and the largest change at each well was over 3.1 ft at half the wells and over 12 ft at one in
+ten. With the average of five, as the app now fits, the median change in a gap month was 0.09 ft, and the largest change at each
+well over 1.2 ft at half the wells and over 5.6 ft at one in ten.
 
 ## References
 

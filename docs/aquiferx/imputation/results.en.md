@@ -24,7 +24,7 @@ blue line runs along the red one, you can see how closely the model follows the 
 model's guess.
 
 (C-36-16) 3ddc- 1 in Escalante was read 82 times from 1953 to 2026, with gaps from 1961 to 1971 and from 1992 to 1996. Its model has
-an R² of 0.996 and an RMSE of 2.24 ft, and over the training months the blue line keeps close to the red, a few feet either side,
+an R² of 0.998 and an RMSE of 1.75 ft, and over the training months the blue line keeps close to the red, a few feet either side,
 rougher than the curve through the readings.
 
 ## The saved series
@@ -34,7 +34,8 @@ rougher than the curve through the readings.
 With **Combined** checked, the chart shows the series the model saved: red where it follows PCHIP and blue where it takes the ELM,
 shifted to meet the red at each end (see [How the Model Works](method.md#the-saved-series)). At 3ddc- 1 the blue fills October 1961 to
 September 1970 and October 1992 to September 1995, and the months of 2026 after the final reading. Next to the blue line of the
-other view, the 1960s stretch is raised by 3.2 ft, and the 1990s stretch lowered by 4.7 ft at its start, easing to 0.5 ft at its end.
+other view, the 1960s stretch is raised by 2.5 ft at its start, growing to 4.9 ft at its end, and the 1990s stretch lowered by
+2.8 ft, easing to 0.5 ft.
 
 The chart's controls change while a model is on the chart:
 
@@ -52,14 +53,14 @@ made the model, with a line for each well and its check.
 ## The hidden-readings check
 
 The last item in the band compares the model with readings it never saw (see
-[How the Model Works](method.md#the-hidden-readings-check)). For 3ddc- 1 it reads *Hidden readings: model 3.63 · PCHIP 2.04 ft*:
+[How the Model Works](method.md#the-hidden-readings-check)). For 3ddc- 1 it reads *Hidden readings: model 2.31 · PCHIP 2.04 ft*:
 the run hid five years of the well's record, the five readings from March 1979 to March 1983, fitted the well again without them,
 and filled the stretch both with the model and with the PCHIP curve across it. The numbers are the RMSE of each against the hidden
 readings, and pointing at the item gives the dates and how many readings were scored. A well with too few readings around the middle
 of its record shows *No hidden-reading check*.
 
 Get Info gives the same comparison for the aquifer: how many wells were checked, at how many the model came closer than PCHIP, and
-the median RMSE of each. For Escalante, the model came closer at 25 of the 72 wells checked, with a median RMSE of 3.75 ft against
+the median RMSE of each. For Escalante, the model came closer at 28 of the 72 wells checked, with a median RMSE of 3.51 ft against
 PCHIP's 2.64 ft.
 
 The check speaks to the gaps inside a record. Where PCHIP came out closer at most wells, the readings' own curve, which maps made with
@@ -72,8 +73,8 @@ The three dots beside a model open its menu:
 
 - **Edit** renames it, and its file with it.
 - **Get Info** shows the model's title, code, aquifer and date; its settings, including the span of months it covers (**Model
-  Months**), the hidden units and λ; how many wells it models, with their average R² and RMSE; and the hidden-readings check for the
-  aquifer.
+  Months**), the hidden units, λ and the number of ELM fits averaged; how many wells it models, with their average R² and RMSE;
+  and the hidden-readings check for the aquifer.
 - **Delete** removes it, after you confirm.
 
 Sample Data models can be opened and inspected but not renamed or deleted.
