@@ -36,9 +36,9 @@ use in place of the readings for water table maps (Part 5). In Escalante the mod
 their months come from the ELM. The approach is that of Evans et al. (2020), who filled well records with an
 ELM driven by Earth observation data, soil moisture among them, and found its estimates more accurate than kriging's.
 
-Each run also tests the model on readings it never saw. It hides five years of readings from the middle of each well's record, fits
-the well again without them, fills the stretch with the model and with the PCHIP curve across it, and compares both with the hidden
-readings. The chart gives the result for each well and Get Info for the aquifer (see
+Each run also tests the model on readings it never saw. It hides five years of readings from the middle of each well's record, which
+leaves a gap long enough for the model to fill, fits the well again without them, and compares the model and the PCHIP curve across
+the gap with the hidden readings in the months the model fills. The chart gives the result for each well and Get Info for the aquifer (see
 [Reading the Results](results.md#the-hidden-readings-check)).
 
 [Running an Imputation](running.md) walks through the wizard, [How the Model Works](method.md) gives the method in full, and
@@ -49,9 +49,9 @@ readings. The chart gives the result for each well and Get Info for the aquifer 
 A gap-filling method can be tested by hiding readings that exist, filling them, and comparing. A Python copy of the app's method did
 this for every well with eight or more readings in the four Sample Data aquifers: Escalante Valley-Beryl-Enterprise, East Shore Area
 and Central Sevier Valley in Utah, and Williamson in Oregon. It hid 3, 5 or 10 years of a well's readings, from the middle of its
-record or from the end, ran the method on the rest, and measured the RMSE of the filled values against the hidden readings. In the
-middle of a record the comparison is the PCHIP curve across the hidden stretch; at the end, where there is no curve, it is the last
-reading held level.
+record or from the end, ran the method on the rest with the default Gap Size and Pad Size, and measured the RMSE against the hidden
+readings in the months the model filled. A stretch hidden from the middle leaves a long gap, and there the model was compared with
+the PCHIP curve across it. Past the last reading there is no curve, and the model was compared with the last reading held level.
 
 | Hidden stretch | Wells | PCHIP across it, or the last reading | The model | Wells where the model came closer |
 |---|--:|--:|--:|--:|
@@ -62,10 +62,11 @@ reading held level.
 | 5 years, end | 241 | 4.2 ft | 4.8 ft | 46% |
 | 10 years, end | 203 | 6.4 ft | 6.6 ft | 45% |
 
-The model is the app's: five ELMs averaged and shifted to meet the curve. The RMSEs are medians over the wells. Inside a record, the PCHIP curve came closer to the hidden readings than the model at most
-wells, and more so the longer the stretch; past the end of a record, the model did about as well as holding the last reading. Central
-Sevier Valley was the exception: there the two came out about even, and with 10-year stretches the model was closer. A heavier
-penalty λ, fewer hidden units and a plain linear fit of the same inputs all left the model short of PCHIP inside the record.
+The model is the app's: five ELMs averaged and shifted to meet the curve. The RMSEs are medians over the wells. In the long gaps, the PCHIP curve came closer to the hidden readings than the model at most
+wells, and more so the longer the gap; past a well's last reading, the model did about as well as holding that reading level.
+Central Sevier Valley was the exception: there the two came out about even in the long gaps, and with 10-year gaps the model was
+closer. A heavier penalty λ, fewer hidden units and a plain linear fit of the same inputs all left the model short of PCHIP in the
+long gaps.
 
 These are four aquifers, three of them in Utah, and the model may do better where water levels follow wet and dry years more closely.
 The check each run makes gives the same comparison for your own wells.
@@ -91,7 +92,8 @@ after its last, the model stretches a relationship learned from other years, som
   to the hidden readings. A moving average, on the chart or in Spatial Analysis, evens it out.
 
 Treat the filled values as estimates. Look at the hidden-readings check in Get Info, and on the chart for the wells that matter most
-to you; where PCHIP came closer, maps from the readings may serve better than maps from the model. Compare the model with the readings
+to you. Where PCHIP came closer, maps from the readings may fill the long gaps better, though each well leaves those maps before
+its first reading and after its last, where only the model gives it a value. Compare the model with the readings
 on either side of each gap, and leave out of a map, or use with care, a well whose model wanders.
 
 ## References

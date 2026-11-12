@@ -132,7 +132,7 @@ model and 0.17 ft for PCHIP, and at 3ddc- 1 it is 0.8 ft for the model, the zigz
 twelve month indicators, which let the model draw a pattern over the calendar year and repeat it every year, and from the month's own
 soil moisture. Refitting the Escalante wells with a single ELM each and without the month indicators halves the model's typical
 change from one month to the next, and without the month's soil moisture as well it is smoother than the PCHIP curve. In the hold-out test, leaving out the month
-indicators brought the filled values closer to the hidden readings only over 10-year stretches inside a record, and left them further
+indicators brought the filled values closer to the hidden readings only in 10-year gaps in the middle of a record, and left them further
 off in the other tests.
 
 The model file keeps the PCHIP value and the unshifted ELM value of every month as well as the saved series, so the chart can show
@@ -183,8 +183,8 @@ Sample Data models:
 | Central Sevier Valley | 80 | 20 | 11 | 1.64 ft | 1.87 ft |
 | Williamson | 21 | 15 | 5 | 2.81 ft | 2.37 ft |
 
-The check covers the middle of a record, where PCHIP is the alternative. How the model does past the end of a record, where it has
-to extend the readings, is in the test in [Gaps in Well Records](gaps.md#how-close-the-filled-values-come). The check's fit draws its
+The check covers a long gap in the middle of a record, where the PCHIP curve across the gap is the alternative. How the model does
+after a well's last reading, where it has to extend the readings, is in the test in [Gaps in Well Records](gaps.md#how-close-the-filled-values-come). The check's fit draws its
 own weights, so the result is a sample of how the saved model behaves, and a second run gives a somewhat different one.
 
 ## Each run draws new weights

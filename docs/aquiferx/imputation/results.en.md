@@ -55,7 +55,7 @@ made the model, with a line for each well and its check.
 The last item in the band compares the model with readings it never saw (see
 [How the Model Works](method.md#the-hidden-readings-check)). For 3ddc- 1 it reads *Hidden readings: model 2.31 · PCHIP 2.04 ft*:
 the run hid five years of the well's record, the five readings from March 1979 to March 1983, fitted the well again without them,
-and filled the stretch both with the model and with the PCHIP curve across it. The numbers are the RMSE of each against the hidden
+and filled the gap this left both with the model and with the PCHIP curve across it. The numbers are the RMSE of each against the hidden
 readings, and pointing at the item gives the dates and how many readings were scored. A well with too few readings around the middle
 of its record shows *No hidden-reading check*.
 
@@ -63,9 +63,9 @@ Get Info gives the same comparison for the aquifer: how many wells were checked,
 the median RMSE of each. For Escalante, the model came closer at 28 of the 72 wells checked, with a median RMSE of 3.51 ft against
 PCHIP's 2.64 ft.
 
-The check speaks to the gaps inside a record. Where PCHIP came out closer at most wells, the readings' own curve, which maps made with
-**Raw Data** use, filled those gaps better than the model did, and what the model adds is a value in the months before a well's first
-reading and after its last.
+The check covers the long gaps, the ones longer than **Gap Size**. Where PCHIP came out closer at most wells, the readings' own
+curve, which maps made with **Raw Data** use, filled those gaps better than the model did. Before a well's first reading and after
+its last, Raw Data maps leave the well out, and only the model keeps it on them.
 
 ## Managing models
 
