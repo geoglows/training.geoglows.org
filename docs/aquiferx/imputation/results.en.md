@@ -14,7 +14,8 @@ says which it is. In Escalante that gives 155 blue wells, 58 red and 500 gray.
 With a model open and one well selected, the chart shows the model's series for that well in place of its readings. A band across
 the top names the model, holds the **Combined** checkbox, and gives the well's R² and RMSE (see
 [How MC+LNN Works](method.md#the-fit-statistics)) and the result of its hidden-readings check (below). For a well MC+LNN could not
-fill, the band reads *PCHIP and held readings only*, and pointing at it gives the reason. A well the model left out reads *This well
+fill, the band reads *PCHIP and held readings only*, pointing at it gives the reason, and the chart shows its saved series without
+the **Combined** checkbox, since it has no MC+LNN line to compare. A well the model left out reads *This well
 is not in the model*, with the setting it misses, and with two or more wells selected the chart goes back to the readings.
 
 ## The filled series
