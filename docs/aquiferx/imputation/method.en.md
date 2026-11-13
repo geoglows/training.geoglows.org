@@ -1,208 +1,219 @@
-# How the Model Works
+# How MC+LNN Works
 
-For each well, Impute Gaps reads the PCHIP curve through the readings at the first of each month where readings are close enough to
-support it, trains an extreme learning machine (ELM) on those months, and fills the remaining months with the ELM, shifted to meet the
-curve at both ends of each stretch it fills. Every well is trained on its own, against the same soil moisture series for the whole
-aquifer. A second fit, with a stretch of the well's readings hidden, checks the model against those readings.
+Impute Gaps fills each well from the wells around it. For every well it picks the 15 wells whose readings rise and fall most
+like its own, completes their records together with the aquifer's most complete wells, and feeds them month by month through
+fixed networks of random units (reservoirs) that keep a fading memory of what they have seen. A ridge regression fitted to the
+well's own readings turns the reservoirs' states into a water level for every month. Only that regression is fitted, so a well
+takes seconds. MC+LNN stands for the two parts: matrix completion (MC) and a liquid neural network (LNN), the kind of reservoir
+used here.
 
-## The months
+The app's MC+LNN is a TypeScript copy of a Python implementation and gives the same values to rounding. The Python version also
+reads climate series (soil moisture and drought indices); the app leaves them out, which left the fills as close to hidden readings
+as before (see [Gaps in Well Records](gaps.md#how-close-the-filled-values-come)).
 
-A model covers every month from December 1957 to the latest month of the soil moisture record, each represented by its first day. The
-start is set by the soil moisture features below: the longest of them is a ten-year average, and the record begins in January 1948.
+## The monthly records
 
-## The PCHIP months
+A model has one value per month, from the month of the aquifer's first reading to the month of its last. Each well's readings
+within a calendar month are averaged, giving the well a row of monthly levels with blanks where it was not read. Every well of the
+aquifer with readings in at least 10 months goes into this monthly matrix, whether or not it is one of the wells to fill, because
+any of them can be another well's neighbor.
 
-For a well read at times *t*<sub>1</sub> < … < *t*<sub>n</sub>, a month *m* takes the value of the well's PCHIP curve, *p*(*m*), the
-same curve the chart draws (see [The Time Series Chart](../timeseries/chart.md#how-pchip-is-computed)), when two conditions hold:
+A well to fill needs at least 12 months with readings for MC+LNN, since its regression is tested on six blocks of them (see
+[The readout](#the-readout)). A well with fewer, or with no neighbors, keeps the readings' PCHIP curve and its first and last
+readings held (see [The saved series](#the-saved-series)).
 
-- *t*<sub>1</sub> ≤ *m* < *t*<sub>n</sub>: it lies between the first reading and the last.
-- It is not inside a long gap. Where two readings in a row are more than the **Gap Size** *G* apart, the months from
-  *t*<sub>k</sub> + *P* to *t*<sub>k+1</sub> − *P* are left out, where *P* is the **Pad Size**. The curve still covers *P* at each end
-  of the gap.
+## Neighbors
 
-These are the well's training months, and the months where its saved series follows PCHIP. Every other month, inside long gaps and
-before the first reading or after the last, gets the ELM's value, shifted as described under [The saved series](#the-saved-series).
-
-![The model filling the 1961 to 1971 gap of (C-36-16) 3ddc- 1, shifted to meet the PCHIP kept at both ends](../../static/images/aquiferx/impute-gap.png)
-
-(C-36-16) 3ddc- 1 in Escalante Valley-Beryl-Enterprise was read in March 1961 and not again until March 1971. With the defaults, PCHIP
-carries the record 180 days into the gap from each end, and the model fills the nine years between. The faint line is the model over
-every month, and the dark one the stretch it fills, shifted to meet the curve.
-
-## Soil moisture
-
-The features come from NOAA CPC Soil Moisture version 2 (Fan and van den Dool, 2004): monthly soil moisture on a 0.5° grid from
-January 1948 to about a month ago, in millimeters of water, computed by a one-layer water balance model driven by monthly precipitation
-and temperature. GEOGLOWS publishes it as a cloud store that the app reads. Each aquifer uses the cell nearest its center, taken as the
-average of the corners of its outline; if that cell is sea, the app takes the nearest cell with data, up to three cells away (about
-150 km). Escalante Valley-Beryl-Enterprise uses the cell centered at 37.75° N, 113.75° W.
-
-From the monthly series *s*(*m*) come five features: the month's value and its trailing averages over 1, 3, 5 and 10 years,
+For a well *i*, every other well *j* of the matrix is scored by the correlation of their monthly levels over the months both were
+read,
 
 $$
-\bar{s}_w(m) = \frac{1}{w} \sum_{j=0}^{w-1} s(m - j), \qquad w = 12,\ 36,\ 60,\ 120 \text{ months}
+r_{ij} = \frac{\sum_t (x_{it} - \bar x_i)(x_{jt} - \bar x_j)}{\sqrt{\sum_t (x_{it} - \bar x_i)^2 \sum_t (x_{jt} - \bar x_j)^2}}
 $$
 
-The 10-year average first exists in December 1957, which is why a model starts there. The short averages follow wet and dry years,
-and the long ones the slower swings that a deep water table can lag behind. Each feature is standardized over all the model's months,
+with the sums and means over those shared months. A well needs at least 8 shared months to be scored. The 15 wells with the
+largest |*r*| are the neighbors. The sign does not matter, because the regression can turn a neighbor that falls when the well
+rises into a rise. Distance plays no part: a well 20 km away that tracks the well closely ranks above one next door that does
+not.
+
+## Completing the neighbors' records
+
+The neighbors have gaps of their own. Before they can describe every month of the well, those gaps are filled by matrix
+completion, which estimates a missing entry from the pattern the wells share.
+
+Each neighbor's record has its gaps of up to 24 months filled with PCHIP through its monthly levels; longer gaps and the months
+before its first reading and after its last stay empty. The 60 most complete other wells of the aquifer, the anchors, are prepared
+the same way and added, because they are often read in months the neighbors missed. Each row is standardized by its own mean and
+standard deviation, so that a deep well and a shallow one count alike. The result is a matrix **X** of at most 75 wells by the
+model's months, with the well being filled never among its rows.
+
+SoftImpute (Mazumder et al., 2010) fills the empty entries with a low-rank matrix: one in which every well's standardized record
+is a mix of a few patterns common to the aquifer. Starting with zeros in the empty entries, it repeats
 
 $$
-z(m) = \frac{x(m) - \bar{x}}{s_x}
+\mathbf{Z} = \mathbf{U}\,\max(\mathbf{S} - \lambda, 0)\,\mathbf{V}^\mathsf{T},
+\qquad x_{jt} \leftarrow z_{jt} \text{ where } x_{jt} \text{ is empty}
 $$
 
-with *x̄* its mean and *s*<sub>x</sub> its sample standard deviation.
+where **U S V**<sup>T</sup> is the singular value decomposition of the current matrix and λ is one fiftieth of the largest singular
+value of the first one. Lowering every singular value by λ and dropping those below it keeps the strong common patterns and leaves
+out the weak ones. It stops when the empty entries change by less than 0.1% from one pass to the next, or after 100 passes. The
+anchors are then set aside, and the 15 completed neighbor records, *c*<sub>1</sub>(*t*) … *c*<sub>15</sub>(*t*), go on.
 
 ## The inputs of a month
 
-Each month gives 19 inputs, the vector **x**(*m*):
+Each month *t* gives the reservoirs an input vector **u**<sub>t</sub>:
 
-- the five standardized soil moisture features;
-- the year, scaled from 0 in 1957 to 1 in the last year, (*Y* − *Y*<sub>min</sub>) / (*Y*<sub>max</sub> − *Y*<sub>min</sub>), which
-  lets the model follow a steady rise or decline;
-- twelve month indicators, 1 for the month and 0 for the others, which let it learn the seasonal pattern;
-- a constant 1.
+- sin(2π*m*/12) and cos(2π*m*/12), with *m* the calendar month from 1 to 12, so the seasons follow one another around a circle;
+- a trend τ that runs in a straight line from −1 in the model's first month to 1 in its last;
+- the 15 completed neighbor records, standardized.
 
-The well's PCHIP values are standardized the same way, with the mean *μ* and sample standard deviation *σ* of its own training months:
-*y*(*m*) = (*p*(*m*) − *μ*) / *σ*.
+That is 18 inputs, fewer where a well has fewer than 15 neighbors. A second set without the trend, 17 inputs, is used for the
+months before the well's first reading and after its last (see [Beyond the record](#beyond-the-record)).
 
-## The extreme learning machine
+## The reservoirs
 
-![The extreme learning machine: 19 inputs for a month, 500 hidden units with random weights, one output with fitted weights](../../static/images/aquiferx/impute-network.png)
+![The reservoirs: a month's inputs drive 18 fixed reservoirs, whose states and the inputs feed a fitted ridge regression](../../static/images/aquiferx/impute-network.png)
 
-An extreme learning machine (Huang et al., 2006) is a neural network with one hidden layer whose hidden weights are never trained.
-Each of its 500 hidden units takes a weighted sum of the 19 inputs, adds an offset, and passes the result on if it is positive:
+A reservoir is a network of 64 units whose weights are drawn at random once and never trained. Each month it takes the inputs and
+its own state of the month before:
 
 $$
-\mathbf{h}(m) = \max\left(0,\ \mathbf{W}^\mathsf{T} \mathbf{x}(m) + \mathbf{b}\right)
+\begin{aligned}
+\mathbf{z}_t &= \tanh\left(\mathbf{W}_\text{in}\,\mathbf{u}_t + \mathbf{W}\,\mathbf{h}_{t-1} + \mathbf{b}\right) \\
+\mathbf{g}_t &= \sigma\left(\mathbf{A}\,\mathbf{z}_t + \mathbf{c}\right) \\
+\mathbf{h}_t &= \mathbf{g}_t \odot \mathbf{h}_{t-1} + (1 - \mathbf{g}_t) \odot \mathbf{z}_t
+\end{aligned}
 $$
 
-The 19 × 500 weights **W** and the 500 offsets **b** are drawn at random from a standard normal distribution, once for each well. Each
-unit is a random mix of soil moisture, year and season that switches on for part of the record. The model's output is a weighted sum
-of the units, **h**(*m*)<sup>T</sup>**β**, and the 500 output weights **β** are the only thing fitted. With the units of the *n*
-training months stacked in an *n* × 500 matrix **H** and their standardized values in **y**, they come from ridge regression,
+with **h**<sub>0</sub> = 0, σ the logistic function and ⊙ the product element by element. **z**<sub>t</sub> is the units' response
+to this month, and the gate **g**<sub>t</sub> decides, unit by unit, how much of the old state each keeps. Because the gate depends
+on the input, so does how long the reservoir remembers, which is what makes it "liquid". The weights are drawn as:
+
+- **W**<sub>in</sub>, 64 × the number of inputs, uniform on [−0.5, 0.5];
+- **W**, 64 × 64, standard normal, scaled so that its largest eigenvalue has size ρ;
+- **b**, uniform on [−0.2, 0.2];
+- **A**, 64 × 64, normal with standard deviation 1/8;
+- **c**, logit(ρ) plus a number uniform on [−0.5, 0.5].
+
+A unit's gate is centered on about ρ, so ρ sets roughly how much of its state a unit keeps from one month to the next. The app runs
+three settings, ρ = 0.5, 0.9 and 0.99, for memories of a few months, about a year and several years. Each runs forward through the
+months and, with weights of its own, backward from the last month to the first, so that a month in a gap is described by what
+follows it as well as by what came before. Three settings, two directions and three draws of the weights make 18 reservoirs.
+
+The weights come from fixed random seeds, so they are the same in every run: the same readings and settings always give the same
+model.
+
+## The readout
+
+For each of the three draws, the states of its six reservoirs and the inputs themselves are put side by side, 6 × 64 + 18 = 402
+numbers for a month, the features **f**<sub>t</sub>. A ridge regression maps them to the well's monthly level. It is fitted on the
+months the well was read, with each feature standardized over those months and the levels *y*<sub>t</sub> centered on their mean
+*ȳ*:
 
 $$
-\boldsymbol{\beta} = \left(\mathbf{H}^\mathsf{T}\mathbf{H} + \lambda \mathbf{I}\right)^{-1} \mathbf{H}^\mathsf{T} \mathbf{y},
-\qquad \lambda = 100
+\hat y_t = \bar y + \tilde{\mathbf{f}}_t^\mathsf{T}\mathbf{w}, \qquad
+\mathbf{w} = \left(\tilde{\mathbf{F}}^\mathsf{T}\tilde{\mathbf{F}} + \alpha \mathbf{I}\right)^{-1} \tilde{\mathbf{F}}^\mathsf{T}(\mathbf{y} - \bar y)
 $$
 
-solved in one step by Cholesky factorization. The penalty *λ* keeps the weights small. Without it, a unit that is active in only one or
-two training months but in many months of a gap could take a large weight to fit those months and send the gap's values far off.
+where **F̃** stacks the standardized features of the read months. The penalty α is chosen from 1, 10, 100, 1,000 and 10,000 by
+cross-fitting: the read months are split, in time order, into six blocks of nearly equal size; each block is predicted by a regression
+fitted on the other five; and the α whose predictions miss the readings least, in mean squared error over all six blocks, is kept.
+The regression is then fitted on all the read months with that α and gives a value for every month. In the read months, the value
+kept is the one predicted when that month's block was left out, so it shows how well the regression does on readings it was not
+fitted to.
 
-The fitted ELM gives a value for every month of the span, which is put back in the well's units. The app fits five ELMs to each
-well, each with its own random **W**<sub>j</sub> and **b**<sub>j</sub> and so its own **β**<sub>j</sub>, and the well's model is their
-average:
+The well's MC+LNN estimate is the average of the three draws' predictions,
 
 $$
-e(m) = \mu + \frac{\sigma}{5} \sum_{j=1}^{5} \mathbf{h}_j(m)^\mathsf{T} \boldsymbol{\beta}_j
+e(t) = \tfrac{1}{3}\left(\hat y^{(1)}_t + \hat y^{(2)}_t + \hat y^{(3)}_t\right)
 $$
 
-Averaging narrows how much the model changes from one run to the next (see [Each run draws new weights](#each-run-draws-new-weights)).
+## Beyond the record
 
-The Python notebook the app's method comes from left the last two hidden units out of the penalty. Since November 2026 the app
-penalizes every unit, because that pair now and then sent a well far off: refitting one Escalante well 500 times, the pair sent it
-as far as 2,491 ft beyond its readings, and with every unit penalized it never went more than 22 ft.
+The trend input lets the regression follow a steady rise or fall inside the record. Carried decades past the readings, a fitted
+trend keeps going, so the months before a well's first reading and after its last use a second readout, fitted the same way on
+inputs without the trend: the season and the neighbors. Past the record the neighbors carry the well, and a neighbor that was
+also not read then is carried by the completion.
+
+How far MC+LNN reaches depends on how much the well was read. A well with readings in 60 months or more is filled as far as the
+**Fill beyond each record** limit allows. A well with fewer is filled by MC+LNN for 12 months beyond its record, and its first or
+last reading is held for the rest of that limit.
 
 ## The saved series
 
-Each month of the saved series is the PCHIP value in a training month. In the other months it is the ELM's value plus a shift that
-makes it meet PCHIP. For a run of months without PCHIP between training months *a* and *b*, the shift starts from the model's error
-at *a* and changes in a straight line to its error at *b*:
+Each month of a well's saved series takes one of three values:
 
-$$
-v(m) = \begin{cases} p(m) & \text{in a training month} \\ e(m) + d_a + \dfrac{m - a}{b - a}\,(d_b - d_a) & \text{otherwise} \end{cases}
-\qquad d_a = p(a) - e(a), \quad d_b = p(b) - e(b)
-$$
+- **PCHIP**, the readings' curve (the one the chart draws, see
+  [The Time Series Chart](../timeseries/chart.md#how-pchip-is-computed)) on the first of the month, in every month inside the
+  record that has a reading or lies in a gap of less than 6 months (183 days) between two readings;
+- **MC+LNN**, the estimate *e*(*t*), in the months inside a gap of 6 months or more, and before and after the record as far as
+  MC+LNN reaches;
+- **the held reading**, the first reading before the record and the last after it, where MC+LNN does not reach.
 
-with *m* − *a* and *b* − *a* counted in months. Before a well's first training month and after its last there is a training month on
-one side only, and the shift is that side's *d* throughout. Within the run the model keeps its rises and falls; the shift moves it as a
-whole, so that it starts where the curve leaves off and ends where the curve picks up. At (C-36-16) 3ddc- 1 the model ran 2.5 ft below
-the curve in September 1961 and 4.9 ft below it in October 1970, so the nine years between are raised by 2.5 ft at the start, growing
-to 4.9 ft at the end. In the well's 1990s gap it ran 2.8 ft above the curve at the start and 0.5 ft above at the end, so that stretch
-is lowered by 2.8 ft, easing to 0.5 ft.
+The series runs from the limit before the first reading to the limit after the last, within the model's months, and the well has no
+value outside it. A well MC+LNN cannot fill has PCHIP inside its record and held readings outside it.
 
-Without the shift the series would step by the model's error wherever it passes between PCHIP and the ELM: at the 396 such places in
-the Escalante model, by 1.2 ft at the median and up to 36 ft. With it, the change at those places is the model's own change over
-that month, a median of 0.5 ft and at most 15 ft. In the hold-out test (see
-[Gaps in Well Records](gaps.md#how-close-the-filled-values-come)) the shift also brought the filled values a little closer to the
-hidden readings, for every length of hidden stretch.
+MC+LNN fills a long gap right up to the readings on either side, and its estimate is not shifted to meet them, so the series can
+step where it hands over to PCHIP. At the 6,857 such places in the Escalante model, the series changes by 0.76 ft at the median and
+by more than 3.3 ft at one in ten, against 0.27 ft and 1.7 ft from one month to the next elsewhere. A well read once a year has two
+such places a year, on either side of the month with the reading.
 
-Across Escalante the model's line is rougher than the PCHIP curve: the median change from one month to the next is 0.24 ft for the
-model and 0.17 ft for PCHIP, and at 3ddc- 1 it is 0.8 ft for the model, the zigzag in the figure above. Most of it comes from the
-twelve month indicators, which let the model draw a pattern over the calendar year and repeat it every year, and from the month's own
-soil moisture. Refitting the Escalante wells with a single ELM each and without the month indicators halves the model's typical
-change from one month to the next, and without the month's soil moisture as well it is smoother than the PCHIP curve. In the hold-out test, leaving out the month
-indicators brought the filled values closer to the hidden readings only in 10-year gaps in the middle of a record, and left them further
-off in the other tests.
+The estimate follows the completed neighbor records month by month, so a lone reading of a neighbor can show up in it. In the
+1961 to 1971 gap of (C-36-16) 3ddc- 1 in Escalante (see the figure in [Gaps in Well Records](gaps.md#what-impute-gaps-does)), the
+estimate dips by about 4 ft in July 1962, the month of the only 1962 reading of a neighbor, (C-35-16)33bdc- 2, whose next reading
+came in 1978.
 
-The model file keeps the PCHIP value and the unshifted ELM value of every month as well as the saved series, so the chart can show
-them apart (see [Reading the Results](results.md)).
+The model file keeps, for each well, the saved series, how each month was filled, and MC+LNN's estimate *e*(*t*) for every month,
+so the chart can show the estimate apart (see [Reading the Results](results.md)).
 
 ## The fit statistics
 
-Each well's R² and RMSE compare the ELM with the PCHIP values over its training months, in the region's length unit:
+Each well's R² and RMSE compare MC+LNN's estimate with the monthly levels over the months the well was read,
 
 $$
-R^2 = 1 - \frac{\sum_m \left(p(m) - e(m)\right)^2}{\sum_m \left(p(m) - \bar{p}\right)^2}, \qquad
-\text{RMSE} = \sqrt{\frac{1}{n} \sum_m \left(p(m) - e(m)\right)^2}
+R^2 = 1 - \frac{\sum_t \left(y_t - e(t)\right)^2}{\sum_t \left(y_t - \bar y\right)^2}, \qquad
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_t \left(y_t - e(t)\right)^2}
 $$
 
-They measure how closely the model reproduces the months it learned from. With 500 hidden units it follows even a short record
-closely: in Escalante, the 44 wells with fewer than two years of training months have a median R² of 0.93, and the four trained on 6 months
-reach 0.93, with RMSEs of 0.03 to 0.15 ft. A high R² says little about the values in the gaps: on readings hidden from the
-fit, the same models missed by about twice their RMSE or more.
+in the region's length unit. In those months *e*(*t*) is the cross-fitted value, predicted with that stretch of the record left
+out, so the statistics score the regression on readings it was not fitted to. The neighbors were often read in those months too,
+though, and in a long gap they may not have been. The hidden-readings check tests the gaps more directly.
 
 ## The hidden-readings check
 
-Each run tests every well it can on readings left out of the fit:
+With **Check** ticked in the wizard, each run also tests every well it can on readings it hides:
 
-1. The hidden stretch is five years centered on the well's middle reading (the median of its reading dates), or *G* + 2*P* + 1 year
-   if that is longer, so that the model still fills at least a year of it.
-2. The well is checked when it has at least 5 readings before the stretch and 2 after it, and at least 3 of the hidden readings fall
-   in months the model fills.
-3. The training months are found from the other readings, as above, and a new model is fitted to them, again the average of five
-   ELMs with their own random weights, and shifted as in the saved series.
-4. Each hidden reading in the months the model fills is compared with the shifted model, read on a straight line between the two
-   months around it, and with the PCHIP curve through the other readings, which crosses the hidden stretch.
+1. The hidden stretch is five years centered on the well's middle reading (the median of its reading dates).
+2. The well is checked when it has at least 5 readings before the stretch and 2 after it, at least 3 readings inside it, and
+   MC+LNN can fill it.
+3. The months with hidden readings are blanked in the well's record, and MC+LNN fills the well again. The other wells' records are
+   unchanged, and the neighbors are chosen again from the readings that remain.
+4. Each hidden reading is compared with that MC+LNN estimate in its month, and with the PCHIP curve through the other readings,
+   which crosses the stretch.
 
 For the *k* hidden readings *w*<sub>i</sub>, at times *t*<sub>i</sub>,
 
 $$
-\text{RMSE}_\text{model} = \sqrt{\frac{1}{k}\sum_{i=1}^{k}\left(\hat v(t_i) - w_i\right)^2}, \qquad
-\text{RMSE}_\text{PCHIP} = \sqrt{\frac{1}{k}\sum_{i=1}^{k}\left(\hat p(t_i) - w_i\right)^2}
+\text{RMSE}_\text{MC+LNN} = \sqrt{\frac{1}{k}\sum_{i=1}^{k}\left(e'(t_i) - w_i\right)^2}, \qquad
+\text{RMSE}_\text{PCHIP} = \sqrt{\frac{1}{k}\sum_{i=1}^{k}\left(p'(t_i) - w_i\right)^2}
 $$
 
-where *v̂* is the shifted model and *p̂* the PCHIP curve, both made without the hidden readings. The two are saved with the well, and
-Get Info gives for the aquifer how many wells were checked, at how many the model came closer, and the median of each RMSE. In the
-Sample Data models:
+where *e*′ and *p*′ are made without the hidden readings. Both are saved with the well, and Get Info gives for the aquifer how many
+wells were checked, at how many MC+LNN came closer, and the median of each RMSE. In the Sample Data models:
 
-| Aquifer | Wells modeled | Wells checked | Model closer | Median RMSE, model | Median RMSE, PCHIP |
-|---|--:|--:|--:|--:|--:|
-| Escalante Valley-Beryl-Enterprise | 159 | 72 | 28 | 3.51 ft | 2.64 ft |
-| East Shore Area | 163 | 89 | 33 | 4.10 ft | 3.78 ft |
-| Central Sevier Valley | 80 | 20 | 11 | 1.64 ft | 1.87 ft |
-| Williamson | 21 | 15 | 5 | 2.81 ft | 2.37 ft |
+| Aquifer | Wells filled | By MC+LNN | Wells checked | MC+LNN closer | Median RMSE, MC+LNN | Median RMSE, PCHIP |
+|---|--:|--:|--:|--:|--:|--:|
+| Escalante Valley-Beryl-Enterprise | 213 | 155 | 109 | 87 | 1.47 ft | 2.39 ft |
+| East Shore Area | 152 | 135 | 91 | 70 | 2.05 ft | 3.59 ft |
+| Central Sevier Valley | 45 | 43 | 21 | 14 | 1.26 ft | 1.78 ft |
+| Williamson | 21 | 20 | 15 | 12 | 1.52 ft | 2.29 ft |
 
-The check covers a long gap in the middle of a record, where the PCHIP curve across the gap is the alternative. How the model does
-after a well's last reading, where it has to extend the readings, is in the test in [Gaps in Well Records](gaps.md#how-close-the-filled-values-come). The check's fit draws its
-own weights, so the result is a sample of how the saved model behaves, and a second run gives a somewhat different one.
-
-## Each run draws new weights
-
-An ELM draws **W** and **b** at random and never adjusts them; only **β** is fitted, in one step. Every run draws them afresh, so the
-same aquifer and settings give a different model of each well, with somewhat different values in the gaps and slightly different R²
-and RMSE. The average of five ELMs varies less than one ELM does. Between two runs on Escalante with one ELM per well, the median
-change in a gap month was 0.2 ft, and the largest change at each well was over 3.1 ft at half the wells and over 12 ft at one in
-ten. With the average of five, as the app now fits, the median change in a gap month was 0.09 ft, and the largest change at each
-well over 1.2 ft at half the wells and over 5.6 ft at one in ten.
+The check covers a long gap in the middle of a record. How MC+LNN does before a well's first reading and after its last, against
+the reading held, is in the test in [Gaps in Well Records](gaps.md#how-close-the-filled-values-come). The check roughly doubles the
+time a run takes, and leaving it unticked saves the model without it.
 
 ## References
 
-Evans, S., Williams, G. P., Jones, N. L., Ames, D. P., and Nelson, E. J. (2020). Exploiting Earth observation data to impute
-groundwater level measurements with an extreme learning machine. *Remote Sensing*, 12(12), 2044.
-
-Fan, Y., and van den Dool, H. (2004). Climate Prediction Center global monthly soil moisture data set at 0.5° resolution for 1948 to
-present. *Journal of Geophysical Research*, 109, D10102.
-
-Huang, G.-B., Zhu, Q.-Y., and Siew, C.-K. (2006). Extreme learning machine: theory and applications. *Neurocomputing*, 70(1–3),
-489–501.
+Mazumder, R., Hastie, T., and Tibshirani, R. (2010). Spectral regularization algorithms for learning large incomplete matrices.
+*Journal of Machine Learning Research*, 11, 2287–2322.

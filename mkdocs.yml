@@ -214,7 +214,7 @@ nav:
       - Part 4 Filling Gaps:
           - Gaps in Well Records: aquiferx/imputation/gaps.md
           - Running an Imputation: aquiferx/imputation/running.md
-          - How the Model Works: aquiferx/imputation/method.md
+          - How MC+LNN Works: aquiferx/imputation/method.md
           - Reading the Results: aquiferx/imputation/results.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md

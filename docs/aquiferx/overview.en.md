@@ -36,7 +36,7 @@ regions you add are stored by your browser on your computer, and you keep a copy
 - plot the record of one well or several, with a smooth curve through the measurements, the ground surface, a trend line and a moving
   average
 - classify wells and aquifers by how fast their water levels are rising or falling
-- fill the gaps in well records with a machine learning model trained on each well's own history and on soil moisture
+- fill the gaps in well records month by month from the wells whose readings rise and fall with each well's own
 - interpolate maps of the water table by kriging or inverse distance weighting, animate them through time, draw cross sections through
   them, and compute how much water the aquifer has gained or lost
 
@@ -63,11 +63,12 @@ regions you add are stored by your browser on your computer, and you keep a copy
   lines and zooming.
 - [Trends](timeseries/trends.md): how Analyze Trends rates each well and aquifer, the trend window, and the classes.
 
-**Part 4, Filling Gaps,** fills the gaps in well records with a model of each well:
+**Part 4, Filling Gaps,** fills the gaps in well records from neighboring wells:
 
-- [Gaps in Well Records](imputation/gaps.md): why records have gaps, what Impute Gaps produces, and what its model can and cannot know.
+- [Gaps in Well Records](imputation/gaps.md): why records have gaps, what Impute Gaps produces, how close its values come, and what
+  it can and cannot know.
 - [Running an Imputation](imputation/running.md): the wizard, its options and the run.
-- [How the Model Works](imputation/method.md): the PCHIP months, the soil moisture features and the extreme learning machine, in full.
+- [How MC+LNN Works](imputation/method.md): the neighbors, the matrix completion, the reservoirs and the readout, in full.
 - [Reading the Results](imputation/results.md): the model on the chart, managing saved models, and using them for water table maps.
 
 **Part 5, Water Table Maps,** covers interpolating the water table between wells, the two interpolation methods, and the storage change

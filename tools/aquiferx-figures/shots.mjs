@@ -380,13 +380,13 @@ if (want('trends')) {
   await shot('trends-wells');
 }
 if (want('impute')) {
-  // Part 4: the Escalante model saved in Sample Data, on a well with a ten-year gap, first with ELM and PCHIP apart (the
-  // chart's default), then combined; then the Impute Gaps wizard on a My Data copy of Utah, in a taller window so the
-  // whole first step shows
+  // Part 4: the Escalante model saved in Sample Data, on a well with a ten-year gap, first with MC+LNN's estimate beside the
+  // readings (the chart's default), then combined; then the Impute Gaps wizard on a My Data copy of Utah, in a taller window
+  // so the whole first step shows
   const GAP_WELL = { name: '(C-36-16) 3ddc- 1', lat: 37.67802916, lng: -113.6271865 };
   await load();
   await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
-  await treeItem('elm');
+  await treeItem('mc_lnn');
   await searchWell(GAP_WELL); await zoomOut(4);
   const chartBox = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height }));
   await page.mouse.move(5, 5); await sleep(2500);
@@ -402,7 +402,7 @@ if (want('impute')) {
   await treeItem(AQUIFER);
   await page.setViewport({ width: 1440, height: 1250, deviceScaleFactor: 2 }); await sleep(1500);
   await page.click('button[aria-label="Impute Gaps"]');
-  await waitText('wells qualify'); await sleep(2500);
+  await waitText('wells will be filled'); await sleep(2500);
   await shot('impute-wizard', await rect('div.fixed.inset-0 > div', 16));
   await clickButton('Cancel');
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 }); await sleep(1500);
