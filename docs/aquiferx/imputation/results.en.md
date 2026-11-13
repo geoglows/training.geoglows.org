@@ -7,6 +7,10 @@ Valley-Beryl-Enterprise, East Shore Area and Central Sevier Valley each have one
 so does Williamson in the Oregon sample. Click a model to open it and again to close it; a dot marks the open one. Pointing at it
 shows its months, how many wells it fills and how many of them by MC+LNN, and when it was made.
 
+While a model is open, the map colors each well by how the model filled it, in the chart's colors: blue for MC+LNN, red for PCHIP
+and held readings only, and gray for a well not in the model. The Wells legend switches to these three, and pointing at a well
+says which it is. In Escalante that gives 155 blue wells, 58 red and 500 gray.
+
 With a model open and one well selected, the chart shows the model's series for that well in place of its readings. A band across
 the top names the model, holds the **Combined** checkbox, and gives the well's R² and RMSE (see
 [How MC+LNN Works](method.md#the-fit-statistics)) and the result of its hidden-readings check (below). For a well MC+LNN could not
