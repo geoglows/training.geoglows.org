@@ -11,7 +11,7 @@ With a model open and one well selected, the chart shows the model's series for 
 the top names the model, holds the **Combined** checkbox, and gives the well's R² and RMSE (see
 [How MC+LNN Works](method.md#the-fit-statistics)) and the result of its hidden-readings check (below). For a well MC+LNN could not
 fill, the band reads *PCHIP and held readings only*, and pointing at it gives the reason. A well the model left out reads *This well
-is not in the model*, with the two settings it missed, and with two or more wells selected the chart goes back to the readings.
+is not in the model*, with the setting it misses, and with two or more wells selected the chart goes back to the readings.
 
 ## The filled series
 
@@ -27,15 +27,18 @@ pieces over a few years.
 
 ## MC+LNN's estimate
 
-![The same well with Combined unchecked: MC+LNN's estimate for every month beside the readings and their PCHIP curve](../../static/images/aquiferx/impute-separate.webp)
+![The same well with Combined and Test values unchecked: MC+LNN's estimate for every month beside the readings and their PCHIP curve](../../static/images/aquiferx/impute-separate.webp)
 
 With **Combined** unchecked, as it is when a model opens, the chart shows MC+LNN's estimate for every month in blue, the PCHIP curve
-through the readings in red, and the readings as green dots. In a gap of 6 months or more, the blue line is what the model saved. In a month with a
-reading, it is the estimate made with that sixth of the record left out (see [How MC+LNN Works](method.md#the-readout)), so the
-line jumps wherever the estimate misses the reading. At 3ddc- 1 it keeps within a few feet of the readings through 2012, and from
-2013 on it spikes above them each March, by 1 ft in 2013 and 33 ft in 2026: fitted on the readings up to 2012, the regression did
-not foresee how fast the well fell after it. Those misses make most of the well's RMSE of 6.77 ft. The saved series is not
-affected, because in a month with a reading it keeps the PCHIP value.
+through the readings in red, and the readings as green dots. The estimate comes from the regression fitted to all the well's
+readings, and in a gap of 6 months or more it is what the model saved. Over the months with readings, the blue line shows how
+closely that regression follows the record.
+
+**Test values**, beside **Combined** and unchecked to start with, adds MC+LNN's test values as hollow blue dots, one for each month
+with readings: the value predicted with that sixth of the record hidden (see [How MC+LNN Works](method.md#the-readout)). The R² and
+RMSE in the band compare these dots with the readings. At 3ddc- 1 the dots sit within a few feet of the readings through 2012, and
+from 2013 on they sit above them each March, by 1 ft in 2013 and 33 ft in 2026: fitted on the readings up to 2012, the regression did
+not foresee how fast the well fell after it. Those misses make most of the well's RMSE of 6.77 ft.
 
 A reading inside the model's months sits on the nearest first of the month, and a reading outside them keeps its date, so the axis
 reaches out to it.
@@ -48,7 +51,8 @@ The chart's controls change while a model is on the chart:
 - **GSE** draws the well's ground surface elevation, in either view.
 - **PCHIP**, **Trend Line** and **View/Edit** are hidden until the model is closed.
 - **Export CSV** downloads the well's monthly series as `<well>_model_<model>.csv`, with the columns Date, Value (the saved series),
-  Filled by (PCHIP, MC+LNN or held reading) and MC+LNN (its estimate, empty for a well MC+LNN could not fill).
+  Filled by (PCHIP, MC+LNN or held reading) and MC+LNN (its estimate fitted to all the readings, empty for a well MC+LNN could not
+  fill).
 
 Pointing at the chart shows the month and each value to two decimals. Under the chart, **Processing Log** opens the log of the run that
 made the model, with a line for each well and its check.
@@ -99,8 +103,9 @@ Part 5 covers Spatial Analysis in full.
 
 - Start with the hidden-readings check, in Get Info for the aquifer and in the band for each well. It tests MC+LNN in a long gap,
   where the neighbors may be estimates themselves.
-- Look at the wells that matter to you with **Combined** unchecked, and check how the blue line behaves next to the readings. Where
-  it misses the readings by a wide margin in some stretch of the record, its values in the gaps of that stretch are doubtful too.
+- Look at the wells that matter to you with **Combined** unchecked and **Test values** checked, and check how the dots sit against
+  the readings. Where they miss by a wide margin in some stretch of the record, the values in the gaps of that stretch are doubtful
+  too.
 - R² and RMSE come from estimates made with a sixth of the record left out at a time. The first and last sixths are predicted from
   the rest alone, so a well whose level changed course late in its record can score poorly even where its gaps are filled well, as
   3ddc- 1 does.

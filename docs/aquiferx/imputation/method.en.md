@@ -119,15 +119,16 @@ $$
 where **F̃** stacks the standardized features of the read months. The penalty α is chosen from 1, 10, 100, 1,000 and 10,000 by
 cross-fitting: the read months are split, in time order, into six blocks of nearly equal size; each block is predicted by a regression
 fitted on the other five; and the α whose predictions miss the readings least, in mean squared error over all six blocks, is kept.
-The regression is then fitted on all the read months with that α and gives a value for every month. In the read months, the value
-kept is the one predicted when that month's block was left out, so it shows how well the regression does on readings it was not
-fitted to.
-
-The well's MC+LNN estimate is the average of the three draws' predictions,
+The regression is then fitted on all the read months with that α and gives a value for every month. The well's MC+LNN estimate is
+the average of the three draws' values,
 
 $$
 e(t) = \tfrac{1}{3}\left(\hat y^{(1)}_t + \hat y^{(2)}_t + \hat y^{(3)}_t\right)
 $$
+
+The predictions made while choosing α are kept as well: for each month with readings, the value predicted with that month's block
+left out, averaged over the three draws in the same way. These test values, *ẽ*(*t*), show how the regression does on readings it
+was not fitted to, and the fit statistics come from them.
 
 ## Beyond the record
 
@@ -164,20 +165,21 @@ The estimate follows the completed neighbor records month by month, so a lone re
 estimate dips by about 4 ft in July 1962, the month of the only 1962 reading of a neighbor, (C-35-16)33bdc- 2, whose next reading
 came in 1978.
 
-The model file keeps, for each well, the saved series, how each month was filled, and MC+LNN's estimate *e*(*t*) for every month,
-so the chart can show the estimate apart (see [Reading the Results](results.md)).
+The model file keeps, for each well, the saved series, how each month was filled, MC+LNN's estimate *e*(*t*) for every month and
+its test values *ẽ*(*t*), so the chart can show them apart (see [Reading the Results](results.md)).
 
 ## The fit statistics
 
-Each well's R² and RMSE compare MC+LNN's estimate with the monthly levels over the months the well was read,
+Each well's R² and RMSE compare MC+LNN's test values with the monthly levels over the months the well was read,
 
 $$
-R^2 = 1 - \frac{\sum_t \left(y_t - e(t)\right)^2}{\sum_t \left(y_t - \bar y\right)^2}, \qquad
-\text{RMSE} = \sqrt{\frac{1}{n} \sum_t \left(y_t - e(t)\right)^2}
+R^2 = 1 - \frac{\sum_t \left(y_t - \tilde e(t)\right)^2}{\sum_t \left(y_t - \bar y\right)^2}, \qquad
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_t \left(y_t - \tilde e(t)\right)^2}
 $$
 
-in the region's length unit. In those months *e*(*t*) is the cross-fitted value, predicted with that stretch of the record left
-out, so the statistics score the regression on readings it was not fitted to. The neighbors were often read in those months too,
+in the region's length unit. Each test value was predicted with its sixth of the record left out, so the statistics score the
+regression on readings it was not fitted to. The first and last sixths are predicted from the rest of the record alone, so a well
+whose level changed course early or late in its record can score poorly. The neighbors were often read in those months too,
 though, and in a long gap they may not have been. The hidden-readings check tests the gaps more directly.
 
 ## The hidden-readings check
