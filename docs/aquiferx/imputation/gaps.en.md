@@ -34,7 +34,7 @@ carries their ups and downs into the gap. Most of the 17 ft decline comes in the
 in the second, and the level rises and falls each year as the well's readings do after 1971.
 
 You can open a model on the chart (see [Reading the Results](results.md)) and use it in place of the measurements for water table
-maps (Part 5). Every well in the model has a value in every month the limit allows, so the same wells stay on the maps from one year
+maps (see [Running a Spatial Analysis](../spatial/running.md)). Every well in the model has a value in every month the limit allows, so the same wells stay on the maps from one year
 to the next.
 
 Each run can also test the model on readings it never saw. It hides five years of readings from the middle of each well's record,

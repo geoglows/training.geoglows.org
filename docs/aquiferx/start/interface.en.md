@@ -81,7 +81,7 @@ Three buttons at the top right start the analyses. Each appears once there is so
 <div style="clear: both"></div>
 
 ![Spatial Analysis](../../static/images/aquiferx/button-spatial.webp){ align=left width="44" style="margin: 0 18px 12px 0" }
-**Spatial Analysis**, once an aquifer is open, interpolates maps of the water table. See Part 5.
+**Spatial Analysis**, once an aquifer is open, interpolates maps of the water table. See [Running a Spatial Analysis](../spatial/running.md).
 
 <div style="clear: both"></div>
 
@@ -113,4 +113,4 @@ The panel can hold more than one chart. When it does, tabs above the chart switc
 - **Raster Statistics** plots, for each date of an open map, the spread of the well values it was built from: median, quartiles and range.
 - **Cross Section** plots a profile through the map once you draw one.
 
-[The Time Series Chart](../timeseries/chart.md) covers the well chart in detail, and Part 5 the charts that come with a map.
+[The Time Series Chart](../timeseries/chart.md) covers the well chart in detail, and [Viewing the Maps](../spatial/maps.md) the charts that come with a map.

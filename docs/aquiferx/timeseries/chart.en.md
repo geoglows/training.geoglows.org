@@ -60,7 +60,7 @@ curve matches SciPy's.
 Where measurements are close together, the curve is a fair guess at the water level between them. Across a gap of years it is only a
 smooth join, and a drought, a pumping season or a recovery inside the gap leaves no trace on it. A well read twice a
 year has a curve that swings between its summer and winter levels, so a value read off the curve depends on the date as much as on the
-year. Spatial Analysis reads each well's curve at the dates of its maps (Part 5), and gap filling replaces long gaps with a model of the
+year. Spatial Analysis reads each well's curve at the dates of its maps (see [Running a Spatial Analysis](../spatial/running.md#the-month)), and gap filling replaces long gaps with a model of the
 well (see [Gaps in Well Records](../imputation/gaps.md)).
 
 With more than 25 wells selected, the chart draws straight lines whatever the checkbox says, to stay quick.
@@ -120,7 +120,7 @@ measurements span less than two years gets no line. Analyze Trends checks **Tren
 
 - A gray band marks the years of the **Measured from … to** well filter while it is on (see
   [Exploring a Region](../start/exploring.md#filtering-wells)).
-- With a water table map open, a red dashed line marks the date of the map on screen (Part 5).
+- With a water table map open, a red dashed line marks the date of the map on screen (see [Viewing the Maps](../spatial/maps.md)).
 - With a gap-filling model open and one well selected, the chart shows the model's series for that well instead (see
   [Reading the Results](../imputation/results.md)).
 

@@ -102,7 +102,7 @@ Imputed Data, each map takes its well values from the chosen model's saved serie
 series' value in the map's month, and **Moving Average** a moving average of it over a window you set. The wells on the maps are the
 model's, and each keeps a value as long as its series runs, so the same wells stay on the maps from one year to the next. The
 `kriging_mc_lnn` maps of Williamson, Central Sevier Valley and East Shore Area in the Sample Data were made this way with Direct.
-Part 5 covers Spatial Analysis in full.
+[Running a Spatial Analysis](../spatial/running.md) covers the wizard in full.
 
 ## Reading a model with care
 

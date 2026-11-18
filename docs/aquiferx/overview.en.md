@@ -71,5 +71,12 @@ regions you add are stored by your browser on your computer, and you keep a copy
 - [How MC+LNN Works](imputation/method.md): the neighbors, the matrix completion, the reservoirs and the readout, in full.
 - [Reading the Results](imputation/results.md): the model on the chart, managing saved models, and using them for water table maps.
 
-**Part 5, Water Table Maps,** covers interpolating the water table between wells, the two interpolation methods, and the storage change
-and cross sections built from the maps.
+**Part 5, Water Table Maps,** covers mapping the water table between wells on a series of dates, and the change in storage measured
+from the maps:
+
+- [Running a Spatial Analysis](spatial/running.md): the wizard, from the dates and wells to the title.
+- [Wells at One Place](spatial/places.md): keeping one well where nested wells stand together.
+- [Interpolation Methods](spatial/interpolation.md): kriging and inverse distance weighting, in full, and why the default is what it is.
+- [Viewing the Maps](spatial/maps.md): colors, contours, playing through the dates, the statistics chart and managing maps.
+- [Storage Change](spatial/storage.md): the volume of water gained or lost, and how to read it.
+- [Cross Sections](spatial/cross-sections.md): the water table along a line, date by date.

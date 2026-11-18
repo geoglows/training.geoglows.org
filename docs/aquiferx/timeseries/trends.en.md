@@ -81,4 +81,4 @@ wells have a trend; the rest have no readings two years apart in the last 30 yea
 A region of red and orange wells points at a decline worth looking into, but whether its cause is pumping, a run of dry years or less
 recharge is a question the colors can't answer; nor can they say whether blue wells show recovery, managed
 recharge or the rebound after a dry spell. A straight line also hides the shape of a record: a well that fell for twenty years and then
-recovered can come out Static. The chart of each well, and the maps and storage curve of Part 5, carry the detail behind the colors.
+recovered can come out Static. The chart of each well, and the maps and storage curve of Part 5 (see [Storage Change](../spatial/storage.md)), carry the detail behind the colors.

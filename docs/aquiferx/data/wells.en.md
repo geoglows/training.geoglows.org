@@ -51,7 +51,7 @@ depth (see [Regions and Aquifers](regions-aquifers.md#aquifers-at-different-dept
 
 A well's depth is measured from the ground down to the bottom of the finished well, in the region's unit. It is optional, and a cell
 can be left empty where the depth is not known. The well's popup on the map shows it, and a water table map can use it to choose among
-[wells at one place](preparing-files.md#wells-at-one-place).
+[wells at one place](../spatial/places.md).
 
 Give the depth of the finished well, not the depth to which its hole was drilled. Several wells at different depths are often built in
 one borehole, and they share its depth.
@@ -104,7 +104,7 @@ fetches the list again and keeps only wells the region does not have yet.
 ![Downloading wells from the USGS](../../static/images/aquiferx/data-wells-usgs.webp){ width="544" }
 
 The USGS often lists nested wells, several wells at one place finished at different depths. The download keeps them all, and a water
-table map chooses one at each place (see [Preparing Your Files](preparing-files.md#wells-at-one-place)).
+table map chooses one at each place (see [Wells at One Place](../spatial/places.md)).
 
 ### Wells in two aquifers in a download
 

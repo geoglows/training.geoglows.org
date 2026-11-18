@@ -407,6 +407,102 @@ if (want('impute')) {
   await clickButton('Cancel');
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 }); await sleep(1500);
 }
+// Part 5's crops, in a 1000 px window: the map with the chart panel under it, and the chart panel alone
+const lower = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y, width: m.width, height: 1000 - m.y }));
+const chartOnly = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 1000 - m.y - m.height }));
+// Leaflet sometimes misses the map's last change of size and leaves part of it without basemap tiles; a resize makes it look again
+const resized = async () => { await page.evaluate(() => window.dispatchEvent(new Event('resize'))); await sleep(1500); };
+if (want('maps')) {
+  // Part 5: the Escalante maps of the Sample Data in March 1960 with their storage change curve, their statistics, and a cross section
+  // along the valley in March 1999
+  const SECTION = [{ lat: 37.615, lng: -113.685 }, { lat: 37.96, lng: -113.47 }];
+  const setYear = async year => {
+    await page.evaluate(y => {
+      const s = document.querySelector('input[type=range].rfs-range');
+      const label = () => s.parentElement.querySelector('span.tabular-nums').textContent;
+      const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+      set.call(s, '0'); s.dispatchEvent(new Event('input', { bubbles: true }));
+      const first = +label().slice(0, 4);
+      set.call(s, String(y - first)); s.dispatchEvent(new Event('input', { bubbles: true }));   // one map a year
+    }, year);
+    await sleep(2000);
+  };
+  // The panel's Show on map > Wells checkbox
+  const toggleWells = () => page.evaluate(() => {
+    const head = [...document.querySelectorAll('p.rfs-label')].find(p => p.textContent.trim() === 'Show on map');
+    [...head.parentElement.querySelectorAll('label')].find(l => l.textContent.trim() === 'Wells').querySelector('input').click();
+  }).then(() => sleep(1500));
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 });
+  await load();
+  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
+  await setMinMeasurements(5);    // the 364 wells with 5 readings or more, so the colors show between them
+  await treeItem('wte_kriging'); await sleep(4000);
+  await fitAquifer();
+  await setYear(1960); await page.mouse.move(5, 5); await sleep(1500);
+  await resized();
+  await shot('map-view', await lower());
+  await clickButton('Raster Statistics'); await page.mouse.move(5, 5); await sleep(1500);
+  await shot('map-stats', await chartOnly());
+  await setYear(1999);
+  await toggleWells();            // the line and its labels, clear of the markers
+  await clickButton('Cross Section'); await sleep(800);
+  for (const p of SECTION) { const s = await toScreen(p); await page.mouse.click(s.x, s.y); await sleep(1200); }
+  await page.mouse.move(5, 5); await sleep(3000);
+  await resized();
+  await shot('map-section', await lower());
+  await clickButton('Clear Cross Section');
+  await toggleWells(); await clearFilters();
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+}
+if (want('mapwizard')) {
+  // Part 5, in a My Data copy of Utah: the wizard's first step, then a second set of Escalante maps from the gap-filling model,
+  // compared with the first on the storage chart (mapstorage). The second set's file is saved beside the pictures for the text.
+  await clearMyData();
+  await page.evaluate(n => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === n).nextElementSibling.click(), REGION);
+  await sleep(600);
+  await clickButton('Copy to My Data'); await sleep(15000);   // the app switches to My Data and opens the copy
+  await treeItem(AQUIFER);
+  await page.setViewport({ width: 1440, height: 1300, deviceScaleFactor: 2 }); await sleep(1500);
+  await page.click('button[aria-label="Spatial Analysis"]');
+  await waitText('wells qualify'); await sleep(2500);
+  await shot('map-wizard', await rect('div.fixed.inset-0 > div', 16));
+  await clickButton('Imputed Data'); await sleep(3000);
+  for (let k = 0; k < 4 && !(await page.$('input[placeholder="e.g. Annual Analysis 2024"]')); k++) { await clickButton('Next'); await sleep(4000); }
+  await page.evaluate(() => {
+    const el = document.querySelector('input[placeholder="e.g. Annual Analysis 2024"]');
+    Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(el, 'kriging_mc_lnn');
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await sleep(500);
+  await clickButton('Run Analysis');
+  await waitText('Analysis Complete', 900000); await sleep(1000);
+  await clickButton('View Results'); await sleep(4000);
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+}
+if (want('mapwizard') || want('mapstorage')) {
+  // The two Escalante sets the mapwizard step leaves in My Data, on one storage chart
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 });
+  await load();
+  await clickButton('My Data'); await sleep(1500);
+  await treeItem(REGION); await treeItem(AQUIFER);
+  await treeItem('wte_kriging_mc_lnn'); await sleep(4000);
+  // Shift-click the set from the measurements to add its curve
+  const other = await page.evaluateHandle(() => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'wte_kriging'));
+  await page.keyboard.down('Shift'); await other.click(); await page.keyboard.up('Shift'); await sleep(3000);
+  await page.mouse.move(5, 5); await sleep(1500);
+  await shot('map-storage', await chartOnly());
+  const file = await page.evaluate(() => new Promise((res, rej) => {
+    const r = indexedDB.open('aquifer-analyst-my-data');
+    r.onsuccess = () => {
+      const q = r.result.transaction('files').objectStore('files').getAll();
+      q.onsuccess = () => res(q.result.find(x => /escalante_valley_beryl_enterprise\/raster_wte_kriging_mc_lnn\.json$/.test(x.path))?.text);
+      q.onerror = rej;
+    };
+    r.onerror = rej;
+  }));
+  if (file) { (await import('fs')).writeFileSync(`${OUT}/escalante_raster_wte_kriging_mc_lnn.json`, file); console.log('saved the model maps'); }
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+}
 if (want('filter')) {
   await load();
   await treeItem(REGION); await treeItem(AQUIFER);

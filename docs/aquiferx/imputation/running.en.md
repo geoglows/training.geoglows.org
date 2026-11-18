@@ -15,14 +15,14 @@ no internet connection.
 At the top of the first step, **Water levels** draws the PCHIP curve of every well with two or more readings on one set of axes, the
 wells that will be filled in color and the rest in gray, and its title counts both. **Wells read in each half-year** under it counts
 the wells with at least one reading in each half year: orange for wells that will be filled, gray for the others. On Escalante
-Valley-Beryl-Enterprise the first chart reads 213 wells to fill of 364 with 2 or more readings, and from about 1980 nearly all the wells
-were read once a year, in March: the bars stand in the first half of each year, with a few wells in the second.
+Valley-Beryl-Enterprise the first chart reads 213 wells to fill of 364 with 2 or more readings, and from the late 1980s nearly all the
+wells read were read once a year, in March: the bars stand in the first half of each year, with a few wells in the second.
 
 ### The options
 
 - **Min Observations / Well** and **Min Time Span / Well (years)**, 5 and 5 to start with, choose the wells to fill: those with at
   least that many readings, spread over at least that many years. They are the same two settings Spatial Analysis uses to choose the
-  wells for its maps (Part 5). The line under them counts the wells that will be filled and those left out; on Escalante, 213 and
+  wells for its maps (see [Running a Spatial Analysis](../spatial/running.md#which-wells)). The line under them counts the wells that will be filled and those left out; on Escalante, 213 and
   500.
 - **Fill beyond each record for up to (years)**, 10 to start with, is how far each well is filled before its first reading and after
   its last, whether by MC+LNN or by holding the reading. Past it the well has no value. Set it to 0 to fill only inside each record.

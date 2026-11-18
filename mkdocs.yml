@@ -216,6 +216,13 @@ nav:
           - Running an Imputation: aquiferx/imputation/running.md
           - How MC+LNN Works: aquiferx/imputation/method.md
           - Reading the Results: aquiferx/imputation/results.md
+      - Part 5 Water Table Maps:
+          - Running a Spatial Analysis: aquiferx/spatial/running.md
+          - Wells at One Place: aquiferx/spatial/places.md
+          - Interpolation Methods: aquiferx/spatial/interpolation.md
+          - Viewing the Maps: aquiferx/spatial/maps.md
+          - Storage Change: aquiferx/spatial/storage.md
+          - Cross Sections: aquiferx/spatial/cross-sections.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md
