@@ -85,3 +85,6 @@ from the maps:
 
 - [The East Side Aquifer](case-studies/east-side.md): the Salinas Valley's East Side Aquifer in California, from its wells and trends
   to maps from the measurements and from a gap-filling model, the storage change of each, and a cross section.
+
+**Reference** holds [Troubleshooting](reference/troubleshooting.md), the app's messages and other problems with what causes them and
+what to do, and the [Glossary](reference/glossary.md) of the terms the app and this training use.
