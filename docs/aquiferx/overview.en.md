@@ -6,7 +6,7 @@ Aquifer Analyst works with groundwater monitoring data: the water levels and wat
 records by region and aquifer, plots them, fills the gaps in them, and turns them into maps of the water table and estimates of how much
 water an aquifer has gained or lost.
 
-It complements the [GRACE Regional Analyst](../grace/overview.md). GRACE measures changes in groundwater storage from space, but at a
+It complements the [GRACE Regional Analyst](../grace/background/overview.md). GRACE measures changes in groundwater storage from space, but at a
 resolution of about 300 km, which limits it to large basins and aquifer systems. For smaller aquifers, Aquifer Analyst estimates the same
 quantity from the wells themselves: it interpolates the measured water levels into maps of the water table and turns the change in those
 maps into a record of storage change over time, the basis for judging whether an aquifer is being used sustainably. In a large aquifer with

@@ -21,10 +21,15 @@ node shots.mjs raw region,multiwell     # just these steps
 ./webp.sh                               # raw/*.png -> docs/static/images/aquiferx/*.webp
 ```
 
-`AQX_URL` points the script at another address, such as the deployed preview. The steps are `home`, `region`, `menu`, `multiwell`,
-`filter`, `datatype`, `mydata` and `settings` for Part 1, and `adddata`, `wq` and `edit` for Part 2; each names the shots it saves in
-the script. The browser profile in `.chrome-profile/` keeps the app's remembered settings between runs, so every step that opens an
-aquifer resets the data set and the well filters first.
+`AQX_URL` points the script at another address, such as the deployed preview. The steps are `home`, `overview`, `panel`, `region`,
+`mapparts`, `menu`, `multiwell`, `nested`, `filter`, `datatype`, `mydata` and `settings` for Part 1, `adddata`, `wq`, `edit` and
+`places` for Part 2, `chart` and `trends` for Part 3, `impute` for Part 4, and `maps`, `mapwizard` and `mapstorage` for Part 5; each
+names the shots it saves in the script. The browser profile in `.chrome-profile/` keeps the app's My Data and its remembered settings
+between runs, so every page load clears the remembered map display (wells, labels, filters) and every step picks its data set.
+
+Each shot is checked before it is saved. Chrome sometimes leaves a column or row of basemap tiles unpainted though the page has
+loaded and placed them, more often with the GPU, so it runs without it. The map's background is painted magenta, so any such gap shows
+up in the picture; the script then decodes the tiles again and retakes the shot, and stops with an error if the map stays blank.
 
 The Part 2 steps import the files in `practice/`, which `make-practice.py` downloads and builds from public data: the Census
 Bureau's county outlines, California DWR's Bulletin 118 basins and its periodic groundwater levels, and the Water Quality Portal

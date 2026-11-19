@@ -20,7 +20,8 @@ const PRACTICE_WELL = { name: '367886N1216748W001', lat: 36.7886, lng: -121.6748
 
 const browser = await puppeteer.launch({
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new',
-  args: ['--window-size=1440,900'], userDataDir: './.chrome-profile', protocolTimeout: 600000,
+  // Without the GPU, which left loaded basemap tiles unpainted more often (shot() checks for them)
+  args: ['--window-size=1440,900', '--disable-gpu'], userDataDir: './.chrome-profile', protocolTimeout: 600000,
 });
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
@@ -29,6 +30,16 @@ page.on('pageerror', e => console.log('PAGEERROR', e.message.slice(0, 160)));
 // A basemap tile that fails still counts as loaded to Leaflet, so tiles() can't see it: report it
 page.on('requestfailed', r => { if (r.resourceType() === 'image') console.log('TILE FAILED', r.failure()?.errorText, r.url().slice(-60)); });
 page.on('response', r => { if (r.request().resourceType() === 'image' && r.status() >= 400) console.log('TILE', r.status(), r.url().slice(-60)); });
+// Leaflet's grey background shows wherever the basemap is not painted, and Chrome sometimes leaves tiles unpainted that the page
+// has loaded and placed. Magenta instead, so shot() can find any such gap in the picture itself.
+// Each page load also starts from the app's default map display (wells shown, no labels, no filters): the app remembers it,
+// and a run that stopped part way left it changed for the next.
+await page.evaluateOnNewDocument(() => { try { localStorage.removeItem('aqx-map-display'); } catch { /* none */ } });
+await page.evaluateOnNewDocument(() => document.addEventListener('DOMContentLoaded', () => {
+  const s = document.createElement('style');
+  s.textContent = '.leaflet-container { background: #ff00ff !important; }';
+  document.head.appendChild(s);
+}));
 
 // Wait until the map has stopped moving and every basemap tile it asked for has loaded. Checking
 // only for loaded tiles is not enough: mid-flight, the tiles for the new view are not requested yet.
@@ -61,10 +72,40 @@ const tiles = async () => {
   });
   if (gaps) console.log(`MAP GAPS: ${gaps} of 121 sample points have no tile`);
 };
+// The share of a picture's pixels that are magenta, or magenta under a dialog's dimming: the map's background (above)
+const blankShare = buf => page.evaluate(async b64 => {
+  const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
+  const c = new OffscreenCanvas(img.width, img.height), g = c.getContext('2d');
+  g.drawImage(img, 0, 0);
+  const d = g.getImageData(0, 0, img.width, img.height).data;
+  let n = 0, sx = 0, sy = 0;
+  for (let i = 0; i < d.length; i += 4) if (d[i] - d[i + 1] > 60 && d[i + 2] - d[i + 1] > 60) { n++; sx += (i / 4) % img.width; sy += Math.floor(i / 4 / img.width); }
+  return { share: n / (d.length / 4), x: n ? sx / n / devicePixelRatio : 0, y: n ? sy / n / devicePixelRatio : 0 };
+}, Buffer.from(buf).toString('base64'));
 const shot = async (name, clip) => {
   // Twice, a second apart: once it caught an in-between state where the tiles had not been placed yet
   await tiles(); await sleep(1000); await tiles(); await sleep(300);
-  await page.screenshot({ path: `${OUT}/${name}.png`, clip, captureBeyondViewport: false }); console.log('saved', name);
+  for (let attempt = 0; ; attempt++) {
+    const buf = await page.screenshot({ clip, captureBeyondViewport: false });
+    const { share: blank, x: bx, y: by } = await blankShare(buf);
+    if (blank < 0.0005) {
+      (await import('fs')).writeFileSync(`${OUT}/${name}.png`, buf);
+      console.log('saved', name, attempt ? `(after ${attempt} retries)` : '');
+      return;
+    }
+    console.log(`BLANK MAP in ${name}: ${(100 * blank).toFixed(1)}% of the picture`);
+    // The basemap tiles over the middle of the blank area (tiles take no pointer events, so elementsFromPoint misses them)
+    console.log(JSON.stringify(await page.evaluate((x, y) => ({ at: [x, y].map(Math.round),
+      levels: [...document.querySelectorAll('.leaflet-tile-container')].map(c => ({ z: c.style.zIndex, n: c.children.length, t: c.style.transform })),
+      over: [...document.querySelectorAll('.leaflet-tile')].filter(e => { const r = e.getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom; })
+        .map(e => { const c = getComputedStyle(e); return { cls: e.className, src: e.src.slice(-30), op: c.opacity, vis: c.visibility, disp: c.display, done: e.complete, w: e.naturalWidth, z: e.parentElement.style.zIndex, t: e.style.transform, wh: [e.style.width, e.style.height] }; }),
+    }), (clip?.x ?? 0) + bx, (clip?.y ?? 0) + by)));
+    (await import('fs')).writeFileSync(`${OUT}/${name}-BLANK${attempt}.png`, buf);
+    if (attempt === 3) throw new Error(`${name}: the basemap would not paint`);
+    // Make Chrome paint the map again: the tiles were loaded, placed and opaque, yet unpainted
+    await page.evaluate(() => Promise.all([...document.querySelectorAll('.leaflet-tile')].map(t => t.decode().catch(() => {}))));
+    await tiles(); await sleep(1500);
+  }
 };
 const rect = (sel, pad = 0) => page.evaluate((s, p) => {
   const r = document.querySelector(s).getBoundingClientRect();
@@ -181,15 +222,30 @@ const clickWell = async (well, shift = false) => {
   await sleep(2500); await page.mouse.move(5, 5);
   await sleep(2500);   // the chart animates its curves in
 };
-// Drag across the chart from one year to another to zoom in. The x axis's tick labels (month/year) give the screen position
-// of a date.
+// Drag the bar between the map and the chart panel until the panel is h CSS px tall. It opens at 250, short for a picture of
+// the chart alone.
+const taller = async h => {
+  const g = await page.evaluate(() => {
+    const bar = document.querySelector('div.cursor-row-resize'), r = bar.getBoundingClientRect();
+    return { x: r.x + r.width / 2, y: r.y + r.height / 2, panel: bar.nextElementSibling.getBoundingClientRect().height };
+  });
+  await page.mouse.move(g.x, g.y); await page.mouse.down();
+  for (let k = 1; k <= 10; k++) { await page.mouse.move(g.x, g.y - (h - g.panel) * k / 10); await sleep(30); }
+  await page.mouse.up(); await sleep(1500);
+  await page.mouse.move(5, 5);
+};
+// Crops: the map with the chart panel under it, and the chart panel alone
+const lower = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y, width: m.width, height: page.viewport().height - m.y }));
+const chartOnly = () => rect('div.cursor-row-resize + div', 0);   // the chart panel, under the bar that resizes it
+// Drag across the chart from one year to another to zoom in. The x axis's tick labels (a year, or month/year when the chart
+// spans less than two years) give the screen position of a date.
 const zoomChart = async (fromYear, toYear) => {
   const g = await page.evaluate((y0, y1) => {
     const labels = [...document.querySelectorAll('g.recharts-xAxis-tick-labels')].sort((a, b) => b.getBoundingClientRect().width - a.getBoundingClientRect().width)[0];
     const r = labels.closest('svg').getBoundingClientRect();
     const ticks = [...labels.querySelectorAll('.recharts-cartesian-axis-tick-value')].map(t => {
-      const [m, y] = t.textContent.trim().split('/').map(Number), b = t.getBoundingClientRect();
-      return { year: y + (m - 1) / 12, x: b.x + b.width / 2 };
+      const p = t.textContent.trim().split('/').map(Number), b = t.getBoundingClientRect();
+      return { year: p.length === 1 ? p[0] : p[1] + (p[0] - 1) / 12, x: b.x + b.width / 2 };
     });
     const a = ticks[0], z = ticks[ticks.length - 1], px = yr => a.x + (yr - a.year) / (z.year - a.year) * (z.x - a.x);
     return { from: px(y0), to: px(y1), y: r.y + r.height / 2 };
@@ -250,9 +306,9 @@ if (want('region')) {
   await treeItem(AQUIFER);
   await clearFilters();
   await shot('app-aquifer');
-  await searchWell(WELL); await zoomOut(4);
+  await searchWell(WELL); await zoomOut(4); await taller(450);
   await page.mouse.move(5, 5); await sleep(2000);   // the chart animates its curves in
-  await shot('app-chart', await rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height })));
+  await shot('app-chart', await chartOnly());
 }
 if (want('mapparts')) {
   // Small crops of the map's controls for the Map section of The App Interface
@@ -341,8 +397,8 @@ if (want('chart')) {
   // Part 3: the example well's chart with its ground surface elevation, then with a 12-month moving average
   await load();
   await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
-  await searchWell(WELL); await zoomOut(4);
-  const chartBox = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height }));
+  await searchWell(WELL); await zoomOut(4); await taller(450);
+  const chartBox = chartOnly;
   const check = async label => {
     await page.evaluate(l => [...document.querySelectorAll('label')].find(x => x.textContent.trim() === l).querySelector('input').click(), label);
     await sleep(1500);
@@ -387,8 +443,8 @@ if (want('impute')) {
   await load();
   await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
   await treeItem('mc_lnn');
-  await searchWell(GAP_WELL); await zoomOut(4);
-  const chartBox = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 900 - m.y - m.height }));
+  await searchWell(GAP_WELL); await zoomOut(4); await taller(450);
+  const chartBox = chartOnly;
   await page.mouse.move(5, 5); await sleep(2500);
   await shot('impute-separate', await chartBox());
   await page.evaluate(() => [...document.querySelectorAll('label')].find(x => x.textContent.trim() === 'Combined').querySelector('input').click());
@@ -407,15 +463,13 @@ if (want('impute')) {
   await clickButton('Cancel');
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 }); await sleep(1500);
 }
-// Part 5's crops, in a 1000 px window: the map with the chart panel under it, and the chart panel alone
-const lower = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y, width: m.width, height: 1000 - m.y }));
-const chartOnly = () => rect('#map-container', 0).then(m => ({ x: m.x, y: m.y + m.height, width: m.width, height: 1000 - m.y - m.height }));
 // Leaflet sometimes misses the map's last change of size and leaves part of it without basemap tiles; a resize makes it look again
 const resized = async () => { await page.evaluate(() => window.dispatchEvent(new Event('resize'))); await sleep(1500); };
 if (want('maps')) {
   // Part 5: the Escalante maps of the Sample Data in March 1960 with their storage change curve, their statistics, and a cross section
-  // along the valley in March 1999
-  const SECTION = [{ lat: 37.615, lng: -113.685 }, { lat: 37.96, lng: -113.47 }];
+  // across the valley through the area of the largest fall, in March 1941 (the chart alone) and March 1999. A 1200 px window with
+  // the chart panel at 450 px leaves the map as tall as the 1000 px window's did.
+  const SECTION = [{ lat: 37.740, lng: -113.808 }, { lat: 37.856, lng: -113.408 }];
   const setYear = async year => {
     await page.evaluate(y => {
       const s = document.querySelector('input[type=range].rfs-range');
@@ -427,16 +481,18 @@ if (want('maps')) {
     }, year);
     await sleep(2000);
   };
-  // The panel's Show on map > Wells checkbox
-  const toggleWells = () => page.evaluate(() => {
+  // The panel's Show on map > Wells checkbox, set rather than toggled: the app remembers it, also from a run that stopped
+  const showWells = on => page.evaluate(on => {
     const head = [...document.querySelectorAll('p.rfs-label')].find(p => p.textContent.trim() === 'Show on map');
-    [...head.parentElement.querySelectorAll('label')].find(l => l.textContent.trim() === 'Wells').querySelector('input').click();
-  }).then(() => sleep(1500));
-  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 });
+    const box = [...head.parentElement.querySelectorAll('label')].find(l => l.textContent.trim() === 'Wells').querySelector('input');
+    if (box.checked !== on) box.click();
+  }, on).then(() => sleep(1500));
+  await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 2 });
   await load();
-  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters();
+  await treeItem(REGION); await treeItem(AQUIFER); await clearFilters(); await showWells(true);
   await setMinMeasurements(5);    // the 364 wells with 5 readings or more, so the colors show between them
   await treeItem('wte_kriging'); await sleep(4000);
+  await taller(450);
   await fitAquifer();
   await setYear(1960); await page.mouse.move(5, 5); await sleep(1500);
   await resized();
@@ -444,14 +500,21 @@ if (want('maps')) {
   await clickButton('Raster Statistics'); await page.mouse.move(5, 5); await sleep(1500);
   await shot('map-stats', await chartOnly());
   await setYear(1999);
-  await toggleWells();            // the line and its labels, clear of the markers
+  await showWells(false);         // the line and its labels, clear of the markers
   await clickButton('Cross Section'); await sleep(800);
   for (const p of SECTION) { const s = await toScreen(p); await page.mouse.click(s.x, s.y); await sleep(1200); }
   await page.mouse.move(5, 5); await sleep(3000);
+  // The ground surface along the line, fetched from the elevation tiles
+  await page.evaluate(() => [...document.querySelectorAll('label')].find(l => l.textContent.trim() === 'GSE').querySelector('input').click());
+  await page.waitForFunction(() => !document.body.innerText.includes('Loading ground surface'), { timeout: 60000 }); await sleep(1500);
+  if (await page.evaluate(() => document.body.innerText.includes('Ground surface unavailable'))) throw new Error('no ground surface');
+  await setYear(1941); await page.mouse.move(5, 5); await sleep(1500);
+  await shot('map-section-1941', await chartOnly());
+  await setYear(1999); await page.mouse.move(5, 5); await sleep(1500);
   await resized();
   await shot('map-section', await lower());
   await clickButton('Clear Cross Section');
-  await toggleWells(); await clearFilters();
+  await showWells(true); await clearFilters();
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
 }
 if (want('mapwizard')) {
@@ -481,7 +544,7 @@ if (want('mapwizard')) {
 }
 if (want('mapwizard') || want('mapstorage')) {
   // The two Escalante sets the mapwizard step leaves in My Data, on one storage chart
-  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 2 });
+  await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 2 });
   await load();
   await clickButton('My Data'); await sleep(1500);
   await treeItem(REGION); await treeItem(AQUIFER);
@@ -489,7 +552,7 @@ if (want('mapwizard') || want('mapstorage')) {
   // Shift-click the set from the measurements to add its curve
   const other = await page.evaluateHandle(() => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'wte_kriging'));
   await page.keyboard.down('Shift'); await other.click(); await page.keyboard.up('Shift'); await sleep(3000);
-  await page.mouse.move(5, 5); await sleep(1500);
+  await taller(450);
   await shot('map-storage', await chartOnly());
   const file = await page.evaluate(() => new Promise((res, rej) => {
     const r = indexedDB.open('aquifer-analyst-my-data');
@@ -522,7 +585,7 @@ if (want('datatype')) {
   await shot('panel-datatype', box);
 }
 if (want('mydata') || want('settings')) {
-  await myDataWithOregon();
+  await myDataWithOregon(); await clearFilters();   // the filter step leaves At least 20
   await page.mouse.move(5, 5);
   if (want('mydata')) await shot('app-mydata');
   await page.click('button[aria-label="Settings"]'); await sleep(1500);
