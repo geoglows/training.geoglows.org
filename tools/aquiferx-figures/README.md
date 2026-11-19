@@ -23,8 +23,8 @@ node shots.mjs raw region,multiwell     # just these steps
 
 `AQX_URL` points the script at another address, such as the deployed preview. The steps are `home`, `overview`, `panel`, `region`,
 `mapparts`, `menu`, `multiwell`, `nested`, `filter`, `datatype`, `mydata` and `settings` for Part 1, `adddata`, `wq`, `edit` and
-`places` for Part 2, `chart` and `trends` for Part 3, `impute` for Part 4, and `maps`, `mapwizard` and `mapstorage` for Part 5; each
-names the shots it saves in the script. The browser profile in `.chrome-profile/` keeps the app's My Data and its remembered settings
+`places` for Part 2, `chart` and `trends` for Part 3, `impute` for Part 4, `maps`, `mapwizard` and `mapstorage` for Part 5, and
+`casedata` and `casestudy` for Part 6; each names the shots it saves in the script. The browser profile in `.chrome-profile/` keeps the app's My Data and its remembered settings
 between runs, so every page load clears the remembered map display (wells, labels, filters) and every step picks its data set.
 
 Each shot is checked before it is saved. Chrome sometimes leaves a column or row of basemap tiles unpainted though the page has
@@ -37,6 +37,12 @@ Bureau's county outlines, California DWR's Bulletin 118 basins and its periodic 
 link to. `adddata` deletes everything in the browser profile's My Data and builds a Monterey County region from them; `wq` adds a
 Pajaro Valley region; `edit` works in the Monterey County region, so run the three in that order. The water quality import looks up
 ground elevations for the wells it makes, so it needs a network connection.
+
+Part 6's case study works in the Monterey County region as `adddata` leaves it. `casedata` downloads that region with its menu's
+Download to `docs/static/files/aquiferx/monterey-county.zip`, the file the case study links to, and refuses if the region already holds
+maps or models; run it right after `adddata`. `casestudy` deletes everything in My Data, restores the zip as a reader would, and runs
+Spatial Analysis, Impute Gaps and Spatial Analysis again on the East Side Aquifer with the defaults, taking the shots as it goes. Its
+cross section needs a network connection for the ground surface.
 
 `webp.sh` writes WebP copies at quality 86, reduced to 1800 px wide when the PNG is wider, which is what the pages use.
 

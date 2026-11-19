@@ -223,6 +223,8 @@ nav:
           - Viewing the Maps: aquiferx/spatial/maps.md
           - Storage Change: aquiferx/spatial/storage.md
           - Cross Sections: aquiferx/spatial/cross-sections.md
+      - Part 6 Case Studies:
+          - The East Side Aquifer: aquiferx/case-studies/east-side.md
   - Webinars:
       - "1. GEOGLOWS History and Introducing RFS Version 2": webinars/rfs-v2-webinar-1.md
       - "2. GEOGLOWS Model Formulation": webinars/rfs-v2-webinar-2.md

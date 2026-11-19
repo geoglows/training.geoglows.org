@@ -793,4 +793,180 @@ if (want('places')) {
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
 }
 
+// Part 6: the case study's region, Monterey County as the adddata step leaves it, downloaded with its menu's Download so readers can
+// load it with Restore
+const CASE_ZIP_DIR = new URL('../../docs/static/files/aquiferx/', import.meta.url).pathname;
+const CASE_ZIP = CASE_ZIP_DIR + 'monterey-county.zip';
+const myFiles = () => page.evaluate(() => new Promise((res, rej) => {
+  const r = indexedDB.open('aquifer-analyst-my-data');
+  r.onsuccess = () => { const q = r.result.transaction('files').objectStore('files').getAllKeys(); q.onsuccess = () => res(q.result); q.onerror = rej; };
+  r.onerror = rej;
+}));
+if (want('casedata')) {
+  await load();
+  await clickButton('My Data'); await sleep(1500);
+  const files = (await myFiles()).filter(p => p.startsWith('monterey-county/'));
+  if (!files.includes('monterey-county/data_wte.csv') || files.some(p => /\/(raster|model)_/.test(p))) {
+    throw new Error('casedata: run adddata first, so Monterey County holds the imported files and nothing else');
+  }
+  const fs = await import('fs');
+  fs.rmSync(CASE_ZIP, { force: true });
+  const cdp = await page.createCDPSession();
+  await cdp.send('Browser.setDownloadBehavior', { behavior: 'allow', downloadPath: CASE_ZIP_DIR });
+  await page.evaluate(() => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'Monterey County').nextElementSibling.click());
+  await sleep(600);
+  await clickButton('Download');
+  for (let i = 0; i < 60 && !fs.existsSync(CASE_ZIP); i++) await sleep(500);
+  await sleep(1500);
+  console.log('saved', CASE_ZIP, fs.statSync(CASE_ZIP).size, 'bytes,', files.length, 'files');
+}
+
+if (want('casestudy')) {
+  // Part 6: the East Side Aquifer, Salinas Valley, in the Monterey County region restored from the casedata zip into an empty My Data:
+  // two wells and their trends, maps from the measurements, Impute Gaps, maps from the model, the two storage curves, a cross section
+  const AQ = 'East Side Aquifer';
+  const W901 = { name: '367386N1216740W001', lat: 36.73863, lng: -121.67404 };     // 901, in the pumping low near Salinas
+  const W10410 = { name: '365351N1214389W001', lat: 36.53513, lng: -121.43898 };   // 10410, at the aquifer's southeast end
+  const W1825 = { name: '367155N1216595W001', lat: 36.71552, lng: -121.6595 };     // 1825, read in August and December since 1990
+  // Southeast end to the low, along the valley, 150 m or more inside the outline where it narrows at Chualar (a sample
+  // whose cells touch the outline has no value, and the line breaks there)
+  const SECTION = [{ lat: 36.515, lng: -121.41 }, { lat: 36.745, lng: -121.676 }];
+  const setYear = async year => {
+    await page.evaluate(y => {
+      const s = document.querySelector('input[type=range].rfs-range');
+      const label = () => s.parentElement.querySelector('span.tabular-nums').textContent;
+      const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+      set.call(s, '0'); s.dispatchEvent(new Event('input', { bubbles: true }));
+      const first = +label().match(/\d{4}/)[0];
+      set.call(s, String(y - first)); s.dispatchEvent(new Event('input', { bubbles: true }));   // one map a year
+    }, year);
+    await sleep(2000);
+  };
+  const setTitle = async (t, placeholder) => {
+    await page.evaluate((t, ph) => {
+      const el = document.querySelector(`input[placeholder="${ph}"]`);
+      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(el, t);
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    }, t, placeholder);
+    await sleep(500);
+  };
+  const spatial = async (imputed, title) => {
+    await page.click('button[aria-label="Spatial Analysis"]');
+    await waitText('wells qualify'); await sleep(2500);
+    if (imputed) { await clickButton('Imputed Data'); await sleep(3000); }
+    for (let k = 0; k < 4 && !(await page.$('input[placeholder="e.g. Annual Analysis 2024"]')); k++) { await clickButton('Next'); await sleep(3000); }
+    await setTitle(title, 'e.g. Annual Analysis 2024');
+    await clickButton('Run Analysis');
+    await waitText('Analysis Complete', 900000); await sleep(1000);
+    console.log((await page.evaluate(() => document.querySelector('div.fixed.inset-0').innerText)).replace(/\s+/g, ' ').slice(0, 300));
+    await clickButton('View Results'); await sleep(4000);
+  };
+  const toggleTrends = async () => { await page.click('button[aria-label="Analyze Trends"]'); await sleep(3000); };
+  // fitAquifer only zooms out, and selecting the far well left the map zoomed out further than the aquifer needs: zoom in while the
+  // outline would still fit at the next half level, then centre it
+  const closeFit = async () => {
+    for (let i = 0; i < 6; i++) {
+      await tiles();
+      const fits = await page.evaluate(() => {
+        const r = el => el.getBoundingClientRect();
+        const a = [...document.querySelectorAll('path[stroke="#6366f1"]')].map(r);
+        const m = r(document.getElementById('map-container'));
+        const slider = document.querySelector('input[type=range]')?.closest('.rfs-card');
+        const w = m.width - 530, h = (slider ? r(slider).top : m.bottom) - m.top - 40;
+        const aw = Math.max(...a.map(x => x.right)) - Math.min(...a.map(x => x.left));
+        const ah = Math.max(...a.map(x => x.bottom)) - Math.min(...a.map(x => x.top));
+        return aw * Math.SQRT2 < w && ah * Math.SQRT2 < h;
+      });
+      if (!fits) break;
+      await page.click('.leaflet-control-zoom-in'); await sleep(1200);
+    }
+    await fitAquifer();
+  };
+
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+  await clearMyData();
+  await clickButton('My Data'); await sleep(1000);
+  await (await page.$('input[type=file][accept=".zip"]')).uploadFile(CASE_ZIP);
+  await waitText('Restore backup'); await sleep(800);
+  await clickButton('Restore');
+  await waitText('restored to My Data', 120000); await sleep(800);
+  await clickButton('Done'); await sleep(2000);
+  await treeItem('Monterey County'); await treeItem(AQ); await clearFilters();
+
+  // Two wells: one in the low, one at the far end
+  await searchWell(W901); await zoomOut(4);
+  await clickWell(W10410, true);
+  await closeFit(); await page.mouse.move(5, 5); await sleep(1500);
+  await shot('case-wells');
+  // Their trends over 30 years, then over 10
+  await toggleTrends(); await page.mouse.move(5, 5); await sleep(1500);
+  await shot('case-trends-30');
+  for (let i = 0; i < 4; i++) { await page.evaluate(() => [...document.querySelectorAll('button')].find(b => b.textContent.trim() === '−' && b.nextElementSibling?.textContent.includes('yr')).click()); await sleep(1200); }
+  await page.mouse.move(5, 5); await sleep(1500);
+  await shot('case-trends-10');
+  await toggleTrends();
+
+  // Maps from the measurements, with the defaults
+  await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 2 }); await sleep(1500);
+  await spatial(false, 'kriging');
+  await taller(450); await closeFit();
+  await setYear(1992); await page.mouse.move(5, 5); await sleep(1500);
+  await resized();
+  await shot('case-map-1992', await lower());
+  // The seven wells that join the maps in December 1980
+  await clickButton('Active Wells'); await sleep(1500);
+  const mapOnly = () => rect('#map-container', 0);
+  await setYear(1979); await page.mouse.move(5, 5); await sleep(1500);
+  await shot('case-active-1979', await mapOnly());
+  await setYear(1980); await page.mouse.move(5, 5); await sleep(1500);
+  await shot('case-active-1980', await mapOnly());
+  await clickButton('Active Wells'); await sleep(1000);
+
+  // Impute Gaps with the defaults, then the model's series at 1825 across its 1996-2005 gap
+  await page.click('button[aria-label="Impute Gaps"]');
+  await waitText('wells will be filled'); await sleep(2500);
+  await clickButton('Next'); await sleep(1500);
+  await clickButton('Run Imputation');
+  await waitText('Imputation Complete', 900000); await sleep(1500);
+  console.log((await page.evaluate(() => document.querySelector('div.fixed.inset-0').innerText)).replace(/\s+/g, ' ').slice(0, 400));
+  await clickButton('View Results'); await sleep(4000);
+  await searchWell(W1825); await zoomOut(4); await taller(450);
+  await page.evaluate(() => [...document.querySelectorAll('label')].find(x => x.textContent.trim() === 'Combined').querySelector('input').click());
+  await page.mouse.move(5, 5); await sleep(2500);
+  await shot('case-impute', await chartOnly());
+
+  // Maps from the model, and the two storage curves
+  await spatial(true, 'kriging_mc_lnn');
+  const other = await page.evaluateHandle(() => [...document.querySelectorAll('span.truncate')].find(x => x.textContent.trim() === 'wte_kriging'));
+  await page.keyboard.down('Shift'); await other.click(); await page.keyboard.up('Shift'); await sleep(3000);
+  await taller(450);
+  await page.mouse.move(5, 5); await sleep(1500);
+  await shot('case-storage', await chartOnly());
+
+  // A cross section of the model's maps along the valley, from the southeast end into the low, with the ground surface
+  await load();
+  await clickButton('My Data'); await sleep(1500);
+  await treeItem('Monterey County'); await treeItem(AQ); await clearFilters();
+  await treeItem('wte_kriging_mc_lnn'); await sleep(4000);
+  await taller(450); await closeFit();
+  await setYear(1992);
+  await page.evaluate(() => {
+    const head = [...document.querySelectorAll('p.rfs-label')].find(p => p.textContent.trim() === 'Show on map');
+    const box = [...head.parentElement.querySelectorAll('label')].find(l => l.textContent.trim() === 'Wells').querySelector('input');
+    if (box.checked) box.click();
+  });
+  await sleep(1500);
+  await clickButton('Cross Section'); await sleep(800);
+  for (const p of SECTION) { const s = await toScreen(p); await page.mouse.click(s.x, s.y); await sleep(1200); }
+  await page.mouse.move(5, 5); await sleep(3000);
+  await page.evaluate(() => [...document.querySelectorAll('label')].find(l => l.textContent.trim() === 'GSE').querySelector('input').click());
+  await page.waitForFunction(() => !document.body.innerText.includes('Loading ground surface'), { timeout: 60000 }); await sleep(1500);
+  if (await page.evaluate(() => document.body.innerText.includes('Ground surface unavailable'))) throw new Error('no ground surface');
+  await page.mouse.move(5, 5); await sleep(1500);
+  await resized();
+  await shot('case-section', await lower());
+  await clickButton('Clear Cross Section');
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+}
+
 await browser.close();

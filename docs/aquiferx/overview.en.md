@@ -80,3 +80,8 @@ from the maps:
 - [Viewing the Maps](spatial/maps.md): colors, contours, playing through the dates, the statistics chart and managing maps.
 - [Storage Change](spatial/storage.md): the volume of water gained or lost, and how to read it.
 - [Cross Sections](spatial/cross-sections.md): the water table along a line, date by date.
+
+**Part 6, Case Studies,** works through one aquifer from start to finish:
+
+- [The East Side Aquifer](case-studies/east-side.md): the Salinas Valley's East Side Aquifer in California, from its wells and trends
+  to maps from the measurements and from a gap-filling model, the storage change of each, and a cross section.
