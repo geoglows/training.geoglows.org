@@ -9,8 +9,8 @@ a mano en el editor del año.
 **Water year starts in** (el año hidrológico comienza en) define el mes calendario en que comienza cada año hidrológico. Por defecto es el mínimo habitual encontrado en la
 [verificación de estacionalidad](opening.md#is-this-series-suited-to-the-wtf-method), mostrado como "(auto, the usual low)". Cámbialo si sabes que la
 hidrología de la región requiere otro inicio. El análisis usa solo años hidrológicos completos, así que un año parcial en cualquiera de los extremos del registro
-queda fuera. Los años hidrológicos se nombran por el año calendario en que comienzan: para el Northern Midwest Aquifer System, el año hidrológico 2004 va de marzo
-de 2004 a febrero de 2005.
+queda fuera. Los años hidrológicos se nombran por el año calendario en que comienzan: para el Northern Midwest Aquifer System, el año hidrológico 2004 va de febrero
+de 2004 a enero de 2005.
 
 Cambiar el mes de inicio desplaza todos los años hidrológicos, así que borra los puntos que hayas fijado a mano. **Reset all picks** los borra sin cambiar
 el mes de inicio.
@@ -54,9 +54,9 @@ panel de la derecha muestra el valle y el pico con sus meses y valores, S<sub>L<
 km³. Una nota debajo de los valores indica los meses sobre los que se ajustó la línea de recesión y las notas de la tabla para ese año (consulta
 [Resultados](results.md#the-table)).
 
-En el año hidrológico 2004, el valle cae en marzo de 2004 en −9.38 cm y el pico en agosto de 2004 en 1.60 cm, así que R1 es 10.98 cm. La línea de recesión se
-ajusta desde el pico de septiembre de 2003 (S<sub>A</sub>) hasta el valle de marzo. Prolongada hasta agosto, alcanza S<sub>L</sub> = −20.17 cm, así que R2 es
-21.77 cm. Sobre los 320,368 km² del sistema acuífero, eso equivale a 35.2 km³ (R1) a 69.7 km³ (R2) de recarga.
+En el año hidrológico 2004, el valle cae en febrero de 2004 en −8.25 cm y el pico en julio de 2004 en 4.56 cm, así que R1 es 12.82 cm. La línea de recesión
+va desde el pico de julio de 2003 (S<sub>A</sub>) hasta el valle de febrero. Prolongada hasta julio, alcanza S<sub>L</sub> = −13.84 cm, así que R2 es
+18.41 cm. Sobre los 320,368 km² del sistema acuífero, eso equivale a 41.1 km³ (R1) a 59.0 km³ (R2) de recarga.
 
 El primer año hidrológico no tiene pico anterior. Su S<sub>A</sub> es el mes más alto antes de su valle, una vez eliminada la tendencia de largo plazo.
 

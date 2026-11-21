@@ -1,0 +1,245 @@
+# The GLDAS Land Surface Models
+
+Everything the app shows that is not a gravity measurement comes from GLDAS. The GRACE + GLDAS 2.1 dataset uses three GLDAS models to remove
+snow, canopy water and soil moisture from what the satellites measure. The GLDAS 2.2 dataset reads groundwater out of a fourth GLDAS run
+directly. This page covers what those models are and what they can and cannot represent;
+[Deriving Groundwater Storage](deriving-groundwater.md) gives both derivations in full.
+
+## What GLDAS is
+
+NASA's Global Land Data Assimilation System produces global fields of land surface states and fluxes by driving land surface models with
+observed weather (Rodell et al., 2004). The models run **offline**, meaning they are not coupled to an atmosphere: the weather is an input, and
+the model's job is to track where water and energy go once they reach the ground. GLDAS runs them through the Land Information System
+(Kumar et al., 2006).
+
+The products the app reads cover 60°S to 90°N and all longitudes, on 1° and 0.25° grids. Antarctica is outside the domain, which is why the
+global map ends at 60°S. GLDAS publishes 3-hourly and daily output and monthly means built from it; the app uses the monthly means.
+
+GLDAS Version 2 comes in three parts, and the differences between them matter for how the app treats each one:
+
+| | Forcing | Models | Period | Observations assimilated |
+|---|---|---|---|---|
+| **GLDAS-2.0** | Princeton meteorological dataset | Noah, VIC, Catchment | 1948–2014 | none |
+| **GLDAS-2.1** | NOAA GDAS, GPCP, AGRMET | Noah, VIC, Catchment | 2000–present | none |
+| **GLDAS-2.2** | ECMWF IFS analysis | Catchment only | 2003–present | GRACE total water storage |
+
+GLDAS-2.0 ends in 2014 and the app does not use it, except that both of the other versions were started from its state rather than from scratch.
+GLDAS-2.0 and 2.1 are **open loop**: the models run from their forcing alone and no observation is used to correct them along the way. GLDAS-2.2
+is the one product in the family that assimilates data.
+
+## What a land surface model computes
+
+The budget below is the same in every GLDAS version. What changes between them is which stores exist and which ones the app takes, and the
+foot of the figure gives that for each.
+
+![The stores and fluxes a GLDAS land surface model carries for each grid cell, and what each GLDAS version contributes to the app](../../static/images/grace/gldas-water-cycle.png)
+
+For each cell and each time step, the model takes the weather above the surface and solves a water and energy budget below it. Rain and snow
+arrive. Some rain is caught on leaves and evaporates straight back; snow accumulates and later melts; what reaches the ground infiltrates, moves
+down through the soil, and leaves again as evaporation, transpiration, surface runoff or drainage. Whatever has not left by the end of the step
+is storage, and it is carried into the next step.
+
+The four stores are what the app is built on: canopy water, snow water equivalent, soil moisture, and groundwater. The first three exist in
+every GLDAS model and both of the app's datasets use them. Groundwater exists only in the Catchment model, which is why it reaches the app
+through GLDAS 2.2 alone. Each store is reported as a depth of liquid water in kg/m², which is the same as a millimetre, or a tenth of a
+centimetre; the app converts all of them to centimetres so they can be added to and subtracted from GRACE.
+
+What the models leave out ends up in groundwater in the app:
+
+**No pumping or irrigation.** GLDAS simulates the natural water cycle. Nothing in the model abstracts water from an aquifer, so a GLDAS run on
+its own cannot produce the depletion that is the whole subject of this app. That is why the 2.1 route subtracts the models from a measurement
+and why the 2.2 route has to assimilate one.
+
+**No surface water.** There are no rivers, lakes or reservoirs. A basin where a large reservoir fills and empties has that change counted
+somewhere else, which in practice is groundwater.
+
+**No glaciers or ice sheets.** None of the GLDAS models has one, so in Greenland, parts of the Arctic and permanently frozen ground in the
+Himalayas, snow water equivalent accumulates without limit. NASA's documentation for GLDAS Version 2 says so plainly and advises masking those
+cells.
+
+[What the Differences Look Like](../compare/examples.md) shows what each of these three produces on the map.
+
+
+### The forcing data
+
+A land surface model computes nothing about the weather; it is handed the weather and works out what the ground does with it. GLDAS supplies
+seven fields at every time step:
+
+| Field | Variable | Units |
+|---|---|---|
+| Total precipitation rate | `Rainf_f_tavg` | kg m⁻² s⁻¹ |
+| Air temperature | `Tair_f_inst` | K |
+| Specific humidity | `Qair_f_inst` | kg kg⁻¹ |
+| Surface pressure | `Psurf_f_inst` | Pa |
+| Wind speed | `Wind_f_inst` | m s⁻¹ |
+| Downward shortwave radiation | `SWdown_f_tavg` | W m⁻² |
+| Downward longwave radiation | `LWdown_f_tavg` | W m⁻² |
+
+Precipitation matters most for storage, and it is the field each GLDAS version treats differently:
+
+| | Atmospheric fields | Precipitation | Radiation |
+|---|---|---|---|
+| **GLDAS-2.0** | Princeton global forcing dataset (Sheffield et al., 2006) | Princeton | Princeton |
+| **GLDAS-2.1** | NOAA GDAS analysis (Derber et al., 1991) | GPCP v1.3 daily, disaggregated to 3-hourly | AGRMET, now GALWEM |
+| **GLDAS-2.2** | ECMWF IFS operational analysis | ECMWF IFS | ECMWF IFS |
+
+The 2.1 radiation source changed under the app's feet: AGRMET was built on the Air Force's World-Wide Merged Cloud Analysis, which stopped
+being produced on 8 June 2025, so from 9 June 2025 GLDAS 2.1 has been forced with the UK Met Office's GALWEM radiation instead. Months before
+and after that date were produced with different radiation inputs, which is one more reason the uncertainty band is the model spread rather
+than a published error.
+
+Two more consequences of the forcing worth carrying into a reading of the data. GLDAS 2.1 ran on GDAS and GPCP alone from January 2000 until
+AGRMET was added on 1 March 2001, so its earliest months are not forced the same way as the rest; the app's record starts in April 2002 and is
+clear of that. And because 2.2's forcing is ECMWF's, which ECMWF's licence does not allow NASA to redistribute, the 2.2 product publishes no
+meteorological fields at all — you can see what the model did but not what it was told.
+
+The models also carry no routing between grid cells. Noah and VIC treat each cell as an independent column. The Catchment model is the
+exception within a cell: it divides the land into hydrologic catchments delineated from elevation data and redistributes water across each one
+according to topography (Koster et al., 2000; Ducharne et al., 2000).
+
+## The three models of GLDAS 2.1
+
+GLDAS 2.1 started on 1 January 2000 from the GLDAS-2.0 state, forced as the table above describes. It runs three models, which differ most in
+how they carry soil water:
+
+| Model | Grid | Soil moisture used by the app |
+|---|---|---|
+| Noah 3.6 | 0.25° | four layers, 0–200 cm |
+| VIC 4.1.2 | 1° | three layers, depths varying by location |
+| Catchment (CLSM-F2.5) | 1° | root zone, 0–100 cm |
+
+None of the three carries a groundwater store the app can use. Noah and VIC have none at all: water that drains past the bottom layer leaves the
+column as baseflow and the model stops tracking it. The Catchment model does carry groundwater, but run open loop it has no way to know about
+pumping, so its groundwater follows rainfall and little else.
+
+The three models often disagree, deep soil moisture most of all. The app averages them rather than picking one, which means working at the
+coarsest of the three grids, 1° ([how](deriving-groundwater.md#the-gldas-terms)).
+
+### Why the Catchment model needs separate handling
+
+Noah and VIC report soil moisture by depth layer, so the app adds the layers up. The Catchment model has no layers. It reports three reservoirs,
+and NASA's documentation for GLDAS Version 2 is explicit that they are nested: profile includes root zone, and root zone includes surface.
+
+| Reservoir | Depth | Variable |
+|---|---|---|
+| Surface | 0–2 cm | `SoilMoist_S_inst` |
+| Root zone | 0–100 cm | `SoilMoist_RZ_inst` |
+| Profile | to bedrock, varying cell by cell | `SoilMoist_P_inst` |
+
+The profile reservoir runs down past the water table, so it holds the model's groundwater along with its soil moisture. NASA defines the
+Catchment model's groundwater from that fact:
+
+$$
+\mathrm{GWS} = \mathrm{TWS} - \mathrm{RootZone} - \mathrm{SWE} - \mathrm{CanopInt}
+$$
+
+The model's total water storage is its profile water plus snow plus canopy, which closes to 5×10⁻⁴ mm on the published files. Substituting that
+leaves the groundwater as the gap between the two reservoirs:
+
+$$
+\mathrm{GWS} = \mathrm{SoilMoist\_P} - \mathrm{RootZone}
+$$
+
+Across the land surface that gap holds a median of 746 mm of water — more than three times what the root zone itself holds.
+
+So the app takes the root zone for the Catchment model and leaves the profile alone. Feeding the profile into the soil moisture term would hand
+the model's groundwater to the wrong side of the water balance: it would be subtracted from what GRACE measured, when groundwater is the very
+quantity being solved for. One third of the ensemble carrying groundwater in its soil moisture term is enough to damp the result everywhere.
+
+This also lines the two datasets up with each other. The 2.2 route starts from the same model and subtracts its groundwater from the profile, and
+by the identity above `SoilMoist_P − GWS` *is* the root zone. Both datasets' soil moisture layers therefore describe the same reservoir of the
+same model.
+
+What the change does not fix is depth. Noah sums 0–200 cm, the Catchment root zone stops at 100 cm, and VIC's lower two layers vary by location,
+so the ensemble still averages three different soil columns. That is an ordinary disagreement between models, of the kind the spread between them
+is there to express, and it is a different thing from counting groundwater as soil moisture.
+
+## GLDAS 2.2 and the GRACE correction
+
+![How the 2.1 and 2.2 routes to groundwater differ](../../static/images/grace/gldas-2.1-vs-2.2.png)
+
+GLDAS 2.2 is one daily product: the Catchment model at 0.25°, started on 1 February 2003 from the GLDAS-2.0 Catchment state.
+
+What makes it different is that the total water storage anomaly measured by GRACE is assimilated into the run (Li et al., 2019), through the
+assimilation machinery in the Land Information System (Kumar et al., 2016). The Catchment model was chosen for this because of how it handles
+water below the surface: it tracks a catchment water deficit that stands in for the depth to the water table, so groundwater is a state the model
+carries forward rather than a quantity inferred afterwards. That is what gives the assimilation somewhere to put a correction.
+
+GRACE measures the whole column and cannot see which store a discrepancy belongs to, so the scheme distributes each month's correction across
+the model's stores, groundwater among them. Depletion from pumping reaches the 2.2 groundwater state only through this route. The model physics
+still has no wells in it.
+
+The GRACE solution assimilated into 2.2 is the **CSR** mascon product (Save et al., 2012, 2016), while the app's own GRACE layers use the
+**JPL** mascons. The two routes to groundwater therefore do not rest on the same GRACE solution, and they will not agree exactly even where both
+are working well.
+
+
+## Output, and where the app gets it
+
+GLDAS publishes at 3-hourly and daily steps, with monthly means built from the 3-hourly files. What exists differs by version, and the app
+takes the monthly value either way:
+
+| | Published as | Resolutions | The app reads |
+|---|---|---|---|
+| **GLDAS-2.0** | 3-hourly, daily, monthly | 1°, 0.25° | nothing |
+| **GLDAS-2.1** | 3-hourly, monthly | 1°, 0.25° | the monthly files |
+| **GLDAS-2.2** | daily only | 0.25° | the daily files, averaged to calendar months |
+
+The 2.1 files come from the GES DISC archive as NetCDF-4, one file per model per month: `GLDAS_NOAH025_M.2.1`, `GLDAS_VIC10_M.2.1` and
+`GLDAS_CLSM10_M.2.1`. An Earthdata Login account is needed to download them, and they are also reachable through Earthdata Search, OPeNDAP,
+THREDDS and the GES DISC subsetter.
+
+GLDAS 2.2 has no monthly product, so the app builds one. It reads the daily `GLDAS_CLSM025_DA1_D.2.2` collection through Google Earth Engine,
+which carries the same fields, averages each calendar month, and stores the result. That is also why the 2.2 record in the app is monthly like
+everything else rather than daily.
+
+Both versions run behind the present: 2.1's main production stream by three to four months, 2.2's by two to six, since it waits for the GRACE
+field it assimilates. Each also has an early stream at about 1.5 months, which for 2.2 means no GRACE assimilation at all. The app reads the
+main streams, so the most recent month it shows is some months old and every 2.2 month in it has been corrected.
+
+## Accuracy, and mixing versions
+
+NASA lists four sources of error in GLDAS estimates: uncertainty in the meteorological forcing, which is worst at high latitudes, at high
+altitudes and where weather stations are sparse; simplified representations of complex processes in the models; errors in the land surface
+parameters describing vegetation, soils and elevation; and inadequate calibration of model parameters. None of these is reported as a number
+alongside the data, which is why the app's uncertainty band for the 2.1 route is built from the spread between the three models rather than from
+anything NASA publishes.
+
+NASA also warns against joining the GLDAS versions into one time series: their forcing datasets are biased relative to one another, and
+assimilation changes both the states and the fluxes in 2.2. The app never splices them. Each dataset is its own record from end to end, and when
+both are shown on one chart they are drawn as separate series. They do share the 2004–2009 baseline, which is what puts them on a common zero
+and makes the comparison readable; it is the records that stay apart, not the reference period.
+
+## References
+
+- Rodell, M., Houser, P. R., Jambor, U., Gottschalck, J., Mitchell, K., Meng, C.-J., et al. (2004). The Global Land Data Assimilation System.
+  *Bulletin of the American Meteorological Society*, 85(3), 381–394.
+  [doi:10.1175/BAMS-85-3-381](https://doi.org/10.1175/BAMS-85-3-381){:target="_blank"}
+
+- Li, B., Rodell, M., Kumar, S., Beaudoing, H. K., Getirana, A., Zaitchik, B. F., et al. (2019). Global GRACE data assimilation for groundwater
+  and drought monitoring: Advances and challenges. *Water Resources Research*, 55, 7564–7586.
+  [doi:10.1029/2018WR024618](https://doi.org/10.1029/2018WR024618){:target="_blank"}
+  The study GLDAS 2.2 came out of, and the reference for what the assimilation does to groundwater.
+
+- Kumar, S. V., Zaitchik, B. F., Peters-Lidard, C., Rodell, M., Reichle, R., Li, B., et al. (2016). Assimilation of gridded GRACE terrestrial
+  water storage estimates in the North American Land Data Assimilation System. *Journal of Hydrometeorology*, 17(7), 1951–1972.
+  [doi:10.1175/JHM-D-15-0157.1](https://doi.org/10.1175/JHM-D-15-0157.1){:target="_blank"}
+
+- Koster, R. D., Suarez, M. J., Ducharne, A., Stieglitz, M., and Kumar, P. (2000). A catchment-based approach to modeling land surface processes
+  in a general circulation model: 1. Model structure. *Journal of Geophysical Research*, 105(D20), 24809–24822.
+  [doi:10.1029/2000JD900327](https://doi.org/10.1029/2000JD900327){:target="_blank"}
+
+- Ducharne, A., Koster, R. D., Suarez, M. J., Stieglitz, M., and Kumar, P. (2000). A catchment-based approach to modeling land surface processes
+  in a general circulation model: 2. Parameter estimation and model demonstration. *Journal of Geophysical Research*, 105(D20), 24823–24838.
+  [doi:10.1029/2000JD900328](https://doi.org/10.1029/2000JD900328){:target="_blank"}
+
+- Rui, H., and Beaudoing, H. (2025). *README Document for NASA GLDAS Version 2 Data Products*. NASA GES DISC.
+  [hydro1.gesdisc.eosdis.nasa.gov](https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_CLSM025_DA1_D.2.2/doc/README_GLDAS2.pdf){:target="_blank"}
+  NASA's own documentation for the GLDAS products, and the source for the forcing, record periods, model versions and cautions on this page. Its
+  "Data Interpretation" section is where the nesting of the Catchment model's three soil moisture reservoirs and the definition of its
+  groundwater storage come from.
+
+- GLDAS data at the NASA GES DISC: [Noah](https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_M_2.1/summary){:target="_blank"},
+  [VIC](https://disc.gsfc.nasa.gov/datasets/GLDAS_VIC10_M_2.1/summary){:target="_blank"},
+  [CLSM](https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM10_M_2.1/summary){:target="_blank"},
+  [Catchment GRACE-DA1 2.2](https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary){:target="_blank"}

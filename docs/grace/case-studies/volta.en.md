@@ -10,6 +10,11 @@
 The Volta Basin covers about 400,000 km² in Ghana, Burkina Faso, Togo, Mali, Côte d'Ivoire and Benin. Lake Volta, behind the Akosombo Dam,
 covers only about 2% of the basin but holds a large and variable volume of water.
 
+!!! tip "Which region to pick in the app"
+    **VOLTA**, in the **Major River Basins (GRDC)** set — 412,000 km², the drainage basin the study used. The **Transboundary Aquifers
+    (IGRAC)** set also offers a region called **Volta Basin**, but that is the aquifer rather than the river basin, 130,000 km², and it will
+    not reproduce anything on this page.
+
 ![Volta Basin location](../../static/images/grace/papers/volta-fig1-study-area.webp)
 
 *Volta Basin location. Barbosa et al. (2025), Fig. 1, CC BY 4.0.*
@@ -22,7 +27,7 @@ GWSa = TWSa − (SMa + SWEa + CANa + SWSa)
 ```
 
 Gaps were filled by seasonal decomposition with a piecewise linear trend, the approach the app uses (see
-[The Seasonal Model](../gap-filling/seasonal-model.md)). The study also compared the results with the groundwater storage computed directly by the GLDAS 2.2
+[Gaps and Gap Filling](../mission/gap-filling.md)). The study also compared the results with the groundwater storage computed directly by the GLDAS 2.2
 Catchment model, with CHIRPS rainfall, and with 10 monitoring wells in the Nasia sub-basin.
 
 ## Why the lake matters
@@ -37,7 +42,7 @@ total gain of about 30 km³, or about 10 cm of water, over 2002–2022.
 considering SWSa. Barbosa et al. (2025), Fig. 6, CC BY 4.0.*
 
 The app's GWSa for this basin corresponds to the green curve, because the app does not subtract surface water (see
-[Deriving Groundwater Storage](../background/deriving-groundwater.md#the-water-balance)).
+[Deriving Groundwater Storage](../gldas/deriving-groundwater.md#the-water-balance)).
 
 GLDAS 2.2, which assimilates GRACE, showed the same trend but much larger seasonal swings, so the authors recommend it for trends but not for
 recharge estimates.

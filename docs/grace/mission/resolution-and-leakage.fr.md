@@ -1,0 +1,126 @@
+# Résolution, Fuite du Signal et Petites Régions
+
+Tout ce qui est sur cette page porte sur la mesure GRACE, et s’applique aux deux jeux de données de l’application. GLDAS 2.2 s’appuie sur une
+grille de modèle à 0.25°, mais les eaux souterraines qu’il contient viennent de l’assimilation de GRACE : il hérite donc de la résolution de
+GRACE et de la fuite du signal de GRACE. Une image plus fine n’est pas une mesure plus fine, et
+[Là où GLDAS 2.2 aide et là où il n’aide pas](#where-gldas-22-does-and-does-not-help), au bas de la page, dit de quelles mises en garde il
+dispense.
+
+## Ce que GRACE peut résoudre { #what-grace-can-resolve }
+
+GRACE détecte la masse par la gravité, et la gravité s’atténue avec la distance. Depuis une orbite située à plusieurs centaines de kilomètres
+d’altitude, deux masses distantes de moins de quelques centaines de kilomètres se confondent en une seule. La solution mascon du JPL reflète cette
+limite : elle calcule une valeur par calotte de 3°, d’environ 330 km de diamètre, et les grilles de 0.5° et 1° sont cette solution
+échantillonnée sur un maillage plus fin. L’application applique bien les facteurs de gain du JPL, qui donnent à la grille à 0.5° une certaine
+structure à l’intérieur de chaque mascon (voir
+[Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md#gain-factors)), mais la mesure sous-jacente reste une valeur par calotte
+de 3°.
+
+![Tailles de grille comparées à la taille des régions, et fuite du signal](../../static/images/grace/grace-resolution-leakage.png)
+
+Le panneau A compare les grilles à deux régions. Le bassin fluvial s’étend sur plusieurs mascons ; sa moyenne s’appuie donc sur plusieurs mesures
+indépendantes. L’aquifère est plus petit qu’un mascon. Sa valeur reflète essentiellement le comportement du mascon dans lequel il se trouve, y
+compris les variations de stockage à l’extérieur de l’aquifère.
+
+En règle générale, les résultats de GRACE sont fiables pour des régions d’environ 200 000 km² ou plus (environ 4° × 4° près de l’équateur),
+utilisables avec précaution jusqu’à la taille d’un mascon (environ 100 000 km²), et de plus en plus incertains en deçà. Deux sources de variation
+séparent des mailles voisines au sein d’un même mascon : les termes GLDAS, mesurés sur leurs propres grilles à 0.25° et 1°, et les facteurs de
+gain, qui redistribuent l’amplitude du mascon entre ses mailles. Ni l’une ni l’autre n’ajoute une seconde mesure GRACE. Le nombre d’observations
+indépendantes sous une région est le nombre de mascons qu’elle couvre, quelle que soit la grille que dessine l’application.
+
+## Fuite du signal { #leakage }
+
+Comme GRACE étale la masse sur quelques centaines de kilomètres, une variation de stockage concentrée sur une petite zone apparaît dans les
+données comme une variation plus faible répartie sur une zone plus étendue (panneau B). Le signal **fuit** hors de la région où il s’est produit,
+vers les régions voisines. L’inverse se produit aussi : les variations de stockage juste à l’extérieur d’une région y pénètrent.
+
+La fuite du signal pèse le plus lorsque la variation de stockage à l’intérieur de la région diffère de celle des alentours. Le cas le plus
+défavorable est celui d’un pompage intensif dans une vallée irriguée entourée de montagnes : la baisse est concentrée dans la vallée, et GRACE
+l’étale aussi sur les montagnes. Une moyenne calculée sur la seule vallée sous-estime alors la perte réelle, parfois d’un facteur de plusieurs
+unités. Là où le stockage évolue de façon similaire à l’intérieur et à l’extérieur de la région, comme dans un grand bassin sédimentaire sous un
+climat uniforme, les fuites entrantes et sortantes s’équilibrent à peu près et la moyenne régionale est proche de la réalité.
+
+Le filtre côtier du JPL limite la fuite entre continents et océans, et les facteurs de gain rétablissent une partie de l’amplitude que le
+traitement GRACE supprime à l’intérieur d’un mascon. Ni l’un ni l’autre ne corrige la fuite entre zones continentales voisines, qui est ce qui
+compte le plus pour un aquifère intensément pompé voisin d’une région au comportement différent. Et c’est précisément dans ce cas que les
+facteurs de gain sont les moins fiables : ils proviennent d’un modèle qui ne simule pas le pompage.
+
+## Travailler avec de petites régions { #working-with-small-regions }
+
+Si votre région d’intérêt est plus petite qu’un mascon, ou s’il s’agit d’un centre de pompage entouré de zones au comportement différent, les
+approches suivantes sont utiles :
+
+**Analyser l’unité hydrologique plus grande.** Lancez l’analyse sur le bassin fluvial ou le système aquifère qui contient votre zone, à l’aide de
+l’un des jeux de régions prédéfinis ou d’une limite importée. Si la quasi-totalité de la variation de stockage se produit dans la zone plus
+petite (par exemple, si le pompage est concentré dans l’aquifère), le volume de variation de l’unité plus grande approche celui de la zone plus
+petite :
+
+```text
+ΔV ≈ GWSa_basin × Area_basin
+```
+
+Cela fonctionne parce qu’un volume sommé sur une surface suffisamment grande récupère l’essentiel du signal qui a fui, alors qu’une moyenne sur
+une petite surface ne le récupère pas.
+
+**Étalonner à l’aide des puits.** Là où des piézomètres fournissent une estimation indépendante de la variation de stockage sur une partie de la
+période GRACE, le rapport entre les estimations issues des puits et celles issues de GRACE donne un facteur d’échelle empirique qui corrige la
+fuite du signal dans cette région. Ce facteur est propre à la région et à la période utilisée pour le calculer. Stevens et al. (2025) l’ont fait
+pour la Vallée Centrale de Californie ([étude de cas](../case-studies/central-valley.md)).
+
+**Interpréter une maille isolée avec prudence.** Dans la vue globale, vous pouvez cliquer sur une maille pour afficher sa série temporelle. C’est
+rapide et utile pour l’exploration, mais deux aquifères voisins situés dans le même mascon reposent sur la même mesure à 3°. Les facteurs de gain leur donneront des
+valeurs différentes ; cet écart vient d’un modèle de surface terrestre, non de GRACE.
+
+![Vallée Centrale de Californie : un aquifère étroit et fortement exploité, entouré de montagnes, proche du cas le plus défavorable pour la fuite du signal](../../static/images/grace/app-central-valley.webp)
+
+### Là où GLDAS 2.2 aide et là où il n’aide pas { #where-gldas-22-does-and-does-not-help }
+
+Passer à GLDAS 2.2 fait passer la grille de 1° à 0.25° à l’intérieur d’une région, ce qui aide pour un des problèmes ci-dessus et pour aucun des
+autres.
+
+Cela aide pour l’**échantillonnage**. Un bassin large de quelques degrés est décrit par seize fois plus de mailles : la règle des 35 % de
+surface en écarte donc beaucoup moins, la moyenne pondérée par la surface se comporte mieux, et une région trop petite pour avoir une seule
+maille de 1° admissible peut très bien en avoir plusieurs à 0.25°. Si la difficulté est que votre région apparaît à peine sur la grille, 2.2 est
+la réponse.
+
+Cela n’aide pas pour la **fuite du signal ni la résolution**. Les eaux souterraines de 2.2 sont un état de modèle corrigé par assimilation de
+GRACE, et cette correction arrive à la résolution de GRACE, quelque fine que soit la grille du modèle. Deux mailles de 0.25° à l’intérieur d’un
+même mascon diffèrent par ce que le modèle Catchment dit d’elles, ce qui est la même situation que deux mailles de 1° qui diffèrent par leurs
+facteurs de gain. Ni l’une ni l’autre n’est une seconde mesure.
+
+Cela ne supprime pas non plus la règle empirique. Un bassin de 20 000 km² lu dans 2.2 reste un bassin que GRACE ne peut pas résoudre, dessiné
+plus finement. Les approches ci-dessus — analyser l’unité hydrologique plus grande, calibrer sur des puits, lire une maille isolée avec
+méfiance — s’appliquent à une carte 2.2 exactement comme à une carte GRACE.
+
+## Autres limites { #other-limitations }
+
+- **Du stockage, pas des niveaux.** La GWSa est une variation de la masse d’eau. La convertir en variation du niveau de la nappe nécessite un
+  rendement spécifique (porosité de drainage) de l’aquifère, qui varie fortement et est souvent mal connu.
+- **Aucun détail vertical.** GRACE ne peut pas distinguer les aquifères superficiels des aquifères profonds, ni les nappes captives des nappes
+  libres.
+- **Erreur des modèles.** Les erreurs des termes GLDAS d’humidité du sol, de neige et de canopée se reportent directement sur la GWSa. C’est
+  surtout problématique dans les régions enneigées et humides, où ces termes sont importants.
+- **Eaux de surface.** Les variations des réservoirs, des lacs et des plaines inondables sont comptabilisées comme eaux souterraines (voir
+  [Calcul du Stockage des Eaux Souterraines](../gldas/deriving-groundwater.md)). Cela vaut pour les deux jeux de données : aucun modèle GLDAS ne
+  porte davantage de rivières, de lacs ou de réservoirs.
+
+Malgré ces limites, GRACE offre une vision cohérente et indépendante de la variation du stockage sur des systèmes aquifères entiers, souvent la
+seule disponible. Utilisez-le pour les tendances régionales et comparez-le aux données locales chaque fois que possible.
+
+## Références { #references }
+
+- Stevens, M. D., et al. (2025). Groundwater storage loss in the Central Valley analysis using a novel method based on in situ data compared
+  to GRACE-derived data. *Environmental Modelling & Software*, 186, 106368.
+  [doi:10.1016/j.envsoft.2025.106368](https://doi.org/10.1016/j.envsoft.2025.106368){:target="_blank"}
+
+- Landerer, F. W., and Swenson, S. C. (2012). Accuracy of scaled GRACE terrestrial water storage estimates. *Water Resources Research*, 48,
+  W04531. [doi:10.1029/2011WR011453](https://doi.org/10.1029/2011WR011453){:target="_blank"}
+  La dérivation des facteurs de gain que l’application applique, et la référence à laquelle le GRACE-FO Level-3 Handbook renvoie pour leur usage
+  et leurs limites.
+
+- Rodell, M., and Famiglietti, J. S. (1999). Detectability of variations in continental water storage from satellite observations of the time
+  dependent gravity field. *Water Resources Research*, 35, 2705–2723.
+  [doi:10.1029/1999WR900141](https://doi.org/10.1029/1999WR900141){:target="_blank"}
+- Longuevergne, L., Scanlon, B. R., and Wilson, C. R. (2010). GRACE hydrological estimates for small basins: Evaluating processing approaches on
+  the High Plains Aquifer, USA. *Water Resources Research*, 46, W11517.
+  [doi:10.1029/2009WR008564](https://doi.org/10.1029/2009WR008564){:target="_blank"}

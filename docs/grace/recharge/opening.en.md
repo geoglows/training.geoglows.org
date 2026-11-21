@@ -2,9 +2,15 @@
 
 ## The Recharge Analysis button
 
-The Recharge Analysis runs on the filled GWSa series, so it is available only when **Gap filling** in the panel is set to **Seasonal model**
-(see [Gaps in the Record](../gap-filling/gaps.md)). With that option selected, a **Recharge Analysis** button appears next to **Download CSV** above the
-time series chart, for a region and for a single grid cell in the [global view](../app/global-view.md).
+The Recharge Analysis needs a GWSa value in every month, so a **Recharge Analysis** button appears next to **Download CSV** above the time
+series chart once the series has one: on the GRACE dataset, with **Gap filling** set to **Seasonal model** (see
+[Gaps and Gap Filling](../mission/gap-filling.md)); on GLDAS 2.2, always, since its record has no gaps. It works for a region and for a single
+grid cell in the [global view](../app/global-view.md).
+
+Run it on both datasets before trusting either number. Barbosa et al. (2025) did exactly that in the Volta Basin and found GLDAS 2.2 gave
+17.4 and 36.1 cm/yr against 5.8 and 10.7 cm/yr from GRACE, where wells gave a median of 10.4 cm/yr; they recommend 2.2 for trends rather than
+for recharge (see [Volta Basin](../case-studies/volta.md)). The method reads each year's rise as recharge, and the GRACE assimilation puts a
+monthly correction into the 2.2 groundwater state that can enlarge that rise.
 
 ![The Recharge Analysis button above the time series chart for the Northern Midwest Aquifer System](../../static/images/grace/app-recharge-button.webp)
 
@@ -56,9 +62,9 @@ The verdict combines the second and third numbers:
 
 The chart beside the numbers shows the average annual cycle of GWSa, one bar per calendar month, with the lowest month highlighted.
 
-For the Northern Midwest Aquifer System the seasonal swing is 8.1 cm against a typical uncertainty of ±4.4 cm, the annual cycle explains 64% of
-the variation, and all 23 water years peak within two months of August. Storage is lowest in March, so each water year runs from March to the
-following February.
+For the Northern Midwest Aquifer System the seasonal swing is 6.6 cm against a typical uncertainty of ±3.5 cm, the annual cycle explains 43% of
+the variation, and all 23 water years peak within two months of June. Storage is lowest in February, so each water year runs from February to the
+following January.
 
 California's Central Valley gets a different verdict. Its storage does have an annual cycle, but multi-year droughts and wet periods, and the
 heavy pumping during droughts, are as large as the seasonal swing:

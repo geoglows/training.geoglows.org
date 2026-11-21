@@ -12,8 +12,17 @@ la aplicación: calcular GWSa para cada acuífero, rellenar los vacíos del regi
 
 El sur de Níger se encuentra sobre dos grandes cuencas sedimentarias. La cuenca de Iullemeden, al oeste, abarca unos 620,000 km² y recibe 550–650 mm de lluvia al
 año; el estudio analizó sus acuíferos Continental Intercalaire y Continental Terminal. La cuenca del lago Chad, al este, abarca unos
-2.5 millones de km² y recibe 200–400 mm al año; el estudio analizó sus acuíferos Manga y Korama. Casi toda la lluvia cae entre junio y
-septiembre, y hay pocos pozos de monitoreo.
+2.5 millones de km² y recibe 200–400 mm al año; el estudio analizó sus acuíferos Manga y Korama. La temporada húmeda va de mayo a octubre en la
+cuenca de Iullemeden y de mayo a septiembre en la del Chad, y hay pocos pozos de monitoreo.
+
+!!! tip "Qué región elegir en la aplicación"
+    Para Iullemeden, **Iullemeden-Irhazer Aquifer System** en **Global Aquifers** (el mismo contorno aparece en **Large Aquifer Systems
+    (WHYMAP)**): 583,000 km² frente a los 620,000 km² que da el artículo. Para el Chad, los 2.5 millones de km² del artículo son la cuenca de
+    drenaje, que es **CHAD** en **Major River Basins (GRDC)** con 2,470,000 km²; el contorno del acuífero, **Bassin du lac Tchad** en
+    **Global Aquifers**, tiene 1,522,000 km².
+
+    En cualquier caso la aplicación promedia sobre el contorno completo, mientras que el estudio analizó acuíferos con nombre dentro de él: el
+    Continental Intercalaire y el Continental Terminal, y el Manga y el Korama. Espera el mismo comportamiento, no los mismos números.
 
 ![Acuíferos seleccionados de las cuencas de Iullemeden y del Chad](../../static/images/grace/papers/niger-fig4-study-aquifers.webp)
 

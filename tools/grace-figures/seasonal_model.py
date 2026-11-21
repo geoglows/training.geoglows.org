@@ -281,3 +281,17 @@ gap_figure("seasonal-gap-correction-cv", cv.Date.values, cv.GWSa.values, cv_ts, 
            np.datetime64("2019-03-01"), dict(a=(45, 14), c=(-45, 40), ra=(30, -75), rc=(-50, -22)))
 
 print("breakpoints", [f"{b:%Y-%m}" for b in bp_dates], "BIC", [round(f["bic"], 1) for f in fits], "chosen", chosen)
+# Numbers the Gaps and Gap Filling page quotes, printed so a rebuild can be
+# checked against the prose instead of re-derived by hand.
+def _resid_at(dates, resid, ym):
+    i = int(np.argmax(pd.to_datetime(dates) == pd.Timestamp(ym)))
+    return resid[i]
+print("NM residual 2017-06 %+.2f  2018-06 %+.2f" % (
+    _resid_at(d.date.values, resid, "2017-06"), _resid_at(d.date.values, resid, "2018-06")))
+print("CV residual 2017-06 %+.2f  2018-06 %+.2f" % (
+    _resid_at(cv.Date.values, r, "2017-06"), _resid_at(cv.Date.values, r, "2018-06")))
+_lv = levels - levels.mean()
+_names = "January February March April May June July August September October November December".split()
+print("NM seasonal levels %+.1f cm in %s to %+.1f cm in %s" % (
+    _lv.min(), _names[int(np.argmin(_lv))], _lv.max(), _names[int(np.argmax(_lv))]))
+print("BIC drops", [round(fits[i]["bic"] - fits[i+1]["bic"], 1) for i in range(3)])

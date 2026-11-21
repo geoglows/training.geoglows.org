@@ -685,6 +685,23 @@ td, th {
   padding: 8px 14px;
 }
 
+/* The theme wraps every table in .wy-table-responsive and sets its cells to
+   nowrap, so a table wider than the content column scrolls sideways instead of
+   using the width it has. Let the text wrap; the wrapper keeps its scrollbar
+   for anything that still overflows. */
+.wy-table-responsive table td,
+.wy-table-responsive table th,
+.rst-content table.docutils thead,
+.rst-content table.docutils thead th {
+  white-space: normal;
+}
+
+/* Wrapped cells read better from the top of the row than from its middle. */
+.rst-content table.docutils td,
+.rst-content table.docutils th {
+  vertical-align: top;
+}
+
 /* -------------------------------------------------------- admonitions -- */
 
 .rst-content .admonition,

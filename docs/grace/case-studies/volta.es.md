@@ -7,6 +7,11 @@
 
 ## Contexto y datos { #setting-and-data }
 
+!!! tip "Qué región elegir en la aplicación"
+    **VOLTA**, del conjunto **Major River Basins (GRDC)**: 412,000 km², la cuenca hidrográfica que usó el estudio. El conjunto
+    **Transboundary Aquifers (IGRAC)** también ofrece una región llamada **Volta Basin**, pero esa es el acuífero y no la cuenca del río,
+    130,000 km², y no reproducirá nada de esta página.
+
 La cuenca del Volta abarca unos 400,000 km² en Ghana, Burkina Faso, Togo, Malí, Costa de Marfil y Benín. El lago Volta, detrás de la presa de Akosombo,
 cubre solo cerca del 2% de la cuenca, pero almacena un volumen de agua grande y variable.
 
@@ -22,7 +27,7 @@ GWSa = TWSa − (SMa + SWEa + CANa + SWSa)
 ```
 
 Los vacíos se rellenaron por descomposición estacional con una tendencia lineal por tramos, el enfoque que usa la aplicación (consulta
-[El Modelo Estacional](../gap-filling/seasonal-model.md)). El estudio también comparó los resultados con el almacenamiento de agua subterránea calculado directamente por el modelo
+[Vacíos y Relleno de Vacíos](../mission/gap-filling.md)). El estudio también comparó los resultados con el almacenamiento de agua subterránea calculado directamente por el modelo
 Catchment de GLDAS 2.2, con la lluvia de CHIRPS y con 10 pozos de monitoreo en la subcuenca del Nasia.
 
 ## Por qué importa el lago { #why-the-lake-matters }
@@ -37,7 +42,7 @@ ganancia total de unos 30 km³, o unos 10 cm de agua, en 2002–2022.
 considerar la SWSa. Barbosa et al. (2025), Fig. 6, CC BY 4.0.*
 
 La GWSa de la aplicación para esta cuenca corresponde a la curva verde, porque la aplicación no resta el agua superficial (consulta
-[Cálculo del Almacenamiento de Agua Subterránea](../background/deriving-groundwater.md#the-water-balance)).
+[Cálculo del Almacenamiento de Agua Subterránea](../gldas/deriving-groundwater.md#the-water-balance)).
 
 GLDAS 2.2, que asimila GRACE, mostró la misma tendencia pero oscilaciones estacionales mucho mayores, así que los autores lo recomiendan para tendencias pero no para
 estimar la recarga.
