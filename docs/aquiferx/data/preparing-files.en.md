@@ -131,21 +131,26 @@ importing. Write decimals with a point.
 
 ### Dates
 
-Every date needs a day, month and year, all in one format throughout the file. The importer reads these formats:
+Every date needs a day, month and year, in the same order throughout the file. The importer reads three orders:
 
-| Format | Example |
-|--------|---------|
-| YYYY-MM-DD | `2024-01-15` |
-| MM/DD/YYYY | `01/15/2024` |
-| DD/MM/YYYY | `15/01/2024` |
-| M/D/YYYY | `1/15/2024` |
-| D/M/YYYY | `15/1/2024` |
+| Format | Examples |
+|--------|----------|
+| YYYY-MM-DD | `2024-01-15`, `2024/1/15` |
+| MM/DD/YYYY | `01/15/2024`, `1/15/2024` |
+| DD/MM/YYYY | `15/01/2024`, `15.01.2024`, `15-1-2024` |
 
-A two-digit year is read as 1950 to 1999 from `50` to `99`, and 2000 to 2049 from `00` to `49`.
+The parts can be separated by `/`, `.` or `-`, and the day and month can have one digit or two. A two-digit year at the end is read as
+1950 to 1999 from `50` to `99`, and 2000 to 2049 from `00` to `49`. A time after the date, as in `2024-01-15 10:30`, is dropped, so two
+readings of one well on one day are [duplicates](measurements.md#duplicates).
 
-The importer guesses the format from the first dates in the file. A date such as `03/04/2020` could be either March 4 or April 3; if
-any of the dates it looks at has a first number over 12, it reads the file as day first, and otherwise as month first. Check the
-**Date Format** it picked before saving, and change it if your file puts the day first.
+The importer guesses the order from all the dates in the file. A date such as `03/04/2020` could be either March 4 or April 3. A first
+number over 12 anywhere in the column makes the file day first, and a second number over 12 makes it month first. When neither turns up,
+dates written with points are read day first and the others month first. Check the **Date Format** it picked before saving, and change
+it if your file puts the parts in another order.
+
+A date that can't be read in the chosen order is skipped with its row: one written with a month name, such as `15-Jan-2024`, or one
+naming a day the month does not have, such as `31.04.2024`. The Columns panel says how many there are before saving, and the summary
+after saving counts them. Write month names as numbers before importing.
 
 ## Units
 

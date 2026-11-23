@@ -22,8 +22,9 @@ change any of it before **Save Measurements**.
 
 ### Columns
 
-The **Columns** panel says which column holds the well, the date and, when there is one, the aquifer ID, with the **Date Format** read
-from the first dates (see [Preparing Your Files](preparing-files.md#dates)).
+The **Columns** panel says which column holds the well, the date and, when there is one, the aquifer ID, with the **Date Format** guessed
+from the dates (see [Preparing Your Files](preparing-files.md#dates)). When some dates can't be read in that format, a notice under it
+says how many and shows a few, and their rows will be skipped.
 
 ![The Columns panel for a file with well IDs only](../../static/images/aquiferx/meas-columns-ids.webp){ width="644" }
 
@@ -121,7 +122,8 @@ it is for the same well on the same date.
 
 **Save Measurements** writes the measurements, any new wells and any new custom types, then shows a summary: wells created and matched,
 measurements saved for each type, and duplicates collapsed. Below that it counts what was left out, with the reason: new wells outside
-every aquifer, rows whose well could not be found, values that are not numbers, depths at wells without an elevation, and measurements
+every aquifer, rows whose well could not be found, values whose date could not be read, values that are not numbers, depths at wells
+without an elevation, and measurements
 the region already had, which **Add new only** skips and **Add and update** overwrites.
 
 **Download the details** saves those rows as a CSV file, one line each, with the row's number as a spreadsheet shows it, the well, date,

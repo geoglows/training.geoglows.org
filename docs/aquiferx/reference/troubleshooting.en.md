@@ -91,14 +91,19 @@ decimals with a point, and decide how to record results below a detection limit 
 
 ### The dates come out wrong
 
-A date such as `03/04/2020` can be March 4 or April 3. The importer reads the file as day first only when one of its first dates has a
-first number over 12, so a file that puts the day first can be read month first. Check **Date Format** in the Columns panel before
-saving. Measurements already saved with the wrong dates can be replaced by importing the file again with the right format and
-**Replace all**, when the file holds all of the region's measurements of those types (see
+A date such as `03/04/2020` can be March 4 or April 3. The importer reads a file of such dates as day first when one of them has a first
+number over 12 or when they are written with points, so a file that puts the day first can be read month first. Check **Date Format**
+in the Columns panel before saving. Measurements already saved with the wrong dates can be replaced by importing the file again with
+the right format and **Replace all**, when the file holds all of the region's measurements of those types (see
 [Measurements](../data/measurements.md#measurements-already-in-the-region)).
 
-The importer reads the five formats listed in [Preparing Your Files](../data/preparing-files.md#dates). Dates written another way,
-such as `15.01.2024` or `15-Jan-2024`, need converting to one of them first.
+### Dates that "can't be read" or "could not be read"
+
+Before saving, a notice in the Columns panel counts the dates the chosen **Date Format** can't read, and their rows are skipped. The
+summary after saving counts them again. A date in another order, such as `2024-01-15` under DD/MM/YYYY, needs the
+right format chosen. A date with a month name, such as `15-Jan-2024`, needs the month written as a number, and one naming a day the
+month does not have, such as `31.04.2024`, needs correcting. **Download the details** lists each skipped row with its row number in the
+file (see [Measurements](../data/measurements.md#saving) and [Preparing Your Files](../data/preparing-files.md#dates)).
 
 ### "No measurements match existing wells. Import cannot proceed."
 
