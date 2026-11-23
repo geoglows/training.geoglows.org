@@ -70,7 +70,7 @@ From Excel, use **Save As** and pick **CSV UTF-8**.
 | Well name | no | A name for labels and charts; the ID is used when there is none |
 | Latitude | yes | Latitude, or the northing (Y) in a projected system |
 | Longitude | yes | Longitude, or the easting (X) in a projected system |
-| Ground surface elevation | no | In the region's unit; looked up from an elevation model when the file has none |
+| Ground surface elevation | no | In the region's unit, negative below sea level; a blank or 0 counts as none. Looked up from an elevation model when the file has no such column |
 | Well depth | no | How far the finished well goes below the ground, in the region's unit; a water table map can use it to choose among wells at one place |
 | Aquifer ID | no | Which aquifer each well is in; the app can work this out from the locations instead |
 
