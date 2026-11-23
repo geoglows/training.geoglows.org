@@ -78,15 +78,14 @@ give each well its aquifer, and add the wells from a file with an Aquifer ID col
 
 ### The importer finds one column, or splits the columns in odd places
 
-The file separates its columns with semicolons, as spreadsheets set up for languages that write decimals with a comma do. The app reads
-commas or tabs. In a text editor, replace each comma with a point first and then each semicolon with a comma. Or, before saving
-as CSV, set the decimal separator to a point and the list separator to a comma, in the spreadsheet's or the computer's region
-settings.
+The app tells commas, tabs and semicolons apart by the first line of the file, which must be the header row. A title or a note above
+the header leaves it guessing, and so does a separator it does not read, such as `|`. Delete any lines above the header, and save the
+table from the spreadsheet as CSV.
 
 ### Values are skipped as "not a number"
 
-A value such as `<0.05`, `ND`, `dry` or `12,5` is not a number, and the summary after saving counts them and shows a few. Write
-decimals with a point, and decide how to record results below a detection limit before importing (see
+A value such as `<0.05`, `ND` or `dry` is not a number, and the summary after saving counts them and shows a few. Write decimals
+with a point unless the file is separated by semicolons, and decide how to record results below a detection limit before importing (see
 [Preparing Your Files](../data/preparing-files.md#measurements)).
 
 ### The dates come out wrong

@@ -57,8 +57,12 @@ shapefile with its `.prj`, or reproject it in QGIS, and import it again.
 
 ## Tables
 
-Wells and measurements come as CSV files: plain text, one row per line, with a header row naming the columns. Commas or tabs both work;
-the app decides which from the header row. Spaces at the start and end of a cell are ignored, and a cell in quotes can hold a comma.
+Wells and measurements come as CSV files: plain text, one row per line, with a header row naming the columns. Commas, tabs or semicolons
+all work; the app decides which from the header row. Spaces at the start and end of a cell are ignored, and a cell in quotes can hold a
+comma.
+
+Spreadsheets set up for languages that write decimals with a comma save CSV with semicolons between the columns. In a file separated
+by semicolons, the app reads a number such as `12,5` as 12.5, and `1.234,5`, with points grouping the thousands, as 1234.5.
 
 From Excel, use **Save As** and pick **CSV UTF-8**.
 
@@ -125,9 +129,9 @@ file holds depth to water below the ground instead, the importer can convert it,
 **Water quality values** must be in the unit the app uses for that parameter, listed in the [catalog](water-quality.md#the-catalog).
 Convert them before importing if they are not, for example arsenic in mg/L to µg/L, or nitrate as the ion to nitrate as N.
 
-**A value that is not a number**, such as `<0.05`, `ND`, `dry` or `12,5`, is skipped, and the summary after the import says how many
-were and shows a few. If results below a detection limit matter to your work, decide how to record them and enter numbers before
-importing. Write decimals with a point.
+**A value that is not a number**, such as `<0.05`, `ND` or `dry`, is skipped, and the summary after the import says how many were and
+shows a few. If results below a detection limit matter to your work, decide how to record them and enter numbers before importing.
+Write decimals with a point, unless the file is separated by semicolons (see [Tables](#tables)).
 
 ### Dates
 
