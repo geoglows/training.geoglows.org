@@ -45,7 +45,8 @@ Point at a region in the tree and click the three dots beside it to open its men
 - **Download.** Saves the region as a zip file in the same layout as a backup.
 
 A My Data region's menu also has **Edit**, for its name, unit and whether it is a single unit (see
-[Regions and Aquifers](../data/regions-aquifers.md#changing-a-region)), and **Delete**.
+[Regions and Aquifers](../data/regions-aquifers.md#changing-a-region)), **Look up missing elevations** when some of its wells have no
+ground surface elevation (see [Wells](../data/wells.md#ground-surface-elevation)), and **Delete**.
 
 ## Backing up and restoring
 

@@ -117,8 +117,9 @@ spreadsheet. When the file also has well names or coordinates, turn the box on, 
 
 Converting a depth to an elevation needs the well's ground surface elevation. Add the wells with their elevations, or let the
 elevation lookup fill them, before importing the depths (see [Wells](../data/wells.md#ground-surface-elevation)). For wells already in
-the region without one, **Download** the region from its menu and unzip it. Fill in the `gse` column of `wells.csv`, in the region's
-unit, compress the region's folder again, and load the zip with **Restore**, which replaces the region with the corrected copy.
+the region without one, choose **Look up missing elevations** in the region's menu, or add a wells file that has their elevations with
+**Append**. Then add the file of depths again with **Add new only**, which adds the depths skipped before and leaves the rest as they
+are.
 
 ### A unit warning appears under a data column
 

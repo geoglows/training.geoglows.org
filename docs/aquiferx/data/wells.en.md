@@ -35,8 +35,9 @@ your own well IDs and any surveyed ground elevations.
 
 When the region already has wells, an **Import Mode** choice appears above the file:
 
-- **Append** adds the wells in the file and skips any whose ID the region already has. When the file has a well depth column, the wells
-  it skips take their depth from it, which is how to add depths to wells already in the region.
+- **Append** adds the wells in the file and skips any whose ID the region already has. The wells it skips take their depth from the
+  file's well depth column when it has one, and an elevation from the file or the lookup when they have none, which is how to add depths
+  and elevations to wells already in the region.
 - **Replace All** deletes every well in the region, and all of the region's measurements, before saving the new wells. The app asks you
   to confirm.
 
@@ -81,7 +82,8 @@ covers many wells, so a few hundred wells take seconds. For wells spread over a 
 region's unit.
 
 **Save Wells** does not wait for the lookup: wells it has not reached yet are saved without an elevation. If the lookup fails, **Try
-again** repeats it. An elevation from a model can be off by meters, more in steep terrain: at the 363 Monterey County practice wells,
+again** repeats it. For wells already in the region, **Look up missing elevations** in the region's menu, there when some wells have
+none, looks up those wells and keeps the elevations the others have. An elevation from a model can be off by meters, more in steep terrain: at the 363 Monterey County practice wells,
 the tile elevations are within 5.8 ft of DWR's surveyed ones for 90% of the wells. Use surveyed elevations where you have them.
 
 ## Downloading wells from the USGS
